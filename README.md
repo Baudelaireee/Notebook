@@ -1,2 +1,2 @@
-# math
-aaa
+# Math
+Some private math note and remark
