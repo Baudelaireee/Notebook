@@ -44,10 +44,10 @@
   <internal package="biblatex" priority="9" active="1">
     <generic>latex</generic>
     <provides type="dynamic">
-      <file>"elegantnote-en (1)".bcf</file>
+      <file>Note.bcf</file>
     </provides>
     <requires type="dynamic">
-      <file>"elegantnote-en (1)".bbl</file>
+      <file>Note.bbl</file>
     </requires>
     <requires type="static">
       <file>blx-dm.def</file>
@@ -65,19 +65,19 @@
     <generic>biber</generic>
     <cmdline>
       <binary>biber</binary>
-      <infile>"elegantnote-en (1)"</infile>
+      <infile>Note</infile>
     </cmdline>
     <input>
-      <file>"elegantnote-en (1)".bcf</file>
+      <file>Note.bcf</file>
     </input>
     <output>
-      <file>"elegantnote-en (1)".bbl</file>
+      <file>Note.bbl</file>
     </output>
     <provides type="dynamic">
-      <file>"elegantnote-en (1)".bbl</file>
+      <file>Note.bbl</file>
     </provides>
     <requires type="dynamic">
-      <file>"elegantnote-en (1)".bcf</file>
+      <file>Note.bcf</file>
     </requires>
     <requires type="editable">
       <file>reference.bib</file>
