@@ -64,11 +64,26 @@ Hence we can use this equiavlence relation to construct the intger.
     \[[a,b]\cdot[c,d] = [ac+bd, ad+bc]\]
     \\(2) the system \((X/\sim,+,\cdot)\) form a commutative ring with multiplicative identity.
     \\(3) The map \(f: \n \to \z, n \mapsto [n,0]\) is injective and additive
-    \[f(n+m) = f(n) + f(m)\]
+s    \[f(n+m) = f(n) + f(m)\]
     \\(4) If \(X_+ = \{[n,0]: n\in \n\}\) and \(X_- = \{[0,n]: n\in \n\}\), then
     \[X/\sim = X_+ + X_-\]
 \end{proposition}
 
+\begin{proof}
+  (1) For any \((x,y) \in [a,b]\) and \((x',y') \in [c,d]\) we have 
+  \[x+b=y+a \wedge x'+d = y'+c\]
+  add them togther we get 
+  \[(x+y)+(b+d) = (x'+y')+(a+c)\]
+  which implies \((x+x',y+y') \sim (a+c,b+d)\), and then clearly \([a,b]+[c,d] \subset [a+c,b+d]\). The proof can be finished here because that the caculation will always be in the \([a+c,b+d]\), so we just need to check the corresponding caculation is really an injective then the definition will be well, but let us finish another direction, because it refers to the properties of natural number.
 
+  Mutually, if \((x,y)\in [a+c,b+d]\), then we have 
+  \[x+b+d = y+a+c\] 
+  By the choice of the element in class \([a,b]\), we can always find \((i,j)\) such that \(i\leq a\) and \(j \leq b\), one thing should be pointed that we do not use substraction, usually we fix \(j\) such that \(y+j \geq x\), which can be ensured by Archimedean Property , i.e. \(\n\) is not bounded. and then \(i\) will be founded by \textbf{the properties of additive group}. hence here we can write down \[(x,y) = (i,j) + (x_i,y_j)\]
+  we do not write \(x_i =x-i\) and \(y_j = y-j\) to prevent the abuse of the substraction. Finally, we can get two equation
+  \[i+x_i+b+d = j+y_j+a+c\]
+  \[i+b = j+a\]
+  then we can use the cancellation law of the group to get 
+  \((x_i,y_j) \sim (c,d)\), which finish our proof.
+\end{proof}
 
 \end{document}
