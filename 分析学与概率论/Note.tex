@@ -78,7 +78,7 @@ for any \(a,b \geq 0\) and \(p,q>1\) such that \(1/p+1/q=1\). The complete proof
 
 \begin{corollary}[Cauchy-Schwartz]$ \\$
     For any two square integrable function \(f,g \in L^2_\cc(\rr^n)\), we have 
-    \[|\int_{\rr^n} f\overline{g}dl|^2 \leq \int_{\rr^n}|f|dl \cdot \int_{\rr^n}|g|dl \]
+    \[|\int_{\rr^n} f\overline{g}dl|^2 \leq \int_{\rr^n}|f|^2dl \cdot \int_{\rr^n}|g|^2dl \]
     The equality holds iff \(|f| = c|g|\) almost everywhere (u-p.p) for some constant \(c\).
 
     \begin{proof}
@@ -111,7 +111,61 @@ Review some basic inequalities (discrete)...
 This section covers some basic inequalities in properties, They are always very useful when estimation. And in this section ,we always use \(\psp\) to denote a probability space
 
 \begin{theorem}[Markov]$ \\$
-    
+    Suppose that \(Y: \Omega \to \rr^+\) is a random variable, then for any \(t > 0\), we have 
+    \[P(Y \geq t) \leq \frac{E(Y)}{t}\]
+
+    \begin{proof}
+        We notice that \(t \cdot \cha_{\{Y\geq t\}}\leq Y\), it is easily to prove. If \(x \in \{Y \geq t\}\), then \(t \cdot \cha_{\{Y\geq t\}}(x) = t \leq Y(x)\), otherwise \(t \cdot \cha_{\{Y\geq t\}}(x) = 0 \leq Y(x)\), so by monotone of the expectation
+        \[E[t \cdot \cha_{\{Y\geq t\}}] = tE[t \cdot \cha_{\{Y\geq t\}}] = tP(Y \geq t)\]
+    \end{proof}
 \end{theorem}
 
-\end{document}
+\begin{theorem}[Tchebychev]$ \\$
+    Suppose that \(Y: \Omega \to \rr\) is a random variable in \(L^2(\Omega)\) (square integrable), then for any \(t>0\) we have 
+    \[P(|Y-E[Y]| \geq t ) \leq \frac{V(Y)}{t^2}\]
+
+    \begin{proof}
+        We apply Markov to prove it, we can estimate 
+        \begin{align*}
+            P(|Y-E[Y]| \geq t) &= P((Y-E[Y])^2 \geq t^2) \\
+            & \leq \frac{E[(Y-E(Y))^2]}{t^2} \\
+            &= \frac{V(Y)}{t^2}
+        \end{align*}
+    \end{proof}
+\end{theorem}
+
+\begin{theorem}[Cantelli]$ \\$
+    Suppose that \(Y: \Omega \to \rr\) is a random variable in \(L^2(\Omega)\) (square integrable), then for any \(t>0\) we have 
+    \[P(Y-E[Y] \geq t ) \leq \frac{V(Y)}{V(Y)+t^2}\]
+    \[P(|Y-E[Y]| \geq t ) \leq \frac{2V(Y)}{V(Y)+t^2}\]
+\end{theorem}
+
+\begin{proof} 
+    The proof of the inequality need to use inequality: for any \(a,b>0\), 
+    \begin{equation}
+        P(X \geq a) \leq \frac{E[(X+b)^2]}{(a+b)^2}\label{Cantelli}
+    \end{equation}
+    We write \(P(X \geq a) = E[ \cha_{\{X \geq a\}}]\), then we just need to prove \(\cha_{\{X \geq a\}} \leq (\frac{X+b}{a+b})^2\).
+    For any \(w \in \{X \geq a\}\), we have \((\frac{X+b}{a+b})^2(w) \geq (\frac{a+b}{a+b})^2 = 1 =\cha_{\{X \geq a\}}(w)\), otherwise will conclude \((\frac{X+b}{a+b})^2 \geq 0\), so the inequality \ref{Cantelli} is valid.
+
+    For proove the Cantelli, we let \(Z = \frac{Y-E[Y]}{\sigma(Y)}\), then by above inequality
+    \begin{align*}
+        P(Y \geq t) &\leq \frac{E[(Y+b)^2]}{(t+b)^2} \\
+        &= \frac{E[Y^2]+2bE[Y]+b^2E[1]}{(t+b)^2} \\
+        &= \frac{1+b^2}{(t+b)^2}
+    \end{align*}
+    We can put \(b = 1/t\), then \(\frac{1+b^2}{(t+b)^2} = \frac{1}{1+t^2}\), and then rewrite the inequality we get 
+    \(P(Y-E[Y] \geq t) \leq \frac{V(Y)}{V(Y)+t^2}\).
+    and notice that 
+    \[P(Y-E[Y] \leq -t) = P((-Y)-E[-Y] \geq t)\]
+    and \(V(-Y)=V(Y)\) implies the same upper bound, so we finish the proof.
+\end{proof}
+
+The importance of the three inequalities is the estimation of the upper bound of some probability, if we can know the the expected value, we can get an upper bound by Markov; if we also know the variance, a more precise upper bound can be given by Tchebychev and Cantelli.
+
+Cantelli's inequality is a work based on the Tchebychev's inequality, if we rewrite the Tchebychev's inequality by take \(t = \sigma(Y)t\), then we have
+    \[P(|X-\mu|\leq \sigma t) \geq \frac{1}{t^2} \label{eq:Tchebychev}\]
+Which always appears in the some statistical object like confidence interval, but it is a two-side interval estimation. If we rewrite Cantelli's inequality similarly:
+\[P(X-\mu\leq \sigma t) \geq \frac{1}{1+t^2}\]
+\[P(|X-\mu|\leq \sigma t) \geq \frac{2}{1+t^2}\]
+We can find that Cantelli's inequality can do one-side estimation and it provides a worse bound then Tchebychev's when \(t \geq \sigma\).
