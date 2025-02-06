@@ -1,0 +1,117 @@
+\documentclass[en,geye,blue,pc,12pt]{elegantnote}
+\input{command.tex}
+
+\title{Math remark
+\\ fondation for analysis and probability
+}
+
+\author{X}
+\institute{Elegant\LaTeX{} Program}
+
+\begin{document}
+
+\maketitle
+
+\newpage
+
+\tableofcontents
+
+\newpage
+%-----------------------------------------------------
+\section{Genenralisation of several inequalities}
+\subsection{Jense,Hölder,Minkeoski's inequalities}
+
+The description of the Jense inequality depends on the properties of the convex function, it is a strong inequalities which can be applied in many places. We should pay a little attention to the outline of the section:
+\[\text{Jense} \Rightarrow \text{Hölder} \Rightarrow \text{Minkeoski}\]
+
+\begin{theorem}[Jense]$ \\$
+    Suppose \(\varphi: I \to \rr \) is a convex function defined on an interval,
+    \(\msp\) is a probability space and \(f \in L^1(X)\) with \(imf \subset I\), then \(\int_X f d\mu \in I\) and \(\varphi \circ f\) is integrable such that 
+    \[\varphi(\int_X f d\mu) \leq \int_X \varphi \circ f d\mu\]
+    The equality holds iff \(f\) is constant almost everywhere.
+
+    \begin{proof}
+        
+    \end{proof}
+\end{theorem}
+
+\begin{remark}
+    There are many other forms of the Jense's inequality, we take some exemples.
+    \begin{itemize}
+        \item \textbf{Finite forms}: the motivation of the inequality comes from the definition of the convex function, i.e. the real-valued function satisfies
+        \[f(tx+(1-t)y) \leq tf(x) + (1-t)f(y)\]
+        for any defined \(x,y\) and \(t \in [0,1]\), here a question about the distribution of the weights appears, which is the core of the convex function. we can generalize the inequalities by appling the weights to the n different points in interval such that \(\sum_i w_i =1\), then we can conclude the inequality:
+        \[f(\sum_i w_i x_i) \leq \sum_i w_i f(x_i)\]
+        notice that the defined domaine usually is a convex set, which ensures the effectivity of \(f(\sum_i w_i x_i)\). 
+
+        \item \textbf{Expectation:} By a simple change of the notation, the Jense inequality in a probaility space can be wriiten as the form:
+        \[\varphi(E[X]) \leq E[\varphi(X)]\]
+        Applying a classic convex function \(t \mapsto t^2\) we can get the important inequality in probability:
+        \[E^2[X] \leq E[X^2]\]
+        \item \textbf{Concave:} some function like \(t \mapsto lnt\) is a concave function, the Jense's inequality can be just changed the order of the inequality. The reason is simple, if \(f\) is a concave function , then \(-f\) will be a convex function.
+    \end{itemize}
+\end{remark}
+
+The classic proof of the Hölder's inquality covers the inequality of Young:
+\[ab \leq \frac{a^p}{p}+\frac{b^q}{q}\]
+for any \(a,b \geq 0\) and \(p,q>1\) such that \(1/p+1/q=1\). The complete proof can be found in \textbf{[Rudin 1 Ex 6.10]}. I don't choose the proof here for a comparison of strength of the different inequality. Here the proof is elegant and given by Mon.Mardare in TD, and  a similar proof via Jense can be found in \textbf{[SU TD1 EX15-16]}.
+\begin{theorem}[Hölder]$ \\$
+    Suppose that \(p,q >1\) and \(1/p+1/q=1\), for any two mesurable functions \(f, g: \msp \to \cc\), we have 
+    \[\int_X |fg| d\mu \leq (\int_X |f|^p d\mu)^{1/p}(\int_X |g|^q d\mu)^{1/q}\]
+    the equality holds iff \(|f| = c|g|\) almost everywhere (u-p.p) for some constant \(c\).
+
+    \begin{proof}
+        Let \(u = \frac{|f|}{\|f\|_p}\) and \(v = \frac{|g|}{\|g\|_q}\), then notice that \(\|u\|_p = \|v\|_q = 1\). We know \(t \mapsto lnt\) is a concave function on \((0,+\infty)\), so we can estimate by Jense's inequality
+        \begin{align*}
+            ln(uv) = ln(u+v) &= \frac{1}{p}lnu^p+\frac{1}{q}lnv^q \\
+            &\leq ln(\frac{1}{p}u^p+\frac{1}{q}v^q)
+        \end{align*}
+        by the monotone of the function, we have \(uv \leq \frac{1}{p}u^p+\frac{1}{q}v^q\), hence we can conclude
+        \begin{align*}
+            \frac{\int_X |fg| d\mu}{(\int_X |f|^p d\mu)^{1/p}(\int_X |g|^q d\mu)^{1/q}} &=  \int_X uv d\mu \\
+            &\leq \frac{1}{p}\int_X u^p d\mu + \frac{1}{q}\int_X v^q d\mu \\
+            & = \frac{1}{p}\|u\|_p^p+\frac{1}{q}\|v\|_q^q = 1
+        \end{align*}
+        finally, we discuss the equality. By Jense, we know the equality holds iff \(u = v\). Notice that if \(u=0\) or \(v=0\) almost everywhere, then the inequality can be reduced to \(0 \leq 0\), it holds, otherwise we can get that \(|f| = \frac{\|f\|_p}{\|g\|_q}|g|\), so we finish the proof.
+    \end{proof}
+\end{theorem}
+
+\begin{corollary}[Cauchy-Schwartz]$ \\$
+    For any two square integrable function \(f,g \in L^2_\cc(\rr^n)\), we have 
+    \[|\int_{\rr^n} f\overline{g}dl|^2 \leq \int_{\rr^n}|f|dl \cdot \int_{\rr^n}|g|dl \]
+    The equality holds iff \(|f| = c|g|\) almost everywhere (u-p.p) for some constant \(c\).
+
+    \begin{proof}
+        Although it is the special case of Hölder when \(p = q =2 \), but usually in a Hilbert space we have the beautiful form as following
+        \[|<u,v>| \leq \|u\|\|v\|\]
+        the inequality has a good geometric intuition, and the proof of it is very beautiful and elementry. Notice \(<u,v> \in \cc\), so there exists \(z \in \cc\) such that \(|z| =1\) and \(z<u,v>=|<u,v>|\), and we let \(p(t) = <tzu+v,tzu+v>\) defined on \(\rr\), then 
+        \begin{align*}
+            p(t) &= t^2z\overline{z}<u,u>+tz<u,v>+t\overline{z}<v,u>+<v,v> \\ 
+            &= t^2z\overline{z}<u,u> + tz<u,v>+t \overline{z<u,v>}+<v,v> \\
+            &= t^2\|u\|^2+2|<u,v>|t+\|v\|^2
+        \end{align*}
+        so \(p(t)\) can be arranged to be a quadratic polynomial with respect to real value \(t\), and \(p(t) = \|tzu+v\|^2 \geq 0\), so we have suiffsant and necessary condition that 
+        \[\Delta  = 4|<u,v>|^2- 4\|u\|^2\|v\|^2 \geq 0\]
+        which is the inequality we hope to get, and \(\Delta = 0\) happens iff the polynomial satisfies \(p(t)=(t\|u\|+\|v\|)^2 = 0\).
+    \end{proof}
+\end{corollary}
+
+\begin{theorem}[Minkeoski]$ \\$
+    For any \(p \geq 1\), suppose that \(f,g: \msp \to \cc\) are two mesurable functions, then we have 
+    \[\int_X |f+g|^p d\mu \leq \int_X |f|^p d\mu +\int_X|g|^pd\mu\]
+    The equality holds iff \(|f| = c|g|\) almost everywhere (u-p.p) for some constant \(c\).
+
+    \begin{proof}
+        If 
+    \end{proof}
+\end{theorem}
+
+Review some basic inequalities (discrete)...
+\subsection{Markov, Tchebychev, Cantelli's inequalities}
+This section covers some basic inequalities in properties, They are always very useful when estimation. And in this section ,we always use \(\psp\) to denote a probability space
+
+\begin{theorem}[Markov]$ \\$
+    
+\end{theorem}
+
+\end{document}

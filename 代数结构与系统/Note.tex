@@ -63,14 +63,18 @@ Hence we can use this equiavlence relation to construct the intger.
     \[[a,b]+[c,d] = [a+c,b+d]\]
     \[[a,b]\cdot[c,d] = [ac+bd, ad+bc]\]
     \\(2) the system \((X/\sim,+,\cdot)\) form a commutative ring with multiplicative identity.
-    \\(3) The map \(f: \n \to \z, n \mapsto [n,0]\) is injective and additive
-s    \[f(n+m) = f(n) + f(m)\]
-    \\(4) If \(X_+ = \{[n,0]: n\in \n\}\) and \(X_- = \{[0,n]: n\in \n\}\), then
+    \\(3) The map \(f: \n \to \z, n \mapsto [n,0]\) is injective and additives   
+    \begin{equation*}
+      f(n+m) = f(n) + f(m)
+    \end{equation*}
+    (4) If \(X_+ = \{[n,0]: n\in \n\}\) and \(X_- = \{[0,n]: n\in \n\}\), then
     \[X/\sim = X_+ + X_-\]
 \end{proposition}
 
 \begin{proof}
-  (1) For any \((x,y) \in [a,b]\) and \((x',y') \in [c,d]\) we have 
+  (1) For any \((x,y) \in [a,b]\) and \((x',y') \in [c,d]\), we define the addition by
+  \[(x,y)+(x',y') = (x+x',y+y')\]
+  then we have 
   \[x+b=y+a \wedge x'+d = y'+c\]
   add them togther we get 
   \[(x+y)+(b+d) = (x'+y')+(a+c)\]
@@ -86,4 +90,17 @@ s    \[f(n+m) = f(n) + f(m)\]
   \((x_i,y_j) \sim (c,d)\), which finish our proof.
 \end{proof}
 
+\begin{remark}
+  We finish our definition, and formally we define the integer is such a ring which is an quotient set,
+  \[\z = \n \times \n / \sim\]
+  and we denote \([0,0]\) by \(0\), denote \([1,0]\) by \(1\). And \([a,b]\) is called a positive number if \(a>b\), and we denote it by \(a-b\), which is the solution of \(a=b+x\), otherwise we call \([a,n]\) a negiative number with the notation \(-(a-b)\). More directly, if \(n \in \n - \{0\}\), we have the simialrly notation in \(\z\) by 
+  \[ n = [n,0] \qquad -n = [0,n]\]
+  then we will have some basic properties as following
+  \begin{itemize}
+    \item \(-(-a) = a\) or \(a+(-a)=0\)
+    \item \((-a)b = a(-b) = -ab\)
+  \end{itemize}
+  By some verification, we can use these symbols to replace the equivalence class to refers the element in the integer ring, i.e. we finish the construction of the integer.
+
+\end{remark}
 \end{document}
