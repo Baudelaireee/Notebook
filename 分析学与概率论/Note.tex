@@ -169,3 +169,30 @@ Which always appears in the some statistical object like confidence interval, bu
 \[P(X-\mu\leq \sigma t) \geq \frac{1}{1+t^2}\]
 \[P(|X-\mu|\leq \sigma t) \geq \frac{2}{1+t^2}\]
 We can find that Cantelli's inequality can do one-side estimation and it provides a worse bound then Tchebychev's when \(t \geq \sigma\).
+
+\section{Classic anaylsis theory and technic}
+\subsection{Power series}
+Power series is an special case of the series of the function, it gives by the follwoing series:
+\[f_n: D \to \cc, \quad z \mapsto a_nz^n\]
+more general, we can write it as the form \(a_n(z-z_0)^n\), but notice that we can just change variable by \(u=z-z_0\), it is a translation, so clearly a diffeomorphism. In above statement \(D\) denote the domaine where the series will be well-defined, i.e. convergent, so here needs a clear definition.
+
+\begin{lemma}[Abel's Lemma]$ \\$
+    Given a complex-valued sequence \((a_n)_{n \in \n}\), if there exists \(z_0 \in \cc\) such that \((a_nz_0^n)_{n \in \n}\) is bounded, then we can conclude that\\
+    -If \(|z| < |z_0|\), then power series \(\powerseries\) converge.\\
+    -If \(|z| < |z_0|\), then power series \(\powerseries\) diverge.\\
+    \begin{proof}
+       The bounded sequnce implies a real number \(M\) such that \(a_nz_0^n \leq M\), so 
+       \[|a_nz^n| = |a_nz_0^n \cdot \frac{z^n}{z^n_0}| \leq M|\frac{z}{z_0}|^n\]
+       so clearly the power series converge if \(|z| \leq |z_0|\) by M-test. 
+
+       If \(|z| > |z_0|\), then \((a_nz^n)_{n \in \n}\) is not bounded, so immediately it cant converge to zero, so the power series diverge.
+    \end{proof}
+\end{lemma}
+
+The lemma inspire us that the domaine is nearly a disk, although we can not determine the convergence of the boundary, but we can formally define the \textbf{radius of convergence} of a power series \(powerseries\) is given by
+\[R = \sup \{r \geq 0 |(a_nr^n)_{n \in \n} \text{ is bounded}\}\]
+
+
+
+
+\end{document}
