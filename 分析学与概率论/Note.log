@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.12.8)  7 FEB 2025 20:34
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.12.8)  8 FEB 2025 16:52
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1133,28 +1133,33 @@ LaTeX Font Info:    Trying to load font information for U+bbm on input line 118.
  (c:/texlive/2024/texmf-dist/tex/latex/bbm-macros/ubbm.fd
 File: ubbm.fd 1999/03/15 V 1.2 Font definition for bbm font - TH
 ) [9] [10] [11] [12]
-Underfull \hbox (badness 10000) in paragraph at lines 179--184
+Underfull \hbox (badness 10000) in paragraph at lines 186--191
 
  []
 
-[13] [14] (./Note.aux)
+[13] [14] [15]
+Overfull \hbox (4.99947pt too wide) in paragraph at lines 232--233
+\TU/texgyretermes(0)/m/it/12 positive raduis $\OML/cmm/m/it/12 R[]$ \TU/texgyretermes(0)/m/it/12 and $\OML/cmm/m/it/12 R[]$\TU/texgyretermes(0)/m/it/12 , if there exists an voisinage of zero $\OML/cmm/m/it/12 V$ \TU/texgyretermes(0)/m/it/12 such that $[][] \OML/cmm/m/it/12 a[]z[] \OT1/cmr/m/n/12 =
+ []
+
+[16] [17] [18] [19] (./Note.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2020/03/25>
  ***********
 Package rerunfilecheck Info: File `Note.out' has not changed.
-(rerunfilecheck)             Checksum: 7D3820D0C0F338AE03494B6A4E3AF7D8;1126.
+(rerunfilecheck)             Checksum: FE13AD79E9468E8387BA6B9590F121EE;1245.
 Package logreq Info: Writing requests to 'Note.run.xml'.
 \openout1 = `Note.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 36949 strings out of 474773
- 723010 string characters out of 5761289
+ 36957 strings out of 474773
+ 723179 string characters out of 5761289
  1929842 words of memory out of 5000000
- 58497 multiletter control sequences out of 15000+600000
+ 58505 multiletter control sequences out of 15000+600000
  567725 words of font info for 104 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  99i,12n,107p,673b,803s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on Note.pdf (14 pages).
+Output written on Note.pdf (19 pages).

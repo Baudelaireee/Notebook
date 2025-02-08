@@ -171,8 +171,15 @@ Which always appears in the some statistical object like confidence interval, bu
 We can find that Cantelli's inequality can do one-side estimation and it provides a worse bound then Tchebychev's when \(t \geq \sigma\).
 
 \section{Classic anaylsis theory and technic}
-\subsection{Power series}
-Power series is an special case of the series of the function, it gives by the follwoing series:
+\subsection{Power series and analytic function}
+
+This section conatains Three parts:
+\begin{itemize}
+    \item overview for power series and the important result
+    \item real analytic function and Abel's theorem
+    \item the superiority of the holomorphic function
+\end{itemize}
+Power series is an special case of the series of the function, it gives by the follwoing sequence:
 \[f_n: D \to \cc, \quad z \mapsto a_nz^n\]
 more general, we can write it as the form \(a_n(z-z_0)^n\), but notice that we can just change variable by \(u=z-z_0\), it is a translation, so clearly a diffeomorphism. In above statement \(D\) denote the domaine where the series will be well-defined, i.e. convergent, so here needs a clear definition.
 
@@ -189,8 +196,91 @@ more general, we can write it as the form \(a_n(z-z_0)^n\), but notice that we c
     \end{proof}
 \end{lemma}
 
-The lemma inspire us that the domaine is nearly a disk, although we can not determine the convergence of the boundary, but we can formally define the \textbf{radius of convergence} of a power series \(powerseries\) is given by
+The lemma inspire us that the domaine is nearly a disk, although we can not determine the convergence of the boundary, but we can formally define the \textbf{radius of convergence} of a power series \(\powerseries\) is given by
 \[R = \sup \{r \geq 0 |(a_nr^n)_{n \in \n} \text{ is bounded}\}\]
+and we call \(D = D(0,R)\) the \textbf{domaine of convergence}. A more simple form of the raduis of convergence is given by Cauchy and d'Alembert:
+\[1/R = \limsup |a_n|^{1/n} = \lim \frac{|a_{n+1}}{a_n}\]
+and we convented here \(1/0 = \infty\) and \(1/\infty = 0\).
+
+The convergence of the power series provides a good case of function, analytic function, which is the theme of the next section. We put function
+\[f:\overline{D(0,r)} \to \cc, \quad d z \mapsto \powerseries\]
+where \(r \in (0,R)\), and we suppose here \(R>0\). The function will be well-defined and continous since \(z \mapsto a_nz^n\) is always uniformly continous on a compact set, so we can conclude that \(f\) is well-defined and continous on domaine convergence when we take \(r \rightarrow R\). We will take about the derivable of the power series, it is a important property.
+
+\begin{theorem}[Derivable]$ \\$ \label{derivable}
+    The power series \(f(z) = \powerseries\) defined on the domaine \(D(0,R)\) with raduis \(R >0\), then the derivative of \(f\) is also a power sereies  with the same raduis of convergence and has the form
+    \[f'(z) = \sum_{n \in \n} na_nz^{n-1}\]
+
+    \begin{proof}
+        
+    \end{proof}
+\end{theorem}
+
+An immediate result is that power series is a holomorphic function, and another result is an inversion of the process, that means if we know a function definitely is converged by some power series in some domaine, then we can write each coefficient in terms of the derivative of the function, usually in calculus we call it the Taylor's Formula.
+\begin{corollary}[Taylor's series]$ \\$
+    If \(f(z)\) is the sum of the power series \(\powerseries\) on the domaine \(D(0,R)\) with \(R>0\), then we have
+    \[a_n = \frac{f^{(n)}(0)}{n!}.\]
+    
+    \begin{proof}
+        Manipulate above theorem to \(f\) k times we get
+        \[ f^{(k)}(x) = \sum_{n \in \n}n(n-1)\cdots(n-k+1)a_nz^{n-k}\]
+        and we put \(z = 0 \), then we get \(n!a_n = f^{(k)}(0)\), that is what we want.
+    \end{proof}
+\end{corollary}
+
+we can also conclude the \textbf{analytic continuation} about the power series, although it can be got direct from holomorphic function, but the proof here is easy and it gives us the connection.
+\begin{corollary}
+    Suppose that \(\powerseries\) and  \(\powerseriesb\) are two power series with the positive raduis \(R_1\) and \(R_2\), if there exists an voisinage of zero \(V\) such that \(\powerseries = \powerseriesb\), then \(a_n = b_n\) for any \(n \in \n\). 
+
+    \begin{proof}
+        We Let \(f(z) = \powerseries\) and \(g(z) = \powerseriesb\) on domaine, then we have 
+        \[0 = (f-g)(z) = \sum_{n \in \n} (a_n-b_n)^nz^n\]
+        on the subset of the domaine \(V\), so we applying above theorem we can get that \[a_n-b_n = n!(f-g)(0) = 0\] Which is the result we get,
+    \end{proof}
+\end{corollary}
+
+After some basic description of power series, we can define the a\textbf{nalytic function}, 
+\begin{definition}
+    Let \(\kk = \rr\) or \(\cc\), \(U\) is a open set in \(\kk\), a function\(f: U \to \kk\) is an analytic function if for any \(z_0 \in U\), the function can be converged by a power series in a small voisinage of \(z_0\).
+
+    formally speaking, for any \(z_0 \in U\), there exists \(r > 0\) and a sequence \((a_n)_{n \in \n}\) such that in the domaine \(D(z_0,r) \subset U\) we have
+    \[f(z) = \sum_{n \in \n} a_n(z-z_0)^n\]
+\end{definition}
+
+\begin{remark}
+    a power series defined on a domain is clearly an analytic function, the choice of \(r\) can be formulated by \(\min\{|z_0|,R-|z_0|\}\), where \(R\) is the raduis of convergence.
+\end{remark}
+
+The classic discussion about the analytic function is that whether  analytic is a smooth function(\(C^{\infty}\)), and conversely a smooth function is a analytic function? In the time of Abel, analysis is focused on \(\rr\), and a smooth function is usually considered to do expansion by Talyor's Formula, so the question in \(\rr\) is equivalent to the question that for each smooth function whether its Taylor sereies converges to itself or not. In conclusion, the relation show as folloing in \(\rr\)
+\[ \text{analytic function} \subset C^{\infty} \text{smooth function}\]
+
+\begin{proposition}[infinitely differentiable]$ \\$
+    For any analytic function defined on an open set of \(\kk\), it is infinitely differentiable and its derivative is still an analytic function.
+
+    \begin{proof}
+        We let \(f: U \to \kk\), and take \(a \in U\), the analytic function implies a positive \(r>0\) and a seuqnce \((a_n)\), such that \(f(z) = \sum a_n(z-a)^n\) for any \(z \in D(a,r)\), then applying theorem \ref{derivable} we can conclude that 
+        \[f^{(k)} = k!a_k\]
+        for any \(k \in \n\), hence it is infinitely differentiable. What's more, for any \(z \in D(a,r)\), \(f'(z) = \sum na_n(z-a)^{n-1}\) by the same theorem, which gurantee that the derivative is still an analytic function.
+    \end{proof}
+\end{proposition}
+
+Now we will give an example that a real-value function is smooth but not analytic to finish our conclusion.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
