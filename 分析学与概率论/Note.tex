@@ -199,7 +199,7 @@ more general, we can write it as the form \(a_n(z-z_0)^n\), but notice that we c
 The lemma inspire us that the domaine is nearly a disk, although we can not determine the convergence of the boundary, but we can formally define the \textbf{radius of convergence} of a power series \(\powerseries\) is given by
 \[R = \sup \{r \geq 0 |(a_nr^n)_{n \in \n} \text{ is bounded}\}\]
 and we call \(D = D(0,R)\) the \textbf{domaine of convergence}. A more simple form of the raduis of convergence is given by Cauchy and d'Alembert:
-\[1/R = \limsup |a_n|^{1/n} = \lim \frac{|a_{n+1}}{a_n}\]
+\[1/R = \limsup |a_n|^{1/n} = \lim |\frac{a_{n+1}}{a_n}|\]
 and we convented here \(1/0 = \infty\) and \(1/\infty = 0\).
 
 The convergence of the power series provides a good case of function, analytic function, which is the theme of the next section. We put function
@@ -265,9 +265,65 @@ The classic discussion about the analytic function is that whether  analytic is 
 
 Now we will give an example that a real-value function is smooth but not analytic to finish our conclusion.
 
+\begin{example}
+    we consider the following real function
+    \[f: \rr \to \rr, \quad x \mapsto \begin{cases}
+        e^{-1/x^2} \quad &x \neq 0 \\
+        0 \quad &x = 0
+    \end{cases}\]
+    Notice that \(x \mapsto e^{-1/x^2}\) is a \(C^{\infty}\) function for any \(x \neq 0\), and we can prove by recurrence that its n-times derivative has the form 
+    \[f^{(n)}(x) = \frac{P_n(x)}{x^{3n}}e^{-1/x^2}\]
+    where \(P_n \in \rr[x]\). Then calculate the limite by changing \(u = 1/x\), we know
+    \[\lim_{x \rightarrow 0}\frac{e^{-1/x^2}}{x^{3n}} = \lim_{u \rightarrow \infty}\frac{u^{3n}}{e^{u^2}} = 0\]
+    so for any \(n \in \n\), \(f^{(n)}(0)\) tends to zero, so we expend the function by adding \(f^{(n)}(0) = 0\) such that \(f \in C^{\infty}(\rr)\).
 
+    Suppose that \(f\) is analytics at \(x=0\), then we can write the Talyor's series at the voinsinage of zero
+    \[f(x) = \sum_{n \in \n}\frac{f^{(n)}(0)}{n!}x^n = 0\]
+    which means the function equals to null in the voisinage, clearly absurd since the series is not convergent to itself. Hence, f can not be analytic at zero although it is a smooth function.
+\end{example}
 
+Another work of Able is about the convergence on the boundary of domaine of convergence, we give it here the version in \(\rr\).
+\begin{theorem}[Abel's Theorem]$ \\$
+    Let \(f(z) = \powerseries\) be a power sereies defined on a domaine \((-R,R)\) and \(R>0\). If the power series converges at \(z= R\)(or \(z=-R\)), then the \(f\) is continous (one-sid) at \(z= R\)(or \(z=-R\)). Or simply, the theorem is equivalent to porve that 
+    \[\lim_{r \rightarrow 1^-} \sum_{n \in \n}a_nr^n =\sum_{n \in \n}a_n \]
+    if \(\sum_{n \in \n}a_n\) is a covergent series.
 
+    \begin{proof}
+        the rigorous proof needs to use the \textbf{summation by parts formula}:
+        \[\sum_{n=M}^N a_nb_n = a_NB_N-a_MB_{M-1}-\sum_{n =M}^{N-1}(a_{n+1}-a_n)B_n \]
+        where \(a_n\) and \(b_n\) are all finite, and \(B_n = \sum_{k=1}^{n}b_k\) with convention \(B_0 = 0\).
+    \end{proof}
+\end{theorem}
+
+Finally i will talk about holomorphic function. Loosely speaking, homomorphic function is just the differnetiable functions in \(\cc\), why do we not just call them "a differentaible function" and give them a special name? The important reason is the crazy regularity of the complex-valued function. By \textbf{Cauchy's integral formula}, for any open set containing an open disc \(D\), if a function \(f\) is holomorphic in the open set, then for any \(z \in D\)
+\[f(z) = \frac{1}{2 \pi i} \int_{\partial D}\frac{f(\zeta )}{\zeta - z} d\zeta\]
+then by caculation
+\[\frac{f(z+h)-f(z)}{h} = \frac{1}{2 \pi i }\int_{\partial D}\frac{f(\zeta )}{(\zeta - z)(\zeta -z -h)} d\zeta\]
+By the continuity of the parametric integration at \(h =0\), we can conclude that \(f\) has derivatice and \(f(z) = \frac{1}{2 \pi i }\int_{\partial D}\frac{f(\zeta )}{(\zeta - z)^2} d\zeta\), hence we can prove by recurrence that \(f\) is infinitely times differnetiable and with the form
+\begin{equation}
+    f^{(n)}(z) = \frac{n!}{2 \pi i }\int_{\partial D}\frac{f(\zeta )}{(\zeta - z)^{n+1}} d\zeta \label{eq:derivative of holomorphic function}
+\end{equation}
+
+That is an amazing result and also a fundamental theorem for complex analysis, so clearly, any holomorphic function is a \(C^{\infty}\) function, also the most important points is that the high-order derivative only depends on the original function. We recall the theorem \ref{derivable}, then we can complete the connection between analytic function and a smooth function in \(\cc\): 
+\[\text{analytic function} \iff \text{holomorphic function}\]
+
+\begin{theorem}[Stein 4.4]$ \\$
+    If \(f\) is holomorphic function in an open set \(\Omega \subset \cc\), then \(f\) is an analytic function in \(\Omega\).
+
+    \begin{proof}
+        By definition, we just nedd to verify that in any \(z_0 \in \Omega\), there exists a voisinage such that the Talyor's sereies \(\sum_{n \in \n }\frac{f^{(n)}(z_0)}{n!}(z-z_0)^n\) converges to \(f\).
+
+        Too see that we notice in Cauchy integration formula
+        \[\frac{1}{\zeta - z} = \frac{1}{\zeta - z_0} \frac{1}{1-u}\]
+        by taking \(u = \frac{z-z_0}{\zeta - z_0}\), then for any \(|u| <1\), we can rewrite formula as the form
+        \[f(z) = \frac{1}{2 \pi i }\int_{\partial D}\frac{f(\zeta)}{\zeta - z_0} \sum_{n \in \n}u^n d \zeta = \sum_{n \in \n}\frac{(z-z_0)^n}{2 \pi i}\int_{\partial D}\frac{f(\zeta)}{(\zeta-z_0)^{n+1}} d \zeta \]
+        Here interchange \(\int / \sum\) can be done since the holomorphic function is continous. and take equation \ref{eq:derivative of holomorphic function} into above equality we can get the result we hope.
+    \end{proof}
+\end{theorem}
+
+\begin{remark}
+    That means for any holomorphic function, we can do expanasion casually.
+\end{remark}
 
 
 
