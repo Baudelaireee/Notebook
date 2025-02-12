@@ -3,3 +3,4 @@
 \contentsline {subsection}{\numberline {1.2}Markov, Tchebychev, Cantelli's inequalities}{8}{subsection.1.2}%
 \contentsline {section}{\numberline {2}Classic anaylsis theory and technic}{12}{section.2}%
 \contentsline {subsection}{\numberline {2.1}Power series and analytic function}{13}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Limit superior and limit inferior}{23}{subsection.2.2}%
