@@ -238,7 +238,7 @@ we can also conclude the \textbf{analytic continuation} about the power series, 
     \end{proof}
 \end{corollary}
 
-After some basic description of power series, we can define the a\textbf{nalytic function}, 
+After some basic description of power series, we can define the \textbf{analytic function}, 
 \begin{definition}
     Let \(\kk = \rr\) or \(\cc\), \(U\) is a open set in \(\kk\), a function\(f: U \to \kk\) is an analytic function if for any \(z_0 \in U\), the function can be converged by a power series in a small voisinage of \(z_0\).
 
@@ -282,7 +282,7 @@ Now we will give an example that a real-value function is smooth but not analyti
     which means the function equals to null in the voisinage, clearly absurd since the series is not convergent to itself. Hence, f can not be analytic at zero although it is a smooth function.
 \end{example}
 
-Another work of Able is about the convergence on the boundary of domaine of convergence, we give it here the version in \(\rr\).
+Another work of Abel is about the convergence on the boundary of domaine of convergence, we give it here the version in \(\rr\).
 \begin{theorem}[Abel's Theorem]$ \\$
     Let \(f(z) = \powerseries\) be a power sereies defined on a domaine \((-R,R)\) and \(R>0\). If the power series converges at \(z= R\)(or \(z=-R\)), then the \(f\) is continous (one-sid) at \(z= R\)(or \(z=-R\)). Or simply, the theorem is equivalent to porve that 
     \[\lim_{r \rightarrow 1^-} \sum_{n \in \n}a_nr^n =\sum_{n \in \n}a_n \]
@@ -311,13 +311,13 @@ That is an amazing result and also a fundamental theorem for complex analysis, s
     If \(f\) is holomorphic function in an open set \(\Omega \subset \cc\), then \(f\) is an analytic function in \(\Omega\).
 
     \begin{proof}
-        By definition, we just nedd to verify that in any \(z_0 \in \Omega\), there exists a voisinage such that the Talyor's sereies \(\sum_{n \in \n }\frac{f^{(n)}(z_0)}{n!}(z-z_0)^n\) converges to \(f\).
+        By definition, we just need to verify that in any \(z_0 \in \Omega\), there exists a voisinage such that the Talyor's sereies \(\sum_{n \in \n }\frac{f^{(n)}(z_0)}{n!}(z-z_0)^n\) converges to \(f\).
 
         Too see that we notice in Cauchy integration formula
         \[\frac{1}{\zeta - z} = \frac{1}{\zeta - z_0} \frac{1}{1-u}\]
         by taking \(u = \frac{z-z_0}{\zeta - z_0}\), then for any \(|u| <1\), we can rewrite formula as the form
         \[f(z) = \frac{1}{2 \pi i }\int_{\partial D}\frac{f(\zeta)}{\zeta - z_0} \sum_{n \in \n}u^n d \zeta = \sum_{n \in \n}\frac{(z-z_0)^n}{2 \pi i}\int_{\partial D}\frac{f(\zeta)}{(\zeta-z_0)^{n+1}} d \zeta \]
-        Here interchange \(\int / \sum\) can be done since the holomorphic function is continous. and take equation \ref{eq:derivative of holomorphic function} into above equality we can get the result we hope.
+        Here interchange \(\int / \sum\) can be done since the holomorphic function is continous. and take equation \ref{eq:derivative of holomorphic function} into above equality then we can get the result we hope.
     \end{proof}
 \end{theorem}
 

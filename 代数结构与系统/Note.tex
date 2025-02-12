@@ -103,4 +103,69 @@ Hence we can use this equiavlence relation to construct the intger.
   By some verification, we can use these symbols to replace the equivalence class to refers the element in the integer ring, i.e. we finish the construction of the integer.
 
 \end{remark}
+
+\section{From \texorpdfstring{$\q$}{TEXT} to \texorpdfstring{$\rr$}{TEXT}: Completion}
+In this section we will talk about the construction of real number, there are many equivalent ways to define real number, they are all same we will see that later. The flaw of the rational number is that it is not complet, or intuitively it can be seen as a line with too many holes in it. Convergence and limit theory is the core of the analysis, we are interested in what value a sequence convergs to, for example:
+\[\lim_{n \rightarrow \infty} (1+\frac{1}{n})^n =e\]
+clearly, it is a sequence of \(\q\) but it converges to an irrational number. Moreover, we can consider Fibonacci number given by recurrence \(F_{n+2} = F_{n+1} + F_{n}\), then we define s sequnece in \(\q\) by \(a_n = \frac{F_{n+1}}{F_n}\), then it will converges to the golden ratio \(\frac{1+\sqrt{5}}{2}\).
+Although the two example gives the limit of the seqence, but the fact is that we do not have the number in the rational number system we had! Hence some problem confuse the people in the time when the axiomatic system of number fields or even the real number system had not yet been established. 
+
+Now Let us construct the real number from the point of view: \textbf{any sequence of \(\q\) with the good characteristic of convergence can find a limit in the system.} Here the sequence is just \textbf{Cauchy sequence}.
+\begin{definition}
+  A sequence \((x_n)\) in \(\mathbb{\q}\) is called a \textbf{Cauchy sequence} if for every rational \(\varepsilon > 0\), there exists an integer \(N \in \mathbb{N}\) such that for all \(m, n \geq N\), we have
+\[
+|x_n - x_m| < \varepsilon.
+\]
+Moreover, it is called to converges to \(L\) in \(\q\) if for every rational
+ε > 0, there exists an integer N ∈ N such that for all  n ≥ N , we have
+\[|x_n-L| < \varepsilon\]
+\end{definition}
+
+This is a type of sequence which tends to level off at the tail, so has a good feature to be convergent to some value. Now we denote the set of all sequence of \(\q\) be \(Q\), then we can define a relation in it by
+\[\an \sim \bn \iff (a_n-b_n)_{n \in \n} \text{ converges to 0}\]
+The relation is clearly equiavlent, the transitivity is given by the triangle inequality, that nuaturally the properties of absolute value (generally a norm). We use \([a_n]\) denote the class of equivalence of the sequnece \(\an\), now we need to define the algebra operation in it, respectively we define:
+\begin{align*}
+  [a_n]+[b_n] := [a_n+b_n]\\
+  [a_n]\cdot[b_n] := [a_n \cdot b_n]
+\end{align*}
+where the opreations in bracket is the operation we defined in \(Q\), so \(a_n+b_n\) and \(a_n \cdot b_n\) is again a sequnce of \(\q\). The definition is well-defined, on the one hand, sum of two cauchy sequence is still cauchy, so \(a_n + b_n\) is exactly in some class of equivalence, and we just choose it to be the represent.  on the other hand, the product is not very clear, we notice that 
+\[|a_nb_n-a_mb_m| = \frac{1}{2}|(a_n-a_m)(b_n+b_m)+(a_n+a_m)(b_n-b_m)|\]
+easily we can know that cauchy sequence must be bounded, so there exists \(M,M'\) such that 
+\[|a_nb_n-a_mb_m| \leq M|a_n-a_m|+M'|b_n-b_m|\]
+so we can just choose \(n,m \geq \max\{N_a,N_b\}\), which is implied by two cauchy sequence, and simialrly we choose \(a_n \cdot b_n\) to be the represent.
+
+\begin{proposition}
+  Let \(\rr = Q/\sim\), under above definition, \((\rr,+,\cdot)\) is a field.
+
+  \begin{proof}
+    It is just the boring verification, you can choose to do it or just trust the result, here I do it. 
+
+    we let the class \([0]\) denote the sequence \(a_n = 0\) for any \(n\), then it will be the additive identity and it denote all sequence converging to zero, since for any sequence \(\bn\), we have \(b_n + 0 = b_n\), so it has an inverse \(-b_n\). And the multiplicative identity is \([1]\), it is the class of the sequence with 1 as all element, it will denote all sequence convering to 1. Then for any sequence \(\bn\) not in \([0]\), we have \(b_n \cdot 1 = b_n\), so \([b_n] \cdot [1] = [b_n]\), and the existence of its multiplicative inverse is a little complex since not necessary all \(b_n\) are not zero. We firstly prove a properties of the cauchy sequence:
+
+    \begin{lemma}
+      For any cauchy sequence not converging to zero, there exists at most finite term having the different sign with the other term. and we call a cauchy sequence is poistive (negiative) if almost term is positive (negative).
+    \end{lemma}
+
+    For a cauchy sequence \(\an\), \(\epsilon_1 >0\) implies an integer \(N_1\) such that \(|a_n - a_m| < \epsilon_1\) for any \(n,m \geq N_1\). It is not converges to zero, then there exists a lower bound \(c>0\) which implies an intger \(N_2\) such that any \(n_0 \geq N_2\), \(|a_{n_0}| > c\). so we just take \(N_2 = N_1\) such that for any \(n \geq N_1\)
+    \[||a_n|-|a_{n_0}|| \leq |a_n-a_{n_0}| < \epsilon_1 \]
+    and then 
+    \[|a_n| \geq -\epsilon_1+|a_{n_0}| > c -\epsilon_1 > 0\]
+    so we just take \(\epsilon_1 = c/2\), which finish the proof of the lemma.
+
+    so we just need to construct a new sequence \((\bar{a}_n)\), for any \(n \geq N_1\), \(\bar{a}_n = a_n\) and for any \(n < N_1\), \(\bar{a}_n = a_{N_1}\),  then \(a_n \neq 0\) for any integer, so the sequence will be equiavlent to \((a_n)\) and then sure 
+    \([a_n] = [\bar{a}_n]\), so the multiplicative inverse will be \([\frac{1}{\bar{a}_n}]\).
+
+    Finally notice that associative law and distributive law is inherit the rational number, so we finish our proof.
+  \end{proof}
+\end{proposition} 
+
+Now we will consider the representative of the field to simplify the notation. We firstly notice that if a sequence converges to some \(q\) in \(\q \), then the sequence will clearly be equiavlent to a constant sequence \((q)_{n \in \n}\), so we just embed \(\q\) in \(\rr\) by \(q = [q]\). But for the representative for irrational number, sometimes we really can choose a algebra symbol like \(\pi, e, \sqrt{2}\dots\), but these symbol actually refer to a non-constant sequence in \(\q\), or we say that we use rational number to apporximate it. When \(n\) really be \(\infty\), something changes and the apporixmation will really be a new number which can not be contained in the system of rational number.
+
+
+
+
+
+
+
+
 \end{document}
