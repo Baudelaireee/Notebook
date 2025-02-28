@@ -104,7 +104,7 @@ Hence we can use this equiavlence relation to construct the intger.
 
 \end{remark}
 
-\section{From \texorpdfstring{$\q$}{TEXT} to \texorpdfstring{$\rr$}{TEXT}: Completion}
+\subsection{From \texorpdfstring{$\q$}{TEXT} to \texorpdfstring{$\rr$}{TEXT}: Completion}
 In this section we will talk about the construction of real number, there are many equivalent ways to define real number, they are all same we will see that later. The flaw of the rational number is that it is not complet, or intuitively it can be seen as a line with too many holes in it. Convergence and limit theory is the core of the analysis, we are interested in what value a sequence convergs to, for example:
 \[\lim_{n \rightarrow \infty} (1+\frac{1}{n})^n =e\]
 clearly, it is a sequence of \(\q\) but it converges to an irrational number. Moreover, we can consider Fibonacci number given by recurrence \(F_{n+2} = F_{n+1} + F_{n}\), then we define s sequnece in \(\q\) by \(a_n = \frac{F_{n+1}}{F_n}\), then it will converges to the golden ratio \(\frac{1+\sqrt{5}}{2}\).
@@ -159,11 +159,69 @@ so we can just choose \(n,m \geq \max\{N_a,N_b\}\), which is implied by two cauc
   \end{proof}
 \end{proposition} 
 
-Now we will consider the representative of the field to simplify the notation. We firstly notice that if a sequence converges to some \(q\) in \(\q \), then the sequence will clearly be equiavlent to a constant sequence \((q)_{n \in \n}\), so we just embed \(\q\) in \(\rr\) by \(q = [q]\). But for the representative for irrational number, sometimes we really can choose a algebra symbol like \(\pi, e, \sqrt{2}\dots\), but these symbol actually refer to a non-constant sequence in \(\q\), or we say that we use rational number to apporximate it. When \(n\) really be \(\infty\), something changes and the apporixmation will really be a new number which can not be contained in the system of rational number.
+Now we will consider the representative of the field to simplify the notation. We firstly notice that if a sequence converges to some \(q\) in \(\q \), then the sequence will clearly be equiavlent to a constant sequence \((q)_{n \in \n}\), so we just embed \(\q\) in \(\rr\) by \(q = [q]\). But for the representative for irrational number, sometimes we really can choose a algebra symbol like \(\pi, e, \sqrt{2}\dots\), but these symbol actually refer to a non-constant sequence in \(\q\), or we say that we use rational number to apporximate it. When \(n\) really be \(\infty\), something changes and the apporixmation will really be  thought as a new number which is not contained in the original system of rational number.
+
+The process we often call it the \textbf{completion of the metric space}, hence we give it a conclusion generally.
 
 
+\subsection{From \texorpdfstring{$\rr$}{TEXT} to \texorpdfstring{$\cc$}{TEXT}: extension}
 
+The construction of complex number refers to add element, the classic valuation operates on \(\cc\) is a morphism\[f: \rr[X] \to \cc, \quad P \mapsto P(i)\]
+with the basic knowledge about the complex number and ring theory, we can conlude that \(kerf = (X^2+1)\), the principal ideal of polynomial \(X^2+1\), hence we can get an isomorphism as following
+\[\rr[X] / (X^2+1) \cong  \cc \]
+That is a very simple thought. we know that \(x^2+1 = 0\) can not have a solution in \(\cc\), so we hope to find a lager field containning \(\rr\) such that the algebraic equation indeedly has a solution, and we denote the solution by \(i\), then how will the field forms? All algebraic operations we do in equation is just addition and multiplication, so with a little inspiration we know that the new field we hope is the form of linear combination
+\[R[i] = \{a+bi | a,b \in \rr, i^2 = -1\}\]
+here we get a \(\rr-\)vector space really containning the solution of the equation. and then we can easily conclude the new addition and multiplication in the field
+\begin{align*}
+  (a+bi) + (c+di) = (a+c)+(b+d)i \\
+  (a+bi) \cdot (c+di) =  (ac-bd)+(ad+bc)i
+\end{align*}
+By some verification we can know that the set we construct is a field. Hence from the view of \(\rr-\)Algebra, \(\cc \cong \rr^2\) makes sense and it brings many amazing results at the same time. The simple description given here refers to the \textbf{algebraic extension},
 
+We notice that \(\cc\) is equipped with the metric and Hermite inner product is based on \(\cc\), so here we give it a beautiful correspondence by matrix algebra. The most important information about complex field is the conjuation, so we just define 
+\[\cc = \{\begin{pmatrix}
+a &-b \\
+b &a
+\end{pmatrix}| a,b\in \rr\}\]
+Which is a subspace of \(M_2(\rr)\), and claerly it has dimension of 2 with two base
+\[e = \begin{pmatrix}
+  1 &0 \\
+  0 &1 
+\end{pmatrix}, \quad i = \begin{pmatrix}
+  0 &-1\\
+  1 &0
+\end{pmatrix}\]
+
+\begin{proposition} By the identification above we have
+  \\(1) \(\cc\) is a field with \(e\) as the multiplicative identity.
+  \\(2) \(Vect(e)\) has an isomorphism \(\varphi\) with \(\rr\) by \(\begin{pmatrix}
+    1 &0 \\
+    0 &1
+  \end{pmatrix}\mapsto 1\) and if we identify \(e \equiv 1 \), then any \(z \in \cc\), it has the form linear combination \(z = a+bi\).
+  \\(3) For any \(z=a+bi\), it has a conguation \(\zbar = a -bi = z^T\).
+  \\(4) Define the modulo \(|\cdot|:\cc \to \rr^+\) via \(z \mapsto \varphi(z \zbar) \) it gives a norm of \(\cc\).
+  \\(5) The equiavlent definition of (4) is via \(|z| = \sqrt{det(z)}\).
+  \begin{proof}
+    Just verify
+  \end{proof}
+\end{proposition}
+
+Another imprtant form of complex number is polar form, so the structure of the disc deserves a look. We define
+\[\mathbb{U} = \{z\in \cc | |z| = 1 \}\]
+With the multiplication, then it is isomorphic to the orthognal group \(SO_2(\rr)\), by the reduction of the matrix we know that it has the form
+\[z = \begin{pmatrix}
+  cosa & -sina \\
+  sina & cosa 
+\end{pmatrix}= cosa + \mathbf{i}sina\]
+which means the details of \(\mathbb{U}\) depends on a parmeter with the period \(2 \pi\), which gives a connection with the \textbf{Euler's formula}:
+\[e^{i \theta} = cos\theta + \mathbf{i} sin\theta\]
+then the polar form is given by the isomorphism
+\[\rr^* \times \rr/ 2\pi \z  \xrightarrow{\sim} \cc^*, \quad (r,\theta) \mapsto re^{i\theta}
+\].
+
+Moreover, the expontial structure is derived from the matrix expontial
+\[exp: M_2(\rr) \to GL_2(\rr), \quad A \mapsto \sum_{\n \in \n} \frac{A^n}{n!}\]
+Notice that in finite-dimensional vector space with norm, any its subspace must be closed, so \(\cc\) is a closed subspace of \(M_2(\rr)\), which ensures that the series will always converge inside \(\cc\) such that we can restrict the expontial structure in complex number  .
 
 
 
