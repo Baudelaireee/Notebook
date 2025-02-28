@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.12.8)  27 FEB 2025 12:18
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.12.8)  28 FEB 2025 18:01
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1118,22 +1118,22 @@ LaTeX Font Info:    Font shape `TU/texgyretermes(0)/b/n' will be
  [2]
 LaTeX Font Info:    Font shape `TU/texgyretermes(0)/b/n' will be
 (Font)              scaled to size 14.4pt on input line 28.
- [3] [4] [5] [6] [7] [8]
+ [3] [4] [5] [6] [7] [8] [9] [10] [11] [12] [13]
 LaTeX Font Info:    Font shape `TU/texgyretermes(0)/b/it' will be
-(Font)              scaled to size 12.0pt on input line 115.
- [9]
+(Font)              scaled to size 12.0pt on input line 179.
+
 Missing character: There is no ∈ (U+2208) in font [texgyretermes-italic.otf]/OT:script=latn;language=dflt;mapping=tex-text;!
 LaTeX Font Info:    Font shape `TU/texgyretermes(0)/m/n' will be
-(Font)              scaled to size 8.0pt on input line 125.
+(Font)              scaled to size 8.0pt on input line 189.
 LaTeX Font Info:    Font shape `TU/texgyretermes(0)/m/n' will be
-(Font)              scaled to size 6.0pt on input line 125.
-[10] [11] [12] [13] [14] [15] [16] [17] (./Note.aux)
+(Font)              scaled to size 6.0pt on input line 189.
+[14] [15] [16] [17] [18] [19] [20] [21] (./Note.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2020/03/25>
  ***********
 Package rerunfilecheck Info: File `Note.out' has not changed.
-(rerunfilecheck)             Checksum: F0DB30D9A10ECEF4FC47469FDFD866FF;693.
+(rerunfilecheck)             Checksum: 9E223C939FFED0E717D407BB1260A291;897.
 Package logreq Info: Writing requests to 'Note.run.xml'.
 \openout1 = `Note.run.xml'.
 
@@ -1141,10 +1141,10 @@ Package logreq Info: Writing requests to 'Note.run.xml'.
 Here is how much of TeX's memory you used:
  36904 strings out of 474773
  721992 string characters out of 5761289
- 1928842 words of memory out of 5000000
+ 1929842 words of memory out of 5000000
  58458 multiletter control sequences out of 15000+600000
  568266 words of font info for 105 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  99i,12n,107p,752b,803s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on Note.pdf (17 pages).
+Output written on Note.pdf (21 pages).

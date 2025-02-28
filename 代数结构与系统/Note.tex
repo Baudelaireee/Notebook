@@ -104,6 +104,70 @@ Hence we can use this equiavlence relation to construct the intger.
 
 \end{remark}
 
+\subsection{From \texorpdfstring{$\z$}{TEXT} to \texorpdfstring{$\q$}{TEXT}: Fraction}
+Now the extension of the number system is about to extends a ring to be a field. Firstly, we consider the unit of the integer then we will find that \(U(\z) = \{\pm 1\}\), any other element do not have the multiplicative inverse. with the basic arithmetic opreaties of rational number we know that 
+\[\frac{a}{b} = \frac{c}{d} \iff ad = bc\]
+
+So simialrly we can give a relation on \(\z \times \z-\{0\}\) by 
+\[(p,q) \sim (m,n) \iff pn = qm\]
+This relation is set up on multiplication, that is an imprtant point. and we can verify that this relation is equiavlent:
+\begin{itemize}
+  \item\textbf{ Reflexive:} \((p,q) \sim ({p,q})\) since  \(pq =qp\).
+  \item \textbf{Symmetric:} \((p,q) \sim (m,n) \implies pn = qm \implies mq =np \implies (m,n) \sim (p,q)\)
+  \item \textbf{Transitive:} \((p,q) \sim (m,n) \land (m,n) \sim (a,b) \implies  pn = qm \land mb = na \implies mnpb = mnqa\). If \(m =0\), then \(pn=na=0\), so \(p=a=0\) by \(n \neq 0\), immediately \(pb=qa=0 \). If \(m \neq 0\), then we can cancel \(mn\) to get \(pb = qa\).
+\end{itemize}
+
+After this basic definition then we can rewrite the class of equivalence by 
+\[a/b = [(a,b)]\]
+This is the symbol of fraction, so we usually call the field with the same method of extension from a ring, \textbf{field of fraction}. 
+
+\begin{proposition}
+  Suppose \(\q = \z\times \z-\{0\} /\sim\), and use \(a/b\) to denote the element, then following:
+  \\(1) The opreations below is well-defined
+  \begin{align*}
+    a/b+c/d  = (ad + bc) /bd\\
+    a/b \cdot c/d = ac/bd
+  \end{align*}
+  (2) With the opreations defined above, \(\q\) is a field.
+  \\(3) There exists an embedding from \(\z\) to \(\q\) by \(k \mapsto k/1\), so we identify integr \(k\) with \(k/1\) in \(\q\).
+  \\(4) For any \(a,b \in \z-\{0\}\), there exists a unique positive co-prime pair \((p,q)\) such that \(a/b = p/q \lor -p/q \). 
+
+  \begin{proof}
+    (1) Given \(a'/b' = a/b\) and \(c'/d' = c/d \), then 
+    \begin{align*}
+      a'/b'+c'/d'  = a'd' + b'c' /b'd'\\
+      a'/b' \cdot c'/d' = a'c'/b'd'
+    \end{align*}
+    Notice that \[(a'd'+b'c')bd = (a'b)(d'd)+(c'd)(b'b) = b'ad'd+d'cb'b=(ad+bc)b'd'\] which implies \(a'd'+b'c'/b'd' = ad+bc/bd\). Simialrly, \[a'c'bd = (a'b)(c'd) = (b'a)(d'c)  = acb'd'\]
+    Which meams \(a'c'/b'd' = ac/bd\).
+
+    (2) Firstly the operations are clearly commutative, associative and distributive, which inherits the properties of \(\z \). For any \(a/b \in \q\), we have \begin{align*}
+      0/1+a/b = 0b+1a/1b = a/b \\
+      1/1 \cdot a/b =1a/1b = 1/b
+    \end{align*}
+    so \(0/1\) is a addtive identity and \(1/1\) is a multiplicative identity. and \(a/b\) has an additive inverse \(-a/b\) since
+    \[a/b+(-a/b) = ab+b(-a)/b = 0/b = 0/1\]
+    And if \(a \neq 0\), then \(a/b\) has an multiplicative inverse b/a since
+    \[a/b \cdot b/a = ab/ba = 1/1\]
+
+    (3) Denote \(f(k) = k/1\), then \(f(1) = 1/1 = 1_{\q}\), and by
+    \begin{align*}
+      &f(n+m) = n+m/1 = n/1 +m/1 = f(n)+f(m) \\
+      &f(nm) = nm/1 = n/1\cdot m/1 = f(n)\cdot f(m) 
+    \end{align*}
+    So clearly \(f\) is a field homomorphism, and it is injective since
+    \[f(n) = f(m) \implies n/1 =m/1 \implies n/1 \sim m/1 \implies n = m\]
+    So it is a embedding in \(\q\).
+
+    (4) Suppose that \(d = gcd(a,b)\), then \(gac(\frac{a}{d},\frac{b}{d}) =1\) and \((\frac{a}{d})/\frac{b}{d} = a/b\), so we prove the existence. If \((p',q')\) is another pair satisfying the condition, we can conclude that 
+    \[aq' = bp' \land aq =bp \implies p'q = pq'\]
+    Then By Guass's Lemma, \(p|p'q\) and \(gcd(p,q)=1\), then \(p|p'\); Simialrly, we can get \(q|q'\), then we let \(p' = lp\) and \(q' =tq\) and mbn 
+    
+    
+    we can conlude that \(1 = gcd(q',p') = gcd(lp,tq) = gcd(l,q)\), again by \(p'/q' = p/q\) we get that \(l=t\) so the unique case is that \(l=t=1\), which implies the uniqueness.
+    \end{proof}
+\end{proposition}
+
 \subsection{From \texorpdfstring{$\q$}{TEXT} to \texorpdfstring{$\rr$}{TEXT}: Completion}
 In this section we will talk about the construction of real number, there are many equivalent ways to define real number, they are all same we will see that later. The flaw of the rational number is that it is not complet, or intuitively it can be seen as a line with too many holes in it. Convergence and limit theory is the core of the analysis, we are interested in what value a sequence convergs to, for example:
 \[\lim_{n \rightarrow \infty} (1+\frac{1}{n})^n =e\]
@@ -217,11 +281,10 @@ which means the details of \(\mathbb{U}\) depends on a parmeter with the period 
 \[e^{i \theta} = cos\theta + \mathbf{i} sin\theta\]
 then the polar form is given by the isomorphism
 \[\rr^* \times \rr/ 2\pi \z  \xrightarrow{\sim} \cc^*, \quad (r,\theta) \mapsto re^{i\theta}
-\].
-
+\]
 Moreover, the expontial structure is derived from the matrix expontial
 \[exp: M_2(\rr) \to GL_2(\rr), \quad A \mapsto \sum_{\n \in \n} \frac{A^n}{n!}\]
-Notice that in finite-dimensional vector space with norm, any its subspace must be closed, so \(\cc\) is a closed subspace of \(M_2(\rr)\), which ensures that the series will always converge inside \(\cc\) such that we can restrict the expontial structure in complex number  .
+Notice that in finite-dimensional vector space with norm, any its subspace must be closed, so \(\cc\) is a closed subspace of \(M_2(\rr)\), which ensures that the series will always converge inside \(\cc\) such that we can restrict the expontial structure in complex number.
 
 
 
