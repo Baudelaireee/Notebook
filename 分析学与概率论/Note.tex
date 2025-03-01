@@ -405,19 +405,61 @@ So finally we finish the proof of theorem:
     \[P(\limsup A_i) = P((\cup_{N \in \n}\cap_{i\geq N}A_i^c)^c) = 1 - 0 = 1\] 
 \end{proof}
 
+\section{Complex analysis}
+\subsection{Holomorphic Function}
+Complex-valued function is a function defined on \(\cc\), formally it is 
+\[f: \cc \to \cc , \quad z \mapsto f(z)\]
+\(\cc\) can be seen same as \(\rr^2\) in view of \(\rr-\)vector space, so there exists a correspondence with two real variable functions.
 
+For any \(z\), there exists \(u,v \in \rr\) such that \(f(z) = u+iv\), then
+\[u = \frac{1}{2}(f(z) + \overline{f(z)}),\quad v= \frac{1}{2i}(f(z)-\overline{f(z)})\]
+so by taking all \(z\), we can get two functions from \(\cc \) to \(\rr\), and we just identify \(z \in \rr\) with \((x,y) \in \rr^2\) by \(z = x+iy\), then 
+\[f(z) = f(x+iy) = f(x,y) = u(z)+iv(z) = (u(x,y),v(x,y))\]
+Here we should notice that \(\rr^2\) equips the norm \(\|\cdot\|_2\) to make it compatiable.
 
+Notice that \(\cc\) natually has the norm structure, so it makes sense to define its differntiation directly from the topology:
+\begin{definition}
+    Let \(\Omega\) be an open set of \( \cc\), a function \(f: \Omega \to \cc\) is called holomorphic at \(z_0 \in \Omega\) if the limit
+    \[\lim_{h \rightarrow 0} \frac{f(z_0+h)-f(z_0)}{h}\]
+    exists. We use \(H(\Omega)\) to denote the set of all holomorphic functions on \(\Omega\).
+\end{definition}
 
+\begin{example}
+    An important example that a complex-valued function is not holomorphic is \(z \mapsto \zbar\). We observe the function at \(z=0\)
+    \[\frac{\overline{z+h}-\overline{z}}{h} = \frac{\overline{h}}{h} = \frac{re^{-a}}{re^a}=e^{-2a}\]
+    so the limit does not exist. By if we rewrite the function in real variables by \((x,y) \mapsto (x,-y)\), then clearly the jacobi matrix is \(\begin{pmatrix}
+        1 &0 \\
+        0 &-1
+    \end{pmatrix}\), which means the function is always differentiable in \(\rr^2\), so here difference appears and we can realize that the differentiation of complex-value function is a little different from.
+\end{example}
 
+Although the two types of differentiation is not the same thing, is there some connection between them? Let us firstly condiser a set of differential opreators:
+\[\begin{cases}
+    x = \frac{z + \zbar}{2} \\
+    y = \frac{z - \zbar}{2i}
+\end{cases} \implies \begin{cases}
+    \pd{}{z} = \pd{}{x}\pd{x}{z}+\pd{}{y}\pd{y}{z} = \frac{1}{2}(\pd{}{x}-i \pd{}{y})\\
+    \pd{}{\zbar} = \pd{}{x}\pd{x}{\zbar}+\pd{}{y}\pd{y}{\zbar} = \frac{1}{2}(\pd{}{x}+i \pd{}{y})
+\end{cases}\]
+Suppose \(f\) is a complex-value function holomorphic at \(0\) with \(f(0)= 0\), then
+\[f(z) = L(z)+o(z) = ax+by+o(z) = \frac{a-ib}{2}z+\frac{a+ib}{2}\zbar+o(z)\]
+with \(L\) a \(\cc-\)linear map with \(a,b \in \cc\) and \(z = x+iy\), then by above opreators we know that
+\[\frac{f(z)}{z} = \pd{f}{z}(0)+\pd{f}{\zbar}(0)\cdot\frac{\zbar}{z}+\frac{o(z)}{z}\]
+if the limit exists as \(z\) tends to zero, them the term having \(\frac{\zbar}{z}\) must vanish, that means \(\pd{f}{\zbar} = 0\), that is the necessary condition that \(f\) is holomorphic at \(z=0\).
 
-
-
-
-
-
-
-
-
+Furthermore, if we merely view \(\cc\) as \(\rr^2\) to write function as the form of linear combination by two real-value functions \(f=u+iv\), then we can conclude the Jacobien matrix 
+\[J_f(x,y) = \begin{pmatrix}
+    \pd{u}{x} & \pd{u}{y} \\
+    \pd{v}{x} & \pd{v}{y}
+\end{pmatrix}\]
+Then \(L(z)\) can be viewed as vector \((x,y)\) opreates on \(J_f(x,y)\), and notice that \(L(z) = k\cdot z\) form some \(k \in \cc\) and \(\cc\) is isomorphic to a subspace of \(M_2(\rr)\) with the form \(\begin{pmatrix}
+    a &-b\\
+    b &a
+\end{pmatrix}\), so immediately the jacobi matrix has the same form and we get a relation : \textbf{Cauchy-Riemann Equation:}
+\[\begin{cases}
+    \pd{u}{x} = \pd{v}{y} \\
+    \pd{u}{y} = - \pd{v}{x}
+\end{cases}\]
 
 
 
