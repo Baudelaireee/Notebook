@@ -168,6 +168,29 @@ This is the symbol of fraction, so we usually call the field with the same metho
     \end{proof}
 \end{proposition}
 
+We can generalize the usual construction of the field in the ring theory, and notice that key properties of \(\z\) is that \textbf{its multiplication satisfying cancellation law}, that refers to the integer domain.
+
+\begin{definition}
+  A ring \((R,+,\cdot)\) is called an integer domain if it does not conatain any zero divisor, that means for any \(a,b \in \z-\{0\}\), we have \(ab \neq 0\).
+\end{definition}
+
+Another equivalent definition is that the ring satisfying cancellation law, which is easy to prove. If we take \(a,b,c \in R\) such that \(ab=ac\), and we suppose that \(a\neq 0\), then \(a(b-c) = 0\) by distributive law, and immediately we know that \(b-c\) must be zero, so they are equal. With the key properties of intger domain we can conlude the theorem below.
+
+\begin{theorem}[field of fraction]
+  If \((R,+,\cdot)\) is an integer domain, then there exists a field \(F\) containning \(R\) as a subring by given the relation on \(R\times R-\{0\}\):
+  \[(a,b) \sim (c,d) \iff a\cdot d = b\cdot c\]
+  Moreover, this field is the smallest field conatinnig \(R\), and usually we denote \(F = Frac(Q)\).
+
+  \begin{proof}
+    With the same method above we can construction a new field \(Q = R\times R-\{0\}/\sim\), and we notice that \(F\) can be embedded in \(Q\), so conversely we choose so that, for each \(x \in F\), there exists \(a,b\in R \) and \(b \neq 0_R\) such that \(ab^{-1} \in F\). Then \(Q\) and \(F\) and naturally isomorphic since 
+    \[ab^{-1} = cd^{-1} \iff ad = bc\]
+    And we suppose that the field \(F'\) is a field containning \(R\), then any \(a \in R^*\) we have \(a^{-1} \in F'\), so any form of \(ra^{-1}\) will be in \(F'\), which means \(F \subset F'\), so \(F\) is the smallest field.
+  \end{proof}
+\end{theorem}
+
+
+
+
 \subsection{From \texorpdfstring{$\q$}{TEXT} to \texorpdfstring{$\rr$}{TEXT}: Completion}
 In this section we will talk about the construction of real number, there are many equivalent ways to define real number, they are all same we will see that later. The flaw of the rational number is that it is not complet, or intuitively it can be seen as a line with too many holes in it. Convergence and limit theory is the core of the analysis, we are interested in what value a sequence convergs to, for example:
 \[\lim_{n \rightarrow \infty} (1+\frac{1}{n})^n =e\]
@@ -228,7 +251,7 @@ Now we will consider the representative of the field to simplify the notation. W
 The process we often call it the \textbf{completion of the metric space}, hence we give it a conclusion generally.
 
 
-\subsection{From \texorpdfstring{$\rr$}{TEXT} to \texorpdfstring{$\cc$}{TEXT}: extension}
+\subsection{From \texorpdfstring{$\rr$}{TEXT} to \texorpdfstring{$\cc$}{TEXT}: Extension}
 
 The construction of complex number refers to add element, the classic valuation operates on \(\cc\) is a morphism\[f: \rr[X] \to \cc, \quad P \mapsto P(i)\]
 with the basic knowledge about the complex number and ring theory, we can conlude that \(kerf = (X^2+1)\), the principal ideal of polynomial \(X^2+1\), hence we can get an isomorphism as following
