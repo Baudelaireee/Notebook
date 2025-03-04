@@ -1,4 +1,4 @@
-\documentclass[en,hazy,black,noraml,12pt]{elegantnote}
+\documentclass[en,hazy,blue,noraml,12pt]{elegantnote}
 \input{command.tex}
 
 \title{General Topology
@@ -15,6 +15,8 @@
 \newpage
 
 \tableofcontents
+
+\newpage
 
 %-----------------------------------------------------
 
@@ -394,11 +396,12 @@ The Symmetry axiom is ensured by the commutative addition of the vector space. I
 \begin{example}[Metric does not implies norm] $\\$
     We consider a metric \(d(x,y) = 1 \) if \(x \neq y\). 
 \end{example}
-The open ball here can be wirtten by the form 
+The open ball and closed ball here can be wirtten by the form 
 \[B(x,r) = \{y \in E : N(x-y) < r\}\]
+\[B_F(x,r) = \{y \in E : N(x-y) \leq r\}\]
 One of the most important characteristics is that the open ball here is \textbf{convex} (The statement is not true in general metric space), which implies that the closrue of the open ball is exactly a cloesd ball:
-\[\overline{B(x,r)} = B(x,r) \cup S(x,r)\]
-where \(S(x,r) = \{y\in E: N(x-y)=r\}\). The detail of the proof can be found in TD1 and TD4.
+\[\overline{B(x,r)}  = B_F(x,r)\]
+This equality is not true in general metric space. The detail of the proof can be found in TD1 and TD4.
 
 
 
@@ -409,7 +412,7 @@ where \(S(x,r) = \{y\in E: N(x-y)=r\}\). The detail of the proof can be found in
 
 
 \section{Complet Space}
-
+\subsection{Basic properties}
 We have known that we can talk sequence in metric space, so some space described by sequence can be montioned here.
 
 \begin{definition} $\ $
@@ -437,6 +440,8 @@ We have known that we can talk sequence in metric space, so some space described
     \end{align*}
     We know that the sequence \((-n)_{n \in \n}\) is not Cauchy  under the common metric, but it is a Cauchy sequence under the defined metric above. A fact we should notice that two metric gives the same topology, but it can not guarantee the completness, but we can give a suffisant condition.
 
+    Finally we can just see \(\R\) as the completness of \(\q\) with its common absolutely value, formally it refers to a equiavlent realtion on the set of all Caucht sequence in \(\q\) by 
+    \[(\xn) \sim (\yn) \iff (x_n-y_n)_{n \in \n} \rightarrow_{n\rightarrow \infty} 0\]
     \begin{proposition}[Equivalent distance implies co-complet] $\\$ \label{Equivalent distance implies co-complet}
         If a spcae \(X\) have two equivalent distance \(d\) and \(d'\), then \(\Xd\) is complet if and only if \((X,d')\) is complet.
 
@@ -454,7 +459,7 @@ We have known that we can talk sequence in metric space, so some space described
 
 Here we will consider several natural complet space by cartesian product or restriction, which is all common technic.
 
-\begin{proposition}[The completness of the product space]$\\$
+\begin{proposition}[The completness of the product space]$\\$ \label{complet product space}
     Given two complet spaces \(\Xd\) and \((Y,d')\), their product \( X \times Y\) is complet if the equipped metric is \(L^{\infty}\) metric 
     \[d_{\infty} = \max (d,d') \]
 
@@ -563,14 +568,25 @@ Now we will turn our attention to see how the theorem works in differential equa
     An question is that whether the soultion is unique in whole \(\R\)? It is no diffcult to extend the function with the same technic. 
 \end{example}
 
-\subsection{Banach Space and Bounded linear opreator}
+\subsection{Banach Space}
 
-A complet normed vector space is a \textbf{Banach Space}. It is just a  definition to classify a special space, special naming is often accompanied by profound properties about a certain object. Firstly we will generalize the series in Banach space.
+A complet normed vector space is a \textbf{Banach Space}. It is just a  definition to classify a special space, special naming is often accompanied by profound properties about a certain object. 
 
+A classic Banach space is a functional space, we give below.
+
+\begin{proposition}
+    \((\mathcal{C} [0,1],\|\cdot\|_{\infty})\) is a Banach space.
+
+    \begin{proof}
+        The complet of the space is directly from the general proposition \ref{BXY complet if Y complet}, notoce here \(f \in \mathcal{C} [0,1]\) means the continous function from \([0,1]\) to \(\R\). And we should prove that the space is a vector space, that is direct from the algebra properties of the continuity, that is a good exercise for both analysis and linear algebra.
+    \end{proof}
+\end{proposition}
+
+We notice that the convergence of the sequence in Banach space depends on the \(\R\), so we generalize the concept of the series here.
 \begin{definition}[Series] 
     Given a normed space \((E,\|\cdot\|)\), a series is the infinite sum of a sequence in the space, usually we denote it \(\sum u_n\). a series \(\sum_{n \in \n}u_n\) is convergent (to \(L\)) if a corresponding sequence(paritial sum) \(S_n= \sum_{k=0}^{\infty}u_n\) is convergent (to \(L\)).
 
-    A series \(\sum_{n \in \n}u_n\) is \textbf{absolutely convergente} if the series \(\sum_{n \in \n}\|u_n\|\) is convergent in \(\R\).
+    A series \(\sum_{n \in \n}u_n\) is \textbf{absolutely convergent (normal convergent)} if the series \(\sum_{n \in \n}\|u_n\|\) is convergent in \(\R\).
     
 \end{definition}
 
@@ -586,14 +602,21 @@ Then some classic results about the series can be proved
     \end{proof}
 \end{proposition}
 
+
+\begin{proposition}
+    
+\end{proposition}
+
 \begin{remark}
     In a Banach space \(B(X,Y)\), a series of function \(\sum f_n\) ACV implies that \(\sum\|f_n\|_{\infty} < \infty\). A famous result is \textbf{M-Test}, a quick method to determine a uniform convergence of a series of function.
 \end{remark}
 
+\subsubsection{Bounded linear opreators}
+
 Linear opreator is an cucrial topics in general analysis, because common calculations like differential and integration are linear, so linear operators in a Banach space is a interesting topics. Let us prove a useful proposition about the continuity of a linear opreator.
 
-\begin{proposition}[the properties of a linear and continous map]$\\$
-    Suppose \(L: E \to F \) is a linear map between two Banach space \((E,\|\cdot\|_E)\) and \((F,\|\cdot\|_F)\), following assertions are equivalent:
+\begin{proposition}[the properties of a linear and continous map]$\\$ \label{linear and continous map}
+    Suppose \(L: E \to F \) is a linear map between two normed vector spaces \((E,\|\cdot\|_E)\) and \((F,\|\cdot\|_F)\), following assertions are equivalent:
     \\(a) L is Lipschitizienne.
     \\(b) L is continous.
     \\(c) L is continous at 0.
@@ -610,40 +633,41 @@ Linear opreator is an cucrial topics in general analysis, because common calcula
         (d) implies (e) clearly since \(S(0,1)\ \subset \overline{B(0,1)}\).
 
         (e) implies (f).Given \(K = \sup_{x\in S(0,1)}\|Lx\|_F\), then for any \(x \in E\) we have 
-        \[\frac{1}{\|x\|_E}\|L(x)\|_F = \|L(\frac{x}{\|x\|_E}\|_F)\leq K\]
+        \[\frac{1}{\|x\|_E}\|L(x)\|_F = \|L(\frac{x}{\|x\|_E})\|_F\leq K\]
         which gives the inequality we hope, and here \(C = K\).
         (f) implies (a) clearly.
     \end{proof}
 \end{proposition}
 
 \begin{remark}
-    A \textbf{bounded opreator} is a map \(L: E \to F\) which satisfies 
+    A \textbf{bounded opreator}is a map \(L: E \to F\) which satisfies 
     \[\|L(x)\|_F \leq C \|x\|_E \]
-    for any \(x in E\) and some fixed number C. According to above propoistion we can know an important properties of linear opreator: \textbf{a linear opreator is bounded if and only if it is continous.}
+    for any \(x \in E\) and some fixed number C. According to above propoistion we can know an important properties of linear opreator: \textbf{a linear opreator is bounded if and only if it is continous.} Hence,sometimes we call a bouded lnear opreator also a continous linear opreator.
 \end{remark}
 
 \begin{definition}[opreator norm] Suppose that \(L: E \mapsto F\) is a bounded linear opreator, then we deined the norm of the opreator is 
     \[\|L\|_{op} = \inf \{C>0 : \|L(x)\|_F \leq C \|x\|_E \} \]
     equivalently we can use the following definitions
     \begin{align*}
-        \|L\|_op &= \sup_{x \neq 0}\frac{\|L(x)\|_F}{\|x\|_E} \\
+        \|L\|_{op} &= \sup_{x \neq 0}\frac{\|L(x)\|_F}{\|x\|_E} \\
+        &= \sup_{x\neq 0, \|x\|_E \leq 1}\frac{\|L(x)\|_F}{\|x\|_E} \\
+        &= \sup_{ \|x\|_E \leq 1}\frac{\|L(x)\|_F}{\|x\|_E} \\
         &= \sup_{\|x\|_E=1}\|L(x)\|_F
     \end{align*}
 
 \end{definition}
 
-it is not diffcult to prove that, just take \(x=\|x\|_Eu\), where \(u\) is an vector with the norm 1 and it is parallel to \(x\). The definition of the opreator norm motivates us to construct a normed space which conatains opreators as the elements
+it is not diffcult to prove that, just take \(x=\|x\|_Eu\), where \(u\) is an vector with the norm 1 and it is parallel to \(x\). The definition of the opreator norm motivates us to construct a normed space which contains opreators as the elements
 
-    \begin{theorem}
-        Suppose that \(LB(E,F)\) is the set of all bounded linear opreators from \(E\) to \(F\), and it is equipped by opreator norm, then \((LB(,E,f),\|\cdot\|_{op})\) forms a Banach space if \((F,\|\cdot\|_F)\) is a Banach space.
+    \begin{theorem}[Norm of the opreators] $ \\$
+        Suppose that \(LB(E,F)\) is the set of all bounded linear opreators from \(E\) to \(F\), and it is equipped by opreator norm, then \((LB(E,F),\|\cdot\|_{op})\) forms a Banach space if \((F,\|\cdot\|_F)\) is a Banach space.
 
         \begin{proof}
             \begin{align*}
                 \|L\|_{op} = 0 &\iff \sup_{x \neq 0} \frac{\|L(x)\|_F}{\|x\|_E} =0 \\
                 &\iff L(x)=0 ,\quad x\in E-\{0\} \\
-                &\iff L(x)=0 ,\quad x\in E \text{ (by the continuity of L)} \\
-            \end{align*}
-            Homogeneity and Triangualr inequality is easy to prove, so the space is firstly a normed vector space. Then we will prove that it is complete.
+                &\iff L(x)=0 ,\quad x\in E \text{ (by the continuity of L)} 
+            \end{align*} Homogeneity and Triangualr inequality is easy to prove, so the space is firstly a normed vector space. Then we will prove that it is complete.
 
             Suppose that \((L_n)_{n \in \n}\) is a Cauchy sequence of bounded linear opreators from \(E\) to \(F\), and then for any \(x \in E \) we have \(\|L_n(x)-L_m(x)\|_F \leq \|L_n-L_m\|_{op}\|x\|_E\). we put \(\epsilon /\|x\|_E\), then we can get that \((L_n(x))_{x \in \n}\) is a Cauchy sequence in \(F\). \(F\) is a Banach space then we can conclude that \(L_n\) converges to some opreator \(L\) with \(L(x) = \lim_{n \rightarrow \infty}L_n(x)\). It is linear since \(L_n\) is linear and the calucation of the limit is also linear. It is easy to prove that by the Triangualr inequality
             \[\|L(x)-L(y)\|_F \leq \|L(x)-L_n(x)\|_F+\|L_n(x)-L_n(y)\|_F+\|L_n(y)-L(y)\|_F\]
@@ -651,6 +675,23 @@ it is not diffcult to prove that, just take \(x=\|x\|_Eu\), where \(u\) is an ve
         \end{proof}
     \end{theorem}
 
+    \subsubsection{several theorems in Banach space}
+
+    \begin{theorem}[Inversion of perturbation of the identity]$\\$
+        Given a Banach space \((E,\|\cdot\|_E)\), if \(u \in LB(E)\) is an automorphism with \(\|u\|_{op} <1\), then \(id_E \pm u\) is still an automorphism in \(LB(E)\).
+
+        \begin{proof}
+            
+        \end{proof}
+    \end{theorem}
+
+    \begin{theorem}[Pricipal of extension] $\\$
+    Suppose that \(E,F\) are two normed vector space and \(F\) is Banach, and \(H\) is a dense subspace of \(E\). If \(T:H \to F\) is a bounded linear opreator, then there exists a unique exitension such that \(\hat{T}:E \to F\) is a bounded linear opreators and \(\hat{T}|_H = T\).
+
+    \begin{proof}
+        
+    \end{proof}
+    \end{theorem}
 \section{Compact Space}
 
 There are several different ways to define a compact space, we will firstly give the equiavlent definition of compact space, and then study the property of compact space, and finally consider its application in Normed space.
@@ -714,7 +755,7 @@ Acoording to the lemma we can prove that three definitions of compact space is e
 \end{proposition}
 
 \begin{proposition}[Product Space]$\\$
-    Suppose that \(\Xd\) and \(\Xdd\) are two compact metric spcae, then their product space equipped with the common norm is also compact.
+    Suppose that \(\Xd\) and \(\Xdd\) are two compact metric spcae, then their product space equipped with the common norm is also compact. Same result for finite product.
 
     \begin{proof}
         A sequence of \(X \times X'\) implies two sequences of \(X\) and \(X'\) respectively, we denote them by \(\xn\) and \((x'_n)_{n \in \n}\). So there exists a strictly increasing function \(\phi\) such that \((x_{\phi(n)})\) converges to \(x\) since \(X\) is compact, and we deduce a subsequence \((x_{\phi(n)},x'_{\phi(n)})\); and then Similarly there exista a strictly increasing function\(\psi\) such that \(x'_{\psi \circ \phi(n)}\) converges to \(x'\) since \(X'\) is compact, so we deduce a subsequence \((x_{\psi \circ \phi(n)},x'_{\psi \circ \phi(n)})\) finally, it is not difficult it converges to \((x,x')\) under different common norms.
@@ -750,32 +791,33 @@ Acoording to the lemma we can prove that three definitions of compact space is e
     \end{proof}
 \end{theorem}
 
-\subsection{Compactness in normed space}
+\subsection{Finite-dimensional normed vector space}
 In this section we will finally prove a suffisant and necessary condition of compact space in a normed vector space. Let us see the motivation of the result.
 
 \begin{theorem}[Bolzano-Weierstrass]$\\$
     Any closed intevral \([a,b]\) is compact. More formally, any bounded sequence of \(\R\) has a convergent subsequence.
 
     \begin{proof}
-        This result sometimes is seen as a axiom of real number, and it is equivalent with the other 7 theorems or axioms about real number. Here we admit that \(\R\) is a complet space. And we take a sequence \(\xn\) of \([a,b]\), then we will construct a subsequence which is Cauchy, this method is given by Bolzano. We divide the interval into two parts by \(A_1=[a,\frac{a+b}{2})\) and \(B_1= [\frac{a+b}{2},b]\), there are two cases possible. (1) There are infinite points in \(A_1\); (2) There are infinite points in \(B_1\). We take one case and get \(I_1\), which is \(A_1\) or \(B_1\). By this reccurence we can conculde a sequence of intervals \((I_k)_{k \in \n}\) with any \(x,y \in I_k\), we have \(|x-y| \leq \frac{b-a}{2^k}\), and each \(I_k\) contains at least one point of the sequence. So we can conclude a subsequence \((x_{\phi(n))}\) by taking a point from each interval, then the sequence is claerly Cacuhy. 
+        This result sometimes is seen as a axiom of real number, and it is equivalent with the other 7 theorems or axioms about real number. Here we admit that \(\R\) is a complet space. And we take a sequence \(\xn\) of \([a,b]\), then we will construct a subsequence which is Cauchy, this method is given by Bolzano. We divide the interval into two parts by \(A_1=[a,\frac{a+b}{2})\) and \(B_1= [\frac{a+b}{2},b]\), there are two cases possible. (1) There are infinite points in \(A_1\); (2) There are infinite points in \(B_1\). We take one case and get \(I_1\), which is \(A_1\) or \(B_1\). By this reccurence we can conculde a sequence of intervals \((I_k)_{k \in \n}\) with any \(x,y \in I_k\), we have \(|x-y| \leq \frac{b-a}{2^k}\), and each \(I_k\) contains at least one point of the sequence. So we can conclude a subsequence \(x_{\phi(n)}\) by taking a point from each interval, then the sequence is claerly Cacuhy. 
     \end{proof}
 
     \begin{remark}
         Here we should notice the equivalence of the completness of real line with B-W theorem. If we assume B-W theorem as a axiom, then by the properties of compact space, \([a,b]\) is complet, which implies that the completness of real number.
     \end{remark}
 
-    \begin{corollary}
-        \([a,b]^N\) is a compact set in \(\R^N\) equippedd with common norms.
+    \begin{corollary} \label{[a,b]^N is compact}
+        \([a,b]^N\) is a compact set in \(\R^N\) equippedd with common norms.   
     \end{corollary}
 \end{theorem}
 
-We can guess that a closed and bounded set in a normed space \(\R^N\) is always compact, because we take a bounded set \(A\) of \(\R\) and then take its closure for sake of convergence, then \(\overline{A}\) can always be the form of a set within intervals and isolated points. 
+An interesting thing is that \([-1,1]^N = B_F(0,1)\) when equipping \(\R^N\) with norm \(\|\cdot\|_{\infty}\). We can guess that a closed and bounded set in a normed space \(\R^N\) is always compact, because we take a bounded set \(A\) of \(\R\) and then take its closure for sake of convergence, then \(\overline{A}\) can always be the form of a set within intervals and isolated points. 
 
 \begin{theorem}[The propeties of \(\R^N\)]$\\$
-    There are three important properties of a normed space \(\R^N\):
+    There are three important properties of a normed vector space \(\R^N\):
     \\(1) All of its normed are equivalent. i.e. \(N_1\) and \(N_2\) are two norms of \(\R^N\), then there exists two positives \(m\) and \(M\) such that \begin{equation*}
         mN_2(x) \leq N_2(x) \leq MN_2(x), \quad \forall x \in \R^N
-    \end{equation*} \\(2) A set is compact in \(\R^N\) if and only if the set is closed and bounded. \textbf{(Theorem of Heine-Borel)}
+    \end{equation*} 
+    (2) A set is compact in \(\R^N\) if and only if the set is closed and bounded. \textbf{(Theorem of Heine-Borel)}
     \\(3) \(\R^N\) is complet.
 
 
@@ -784,32 +826,76 @@ We can guess that a closed and bounded set in a normed space \(\R^N\) is always 
         \begin{align*}
             \|x\| &= \|x_1e_1+...+x_ne_n\| \\
             &\leq \|x_1e_1\|+...+\|x_ne_n\| \\
-            &= |x_1|+...+|x_n| \\
-            &\leq n\|x\|_{\infty}
+            &= |x_1|\|e_1\|+...+|x_n|\|e_n\| \\
+            &\leq (\sum_{i=1}^{n}\|e_i\|)\|x\|_{\infty}=C\|x\|_{\infty}
         \end{align*}
-        We put \(K= \{x\in \R^N: \|x\|_{\infty}\}\), and the set is compact in \(\)
-        Thus the identity map \(\phi: (\R^N,\|\cdot\|) \to \R^+\) by \(x \mapsto \|x\|\) is continous since for any \(x,y \in \R^N\),
-        \[|\|x\|-\|y\|| \leq \|x-y\| \leq n \|x-y\|_{\infty}\].
+        We put \(K= \{x\in \R^N: \|x\|_{\infty}=1\}\) and define the map \(\phi: (\R^N,\|\cdot\|_{\infty}) \to \R^+\) by \(x \mapsto \|x\|_{\infty}\) is continous since for any \(x,y \in \R^N\),
+        \[|\|x\|_{\infty}-\|y\|_{\infty}| \leq \|x-y\|_{\infty}\]
+        And we take a set \(K = \{ x\in \R^N: \|x\|_{\infty}=1\} \subset B_F(0,1)\), and notice that \(K = \phi^{-1}(\{1\})\) so \(K\) is a closed subset of \(B_F(0,1)\). By corollary \ref{[a,b]^N is compact}, we can know that \(B_F(0,1)\) is compact, so \(K\) is a compact subset. Now we give a new map \(f:(\R^N,\|\cdot\|_{\infty}) \to \R^+\) by \(x \mapsto \|x\|\), that is also a continous map since
+        \[|\|x\|-\|y\|| \leq \|x-y\| \leq C\cdot\|x-y\|_{\infty}\]
+        So by Weierstrass, image \(f(K)\) must admit a finite minimum \(m\) inside \(K\). Thus for any non-zero \(x \in \R^N\), we have 
+        \[\|\frac{x}{\|x\|_{\infty}}\| = f(\frac{x}{\|x\|_{\infty}}) \geq m\]
+        immediately \(\|x\| \geq m\|x\|_{\infty}\), by conclsion, each norm is equivalent to norm \(\|\cdot\|_{\infty}\), so they are equivalent by transitivity.
 
-        And we take a set \(K = \{ x\in \R^N: \|x\|_{\infty}=1\}\)
+        (2) We firstly prove that the closed ball under any norm \(\|\cdot\|\) is compact, just consider the identity map \(i:(\R,\|\cdot\|) \to (\R,\|\cdot\|_{\infty})\), then by (1) \(i\) clearly is a homeomorphism, so each closed ball \(B = i^{-1}(B)\) is compact. Then we can conclude Heine-Borel Theorem. By baisc propeerties of comapctness in metric space, a compact set must be closed and bounded. Conversely, if \(A\) is a closed and bounded set under a norm \(\|\cdot\|\), then by definition of bounded, there exists a closed ball \(F\) such that \(A \subset F\) as a closed subset. We have proven that \(F\) must be compact, so clearly \(A\) is compact by propoistion \ref{compact subspace}.
+
+        (3) An immediate result from proposition \ref{Equivalent distance implies co-complet} and \ref{complet product space}. 
     \end{proof}
 \end{theorem}
 
-And we can generalize our result by a thought: Any finite-dimensional normed vector space is just a "parody" of \(\R^N\)
+And we can generalize our result by a thought Any finite-dimensional normed vector space is just a "parody" of \(\R^N\), here we need a correspondence between a finite-dimensional normed space and \(\R^N\):
+\begin{proposition}[homeomorphism of F-D NVS] $\\$ 
+    Given a n-dimensional normed vector space \((E,\norme{\cdot})\), then \(E\) is isometric and isomorphic to \(\R^n\) with certain norm: \(\|x\| = \norme{\varphi(x)}\) for any \(x \in E\).
+
+    \begin{proof}
+        For a base \((e_1,...,e_n)\) for \(E\), it inivites a map \(\varphi: \R^n \to E\) by
+        \[\varphi(x)=\varphi(x_1,...,x_n) := \sum_{i=1}^{n}x_ie_i\]
+        It is easy to prove that \(\varphi\) is a linear isomorphism. After the baisc algebraic structure we should consider its topological structure, so the norm for \(\R\) should be defined here. To make it isometric, the unique poissble case is to define \(\norm{x} = \norme{\varphi(x)}\), and we verify it: 
+        \\Definiteness: \(\|x\|=0 \iff \norme{\varphi(x) = 0 } \iff \varphi(x)=0 \iff x=0\)
+        \\Homogenity: \(\|cx\|= \norme{\varphi(cx)}=\norme{c\varphi(x)}=|c| \norme{\varphi(x)} = |c|\|x\|\)
+        \\T-inequality: \(\|x+y\|= \norme{\varphi(x+y)} = \norme{\varphi(x)+ \varphi(y)} \leq \norme{\varphi(x)}+\norme{\varphi(y)}=\|x\|+\|y\|\)
+    \end{proof}
+\end{proposition}
+
+\begin{remark}
+    Here isometry ensures that the isomorphism is furthermore a hoemomorphism, so we can verify our hypothesis below:
+\end{remark}
 
 \begin{theorem}[Finite-dimensional normed vector space]$\\$
     Suppose that \(E\) is a finite-dimensional vector space, then 
     \\(1) All of its normed are equivalent.
     \\(2) A set is compact in \(E\) if and only if the set is closed and bounded.
-    \\(3) \((E,\|\cdot\|)\) is complet.
+    \\(3) \((E,\|\cdot\|)\) is complet so it is a \textbf{Banach space}.
+    
+    \begin{proof}
+        (1) For any two norms \(\|\cdot\|_1\) and \(\|\cdot\|_2\) defined on \(E\), by above proposition we can conclude two isometry \(f_a\) and \(f_b\) such that it invites two norms \(\|\cdot\|_a\) and \(\|\cdot\|_b\) defined on \(\R^n\), then by the equivalence in \(\R\), we can find two constant\( m,M\) such that for any \(x \in E\)
+        \[m\|x\|_2=m\|f_a^{-1}(x)\|_b \leq \|x\|_1=\|f_a^{-1}(x)\|_a \leq M\|f_a^{-1}(x)\|_b = M\|x\|_2\], so all norms are equivalent.
+        (2) and (3) are immediately from homeomorphism.
+    \end{proof}
 \end{theorem}
 
+Following is several important resuilt in finite-dimensional normed space   
 \begin{corollary}
     If \(L:E \to F\) is a linear operator between normed space and \(E\) is finite-dimensional, then \(L\) is continous.
+
+    \begin{proof}
+        It is suffisant to prove \(L\) is continous at zero. Fixing a base \((e_1,...,e_n)\) for E  with \(n = dim E\), then for any \(x\in E\) we have 
+        \begin{align*}
+            \|L(x)\|_F &= \|L(x_1e_1+...+x_ne_n)\|_F \\
+            &= |x_1|\|L(e_1)\|_F+...+|x_n|\|L(e_n)\|_F \\
+            &\leq \max(\|L(e_1)\|_F,...,\|L(e_n)\|_F) \cdot (|x_1|+...+|x_n|) \\
+            &\leq C\|x\|_{E,\infty}
+        \end{align*}
+        with \(C = \leq n\cdot\max(\|L(e_1)\|_F,...,\|L(e_n)\|_F)\). Then for any norm \(\|\cdot\|_E\) defined on \(E\), by above theorem we have \(\|x\|_{E,\infty} \leq M\|x\|_E\) for some constatnt \(M\), hence \(\|L(x)\| \leq CM\|x\|_E\), so it is continous at zero by taking \(\delta = \epsilon/CM\).
+    \end{proof}
 \end{corollary}
+
 
 \begin{corollary}
     Any vector subspace of a finite-dimensional normed space is closed.
+    \begin{proof}
+        Suppose that \(V\) is a subspace of finite-dimensional space \(E\), then clearly \(V \subset E\) as a compact subset since \(dimV \leq dimE \leq +\infty\), so it must be closed by proposition \ref{compact subspace}.
+    \end{proof}
 \end{corollary}
 
 

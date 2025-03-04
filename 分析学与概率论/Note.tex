@@ -334,7 +334,7 @@ it means a set which cantains the terms of sequence except \(a_0,...,a_{k-1}\), 
     \[v_n = \sup A_n , \quad w_n = \inf A_n \]
 Notice that \(A_{k+1} \subset A_{k}\) for any \(k\), so clearly we have 
 \[w_n \leq w_{n+1} \leq a_{n+1} \leq v_{n+1} \leq v_n\]
-for any \(n\). Here \((w_n)\) is an increasing sequence and \(v_n\) is a decreasing sequence, \textbf{so highly likely they will be convergent.} If \(\an\) is a convergent sequence, clearly as \(n \rightarrow \infty\), \(v_n\) and \(w_n\) will converge to the limit of \(a_n\), but if \(\an\) is oscillated, the convergence will change. See the example below:
+for any \(n\). Here \(w_n\) is an increasing sequence and \(v_n\) is a decreasing sequence, \textbf{so highly likely they will be convergent.} If \(\an\) is a convergent sequence, clearly as \(n \rightarrow \infty\), \(v_n\) and \(w_n\) will converge to the limit of \(a_n\), but if \(\an\) is oscillated, the convergence will change. See the example below:
 
 \begin{example}
     We define a seuqnce as following
@@ -461,6 +461,54 @@ Then \(L(z)\) can be viewed as vector \((x,y)\) opreates on \(J_f(x,y)\), and no
     \pd{u}{y} = - \pd{v}{x}
 \end{cases}\]
 
+Let us reflect the procedure above, the different things is that \(L\) must be a \(\cc-\)linear map instead of \(\rr-\)linear map, which is crucial.
+
+\begin{lemma}
+    Let \(V = Lin(\rr^2,\cc)\) be the set of all linear maps from \(\rr^2\) to \(\cc\), then
+    \\(1) V is a \(\rr-\)vector space with \(dx:(x,y) \mapsto x\) and \(dy: (x,y ) \mapsto y\) as the base.
+    \\(2) \(dz=dx+idy\) and \(d\zbar = dx-idy\) compose another base of \(V\)
+    \\(3) V is a \(\cc-\)vector space if and only if for any \(L \in V\) under the base \(dz\) and \(d\zbar\), the coefficient of \(d \zbar\) is zero.
+
+    \begin{proof}
+        (1) For any \(L \in V\), we have \(L(x,y) = x\cdot L(1,0)+y \cdot L(0,1)\)
+        notice that \(dx\) and \(dy\) actually are in \(V\), and \(dx(x,y)=x\), \(dy(x,y) = y\), then \(L=L(1,0)dx + L(0,1)dy\) with \(L(1,0), L(0,1) \in \cc\).
+
+        (2) we take \(c_1dz+c_2d\zbar =0\), then \((c_1+c_2)dx+i(c_1-c_2)dy=0\), which implies \(c_1 = c_2 =0\), so \(d_z\) and \(d\zbar\) are linearly independent.
+
+        (3) Take \(f = adz+bd\zbar \in V\) and \(u \in \cc^2\) 
+        \begin{align*}
+            f(iu)-if(u) &= adz(iu)+bd\zbar(iu)-iadz(u)-ibd\zbar(u) \\
+            &= -2bu_y
+        \end{align*} The result must be zero since the map in linear over \(\cc\), then \(b = 0\).
+    \end{proof}
+\end{lemma}
+
+Let us consider differential \[df: U \to Lin(\rr^2,\cc)\] notice that in differnetial \(L(1,0) = Df(a,b)(1,0) =f_x(a,b)\), so we have that 
+\[df = f_xdx+f_ydy\]
+
+Nowe if we expect to write \(df\) as the combination of \(dz\) and \(d\zbar\), so \[df = \mu dz + \lambda d\zbar = (\mu + \lambda)dx + i(\mu-\lambda)dy\]
+with caculation we have that 
+\[\mu  = \frac{f_x-if_y}{2}, \quad \lambda = \frac{f_x+if_y}{2}\]
+Which implies the differential opreators like above.
+
+So we can conclude the fundamental theorem of holomorphic function.
+\begin{theorem}
+    Suppose that \(f =  u+ iv\) is a complex function with \(u,v\) two functions of class \(C^1(\rr^2,\rr)\), then following statements are equivalent.
+    \\(1) f is holomorphic on \(\Omega\).
+    \\(2) \(\pd{f}{\zbar} = 0\) on \(\Omega\).
+    \\(3) Cauchy-Riemann Equation is satisfied.
+
+    \begin{proof}
+        (2) \(f\) is holomorphic, then for any \(z_0 \in \Omega\), \(df(z_0)\) must be a \(\cc-\) linear map in \(Lin(\rr^2,\cc)\), so the coefficient of \(d\zbar\) must be zero by above lemma, and notice that the coefficient is just \(\pd{f}{\zbar}(z_0)\).
+
+        (3) Just calculate
+        \begin{align*}
+            0 = \pd{f}{\zbar} &= \frac{1}{2}(\pd{f}{x}+i\pd{f}{y}) \\
+            &= \frac{1}{2}(\pd{u+iv}{x} +i \pd{u+iv}{y}) \\
+            &= \frac{1}{2}[(\pd{u}{x}- \pd{v}{y})+i(\pd{u}{y}+\pd{v}{x})] 
+        \end{align*}
+    \end{proof}
+\end{theorem}
 
 
 
