@@ -1,0 +1,8 @@
+\contentsline {section}{\numberline {1}Genenralisation of several inequalities}{3}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Jense,Hölder,Minkeoski's inequalities}{3}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Markov, Tchebychev, Cantelli's inequalities}{8}{subsection.1.2}%
+\contentsline {section}{\numberline {2}Classic anaylsis theory and technic}{12}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Power series and analytic function}{13}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Limit superior and limit inferior}{23}{subsection.2.2}%
+\contentsline {section}{\numberline {3}Complex analysis}{28}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Holomorphic Function}{29}{subsection.3.1}%
