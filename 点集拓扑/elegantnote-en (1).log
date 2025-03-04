@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.12.8)  4 MAR 2025 07:53
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.12.8)  4 MAR 2025 08:07
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1150,25 +1150,25 @@ Overfull \hbox (8.29065pt too wide) in paragraph at lines 852--857
  []
 
 [39] [40] [41] [42] [43] [44] [45] [46] [47] [48] [49] [50]
-Overfull \hbox (4.93689pt too wide) detected at line 1152
+Overfull \hbox (4.93689pt too wide) detected at line 1157
 []
  []
 
 
-Overfull \hbox (29.0763pt too wide) detected at line 1156
+Overfull \hbox (29.0763pt too wide) detected at line 1161
 []
  []
 
 [51] [52]
-Overfull \hbox (13.81213pt too wide) in paragraph at lines 1186--1188
+Overfull \hbox (13.81213pt too wide) in paragraph at lines 1191--1193
 \TU/texgyretermes(0)/m/n/12 if $\OMS/cmsy/m/n/12 k\OML/cmm/m/it/12 h\OMS/cmsy/m/n/12 k ^^T \OML/cmm/m/it/12 ^^X$ \TU/texgyretermes(0)/m/n/12 and $\OMS/cmsy/m/n/12 k\OML/cmm/m/it/12 Df\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 a\OT1/cmr/m/n/12 )[](\OML/cmm/m/it/12 h\OT1/cmr/m/n/12 ) + \OML/cmm/m/it/12 r\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 h\OT1/cmr/m/n/12 )\OMS/cmsy/m/n/12 k ^^T \OML/cmm/m/it/12 ^^Q$\TU/texgyretermes(0)/m/n/12 , which implies $\OMS/cmsy/m/n/12 k\OML/cmm/m/it/12 h\OMS/cmsy/m/n/12 k ^^T []\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 ^^X; []\OT1/cmr/m/n/12 )$\TU/texgyretermes(0)/m/n/12 ,
  []
 
 [53] [54] [55] [56] [57] [58]
 LaTeX Font Info:    Font shape `TU/texgyretermes(0)/m/it' will be
-(Font)              scaled to size 8.0pt on input line 1325.
+(Font)              scaled to size 8.0pt on input line 1330.
 LaTeX Font Info:    Font shape `TU/texgyretermes(0)/m/it' will be
-(Font)              scaled to size 6.0pt on input line 1325.
+(Font)              scaled to size 6.0pt on input line 1330.
  [59] [60] (./elegantnote-en (1).aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
@@ -1181,10 +1181,10 @@ Package logreq Info: Writing requests to '"elegantnote-en (1)".run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 36982 strings out of 474773
- 723800 string characters out of 5761289
+ 36983 strings out of 474773
+ 723802 string characters out of 5761289
  1933842 words of memory out of 5000000
- 58534 multiletter control sequences out of 15000+600000
+ 58535 multiletter control sequences out of 15000+600000
  567354 words of font info for 104 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  99i,13n,107p,977b,803s stack positions out of 10000i,1000n,20000p,200000b,200000s
