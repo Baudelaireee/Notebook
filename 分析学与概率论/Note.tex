@@ -170,6 +170,12 @@ Which always appears in the some statistical object like confidence interval, bu
 \[P(|X-\mu|\leq \sigma t) \geq \frac{2}{1+t^2}\]
 We can find that Cantelli's inequality can do one-side estimation and it provides a worse bound then Tchebychev's when \(t \geq \sigma\).
 
+One appliaction of the Tchebychev is to prove the law of large theorem, suppose that \(X_1,X_2,...,X_n\) are the sequence of random variable with same distribution, that means 
+\[E[\frac{X_1+...+X_n}{n}] = \mu \quad V[\frac{X_1+...+X_n}{n}] = \frac{\sigma^2}{n}\]
+then using the Tchebycheve's inequality we have 
+\[P(|\frac{X_1+...+X_n}{n}-\mu|\geq c) \leq \frac{\sigma^2}{nc^2}\]
+Hence as \(n \rightarrow \infty\), then the probability that the average of the random variable is not the exceptation \(\mu\) will be zero, that what law of large number want to say: when the number of sample is enough big, then the mean value of the sample is nearly the real mean value.
+
 \section{Classic anaylsis theory and technic}
 \subsection{Power series and analytic function}
 
@@ -405,6 +411,84 @@ So finally we finish the proof of theorem:
     \[P(\limsup A_i) = P((\cup_{N \in \n}\cap_{i\geq N}A_i^c)^c) = 1 - 0 = 1\] 
 \end{proof}
 
+\subsection{Theorem of transfert: algebra of the random variable}
+We firstly talk about the proof of the theorem of transfert, and then apply it into The probability to get the general form of experence, and finally see some examples of the caculation of random variable via the theorem.
+
+Notice that in this section \(\rr^+ = [0, +\infty]\) for genenralisation.
+
+\begin{theorem}[Transfert]
+    Suppose that \(\msp\) is a measure space and \((Y,\mathcal{T})\) is a measurbale space. Given a measurbale function \(f: X \to Y\), then
+    \\(1) The function invites a natural measure \(v: \mathcal{T} \to \rr^+\) by
+    \[v(B) = \mu(f^{-1}(B))= \mu \circ f^{-1}(B)\] we call it the image measure of \(f\) such that \((Y,\mathcal{T},v)\) is a measure space.
+    \\(2) For any \(v-\)integrable \textbf{(or postive measurbale)} function \(h:Y \to \cc\), we have
+    \[\int_{Y}hdv = \int_{X}h\circ f d\mu\]
+
+    \begin{proof}
+        (1) Just verify.
+        (2) By <<technic>> lemma, for any positive measurbale function \(h\) there exists \(B_n \in \mathcal{T}\) and \(c_n \in \rr^+\) such that \(h = \sum_{\ninn} c_n 1_{B_n}\), so
+        \begin{align*}
+            \int_Y hdv  &= \sum_{\ninn} c_n \int_Y 1_{B_n} dv \\
+            &= \sum_{\ninn} c_n v(B_n)  \\
+            &= \sum_{\ninn} c_n \mu(f^{-1}(B_n))  \\
+            &= \sum_{\ninn} c_n \int_X 1_{f^{-1}(B_n)} d\mu \\
+            &= \sum_{\ninn} c_n \int_X 1_{B_n}\circ f d\mu \\
+            &= \int_X(\sum_{\ninn} c_n1_{B_n})\circ f d\mu = \int_X h \circ f d\mu
+        \end{align*}
+        Then some easy work to generalize any measurbale function...
+    \end{proof}
+\end{theorem}
+
+With the basic theorem we can translate the theorem into the probability, we notice that the image measure is actually the probability distribution of a random variable, hence \(Y = \rr\) and \(\mathcal{T} = \mathcal{B}(\rr)\). And the intergation of a measure function under a probability measure is just the expectation.
+
+Let us see the example we 
+
+\begin{theorem}[Transfert in probability]
+    Given a probability space \(\psp\) and \(P_X\) is a probability distribution of a random variable \(X\), then for any postive borel function \(g\), we have
+    \[E[g(X)] = \int_{\Omega} g(X)dP = \int_{\rr}gdP_X\]
+    Furthermore if \(X\) is continous with density \(f_X: \rr \to \rr\), then
+    \[E[g(X)] = \int_{\rr} g \cdot f_X dl\]
+    where \(l\) is the lebesgue measure.
+\end{theorem}
+
+\begin{corollary}
+    For a continous random variable \(X\) with density \(f_X\), the expactation
+    \[E[X] = \int_{\rr} tf_x(t) dt\]
+\end{corollary}
+
+\begin{remark}
+    For a abstract probability space, it contains events which can not directly be described by number, and random variable gives a correspondence between the probability of the events and value in \(\rr\), that is important. So theorem of transfert just let us can opreate the expectation of a random variable directly from a integration of a real-valued function, so it gives a correspondence in the forms of integration.
+\end{remark}
+
+Here is some appliaction of theorem of transfert:
+
+\begin{proposition}[convolution]
+    Suppose that \(X,Y\) are two independent random variable, then the distribution of the random variable \(X+Y\) is the convolution of \(P_X\) and \(P_Y\):
+    \[P_{X+Y}(A) = \int_{\rr} P_X(A-y)dP_Y(y)\]
+    If \(f_X\) and \(f_Y\) are their density functions, then the density of \(X+Y\) is also the convolution of \(f_X\) and \(f_Y\):
+    \[f_{X+Y}(t) = \int_\rr f_X(t-y)f_Y(y)dy\]
+
+    \begin{proof}
+        For any \(A \in \mathcal{B}(\rr)\), we have
+        \begin{align*}
+            (P_X * P_Y)(A) &= \int_{\rr} P_X(A-y)dP_Y(y) \\
+            &= \int_\rr (\int_\rr 1_{A-y}(x) dP_X(x)) dP_Y(y) \\
+            &= \int_\rr (\int_\rr 1_A(x+y)dP_X(x))dP_Y(y) \\
+            &= \int_{\rr^2} 1_A(x+y) dP_{(X,Y)}(x,y) 
+        \end{align*}
+        Notice that if we take \(g(x,y)=x+y\), then clearly \(1_A(x+y) = 1_A \circ g(x,y)\), so \((P_X * P_Y)(A) = E[1_A(X+Y)] = P(X+Y \in A) = P_{X+Y}(A)\). For the density, we take a borel function \(h\), then
+        \begin{align*}
+            E[h(X+Y)] &= \int_{\rr} hdP_{X+Y}\\
+            &= \int_{\rr} hd(P_X *P_Y) \\
+            &= \int_{\rr^2}h(x+y)f_X(x)f_Y(y) dxdy \\
+            &= \int_{\rr^2}h(z)f_X(z-y)f_Y(y)dydz \\
+            &= \int_{\rr} h(z)(\int_{\rr} f_X(z-y)f_Y(y)dy)dz
+        \end{align*}
+        Hence we can conclude our result by the theorem of transfert.
+    \end{proof}
+\end{proposition}
+
+
+
 \section{Complex analysis}
 \subsection{Holomorphic Function}
 Complex-valued function is a function defined on \(\cc\), formally it is 
@@ -509,6 +593,109 @@ So we can conclude the fundamental theorem of holomorphic function.
         \end{align*}
     \end{proof}
 \end{theorem}
+
+\section{probaility}
+\subsection{Independence}
+\begin{definition}
+    Given a probability space \(\psp\)
+    \begin{itemize}
+        \item Two events \(A,B \in \mathcal{T}\) are called independent if \[P(A \cap B) = P(A)P(B)\]
+        \item Two random variable \(X,Y\) are called independent if for any \(A,B \in \mathcal{B}(\rr)\) \[P(X\in A;Y \in B) = P(X \in A)P(Y \in B)\]
+    \end{itemize}
+\end{definition}
+
+\begin{remark}
+    Independence is a simple concept in probability but not in mathematics. Notice that in measure product of Borel set, we have \(\mathcal{B}(\rr^2) = \mathcal{B}(\rr) \otimes \mathcal{B}(\rr)\), and equivalently we can rewrite the definition of the independence of two random variable by 
+    \[P((X,Y) \in A \times B) = P(X \in A)P(Y \in B)\]
+    that means it invites a new probability measure with the properties
+    \[P_{(X,Y)}(A \times B) = P_X(A)P_Y(B)\]
+    where \((X,Y)\) is a natural random variable defined on \(\Omega^2\) by \((a,b) \mapsto (X(a),X(b))\). Clearly we can deduced that independence is the trival condition that measure product is well-defined in probability space.
+\end{remark}
+
+\begin{theorem}
+    Two random variable \(X\) and \(Y\) are independent if and only if \(P_{(X,Y)} = P_X \otimes P_Y\), in another word, they define the same measure in space \((\rr^2, \mathcal{B}(\rr^2))\).
+
+    \begin{proof}
+        Firstly, \(P_X\) and \(P_Y\) are two natural probability measure on \(\rr\), so from the construction of the measure product, \(P_X \otimes P_Y\) exists. So it is a measure on space \((\rr^2,\mathcal{B}(\rr^2))\). We put \(S = \{A \times B| A,B \in \mathcal{B}(\rr)\}\). it is the pi-system on \(\rr^2\). We notice that on S,  \(P_{(X,Y)}=P_X \otimes P_Y \) if and only if the two random variables are independent, so by the \textbf{theorem of unique exitension of the measure} we can know that they are actually same in \(\rr^2\).
+    \end{proof}
+\end{theorem}
+Several result can be concluded from the theorem, it refers to some probability value with respect two independence variable.
+
+\begin{corollary}
+    Suppose that \(X,Y\) are two independent random variable in \(\psp\), then
+    \\(1) For any two borel functions \(f,g: \rr \to \rr\) such that \(f(X),g(Y)\) are \(P-\)integrable,\[E[f(X)g(Y)] = E[f(X)]E[g(Y)]\]
+    \\(2) If \(X\) and \(Y\) are continous with density \(f_X \) and \(f_Y\), then random variable \((X,Y)\) admets a density \(f_X\cdot f_Y\).
+    \\(3) \(Cov(X,Y) = 0\)
+    \\(4) \(Var(X+Y) = Var(X)+Var(Y)\)
+
+    \begin{proof}
+        (1) Using Fubini's theorem \begin{align*}
+            E[f(X)g(Y)] &= \int_{\rr^2} f(a)g(b) dP_X(a)dP_Y(b) \\
+            &= (\int_{\rr} fdP_X) \cdot (\int_{\rr} gdP_Y) \\
+            &= E[f(X)]E[g(Y)]
+        \end{align*}
+
+        (2)For any \(A,B \in \mathcal{B}(\rr)\)  \begin{align*}
+            P_{(X,Y)}(A \times B) &= P_X(A)P_Y(B) \\
+            &= (\int_\rr f_X(t) \cdot 1_A(t) dt) \cdot (\int_\rr f_Y(u) \cdot 1_B(u) du) \\
+            &= \int_{\rr^2} 1_{A \times B}(t,u)(f_X(t)f_Y(u))dl(t,u) 
+        \end{align*}
+        so clearly \((t,u) \mapsto f_X(t)f_Y(u)\) is the density of \((X,Y)\) since the class \({A \times B}\) generates \(\mathcal{B}(\rr^2)\).
+
+        (3) and (4) are immediate afte caculation.
+    \end{proof}
+\end{corollary}
+
+\subsection{Convergence}
+
+\subsection{Law of large number}
+
+\begin{definition}
+    A sequence of random variable \((X_n)_{\ninn}\) is called identically distributed if they share the same distribution, that means for any \(i,j \in \n \):
+    \[P_{X_i} = P_{X_j}\]
+    Usually we use "id." to denote the random variable.
+\end{definition}
+ 
+There are a criteria to determine if the random variables are identically distributed after changing variable:
+\begin{proposition}
+    If \(X_1\) and \(X_2\) are two identcially distributed random variable, and \(f: \rr \to \rr\) is a positive borel function(or integrable), then \(f(X_1)\) and \(f(X_2)\) are still identically distributed.
+
+    \begin{proof}
+    we notic that by the theorem of transfert
+        \[E[f(X_i)] = \int_\rr fdP_{X_i}\]
+    idectical distribution implies \(E[f(X_1)] = E[f(X_2)]\), then we take \(f= 1_A\) with \(A\) a borel se, immediate we get that \(P_{X_1}(A) = P_{X_2}(A)\) for any borel set \(A\), so they are equal.
+    \end{proof}
+\end{proposition}
+
+Now we can conclude the important theorem in probability theory:
+\begin{theorem}[Strong Law] $ \\$
+    Suppose that \((X_i)_{i \in \n}\) is a sequence of independent, idectically distributed and integrable random variables, then for almost every \(w \in \Omega\)
+    \[\frac{S_n(w)}{n} = \frac{(X_1+...+Xn)(w)}{n} \xrightarrow[n \to \infty]{} E[X_0]\]
+    Or we can say the sample mean \(\frac{S_n}{n}\) converges to zero almost surely. 
+\end{theorem}
+
+\begin{corollary}
+    For any borel set \(A\), we have a almost surely convergence
+    \[\frac{{\#}\{i \leq n| X_i(w) \in A\}}{n} \xrightarrow[n \rightarrow \infty]{} P(X_0 \in A)\]
+\end{corollary}
+
+
+
+
+\begin{theorem}[Weak Law] $ \\$
+    Suppose that \((X_i)_{i \in \n}\) is a sequence of independent, idectically distributed and square integrable random variables, then for any \(\epsilon>0\),
+    \[P(|\frac{S_n}{n}-E(X_0)|>\epsilon) \xrightarrow[n \to \infty]{} 0\]
+    Or we can say the sample mean \(\frac{S_n}{n}\) converges t0 \(E[X_0]\) by probability.
+
+    \begin{proof}
+        The proof is immediate via the strong law by convergence. squeare integrable implies integrable by Cauchy-Schwartz inequalit, then the seuqence converges almost surely to \(E[X_0]\), clearly convegent by probability.
+    \end{proof}
+\end{theorem}
+
+
+
+
+
 
 
 

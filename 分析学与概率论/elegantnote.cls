@@ -201,7 +201,7 @@
   \newtheorem{theorem}{Theorem}[section] %
   \newtheorem{lemma}[theorem]{Lemma} %
   \newtheorem{proposition}[theorem]{Proposition} %
-  \newtheorem*{corollary}{Corollary} %
+  \newtheorem{corollary}{Corollary}[theorem] %
   \theoremstyle{definition} %
   \newtheorem{definition}{Definition}[section] %
   \newtheorem{conjecture}{Conjecture}[section] %
