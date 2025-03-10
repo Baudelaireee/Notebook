@@ -1,4 +1,4 @@
-\documentclass[en,geye,blue,pc,12pt]{elegantnote}
+\documentclass[en,geye,blue,normal,12pt]{elegantnote}
 \input{command.tex}
 
 \title{Math remark
@@ -234,7 +234,7 @@ An immediate result is that power series is a holomorphic function, and another 
 \end{corollary}
 
 we can also conclude the \textbf{analytic continuation} about the power series, although it can be got direct from holomorphic function, but the proof here is easy and it gives us the connection.
-\begin{corollary}
+\begin{corollary} \label{analytic continuity series}
     Suppose that \(\powerseries\) and  \(\powerseriesb\) are two power series with the positive raduis \(R_1\) and \(R_2\), if there exists an voisinage of zero \(V\) such that \(\powerseries = \powerseriesb\), then \(a_n = b_n\) for any \(n \in \n\). 
 
     \begin{proof}
@@ -331,9 +331,103 @@ That is an amazing result and also a fundamental theorem for complex analysis, s
     That means for any holomorphic function, we can do expanasion casually.
 \end{remark}
 
+\subsection{Anayltic continuation}
+Notice the corollary \ref{analytic continuity series} we conclude in the previous section, it is an important properties, it claims that the local value of the power series determines the global vaule. In general, two analytic function \(f\) and \(g\), if they are equal in a local voinsinage \(V\), then for any \(x \in V\), there exists a open ball \(B(x,r)\) such that their power series expanasions are equal. The most important things is that \(V\) is not compact, so our open cover \(B(x,r)\) will bring the properties by extending, so \(f\) and \(g\) are actually equal!
+
+The statement above is a little abstract, it is better to draw a picture from a voinsinage \(V\), then see that if we want to let \(f=g\) we just need to consider the point nearly the \(\partial V\)... 
+
+In this section we will prove the analytic continuation, and three other important theorems in complex anaylsis, although they have various methods to porve, but here our inspiration is continuation:
+\[\text{Analytic continuation} \implies \text{Isolated zero} \implies \text{Open mapping} \implies \text{Maximum modulus}\]
+
+\begin{theorem}[analytic continuation]$ \\$
+    Given an \textbf{open and connect} set \(U\) in complex plane, and \(f,g: U \to \cc\) are two holomorphic (analytic) functions. If they are equal in a voinsinage of \(U\), then \(f=g\) in whole \(U\).
+
+    \begin{proof}
+        We let \(S = \{z \in U |f^{(n)}(z) = g^{(n)}(z) \text{ for any} n \in \n \}\), and clearly \(S = \bigcup_{n \in \n}\{z\in U| f^{(n)}(z) = g^{(n)}(z)\}\). It is easy to verify that \(S\) is the intersection of infinite closed sets, so \(S\) is closed.
+
+        \(S\) is also open. We take any \(z_0 \in S\), we notice that \(S\) is a subset of the voinsinage where \(f\) and \(g\) are equal, then by corollary \ref{analytic continuity series}, it implies that they have the same seires in a voinsinage of \(z_0\) contained in \(S\), then clearly \(f^{(n)}(z) = a_n = b_n = g^{(n)}(z)\) in the voinsinage, so that \(S\) must be open. What's more \(S\) is not empty, and \(U\) is connect, so \(U=S\).
+
+    \end{proof}
+\end{theorem}
+
+\begin{remark}
+        We notice that the proof is based on the topological property of the domain \(U\), so the properties of holomorphic is speacial.
+\end{remark}
+
+    One directly result of analytic continuation is the isolated zero theorem, it claims that the zero of a holomorphic function must be discrete:
+
+\begin{theorem}[isolated zero]
+        Suppose that \(U\) is \textbf{an open and connect set} in complex plane, and \(f \in H(U)\) is a non-zero holomorphic function, then\\
+        - If \(z \in U\) such that \(f(z_0) = 0\), then \(f\) can be expended in a neighborhood \(\Omega \subset U\):
+        \[f(z) = (z-z_0)^ng(z)\]
+        where \(g\) is a non-vanishing holomorphic function in \(\Omega\). \\
+        - Any zero \(z_0\) of \(f\), there exists a neighborhood such that \(z_0\) is the unique zero in the neighborhood. \\
+        - The set of all zeros of \(f\) is discrete.
+
+    \begin{proof}
+            If \(z_0\) is a zero, then there exists a expanasion of power series near the \(z_0\) with 
+            \[f(z) = \sum_{k \in \n}a_k(z-z_0)^k, \quad a_0 =0\]
+            So we just take \(n = \min\{i \in \n| a_i \neq 0\}\), then 
+            \[f(z) = (z-z_0)^n\sum_{k \in \n}a_{n+k}z^k\]
+            So we just take \(g(z) = \sum_{k \in \n}a_{n+k}z^k\). It is well-defined since in a small reigon near \(z_0\) and does not contain \(z_0\) we have surely \(g(z) = \frac{f(z)}{(z-z_0)^n}\), then by analytic continuation \(g\) is holomorphic on a samll neighborhood with \(z_0\) in it, and \(g(z_0) = a_n \neq 0\). Hence by continuity, there exists a positive \(r>0\) such that 
+            \[||f(z_0)|-|a_n|| \leq |f(z_0)-a_n| < |a_n| /2\]
+            for any \(z \in B(z_0,r)\), which implies \(|f(z_0)| > |a_n|/2 > 0\) in the reigon, so it is non-vanishing. Just take the intersection of the previous neighborhood and \(B(z_0,r)\), then we get the \(\Omega\) we hope.
+
+            The second statement is immediate from the first statement. For the third, if there exists a limit point \(a\) in the set of zeros, then for any small neighborhood with \(a\) in it, it will conatins infinite other zeros, which contradicts with the second statement.
+    \end{proof}
+\end{theorem}
+
+    With the help of the isolated zero theorem, we can generalize the analytic continuation, locally two holomorphic function are just equal in a non-discrete set:
+
+    \begin{theorem}[strong analytic continuation]
+        Given an \textbf{open and connect} set \(U\) in complex plane, and \(f,g: U \to \cc\) are two holomorphic (analytic) functions. If they are equal in a set \(S \subset U\), and \(U\) admet an accumulation point, then \(f=g\) in \(U\).
+
+        \begin{proof}
+            Just take \(f-g\) as the new holomorphic function in U, notice it will be zero in \(S\) and \(S\) is not discrete, so \(f-g\) must be zero by isolated zero.
+        \end{proof}
+    \end{theorem}
+
+    \begin{remark}
+        An direct result if two holomorphic functions are equal in a non-constant convergent sequence, then they will behave equal globally.
+    \end{remark}
+
+    The other two result is the maximum modulus principle and open mapping theorem.
+
+    \begin{theorem}[open mapping]$ \\$
+        A non-constant holomorphic function defined on \textbf{an open and connect set }must be an open map.
+
+        \begin{proof}
+            Take any \(z_0 \in U\), and we will prove that \(f(z_0) \in f(U)\) must be an interior point. By isolated zero theorem, there exists \(B=B(z_0,r) \subset U\) such that in it we have
+            \[f(z) - f(z_0) = (z-z_0)^ng(z)\]
+            so \(f\) can be written as the composition of the following holomorphic functions:\\
+            - \(u:z \mapsto (z-z_0)g^{1/n}(z)\) from \(B\) to \(\cc\).\\
+            - \(v:z \mapsto z^n\) from \(\cc\) to \(\cc\).\\
+            - \(t:z \mapsto z+f(z_0)\) from \(\cc\) to \(\cc\).\\
+            so \(f = t \circ v \circ u\), we just need to verify the three maps are open, it can be proved via \textbf{the local inversion theorem: if the derivative is not zero at some point, then locally there exists a diffeomorphism, so the image of the point will be an interior.}
+
+            For \(u\) we can compute \(u'(z) = g^{1/n}(z) + \frac{(z-z_0)}{n}g'(z)g^{\frac{1-n}{n}}(z)\), clearly \(u'(z_0) =g^{1/n}(z_0) \neq 0\), and \(u\) is holomorphic so class of \(C^1\), so locally there exists a diffeomorphism between neighborhoods \(U_{z_0}\) and \(V_{u(z_0)}\), so \(u(z_0)\) is a interior point of \(f(B)\).
+
+            For \(v\) the proof is similar if we take \(z_0 \neq 0\) since \(v'(z) = nz^{n-1}\). In the case of \(z_0=0\), we take a enough samll positive \(r>0\), then \(|z| <r\) implies \(|z|^n<r^n\), so \(B(v(0),r) \subset B(0,r^n) = v(B(0,r))\), so \(v\) is open. Finally, \(t\) is clearly open. Thus after composition, \(f\) is open.
+        \end{proof}
+    \end{theorem}
+
+\begin{theorem}[maximum modulus]$ \\$
+    If \(f\) in a non-constant holomorphic function on \textbf{an open and connect set} \(U\), then \(|f|\) can not attain a maximum in \(U\).\\
+    -Weakly, if \(K \subset U\) is a compact set, then \(|f|_K|\) attain the maximum in the boundary:
+    \[\sup_{z \in K}|f(z)| \leq \sup_{\partial K}|f(z)|\]
+
+    \begin{proof}
+        Assume that \(f\) did attain a maximum in \(z_0 \in U\), then we take a small voinsinage of \(x_0\), called \(V\), by open mapping theorem \(f(V)\) must be open with \(f(z_0)\) in it, so there exists \(r>0\) such that \(B(f(z_0),r) \subset f(D)\). We take \(\delta = sign(Re(f(z_0)))\), then \(f(z_0) + \delta\frac{r}{2} \in f(D)\), we denote it \(f(w_0)\), then \(|f(w_0)| > |f(z_0)|\) clearly, which contradicts with the assumption.
+
+        The weakly statement is immediate since \(|f|\) is continous, so \(f(K)\) will be compact in \(\rr\), so \(|f|\) must attain a maximum in \(K\), with the strong statement we know that the maximum can not be in \(int(K)\), so in boundary.
+    \end{proof}
+\end{theorem}
+
+
+
 \subsection{Limit superior and limit inferior}
 A direct question from \textbf{Bolzano-Weierstrass theorem} is that how to determiner the range of the vlaue which the convergent subsequence converges to? Gnenerally, the sequence can be classified into three types: convergent, divergent and oscillation. 
-
+ 
 We take a real sequence \(\an\) and define a set 
 \[A_k = \{a_{k+p} | p \in \n\} \]
 it means a set which cantains the terms of sequence except \(a_0,...,a_{k-1}\), then we define two new sequence by 
@@ -593,6 +687,9 @@ So we can conclude the fundamental theorem of holomorphic function.
         \end{align*}
     \end{proof}
 \end{theorem}
+
+
+
 
 \section{probaility}
 \subsection{Independence}

@@ -1,13 +1,14 @@
-\contentsline {section}{\numberline {1}Genenralisation of several inequalities}{4}{section.1}%
-\contentsline {subsection}{\numberline {1.1}Jense,Hölder,Minkeoski's inequalities}{4}{subsection.1.1}%
-\contentsline {subsection}{\numberline {1.2}Markov, Tchebychev, Cantelli's inequalities}{9}{subsection.1.2}%
-\contentsline {section}{\numberline {2}Classic anaylsis theory and technic}{14}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Power series and analytic function}{14}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}Limit superior and limit inferior}{25}{subsection.2.2}%
-\contentsline {subsection}{\numberline {2.3}Theorem of transfert: algebra of the random variable}{30}{subsection.2.3}%
-\contentsline {section}{\numberline {3}Complex analysis}{34}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Holomorphic Function}{35}{subsection.3.1}%
-\contentsline {section}{\numberline {4}probaility}{41}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Independence}{41}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Convergence}{44}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}Law of large number}{44}{subsection.4.3}%
+\contentsline {section}{\numberline {1}Genenralisation of several inequalities}{3}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Jense,Hölder,Minkeoski's inequalities}{3}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Markov, Tchebychev, Cantelli's inequalities}{5}{subsection.1.2}%
+\contentsline {section}{\numberline {2}Classic anaylsis theory and technic}{7}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Power series and analytic function}{7}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Anayltic continuation}{13}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Limit superior and limit inferior}{16}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Theorem of transfert: algebra of the random variable}{18}{subsection.2.4}%
+\contentsline {section}{\numberline {3}Complex analysis}{21}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Holomorphic Function}{21}{subsection.3.1}%
+\contentsline {section}{\numberline {4}probaility}{24}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Independence}{24}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Convergence}{25}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Law of large number}{25}{subsection.4.3}%

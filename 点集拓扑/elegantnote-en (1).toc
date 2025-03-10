@@ -1,28 +1,28 @@
 \contentsline {section}{\numberline {1}Topology Space}{4}{section.1}%
 \contentsline {subsection}{\numberline {1.1}General definition of topology}{4}{subsection.1.1}%
-\contentsline {subsection}{\numberline {1.2}Classification of the point in Space}{6}{subsection.1.2}%
-\contentsline {subsection}{\numberline {1.3}Continous Map}{7}{subsection.1.3}%
-\contentsline {section}{\numberline {2}Metric Space}{11}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Topological structure of metric space}{12}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}Sequential Caracteristics}{14}{subsection.2.2}%
-\contentsline {subsection}{\numberline {2.3}Comparison of the distance}{17}{subsection.2.3}%
-\contentsline {subsection}{\numberline {2.4}Normed Vector Space}{19}{subsection.2.4}%
-\contentsline {section}{\numberline {3}Complet Space}{21}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Basic properties}{21}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Induced complet space}{23}{subsection.3.2}%
-\contentsline {subsection}{\numberline {3.3}Fixed point Theorem}{24}{subsection.3.3}%
-\contentsline {subsection}{\numberline {3.4}Banach Space}{27}{subsection.3.4}%
-\contentsline {subsubsection}{\numberline {3.4.1}Bounded linear opreators}{29}{subsubsection.3.4.1}%
-\contentsline {subsubsection}{\numberline {3.4.2}several theorems in Banach space}{31}{subsubsection.3.4.2}%
-\contentsline {section}{\numberline {4}Compact Space}{32}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Generalisation}{32}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Basic properties}{33}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}Finite-dimensional normed vector space}{36}{subsection.4.3}%
-\contentsline {section}{\numberline {5}Connect Space}{41}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Generalisation}{41}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}Path Connect}{45}{subsection.5.2}%
-\contentsline {subsection}{\numberline {5.3}Components}{46}{subsection.5.3}%
-\contentsline {section}{\numberline {6}Differentiation Structure}{47}{section.6}%
-\contentsline {subsection}{\numberline {6.1}Differentiatiable functions}{48}{subsection.6.1}%
-\contentsline {subsection}{\numberline {6.2}In Euclidean Space}{53}{subsection.6.2}%
-\contentsline {subsection}{\numberline {6.3}Functions of class C1}{55}{subsection.6.3}%
+\contentsline {subsection}{\numberline {1.2}Classification of the point in Space}{5}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}Continous Map}{6}{subsection.1.3}%
+\contentsline {section}{\numberline {2}Metric Space}{9}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Topological structure of metric space}{9}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Sequential Caracteristics}{11}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Comparison of the distance}{13}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Normed Vector Space}{14}{subsection.2.4}%
+\contentsline {section}{\numberline {3}Complet Space}{15}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Basic properties}{15}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Induced complet space}{17}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Fixed point Theorem}{18}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Banach Space}{20}{subsection.3.4}%
+\contentsline {subsubsection}{\numberline {3.4.1}Bounded linear opreators}{21}{subsubsection.3.4.1}%
+\contentsline {subsubsection}{\numberline {3.4.2}several theorems in Banach space}{23}{subsubsection.3.4.2}%
+\contentsline {section}{\numberline {4}Compact Space}{23}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Generalisation}{23}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Basic properties}{24}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Finite-dimensional normed vector space}{26}{subsection.4.3}%
+\contentsline {section}{\numberline {5}Connect Space}{29}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Generalisation}{29}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Path Connect}{31}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Components}{33}{subsection.5.3}%
+\contentsline {section}{\numberline {6}Differentiation Structure}{33}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Differentiatiable functions}{33}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}In Euclidean Space}{37}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Functions of class C1}{38}{subsection.6.3}%
