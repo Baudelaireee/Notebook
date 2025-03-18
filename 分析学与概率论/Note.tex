@@ -696,8 +696,8 @@ So we can conclude the fundamental theorem of holomorphic function.
 \begin{definition}
     Given a probability space \(\psp\)
     \begin{itemize}
-        \item Two events \(A,B \in \mathcal{T}\) are called independent if \[P(A \cap B) = P(A)P(B)\]
-        \item Two random variable \(X,Y\) are called independent if for any \(A,B \in \mathcal{B}(\rr)\) \[P(X\in A;Y \in B) = P(X \in A)P(Y \in B)\]
+        \item  events \(A_1,A_2,... \in \mathcal{T}\) are called independent if for any \(i \neq j\), \[P(A_i \cap A_j) = P(A_i)P(A_j)\]
+        \item random variables \(X_1,X_2,...\) are called independent if for any \(i \neq j\), \[P(X_i\in A;Xj \in B) = P(X_i \in A)P(X_j \in B) \quad \forall A,B \in \mathcal{B}(\rr)\]
     \end{itemize}
 \end{definition}
 
@@ -739,7 +739,7 @@ Several result can be concluded from the theorem, it refers to some probability 
         \end{align*}
         so clearly \((t,u) \mapsto f_X(t)f_Y(u)\) is the density of \((X,Y)\) since the class \({A \times B}\) generates \(\mathcal{B}(\rr^2)\).
 
-        (3) and (4) are immediate afte caculation.
+        (3) and (4) are immediate after caculation.
     \end{proof}
 \end{corollary}
 
@@ -755,16 +755,18 @@ Several result can be concluded from the theorem, it refers to some probability 
  
 There are a criteria to determine if the random variables are identically distributed after changing variable:
 \begin{proposition}
-    If \(X_1\) and \(X_2\) are two identcially distributed random variable, and \(f: \rr \to \rr\) is a positive borel function(or integrable), then \(f(X_1)\) and \(f(X_2)\) are still identically distributed.
+    If \(X_1\) and \(X_2\) are two independent and identcially distributed random variable, and \(f: \rr \to \rr\) is a positive borel function(or integrable), then \(f(X_1)\) and \(f(X_2)\) are still independent and identically distributed.
 
     \begin{proof}
-    we notic that by the theorem of transfert
+        \textbf{The condition for independence can be that \(f\) is just a borel function.} We just need to verify that for any Borel set \(B\), there exists a borel set \(A\) such that
+        \[(f \circ X)^{-1}(B)= X^{-1}\circ f^{-1}(B) = X^{-1}(A)\]
+        then it is clear. For id. we notic that by the theorem of transfert
         \[E[f(X_i)] = \int_\rr fdP_{X_i}\]
     idectical distribution implies \(E[f(X_1)] = E[f(X_2)]\), then we take \(f= 1_A\) with \(A\) a borel se, immediate we get that \(P_{X_1}(A) = P_{X_2}(A)\) for any borel set \(A\), so they are equal.
     \end{proof}
 \end{proposition}
 
-Now we can conclude the important theorem in probability theory:
+We have same result for the independence of two random variable, Now we can conclude the important theorem in probability theory:
 \begin{theorem}[Strong Law] $ \\$
     Suppose that \((X_i)_{i \in \n}\) is a sequence of independent, idectically distributed and integrable random variables, then for almost every \(w \in \Omega\)
     \[\frac{S_n(w)}{n} = \frac{(X_1+...+Xn)(w)}{n} \xrightarrow[n \to \infty]{} E[X_0]\]
@@ -774,10 +776,11 @@ Now we can conclude the important theorem in probability theory:
 \begin{corollary}
     For any borel set \(A\), we have a almost surely convergence
     \[\frac{{\#}\{i \leq n| X_i(w) \in A\}}{n} \xrightarrow[n \rightarrow \infty]{} P(X_0 \in A)\]
+
+    \begin{proof}
+        Notice that  \({{\#}\{i \leq n| X_i(w) \in A\}} = \sum_{i=0}^n 1_{\{X_i \in A\}}\), so we take \(Y_k = 1_{X_k \in A}\) as the new sequence of random variable, then using the theorem we get that the it will converge to \(E[Y_0]=P(X_0 \in A)\).
+    \end{proof}
 \end{corollary}
-
-
-
 
 \begin{theorem}[Weak Law] $ \\$
     Suppose that \((X_i)_{i \in \n}\) is a sequence of independent, idectically distributed and square integrable random variables, then for any \(\epsilon>0\),
@@ -788,6 +791,8 @@ Now we can conclude the important theorem in probability theory:
         The proof is immediate via the strong law by convergence. squeare integrable implies integrable by Cauchy-Schwartz inequalit, then the seuqence converges almost surely to \(E[X_0]\), clearly convegent by probability.
     \end{proof}
 \end{theorem}
+
+Here we give a theortical application of law of large number. If \(X_1,X_2,X_3\) are independent, then 
 
 
 
