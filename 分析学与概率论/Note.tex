@@ -1,6 +1,6 @@
-\documentclass[en,geye,blue,normal,12pt]{elegantnote}
+\documentclass[en,geye,blue,normal,12pt,bibend=bibtex]{elegantnote}
 \input{command.tex}
-
+ 
 \title{Math remark
 \\ fondation for analysis and probability
 }
@@ -17,6 +17,7 @@
 \tableofcontents
 
 \newpage
+
 %-----------------------------------------------------
 \section{Genenralisation of several inequalities}
 \subsection{Jense,Hölder,Minkeoski's inequalities}
@@ -686,10 +687,201 @@ So we can conclude the fundamental theorem of holomorphic function.
             &= \frac{1}{2}[(\pd{u}{x}- \pd{v}{y})+i(\pd{u}{y}+\pd{v}{x})] 
         \end{align*}
     \end{proof}
+
+    \begin{corollary}
+        For a holomorphic function \(f = u+iv\), we have some details:\\
+        (a) If we see f as a real-value function \(F(x,y)\), then for any defined \(z = x+iy\)
+        \[det J_F(x,y) = |f'(z)|\]
+        (b) \(f'(z) = u_x + iv_x = v_y-iu_y\)
+
+        \begin{proof}
+            The result can be caculated by using C-R equation.
+        \end{proof}
+    \end{corollary}
 \end{theorem}
 
+\newpage
+\section{Functional Anaylsis}
+
+\subsection{Hilbert Space}
+It is boring to talk about the finite-dimensional normed space, that is because each such space can be seen the same with Euclidean space \(\rr^n\) with a certain norm (both in terms of algebraic and topological structures), and functional space is usually a infinite-dmiensional space, so our linear algebra will be not enough (for someone only know martix), that will be the main content in Hilbert space: genenralize the topic about inner product in linear algebra, refine the result with some idea of topology.
+
+Here are some two simple inspiration for the next content. The first is a simple result: \textbf{Any finite-dimension subspace of a normed vector space is closed.} The statement will be not correct if the dimension is infinite, hence we can speculate that some good properties we hope will still hold if the subspace is closed. The second is about duality and dual space, that is a beautiful and strong structure. In finite-dimensional case, a linear map can be seen as a matrix \(M\) and we often talk about its transpose \(M^T\), it appears frequently in a number of topics involving orthogonal groups, but when the dimension is infinite, it is not easy to see them as a matrix and not easy to consider its transpose, so we need a equivalent concept: adjoint operator, it refers to inner product.
+
+Moreover, the good properties about orthogonality s in finite-dimensional vector space is as following: if \(\{e_1,..,e_k\}\) is a orthonormal basis for a vector space \(E\) with a inner product, then for any \(x \in E\) we have a decomposition:
+\[x= \inner{e_1}{x}e_1+...+\inner{e_k}{x} e_k\]
+and its norm will be
+\[\|x\|^2 = |\inner{e_1}{x}|^2+...+|\inner{e_k}{x}|^2\]
+That will be very useful for anaylsis. For example, in fourier anaylsis we usually consider a orthonormal basis \(\{e^{inx}\}_{i \in \mathbb{Z}}\), but in the time of Fourier mathmaticien just know how to expand function as a fourier series:
+\[f \approx \sum_{n \in \zz} \hat{f}(n) e^{inx} \]
+it is diffcult to study the convergence of the series. That is a very classic question, new tool and techinc come from algebra gives a very bright methodology. Here i really suggest reader to read some materials: The chapter 6 of \cite{axler2024linear} it covers complete definition of inner product in finite-dimension space, some techinc will be the same in Hilbert space; The chapter 3, section F of \cite{axler2024linear}, it gives a rough introduction about dual space in the finite-dimension, it is a good motivation and beginning for someone who wants to know duality; First 3 chapters of \cite{stein2011fourier}, it gives a clear motivation about Fourier analysis, and show the diffculties about the topic without advanced tool.
+
+\subsubsection{prerequiste about inner product}
+\begin{definition}
+    An \textit{inner product} on a \(\mathbb{K}\)-vector space \(V\) is a function:
+    \begin{align*}
+        \inner{\cdot}{\cdot}: V \times V \to \mathbb{K} \\
+        (u,v) \mapsto \inner{u}{v}
+    \end{align*} which satisfies following properties:
+
+\textbf{Positivity}: \(\langle v, v \rangle \geq 0\) for all \( v \in V \).
+
+\textbf{Definiteness}: \(\langle v, v \rangle = 0\) if and only if \( v = 0 \).
+
+\textbf{Additivity in first slot}: \(\langle u + v, w \rangle = \langle u, w \rangle + \langle v, w \rangle\) for all \( u, v, w \in V \).
+
+\textbf{Homogeneity in first slot}: \(\langle \lambda u, v \rangle = \lambda \langle u, v \rangle\) for all \( \lambda \in \mathbb{F} \) and all \( u, v \in V \).
+
+\textbf{Conjugate symmetry}: \(\langle u, v \rangle = \overline{\langle v, u \rangle}\) for all \( u, v \in V \).         
+\end{definition}
+
+\begin{remark}
+    When \(\mathbb{K} = \rr\), the inner product is actually a symmetric bilinear form which is positive definite; When \(\mathbb{K} = \cc\), the inner product is actually a Hermitien form which is positive definite.
+\end{remark}
+
+Inner product has a closed relation with norm, each inner product can define a standard norm as following:
+\[\|x\| = \sqrt{\inner{x}{x}}\]
+It is easy to verify that it is a norm (a nice exercise). But for the uniqueness, we will state below:
+\begin{proposition}
+    Inner product defines a norm uniquely up to homeomorphism. More precisely, if \(\inner{\cdot}{\cdot}\) is a inner product of a vector space \(V\), then there exists a natural map \(f: \rr^+ \to \rr^+\) such that \(f(\inner{u}{u})\) defines a norm on \(V\).
+
+    \begin{proof}
+        Firstly, for any \(x = \inner{u}{u}\), and any \(a \in \mathbb{K}\), we have \(f(\inner{au}{au}) = f(|a|^2x) = |a|f(x)\). Notice that f must be continous since \(\inner{u}{u}\) defines a norm, and each norm can be seen as a continous map. Hence we just need to find the possible continous function \(f\) such that \(f(a^2x)=af(x)\) for any \(a,x >0\), it is not diffcult to get that the unique possible is the map with the form \(x \mapsto C\sqrt{x}\). Notice that \(\|x\| = \sqrt{\inner{x}{x}}\) is a norm as we state above, so for any other \(\|x\|_c = c\sqrt{\inner{x}{x}}\) with positive number \(c\), it is still a norm with simple verification. and notice that \(1/M \|x\|_c \leq \|x\| \leq M\|x\|_c\) for \(M \geq \max(c,1/c)\), so the topology they define are equivalent.
+    \end{proof}
+\end{proposition}
+
+According to the standard norm above, we can conclude several properties about inner product:
+
+\begin{proposition}
+    Suppose that \(\innerp\) is a product of a vector space \(V\), then\\
+    (a) \textbf{Cauchy-Schwartz inequality:} \(\inner{x}{y} \leq \|x\|\cdot\|y\|, \quad \forall x, y \in V\)
+    
+    The equality holds if and only if \(x = \lambda y\) with \(\lambda \in \mathbb{K}-\{0\}\).\\
+    (b) \textbf{Pythagore's formula:} for any \(x,y \in V\),
+    \[\|x+y\|^2=  \|x\|^2+ 2\cdot Re(\inner{x}{y})+ \|y\|^2\]
+    (c) \textbf{Parallelogram Indentity:} for any \(x,y \in V\),
+    \[\|x+y\|^2 + \|x-y\|^2 = 2\|x\|^2 + 2\|y\|^2\]
+    \begin{proof}
+        good exercise.
+    \end{proof}
+\end{proposition}
+
+Parallelogram indentity needs an attention here, it is important to determine whether a norm can invite an inner product, the proof is a little complicated.
+
+\begin{theorem}
+    A normed vector space can have inner product structure if and only if the norm satisfies \textbf{Parallelogram identity}. 
+
+    more precisely, for an normed vector space \((V,\|\cdot\|)\) satisfying P.I. we can define inner product as following:\\
+    -If \(V\) is over \(\rr\):
+    \[\inner{x}{y} := \frac{\|x+y\|^2-\|x-y\|^2}{4}\]
+    -If \(V\) is over \(\cc\):
+    \[\inner{x}{y} := \frac{\|x+y\|^2-\|x-y\|^2}{4}-i\cdot \frac{\|x+iy\|^2-\|x-iy\|^2}{4}\]
+
+    \begin{proof}
+        We just need to prove the necessity. It refers to some algebraic caculation so omit some parts. If \(V\) is over \(\rr\), we prove the homogeneity. We fix \(u \in V\) such that \(\phi_u: x \mapsto \inner{x}{u}\). then we need to prove \(\phi_u(kx)=k\phi_u(x)\) for any \(k \in \rr\), it is easy to observe that \(\phi_u\) is a continuous map since \(\|\cdot\|\) is continous. Moreover, we can prove the additivity: \(\phi_u(x+y)=\phi_u(x)+\phi_u(y)\), then by the two propeties (conitinous and additivity), \(\phi_u\)  is homogenous automatically.
+
+        If \(V\) is over \(\cc\), similarly...
+    \end{proof}
+\end{theorem}
+
+Orthogonality is a core concept in inner product, it involves the algebraic treatment of the geometric concept of perpendicularity. here are some vocabulary:
+
+\begin{definition}
+    \(\innerp\) is the inner product of a vector space.
 
 
+    -\textbf{orthogonal}: we call two vector \(x,y \in V\) is orthogonal if 
+    \[\inner{x}{y}=0\]
+    or equiavlently, it satisfying \(\|x+y\|^2=\|x\|^2+\|y\|^2\).
+
+
+    -\textbf{orthonormal list}: a set of vector \(\{e_i\}_{i \in I}\) is a orthonormal list if for any \(m,n \in I\)
+    \[\inner{e_m}{e_n} = \delta_{m,n}\]
+    In particular if the list spans the vector space, we call it \textbf{orthonormal base}.
+
+    -\textbf{orthogonal complement}: for a non-empty subset \(U \subset V\), the orthogonal complement of U is defined by a vector space\textbf{(needs a verfication!)} as following:
+    \[U^\perp := \{u\in V |\inner{u}{v}=0 \quad \forall v \in V \}\]
+\end{definition}
+
+There exists a classic method to generate a orthonormal list according to a given linearly independent list or a base, it is called \textbf{Gram-Schmidt procedure}.
+
+\begin{proposition}
+    
+\end{proposition}
+
+Finally we discuss the orthogonal projection, it refers to the decompostition of the space, which will be fundamental if we have base function.
+
+\begin{theorem}[Existence and Uniqueness of projection] $ \\$
+    Suppose that \(F\) is a closed and convex subset of a vector space \(V\) with a inner product \(\innerp\), that for any \(x\in V\) there exists a unique vector \(x_F\) such that
+    \[\|x-x_F\| = d(x,F) := \inf_{y \in F}\|x-y\|\]
+
+    \begin{proof}
+        equivalently, we just need to prove the set \(S = \{\|x-y\|:y\in F\}\) is closed, then clearly a such vector \(x_F\) will exist by \textbf{Supremum Property} of the real number.
+
+        such vector is unique, we just suppose that there exists another vector \(x' \in F\) such that \(\|x-x'\|=d(x,F)\), then by parallegoram equality, we will have
+        \[\|2x-x_F-x'\|^2+\|x'-x_F\|^2 = 2\|x-x_F\|^2+2\|x-x'\|^2=4d^2(x,F)\]
+        then rewrite it we have
+        \[\|x'-x_F\|=4d^2(x,F)-4\|x-\frac{x_F+x'}{2}\|^2\leq 0\]
+        So immediately \(x_F=x'\)
+    \end{proof}
+\end{theorem}
+
+Notice that the uniqueness depends on the inner product, for the generla normed space we cant conclude the uniqueness although the existence still holds. With the theorem it makes sense to give orthogonal projection a the formal definition\textbf{(Notice that a subspace is indeed convex)}:
+\begin{definition}
+    Give a closed subspace \(F \subset V\), the (orthogonal) projection of some \(x \in V\) on \(F\) is a vector \(P_F(x)\) satisfies
+    \[\|x-P_F(x)\| = \min_{y\in F} \|x-y\|\]
+    or equivalently\textbf{(needs a proof)}
+    \[\inner{x-P_F(x)}{y}=0 \quad \forall y \in F\]
+\end{definition}
+
+Accoding to these properties we can conclude the fundamental decomposition accodring to the orthogonality:
+\begin{theorem}
+    \(F\) is a closed of vector space \(V\), then
+    \[F \oplus F^\perp = V\]
+
+    \begin{proof}
+        It is immediately if we write any \(x \in V\) as the form:
+        \[P_F(x) + (x-P_F(x))  = x\]
+    \end{proof}
+\end{theorem}
+So it makes sense to consider projection map
+\[P_F: V \to F, x \mapsto P_F(x)\]
+Here are its properties:
+\begin{proposition}
+    \(F\) is a closed subspace of vector space \(V\).\\
+    (a) \(P_F\) is a linear map in \(\mathcal{L}(V) \) \(\).\\
+    (b) \(P_F\) is continous.\\
+    (c) \(P_F\) is surjective with \(P_F(x)=x\) for any \(x \in F\).\\
+    (f) \(\mathrm{Im}P_F  \oplus \ker P_F = V\)\\
+    (d) \(P_F\circ P_F = P_F\)\\
+    (e) \(P_F\) is a self-adjoint opreator, i.e. for any \(x,y \in V\)
+    \[\inner{P_F(x)}{y} = \inner{x}{P_F(y)}\]
+    notice that if \(\dim V <+\infty\) and \(M =[P_F]_\mathcal{B} \), the condition is same with \(\overline{M^T}=M\).
+\end{proposition}
+
+With the baisc knowledge we can now formally define the hilbert space:
+\begin{definition}
+    \((H,\innerp)\) is a \textbf{pre-hilbert space} if \(H\) is a inner product space over \(\rr\) or \(\cc\); if the a pre-hilbertspace is complete under the standard norm \(\|x\|=\sqrt{\inner{x}{x}}\), then it is a \textbf{hilbert space}.
+\end{definition}
+
+\begin{example}
+    Consider the case when \(H = \cc\), complex number forms a complet space by the modulus \(\|z\|^2 =z\zbar\), so we can deine in it \(\inner{x}{y} = x\overline{y} \). And we can generalize it for \(H = \cc^n\), it gives \textbf{general Euclidean space} with the inner product:
+    \[\inner{x}{y} = x_1\overline{y_1}+...+x_n\overline{y_n}\]
+    It is the classic case of hilbert space.
+\end{example}
+
+\begin{example}
+    \(L^p\) space is a hilbert space only if \(p = 2\), since its norm must satisfy the parallegoram indentity, so we take two disjoint and finite measurable set \(A\) and \(B\), then consider \(f = 1_{A}\) and \(g = 1_{B}\), then by indentity:
+    \[ |\mu(A)|^{2/p}+ |\mu(B)|^{2/p} = |\mu(A)+\mu(B)|^{2/p}\]
+    If \(p\) is finite, the equality holds only if \(p =2\). For \(p = + \infty\), same identity we have the contradiction:
+    \[2\|f\|_{\infty}^2  + 2\|g\|_{\infty}^2 = 4 \neq 2 = \|f+g\|_{\infty}^2 + \|f-g\|_{\infty}^2\]
+    In the case \(p=2\) we can define inner product on \(L^2 \msp\) space by
+    \[\inner{f}{g} = \int_X = f \overline{g} d\mu \]
+\end{example}
+
+\subsubsection{Hilbert base}
+
+\newpage 
 
 \section{probaility}
 \subsection{Independence}
@@ -744,6 +936,39 @@ Several result can be concluded from the theorem, it refers to some probability 
 \end{corollary}
 
 \subsection{Convergence}
+The convergence of the sequence of random variable is realted to functional sequence, we can classfiy different types of convergence, they are very delicated.
+
+\begin{definition}
+    Given a sequence of random variable \((Y_n)_{n \in \n}\) of \(\psp\), and \(p \geq 1\):
+    \begin{itemize}
+        \item \((Y_n)_{n \in \n}\) converges to \(Y\) \textbf{by norme} \(L^p\) if \[\|Y_n-Y\|_p \xrightarrow[n \rightarrow \infty]{} 0\]
+        \item \((Y_n)_{n \in \n}\) converges to \(Y\) \textbf{by measure} (probability) if \[\ \forall c>0, \quad P(|Y_n-Y|>c) \xrightarrow[n \rightarrow \infty]{} 0 \]
+        \item \((Y_n)_{n \in \n}\) converges to \(Y\) \textbf{almost surely} if \[ \text{for almost every } w \in \Omega, \quad Y_n(w) \xrightarrow[n \rightarrow \infty]{} Y(w)\]
+        \item \((Y_n)_{n \in \n}\) converges to \(Y\) \textbf{en loi} if for any continous bounded function \(f: \rr \to \rr\): \[E[f(Y_n)] \xrightarrow[n \rightarrow \infty]{} E[f(Y)] \]
+        
+    \end{itemize}
+\end{definition}
+
+\begin{proposition}[Implication of the convergence]
+\[
+\begin{tikzcd}
+    {L^\infty} && {L^q} && {L^p} \\
+    \\
+    {a.s.} &&&& {\text{by measure}} && {\text{en loi}}
+    \arrow[Rightarrow, "{(a)}", from=1-1, to=1-3]
+    \arrow[Rightarrow, "{(d)}"', from=1-1, to=3-1]
+    \arrow[Rightarrow, "{(b)}", from=1-3, to=1-5]
+    \arrow[Rightarrow, "{(c)}", from=1-5, to=3-5]
+    \arrow[Rightarrow, "{(e)}"', from=3-1, to=3-5]
+    \arrow[Rightarrow, "{(f)}"', from=3-5, to=3-7]
+\end{tikzcd}
+\] where \(1 \leq p \leq q \leq \infty\) 
+
+\begin{proof}
+    (a) 
+\end{proof}
+\end{proposition}
+
 
 \subsection{Law of large number}
 
@@ -794,13 +1019,8 @@ We have same result for the independence of two random variable, Now we can conc
 
 Here we give a theortical application of law of large number. If \(X_1,X_2,X_3\) are independent, then 
 
+\newpage 
 
-
-
-
-
-
-
-
+\printbibliography
 
 \end{document}

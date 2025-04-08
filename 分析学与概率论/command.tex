@@ -7,10 +7,13 @@ amsfonts,% defines the blackboard bold fonts for \Z, \R, etc
 \usepackage{bbm}
 \usepackage[all,cmtip]{xy}
 \usepackage{amssymb}
+\usepackage{tikz-cd}
 \renewcommand\qedsymbol{$\blacksquare$}
+
 
 \newcommand{\rr}{\mathbb{R}}
 \newcommand{\kk}{\mathbb{K}}
+\newcommand{\zz}{\mathbb{Z}}
 \newcommand{\msp}{(X,\mathcal{E} ,\mu)}
 \newcommand{\psp}{(\Omega ,\mathcal{T}   ,P)}
 \newcommand{\cc}{\mathbb{C}}
@@ -18,7 +21,9 @@ amsfonts,% defines the blackboard bold fonts for \Z, \R, etc
 
 %微分算符
 \newcommand{\pd}[2]{\frac{\partial #1}{\partial #2}}
-
+%内积
+\newcommand{\inner}[2]{\left\langle #1,\, #2 \right\rangle}
+\newcommand{\innerp}{\inner{\cdot}{\cdot}}
 
 
 
