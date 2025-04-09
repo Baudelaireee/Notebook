@@ -716,7 +716,7 @@ That will be very useful for anaylsis. For example, in fourier anaylsis we usual
 \[f \approx \sum_{n \in \zz} \hat{f}(n) e^{inx} \]
 it is diffcult to study the convergence of the series. That is a very classic question, new tool and techinc come from algebra gives a very bright methodology. Here i really suggest reader to read some materials: The chapter 6 of \cite{axler2024linear} it covers complete definition of inner product in finite-dimension space, some techinc will be the same in Hilbert space; The chapter 3, section F of \cite{axler2024linear}, it gives a rough introduction about dual space in the finite-dimension, it is a good motivation and beginning for someone who wants to know duality; First 3 chapters of \cite{stein2011fourier}, it gives a clear motivation about Fourier analysis, and show the diffculties about the topic without advanced tool.
 
-\subsubsection{prerequiste about inner product}
+\subsubsection{Prerequiste about inner product}
 \begin{definition}
     An \textit{inner product} on a \(\mathbb{K}\)-vector space \(V\) is a function:
     \begin{align*}
@@ -945,7 +945,7 @@ The convergence of the sequence of random variable is realted to functional sequ
         \item \((Y_n)_{n \in \n}\) converges to \(Y\) \textbf{by measure} (probability) if \[\ \forall c>0, \quad P(|Y_n-Y|>c) \xrightarrow[n \rightarrow \infty]{} 0 \]
         \item \((Y_n)_{n \in \n}\) converges to \(Y\) \textbf{almost surely} if \[ \text{for almost every } w \in \Omega, \quad Y_n(w) \xrightarrow[n \rightarrow \infty]{} Y(w)\]
         \item \((Y_n)_{n \in \n}\) converges to \(Y\) \textbf{en loi} if for any continous bounded function \(f: \rr \to \rr\): \[E[f(Y_n)] \xrightarrow[n \rightarrow \infty]{} E[f(Y)] \]
-        
+        \item \((Y_n)_{n \in \n}\)  \textbf{locally converges} to \(Y\) if there exists a subsequence \(Y_{\varphi(n)}\) almost surely convering to \(Y\).     
     \end{itemize}
 \end{definition}
 
@@ -954,13 +954,14 @@ The convergence of the sequence of random variable is realted to functional sequ
 \begin{tikzcd}
     {L^\infty} && {L^q} && {L^p} \\
     \\
-    {a.s.} &&&& {\text{by measure}} && {\text{en loi}}
+    {a.s.} && {\text{locally}} && {\text{by measure}} && {\text{en loi}}
     \arrow[Rightarrow, "{(a)}", from=1-1, to=1-3]
     \arrow[Rightarrow, "{(d)}"', from=1-1, to=3-1]
     \arrow[Rightarrow, "{(b)}", from=1-3, to=1-5]
     \arrow[Rightarrow, "{(c)}", from=1-5, to=3-5]
-    \arrow[Rightarrow, "{(e)}"', from=3-1, to=3-5]
-    \arrow[Rightarrow, "{(f)}"', from=3-5, to=3-7]
+    \arrow[Rightarrow, "{(e)}"', from=3-1, to=3-3]
+    \arrow[Rightarrow, "{(f)}"', from=3-3, to=3-5]
+    \arrow[Rightarrow, "{(g)}"', from=3-5, to=3-7]
 \end{tikzcd}
 \] where \(1 \leq p \leq q \leq \infty\) 
 
@@ -968,6 +969,33 @@ The convergence of the sequence of random variable is realted to functional sequ
     (a) 
 \end{proof}
 \end{proposition}
+
+\subsubsection{Stlutsky's theorem}
+\begin{theorem}
+    Given two sequences of random variable \(X_n\) and \(Y_n\) on \(\rr^d\) and \(\rr^m\) respectively. If \(X_n\) converge en loi to \(X\) and \(Y_n\) converge by probability to a constant \(c\), then couple \((X_n, Y_n)\) converge en loi to the couple \((X,c)\)
+
+    \begin{proof}
+        
+    \end{proof}
+
+\end{theorem}
+
+Just choice suitable bounded and continous function \(f\) then immediately we have below strong result, it is more useful:
+\begin{corollary}
+    In the same case we can conclude that \\
+    (1) The r.v. sequence \(X_n+Y_n\) converges en loi to \(c+X\).\\
+    (2) The r.v. sequence \(X_nY_n\) converges en loi to \(cX\).
+\end{corollary}
+
+\subsubsection{characteristic function}
+We notice that the convergence of the r.v. sequence is essentially the convergence of the sequence of functions. A classic techinc is from fourier analysis and integral transform, which allows equivalently determine the convergence of the functions after transform.
+
+\begin{definition}[characteristic function] $ \\$
+    For a random variable \(X: \Omega \to \rr\), its characteristic function is the Fourier transform of its loi (probability measure by image):
+    \[\varphi_X(t) :=  \mathcal{F}(P_X)(t) = E[e^{itX}]\]
+\end{definition}
+
+
 
 
 \subsection{Law of large number}
@@ -1010,14 +1038,53 @@ We have same result for the independence of two random variable, Now we can conc
 \begin{theorem}[Weak Law] $ \\$
     Suppose that \((X_i)_{i \in \n}\) is a sequence of independent, idectically distributed and square integrable random variables, then for any \(\epsilon>0\),
     \[P(|\frac{S_n}{n}-E(X_0)|>\epsilon) \xrightarrow[n \to \infty]{} 0\]
-    Or we can say the sample mean \(\frac{S_n}{n}\) converges t0 \(E[X_0]\) by probability.
+    Or we can say the sample mean \(\frac{S_n}{n}\) converges to \(E[X_0]\) by probability.
 
     \begin{proof}
         The proof is immediate via the strong law by convergence. squeare integrable implies integrable by Cauchy-Schwartz inequalit, then the seuqence converges almost surely to \(E[X_0]\), clearly convegent by probability.
     \end{proof}
 \end{theorem}
 
-Here we give a theortical application of law of large number. If \(X_1,X_2,X_3\) are independent, then 
+\textbf{Notice that the condition of integrable random variable is important, that means that \(E(|X|) < +\infty\), it makes sense to talk about the law of grand number if the experence is finite.} Here we give a theortical application of law of large number. If \(X_1,X_2,X_3\) are independent, then...
+
+\subsection{Central limite theorem}
+As its name, CLT shows that the sum of large numbers of independent random variable nearly subjects to the normal disrtibution (Guass distribution). We will prove this theorem via the characteristic function. 
+\begin{lemma}
+    Suppose that \(Z {\sim}\normal{0}{1}\) is a random variable subjecting to the standard normal distribution, then its characteristic function will be
+    \[\varphi_Z(t) = e^{-t^2/2}  \]
+    Gnenerally if \(Y \sim \normal{\mu}{\sigma^2}\) is an other random vraible sujecting to a normal distrbution, then its characteristic function will be 
+    \[\varphi_Y(t) =  e^{it\mu - \frac{\sigma}{2}t^2}\]
+
+    \begin{proof}
+        wait....
+    \end{proof}
+\end{lemma}
+
+With the help of the lemma we can prove CLT. Notice that the convergence of the characteristic function will reflect the convergence of the distribution, accoring to theorem of Levy.
+
+\begin{theorem}
+    In a probability space \(\psp\), let \((X_n)_{n \in \n}\) be a sequence of random vraiable which staifies:
+    \\(1) \(X_n\) is independent and identaically distributed.
+    \\(2) \(X_n \in L^2(\Omega)\) squeare integrable.
+    \\(3) \(V(X_n) \neq 0\)
+    \\Then For the sum of random variable \(S_n = \sum_{k=1}^{n}X_k\), we have convergence en loi:
+    \[\frac{\sqrt{n}}{\sigma(X_0)} \left( \frac{S_n}{n} - \mathbb{E}(X_0) \right) \xrightarrow[n \rightarrow \infty]{\text{en loi}} X \sim \normal{0}{1}\]
+    In particular, for any interval \([a,b] \subset \rr\) we have the convergence about the probability:
+    \[
+P\left(
+a \leq \frac{\sqrt{n}}{\sigma(X_0)} \left( \frac{S_n}{n} - \mathbb{E}(X_0) \right) \leq b
+\right)
+\xrightarrow[n \to \infty]{} 
+\frac{1}{\sqrt{2\pi}} \int_a^b e^{-x^2/2} \, dx.
+\]
+
+\begin{proof}
+    
+\end{proof}
+\end{theorem}
+
+Usually we take a sequence with zero experence, then we have a elegant formula:
+\[\frac{S_n}{\sqrt{n}} \xrightarrow[n \rightarrow \infty]{\text{en loi}} X \sim \normal{0}{V(X_0)}\]
 
 \newpage 
 

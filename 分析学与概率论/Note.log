@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.12.8)  8 APR 2025 19:14
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.12.8)  9 APR 2025 22:12
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1196,27 +1196,27 @@ LaTeX Font Info:    Font shape `TU/texgyretermes(0)/m/it' will be
 (Font)              scaled to size 8.0pt on input line 946.
 LaTeX Font Info:    Font shape `TU/texgyretermes(0)/m/it' will be
 (Font)              scaled to size 6.0pt on input line 946.
- [32] [33] [34]
+ [32] [33] [34] [35] [36]
 LaTeX Font Info:    Font shape `TU/texgyretermes(0)/m/it' will be
-(Font)              scaled to size 10.0pt on input line 1024.
- [35] (./Note.aux)
+(Font)              scaled to size 10.0pt on input line 1091.
+ [37] (./Note.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2020/03/25>
  ***********
 Package rerunfilecheck Info: File `Note.out' has not changed.
-(rerunfilecheck)             Checksum: C5EB406F2BA0A8BB0A2AA2B43C9132ED;3387.
+(rerunfilecheck)             Checksum: DB4FCFB6DA3060CC69AF771D31A4BB57;3908.
 Package logreq Info: Writing requests to 'Note.run.xml'.
 \openout1 = `Note.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 38310 strings out of 474773
- 761563 string characters out of 5761289
+ 38323 strings out of 474773
+ 761869 string characters out of 5761289
  1939842 words of memory out of 5000000
- 59830 multiletter control sequences out of 15000+600000
+ 59843 multiletter control sequences out of 15000+600000
  567757 words of font info for 108 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  99i,17n,107p,1866b,4640s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on Note.pdf (35 pages).
+Output written on Note.pdf (37 pages).

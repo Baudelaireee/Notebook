@@ -10,9 +10,12 @@
 \contentsline {subsection}{\numberline {3.1}Holomorphic Function}{21}{subsection.3.1}%
 \contentsline {section}{\numberline {4}Functional Anaylsis}{25}{section.4}%
 \contentsline {subsection}{\numberline {4.1}Hilbert Space}{25}{subsection.4.1}%
-\contentsline {subsubsection}{\numberline {4.1.1}prerequiste about inner product}{26}{subsubsection.4.1.1}%
+\contentsline {subsubsection}{\numberline {4.1.1}Prerequiste about inner product}{26}{subsubsection.4.1.1}%
 \contentsline {subsubsection}{\numberline {4.1.2}Hilbert base}{30}{subsubsection.4.1.2}%
 \contentsline {section}{\numberline {5}probaility}{31}{section.5}%
 \contentsline {subsection}{\numberline {5.1}Independence}{31}{subsection.5.1}%
 \contentsline {subsection}{\numberline {5.2}Convergence}{32}{subsection.5.2}%
-\contentsline {subsection}{\numberline {5.3}Law of large number}{33}{subsection.5.3}%
+\contentsline {subsubsection}{\numberline {5.2.1}Stlutsky's theorem}{33}{subsubsection.5.2.1}%
+\contentsline {subsubsection}{\numberline {5.2.2}characteristic function}{33}{subsubsection.5.2.2}%
+\contentsline {subsection}{\numberline {5.3}Law of large number}{34}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}Central limite theorem}{35}{subsection.5.4}%
