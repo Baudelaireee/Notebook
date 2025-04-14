@@ -9,11 +9,11 @@
 \contentsline {subsection}{\numberline {2.4}Normed Vector Space}{14}{subsection.2.4}%
 \contentsline {section}{\numberline {3}Complet Space}{15}{section.3}%
 \contentsline {subsection}{\numberline {3.1}Basic properties}{15}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Induced complet space}{17}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.2}Induced complet space}{16}{subsection.3.2}%
 \contentsline {subsection}{\numberline {3.3}Fixed point Theorem}{18}{subsection.3.3}%
 \contentsline {subsection}{\numberline {3.4}Banach Space}{20}{subsection.3.4}%
 \contentsline {subsubsection}{\numberline {3.4.1}Bounded linear opreators}{21}{subsubsection.3.4.1}%
-\contentsline {subsubsection}{\numberline {3.4.2}several theorems in Banach space}{23}{subsubsection.3.4.2}%
+\contentsline {subsubsection}{\numberline {3.4.2}several theorems in Banach space}{22}{subsubsection.3.4.2}%
 \contentsline {section}{\numberline {4}Compact Space}{23}{section.4}%
 \contentsline {subsection}{\numberline {4.1}Generalisation}{23}{subsection.4.1}%
 \contentsline {subsection}{\numberline {4.2}Basic properties}{24}{subsection.4.2}%

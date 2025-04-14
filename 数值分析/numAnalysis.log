@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.12.8)  4 JAN 2025 09:40
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.12.8)  13 APR 2025 13:28
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -920,8 +920,7 @@ LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 ))
 \@quotelevel=\count492
 \@quotereset=\count493
-
-No file numAnalysis.aux.
+ (./numAnalysis.aux)
 \openout1 = `numAnalysis.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 11.
@@ -934,7 +933,7 @@ LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 11.
 LaTeX Font Info:    ... okay on input line 11.
 LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 11.
 LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 11.
-(c:/texlive/2024/texmf-dist/tex/latex/base/ts1cmr.fd
+ (c:/texlive/2024/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 )
 LaTeX Font Info:    ... okay on input line 11.
@@ -966,15 +965,14 @@ No file numAnalysis.bbl.
 Package biblatex Info: Reference section=0 on input line 11.
 Package biblatex Info: Reference segment=0 on input line 11.
 Package hyperref Info: Link coloring ON on input line 11.
+(./numAnalysis.out) (./numAnalysis.out)
 \@outlinefile=\write5
 \openout5 = `numAnalysis.out'.
-
-
-Package hyperref Warning: Rerun to get /PageLabels entry.
 
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
+
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
 *geometry* verbose mode - [ preamble ] result:
@@ -1042,14 +1040,7 @@ Overfull \hbox (20.0655pt too wide) detected at line 172
 \OML/cmm/m/it/12 LDV \OT1/cmr/m/n/12 = [] [] []
  []
 
-[7] [8] [9]
-
-LaTeX Warning: Reference `eq:explicit_scheme' on page 10 undefined on input line 216.
-
-
-LaTeX Warning: Reference `eq:explicit_scheme' on page 10 undefined on input line 223.
-
-[10]
+[7] [8] [9] [10]
 Missing character: There is no ， (U+FF0C) in font [texgyretermes-regular.otf]/OT:script=latn;language=dflt;mapping=tex-text;!
 [11]
 File: fig/stable.png Graphic file (type bmp)
@@ -1058,18 +1049,7 @@ File: fig/stable.png Graphic file (type bmp)
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-
-LaTeX Warning: Reference `eq:explicit_scheme' on page 12 undefined on input line 257.
-
-[12]
-
-LaTeX Warning: Reference `eq:explicit_scheme' on page 13 undefined on input line 272.
-
-[13] [14]
-
-LaTeX Warning: Reference `eq:implicit_scheme' on page 15 undefined on input line 299.
-
-[15]
+[12] [13] [14] [15]
 LaTeX Font Info:    Font shape `TU/texgyretermes(0)/m/n' will be
 (Font)              scaled to size 8.0pt on input line 318.
 LaTeX Font Info:    Font shape `TU/texgyretermes(0)/m/n' will be
@@ -1081,33 +1061,22 @@ L3 programming layer <2020/03/25>
  ***********
 
 
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-
 Package rerunfilecheck Warning: File `numAnalysis.out' has changed.
 (rerunfilecheck)                Rerun to get outlines right
 (rerunfilecheck)                or use package `bookmark'.
 
 Package rerunfilecheck Info: Checksums for `numAnalysis.out':
-(rerunfilecheck)             Before: <no file>
+(rerunfilecheck)             Before: EFB0744DD1AE79C994813A01EDC4D1A6;1671
 (rerunfilecheck)             After:  0B5E4F32F640B01485021AEFE930E27A;1660.
-
-Package biblatex Warning: Please (re)run Biber on the file:
-(biblatex)                numAnalysis
-(biblatex)                and rerun LaTeX afterwards.
-
 Package logreq Info: Writing requests to 'numAnalysis.run.xml'.
 \openout1 = `numAnalysis.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 34270 strings out of 474773
- 690904 string characters out of 5761289
- 1934842 words of memory out of 5000000
- 55892 multiletter control sequences out of 15000+600000
+ 34280 strings out of 474773
+ 691047 string characters out of 5761289
+ 1935842 words of memory out of 5000000
+ 55896 multiletter control sequences out of 15000+600000
  565881 words of font info for 92 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  99i,13n,107p,680b,803s stack positions out of 10000i,1000n,20000p,200000b,200000s

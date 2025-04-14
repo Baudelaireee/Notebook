@@ -1,6 +1,7 @@
 \documentclass[en,geye,blue,normal,12pt,bibend=bibtex]{elegantnote}
 \input{command.tex}
- 
+\everymath{\displaystyle}
+
 \title{Math remark
 \\ fondation for analysis and probability
 }
@@ -883,7 +884,7 @@ With the baisc knowledge we can now formally define the hilbert space:
 
 \newpage 
 
-\section{probaility}
+\section{Probability}
 \subsection{Independence}
 \begin{definition}
     Given a probability space \(\psp\)
@@ -995,9 +996,49 @@ We notice that the convergence of the r.v. sequence is essentially the convergen
     \[\varphi_X(t) :=  \mathcal{F}(P_X)(t) = E[e^{itX}]\]
 \end{definition}
 
+Here are some basic properties of characteristic function:\\
+(1) \(\varphi : \rr \to \cc\) is a continous and bounded function:
+\[|\varphi_X(t)| \leq  E[|e^{itX}|] \leq 1\]
+(2) \(\varphi_X(0) = 1\).\\
+(3) If \(X \in L^p(\Omega)\), then \(\varphi_X \in C^p(\rr)\) with a good derivative at \(t=0\):
+\[\varphi_X'(0) = iE(X), \quad \varphi_X''(0) = -E(X^2)\]
 
+The proof is based in the integral by parameter. Notice that if \(X\) is a discrete random, then its characteristic function will still be continous and even differentiable, and the differentiation allow us to do carefully analysis.  
 
+\begin{proposition}
+    Two random variables \(X\) and \(Y\) are identically distributed if and only if they have the smae characteristic function: \(\varphi_X = \varphi_Y\).
 
+    \begin{remark}
+        The sufficence is claerly since \(P_X = P_Y\) means they will define the same measure on a real measurable space. We will not prove the necessity directly since it will be a immediate result from Levy's convergence theorem and that will be the core of the section.
+    \end{remark}
+\end{proposition}
+
+We rewrite the definition of the convergence en loi by transfert theorem:
+\[E[f(X_n)] \xrightarrow[\rightarrow + \infty]{} E[f(X)]\]
+which will be equivalent to
+\[\int_\Omega f dP_{X_n} \xrightarrow[\rightarrow + \infty]{} \int_\Omega f dP_{X} \]
+That means the convergence depends on the measure invited by the sequence of random variable \(X_n\), specially if we take \(f(x) = e^{itx}\) we will obtain the convergence:
+\[\varphi_{X_n}(t) \xrightarrow[\rightarrow + \infty]{} \varphi_{X}(t), \quad \forall t \in \rr\]
+or using the language of the Fourier transform:
+\[\hat{P_X}(t) \xrightarrow[\rightarrow + \infty]{} \hat{P_X}(t), \quad \forall t \in \rr\]
+Notice there the form of function \(f\) does not satisfy the definition of the convergence en loi, so deeply it refers to prove the equivalence of two method of convergence about measure:
+
+\begin{lemma}
+    Suppose that \(\mu\) and \((\mu)_{n \in \n}\) are probability measure on a real measurable space \((\rr, \mathcal{B}(\rr))\), then following statements are equiavlent:
+    \begin{align*}
+        \text{(a)}\quad &\displaystyle \int_\Omega f\, d\mu_n \xrightarrow[n \to \infty]{} \int_\Omega f\, d\mu &&\text{for any continuous and bounded function } f : \mathbb{R} \to \mathbb{R}, \\
+        \text{(b)}\quad &\displaystyle \int_\Omega f\, d\mu_n \xrightarrow[n \to \infty]{} \int_\Omega f\, d\mu &&\text{for any } f \in C^\infty(\mathbb{R}) \text{ with compact support}, \\
+        \text{(c)}\quad &\hat{\mu}_n \xrightarrow[n \to \infty]{} \mu &&\text{for any } t \in \rr.
+    \end{align*}
+    \begin{proof}
+        
+    \end{proof}
+\end{lemma}
+
+Then we can conclude an method to determiner the convergence of random variable, which is different Stlusky's theorem, and usually more useful to handle the case if the random variable is exactly given:
+\begin{theorem}[Levy] $ \\$
+    \[X_n \xrightarrow{\text{en loi}} X_n \iff \varphi_{X_n} \xrightarrow{\forall t \in \rr}\varphi_X\]
+\end{theorem}
 \subsection{Law of large number}
 
 \begin{definition}
@@ -1083,7 +1124,7 @@ a \leq \frac{\sqrt{n}}{\sigma(X_0)} \left( \frac{S_n}{n} - \mathbb{E}(X_0) \righ
 \end{proof}
 \end{theorem}
 
-Usually we take a sequence with zero experence, then we have a elegant formula:
+Usually we take a sequence with zero experence, then we have an elegant formula:
 \[\frac{S_n}{\sqrt{n}} \xrightarrow[n \rightarrow \infty]{\text{en loi}} X \sim \normal{0}{V(X_0)}\]
 
 \newpage 
