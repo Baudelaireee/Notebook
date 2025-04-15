@@ -1,5 +1,5 @@
 \section{Pre}
-\input{content/command.tex}
+
 
 \begin{theorem}[Dirichlet's unit theorem] $\\$
     Let \(K\) be a number field with \(r\) real embeddings and \(s\) pairs complex embeddings, and let \(\mathcal{O}_K\) be its integer ring, then its unit group has isomorphic structure:
@@ -23,7 +23,7 @@ Then we prove some properties of the field:
 
 
     \begin{proof}
-        Firstly we suppose that \(\sigma: \qqq \to \cc \) is a field embedding, then surely \(\sigma(1)=1\). Let \(f(X) = X^3-2\) be a polynoimal, and notice that \(f(\theta) = 0\), then
+        Firstly we suppose that \(\sigma: \qqq \hookrightarrow  \cc \) is a field embedding, then surely \(\sigma(1)=1\). Let \(f(X) = X^3-2\) be a polynoimal, and notice that \(f(\theta) = 0\), then
         \[0 = \sigma(f(\theta)) = f(\sigma(\theta))\]
         Clearly \(\sigma(\theta)\) must be the root of \(f\) in \(\cc\), so we can conclude the roots are \(\theta, \theta w , \theta w^2\), where \(w = e^{2i\pi /3}\). Hence the unique real embedding is \(\sigma=id\) and there are two conjugate complex embedding.
 
@@ -62,5 +62,5 @@ with \(\theta ^3= 2\) we can rewrite it to get a linear combination of \(\{1,\th
     u^{-4} = v^4 &= -7-2\theta+6\theta^2\\
     &...
 \end{align*}
-
-The problem here is diffcult to formulate \(u^{-k}\) since there exists negative cofficient in \(v=-1+\theta\), it is not easy to deduce that whether the cofficient of \(\theta^k\) will vanish in a certain \(k\) or not, the argumment here will be not clear.
+ 
+The problem here is diffcult to formulate \(u^{-k}\) since there exists negative cofficient in \(v=-1+\theta\), it is not easy to deduce that whether the cofficient of \(\theta^k\) will vanish in a certain \(k\) or not, the argumment here will be not clear. Hence we need to use p-adic method. 
