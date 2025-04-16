@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.12.8)  16 APR 2025 13:02
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.12.8)  16 APR 2025 13:06
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -608,19 +608,21 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
  [2] (./content/1.tex
 Package hyperref Info: bookmark level for unknown theorem defaults to 0 on input line 4.
 Package hyperref Info: bookmark level for unknown proposition defaults to 0 on input line 14.
- [3]) [4] (./SCRIPT.aux)
+ [3]) (./content/2.tex
+Package hyperref Info: bookmark level for unknown lemma defaults to 0 on input line 5.
+) [4] (./SCRIPT.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
 Package rerunfilecheck Info: File `SCRIPT.out' has not changed.
-(rerunfilecheck)             Checksum: 4777A1DACC71F7126F69C228DB4A041F;58.
+(rerunfilecheck)             Checksum: 4DC2C9B71E477E5AAC4F410EED9DBB67;131.
  ) 
 Here is how much of TeX's memory you used:
- 21812 strings out of 474773
- 406545 string characters out of 5761289
+ 21821 strings out of 474773
+ 406706 string characters out of 5761289
  1932842 words of memory out of 5000000
- 43564 multiletter control sequences out of 15000+600000
+ 43570 multiletter control sequences out of 15000+600000
  568593 words of font info for 90 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  83i,11n,87p,539b,575s stack positions out of 10000i,1000n,20000p,200000b,200000s
