@@ -1,12 +1,105 @@
-\section{p-adic}
+\section{p-adic analytic funnction}
 
-We need to use p-adic analytic function , in particular logarithm and exponential function.
+The main goal of this part is to completely solve the equation by p-adic method, p-adic analytic function and Strassman's theorem will be the key, in particular logarithm and exponential function. Firstly we formally define the two functions.
+
+\begin{definition}
+    Let \(B_p(a,r) = \{x \in \qq_p| |x-a|_p <r \}\) be a subset of \(\qq_p\).
+
+    - p-adic logarithm is the p-adic analytic function \(\log_p: B_p(1,1) \to \qq_p\) defined by
+    \[\log_p(x) := \sum_{n=1}^{\infty} (-1)^{n+1} \frac{(x-1)^n}{n}\]
+
+    - p-adic exponential is the p-adic analytic function \(\exp_p : B_p(0,p^{-1/(p-1)}) \to \qq_p\) defined by
+    \[\exp_p (x) :=  \sum_{n=0}^{\infty} \frac{x^n}{n!}\]
+\end{definition}
+
+We will verify the statement is well-defined. For the reader who is familiar with p-adic analytic function, this section can be skipped.
+
+It is easier to check logarithm by observing \(v_p(n) \leq \log_p(n)\) for any integer \(n \geq p\) and here logarithm is defined in real line, because any integer between \(p^k\) and \(p^{k+1}\) has valuation 1 and logarithm in real line is increasing. then for any \(|x-1|_p = p^{-r} < 1\) we have
+\[ \lim_{n \rightarrow \infty} |1/n|_p |x-1|_p^n =\lim_{n \rightarrow \infty} p^{v_p(n)-nr} = p^{\lim_{n \rightarrow \infty}n(\frac{v_p(n)}{n}-r)} = 0\]
+
+We will check exponentials and it will be a little complicated.
+
 \begin{lemma}
-    Let \(x \mapsto (1+n)^x\) be the function from \(\z_p \) to \(\qq_p\), then there is a interpolation
-    \[(1+n)^x = e^{x \log (1+n)}\]
-    if \(|n|_{p} < p^{-1/p-1}\) and \(p \neq 2\).
+    Let \(n \in \n\) and \(S_n\) denotes the sum of the digits of \(n\) in base p, then 
+    \[v_p(n!) =  \frac{n-S_n}{p-1}\]
+
+    \begin{proof}
+        Firstly we prove \(v_p(p^n!) = \frac{p^n-1}{p-1}\) for any positive integer \(n\) by recurrence. when \(n=1\), \(v_p(p) = 1\); for intger \(n \geq 2\) we assume that \(v_p(p^{n-1}!) = \frac{p^{n-1}-1}{p-1}\), then \(p^n! = p^{n-1}! \cdot \prod_{k=1}^{p-1} A_k\) with
+        \[A_k = (kp^{n-1}+1) \times (kp^{n-1}+2)\times \cdots \times (k+1)p^{n-1}\]
+        then clearly by valuation
+        \begin{align*}
+            v_p(p^n !) &= v_p(p^{n-1}!) + \sum_{k=1}^{p-1}v_p(A_k)\\
+            &= v_p(p^{n-1}!) + pv_p(p^{n-1}!)+1 \\
+            &= \frac{p^{n-1}-1}{p-1}+p\cdot \frac{p^{n-1}-1}{p-1} +1 \\
+            &= \frac{p^{n}-1}{p-1}
+        \end{align*}
+        Hence we finish our recurrence. And if we tkae \(a \in {1,...,p-1}\), then the formula can be generalized
+        \begin{align*}
+            v_p(ap^n !) &= \sum_{k=0}^{a-1}v_p[(k\cdot p^n +1)\times(k\cdot p^n +2) \times \cdots \times  (k\cdot p^n + p^n)] \\
+            &= \sum_{k=0}^{a-1}v_p(p^n!) = a\frac{p^n-1}{p-1}
+        \end{align*}
+        Finally we prove it by recurrence. Assuming that for any integer \(n-1\) the identity holds, and \(n= ap^r+m\) with \(a \in \{1,...,p-1\} \) and \(m<p^r<n-1\), then
+        \begin{align*}
+            v_p(n!) &= v_p(ap^r!)+\sum_{k=1}^{m}v_p(ap^r!+k)\\
+            &= v_p(ap^r!)+v_p(m) \\
+            &= a\cdot \frac{p^r-1}{p-1}+\frac{m-S_m}{p-1}\\
+            &= \frac{(ap^r+m)-(a+S_m)}{p-1} = \frac{n-S_n}{p-1}
+        \end{align*}
+    \end{proof}
+\end{lemma}
+
+By above lemma, the exponentials converges in given domain. For any \(|x|_p < p^{-1/p-1}\), we estimate
+\[v_p(x^n/n!) = nv_p(x)-v_p(n!) > \frac{S_n}{p-1} \xrightarrow{n \rightarrow \infty} +\infty\]
+which means the definition is well-defined. In fact the domain of the convergence we give in the definition is the largest, we do not discuss the detail here and complete argument can be founded in \cite[Chapter 5]{gouvea1997p}
+
+Logarithm and exponetial function keeps the same algebraic properties in p-adic context, here we just need several properties for applications to the solution of the equation:
+\begin{proposition}
+    Let \(a,b \in \qq_p\) with \(|a|_p, |b|_p < p^{-1/(p-1)} \), then\\
+    (1) \(\exp (a+b)  = \exp (a) \exp(b)\) \\
+    (2) \(\exp (\log (1+a)) = 1+a\)
+    \begin{proof}
+        (1) \(|a+b|\leq max \{|a|,|b|\}<p^{-1/p-1}\), so \(\exp(a+b)\) exists. By a manipulation of power series
+        \begin{align*}
+           \exp(a)\exp(b) &= (\sum_{m=0}^{\infty}\frac{a^m}{m!})(\sum_{n=0}^{\infty}\frac{b^n}{n!}) \\
+           &= \sum_{k\geq 0}\frac{1}{k!}\sum_{m+n=k}\frac{k!}{m!\cdot n!}a^mb^n\\
+           &= \sum_{k\geq 0}\frac{1}{k!}(a+b)^k = \exp(a+b)
+        \end{align*}
+        we finish the proof.
+
+        (2) 
+        
+    \end{proof}
+\end{proposition}
+
+Applying (1) to (2), then we can get the identity
+\[(1+a)^n = \exp(n \log(1+a)), \quad \forall n \in \n\]
+For extending the definition for interpolation, i.e. let \((1+a)^x\) makes sense for any \(x \in Z_p\). A traditional definition is based on the Newton's binoimal theorem, which needs some work and here we will not use binoimal, so we consider the extension of the function from \(\z\) and notice \(\z\) is a dense subset of p-adic integer.
+
+\begin{proposition}
+    Let \(S\) be a dense subset of \(\z_p\), if \(f: S \to \qp\) is a bounded and uniformly continous function, then there exists a unique extension \(\hat{f}: \zp \to \qp\).
 
     \begin{proof}
         
     \end{proof}
-\end{lemma}
+
+\end{proposition}
+
+\begin{definition}
+    Let \(a \in \qp\) with \(|a|_p < p^{-1/(p-1)}\), then the binoimal interpolation can be defined by a p-adic analytic function \(f_a: \zp \to \qp\):     
+    This construnction satisfies \(f_a(n) = (1+a)^n\) for any integr \(n\).
+\end{definition}
+
+Strassman's Theorem will be crucial part in the proof, we give a version which is easy to use here:
+
+\begin{theorem}[Strassman's Theorem] $ \\$
+    Let \(f(X)\) be a non-zero power series in Tate algebra over \(\cc_p\) as following
+    \[f(X) = \sum_{n =0}^{\infty}a_n X^n = a_0 +a_1X +a_2X^2+...\]
+    Let \(N = \max \{{m \in \n : |a_m|_p \geq |a_n|_p \text{ for all } n \in \n  }\)\}, then \(f: \zp \to \cc_p\) has at most \(N\) zeros.
+
+    \begin{proof}
+        It is rewritten from corollary 16.14.
+    \end{proof}
+\end{theorem}
+    
+
+

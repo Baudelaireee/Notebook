@@ -5,27 +5,41 @@
     Let \(K\) be a number field with \(r\) real embeddings and \(s\) pairs complex embeddings, and let \(\mathcal{O}_K\) be its integer ring, then its unit group has isomorphic structure:
     \[\mathcal{O}_K^\times \cong \mu(K) \times \mathbb{Z}^{r+s-1}\]
     where \(\mu(K)\) is the group of roots of unity in \(K\), and it is a finite cyclic gourp.
+
+    \begin{proof}
+        A standard proof can be founded in \cite{neukirch2013algebraic}, here we just consider the case of \(r=1\) and \(s=1\).
+    \end{proof}
 \end{theorem}
 
-Take \(K = \mathbb{Q}(\sqrt[3]{2})\) be the extension field of the raitional number,  and we denote \(\theta = \sqrt[3]{2}\), then each element in its has the form
+Although unit theorem can show us the structure of the unit, but it is diffcult to give a perfect algorithm to how to exactly compute the fundamental unit, here it is a criterion about the fundamental unit.
+\begin{lemma} \label{criterion}
+    Let \(K\) be a cubic extension of \(\qq\) with negative discriminant, and let \(u\) be the fundamental unit with \(u>1\), then 
+    \[|\Delta_K| < 4 u^3 + 24\]
+
+    \begin{proof}
+        
+    \end{proof}
+\end{lemma}
+
+A more strong estimation about the upper bound of the fundamental unit in a cubic field can be founded in Box's thesis \cite[Theorem 1.82]{box2014introduction}, that shows for a cubic field \(K = \qq(\sqrt[3]{a})\) with \(d = |\Delta_K|\), a element \(u>1\) can be choosen as a fundamental unit if and only if 
+\[u < (\frac{d-32+\sqrt{d^2-64d+960}}{8})^{2/3}\]
+Now for solve the equation, we take \(K = \mathbb{Q}(\sqrt[3]{2})\) be the extension field of the raitional number,  and we denote \(\theta = \sqrt[3]{2}\), then each element in its has the form
 \[a+b\theta +c \theta^2 \quad  \text{with } a,b,c  \in \mathbb{Q}\]
 Then we prove some properties of the field:
 \begin{proposition}
     in \(\qqq\) we have
 
-    - \(r=1\) and \(s=1\).
+    - The unit group is isomorphic to \(\z/2\z \times \z\).
 
     - \(N_{\qqq / \qq}(a+b\theta+c\theta^2) = a^3+2b^3+4c^3-6abc\)
 
-    - \(u = 1 + \theta + \theta^2\) is a unit and its inverse is \(v= -1+\theta\).
-
-    - The group of the unity is \(\mu = \{\pm 1\}\)
+    - \(u = -1 + \theta \) is a fundamental unit.
 
 
     \begin{proof}
         Firstly we suppose that \(\sigma: \qqq \hookrightarrow  \cc \) is a field embedding, then surely \(\sigma(1)=1\). Let \(f(X) = X^3-2\) be a polynoimal, and notice that \(f(\theta) = 0\), then
         \[0 = \sigma(f(\theta)) = f(\sigma(\theta))\]
-        Clearly \(\sigma(\theta)\) must be the root of \(f\) in \(\cc\), so we can conclude the roots are \(\theta, \theta w , \theta w^2\), where \(w = e^{2i\pi /3}\). Hence the unique real embedding is \(\sigma=id\) and there are two conjugate complex embedding.
+        Clearly \(\sigma(\theta)\) must be the root of \(f\) in \(\cc\), so we can conclude the roots are \(\theta, \theta w , \theta w^2\), where \(w = e^{2i\pi /3}\). Hence the unique real embedding is \(\sigma=id\) and there are two conjugate complex embedding, which means \(r=1\) and \(s\). For the group of roots of unity, we notice that \(\qqq \subset \rr\) as a subfield, and \(x^n=1\) only has possible solutions \(\{\pm 1\}\) in \(\rr\) for any \(n \in \mathbb{N}\), so \(\mu_K = \{\pm 1\} \cong \z/2\z\).
 
         For the norm we conisder the \(\qq\)-linear map \(l_x\) with \(x=a+b \theta + c \theta^2\), then
         \[l_x(1) = a+b \theta + c \theta^2, l_x(\theta )= 2c+a \theta + b \theta ^2, l_x(\theta ^2) = 2b+ 2c \theta + a \theta ^2 \]
@@ -35,9 +49,12 @@ Then we prove some properties of the field:
             b & a & 2c \\
             c & b & a
         \end{vmatrix} = a^3+2b^3+4c^3-6abc\]
-        and we take \(u= 1 + \theta + \theta^2\), then \(N(u) = 1+2+4-6=1\), so it is a unit.
+        and we take \(u= -1 + \theta\), then \(N(u) = -1+2=1\), so it is a unit.
 
-        For the group of the unity, we notice that \(\qqq \subset \rr\) as a subfield, and \(x^n=1\) only has possible solutions \(\{\pm 1\}\) in \(\rr\) for any \(n \in \mathbb{N}\), so we can conclude our result.
+        Finally we prove that \(u\) is exactly a fundamental unit by contradiction. Assuming that \(\eta>1\) is a fundamental unit, and notice that \(0<u<1\), so there exists a integer \(k \geq 1\) such that \(u = \eta^{-k}\). In this case we have negative discriminant \(\Delta = -108\), then by lemma \ref{criterion} we can estimate \(\eta > \sqrt[3]{21}\), then 
+        \[-1 + \sqrt[3]{2} = \eta^{-k} < (\sqrt[3]{21})^{-k}\]
+        It only holds for \(k=1\), which means \(u\) is the largest positive unit less than one, so \(u\) can be choosen as a fundamental unit.
+        
     \end{proof}
 \end{proposition}
 
@@ -47,20 +64,20 @@ Return to the original equation, now we can give a equivalent statement:
     \[\{(x,y)\in \z| x-y\theta = u^k, \text{for some } k \in \z\}\]
 
     \begin{proof}
-        We notice that \(x^3-2y^3 = 1 \) can be rewritten as \(N_{\qqq / \qq}(x-y\theta) = 1\). And by the Dirichlet's unit theorem, its unit group is of the form \(\{\pm 1\} \times <u>\). Notice that \(N_{\qqq / \qq}(-1) = -1\), so
+        We notice that \(x^3-2y^3 = 1 \) can be rewritten as \(N_{\qqq / \qq}(x-y\theta) = 1\). And by the Dirichlet's unit theorem, its unit group is of the form \(\pm u^k\). Notice that \(N_{\qqq / \qq}(-1) = -1\), so
         \[N_{\qqq / \qq}(-u^n) = N_{\qqq / \qq}(-1)N_{\qqq / \qq}^n(u) = -1, \quad \forall n \in \z \]
         Hence the integral solution is of the form \(u^k\) in \(\qqq\).
     \end{proof}
 \end{proposition}
 
-Notice that if \(k=0\) we can get the trival solution \((1,0)\); if \(k=-1\), we can find that \(u^{-1} = -1 + \theta\) and then get another solution \((-1,-1)\); So we need to prove that for any other \(k\), \(x-y\theta = u^k\) has no solution, one possible method is to prove that for any other \(u^k\), the cofficient with respect to base vector \(\theta^2\) is non-zero. For the case \(k>0\), by multinomial formula we can formulate
+Notice that if \(k=0\) we can get the trival solution \((1,0)\); if \(k=1\), we can find another solution \((-1,-1)\); By known result, we need to prove that for any other \(k\), \(x-y\theta = u^k\) has no solution, one possible method is to prove that for any other \(u^k\), the cofficient with respect to base vector \(\theta^2\) is non-zero. For the case \(k<0\), we denote \(v=u^{-1} = 1+\theta +\theta^2\) and use multinomial formula then
 \[(1+\theta+ \theta^2)^k = \sum_{i+j+k=n} \frac{n!}{i!j!k!}\theta ^{j+2k}\]
-with \(\theta ^3= 2\) we can rewrite it to get a linear combination of \(\{1,\theta,\theta ^2\}\), clearly here the cofficient of \(\theta ^2\) will not be zero so the choice of \(k\) will be limited to be less than zero. However, when \(k\leq -2\) we will find that it is difficlut to analyse, for example
+with \(\theta ^3= 2\) we can rewrite it to get a linear combination of \(\{1,\theta,\theta ^2\}\), clearly here the cofficient of \(\theta ^2\) will not be zero so the choice of \(k\) will be limited to be less than zero. However, when \(k \geq  2\) we will find that it is difficlut to analyse, for example
 \begin{align*}
-    u^{-2} = v^2 &= 1- 2\theta +\theta^2 \\
-    u^{-3} = v^3 &= 1+3\theta-3\theta^2 \\
-    u^{-4} = v^4 &= -7-2\theta+6\theta^2\\
+    u^2 &= 1- 2\theta +\theta^2 \\
+    u^3 &= 1+3\theta-3\theta^2 \\
+    u^4 &= -7-2\theta+6\theta^2\\
     &...
 \end{align*}
  
-The problem here is diffcult to formulate \(u^{-k}\) since there exists negative cofficient in \(v=-1+\theta\), it is not easy to deduce that whether the cofficient of \(\theta^k\) will vanish in a certain \(k\) or not, the argumment here will be not clear. Hence we need to use p-adic method. 
+The problem here is diffcult to formulate \(u^{k}\) since there exists negative cofficient in \(-1+\theta\), it is not easy to deduce that whether the cofficient of \(\theta^k\) will vanish in a certain \(k\) or not, the argumment here will be not clear, a pure algebraic method can be founded in \cite[Chapter 24]{mordell1969diophantine} by discussing binoimal units.
