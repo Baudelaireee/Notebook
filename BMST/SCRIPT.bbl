@@ -20,6 +20,15 @@
 \providecommand{\BIBdecl}{\relax}
 \BIBdecl
 
+\bibitem{cohen2007number}
+H.~Cohen, S.~Axler, and K.~Ribet, \emph{Number theory: Volume I: Tools and diophantine equations}.\hskip 1em plus 0.5em minus 0.4em\relax Springer, 2007.
+
+\bibitem{sambale2023invitation}
+B.~Sambale, ``An invitation to formal power series,'' \emph{Jahresbericht der Deutschen Mathematiker-Vereinigung}, vol. 125, no.~1, pp. 3--69, 2023.
+
+\bibitem{gouvea1997p}
+F.~Q. Gouv{\^e}a and F.~Q. Gouv{\^e}a, \emph{p-adic Numbers}.\hskip 1em plus 0.5em minus 0.4em\relax Springer, 1997.
+
 \bibitem{neukirch2013algebraic}
 J.~Neukirch, \emph{Algebraic number theory}.\hskip 1em plus 0.5em minus 0.4em\relax Springer Science \& Business Media, 2013, vol. 322.
 
@@ -28,8 +37,5 @@ J.~Box, ``An introduction to skolem’s p-adic method for solving diophantine eq
 
 \bibitem{mordell1969diophantine}
 L.~J. Mordell, \emph{Diophantine Equations: Diophantine Equations}.\hskip 1em plus 0.5em minus 0.4em\relax Academic press, 1969, vol.~30.
-
-\bibitem{gouvea1997p}
-F.~Q. Gouv{\^e}a and F.~Q. Gouv{\^e}a, \emph{p-adic Numbers}.\hskip 1em plus 0.5em minus 0.4em\relax Springer, 1997.
 
 \end{thebibliography}

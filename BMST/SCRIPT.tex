@@ -20,6 +20,11 @@
 
 \newcommand{\HRule}[1]{\rule{\linewidth}{#1}}
 
+% 设置样式为 remark（直立字体）
+\theoremstyle{remark}
+% 定义不编号的环境
+\newtheorem*{remark}{Remark}
+
 \declaretheoremstyle[name=Theorem,]{thmsty}
 \declaretheorem[style=thmsty,numberwithin=section]{theorem}
 
@@ -76,9 +81,12 @@
 
 
 %\input{}
-\input{content/1.tex}
+
 \input{content/2.tex}
+
+\input{content/1.tex}
 \input{content/3.tex}
+
 % ------------------------------------------------------------------------------
 % Reference and Cited Works
 % ------------------------------------------------------------------------------
