@@ -7,5 +7,45 @@ Now we will solve the equation by using p-adic interpolation method. Firstly, we
 
     - This field is a complete non-archimdean field with the absolute value:
     \[|a+b\theta+c\theta^2| = \sqrt[3]{|a^3+2b^3+4c^3-6abc|_3}\]
-    
 \end{proposition}
+
+    In this field, observing that \(|u-1| =1 > 3^{-1/2}\) prevents us from directly using interpolation, and notice that \(|u^3-1| = 3^{-1} < 3^{-1/2}\), hence we will interpolate on \(u^3\).
+
+    \begin{theorem}
+        The only solutions to the integral equation on
+\[
+x^{3}-2y^{3}=1
+\]
+are\/ $(x,y)=(1,0)$ and\/ $(x,y)=(-1,-1)$.
+
+    \begin{proof}
+         Let \(f: \z_3 \to \qq_3(\theta)\) be the p-adic analytic function defined by \(f(x) = \exp({x\log{u^3}})\), and \(f|_{\z}(n) = u^{3n}\), it is well-efined by \textbf{lemma...}. In particular
+         \[\log{u^3} \equiv  3\theta-3\theta^2 \mod{9 \z_3}\]
+         hence 
+         \begin{equation} \label{eq1}
+            \exp(x \log u^3) = 1 + (3\theta-3\theta^2)x+9xh(x)
+         \end{equation}
+         for some convegrent power series \(h(X)\) with cofficient on \(\z_3(\theta)\). Since \(\qq_3(\theta)\) is a vector space under basis \(\{1, \theta, \theta^2\}\), then \(f(x)\) can be denoted by three power series with respect to basis as following
+         \[f(x) = (\sum_{k \geq 0}a_kx^k)+(\sum_{k \geq 0}b_kx^k)\theta + (\sum_{k \geq 0}c_kx^k)\theta^2\]
+         and we will study the cofficient with respect to \(\theta^2\) to show that \(u^n\) can not be of the form \(x-y \theta\) unless \(n=0,1\). we take \(f_r(x) = u^{r}f(x)\) with \(r=0,1,2\).
+
+         -When \(r=0\), the equation (\ref{eq1}) can be rewritten as
+         \[f_0(x) = 1+ 3x\cdot \theta + (-3\theta^2x+9xh(x))\]
+         In detail, by writing \(h(x)\) as the form of linear combination
+         \[h(x) = h_1(x)+h_2(x)\cdot\theta + h_3 \cdot \theta^2\]
+         with \(h_1,h_2,h_3\) the convegrent power series defined on \(\z_3\), so again
+         \[f_0(x) = (1+9xh_1(x)) + (3x+9xh_2(x))\cdot \theta + (-3x+9xh_3(x)) \cdot \theta^2\]
+         we apply Strassman's theorem to \(-3x+9xh_1(x) = 0\), and notice that the cofficient of \(x\) is \(a_1 \equiv 3 \mod 9\z_p\) and the other cofficients are \(a_i \equiv 0 \mod 9\z_p \), hence we can conclude that \(N=1\) and \(x=0\) is the unique solution.
+         
+         -When \(r=1\), simliarly the equation can be rewritten as
+         \[f_1(x) = [-1-6x-9xh_3(x)+18xh_1(x)]+[1-3x-9xh_2(x)+9xh_3(x)]\cdot \theta + [6x+9xh_2(x)-9xh_1(x)]\cdot \theta^2\]
+         applying Strassman's theorem to \(6x+9x(h_1+h_2)(x) = 0\), we can conclude that \(N=1\) and \(x=0\) is the unique solution.
+
+         - When \(r=2\), simliarly the cofficient with respect to \(\theta^2\) is \[1-9x+9(h_3(x)-2h_2(x)+h_3(x)) \]
+         notice that the constant cofficient \(|1| = 1\), which strictly greater than any other cofficient, hence no solution for \(x\) such that the cofficient turns zero by Strassman's theorem.
+
+         In conclusion, we can conclude the solution of the integral equation \(x^3-2y^3=1\) by proposition \ref{equi}, when \(n \equiv 0 \mod 3\),  the only solution is \((1,0)\) which corresponds to \(r=0, x=1\); when \(n \equiv 1 \mod 3\), the only solution is \((-1,-1)\) which corresponds to \(r=1,x=0\); when \(n \equiv 2 \mod 3\), no solution will exists.
+    \end{proof}
+    \end{theorem}
+
+

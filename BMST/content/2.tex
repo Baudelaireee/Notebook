@@ -94,7 +94,8 @@ Logarithm and exponetial function keeps the same algebraic properties in p-adic 
     Let \(a,b \in \qq_p\) with \(|a|_p, |b|_p < p^{-1/(p-1)} \), then\\
     (1) \(\exp (a+b)  = \exp (a) \exp(b)\) \\
     (2) \(|\log(1+a)|_p = |a|_p\)\\
-    (3) \(\exp (\log (1+a)) = 1+a\)
+    (3) \(\exp (\log (1+a)) = 1+a\)\\
+    (4) \(|\exp(a)|_p = 1\)
     \begin{proof}
         (1) \(|a+b|\leq max \{|a|,|b|\}<p^{-1/p-1}\), so \(\exp(a+b)\) exists. By a manipulation of power series
         \begin{align*}
@@ -111,6 +112,11 @@ Logarithm and exponetial function keeps the same algebraic properties in p-adic 
         for any \(n \geq 2\). Therefore by the inequality of ultrametric, we can conlude the result.
 
         (3) Firstly we will check the condition of the lemma \ref{composition}. Let \(f(X) = \exp(X)\) and \(g(X) = \log(1+X)\), then \(|a| < p^{-1/p-1} <1\) impiles that \(g(a)\) converges. Notice that each term \((-1)^{m+1}\frac{x^m}{m}\) in \(g(a)\), we have estimated in the proof of (2), the absolute value is strictly less than the radius \(R = p^{-1/p-1}\), hence we by composition we proved that \(\exp(\log(1+a))\) converges. Let \(x_k = \frac{p^k}{p^k+1} <1\) be the sequence of \(\qq\), caculate its p-adic absolute value \(|x_k|_p=p^{-k} < R\) (to avoid the equality here, we convente \(k \geq 2\)), hence \(x_k\) is a non-stationary sequence converging to zero by p-adic absolute value. Finally by lemma \ref{cont}, we can conclude that \( \exp(\log(1+a)) = 1+a\) since formally power series \(\exp(log(1+X))\) has the same cofficient with \(1+X\).
+
+        (4) notice that
+        \[|\exp(a)-1| = |\sum_{n \geq 1}\frac{a^n}{n!}| < |a| <1 \]
+        Hence immediately by ultrametric
+        \[|\exp(a)| = |\exp(a)-1+1| = 1\]
     \end{proof}
 \end{proposition}
 
