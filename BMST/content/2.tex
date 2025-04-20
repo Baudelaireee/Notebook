@@ -1,4 +1,4 @@
-\section{p-adic analytic funnction}
+\section{p-adic Analytic funnction}
 
 The main goal of this part is to completely solve the equation by p-adic method, p-adic analytic function and Strassman's theorem will be the key, in particular logarithm and exponential function. 
 
@@ -14,16 +14,16 @@ Similarly, we can study the convergence of power series in a non-archimdean fiel
 \[R = 1/\limsup_{n \rightarrow \infty}\sqrt[n]{|a_n|}\]
 Since ultrametric is still a metric. We can formally define 
 \begin{definition}
-    Let \(B_p(a,r) = \{x \in \qq_p| |x-a|_p <r \}\) be a subset of \(\qq_p\).
+    Let \(B_p(a,r) = \{x \in \cc_p| |x-a|_p <r \}\) be a subset of \(\cc_p\).
 
-    - p-adic logarithm is the p-adic analytic function \(\log_p: B_p(1,1) \to \qq_p\) defined by
+    - p-adic logarithm is the p-adic analytic function \(\log_p: B_p(1,1) \to \cc_p\) defined by
     \[\log_p(x) := \sum_{n=1}^{\infty} (-1)^{n+1} \frac{(x-1)^n}{n}\]
 
-    - p-adic exponential is the p-adic analytic function \(\exp_p : B_p(0,p^{-1/(p-1)}) \to \qq_p\) defined by
+    - p-adic exponential is the p-adic analytic function \(\exp_p : B_p(0,p^{-1/(p-1)}) \to \cc_p\) defined by
     \[\exp_p (x) :=  \sum_{n=0}^{\infty} \frac{x^n}{n!}\]
 \end{definition}
 
-We will verify the statement is well-defined. For the reader who is familiar with p-adic analytic function, this section can be skipped.
+We will verify the statement is well-defined. For the reader who is familiar with p-adic analytic function, this section can be skipped. \newline 
 
 It is easier to check logarithm by observing \(v_p(n) \leq \log_p(n)\) for any integer \(n \geq p\) and here logarithm is defined in real line, because any integer between \(p^k\) and \(p^{k+1}\) has valuation 1 and logarithm in real line is increasing. then for any \(|x-1|_p = p^{-r} < 1\) we have
 \[ \lim_{n \rightarrow \infty} |1/n|_p |x-1|_p^n =\lim_{n \rightarrow \infty} p^{v_p(n)-nr} = p^{\lim_{n \rightarrow \infty}n(\frac{v_p(n)}{n}-r)} = 0\]
@@ -62,7 +62,7 @@ By above lemma, the exponentials converges in given domain. For any \(|x|_p < p^
 \[v_p(x^n/n!) = nv_p(x)-v_p(n!) > \frac{S_n}{p-1} \xrightarrow{n \rightarrow \infty} +\infty\]
 which means the definition is well-defined. When \(|x| = p^{-1/p-1}\), we notice that for \(n = p^k\), we have
 \[|\frac{x^n}{n!}|_p  = p^{-p^k/p-1}\cdot p^{p^k-1/p-1} = p^{1/p-1} \]
-Hence, the series diverges and the domain of the convergence is \(B_p(0,p^{-1/(p-1)})\). 
+Hence  the series diverges and the domain of the convergence is \(B_p(0,p^{-1/(p-1)})\). 
 \newline
 
 Some properties about the power series will be needed here for the following proof.
@@ -91,11 +91,11 @@ Some properties about the power series will be needed here for the following pro
 
 Logarithm and exponetial function keeps the same algebraic properties in p-adic context, here we just need several properties for applications to the solution of the equation.
 \begin{proposition}
-    Let \(a,b \in \qq_p\) with \(|a|_p, |b|_p < p^{-1/(p-1)} \), then\\
+    Let \(a,b \in \cc_p\) with \(|a|_p, |b|_p < p^{-1/(p-1)} \), then\\
     (1) \(\exp (a+b)  = \exp (a) \exp(b)\) \\
     (2) \(|\log(1+a)|_p = |a|_p\)\\
-    (3) \(\exp (\log (1+a)) = 1+a\)\\
-    (4) \(|\exp(a)|_p = 1\)
+    (3) \(\exp (\log (1+a)) = 1+a\)
+    %(4) \(|\exp(a)|_p = 1\)
     \begin{proof}
         (1) \(|a+b|\leq max \{|a|,|b|\}<p^{-1/p-1}\), so \(\exp(a+b)\) exists. By a manipulation of power series
         \begin{align*}
@@ -113,10 +113,10 @@ Logarithm and exponetial function keeps the same algebraic properties in p-adic 
 
         (3) Firstly we will check the condition of the lemma \ref{composition}. Let \(f(X) = \exp(X)\) and \(g(X) = \log(1+X)\), then \(|a| < p^{-1/p-1} <1\) impiles that \(g(a)\) converges. Notice that each term \((-1)^{m+1}\frac{x^m}{m}\) in \(g(a)\), we have estimated in the proof of (2), the absolute value is strictly less than the radius \(R = p^{-1/p-1}\), hence we by composition we proved that \(\exp(\log(1+a))\) converges. Let \(x_k = \frac{p^k}{p^k+1} <1\) be the sequence of \(\qq\), caculate its p-adic absolute value \(|x_k|_p=p^{-k} < R\) (to avoid the equality here, we convente \(k \geq 2\)), hence \(x_k\) is a non-stationary sequence converging to zero by p-adic absolute value. Finally by lemma \ref{cont}, we can conclude that \( \exp(\log(1+a)) = 1+a\) since formally power series \(\exp(log(1+X))\) has the same cofficient with \(1+X\).
 
-        (4) notice that
-        \[|\exp(a)-1| = |\sum_{n \geq 1}\frac{a^n}{n!}| < |a| <1 \]
-        Hence immediately by ultrametric
-        \[|\exp(a)| = |\exp(a)-1+1| = 1\]
+        %(4) notice that
+        %\[|\exp(a)-1| = |\sum_{n \geq 1}\frac{a^n}{n!}| < |a| <1 \]
+        %Hence immediately by ultrametric
+        %\[|\exp(a)| = |\exp(a)-1+1| = 1\]
     \end{proof}
 \end{proposition}
 
@@ -129,11 +129,11 @@ Logarithm and exponetial function keeps the same algebraic properties in p-adic 
 
 Applying (1) to (2), then we can get the identity
 \[(1+a)^n = \exp(n \log(1+a)), \quad \forall n \in \n\]
-For extending the definition for interpolation, i.e. let \((1+a)^x\) makes sense for any \(x \in \zp\), a traditional definition is based on the Newton's binoimal theorem (see \cite[Chapter 5]{gouvea1997p}), which needs some work and here we will not use binoimal, so we consider the extension of the function from \(\z\) and notice \(\z\) is a dense subset of p-adic integer.
+For extending the definition for interpolation, i.e. let \((1+a)^x\) makes sense for any \(x \in \zp\), a traditional definition is based on the Newton's binoimal theorem (see \cite[Chapter 5]{gouvea1997p}), which needs some work and here we will not use binoimal, so we consider the extension by p-adic  exponentials and logarithm.
 
 \begin{definition}
-    Let \(a \in \qp\) with \(|a|_p < p^{-1/(p-1)}\), then the binoimal interpolation can be defined by a p-adic analytic function
-    \[f_a: \zp \to \qp, \quad x \mapsto \exp(x \log(1+a))\]     
+    Let \(a \in \cc_p\) with \(|a|_p < p^{-1/(p-1)}\), then the binoimal interpolation can be defined by a p-adic analytic function
+    \[f_a: \zp \to \cc_p, \quad x \mapsto \exp(x \log(1+a))\]     
     This construnction satisfies \(f_a(n) = (1+a)^n\) for any integr \(n\).
 \end{definition}
 
@@ -141,10 +141,10 @@ When fixing \(a\), we can estimate for any \(x \in \zp\)
 \[|x\log(1+a)|_p = |x|_p|a|_p < p^{1-/p-1}\]
 that means \(f_a\) is well-defined, and by convention we denote \(f_a(x) = (1+a)^x\).
 
-Strassman's Theorem will be crucial part in the proof, we give a version which is easy to use here:
+Strassman's Theorem will be the crucial part in the proof, we give a version which is easy to use here:
 
 \begin{theorem}[Strassman's Theorem] $ \\$
-    Let \(f(X)\) be a non-zero power series in Tate algebra over \(\cc_p\) as following
+    Let \(f(X)\) be a non-zero power series of Tate algebra over \(\cc_p\) as following
     \[f(X) = \sum_{n =0}^{\infty}a_n X^n = a_0 +a_1X +a_2X^2+...\]
     Let \(N = \max \{{m \in \n : |a_m|_p \geq |a_n|_p \text{ for all } n \in \n  }\)\}, then \(f: \zp \to \cc_p\) has at most \(N\) zeros.
 

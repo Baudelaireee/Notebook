@@ -1,4 +1,5 @@
 \babel@toc {english}{}\relax 
-\contentsline {section}{\numberline {1}p-adic analytic funnction}{3}{section.1}%
-\contentsline {section}{\numberline {2}Pre}{7}{section.2}%
+\contentsline {section}{\numberline {1}p-adic Analytic funnction}{3}{section.1}%
+\contentsline {section}{\numberline {2}Unit theorem}{7}{section.2}%
 \contentsline {section}{\numberline {3}Interpolation Method}{9}{section.3}%
+\contentsline {section}{\numberline {4}Other method(not formally)}{11}{section.4}%

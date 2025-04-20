@@ -1,1 +1,93 @@
-\section{Formal power series}
+\section{Other method(not formally)}
+Now we consider the other possible method corresponding to the integral solution. We founded that if \(2\) is a perfect cubic number, then the solution will be very easy, but unfortunately we can not do like that. However, p-adic number system gives us a method to extend the field, surely we consider a prime \(p\) (for example,p =5?) such that \(\sqrt[3]{2} \in \z_p\), then we just need to study the the p-adic Integral equation
+\[x^3+y^3=1\]
+with \(x,y \in \z_p\).
+
+For example we take the set \(S\) as the solution of the equation,
+then for any \(x,y \in S\), there exists sequences \((x_n)_{n \in \n}\) and \((y_n)_{n \in \n}\) with
+\(x_n, y_n \in \z_p/p^n\z_p\) such that
+\[\begin{cases}
+    x_n \equiv x_{n+1} \mod {p^n} \\
+    y_n \equiv y_{n+1} \mod {p^n} \\
+    x_n^3+y_n^3 \equiv 1 \mod {p^n}
+\end{cases}\]
+
+Fix \(n\), and we take \((x_n,y_n)\) to form a sequence \(S_n\), the the space of the solution can be derived by the inverse limit as following
+\[S = \varprojlim_{n} S_n\]
+
+By computing the case \(p=3\), we take \(A_n = \{(x_n,y_n)| x^3_n+y^3_n \equiv 1 \mod 3^n \}\), some example as following
+\begin{align*}
+    A_1 &= \{\, (1,0),\ (0,1),\ (2,2) \,\} \\[1ex]
+    A_2 &= \{\, 
+        (0,1),\ (3,4),\ (6,7),\ 
+        (1,0),\ (4,3),\ (7,6)
+    \,\} \\[1ex]
+    A_3 &= \{\, 
+    \begin{array}[t]{llll}
+        (0,1), & (9,10), & (18,19), & \\
+        (3,4), & (12,13), & (21,22), & \\
+        (6,7), & (15,16), & (24,25), & \\
+        (1,0), & (10,9), & (19,18), & \\
+        (4,3), & (13,12), & (22,21), & \\
+        (7,6), & (16,15), & (25,24) &
+    \end{array}
+    \,\}
+    \end{align*}
+
+    With that we can do selecting: notice that the possible original solution for lifting are just three possible, so there will exist three path to consider, so we can do lifting as following
+
+    -starting from \((1,0)\):
+    \[(1,0) \rightarrow \begin{matrix}
+        (1,0) \\
+        (4,3) \\
+        (7,6)
+    \end{matrix} \rightarrow
+    \begin{matrix}
+        (1,0) & (10,9) & (19,18) \\
+        (4,3) & (13,12) & (22,21) \\
+        (7,6) & (16,15) & (25,24)
+    \end{matrix}\]
+
+    starting from \((0,1)\) is symetrical as above, but pay attention that there exists no lifting when starting from \((2,2)\). Then we should consider all possible lifting, that is motivated from Hensel's lemma, for example \((1,0)\) is exactly a solution for the equation \(x^3+y^3=1\), and we can find the a lifting
+    \[(1,0) \rightarrow (1,0) \rightarrow (1,0) \rightarrow ...\]
+    The choice of the prime \(p=3\) is really terrible here, since for \(f(x,y) = x^3+y^3-1\), the partial derivative \(f_x \equiv f_x \equiv 0 \mod 3\), that means the algebraic curve we consider is not smooth? so we may consider the other prime.
+
+    For example we take \(p=5\) and we take \(f(x,y)=x^3+y^3-1\), we can actually compute that there exists exactly 4 zeros lifting from
+    \[(0,1),(1,0),(3,4),(4,3)\]
+    Back to the equation \[x^3-2y^3=1\] we see that in \(\z_5\) and by hensel's lemma, we can know that \(\sqrt[3]{2} \in \z_5\) and \(x^3=2\) has exactly only one solution in 5-adic integr, in particular we can compute that
+    \[u = \sqrt[3]{2} = 3+2\cdot25+125+... = [...1203]_5\]
+    Hence actually the equation is equivalent to
+    \[x^3+(-uy)^3= 1\]
+    in \(\z_5\). hence we can conclude the 4 possible solutions (mod 5)
+    \[\begin{cases}
+        x \equiv 0\\
+        -uy \equiv 1
+    \end{cases},\begin{cases}
+        x \equiv 1\\
+        -uy \equiv 0
+    \end{cases},\begin{cases}
+        x \equiv 3\\
+        -uy \equiv 4
+    \end{cases},\begin{cases}
+        x \equiv 4\\
+        -uy \equiv 3
+    \end{cases}\]
+
+    We know that \((1,0)\) and \((-1,-1)\) are the all possible \(\z\)-intger solution, so here we just need to prove that in case 1 and case 3, we can not get the \(\z\)-integer solution of \((x,y)\).
+
+    For case 1, \((0,1)\) is a solution to \(x^3+y^3=1\) in \(\z_5\), so that means \(-uy=1\) has \(\z\)-intger solution for \(y\). Notice that \(u \equiv 3\) implies \(u \in \z_5^{\times}\), so \(y^3=\frac{1}{-u^3} = \frac{-1}{2}\), so no solution in \(\z\).
+
+    For case 3, the intgeral solution of \(x^3+y^3=1\) are \((1,0)\) and \((0,1)\), so the solution \(x \equiv 3\) is not in \(\z\).
+
+    Hence we can conclude that all solution are \((1,0)\) and \((-1,-1)\).
+
+    \begin{remark}
+        A little remark to case 4 here, actually \(x=-1 \equiv 4 \mod 5\) here, so the solution of \(x^3+y^3=1\) in \(\z_5\) here is equivalent to consider \(y^3=1-x^3\), so when \(1+a^3\) is a cubic number in \(\z_p\) or \(\qq_p\) for a intger \(a\)?
+    \end{remark}
+
+    We consider above process from the view of scheme (i am not very fimilar to that).
+    we consider a algebraic variety by letting \(f = (X^3+Y^3-1)\)
+    \[X = \text{Spec}(\z_p[X,Y]/f)\]
+    so all solution in \(\z_p\) can be denoted by \(X(\z_p)\), consider the inverse limit
+    \[X(\z_p) = \varprojlim_{n} X_n(\z/p^n\z)\]
+    where \(X_n = \text{Spec}((\z/p^n\z)(X,Y)/f)\) the affine scheme defined in a finite ring. In particular, when \(n=1\), \(X_n\) defines a algebraic curve in \(\ff_p\).
