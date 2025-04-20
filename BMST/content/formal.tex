@@ -53,7 +53,7 @@ By computing the case \(p=3\), we take \(A_n = \{(x_n,y_n)| x^3_n+y^3_n \equiv 1
     The choice of the prime \(p=3\) is really terrible here, since for \(f(x,y) = x^3+y^3-1\), the partial derivative \(f_x \equiv f_x \equiv 0 \mod 3\), that means the algebraic curve we consider is not smooth? so we may consider the other prime.
 
     For example we take \(p=5\) and we take \(f(x,y)=x^3+y^3-1\), we can actually compute that there exists exactly 4 zeros lifting from
-    \[(0,1),(1,0),(3,4),(4,3)\]
+    \[(0,1),(1,0),(3,4),(4,3),(2,2)\]
     Back to the equation \[x^3-2y^3=1\] we see that in \(\z_5\) and by hensel's lemma, we can know that \(\sqrt[3]{2} \in \z_5\) and \(x^3=2\) has exactly only one solution in 5-adic integr, in particular we can compute that
     \[u = \sqrt[3]{2} = 3+2\cdot25+125+... = [...1203]_5\]
     Hence actually the equation is equivalent to
@@ -71,6 +71,9 @@ By computing the case \(p=3\), we take \(A_n = \{(x_n,y_n)| x^3_n+y^3_n \equiv 1
     \end{cases},\begin{cases}
         x \equiv 4\\
         -uy \equiv 3
+    \end{cases},\begin{cases}
+        x \equiv 2\\
+        -uy \equiv 2
     \end{cases}\]
 
     We know that \((1,0)\) and \((-1,-1)\) are the all possible \(\z\)-intger solution, so here we just need to prove that in case 1 and case 3, we can not get the \(\z\)-integer solution of \((x,y)\).
@@ -90,4 +93,4 @@ By computing the case \(p=3\), we take \(A_n = \{(x_n,y_n)| x^3_n+y^3_n \equiv 1
     \[X = \text{Spec}(\z_p[X,Y]/f)\]
     so all solution in \(\z_p\) can be denoted by \(X(\z_p)\), consider the inverse limit
     \[X(\z_p) = \varprojlim_{n} X_n(\z/p^n\z)\]
-    where \(X_n = \text{Spec}((\z/p^n\z)(X,Y)/f)\) the affine scheme defined in a finite ring. In particular, when \(n=1\), \(X_n\) defines a algebraic curve in \(\ff_p\).
+    where \(X_n = \text{Spec}((\z/p^n\z)(X,Y)/f)\) the affine scheme defined in a finite ring. In particular, when \(n=1\), \(X_n\) defines a algebraic curve in \(\ff_p\). So our question is to find \(X(\z_p) \cap \z\).
