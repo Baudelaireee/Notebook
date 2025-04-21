@@ -46,8 +46,28 @@ are\/ $(x,y)=(1,0)$ and\/ $(x,y)=(-1,-1)$.
 
          In conclusion, we can conclude the solution of the integral equation \(x^3-2y^3=1\) by proposition \ref{equi}, when \(n \equiv 0 \mod 3\),  the only solution is \((1,0)\) which corresponds to \(r=0, x=1\); when \(n \equiv 1 \mod 3\), the only solution is \((-1,-1)\) which corresponds to \(r=1,x=0\); when \(n \equiv 2 \mod 3\), no solution will exists.
     \end{proof}
+    \end{theorem}
+
+
+    similar technic we can apply to completly solve the diophantine equation of the form
+    \begin{equation} \label{eq2}
+        x^3+dy^3=1
+    \end{equation}
+    which we call it Skolem's equation. Skolem is influenced by the work of Thue in the beginning of the 19th. Thue improved the Liouville's approximation theorem to give a lower approxiamtion exponent \(\tau(d) = \frac{d}{2}+1+\epsilon\), which shows that the number of the integral solution of equation (\ref{eq2}) will be finite (see \cite[Chapter 11]{silverman2009arithmetic}). However, this method of diophantine approxiamtion is not effective, in 1937 Skolem make use of p-adic interpolate method to give a same answer that the solution of the equation (More generally, he states for a irreducible homogeneous polynoimal) will be finite, even more precisely, at most two solution.
 
     
+    \begin{theorem}[Skolem] There exists at most one non-trival solution for the Integral equation
+        \[x^3+dy^3=1\]
+    where \(d \in \z\).
+        \begin{proof}
+            If \(d\) is a perfect cubic, then the solution will be related to the equation \(x^3+y^3=1\), which only has two solution \((1,0)\) and \((0,1)\), so there exists at most one non-trival solution. If \(d\) is not perfect cubic, we consider the field extension \(K = \qq(\theta)\) with \(\theta = \sqrt[3]{d}\). By unit theorem, we denote \(u\) is the positive unit, and then if \((x,y)\) is a Integral solution, \(x+y\theta\) will be of the form \(u^k\) form some integer \(k\).
+
+            Suppose that we have two non-trival solution \((x_1,y_1)\) and \((x_2,y_2)\), and then there exists non-zero integer \(p_1\) and \(p_2\) such that \(x_1+y_1\theta = u^{p_1}\) and \(x_2+y_2\theta = u^{p_2}\). Let \(p_1/p_2 = n_1/n_2\) with \(\gcd(n_1,n_2)=1\), then \(n_1/n_2\) or \(n_2/n_1\) can be seen as a p-adic integer. It is sufficient to assume that \(N = n_2/n_1 \in \z_3\), then 
+            \[x_2+y_2\theta = u^{p_2} = u^{Np_1} = (x_1+y_1\theta)^N\]
+            Notice that \[(x_1^3+y_1^3\theta) = \]
+        \end{proof}
     \end{theorem}
+
+
 
 
