@@ -1,5 +1,6 @@
 \babel@toc {english}{}\relax 
 \contentsline {section}{\numberline {1}p-adic Analytic funnction}{3}{section.1}%
 \contentsline {section}{\numberline {2}Unit theorem}{7}{section.2}%
-\contentsline {section}{\numberline {3}Interpolation Method}{9}{section.3}%
-\contentsline {section}{\numberline {4}Other method(not formally)}{12}{section.4}%
+\contentsline {section}{\numberline {3}Completion of the extension field}{9}{section.3}%
+\contentsline {section}{\numberline {4}Interpolation Method}{10}{section.4}%
+\contentsline {section}{\numberline {5}Other method(not formally)}{13}{section.5}%

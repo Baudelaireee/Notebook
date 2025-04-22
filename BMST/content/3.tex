@@ -11,7 +11,7 @@ Now we will solve the equation by using p-adic interpolation method. Firstly, we
 
     In this field, observing that \(|u-1| =1 > 3^{-1/2}\) prevents us from directly using interpolation, and notice that \(|u^3-1| = 3^{-1} < 3^{-1/2}\), hence we will interpolate on \(u^3\).
 
-    \begin{theorem}
+    \begin{theorem} \label{x3-2y3=1}
         The only solutions to the integral equation on
 \[
 x^{3}-2y^{3}=1
@@ -62,11 +62,33 @@ are\/ $(x,y)=(1,0)$ and\/ $(x,y)=(-1,-1)$.
         \begin{proof}
             If \(d\) is a perfect cubic, then the solution will be related to the equation \(x^3+y^3=1\), which only has two solution \((1,0)\) and \((0,1)\), so there exists at most one non-trival solution. If \(d\) is not perfect cubic, we consider the field extension \(K = \qq(\theta)\) with \(\theta = \sqrt[3]{d}\). By unit theorem, we denote \(u\) is the positive unit, and then if \((x,y)\) is a Integral solution, \(x+y\theta\) will be of the form \(u^k\) form some integer \(k\).
 
-            Suppose that we have two non-trival solution \((x_1,y_1)\) and \((x_2,y_2)\), and then there exists non-zero integer \(p_1\) and \(p_2\) such that \(x_1+y_1\theta = u^{p_1}\) and \(x_2+y_2\theta = u^{p_2}\). Let \(p_1/p_2 = n_1/n_2\) with \(\gcd(n_1,n_2)=1\), then \(n_1/n_2\) or \(n_2/n_1\) can be seen as a p-adic integer. It is sufficient to assume that \(N = n_2/n_1 \in \z_3\), then 
+            Suppose that we have two non-trival solution \((x_1,y_1)\) and \((x_2,y_2)\), here \(x_iy_i \neq 0\) and then there exists non-zero integer \(p_1\) and \(p_2\) such that \(x_1+y_1\theta = u^{p_1}\) and \(x_2+y_2\theta = u^{p_2}\). Let \(p_1/p_2 = n_1/n_2\) with \(\gcd(n_1,n_2)=1\), then \(n_1/n_2\) or \(n_2/n_1\) can be seen as a p-adic integer. It is sufficient to assume that \(N = n_2/n_1 \in \z_3\), then 
             \[x_2+y_2\theta = u^{p_2} = u^{Np_1} = (x_1+y_1\theta)^N\]
-            Notice that \[(x_1^3+y_1^3\theta) = \]
+            Notice that \[(x_1+y_1\theta)^3 = 1+3xy(x\theta+y\theta^2)\]
+            we put \(N= 3M+r\) with \(M \in \z_3\) and \(r=0,1,2\), then we have 
+            \[x_2+y_2\theta = [1+3xy(x\theta+y\theta^2)]^M(x+y\theta)^r\]
+            with \(x=x_1\) and \(y=y_1\). We consider it in the completion of the finite extension \(\qq (\theta)\) by 
+            \[L \cong \qq_3 \otimes_{\qq} \qq(\theta)\]
+            then there exists a convegrent series \(B \in \z_3[\theta]\) such that
+            \begin{equation} \label{eq3}
+                x_2 + y_2 \theta = \left( 1 + 3M x y (x\theta + y\theta^2) + 9M x^2 y^2 B \right) (x + y\theta)^r 
+            \end{equation}
+            write \(B=B_0+B_1\theta+B_2\theta^2\) with \(B_1,B_2,B_3 \in \z_3\), and then rewrite equation (\ref{eq3}) as the linear combination of \(\{1,\theta,\theta\}\), the cofficient with respect to \(\theta^2\) must be zero, so we have 
+            \[
+\begin{cases}
+3M x y^2 (1 + 3x B_2)=0 & \text{for } r = 0, \\
+3M x^2 y^2 \left( 2 + 3(y B_1 + x B_2) \right)=0 & \text{for } r = 1, \\
+y^2 \left( 1 + 9M x^2 (x + B_2 x^2 + 2B_1 x y + B_0 y^2) \right)=0 & \text{for } r = 2.
+\end{cases}
+\]
+            Notice that notice that \(N \neq 0, 1\), which means for \(r=0\) or \(r=1\) we must have \(M\neq 0\), then we can divide \(3Mxy^2, 3Mx^2y^2, y^2\) respectively, and then we can get contradiction by modulo 3 (\(1 \equiv 0, 2 \equiv 0, 1\equiv 0\) respectively).
+                
         \end{proof}
     \end{theorem}
+
+    This result can be further refined, and we can provide a necessary and sufficient condition for the existence of nontrivial solutions to the Skolem equation. Review the proof of theorem \ref{x3-2y3=1}, the non-trival 
+    solution is just the fundamental unit. Notice that in our case, we have 4 choice for fundamental unit: \(u,-u,1/u,-1/u\), and there are exactly two positive unit \(u,1/u\), so the existence depends on the detail of the unit.
+
 
 
 
