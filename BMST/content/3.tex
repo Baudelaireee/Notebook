@@ -19,7 +19,7 @@ x^{3}-2y^{3}=1
 are\/ $(x,y)=(1,0)$ and\/ $(x,y)=(-1,-1)$.
 
     \begin{proof}
-         Let \(f: \z_3 \to \qq_3(\theta)\) be the p-adic analytic function defined by \(f(x) = \exp({x\log{u^3}})\), and \(f|_{\z}(n) = u^{3n}\), it is well-efined by \textbf{lemma...}. In particular
+         Let \(f: \z_3 \to \qq_3(\theta)\) be the p-adic analytic function defined by \(f(x) = \exp({x\log{u^3}})\), and \(f|_{\z}(n) = u^{3n}\), it is well-efined by definition. In particular
          \[\log{u^3} \equiv  3\theta-3\theta^2 \mod{9 \z_3}\]
          hence 
          \begin{equation} \label{eq1}
@@ -53,7 +53,7 @@ are\/ $(x,y)=(1,0)$ and\/ $(x,y)=(-1,-1)$.
     \begin{equation} \label{eq2}
         x^3+dy^3=1
     \end{equation}
-    which we call it Skolem's equation. Skolem is influenced by the work of Thue in the beginning of the 19th. Thue improved the Liouville's approximation theorem to give a lower approxiamtion exponent \(\tau(d) = \frac{d}{2}+1+\epsilon\), which shows that the number of the integral solution of equation (\ref{eq2}) will be finite (see \cite[Chapter 11]{silverman2009arithmetic}). However, this method of diophantine approxiamtion is not effective, in 1937 Skolem make use of p-adic interpolate method to give a same answer that the solution of the equation (More generally, he states for a irreducible homogeneous polynoimal) will be finite, even more precisely, at most two solution.
+    which we call it Skolem's equation. Skolem is influenced by the work of Thue in the beginning of the 19th. Thue improved the Liouville's approximation theorem to give a lower approxiamtion exponent \(\tau(d) = \frac{d}{2}+1+\epsilon\), which shows that the number of the integral solution of equation (\ref{eq2}) will be finite (see \cite[Chapter 11]{silverman2009arithmetic}). However, this method of diophantine approxiamtion is not effective, in 1937 Skolem made use of p-adic interpolate method to give a same answer that the solution of the equation (More generally, he states for a irreducible homogeneous polynoimal) will be finite, even more precisely, at most two solution.
 
     
     \begin{theorem}[Skolem] There exists at most one non-trival solution for the Integral equation
@@ -87,8 +87,15 @@ y^2 \left( 1 + 9M x^2 (x + B_2 x^2 + 2B_1 x y + B_0 y^2) \right)=0 & \text{for }
     \end{theorem}
 
     This result can be further refined, and we can provide a necessary and sufficient condition for the existence of nontrivial solutions to the Skolem equation. Review the proof of theorem \ref{x3-2y3=1}, the non-trival 
-    solution is just the fundamental unit. Notice that in our case, we have 4 choice for fundamental unit: \(u,-u,1/u,-1/u\), and there are exactly two positive unit \(u,1/u\), so the existence depends on the detail of the unit.
+    solution is just the fundamental unit. Notice that in our case (\(r=s=1\)), we have 4 choices for fundamental unit: \(u,-u,1/u,-1/u\), here we call the the fundamental unit \(0<u<1\) as \textbf{direct unit}, and its inverse \(u^{-1}\) as i\textbf{nverse unit}, from Delone's proof \cite[Chapter 11]{delone1964theory} it shows that the existence of the solution depens on the direct unit.
 
+    \begin{theorem}[Delone]
+        If \(d\) is not a perfect cubic, then the integral equation \(x^3+dy^3=1\) has unique the non-trival solution if and only if the direct unit is of the form \(a+b\sqrt[3]{d}\), which corresponds to the solution \((a,b)\).
+    \end{theorem}
+
+    The proof of Delone is out of the p-adic method and pure algebraic. We define that a binomial unit is a unit with the form \(a+b\sqrt[3]{d}\), here is the outline of the proof: (1) the inverse unit must be of the form \(A+B\sqrt[3]{d}+C\sqrt[3]{d^2}\) with \(A,B,C>0\), which implies any power of inverse unit is not a binomial unit. (2) Show that any power (>1) of the direct unit can not be binomial unit, the technic to explicitly denote the cofficient with respect to \(\sqrt[3]{d^2}\) by roots of unity filter \(\sum_{k=0}^{2} \zeta^k f(\zeta^k x)\). Hence the unique possible is that direct unit is a binomial unit.
+
+    The p-adic method here is analytic, it strongly depends on the information about \(d\), i.e. the unit group of \(\qq(\sqrt[3]{d})\). Therefore, the limitation is obvious because the caculation of the fundamental unit is generally diffcult.
 
 
 

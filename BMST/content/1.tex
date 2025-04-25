@@ -2,12 +2,44 @@
 
 
 \begin{theorem}[Dirichlet's unit theorem] $\\$
-    Let \(K\) be a number field with \(r\) real embeddings and \(s\) pairs complex embeddings, and let \(\mathcal{O}_K\) be its integer ring, then its unit group has isomorphic structure:
+    Let \(K\) be a algebraic number field with \(r\) real embeddings and \(2s\) complex embeddings, and let \(\mathcal{O}_K\) be its integer ring, then its unit group has isomorphic structure:
     \[\mathcal{O}_K^\times \cong \mu(K) \times \mathbb{Z}^{r+s-1}\]
     where \(\mu(K)\) is the group of roots of unity in \(K\), and it is a finite cyclic gourp.
 
     \begin{proof}
-        A standard proof can be founded in \cite{neukirch2013algebraic}, here we just consider the case of \(r=1\) and \(s=1\).
+        A standard proof can be founded in \cite{neukirch2013algebraic}, here we just consider the case of \(r=1\) and \(s=1\), i.e. a extension \([K:\qq] =3\). Suppose that \(\sigma_r\) and \(\sigma_s\) are the real embedding and one of the complex embedding, then if a unit \(u \in \mathcal{O}_K^\times \) implies \(|\sigma_r(u)||\sigma_s(u)|^2 = 1\). Hence we consider a hyperplan of \(\rr^2\)
+        \[H:= \{(a,b)\in \rr^2| a+b=0\}\]
+        then we will naturally get a exact sequence \[\begin{tikzcd}
+	1 && {\mu_K} && {\mathcal{O}_K^\times} && l(H) && 0
+	\arrow[from=1-1, to=1-3]
+	\arrow["e", from=1-3, to=1-5]
+	\arrow["l", from=1-5, to=1-7]
+	\arrow[from=1-7, to=1-9]
+\end{tikzcd}\]
+         here \(e\) is a trival embedding by \(e(a) = a\), \(l\) is the logarithm map defiend by
+         \[u\mapsto (\log|\sigma_r(u)|, \log|\sigma_s(u)|)\]
+         which is a homomorphism from the multiplicative group to the additive group, with \(\ker l = \{u\in {\mathcal{O}_K^\times}||\sigma_r(u)|=|\sigma_s(u)|=1\} = \mu_K\), it holds generally by Kronecker's theorme. so immediately we have the isomorphic
+         \[{\mathcal{O}_K^\times}/\mu_K \cong l(H)\]
+         Then we need to prove that \(l(H)\) is a nontrivial discrete subgroup of \(H\), i.e. a complete lattice of \(H\), which ensures \(l(H) \cong \z\). We consider the embedding \(j: {\mathcal{O}_K^\times} \to \cc^2\) by 
+         \[u \mapsto (\sigma_r(u),\sigma_s(u))\]
+         Notice that integr ring \({\mathcal{O}_K^\times}\) is a free \(\z\)-module, then there exists integral base \(\{w_1,w_2,w_3\}\) such that any \(u \in {\mathcal{O}_K^\times}\), there exists \(x,y,z \in \z\) such that 
+         \[u = xw_1+yw_2+zw_3\] hence it invites a integral base for \(j({\mathcal{O}_K^\times})\) by
+         \begin{align*}
+            j(u) &= x \begin{pmatrix}
+                w_1 \\
+                \sigma_s(w_1)
+             \end{pmatrix}+y\begin{pmatrix}
+                w_2 \\
+                \sigma_s(w_2)
+             \end{pmatrix}+z\begin{pmatrix}
+                w_3 \\
+                \sigma_s(w_3)
+             \end{pmatrix} \\
+             &= xe_1+ye_2+ze_3
+         \end{align*}
+        hence under some base \(B\) we can see \(j({\mathcal{O}_K^\times})\) as the integer lattice of \(\cc^2\). Now for any \((\log|\sigma_r(u)|,\log|\sigma_s(u)|) \in l(H)\), we take a voisinage \(V\) of the point, then \(\overline{j\circ l^{-1}(V)}\) implies a compact set of \(\cc^2\), so it must contains finite Integer lattice under the base \(B\), therefore \(V\) covers finite points, so \(l(H)\) is discrete.
+
+        Finally \(l(H)\) must be nontrivial, it is not clear and even difficult, it is essential to prove the existence of the nontrival unit of \(\mathcal{O}_K^{\times}\)
     \end{proof}
 \end{theorem}
 
@@ -80,4 +112,4 @@ with \(\theta ^3= 2\) we can rewrite it to get a linear combination of \(\{1,\th
     &...
 \end{align*}
  
-The problem here is diffcult to formulate \(u^{k}\) since there exists negative cofficient in \(-1+\theta\), it is not easy to deduce that whether the cofficient of \(\theta^k\) will vanish in a certain \(k\) or not, the argumment here will be not clear, a pure algebraic method can be founded in \cite[Chapter 24]{mordell1969diophantine} by discussing binoimal units.
+The problem here is diffcult to formulate \(u^{k}\) since there exists negative cofficient in \(-1+\theta\), it is not easy to deduce that whether the cofficient of \(\theta^k\) will vanish in a certain \(k\) or not, the argumment here will be not clear, so we will turn towards to the p-adic method
