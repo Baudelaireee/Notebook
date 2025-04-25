@@ -1,0 +1,49 @@
+\section{Skolem's equation $x^3+dy^3=1$}
+
+Similar technic we can apply to completly solve the diophantine equation of the form
+\begin{equation} \label{eq2}
+    x^3+dy^3=1
+\end{equation}
+which we call it Skolem's equation. Skolem is influenced by the work of Thue in the beginning of the 19th. Thue improved the Liouville's approximation theorem to give a lower approxiamtion exponent \(\tau(d) = \frac{d}{2}+1+\epsilon\), which shows that the number of the integral solution of equation (\ref{eq2}) will be finite (see \cite[Chapter 11]{silverman2009arithmetic}). However, this method of diophantine approxiamtion is not effective, in 1937 Skolem made use of p-adic interpolate method to give a same answer that the solution of the equation (More generally, he states for a irreducible homogeneous polynoimal) will be finite, even more precisely, at most two solution.
+
+
+\begin{theorem}[Skolem] There exists at most one non-trival solution for the Integral equation
+    \[x^3+dy^3=1\]
+where \(d \in \z\).
+    \begin{proof}
+        If \(d\) is a perfect cubic, then the solution will be related to the equation \(x^3+y^3=1\), which only has two solution \((1,0)\) and \((0,1)\), so there exists at most one non-trival solution. If \(d\) is not perfect cubic, we consider the field extension \(K = \qq(\theta)\) with \(\theta = \sqrt[3]{d}\). By unit theorem, we denote \(u\) is the positive unit, and then if \((x,y)\) is a Integral solution, \(x+y\theta\) will be of the form \(u^k\) form some integer \(k\).
+
+        Suppose that we have two non-trival solution \((x_1,y_1)\) and \((x_2,y_2)\), here \(x_iy_i \neq 0\) and then there exists non-zero integer \(p_1\) and \(p_2\) such that \(x_1+y_1\theta = u^{p_1}\) and \(x_2+y_2\theta = u^{p_2}\). Let \(p_1/p_2 = n_1/n_2\) with \(\gcd(n_1,n_2)=1\), then \(n_1/n_2\) or \(n_2/n_1\) can be seen as a p-adic integer. It is sufficient to assume that \(N = n_2/n_1 \in \z_3\), then 
+        \[x_2+y_2\theta = u^{p_2} = u^{Np_1} = (x_1+y_1\theta)^N\]
+        Notice that \[(x_1+y_1\theta)^3 = 1+3xy(x\theta+y\theta^2)\]
+        we put \(N= 3M+r\) with \(M \in \z_3\) and \(r=0,1,2\), then we have 
+        \[x_2+y_2\theta = [1+3xy(x\theta+y\theta^2)]^M(x+y\theta)^r\]
+        with \(x=x_1\) and \(y=y_1\). We consider it in the completion of the finite extension \(\qq (\theta)\) by 
+        \[L \cong \qq_3 \otimes_{\qq} \qq(\theta)\]
+        then there exists a convegrent series \(B \in \z_3[\theta]\) such that
+        \begin{equation} \label{eq3}
+            x_2 + y_2 \theta = \left( 1 + 3M x y (x\theta + y\theta^2) + 9M x^2 y^2 B \right) (x + y\theta)^r 
+        \end{equation}
+        write \(B=B_0+B_1\theta+B_2\theta^2\) with \(B_1,B_2,B_3 \in \z_3\), and then rewrite equation (\ref{eq3}) as the linear combination of \(\{1,\theta,\theta\}\), the cofficient with respect to \(\theta^2\) must be zero, so we have 
+        \[
+\begin{cases}
+3M x y^2 (1 + 3x B_2)=0 & \text{for } r = 0, \\
+3M x^2 y^2 \left( 2 + 3(y B_1 + x B_2) \right)=0 & \text{for } r = 1, \\
+y^2 \left( 1 + 9M x^2 (x + B_2 x^2 + 2B_1 x y + B_0 y^2) \right)=0 & \text{for } r = 2.
+\end{cases}
+\]
+        Notice that notice that \(N \neq 0, 1\), which means for \(r=0\) or \(r=1\) we must have \(M\neq 0\), then we can divide \(3Mxy^2, 3Mx^2y^2, y^2\) respectively, and then we can get contradiction by modulo 3 (\(1 \equiv 0, 2 \equiv 0, 1\equiv 0\) respectively).
+            
+    \end{proof}
+\end{theorem}
+
+This result can be further refined, and we can provide a necessary and sufficient condition for the existence of nontrivial solutions to the Skolem equation. Review the proof of theorem \ref{x3-2y3=1}, the non-trival 
+solution is just the fundamental unit. Notice that in our case (\(r=s=1\)), we have 4 choices for fundamental unit: \(u,-u,1/u,-1/u\), here we call the the fundamental unit \(0<u<1\) as \textbf{direct unit}, and its inverse \(u^{-1}\) as i\textbf{nverse unit}, from Delone's proof \cite[Chapter 11]{delone1964theory} it shows that the existence of the solution depens on the direct unit.
+
+\begin{theorem}[Delone]
+    If \(d\) is not a perfect cubic, then the integral equation \(x^3+dy^3=1\) has unique the non-trival solution if and only if the direct unit is of the form \(a+b\sqrt[3]{d}\), which corresponds to the solution \((a,b)\).
+\end{theorem}
+
+The proof of Delone is out of the p-adic method and pure algebraic. We define that a binomial unit is a unit with the form \(a+b\sqrt[3]{d}\), here is the outline of the proof: (1) the inverse unit must be of the form \(A+B\sqrt[3]{d}+C\sqrt[3]{d^2}\) with \(A,B,C>0\), which implies any power of inverse unit is not a binomial unit. (2) Show that any power (>1) of the direct unit can not be binomial unit, the technic to explicitly denote the cofficient with respect to \(\sqrt[3]{d^2}\) by roots of unity filter \(\sum_{k=0}^{2} \zeta^k f(\zeta^k x)\). Hence the unique possible is that direct unit is a binomial unit.
+
+The p-adic method here is analytic, it strongly depends on the information about \(d\), i.e. the unit group of \(\qq(\sqrt[3]{d})\). Therefore, the limitation is obvious because the caculation of the fundamental unit is generally diffcult.

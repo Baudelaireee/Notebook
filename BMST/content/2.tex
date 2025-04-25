@@ -1,96 +1,92 @@
-\section{p-adic Analytic funnction}
+\section{p-adic analytic funnctions}
 
-The main goal of this part is to completely solve the equation by p-adic method, p-adic analytic function and Strassman's theorem will be the key, in particular logarithm and exponential function. 
+The main goal of this part is to completely solve the equation by p-adic methods, the concept of p-adic analytic functions, in particular the p-adic logarithm and exponential, together with Strassman's theorem, will be the key points.
 
 \begin{proposition}
     Let \(K\) be a complete non-archimdean field, a series \(\sum_{n \geq 0} a_n\) of \(K\) converges if and only if \((a_n)_{n \geq 0}\) converges to zero.
-
-    \begin{proof}
-        
-    \end{proof}
 \end{proposition}
 
-Similarly, we can study the convergence of power series in a non-archimdean field by considering the radius convergence
+Similarly, we can study the convergence of power series in a non-archimedean field by considering the radius convergence
 \[R = 1/\limsup_{n \rightarrow \infty}\sqrt[n]{|a_n|}\]
-Since ultrametric is still a metric. We can formally define 
+Since an ultrametric is still a metric. we can formally define 
 \begin{definition}
-    Let \(B_p(a,r) = \{x \in \cc_p| |x-a|_p <r \}\) be a subset of \(\cc_p\).
+    Let \(B_p(a,r) = \{x \in \cc_p| |x-a|_p <r \}\) be  the open ball of radius \(r\) around \(a\) in \(\cc_p\).
 
-    - p-adic logarithm is the p-adic analytic function \(\log_p: B_p(1,1) \to \cc_p\) defined by
+    -The p-adic logarithm is the p-adic analytic function \(\log_p: B_p(1,1) \to \cc_p\) defined by
     \[\log_p(x) := \sum_{n=1}^{\infty} (-1)^{n+1} \frac{(x-1)^n}{n}\]
 
-    - p-adic exponential is the p-adic analytic function \(\exp_p : B_p(0,p^{-1/(p-1)}) \to \cc_p\) defined by
+    -The p-adic exponential is the p-adic analytic function \(\exp_p : B_p(0,p^{-1/(p-1)}) \to \cc_p\) defined by
     \[\exp_p (x) :=  \sum_{n=0}^{\infty} \frac{x^n}{n!}\]
 \end{definition}
 
-We will verify the statement is well-defined. For the reader who is familiar with p-adic analytic function, this section can be skipped. \newline 
+We will verify the statement is well-defined. For the reader who is familiar with p-adic analytic functions, this section can be skipped. From now on, unless stated otherwise, \(\log(\cdot)\) and \(\exp(\cdot)\) will denote the p-adic analytic function as above. \newline 
 
-It is easier to check logarithm by observing \(v_p(n) \leq \log_p(n)\) for any integer \(n \geq p\) and here logarithm is defined in real line, because any integer between \(p^k\) and \(p^{k+1}\) has valuation 1 and logarithm in real line is increasing. then for any \(|x-1|_p = p^{-r} < 1\) we have
+It is easier to check the statement for the p-adic logarithm by observing \(v_p(n) \leq \frac{\ln(n)}{\ln(p)}\) for any integer \(n \geq 1\), because any integer \(n \in [p^k,p^{k+1})\) has valuation at most \(k\), then for any \(|x-1|_p = p^{-r} < 1\) we have
 \[ \lim_{n \rightarrow \infty} |1/n|_p |x-1|_p^n =\lim_{n \rightarrow \infty} p^{v_p(n)-nr} = p^{\lim_{n \rightarrow \infty}n(\frac{v_p(n)}{n}-r)} = 0\]
-When \(|x-1|_p = 1\), notice that sequence \(|1/n|_p\) diverges, so the \(B_p(1,1)\) is the domain of convergence. Similarly,we will check exponentials and it will be a little complicated.
+When \(|x-1|_p = 1\), notice that sequence \(|1/n|_p\) diverges, so the \(B_p(1,1)\) is the domain of convergence. Similarly,we will compute the radius of convergence of the p-adic exponential function.
 
 \begin{lemma}
     Let \(n \in \n\) and \(S_n\) denotes the sum of the digits of \(n\) in base p, then 
     \[v_p(n!) =  \frac{n-S_n}{p-1}\]
 
     \begin{proof}
-        Firstly we prove \(v_p(p^n!) = \frac{p^n-1}{p-1}\) for any positive integer \(n\) by recurrence. when \(n=1\), \(v_p(p) = 1\); for intger \(n \geq 2\) we assume that \(v_p(p^{n-1}!) = \frac{p^{n-1}-1}{p-1}\), then \(p^n! = p^{n-1}! \cdot \prod_{k=1}^{p-1} A_k\) with
+        Firstly we prove \(v_p(p^n!) = \frac{p^n-1}{p-1}\) for any positive integer \(n\) by recurrence. When \(n=1\), \(v_p(p) = 1\); for an intger \(n \geq 2\) we assume that \(v_p(p^{n-1}!) = \frac{p^{n-1}-1}{p-1}\), then \(p^n! = p^{n-1}! \cdot \prod_{k=1}^{p-1} A_k\) with
         \[A_k = (kp^{n-1}+1) \times (kp^{n-1}+2)\times \cdots \times (k+1)p^{n-1}\]
-        then clearly by valuation
+        then
         \begin{align*}
             v_p(p^n !) &= v_p(p^{n-1}!) + \sum_{k=1}^{p-1}v_p(A_k)\\
-            &= v_p(p^{n-1}!) + pv_p(p^{n-1}!)+1 \\
-            &= \frac{p^{n-1}-1}{p-1}+p\cdot \frac{p^{n-1}-1}{p-1} +1 \\
+            &= v_p(p^{n-1}!) + (p-1)v_p(p^{n-1}!)+1 \\
+            &= \frac{p^{n-1}-1}{p-1}+p^{n-1} \\
             &= \frac{p^{n}-1}{p-1}
         \end{align*}
-        Hence we finish our recurrence. And if we tkae \(a \in {1,...,p-1}\), then the formula can be generalized
+        Hence we finish our recurrence. And if we tkae \(a \in {1,...,p-1}\), then the formula can be generalized, as the following shows:
         \begin{align*}
-            v_p(ap^n !) &= \sum_{k=0}^{a-1}v_p[(k\cdot p^n +1)\times(k\cdot p^n +2) \times \cdots \times  (k\cdot p^n + p^n)] \\
+            v_p[(ap^n)!] &= \sum_{k=0}^{a-1}v_p[(k\cdot p^n +1)\times(k\cdot p^n +2) \times \cdots \times  (k\cdot p^n + p^n)] \\
             &= \sum_{k=0}^{a-1}v_p(p^n!) = a\frac{p^n-1}{p-1}
         \end{align*}
-        Finally we prove it by recurrence. Assuming that for any integer \(n-1\) the identity holds, and \(n= ap^r+m\) with \(a \in \{1,...,p-1\} \) and \(m<p^r<n-1\), then
+        Finally we prove the lemma by recurrence. Assuming that for any integer \(n-1\) the identity holds, and \(n= ap^r+m\) with \(a \in \{1,...,p-1\} \) and \(m<p^r<n-1\), then
         \begin{align*}
             v_p(n!) &= v_p(ap^r!)+\sum_{k=1}^{m}v_p(ap^r!+k)\\
-            &= v_p(ap^r!)+v_p(m) \\
+            &= v_p(ap^r!)+v_p(m!) \\
             &= a\cdot \frac{p^r-1}{p-1}+\frac{m-S_m}{p-1}\\
             &= \frac{(ap^r+m)-(a+S_m)}{p-1} = \frac{n-S_n}{p-1}
         \end{align*}
     \end{proof}
 \end{lemma}
 
-By above lemma, the exponentials converges in given domain. For any \(|x|_p < p^{-1/p-1}\), we estimate
-\[v_p(x^n/n!) = nv_p(x)-v_p(n!) > \frac{S_n}{p-1} \xrightarrow{n \rightarrow \infty} +\infty\]
-which means the definition is well-defined. When \(|x| = p^{-1/p-1}\), we notice that for \(n = p^k\), we have
+By above lemma, the exponentials converges in given domain. For any \(|x|_p < p^{-1/p-1}\), there exists \(\epsilon>0\) such that \(\epsilon = (p-1)v_p(x)-1\), so we can estimate
+\[v_p(x^n/n!) = \frac{n\epsilon-S_n}{p-1} \geq \frac{n\epsilon-p(ln(n)/lnp+1)}{p-1} \xrightarrow{n \rightarrow \infty} +\infty\]
+which means the definition is well-defined. The upper bound of \(S_n\) holds here because integer \(n\) has at most \(\lfloor\frac{ln(n)}{lnp}\rfloor+1\) p-digits. When \(|x| = p^{-1/p-1}\), we notice that for \(n = p^k\), we have
 \[|\frac{x^n}{n!}|_p  = p^{-p^k/p-1}\cdot p^{p^k-1/p-1} = p^{1/p-1} \]
 Hence  the series diverges and the domain of the convergence is \(B_p(0,p^{-1/(p-1)})\). 
 \newline
 
 Some properties about the power series will be needed here for the following proof.
 \begin{lemma}[analytic continuation] \label{cont}
-    Let \(f(X)\) and \(g(X)\) be two formally power series over a complete non-archimdean field \(K\), and they all converge on the domain \(D\) If there exists a non-stationary convergent sequence \((a_n)_{n \in \n}\) of \(D\) such that \(f(a_n)=g(a_n)\), then \(f(X) = g(X)\).
+    Let \(f(X)\) and \(g(X)\) be two formally power series over a complete non-archimedean field \(K\), and they all converge on the domain \(D\) If there exists a non-stationary convergent sequence \((a_n)_{n \in \n}\) of \(D\) such that \(f(a_n)=g(a_n)\), then \(f(X) = g(X)\).
 
     \begin{proof}
         The proof is similar to the classical proof. It is sufficient to consider the case that \(D\) is a disc containing zero and \((a_n)_{n \in \n}\) converges to zero. Then we have 
         \[h(X) = f(X)-g(X) = \sum_{k\geq 1} c_k X^k\]
         with \(h(a_n) = 0\) for any \(n\). Assuming that \(h(X)\) is not zero, then we take \(r = \{\min{n \in \n| c_n \neq 0}\}\) the smallest non-zero index, then \(h(X)=X^rh_1(X)\), here \(h_1\) is defined by a power series with the non-zero constant cofficient, and it also converges on \(D\). Then by continuity, we have
-        \[ \lim_{n \rightarrow \infty} h_1(a_n) = h_1(\lim_{n \rightarrow \infty}a_n) = h_1(0) = c^r \neq 0\]
+        \[ \lim_{n \rightarrow \infty} h_1(a_n) = h_1(\lim_{n \rightarrow \infty}a_n) = h_1(0) = c_r \neq 0\]
         Hence for a large \(N\), \(h_1(a_N) \neq 0\). Moreover, non-stationary sequence \((a_n)_{n\in \n}\) implies \(a_N \neq 0\), so \(h(a_N) = a_N^rh_1(a_N)\neq 0\), absurd.
     \end{proof}
 
     \begin{lemma}[composition] \label{composition}
-        Let \(f(X) = \sum_{n \geq 0} a_nX^n\) and \(g(X) = \sum_{m\geq 1}b_mX^m\) be two formal power series, let \(R\) be the radius convergence of \(f\). If \(x\) is an element of a complete non-archimdean field \(K\) which satisfies\\
+        Let \(f(X) = \sum_{n \geq 0} a_nX^n\) and \(g(X) = \sum_{m\geq 1}b_mX^m\) be two formal power series, let \(R\) be the radius convergence of \(f\). If \(x\) is an element of a complete non-archimedean field \(K\) which satisfies\\
         (1) \(g(x)\) converges. \\
         (2) \(|b_mx^m| < R\) for any \(m \geq 1\). \\
         then then the formal power series \(h(X) = f\circ g (X)\) converges at \(x\) with \(h(x)=f(g(x))\).
 
         \begin{proof}
-            The proof can be founded in \cite[Chapter 4]{cohen2007number}.
+            The proof can be founded in Cohen's book \cite[Chapter 4, proposition 4.2.7]{cohen2007number}.
         \end{proof}
     \end{lemma}
 \end{lemma}
 
 Logarithm and exponetial function keeps the same algebraic properties in p-adic context, here we just need several properties for applications to the solution of the equation.
-\begin{proposition}
+\begin{proposition} \label{explog}
     Let \(a,b \in \cc_p\) with \(|a|_p, |b|_p < p^{-1/(p-1)} \), then\\
     (1) \(\exp (a+b)  = \exp (a) \exp(b)\) \\
     (2) \(|\log(1+a)|_p = |a|_p\)\\
@@ -109,9 +105,9 @@ Logarithm and exponetial function keeps the same algebraic properties in p-adic 
         \[v_p(\frac{a^{n-1}}{n!}) = (n-1)v_p(a)-v_p(n!) > \frac{n-1}{p-1} - \frac{n-S_n}{p-1} = \frac{S_n-1}{p-1} \geq 0\]
         Hence we can conclude that 
         \[|\frac{a^n}{n}|_p \leq |\frac{a^n}{n!}|_p = |\frac{a^{n-1}}{n!}|_p \cdot|a|_p < |a|_p\]        
-        for any \(n \geq 2\). Therefore by the inequality of ultrametric, we can conlude the result.
+        for any \(n \geq 2\). Therefore by the inequality of ultrametric, we can conlude the result, and notice here will still hold if \(|a|_{p} <1\).
 
-        (3) Firstly we will check the condition of the lemma \ref{composition}. Let \(f(X) = \exp(X)\) and \(g(X) = \log(1+X)\), then \(|a| < p^{-1/p-1} <1\) impiles that \(g(a)\) converges. Notice that each term \((-1)^{m+1}\frac{x^m}{m}\) in \(g(a)\), we have estimated in the proof of (2), the absolute value is strictly less than the radius \(R = p^{-1/p-1}\), hence we by composition we proved that \(\exp(\log(1+a))\) converges. Let \(x_k = \frac{p^k}{p^k+1} <1\) be the sequence of \(\qq\), caculate its p-adic absolute value \(|x_k|_p=p^{-k} < R\) (to avoid the equality here, we convente \(k \geq 2\)), hence \(x_k\) is a non-stationary sequence converging to zero by p-adic absolute value. Finally by lemma \ref{cont}, we can conclude that \( \exp(\log(1+a)) = 1+a\) since formally power series \(\exp(log(1+X))\) has the same cofficient with \(1+X\).
+        (3) Firstly we will check the condition of the lemma \ref{composition}. Let \(f(X) = \exp(X)\) and \(g(X) = \log(1+X)\), then \(|a| < p^{-1/p-1} <1\) impiles that \(g(a)\) converges. Notice that each term \((-1)^{m+1}\frac{x^m}{m}\) in \(g(a)\), we have estimated in the proof of (2), the absolute value is strictly less than the radius \(R = p^{-1/p-1}\), so by composition we proved that \(\exp(\log(1+a))\) converges. Let \(x_k = \frac{p^k}{p^k+1} <1\) be the sequence of \(\qq\), caculate its p-adic absolute value \(|x_k|_p=p^{-k} < R\) (to avoid the equality here, we convente \(k \geq 2\)), hence \(x_k\) is a non-stationary sequence converging to zero by p-adic absolute value. Finally by lemma \ref{cont}, we can conclude that \( \exp(\log(1+a)) = 1+a\) since formally power series \(\exp(log(1+X))\) has the same cofficient with \(1+X\).
 
         %(4) notice that
         %\[|\exp(a)-1| = |\sum_{n \geq 1}\frac{a^n}{n!}| < |a| <1 \]
@@ -121,20 +117,20 @@ Logarithm and exponetial function keeps the same algebraic properties in p-adic 
 \end{proposition}
 
 \begin{remark}
-    The method of proof (3) is to aviod discussing too much formal power series. Generally, we can prove the permanence of algebraic form 
+    The method of proof (3) is to avoid discussing too much formal power series. Generally, we can prove the permanence of algebraic form 
     \[\exp(\log(1+X)) = 1+X\]
-    without considering the convergence over a fromal power series ring \(R[[X]]\) with \(R\) as a commutative \(\qq\)-algebra. The proof without analytic method is not easy, it needs some combinatorial trick, a method via formal derivative can be founed in \cite{sambale2023invitation}.
+    without considering the convergence over a formal power series ring \(R[[X]]\) with \(R\) as a commutative \(\qq\)-algebra. The proof without analytic methods is not easy, it needs some combinatorial trick, a method via formal derivative can be founed in \cite[Chapter 3]{sambale2023invitation}.
 \end{remark}
 
 
 Applying (1) to (2), then we can get the identity
 \[(1+a)^n = \exp(n \log(1+a)), \quad \forall n \in \n\]
-For extending the definition for interpolation, i.e. let \((1+a)^x\) makes sense for any \(x \in \zp\), a traditional definition is based on the Newton's binoimal theorem (see \cite[Chapter 5]{gouvea1997p}), which needs some work and here we will not use binoimal, so we consider the extension by p-adic  exponentials and logarithm, and notice that \(\n\) is dense in \(\z_p\), which makes the following extending be natural.
+For extending the definition for interpolation, i.e. let \((1+a)^x\) makes sense for any \(x \in \zp\), a traditional definition is based on the Newton's binomial theorem (see \cite[section 5.9]{gouvea1997p}), which needs some work and here we will not use binomial, so we consider the extension by p-adic  exponentials and logarithm, and notice that \(\n\) is dense in \(\z_p\), which makes the following extending be natural.
 
-\begin{definition}
-    Let \(a \in \cc_p\) with \(|a|_p < p^{-1/(p-1)}\), then the binoimal interpolation can be defined by a p-adic analytic function
+\begin{definition} \label{interpolate}
+    Let \(a \in \cc_p\) with \(|a|_p < p^{-1/(p-1)}\), then the binomial interpolation can be defined by a p-adic analytic function
     \[f_a: \zp \to \cc_p, \quad x \mapsto \exp(x \log(1+a))\]     
-    This construnction satisfies \(f_a(n) = (1+a)^n\) for any integr \(n\).
+    This construction satisfies \(f_a(n) = (1+a)^n\) for any integr \(n\).
 \end{definition}
 
 When fixing \(a\), we can estimate for any \(x \in \zp\)
@@ -144,7 +140,7 @@ that means \(f_a\) is well-defined, and by convention we denote \(f_a(x) = (1+a)
 Strassman's Theorem will be the crucial part in the proof, we give a version which is easy to use here:
 
 \begin{theorem}[Strassman's Theorem] $ \\$
-    Let \(f(X)\) be a non-zero power series of Tate algebra over \(\cc_p\) as following
+    Let \(f(X)\) be a non-zero element of the Tate algebra over \(\cc_p\), i.e. a formal power series with cofficient \((a_n)_{n \geq 0}\) converging to zero.
     \[f(X) = \sum_{n =0}^{\infty}a_n X^n = a_0 +a_1X +a_2X^2+...\]
     Let \(N = \max \{{m \in \n : |a_m|_p \geq |a_n|_p \text{ for all } n \in \n  }\)\}, then \(f: \zp \to \cc_p\) has at most \(N\) zeros.
 

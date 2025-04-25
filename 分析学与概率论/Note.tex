@@ -897,7 +897,27 @@ A probability space is usually denoted by the form
 \[\psp\]
 It refers to the probability experiment observed. Here \(\Omega\) is the sample space, it conatains all possible outcomes; \(\mathcal{T}\) is a sigma-algebra which contains all event we expected; Finally, probability \(P\) is the measure satisfying \(P(\Omega)=1\). (What that means? it means it is a function which assigns a \textbf{"number between 0 and 1"} to each event in \(\mathcal{T}\), and it keeps linear in the sense of disjoint, this type of correspondence between expected events and a number with order structure, "1" here is not important because any finite measure can be rewritten to be a probability).
 
-In a philosophical sense, the definition of the sample space is objective, whereas the definition of the event space is subjective, accompanied by a constraint in the form of a logical axiom. For example, we consider to choose a ball from infinitely many balls(this situation does not happen in real life), here \(\Omega\) is naturally a countable set, 
+In a philosophical sense, the definition of the sample space is objective, whereas the definition of the event space is subjective, accompanied by a constraint in the form of a logical axiom. For example, we choose a ball from \(n\) balls, here the sample space is surely \(\Omega=\{x_1,...,x_n\}\) by labeling balls, but the choose of event space \(\mathcal{T}\) can be different: (1) we can take \(\mathcal{T}=\mathcal{P}(\Omega)\), then in this stuation we can choose all single ball respectively; (2) we can take
+\[\mathcal{T} = \{\{x_1\},\{x_2,...,x_n\},\Omega, \emptyset\},\]
+actually it is same with Bernoulli test,in fact the stuation means that we can take either the ball labelled \(x_1\) or the other rest balls. (1) and (2) are totally different, it depends on what exactly experiment we want to observe. 
+
+We start the definition of random variable by observing above two examples, we want to do some mathematics about this two cases, clearly this two cases are discrete and simple, in mathematics it is easy to identify \(S_k=\{1,2,...,k\}\) and we take \(\mathcal{E} = \mathcal{P}(S)\), here we call the measurable space \((S_k,\mathcal{E}_k)\) as a \textbf{k-standard space}, in above example (1) can be seen the case here \(k=n\), example (2) can be seen the case here \(k=2\), the correspondence is based on the measurable function:
+
+-case (1)
+\[X_1:\Omega \to S_n, \quad x_i \mapsto i\]
+
+-case (2)
+\[X_2: \Omega \to S_2, \quad x_i \mapsto \begin{cases}
+    1 \quad i=1 \\
+    2 \quad i \neq 1
+\end{cases}\]
+in case (1) we can define the probability \(P(\{x_i\})=p_i\), then measurable function \(X_1\) invites a probability for standard space by measure by image: \(P(X_1 = i) = P\circ X_1^{-1}(\{i\}) = p_i\). Similarly for case (2), so random variable is just the measurable function, it conatins too much infrmation:exact details of the event space \(\mathcal{T}\); the corresponding standard space, a certain well-defied probability experiment (like Bernoulli test, normal distribution); the probability of the event.
+
+A most important things here is that a random variable is similar to "a quoteint map", in probability we usually prefer to care about the result of the random variable rather than the sample space, or in other words we care about the event space. For example, iif we throw the dice twice, we're probably more interested in the sum of the two dice points than in the exact number of points.
+
+Another important thing is about expecatation. 
+
+
 \subsection{Independence}
 \begin{definition}
     Given a probability space \(\psp\)

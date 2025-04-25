@@ -38,8 +38,9 @@
 \declaretheorem[style=prosty,numberlike=theorem]{lemma}
 
 
-\theoremstyle{definition}
-\newtheorem*{definition}{Definition}
+\declaretheoremstyle[name=Definition,]{defsty}
+\declaretheorem[style=defsty,numberlike=theorem]{definition}
+
 
 \setstretch{1.2}
 \geometry{
@@ -87,10 +88,9 @@
 
 \input{content/1.tex}
 
-\input{extension.tex}
-\newpage
-
 \input{content/3.tex}
+
+\input{content/inter.tex}
 \newpage
 
 \input{content/formal.tex}

@@ -1,5 +1,5 @@
 \section{Other method(not formally)}
-Now we consider the other possible method corresponding to the integral solution. We founded that if \(2\) is a perfect cubic number, then the solution will be very easy, but unfortunately we can not do like that. However, p-adic number system gives us a method to extend the field, surely we consider a prime \(p\) (for example,p =5?) such that \(\sqrt[3]{2} \in \z_p\), then we just need to study the the p-adic Integral equation
+Now we consider the other possible method corresponding to the integral solution. We founded that if \(2\) is a perfect cubic number, then the solution will be very easy, but unfortunately we can not do like that. However, p-adic number system gives us a method to extend the field, surely we consider a prime \(p\) (for example,p =5?) such that \(\sqrt[3]{2} \in \z_p\), then we just need to study the the p-adic integral equation
 \[x^3+y^3=1\]
 with \(x,y \in \z_p\).
 
@@ -52,45 +52,16 @@ By computing the case \(p=3\), we take \(A_n = \{(x_n,y_n)| x^3_n+y^3_n \equiv 1
     \[(1,0) \rightarrow (1,0) \rightarrow (1,0) \rightarrow ...\]
     The choice of the prime \(p=3\) is really terrible here, since for \(f(x,y) = x^3+y^3-1\), the partial derivative \(f_x \equiv f_x \equiv 0 \mod 3\), that means the algebraic curve we consider is not smooth? so we may consider the other prime.
 
-    For example we take \(p=5\) and we take \(f(x,y)=x^3+y^3-1\), we can actually compute that there exists exactly 4 zeros lifting from
-    \[(0,1),(1,0),(3,4),(4,3),(2,2)\]
-    Back to the equation \[x^3-2y^3=1\] we see that in \(\z_5\) and by hensel's lemma, we can know that \(\sqrt[3]{2} \in \z_5\) and \(x^3=2\) has exactly only one solution in 5-adic integr, in particular we can compute that
-    \[u = \sqrt[3]{2} = 3+2\cdot25+125+... = [...1203]_5\]
-    Hence actually the equation is equivalent to
-    \[x^3+(-uy)^3= 1\]
-    in \(\z_5\). hence we can conclude the 4 possible solutions (mod 5)
-    \[\begin{cases}
-        x \equiv 0\\
-        -uy \equiv 1
-    \end{cases},\begin{cases}
-        x \equiv 1\\
-        -uy \equiv 0
-    \end{cases},\begin{cases}
-        x \equiv 3\\
-        -uy \equiv 4
-    \end{cases},\begin{cases}
-        x \equiv 4\\
-        -uy \equiv 3
-    \end{cases},\begin{cases}
-        x \equiv 2\\
-        -uy \equiv 2
-    \end{cases}\]
-
-    We know that \((1,0)\) and \((-1,-1)\) are the all possible \(\z\)-intger solution, so here we just need to prove that in case 1 and case 3, we can not get the \(\z\)-integer solution of \((x,y)\).
-
-    For case 1, \((0,1)\) is a solution to \(x^3+y^3=1\) in \(\z_5\), so that means \(-uy=1\) has \(\z\)-intger solution for \(y\). Notice that \(u \equiv 3\) implies \(u \in \z_5^{\times}\), so \(y^3=\frac{1}{-u^3} = \frac{-1}{2}\), so no solution in \(\z\).
-
-    For case 3, the intgeral solution of \(x^3+y^3=1\) are \((1,0)\) and \((0,1)\), so the solution \(x \equiv 3\) is not in \(\z\).
-
-    Hence we can conclude that all solution are \((1,0)\) and \((-1,-1)\).
-
-    \begin{remark}
-        A little remark to case 4 here, actually \(x=-1 \equiv 4 \mod 5\) here, so the solution of \(x^3+y^3=1\) in \(\z_5\) here is equivalent to consider \(y^3=1-x^3\), so when \(1+a^3\) is a cubic number in \(\z_p\) or \(\qq_p\) for a intger \(a\)?
-    \end{remark}
+    \textbf{Question:}
+    As what u show, and i have verified that there are usually infinite solutions for a p-adic integral equation, it can be done by Hensel's lemma (fix some certain \(y\) and then use Hensel's lemma for one-variable polynomial to do lifting). However, in this case eahc solution \((x,y) \in \z_3^2\) will satisfying a properties, it must be lifted from \((1,0)\) or \((0,1)\), that means there will be two paths (each paths maybe contain infinite 3-adic solution), so the solution can be described as following
+    \[\text{solution lifted from} (1,0) + \text{solution lifted from} (0,1) = \text{all 3-adic solutions
+    }\]
+    
+    I think it is not easy to precise each compoent of solutions to get the exact integer solution instead p-adic integer solutions.
 
     We consider above process from the view of scheme (i am not very fimilar to that).
     we consider a algebraic variety by letting \(f = (X^3+Y^3-1)\)
     \[X = \text{Spec}(\z_p[X,Y]/f)\]
     so all solution in \(\z_p\) can be denoted by \(X(\z_p)\), consider the inverse limit
     \[X(\z_p) = \varprojlim_{n} X_n(\z/p^n\z)\]
-    where \(X_n = \text{Spec}((\z/p^n\z)(X,Y)/f)\) the affine scheme defined in a finite ring. In particular, when \(n=1\), \(X_n\) defines a algebraic curve in \(\ff_p\). So our question is to find \(X(\z_p) \cap \z\).
+    where \(X_n = \text{Spec}((\z/p^n\z)(X,Y)/f)\) the affine scheme defined in a finite ring. In particular, when \(n=1\), \(X_n\) defines a algebraic curve in \(\ff_p\). So our original question is to find \(X(\z_p) \cap \z^2\).
