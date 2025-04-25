@@ -885,6 +885,19 @@ With the baisc knowledge we can now formally define the hilbert space:
 \newpage 
 
 \section{Probability}
+
+\subsection{Random variable}
+Random variable is the core of Probability, just like the place of function in Analysis, or generally probability is just a special version of measure theory, here are the correspondence:
+\begin{align*}
+    \text{Probability Space} &\Longleftrightarrow \text{Measure space}\\
+    \text{random variable} &\Longleftrightarrow \text{measurable function}
+\end{align*}
+
+A probability space is usually denoted by the form
+\[\psp\]
+It refers to the probability experiment observed. Here \(\Omega\) is the sample space, it conatains all possible outcomes; \(\mathcal{T}\) is a sigma-algebra which contains all event we expected; Finally, probability \(P\) is the measure satisfying \(P(\Omega)=1\). (What that means? it means it is a function which assigns a \textbf{"number between 0 and 1"} to each event in \(\mathcal{T}\), and it keeps linear in the sense of disjoint, this type of correspondence between expected events and a number with order structure, "1" here is not important because any finite measure can be rewritten to be a probability).
+
+In a philosophical sense, the definition of the sample space is objective, whereas the definition of the event space is subjective, accompanied by a constraint in the form of a logical axiom. For example, we consider to choose a ball from infinitely many balls(this situation does not happen in real life), here \(\Omega\) is naturally a countable set, 
 \subsection{Independence}
 \begin{definition}
     Given a probability space \(\psp\)
