@@ -44,12 +44,28 @@
 \end{theorem}
 
 Although unit theorem can show us the structure of the unit, but it is diffcult to give a perfect algorithm to how to exactly compute the fundamental unit, here it is a criterion about the fundamental unit.
-\begin{lemma} \label{criterion}
-    Let \(K\) be a cubic extension of \(\qq\) with negative discriminant, and let \(u\) be the fundamental unit with \(u>1\), then 
+\begin{lemma}[Artin] \label{criterion}
+    Let \(K\) be a cubic extension of \(\qq\) with negative discriminant \(\Delta_K\), and let \(u\) be the fundamental unit with \(u>1\), then 
     \[|\Delta_K| < 4 u^3 + 24\]
-
     \begin{proof}
-        
+        Let \(u\) be the fundamental unit (\(u>1\)), then \(x=u^2\) is the unit, so the norm \(\sigma_r(x) \sigma_s(x) \overline{\sigma_s(x)}\)=1, which implies the complex conjugates \(\sigma_s(x)=u^{-1}e^{i\theta}\) with \(0 \leq \theta \leq \pi\), then the discriminant under the base \(\{1,x,x^2\}\)
+        \begin{align*}
+            \Delta(1,x,x^2) &= \begin{vmatrix}
+                1 & x & x^2 \\
+                1 & u^{-1}e^{i\theta} & u^{-2}e^{2i\theta}\\
+                1 & u^{-1}e^{-i\theta} & u^{-2}e^{-2i\theta}
+            \end{vmatrix}\\
+            &= -4(u^3+u^{-3}-2\cos\theta)^2\sin^2\theta
+        \end{align*}
+        Let \(y=\frac{u^3+u^{-3}}{2}\) and \(\phi(\theta) = (y-\cos(\theta))\sin\theta>0\), and then \(\Delta(1,x,x^2) = -16\phi^2(\theta)\), so we study the maximum of \(\phi\) on \([0,\pi]\). \(\phi'(\theta) = -2\cos^2{\theta}+y\cos\theta+1\), \(\phi'(0)=y-1 > 0\) and \(\phi(\pi)=-y-1<0\), then by continuity there exists a zero \(a\in(0,\pi)\) such that \(\phi'(0)\). By Vieta's formula, \(a\) is the unique zero so \(\phi\) attains maximum at \(\theta=a\). Hence 
+        \begin{align*}
+            |\Delta(1,x,x^2)| &\leq 16\phi^2(a) \\
+            &= 16(y^2+1-\cos^2(a)-\cos^4(a)) \\
+            &= 4u^6+24+4(u^{-6}-4\cos^2(a)-4\cos^4(a)) \\
+            &< 4u^3+24
+        \end{align*}
+        Let \(A \in \mathrm{GL}_3(\mathbb{Q})\) be the matrix from the intergal basis of \(K\) to the basis \(\{1,x,x^2\}\), then \(\det A\) must be an integer, so 
+        \[|\Delta_K| = |\det A|^2 |\Delta(1,x,x^2)| \leq |\Delta(1,x,x^2)|<4u^3+24\]
     \end{proof}
 \end{lemma}
 

@@ -1,6 +1,6 @@
 \babel@toc {english}{}\relax 
 \contentsline {section}{\numberline {1}p-adic analytic funnctions}{3}{section.1}%
 \contentsline {section}{\numberline {2}Dirichlet's Unit theorem}{7}{section.2}%
-\contentsline {section}{\numberline {3}The equation $x^3-2y^3=1$}{8}{section.3}%
-\contentsline {section}{\numberline {4}Skolem's equation $x^3+dy^3=1$}{12}{section.4}%
-\contentsline {section}{\numberline {5}Other method(not formally)}{15}{section.5}%
+\contentsline {section}{\numberline {3}The equation $x^3-2y^3=1$}{10}{section.3}%
+\contentsline {section}{\numberline {4}Skolem's equation $x^3+dy^3=1$}{13}{section.4}%
+\contentsline {section}{\numberline {5}Other method(not formally)}{16}{section.5}%

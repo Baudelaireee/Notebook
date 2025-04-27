@@ -2,13 +2,26 @@
 
 The main goal of this part is to completely solve the equation by p-adic methods, the concept of p-adic analytic functions, in particular the p-adic logarithm and exponential, together with Strassman's theorem, will be the key points.
 
+By comparison to \(\cc\), it is easier to apply the properties of sequence in \(\cc_p\) by proposition 2.8 (note), similarly we can study the convergence of power series in a non-archimedean field by considering the radius convergence
+\[R = 1/\limsup_{n \rightarrow \infty}\sqrt[n]{|a_n|}\]
+since an ultrametric is still a metric, it shows a good properties as following:
 \begin{proposition}
-    Let \(K\) be a complete non-archimdean field, a series \(\sum_{n \geq 0} a_n\) of \(K\) converges if and only if \((a_n)_{n \geq 0}\) converges to zero.
+    Let \(f(X)=\sum_{n \geq 0}a_nX^n\) be a power series with coefficients in \(\cc_p\), let the radius of convergence be \(R>0\), then\\
+    (1) \(f(x)\) converges if \(|x|<R\), and diverges if \(|x|>R\)\\
+    (2) When \(|x|=R\), \(f(x)\) converges if and only if \(\lim_{n \rightarrow \infty}|a_n|R^n = 0\). \\
+    (3) \(f\) is continous on the convergence domian \(D\).
+
+    \begin{proof}
+        Proof of (1) is same with the proof in \(\cc\). For any \(|x|=R\), the series \(\sum_{n \geq 0}a_nx^n\) converges if and only if sequence \((|a_nx^n|)_{n} = (|a_nR^n)_{n}\) converges by proposition 2.8. To prove (3) we take two points \(x,y\in D\) and let \(M = \max(|x|,|y|)\), then
+        \begin{align*}
+            |f(x)-f(y)| &= |\sum_{n \geq 0}a_n(x^{n-1}+x^{n-2}y+...+y^{n-1})(x-y)| \\
+            &\leq |x-y|\max_{n\geq 0}{|a_nM^{n-1}|}
+        \end{align*}
+        Notice that \(f(x)\) and \(f(y)\) converge, then the sequence \((|a_nM^n|)_{n}\) converges to zero, so it will be bounded by a constant \(C\), which implies \(|f(x)-f(y)|\leq\frac{C}{M}|x-y|\), immediately \(f\) is continous.
+    \end{proof}
 \end{proposition}
 
-Similarly, we can study the convergence of power series in a non-archimedean field by considering the radius convergence
-\[R = 1/\limsup_{n \rightarrow \infty}\sqrt[n]{|a_n|}\]
-Since an ultrametric is still a metric. we can formally define 
+
 \begin{definition}
     Let \(B_p(a,r) = \{x \in \cc_p| |x-a|_p <r \}\) be  the open ball of radius \(r\) around \(a\) in \(\cc_p\).
 
@@ -63,10 +76,10 @@ Hence  the series diverges and the domain of the convergence is \(B_p(0,p^{-1/(p
 
 Some properties about the power series will be needed here for the following proof.
 \begin{lemma}[analytic continuation] \label{cont}
-    Let \(f(X)\) and \(g(X)\) be two formally power series over a complete non-archimedean field \(K\), and they all converge on the domain \(D\) If there exists a non-stationary convergent sequence \((a_n)_{n \in \n}\) of \(D\) such that \(f(a_n)=g(a_n)\), then \(f(X) = g(X)\).
+    Let \(f(X)\) and \(g(X)\) be two formally power series over a complete non-archimedean field \(K\), and they all converge on the define domain \(D\) containing zero. If there exists a non-stationary convergent sequence \((a_n)_{n \in \n}\) of \(D\) such that \(f(a_n)=g(a_n)\), then \(f(X) = g(X)\).
 
     \begin{proof}
-        The proof is similar to the classical proof. It is sufficient to consider the case that \(D\) is a disc containing zero and \((a_n)_{n \in \n}\) converges to zero. Then we have 
+        The proof is similar to the classical proof. We define
         \[h(X) = f(X)-g(X) = \sum_{k\geq 1} c_k X^k\]
         with \(h(a_n) = 0\) for any \(n\). Assuming that \(h(X)\) is not zero, then we take \(r = \{\min{n \in \n| c_n \neq 0}\}\) the smallest non-zero index, then \(h(X)=X^rh_1(X)\), here \(h_1\) is defined by a power series with the non-zero constant cofficient, and it also converges on \(D\). Then by continuity, we have
         \[ \lim_{n \rightarrow \infty} h_1(a_n) = h_1(\lim_{n \rightarrow \infty}a_n) = h_1(0) = c_r \neq 0\]
@@ -134,7 +147,7 @@ For extending the definition for interpolation, i.e. let \((1+a)^x\) makes sense
 \end{definition}
 
 When fixing \(a\), we can estimate for any \(x \in \zp\)
-\[|x\log(1+a)|_p = |x|_p|a|_p < p^{1-/p-1}\]
+\[|x\log(1+a)|_p = |x|_p|a|_p < p^{-1/p-1}\]
 that means \(f_a\) is well-defined, and by convention we denote \(f_a(x) = (1+a)^x\).
 
 Strassman's Theorem will be the crucial part in the proof, we give a version which is easy to use here:

@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.12.8)  25 APR 2025 22:05
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.12.8)  27 APR 2025 20:22
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -660,29 +660,30 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 \openout5 = `SCRIPT.toc'.
 
  [2] (./content/2.tex
-Package hyperref Info: bookmark level for unknown proposition defaults to 0 on input line 6.
-Package hyperref Info: bookmark level for unknown definition defaults to 0 on input line 13.
+Package hyperref Info: bookmark level for unknown proposition defaults to 0 on input line 9.
+Package hyperref Info: bookmark level for unknown definition defaults to 0 on input line 26.
 
-Underfull \hbox (badness 10000) in paragraph at lines 22--23
+Underfull \hbox (badness 10000) in paragraph at lines 35--36
 
  []
 
-Package hyperref Info: bookmark level for unknown lemma defaults to 0 on input line 29.
 [3]
-Underfull \hbox (badness 10000) in paragraph at lines 60--63
+Package hyperref Info: bookmark level for unknown lemma defaults to 0 on input line 42.
+ [4]
+Underfull \hbox (badness 10000) in paragraph at lines 73--76
 
  []
 
-[4]
-Overfull \hbox (11.29459pt too wide) in paragraph at lines 70--72
+
+Overfull \hbox (11.29459pt too wide) in paragraph at lines 83--85
 \TU/lmr/m/n/10 with $\OML/cmm/m/it/10 h\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 a[]\OT1/cmr/m/n/10 ) = 0$ \TU/lmr/m/n/10 for any $\OML/cmm/m/it/10 n$\TU/lmr/m/n/10 . Assuming that $\OML/cmm/m/it/10 h\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 X\OT1/cmr/m/n/10 )$ \TU/lmr/m/n/10 is not zero, then we take $\OML/cmm/m/it/10 r \OT1/cmr/m/n/10 = \OMS/cmsy/m/n/10 f[] []g$
  []
 
 [5]
-Package hyperref Info: bookmark level for unknown remark defaults to 0 on input line 120.
+Package hyperref Info: bookmark level for unknown remark defaults to 0 on input line 133.
  [6]
-Package hyperref Info: bookmark level for unknown theorem defaults to 0 on input line 142.
-) (./content/1.tex [7]) (./content/3.tex
+Package hyperref Info: bookmark level for unknown theorem defaults to 0 on input line 155.
+) (./content/1.tex [7] [8]) (./content/3.tex
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 1.
@@ -699,13 +700,13 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 1.
 
-[8] [9]
-Underfull \hbox (badness 10000) in paragraph at lines 59--61
+[9] [10]
+Underfull \hbox (badness 10000) in paragraph at lines 61--63
 
  []
 
-[10] [11]
-Overfull \hbox (14.81432pt too wide) detected at line 130
+[11] [12]
+Overfull \hbox (14.81432pt too wide) detected at line 132
 \OML/cmm/m/it/10 f[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 ) = [\OMS/cmsy/m/n/10 ^^@\OT1/cmr/m/n/10 1 \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 6\OML/cmm/m/it/10 x \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 9\OML/cmm/m/it/10 xh[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 ) + 18\OML/cmm/m/it/10 xh[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 )] + [1 \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 3\OML/cmm/m/it/10 x \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 9\OML/cmm/m/it/10 xh[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 ) + 9\OML/cmm/m/it/10 xh[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 )] \OMS/cmsy/m/n/10 ^^A \OML/cmm/m/it/10 ^^R \OT1/cmr/m/n/10 + [6\OML/cmm/m/it/10 x \OT1/cmr/m/n/10 + 9\OML/cmm/m/it/10 xh[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 9\OML/cmm/m/it/10 xh[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 )] \OMS/cmsy/m/n/10 ^^A \OML/cmm/m/it/10 ^^R[]
  []
 
@@ -726,11 +727,11 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 1.
 
-[12]
+[13] [14]
 
-LaTeX Warning: Citation `delone1964theory' on page 13 undefined on input line 41.
+LaTeX Warning: Citation `delone1964theory' on page 15 undefined on input line 41.
 
-[13]) [14] (./content/formal.tex [15]) [16] (./SCRIPT.bbl) [17] (./SCRIPT.aux)
+) [15] (./content/formal.tex [16]) [17] (./SCRIPT.bbl) [18] (./SCRIPT.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
@@ -739,16 +740,19 @@ L3 programming layer <2024-02-20>
 
 LaTeX Warning: There were undefined references.
 
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
 Package rerunfilecheck Info: File `SCRIPT.out' has not changed.
 (rerunfilecheck)             Checksum: 610CD9A276B5BEAA55D98640282FABE7;866.
  ) 
 Here is how much of TeX's memory you used:
- 25455 strings out of 474773
- 499351 string characters out of 5761289
- 1934842 words of memory out of 5000000
- 47140 multiletter control sequences out of 15000+600000
+ 25456 strings out of 474773
+ 499371 string characters out of 5761289
+ 1935842 words of memory out of 5000000
+ 47141 multiletter control sequences out of 15000+600000
  570445 words of font info for 97 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  116i,15n,121p,905b,1218s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on SCRIPT.pdf (17 pages).
+Output written on SCRIPT.pdf (18 pages).
