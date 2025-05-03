@@ -915,8 +915,41 @@ in case (1) we can define the probability \(P(\{x_i\})=p_i\), then measurable fu
 
 A most important things here is that a random variable is similar to "a quoteint map", in probability we usually prefer to care about the result of the random variable rather than the sample space, or in other words we care about the event space. For example, iif we throw the dice twice, we're probably more interested in the sum of the two dice points than in the exact number of points.
 
-Another important thing is about expecatation. 
+\subsubsection{Basic Property}
+\begin{definition}
+    Let \(\psp\) be a probability space, then
 
+    - Random variable \(X: \Omega \to \rr\) is a measurable function. The expectation of the random variable is the integral defined as following (Surely it is at least integrable)
+    \[\mathbb{E}(X) = \int_{\Omega}XdP\]
+    and the variance of the random variable is defined as following (it is at least square integrable)
+    \[\mathbb{V}(X) = \mathbb{E}[(X-\mathbb{E}(X))^2] = \ee{X^2}-\ee{X}^2\]
+    the covriance of two random variable \(X,Y\) is defined as following
+    \[\cov{X,Y} = \mathbb{E}[(X-\ee{X})(Y-\ee{Y})]\]
+
+    - The loi of the random variable \(X: \Omega \to \rr\) is the probability measure defined on the standard Borel space \((\rr, \mathcal{B}(\rr))\) as following
+    \[P_X(A) = P(X \in A) = P\circ X^{-1}(A)\]
+    For any borel set \(A \subset \rr\)
+\end{definition}
+
+The properties of of the expectation and variance is as following
+
+\begin{proposition}
+    Let \(X,Y\) be two (square) integrable random variable and \(c \in \rr\), then
+
+    -Expectation:\\
+    (1) Linear: \(\ee{X+cY} = \ee{X}+c\ee{Y}\)\\
+    (2) Monotone: If \(X(w) \leq Y(w)\) for almost every \(w \in \Omega\), then
+    \[\ee{X} \leq \ee{Y}\]
+    (3) Convergence: \((X_n)_{n \geq 0}\) is the sequence of random variable converging to the random variable \(X\), and there exists a integrable random variable \(Y\) such that \(|X_n| \leq Y\) for any \(n\), then
+    \[\ee{X_n} \xrightarrow[n \rightarrow \infty]{} \ee{X}\]
+    (4) For any event \(A\), we have \(P(A) = E(1_A)\)
+
+    -Variance: \\
+    (1) \(\var{cX} = c^2 \cdot \var{X}\) \\
+    (2) \(\var{X+Y} = \var{X}+\var{Y}+2\cdot\cov{X,Y}\)
+\end{proposition}
+
+Above properties is just the translation from integral theory, there are nothing new and the most improtant things is to understand the sense behind the definition: (1) the expectation shows the real average of a random variable in the long term. (2) the variance reflects the the degree of dispersion of the value of the random variable. (3) the covriance reflects the degree of the correlation of two random variable.
 
 \subsection{Independence}
 \begin{definition}
