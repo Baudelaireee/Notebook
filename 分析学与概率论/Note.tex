@@ -915,9 +915,6 @@ in case (1) we can define the probability \(P(\{x_i\})=p_i\), then measurable fu
 
 A most important things here is that a random variable is similar to "a quoteint map", in probability we usually prefer to care about the result of the random variable rather than the sample space, or in other words we care about the event space. For example, iif we throw the dice twice, we're probably more interested in the sum of the two dice points than in the exact number of points.
 
-Another important thing is about expecatation. 
-
-
 \subsection{Independence}
 \begin{definition}
     Given a probability space \(\psp\)
@@ -1077,7 +1074,7 @@ Then we can conclude an method to determiner the convergence of random variable,
 \begin{definition}
     A sequence of random variable \((X_n)_{\ninn}\) is called identically distributed if they share the same distribution, that means for any \(i,j \in \n \):
     \[P_{X_i} = P_{X_j}\]
-    Usually we use "id." to denote the random variable.
+    Usually we use "id." to denote the identically distrbuted random variable.
 \end{definition}
  
 There are a criteria to determine if the random variables are identically distributed after changing variable:
@@ -1159,6 +1156,28 @@ a \leq \frac{\sqrt{n}}{\sigma(X_0)} \left( \frac{S_n}{n} - \mathbb{E}(X_0) \righ
 
 Usually we take a sequence with zero experence, then we have an elegant formula:
 \[\frac{S_n}{\sqrt{n}} \xrightarrow[n \rightarrow \infty]{\text{en loi}} X \sim \normal{0}{V(X_0)}\]
+
+
+\subsection{Examples of random vraiable}
+\subsection{discrete case}
+A random variable \(X: \Omega \to \rr\) is discrete if the image of \(X\) is discrete, in that case we have 
+\[P(A)  = \sum_{a\in A} P(\{a\})\]
+the probability depends on each single point. Following we firstly define some standard distribution:
+
+\begin{example}[Uniform distribution] $ \\$
+    We put \(S_n = \{1,...,n\}\) and \((S_n, \mathcal{P}(S_n))\) is a measurable space equipped with the probability
+    \[P(A) = \frac{\# A}{n}\]
+    Then the probability space is a standard uniform distribution, more generally, the definition can be extended to \((E,\mathcal{P}(E),P)\) with \(E\) a finite subset of \(\rr\), and \(P\) is a probability defined as following
+    \[P(A) = \frac{\# A}{\# E}\]
+\end{example}
+
+It is the simplest case, we call \(X \sim \text{Unif}(E)\) a random variable \(X\) subjects to a unifrom disrtibution on \(E\) if \(X\) is discrete, and \((X(\Omega),\mathcal{P}(X(\Omega)),P_X)\) equals to the standard uniform distribution \((E,\mathcal{P}(E),P)\) defined above.
+
+\begin{example}[Bernoulli Test]$ \\$
+    We take \(B=\{0,1\}\) and \((B,\mathcal{P}(B))\) a measurable space equipped with the testing probability
+    \[P(\{0\}) = 1-p, \quad P(\{1\})=p \]
+    for some \(p \in [0,1]\), then we call the \((B,\mathcal{P}(B),P)\) a standard bernoulli p-testing.
+\end{example}
 
 \newpage 
 
