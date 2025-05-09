@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.12.8)  15 APR 2025 23:40
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.12.8)  9 MAY 2025 22:32
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1145,29 +1145,29 @@ LaTeX Font Info:    Font shape `TU/texgyretermes(0)/m/n' will be
 (Font)              scaled to size 8.0pt on input line 212.
 LaTeX Font Info:    Font shape `TU/texgyretermes(0)/m/n' will be
 (Font)              scaled to size 6.0pt on input line 212.
-[9] [10] [11] (./content/ring.tex [12]
+[9] [10] [11] [12]
 LaTeX Font Info:    Font shape `TU/texgyretermes(0)/m/it' will be
-(Font)              scaled to size 8.0pt on input line 39.
+(Font)              scaled to size 8.0pt on input line 353.
 LaTeX Font Info:    Font shape `TU/texgyretermes(0)/m/it' will be
-(Font)              scaled to size 6.0pt on input line 39.
- [13] [14]) [15] [16] [17] [18] (./Note.aux)
+(Font)              scaled to size 6.0pt on input line 353.
+ [13] [14] [15] [16] [17] [18] [19] [20] [21] [22] [23] (./Note.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2020/03/25>
  ***********
 Package rerunfilecheck Info: File `Note.out' has not changed.
-(rerunfilecheck)             Checksum: 10405FD7B59BDA93D55A4211B652DC8D;1839.
+(rerunfilecheck)             Checksum: FACE6B2ADDD3BD008BD8BDD87D6EF52C;1860.
 Package logreq Info: Writing requests to 'Note.run.xml'.
 \openout1 = `Note.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 37951 strings out of 474773
- 753607 string characters out of 5761289
- 1935842 words of memory out of 5000000
- 59478 multiletter control sequences out of 15000+600000
+ 38004 strings out of 474773
+ 755124 string characters out of 5761289
+ 1938842 words of memory out of 5000000
+ 59535 multiletter control sequences out of 15000+600000
  568282 words of font info for 107 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 99i,15n,107p,752b,1177s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 99i,15n,107p,752b,1175s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on Note.pdf (18 pages).
+Output written on Note.pdf (23 pages).

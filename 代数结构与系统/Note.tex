@@ -309,9 +309,268 @@ Moreover, the expontial structure is derived from the matrix expontial
 \[exp: M_2(\rr) \to GL_2(\rr), \quad A \mapsto \sum_{\n \in \n} \frac{A^n}{n!}\]
 Notice that in finite-dimensional vector space with norm, any its subspace must be closed, so \(\cc\) is a closed subspace of \(M_2(\rr)\), which ensures that the series will always converge inside \(\cc\) such that we can restrict the exponti
 
-\input{content/ring}
 
 \newpage
+
+\section{Commutative ring}
+
+\subsection{Classification}
+There are many types of ring, we do a general classification here for a clear implication.
+
+\begin{definition}
+    Let \(R\) be a domain, and then we define
+
+    - \(R\) is a \textbf{PID (Principal ideal domain)} if all the ideal is princiapl.
+
+    - \(R\) is a \textbf{UFD (Unique factorization domain)} if every non-zero and non-unit element can be wirtten as a finite product of irreducible elements, and the representation is unique up to the order: if \(p_i \) and \(q_j\) are all irreducible such that \(q_1 \cdots q_n = p_1 \cdots p_m\), then \(m=n\) and there exists a permutation \(\sigma \in S_n\) such that \(q_i = p_{\sigma(i)}\).
+
+    - \(R\) is a \textbf{ED (Euclidean domain)} if a domain having a division algorithm: there exists a degree function \(N: R-\{0\} \to \n\) such that for all \(f,g \in R\) with \(f \neq 0\), we can conclude \(q, r \in R\) satisifying 
+    \[g = qf +r\]
+    where either \(r=0\) or \(N(r)<N(f)\).
+
+    \begin{remark}
+        We must notice the relationship of the definition and the arithemtic properties: 
+
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+\textbf{Ring} & \textbf{Arithmetic Property of \(\z\)} \\
+\hline
+Euclidean Domain & Euclidean Algorithm \\
+\hline
+UFD & Fundamental Theorem of Arithmetic \\
+\hline
+PID & Bézout's Theorem \\
+\hline
+\end{tabular}
+\end{center}
+   \end{remark}
+\end{definition}
+
+So there exists a baisc implication:
+\begin{proposition}
+    Let \(R\) be a domain 
+    \[\text{ED} \implies \text{PID} \implies \text{UFD} \]
+
+    \begin{proof}
+        \textbf{First implication:} Let \(R\) be an euclidean domain and \(I   \) be an non-zero ideal. Suppose that \(N\) is the degree function, then \(S = \{N(x) | x \in I-\{0\}\} \subset \n\), by the well-ordering principle of natural number, we can conclude a minimal element \(N(a) \in S\), then we will prove that \(I = (a)\). For any \(n \in I\) we can find \(r,s \in R\) such that \(n = sa+r\). Since \(I\) is an ideal, then \(sa \in I\) and so immediately \(r \in I\). Notice that \(N(r) < N(a)\), by the minimal of \(a\) we can conclude that \(r\) must be zero, so \(n \in (a)\), which implies \(I \subset (a)\), and another direction is trival, so we finish the proof.
+        
+        \textbf{Second implication:} We prove by contradiction. Suppose that \(R\) is a PID but not a UFD, then not each non-unit and non-zero element in \(R\) can be decomposed, so we can take an element \(a \in R\) which is not irreducible, and there exists two non-zero and non-unit element \(a_1,b_1\) such that \(a = a_1b_1\), so immediately \((a) \subset (a_1)\). Notice that if \((a) = (a_1)\), then \(b_1\) must be a unit, so we must have \((a) \subsetneq (a_1)\). with the same procedure we have
+        \[a = a_1b_1 = a_2b_2b_1  = a_3b_3b_2b_1 = ...\]
+        which implies a \textbf{infinite strictly ascending chain} of ideals (Notice that it must be infinite, if the process ends in a finite step, then we get a finite product of non-irreducible element, then by definition \(a\) must be irreducible)
+        \[(a) \subsetneq (a_1) \subsetneq (a_2) \subsetneq (a_3) \subsetneq ...\]
+        Then we take \(I = \cup_{n \geq 0}(a_n)\) with convention \(a_0 = a\), we can verify that \(I\) is an ideal, so there exists \(d \in I\) such that \(I = (d)\) since \(R\) is a PID, then there exists \(n \geq 0\) such that
+        \[I = (d) \subset (a_n) \subsetneq (a_{n+1}) \subsetneq I\]
+        which implies a contradiction.
+    \end{proof}
+\end{proposition}
+
+\subsection{Prime ideal and maximal ideal}
+
+There are two important ideals.
+
+\begin{definition}
+  Let R be a commutative ring and \(I \subsetneq R\) is a proper ideal, then
+
+  - \(I\) is an \textbf{prime ideal} if  \(ab \in I \) implies \(a\in R\) or \(b \in R\). Simialrly, we define a non-zero and non-unit element \(a \in R\) as a \textbf{prime element} if \(a|bc\) implies \(a|b\) or \(a|c\).
+
+  - \(I\) is an \textbf{maximal ideal} if there is no ideal \(J \) such that \(I \subsetneq J \subsetneq R\).
+\end{definition}
+The definition of prime element usually be rstricted in a \textbf{domain}, and notice that prime ideal and prime element means an object satisfying \textbf{Euclid's Lemma}, under domain a good thing by definition is that
+\[p \text{ prime element} \iff (p) \text{ prime ideal}\]
+So it is easy to describe prime ideal in a ring like PID, later we will see that prime element will be like a real prime we want in UFD.
+Following are the equiavlent statement of this two ideals by the language of homomorphism. 
+
+\begin{proposition}
+  Let \(I \subsetneq R\) an ideal of a commutative ring.
+
+  - \(I\) is a prime ideal if and only if \(R/I\) is a integral domain.
+
+  - \(I\) is a maximal ideal if and only if \(R/I\) is a field.
+
+  \begin{proof}
+    Notice that \(R/I\) is firstly a well-defined quotient ring, then we verify the extra properties. If \(I\) is a prime ideal, then for any classes \(a+I\) and \(b+I\) satisfies 
+    \[ab+I=(a+I)(b+I)= \bar{0}\]
+    we have \(ab \in I\), then by prime ideal \(a \in I\) or \(b \in I\), so \(a+I = \bar{0}\) or \(b+I = \bar{0}\). Conversely, if \(R/I\) is a domain, then for any \(\bar{ab}=\bar{0}\) we must have \(\bar{a} = \bar{0}\) or \(\bar{b} = \bar{0}\), that is the implication we hope by \(\bar{a} = \bar{0} \iff a \in I\).
+
+    If \(I\) is a maximal ideal, we need a \textbf{lemma} that \(K\) is a field if and only if \(\{0\}\) is a maximal ideal in \(K\): anyother non-zero element is unit and any ideal containing unit equals to \(K\).
+
+    Then we consider \(K = R/I\). We consider the natural map \(\pi: R \to R/I\) and then any ideal \(J\) of ring \(R/I\), by correspondence theorem \(\pi^{-1}(J)\) must be an ideal of ring \(R\) containing \(I\), but \(I\) is the maxiaml one, so there exists only two ideals in \(R/I\): \(\{0\}\) and \(R/I\).
+  \end{proof}
+\end{proposition}
+
+An immediate result is that\textbf{ a maximal ideal must be a prime ideal} since a field is surely a domain, conversely a prime ideal is not necessary a maximal ideal unless the ring has a good properties. To describe the relationship clearly, we review that  "prime number" in \(\z\) is a number that can not be decomposed and satisfies the Euclid's lemma, so it is natural to consider irreducible element here, a fundament unit in ring, and we consider a general implication and later we refine the realtionship.
+
+\begin{proposition} \label{general implication}
+  Let \(a \in R\) an non-unit element in a domain \(R\), then
+\[
+\begin{array}{ccc}
+a \text{ irreducible} & \Leftarrow & a \text{ prime} \\
+\Uparrow  &  & \Updownarrow \\
+(a) \text{ maximal ideal} & \Rightarrow & (a) \text{ prime ideal}
+\end{array}
+\]
+
+\begin{proof}
+  If \(a\) is a prime element, then if \(a = bc\) in \(R\), then \(a|bc\) clearly, so immediately \(a|b\) or \(a|c\) by prime element. What's more, \(b|a\) and \(c|a\), so that implies \(a=b\) or \(a=c\), then \(b\) is a unit or \(c\) is a unit, so \(a\) is irreducible.
+
+  If \((a)\) is maximal, we suppose that \(a\) is not irreducible, then \(a=bc\) with \(b,c\) non-unit and non=zero, it implies \((a) \subsetneq (b)\), it is absurd since \((a)\) is maximal, so \(a\) must be irreducible.
+\end{proof}
+\end{proposition}
+
+\begin{remark}
+  It shows that prime elements is a good irreducible element satisfying good arithemtic properties. For a p-adic number system, we must have \(p\) is a prime since
+  \[\cdots \subsetneq p^3 \z\subsetneq p^2 \z \subsetneq p \z \subsetneq \z\]
+  In a projection system we need \(p\z\) to be a maximal ideal to construct a field, so \(p\) must be a irreducible element in \(\z\).
+\end{remark}
+
+To refine the result, the ring will be added more properties. Firstly we suppose that ring \(R\) is a PID.
+\begin{proposition}
+  If \(a \in R\) is an irreducible element of a PID \(R\), then \((a)\) is a maximal ideal and \(a\) is a prime element.
+  
+  \begin{proof}
+    Supposet that \(J\) is an ideal containing \((a)\), then by PID there exists \(d \in J\) such that \((a) \subset (d)\), so there exists \(l \in R\) such that \(a = dl\). Since \(a\) is irreducible, so \(d\) is a unit or \(l\) is a unit. If \(d\) is a unit, then \(J=R\); If \(l\) is a unit, then \(d = l^{-1}a\) implies \((d) \subset (a)\), so \(J=(a)\). Notice that \(a\) is not a unit, so \((a) \subsetneq R\), so it must be a maximal ideal. Then clearly, \((a)\) is a prime ideal so \(a\) is a prime by proposition \ref{general implication}.
+  \end{proof}
+\end{proposition}
+
+By this proposition we get a completion of implication in PID as following
+\[
+\begin{array}{ccc}
+a \text{ irreducible} & \Leftrightarrow & a \text{ prime} \\
+\Updownarrow  &  & \Updownarrow \\
+(a) \text{ maximal ideal} & \Leftrightarrow & (a) \text{ prime ideal}
+\end{array}
+\]
+In particular, \(\z\) is a PID so in any PID we can identify irreducible element as a prime element, that is why in a polynomial ring over a field \(k[x]\), we have Euclid's lemma for the irreducible polynomial (like thm 3.37 in Rotman old version). and we can see a example showing PID is the most lowest condition for above good implication.
+\begin{example}
+  Consider UFD but not PID \(\z[X]\), \((X)\) is a prime ideal since \(\z/(X) \cong \z\) a domain; \((X)\) is not a maixmal ideal since \((X) \subset (X,2)\), and \(\z/(X,2) \cong \z/2\z\) a field , so \((X,2)\) a maximal ideal which means \((X) \subsetneq (X,2)\).
+\end{example}
+
+Review that UFD is the ring that element can be decomposed to be the form of the product of irreducible elements, in that case irreducible element must be prime element, similar reason is that we can prove Euclid's lemma by fundamental theorem of arithemtic.
+
+\begin{theorem}
+  \(R\) is a UFD if and only if the ring satisfies two condition:
+
+  (1) \(R\) is a factorization domain, that means each non-unit and non-zero element can be decomposed to the product of irreducible elements.
+
+  (2) Each irreducible element is a prime element.
+
+  \begin{proof}
+    If \(R\) is a UFD, then it is trivally a factroization domain. For any irreducible \(p \in R\) with \(p|ab\), there exists \(r \in R\) such that \(ab=rp\), by factorization of \(a\) and \(b\), \(a\) or \(b\) contain the irreducible element \(p\), so \(a \in (p)\) or \(b \in (p)\), that means \(p|a\) or \(p|b\), so \(p\) is prime.
+
+    Conversely, the proof is similar to the proof of the fundamental theorem of arithemtic, we need to prove the uniqueness of factorization. We suppose that \[p_1\cdots p_m = q_1 \cdots q_n\] for irreducible elements \(p_i\) and \(q_j\). Then we will prove that \(m=n\) and there exists permutation giving the index a correspondence. Without loss of generality, set \(m \geq n\), then for \(q_1\) we have \(q_1|p_1\cdots p_m\) by equality, (2) properties implies \(k_1 \in \{1,..,m\}\) such that \(q_1=p_{k_1}u_1\) with \(k_i \in \{1,...,m\}\) and \(u_1\) a unit, and then we plug it into the equality to cancellation
+    \[u_1p_1 \cdots p_m/q_{k_1} = q_2\cdots q_nq_n \]repeating above process we can conclude n correspondences \(q_i = p_{k_i}u_i\) with \(u_i\) a unit, take them in the equality we can get the follwoing equality by cancellation 
+    \[u_1...u_nx = 1\]
+    where \(x\) is the product of the rest irreducibles \(q_j\), \(j \notin \{k_i|i=1,...,n\}\) which means \(x=1\), so \(m=n\) otherwise \(1\) is a irreducible. The permutation here is clearly defined by \(\sigma(i) = k_i\)
+    \[q_1\cdots q_n = p_{\sigma(1)}\cdots p_{\sigma(n)}\]
+    so we prove the uniqueness of factorization.
+  \end{proof}
+\end{theorem}
+
+\begin{remark}
+  It gives us the idea that how to prove a PID is a UFD: Firsly in PID each irreducible element is a prime ideal, then we need to prove that PID is a fractorization, and that is the difficult of the proof, it refers to the chain of ideal.
+\end{remark}
+
+
+\subsection{Polynomial}
+Polynomial is an important algebra structure, formal polynoimal is different with the function we meet, it can be seen as a vector space over a ring or a field.
+
+\begin{proposition}[Universal property]
+Let \(R\) and \(A\) be two rings, let \(\phi: R \to A\) a ring homomorphism. Then for any \(a \in A \), there exists a unique ring homomorphism \[\Phi: R[X] \to A\] such that \(\Phi(X) = b\) and \(\Phi(c) = \phi(c)\) for any \(c \in R\).
+\[\begin{tikzcd}
+	R && A \\
+	\\
+	{R[X]}
+	\arrow["\phi", from=1-1, to=1-3]
+	\arrow["i"', hook, from=1-1, to=3-1]
+	\arrow["\Phi", dotted, from=3-1, to=1-3]
+\end{tikzcd}\]
+
+\begin{proof}
+  
+\end{proof}
+\end{proposition}
+\begin{remark}
+  This result can be generalize to a multvariable polynomial ring \(R[X_1,...,X_n]\), for any \(a_1,...,a_n \in R\) we can uniquely define a homomorphism. The proposition naturally shows that the polynomial ring over \(R\) is a \textbf{free commutative \(R\)-algebra} generated by the indeterminates.
+\end{remark}
+
+Now if we take \(A=R\) and \(\phi\) is a identity map, then naturally we can obtain a ring homomorphism: \textbf{evaluation map} of an element \(a \in R\)
+\[e_a: R[X] \to R, \quad P \mapsto P(a)\]
+It is interesting to study the kernel of the morphism
+\[\ker e_a =  \{P \in R[X] : P(a) = 0_R\}\]
+That means the set of polynomials having a root \(a\). We are used to do the decompoistion of polynomial in according to the root: in \(\z[X]\), we can decompose 
+\[X^2-3X+2 = (X-2)(X-1)\]
+because \(2\) and \(1\) are the roots of the polynomial \(X^2-3X+2\) in \(R\). 
+
+\begin{proposition}
+  Let \(P \in R[X]\) be a polynomial on a ring \(R\), then \(a\) is a root of P if and only if \(X-a\) divides \(P(X)\) in \(R[X]\), equiavlently
+  \[\ker e_a = (X-a)\]
+
+  \begin{proof}
+    Two method, one is by divison of polynomial and it is very classic; theother is by homomorphism, here we use the second method to show that the structure is independent of divsion with remainder. If \(X-a\) divides \(P\), the result is trival.
+
+    Convserly, if \(P\) have a root \(a\), then \(\deg P \geq 1\) and 
+    \begin{align*}
+      P(X)-P(a) &= \sum_{k \geq 1}c_k(X^k-a^k) \\
+      &= (X-a)\sum_{k \geq 1} c_K(X^{k-1}+...+a^{k-1})
+    \end{align*}
+    that means \(X-a\) divides \(P(X)-P(a) = P(X)\)
+  \end{proof}
+\end{proposition}
+
+\begin{corollary}[Number of the root] $ \\$
+  The polynomial on a ring with the degree \(n\) has at most \(n\) distinct roots
+\end{corollary}
+
+\begin{corollary}
+  Natural structure for a ring \(R\) and \(a \in R\)
+  \[R[X]/(X-a) \cong R\]
+\end{corollary}
+
+It is natural to study the arithemtic properties of polynomial ring, the beginning of the number theory is divison with reminder (Euclidean divison), simialrly we get the same result.
+
+\begin{theorem}[Euclidean Algorithm] $ \\$
+    Suppose that \(R\) is a commutative ring (domain) and \(f,g \in R[X]\) with \(f\) a monic polynomial, then there exists (unique) polynoimals \(r,s \in R[X]\) such that
+    \[g = sf + r\]
+    with \(\deg r < \deg f\) or \( \deg r =0\).
+     
+    \begin{proof}
+        \textbf{Existence:}        
+         If \( \deg g < \deg f \), simply set \( s = 0 \), \( r = g \). Then \( g = sf + r \) and \( \deg r < \deg f \), as required.  Suppose \( \deg g \geq \deg f \). Let
+        \[
+        g = a_n X^n + \dots + a_0, \quad f = X^d +...+b_0.
+        \]
+        Let \( n = \deg g \), \( d = \deg f \). Then define
+        \[
+        s_1 = a_nX^{n-d}
+        \]
+        Then the degree of \(r_1 = g -s_1f\) will be less than \(n\), if the degree is still larger than \(d\), we do the same procedure till some integer \(k\):
+        \begin{align*}
+            r_1 &= g-s_1f \\
+            r_2 &= r_1 - s_2f\\
+            &...\\
+            r_k &= r_{k-1} - s_kf
+        \end{align*}
+        where \(s_i = a_iX^{m_i}\) with \(a_i\) the leading cofficient of \(r_{i-1}\) and \(m_i = \deg r_{i-1} -d\). \(k\) satisfies
+        \[\deg r_1 > \deg r_2 > ... > \deg r_{k-1} \geq d=deg f > \deg r_{k}\]
+        Finally, adding them togther we get 
+        \[r = r_k, s = s_1+s_2+...+s_k\]
+        \textbf{Uniqueness:} Suppose there exist two such decompositions:
+        \[
+        g = s_1 f + r_1 = s_2 f + r_2.
+        \]
+        Then:
+        \[
+        (s_1 - s_2)f = r_2 - r_1.
+        \]
+        The left-hand side is divisible by \( f \) if \(s_1 \neq s_2\), and the right-hand side has degree strictly less than \( \deg f \), unless it is zero. Since \( R \) is an integral domain, this implies \( r_1 = r_2 \) and thus \( s_1 = s_2 \). Hence the decomposition is unique.
+        \end{proof}
+\end{theorem}
+
+\begin{remark}
+    For a field \(K\), \(K[X]\) will be an excellent object to study (we call it \textbf{\(K\)-algebra}) since it satisfies Euclidean Algorithm, Furthermore it will satisfy all arithemtic properties in \(\z\), in brief, it is a Euclidean domain with degree as its euclidean function
+\end{remark}
+
 
 \section{Field Theory}
 \subsection{Field extension}
@@ -397,7 +656,7 @@ with \(X+I \mapsto a\) and \(c+I \mapsto c\) for all \(c \in K\).
 with \(a \mapsto a'\) and \(c \mapsto c\) for all \(c \in K\).
 
 \begin{proof}
-  It needs to consider the \textbf{valuation map}, we define \(h:K[X] \to L\) by \(p \mapsto p(a)\), then clearly \(\ker h\) contains all polynoimals having \(a\) as a root, then notice that \(K[X]\) is a principal ideal ring, so \(\ker h\) must be the form \((p)\) with monic \(p \in K[X]\). By first isomorphism theorem, we know that \(K[X]/I \cong K(a)\), then by Lemma \ref{irr iff field} \(p\) must be irreducible. hence we prove (1), and we can draw commtue diagram to finish.
+  It needs to consider the \textbf{valuation map}, we define \(h:K[X] \to L\) by \(p \mapsto p(a)\), then clearly \(\ker h\) contains all polynoimals having \(a\) as a root, then notice that \(K[X]\) is a principal ideal ring, so \(\ker h\) must be the form \((p)\) with monic \(p \in K[X]\). By first isomorphism theorem, we know that \(K[X]/I \cong K(a)\), then by Lemma \ref{irr iff field} \(p\) must be irreducible. hence we prove (1), and we can draw commute diagram to finish.
 \[\begin{tikzcd}
 	{K[X]} && {K[a]} \\
 	\\

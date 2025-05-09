@@ -3,10 +3,10 @@
 \contentsline {subsection}{\numberline {1.2}From $\mathbb {Z}$ to $\mathbb {Q}$: Fraction}{6}{subsection.1.2}%
 \contentsline {subsection}{\numberline {1.3}From $\mathbb {Q}$ to $\mathbb {R}$: Completion}{8}{subsection.1.3}%
 \contentsline {subsection}{\numberline {1.4}From $\mathbb {R}$ to $\mathbb {C}$: Extension}{11}{subsection.1.4}%
-\contentsline {section}{\numberline {2}Commutative ring}{12}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Classification}{12}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}Polynomial}{13}{subsection.2.2}%
-\contentsline {subsubsection}{\numberline {2.2.1}arithmetic of polynoimal}{14}{subsubsection.2.2.1}%
-\contentsline {section}{\numberline {3}Field Theory}{16}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Field extension}{16}{subsection.3.1}%
-\contentsline {subsubsection}{\numberline {3.1.1}splitting field}{18}{subsubsection.3.1.1}%
+\contentsline {section}{\numberline {2}Commutative ring}{13}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Classification}{13}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Prime ideal and maximal ideal}{14}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Polynomial}{17}{subsection.2.3}%
+\contentsline {section}{\numberline {3}Field Theory}{20}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Field extension}{20}{subsection.3.1}%
+\contentsline {subsubsection}{\numberline {3.1.1}splitting field}{23}{subsubsection.3.1.1}%
