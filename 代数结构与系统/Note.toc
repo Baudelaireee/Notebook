@@ -7,6 +7,8 @@
 \contentsline {subsection}{\numberline {2.1}Classification}{13}{subsection.2.1}%
 \contentsline {subsection}{\numberline {2.2}Prime ideal and maximal ideal}{14}{subsection.2.2}%
 \contentsline {subsection}{\numberline {2.3}Polynomial}{17}{subsection.2.3}%
-\contentsline {section}{\numberline {3}Field Theory}{20}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Field extension}{20}{subsection.3.1}%
-\contentsline {subsubsection}{\numberline {3.1.1}splitting field}{23}{subsubsection.3.1.1}%
+\contentsline {subsubsection}{\numberline {2.3.1}primitive}{20}{subsubsection.2.3.1}%
+\contentsline {subsubsection}{\numberline {2.3.2}Irreducibility}{23}{subsubsection.2.3.2}%
+\contentsline {section}{\numberline {3}Field Theory}{25}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Field extension}{26}{subsection.3.1}%
+\contentsline {subsubsection}{\numberline {3.1.1}splitting field}{29}{subsubsection.3.1.1}%

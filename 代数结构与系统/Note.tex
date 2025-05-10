@@ -425,7 +425,7 @@ a \text{ irreducible} & \Leftarrow & a \text{ prime} \\
 \end{remark}
 
 To refine the result, the ring will be added more properties. Firstly we suppose that ring \(R\) is a PID.
-\begin{proposition}
+\begin{proposition} \label{PID maximal ideal}
   If \(a \in R\) is an irreducible element of a PID \(R\), then \((a)\) is a maximal ideal and \(a\) is a prime element.
   
   \begin{proof}
@@ -568,11 +568,249 @@ It is natural to study the arithemtic properties of polynomial ring, the beginni
 \end{theorem}
 
 \begin{remark}
-    For a field \(K\), \(K[X]\) will be an excellent object to study (we call it \textbf{\(K\)-algebra}) since it satisfies Euclidean Algorithm, Furthermore it will satisfy all arithemtic properties in \(\z\), in brief, it is a Euclidean domain with degree as its euclidean function
+    For a field \(K\), \(K[X]\) will be an excellent object to study (we call it \textbf{\(K\)-algebra}) since divison with remainder is well-defined on it, furthermore it will satisfy all arithemtic properties in \(\z\), in brief, it is a Euclidean domain with degree as its euclidean function
 \end{remark}
+
+\subsubsection*{quotient ring as a k-algebra}
+In this section, we will talk about \(K[X]\) a polynoimals ring on a field, so we can see it as a vector space over the field \(K\), and clearly it is infinite-dimensional, simialrly ideal \((P)\) can be seen as a subspace of \(K[X]\), so quotient ring \(K[X]/(P)\) can be seen as a quotient vector space.
+
+\begin{proposition}
+  Let \(p \in K[X]\) a polynoimal with degree \(n \geq 1\), then
+
+  (1) \(K[X]/(p)\) is a K-algebra with a base \(\{\bar{1},\bar{X},...,\bar{X}^{n-1}\}\).
+
+  (2) \(K[X]/(p)\) is a field if and only if \(p\) is irreducible.
+
+  \begin{proof}
+    (2) The quotient ring is a field if and only if \((p)\) is a maximal ideal, and \(K[X]\) is a PID, by proposition \ref{PID maximal ideal} we can conlude the result.
+  \end{proof}
+\end{proposition}
+
+This proposition is very fundamental and important, it shows many things, and the description is very elegant from my view, it gives a good beginning for field theory.
+
+It is used to decomposed the vector space by direct sum, here we can simialrly do that by observing that \(K[X]/(p)\) is a quotient ring at the same time.
+
+\begin{theorem}[Chinese reminder theorem] $ \\$
+  Let \(p_1,...,p_n \in K[X]\) be polynomials pairwise coprime, then we have structure
+  \[K[X]/(p_1...p_n) \cong K[X]/(p_1) \times \cdots \times K[X]/(p_n)\] 
+
+  \begin{proof}
+     It is immediately
+  \end{proof}
+\end{theorem}
+
+
+
+
+
+\subsubsection{primitive}
+
+\begin{lemma}
+  If \(R\) is a UFD, then for any finite set \(\{a_1,...,a_n\}\) of \(R\), their gcd (greatest common divisor) exists.
+
+  \begin{proof}
+    
+  \end{proof}
+\end{lemma}
+With above lemma, we can talk about one type of polynomial, which will be useful for us to determine the irreducibility of the polynoimal. In this section, any notation \(R\) denotes a UFD.
+
+\begin{definition}
+  Let \(f \in R[X]\) a polynomial with the form
+  \[f(X) = a_nx^n+\cdots +a_1x+a_0\]
+  where \(a_0,...,a_n \in R\), \(f\) is called \textbf{primitive} if \(\gcd(a_0,a_1,...,a_n)\) is a unit (or we can say that gcd associates with 1).
+\end{definition}
+
+usually we let \(c(f) = \gcd (a_0,...,a_n)\) be the \textbf{cotent} of polynoimal \(f\). A natural decomposition of the polynoimal here is
+\[f(x) = c(f)f'(x)\]
+where \(f'\) is called adjoint polynoimal, and \(f'\) is primitive.
+
+\begin{proposition} \label{c(fg) = c(f)c(g)}
+  Let \(f,g \in R[X]\), then \(c(fg) = c(f)c(g)\) up to associate.
+
+  \begin{proof}
+    
+  \end{proof}
+\end{proposition}
+
+a classic result about irreducible polynomial in \(\z\) is to see it in \(\q\), i.e. see the polynoimal in the fraction field. For any UFD \(R\), we make convent here \(K=\text{Frac}(R)\), and then we can extend the properties of primitive polynoimal.
+
+For any polynoimal \(f \in K[X]\), there exists non-zero element \(n \in R\) such that \(nf \in R[X]\), then we can define the cotent of polynoimal in \(K[X]\)
+\[c(f) := \frac{1}{n}c(nf)\]
+the definition is independent of the choice of the \(n\): for any two non-zero elements \(m,n \in R\) such that \(mf,nf \in R[X]\), we have
+\begin{align*}
+  \frac{c(nf)}{n} = \frac{mc(nf)}{mn} = \frac{c(m)c(nf)}{mn} = \frac{c(nmf)}{nm} = \frac{c(mf)}{m}
+\end{align*}
+which ensures the defniition of the cotent effective, so we can obtain the same propoerties in \(K[X]\): \(c(fg) = c(f)c(g)\) for any two polynoimals.
+\begin{align*}
+  c(f)c(g) = \frac{c(n_1f)}{n_1} \frac{c(n_2g)}{n_2} = \frac{c(n_1n_2fg)}{n_1n_2} = c(fg)
+\end{align*}
+Then we can conclude some important properties.
+
+\begin{proposition} \label{lemma primitive}
+  in \(K = \text{Frac}(R)\)
+
+  (1) polynoimals \(p \in K[X]\) can be seen in \(R[X]\) if and only if \(c(f) \in R\) .
+
+  (2) Let \(f,g \in R[X]\) and \(f|g\) in \(K[X]\). If \(f\) is primitive, then \(f|g\) in \(R[X]\).
+
+  (3) non-constant polynomial \(f\) is irreducible in \(R[X]\) if and only if \(f\) is irreducible in \(K[X]\) and \(f \in R[X]\) is primitive.
+
+  \begin{proof}
+    (1) For any \(f \in K[X]\), we have decomposition \(nf = c(nf)f'\) with \(f'\) a primitive polynoimal in \(R[X]\), then we have a better form of decomposition
+    \[f = \frac{c(nf)}{n}f'\]
+    hence \(f \in R[X]\) if and only if \(\frac{c(nf)}{n} \in R[X]\), and we can prove the result by contradiction.
+
+    (2) If there exists \(h \in K[X]\) such that \(fh=g\), then \(c(h) = c(f)c(h) = c(g) \in R\), by (1) \(h \in R[X]\), so we finish the proof since \(fh=g\) holds in \(R[X]\).
+
+    (3)  If \(f\) is irreducible in \(R[X]\), then \(f\) must be primitive, otherwise \(f = c(f)f'\) shows that \(f\) is not irreducible since \(c(f)\) is not a unit. Then we suppose that \(f\) is not irreducible in \(K[X]\), that means there exists \(g,h \in K[X]\) with degree \(\geq 1\) such that \(f=gh\), notice that (1) implies a unit \(c(f) \in R\), then we can get a decomposition in \(R[X]\)
+    \[f = c(g)c(h) g'h' = c(f)g' \cdot h'\]
+    That means \(f\) is not irreducible in \(R[X]\), contradiction with the assumption. Conversely, it is easy to see that \(f\) reducible in \(R[X]\) implies \(f\) reducible in \(K[X]\).
+   \end{proof}
+\end{proposition}
+\begin{remark}
+  Notice that primitive here is necessary, we can see the example that \(f(X) = 2X+2\), it is irreducible in \(\q[X]\) but not in \(\z[X]\) since \(f(X) = 2(X+1)\) and \(2\) is a irreducible in \(\z\).
+\end{remark}
+
+Notice that \(K[X]\) is a K-algebra, then it is surely a UFD, and each element in it can be uniquely decompoistion. However, we have seen that the irreducible element in \(R[X]\) is similar to that in \(K[X]\), so a good structure we can obtain.
+
+\begin{theorem}[Theorem of Transfert] $\\$
+  If \(R\) is a UFD, then \(R[X]\) is a UFD, and the irreducible elements is one of two following possible:
+  
+  - primitive polynoimals which is irreducible in \(K[X] = \text{Frac}(R)[X]\).
+
+  - irreducible elements in \(R\).
+
+  \begin{proof}
+    The irreducible elements is immediately from above propoerties (3). For any \(P \in R[X]\), since \(K[X]\) is a UFD, then there exists a unique fractorization
+    \[P = f_1 \cdots f_n\]
+    with irreducibles \(f_i \in K[X]\), then there exists a primitive \(f_i' \in R[X]\) such that \(f_i = c(f_i)f_i'\), and \(f_i'\) is irreducible in \(R[X]\) since \(f_i/c(f_i)\) is still irreducible in \(K[X]\). so we can have a decompoistion
+    \[P = c(P)f_1' \cdots f_n'\]
+    with \(c(P) \in R\) by above propoerties (1), the decomposition is uniquely up to a unit in \(K[X]\), when we review it in \(R[X]\) the decompoistion is still uniquely: If \(P\) is primitive i.e. \(c(P)\) is unit, then \(P\) is the product of irreducibles \(f_1',...,f_n'\) uniquely up to a unit; If \(P\) is not primitive i.e. \(c(P)\) is not unit, UFD ring \(R\) implies a unique decompoistion \(c(P) = p_1,...,p_n\) with \(p_i\) the irreducibles in \(R\), so \(P\) is the product of irreducibles \(p_1,...,p_n,f_1',...,f_n'\) uniquely up to a unit.
+  \end{proof}
+\end{theorem}
+
+\subsubsection{Irreducibility}
+It is difficult topic to determine whether a polynoimal is irreducibile or not, there are many different methods to determine that, in this section we collect them and focus on the specific examples, in this section we make convention that \textbf{"polynoimals" means non-constant polynoimals.}
+
+One method is to consider the root of the polynoimal, this method is very effective for low degree polynoimal.
+
+\begin{proposition}[Root and irreducibile] $ \\$
+Let \(f \in R[X]\) be a polynoimal, then
+
+  - If \(f\) having a root \(a \in R\), then \(f\) is not irreducibile.
+
+  - Let \(R\) be a field and \(\deg f \leq 3\), then  \(f\) is irreducible if and only if \(f\) has no root in \(R\).
+
+  \begin{proof}
+    
+  \end{proof}
+\end{proposition}
+
+we give a counterexample to reflects the restriction of the method.
+\begin{example}
+  Consider \(f(X) = X^4+2X^2+1 \in \q[X]\), notice that
+  \[f(X) = (X^2+1)^2\]
+  so \(f(X)\) has no root in \(\q\) and \(\deg f >3\). It is a good example show that the method of root is not complete, usually we really know what exactly what the root is (in \(\cc\)), but we do not know the polynoimal is irreducibile or not.
+\end{example}
+
+About the root of the polynoimals, we have a useful technic to determine the form of rational root.
+
+\begin{proposition}[Rational root] $ \\$
+  Let \(f(X) = a_0 + a_1X+ \dots + a_nX^n \subset \q[X]\) with intger coefficient, then 
+
+  -If \(\dfrac{p}{q}\) is a rational root of \(f\) with \(p,q\) coprime, then \(p|a_0\) and \(q|a_n\).
+
+  -If f is monic (\(a_n=1\)), then all rational roots must integers.
+
+  \begin{proof}
+    Take \(X = p/q\), then we can rewrite
+    \begin{align*}
+    -a_np^n &= q(a_0q^{n-1} + a_1q^{n-2}p + ... + a_{n-1}p^{n-1})
+    \end{align*}
+    then \(q|-a_np^n\) with \(p\) a prime number, by Euclid's lemma we get \(q|a_n\). Simialrly, \(p\) divides right term, which implies \(p|a_0\).
+  \end{proof}
+\end{proposition}
+
+\begin{example}
+  Let \(f(X) = 6x^3-11x^2-3x+2 \in \q[X]\). By rational root, if \(p/q\) is a root of \(f\), then possible choices of \(p\) are \(\pm 1\) or \(\pm 2\), the possible choices of \(q\) are \(\pm1\), \(\pm 2\), \(\pm 3\) or \(\pm 6\), we try the integer root \(\pm 1\) and \(\pm 2\), then we can get \(f(2) = 0\), so \(f\) is not irreducibile.
+\end{example}
+
+Local methods is one type of important methods, determining reducibility from the definition involves traversing all possible combinations within an algebraic system, whereas local methods restrict the system to a relatively smaller algebraic structure, making the judgment easier.
+
+\begin{proposition}[Guass's Lemma] $ \\$
+  Let \(f \in \z[X]\) be a prmitive polynoimal, then \(f\) is irreducibile in \(\q[X]\) if and only if \(f\) is irreducibile in \(\z[X]\).
+
+  \begin{proof}
+    Immediately from proposition \ref{lemma primitive}.
+  \end{proof}
+\end{proposition}
+
+\begin{example}
+   \(f(X) = X^4+1\) is irreducibile in \(\q[X]\). By Gauss's lemma, we just need to show that \(f\) is irreducibile in \(\z[X]\). Firsly, \(f\) has no real root, so there exists no linear term \(X-a\) divides \(f\) in \(\z\), so the unique possible to factor is that
+   \[X^4+1 = (X^2+aX+b)(X^2+cX+d)\]
+   then we can get \(a+c = 0\), \(d+ac+b=0\), \(ad+bc=0\) and \(bd=1\). We solve it in \(\z\) then we can get \(a^2 = \pm 2\), so \(f\) must be irreducibile in \(\z\).
+\end{example}
+
+Furthermore, a good local object is \(\ffp\) finite field, in it caculation will be easier, so we can do more.
+
+\begin{proposition}
+  Let \(f \in \z[X]\) be a monic polynoimal, then \(f\) is irreducibile in \(\z[X]\) if \(\bar{f}\) is irreducibile in \(\ffp\).
+
+  \begin{proof}
+    Suppose that \(f\) is not irreducibile in \(\z[X]\), then there exists two polynoimals \(g,h \in \z[X]\) with degree \(\geq 1\) such that \(f = gh\), then mod p we can get \(\bar{f} = \bar{g}\bar{h}\). Notice that monic polynoimal \(f\) ensures that \(\bar{g}\) and \(\bar{h}\) are the non-constant polynoimals in \(\ffp[X]\), so \(\bar{f}\) is not irreducibile in \(\ffp\), the original statement follows from the contrapositive.
+  \end{proof}
+\end{proposition}
+
+In finite field, it is easy to classify the irreducibile polynoimals by testing root or try decompoistion, then it reflects the different irreducibile polynoimals in \(\q[X]\).
+\begin{example}
+  consider all irreducibiles of low degree on \(\ff_2[X]\)
+
+\begin{tabular}{ll}
+degree 2: & \( x^2 + x + 1. \) \\
+degree 3: & \( x^3 + x + 1; \quad x^3 + x^2 + 1. \) \\
+degree 4: & \( x^4 + x^3 + 1; \quad x^4 + x + 1; \quad x^4 + x^3 + x^2 + x + 1. \)
+\end{tabular}
+
+according to that we can determine that polynoimal like \(99x^2+37x+3\) is irreducibile, it is quite easy by local method instead of compute roots.
+\end{example}
+
+
+
+
+
+
+
+
+
 
 
 \section{Field Theory}
+
+To study the structure of the field, consider a natural map: Let \(K\) be a field
+\[\phi: \z \to K, \quad  1 \mapsto 1_K\]
+It is a well-defined homomorphism, which invites a ideal of \(\z\)
+\[\ker \phi = \{n \in Z| n \cdot 1_k = 0_k\}\]
+By the structure of \(\z\), so there exists a integer \(p \in \z\) such that \(\ker \phi = p \z\),which gives the definition of the characteristic of the field.
+\begin{definition}
+  For any field \(K\), we define \(\mathrm{char}(K)\) be the characteristic of the field: either 0 or the smallest integer \(n \in \n\) such that \(n\cdot1_k = 0\), by the natural map equivalently
+  \[\begin{cases}
+    \mathrm{char}(K) = 0 \iff  \mathrm{im}\phi \cong \z \\
+    \mathrm{char}(K) = p \iff  \mathrm{im}\phi \cong \z/p\z
+  \end{cases}\]
+\end{definition}
+\textbf{The characteristic of a field is either zero or a prime number.} Suppose that \(\mathrm{char}(K) = p \neq 0\), if \(p =ab\) is not a prime, then we will get two zero divisor \(a\cdot1_K\) and \(b\cdot1_K\), but a field can not conatain any zero divisor, so \(p\) must be prime. An amazing thing in a field (or ring) with non-zero characteristic \(p\) is that we can write a equation
+\[(x+y)^p = x^p + y^p\]
+it has an interesting name: \textbf{freshman's dream}, this is an equality that would be written by someone who has studied very little mathematics or is just beginning to learn it.
+
+Another natural map is \textbf{Frobenius endomorphism}, let \(K\) be a field with non-zero characteristic \(p\), then we define 
+\[\sigma: K \to K, \quad x \mapsto x^p\]
+It is a well-defined injective field homomorphism, so it is a endomorphism, but it is not necessary surjective.
+
+\begin{example}
+  Consier \(K = \ffp(x)\) a field of rational functions. \(\mathrm{char}(K) = p\) since \(\mathrm{im} \phi = \ffp\), and it is easy to observe that there exists no \(f \in \ffp(x)\) such that \(f^p(x) = x\), so the Frobenius map here is not surjective. 
+\end{example}
+A good case is finite field, in that case frobenius endomorphism is furthermore a automorphism, so the frobenius map will be in Galois group and it reflects the structure of the finite field.
+
 \subsection{Field extension}
 For the beginning, notice a trival isomorphism:
 \[\rr[X]/(X-a) \cong \rr \]
@@ -580,7 +818,7 @@ For any \(a \in \rr\), and we review the isomorphism given in complex number fie
 \[ \rr[X]/ (X^2+1) \cong \cc\]
 Clearly, \(\cc\) is a larger field containning \(\rr\), but we wonder how we can get it from the algebra structure. Here it motivates us to consider the question from the polynoimal structure defined on a field.
 
-Firstly we need some lemma
+Firstly we need some lemma, it is very clear after commutative ring:
 \begin{lemma} \label{irr iff field}
   If \(K\) a field and \(p \in K[X]\), then \(p\) is irreducible if and only if \(K[X]/(p)\) is a field.
 \end{lemma}
