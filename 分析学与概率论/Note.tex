@@ -28,12 +28,23 @@ The description of the Jense inequality depends on the properties of the convex 
 
 \begin{theorem}[Jense]$ \\$
     Suppose \(\varphi: I \to \rr \) is a convex function defined on an interval,
-    \(\msp\) is a probability space and \(f \in L^1(X)\) with \(imf \subset I\), then \(\int_X f d\mu \in I\) and \(\varphi \circ f\) is integrable such that 
+    \(\msp\) is a probability space and \(f \in L^1(X)\) with \(\mathrm{im}f \subset I\), then \(\int_X f d\mu \in I\) with
     \[\varphi(\int_X f d\mu) \leq \int_X \varphi \circ f d\mu\]
-    The equality holds iff \(f\) is constant almost everywhere.
+    The equality holds if \(f\) is constant almost everywhere.
 
     \begin{proof}
-        
+        Let \(a = \inf I \in \rr \cup\{-\infty\}\) and \(b= \sup I \in \rr \cup \{+ \infty\}\), then
+        \[a=\int_X a d\mu \leq \int_X f d\mu \leq \int_X b d\mu =b\]
+        if \(\int_X f d\mu = a\) or \(b\), then \(\int_X (f-a) d\mu\) or \(\int_X (f-b)d\mu\) is zero, it implies that \(f = a\) or \(f =b\) almost everywhere, so \(a\) or \(b\) is in \(I\), which means \(\int_X f d\mu \in I\), so the left of the inequality is well-defined.
+
+        By the convexity of the function \(\varphi\), there exists \(m \in \rr\) such that for any \(x\in I\)
+        \[\varphi(x) \geq \varphi (y)+m(x-y)\]
+        with \(y\) an interior point of \(I\), then apply it to the integral by taking \(y = \int_X f d\mu\)
+        \begin{align*}
+            \int_X \varphi \circ f d\mu &\geq \int_X \varphi (y)+m(f(t)-y) d\mu(t) \\
+            &= \varphi (y)  = \varphi (\int_X f d\mu)
+        \end{align*}
+        and if \(y\) is not interoir point i.e. \(f\) is a constant almost evry where, then we can take equality.
     \end{proof}
 \end{theorem}
 

@@ -735,7 +735,7 @@ About the root of the polynoimals, we have a useful technic to determine the for
   Let \(f(X) = 6x^3-11x^2-3x+2 \in \q[X]\). By rational root, if \(p/q\) is a root of \(f\), then possible choices of \(p\) are \(\pm 1\) or \(\pm 2\), the possible choices of \(q\) are \(\pm1\), \(\pm 2\), \(\pm 3\) or \(\pm 6\), we try the integer root \(\pm 1\) and \(\pm 2\), then we can get \(f(2) = 0\), so \(f\) is not irreducibile.
 \end{example}
 
-Local methods is one type of important methods, determining reducibility from the definition involves traversing all possible combinations within an algebraic system, whereas local methods restrict the system to a relatively smaller algebraic structure, making the judgment easier.
+\textbf{Local methods} is one type of important methods, determining reducibility from the definition involves traversing all possible combinations within an algebraic system, whereas local methods restrict the system to a relatively smaller algebraic structure, making the judgment easier.
 
 \begin{proposition}[Guass's Lemma] $ \\$
   Let \(f \in \z[X]\) be a prmitive polynoimal, then \(f\) is irreducibile in \(\q[X]\) if and only if \(f\) is irreducibile in \(\z[X]\).
@@ -757,13 +757,13 @@ Furthermore, a good local object is \(\ffp\) finite field, in it caculation will
   Let \(f \in \z[X]\) be a monic polynoimal, then \(f\) is irreducibile in \(\z[X]\) if \(\bar{f}\) is irreducibile in \(\ffp\).
 
   \begin{proof}
-    Suppose that \(f\) is not irreducibile in \(\z[X]\), then there exists two polynoimals \(g,h \in \z[X]\) with degree \(\geq 1\) such that \(f = gh\), then mod p we can get \(\bar{f} = \bar{g}\bar{h}\). Notice that monic polynoimal \(f\) ensures that \(\bar{g}\) and \(\bar{h}\) are the non-constant polynoimals in \(\ffp[X]\), so \(\bar{f}\) is not irreducibile in \(\ffp\), the original statement follows from the contrapositive.
+    Suppose that \(f\) is not irreducibile in \(\z[X]\), then there exists two polynoimals \(g,h \in \z[X]\) with degree \(\geq 1\) such that \(f = gh\), then mod p we can get \(\bar{f} = \bar{g}\bar{h}\). Notice that monic polynoimal \(f\) ensures that \(\bar{g}\) and \(\bar{h}\) are the non-constant polynoimals in \(\ffp[X]\), so \(\bar{f}\) is not irreducible in \(\ffp\), the original statement follows from the contrapositive.
   \end{proof}
 \end{proposition}
 
-In finite field, it is easy to classify the irreducibile polynoimals by testing root or try decompoistion, then it reflects the different irreducibile polynoimals in \(\q[X]\).
+In finite field, it is easy to classify the irreducible polynoimals by testing root or try decompoistion, then it reflects the different irreducible polynoimals in \(\q[X]\).
 \begin{example}
-  consider all irreducibiles of low degree on \(\ff_2[X]\)
+  consider all irreducibles of low degree on \(\ff_2[X]\)
 
 \begin{tabular}{ll}
 degree 2: & \( x^2 + x + 1. \) \\
@@ -771,8 +771,33 @@ degree 3: & \( x^3 + x + 1; \quad x^3 + x^2 + 1. \) \\
 degree 4: & \( x^4 + x^3 + 1; \quad x^4 + x + 1; \quad x^4 + x^3 + x^2 + x + 1. \)
 \end{tabular}
 
-according to that we can determine that polynoimal like \(99x^2+37x+3\) is irreducibile, it is quite easy by local method instead of compute roots.
+according to that we can determine that polynoimal like \(99x^2+37x+3\) is irreducible, it is quite easy by local method instead of compute roots. Notice in this case \(x^4+x^2+1\) is not irreducible, that is by \textbf{freshman's dream equation}
+\[x^4+x^2+1 = (x^2+x+1)^2\]
 \end{example}
+
+a general local method is Eisenstein criterion, the irreducible of a polynoimal under depends the behavior of coefficients in a finite field (local).
+\begin{theorem}[Eisenstein criterion] $ \\$
+  Let \(f(X)=a_0+a_1X+\dots+a_nX^n \in \z[X]\) be a polynoimal, if the cofficients satisfy
+
+  - \(a_n \neq 0 \bmod p\)
+
+  - \( a_i = 0 \bmod p \) for any \( i < n \)
+
+  - \(a_0 \neq 0 \bmod p^2\)
+
+  where \(p\) is a prime, then \(f\) is irreducibile in \(\q[X]\).
+
+  \begin{proof}
+    By Gauss's lemma and local method, we just need to prove that \(f\) is irreducible in \(\ffp[X]\). We suppose that \(f\) is not irreducible in \(\q[X]\), then there exists two polynoimals \(g,h \in \z[X]\) with degree \(\geq 1\) such that \(f = gh\), then mod p we have 
+    \[\bar{g}\bar{h} = \bar{f} = \bar{a_n}X^n\]
+    that means \(\bar{f}\) is not irreducible in \(\ffp[X]\), so the reasonable factorization is \(\bar{g} = \bar{a_n} X^k\) and \(\bar{h} = X^l\) with \(k+l =n\) and \(k,l>0\). We let
+    \begin{align*}
+      g(X) = a_nX^k + b_{k-1}X^{k-1} + \dots + b_0 \\
+      h(X) = X^l + c_{l-1}X^{l-1} + \dots +c_0
+    \end{align*}
+    with \(b_j,c_j\) equal to zero mod p, then observe that the constant term of \(gh\) is \(a_0=b_0c_0 \equiv 0 \mod p^2\), which contradicts with the condition, so the only possible decompoistion is \(\bar{g} = a_n\) and \(\bar{h} = X^{n}\) which leads to that \(\bar{f}\) is irreducible, contradiction happens.
+  \end{proof}
+\end{theorem}
 
 
 
