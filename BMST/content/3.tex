@@ -11,6 +11,8 @@ Then we prove some properties of the field:
 
     - \(u = -1 + \theta \) is a fundamental unit.
 
+    - \(\mathcal{O}_K = \z[\theta]\)
+
 
     \begin{proof}
         Firstly we suppose that \(\sigma: \qqq \hookrightarrow  \cc \) is a field embedding, then surely \(\sigma(1)=1\). Let \(f(X) = X^3-2\) be a polynomial, and notice that \(f(\theta) = 0\), then
@@ -95,13 +97,13 @@ The norm can be simliarly caculated like in \(\qq(\sqrt[3]{2})\) (proposition \r
                 v((-1)^{k+1}\frac{(u^3-1)^k}{9k}) &= k-2-v_3(k) \\
                 \geq k-2-\frac{\ln(k)}{\ln(3)} \geq 0
             \end{align*}
-            so there exists a element \(a \in \z_3[\theta]\) such that
+            so there exists a element \(\alpha \in \z_3[\theta]\) such that
             \begin{equation} \label{l2}
-                \log(u^3) = u^3-1 + 9a
+                \log(u^3) = u^3-1 + 9\alpha
             \end{equation}
             Plugging (\ref{l2}) to (\ref{l1}), then we get
-            \[(u^3)^x = 1+(u^3-1)x+9x[a+xh'(x)]\]
-            here \(h(X) = a+Xh'(X)\) is the power series we hope.
+            \[(u^3)^x = 1+(u^3-1)x+9x[\alpha +xh'(x)]\]
+            here \(h(X) = \alpha +Xh'(X)\) is the power series we expect.
         \end{proof}
 
 

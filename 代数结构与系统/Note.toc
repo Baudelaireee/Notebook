@@ -12,3 +12,6 @@
 \contentsline {section}{\numberline {3}Field Theory}{26}{section.3}%
 \contentsline {subsection}{\numberline {3.1}Field extension}{27}{subsection.3.1}%
 \contentsline {subsubsection}{\numberline {3.1.1}splitting field}{29}{subsubsection.3.1.1}%
+\contentsline {section}{\numberline {4}Linear algebra: Bilinear form}{31}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Orthogonal opreator}{34}{subsection.4.1}%
+\contentsline {section}{\numberline {5}group 6/15}{36}{section.5}%

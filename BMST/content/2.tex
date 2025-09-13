@@ -12,7 +12,7 @@ since an ultrametric is still a metric, it shows a good properties as following:
     (3) \(f\) is continous on the convergence domian \(D\).
 
     \begin{proof}
-        Proof of (1) is same with the proof in \(\cc\). For any \(|x|=R\), the series \(\sum_{n \geq 0}a_nx^n\) converges if and only if sequence \((|a_nx^n|)_{n} = (|a_nR^n)_{n}\) converges by proposition 2.8. To prove (3) we take two points \(x,y\in D\) and let \(M = \max(|x|,|y|)\), then
+        Proof of (1) is same with the proof in \(\cc\). For any \(|x|=R\), the series \(\sum_{n \geq 0}a_nx^n\) converges if and only if sequence \((|a_nx^n|)_{n} = (|a_nR^n)_{n}|\) converges by proposition 2.8. To prove (3) we take two points \(x,y\in D\) and let \(M = \max(|x|,|y|)\), then
         \begin{align*}
             |f(x)-f(y)| &= |\sum_{n \geq 0}a_n(x^{n-1}+x^{n-2}y+...+y^{n-1})(x-y)| \\
             &\leq |x-y|\max_{n\geq 0}{|a_nM^{n-1}|}
@@ -68,8 +68,8 @@ When \(|x-1|_p = 1\), notice that sequence \(|1/n|_p\) diverges, so the \(B_p(1,
 \end{lemma}
 
 By above lemma, the exponentials converges in given domain. For any \(|x|_p < p^{-1/p-1}\), there exists \(\epsilon>0\) such that \(\epsilon = (p-1)v_p(x)-1\), so we can estimate
-\[v_p(x^n/n!) = \frac{n\epsilon-S_n}{p-1} \geq \frac{n\epsilon-p(ln(n)/lnp+1)}{p-1} \xrightarrow{n \rightarrow \infty} +\infty\]
-which means the definition is well-defined. The upper bound of \(S_n\) holds here because integer \(n\) has at most \(\lfloor\frac{ln(n)}{lnp}\rfloor+1\) p-digits. When \(|x| = p^{-1/p-1}\), we notice that for \(n = p^k\), we have
+\[v_p(x^n/n!) = \frac{n\epsilon-S_n}{p-1} \geq \frac{n\epsilon-p(\ln(n)/\ln p+1)}{p-1} \xrightarrow{n \rightarrow \infty} +\infty\]
+which means the definition is well-defined. The upper bound of \(S_n\) holds here because integer \(n\) has at most \(\lfloor\frac{\ln(n)}{\ln p}\rfloor+1\) p-digits. When \(|x| = p^{-1/p-1}\), we notice that for \(n = p^k\), we have
 \[|\frac{x^n}{n!}|_p  = p^{-p^k/p-1}\cdot p^{p^k-1/p-1} = p^{1/p-1} \]
 Hence  the series diverges and the domain of the convergence is \(B_p(0,p^{-1/(p-1)})\). 
 \newline

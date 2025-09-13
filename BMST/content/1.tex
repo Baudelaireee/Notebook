@@ -1,13 +1,33 @@
 \section{Dirichlet's Unit theorem}
+In this section, we are are going to give an equivalent statement for the original equation.
 
+\begin{definition}
+    Let \(K\) be the algebraic number field (an finite extension of \qq), an integer ring of the \(K\) is the set of all algebraic integral numbers and we denote it by \(\mathcal{O}_K\), i.e. for any element \(a\) in it, there exists a polynoimal in \(\z[X]\) having \(a\) as a root.
+\end{definition}
+
+It is important to study the unit of the intger ring, usually the units of an integer ring will reflect the solutions of a integral equation, here is a condition to determine the unit.
+
+\begin{lemma} \label{unit iff norm 1}
+    \(a\) is a unit of \(\mathcal{O}_K\) if and only if its algebraic norm is \(\pm 1\).
+
+    \begin{proof}
+        Suppose that \(a \in \mathcal{O}_K\) is an unit, then there exists \(b \in \mathcal{O}_K\) such that
+        \[1 = N(ab) = N(a)N(b)\]
+        notice that the minimal polynoimal \(\pi_{a,K} \in \z[X]\), which implies \(N(a) \in \z\), the only two choices are \(N(a) = \pm 1\). Conversely, if \(N(a) = \pm 1\), then by its minimal polynoimal we have
+        \[c_na^n+c_{n-1}a^{n-1}+\cdots + c_1a-1 = 0\]
+        for some \(c_i \in \z\), here \(n\) is the degree of \(\pi_{a,K}\) and \(c_n \neq 0\). Hence \(a\) is a unit with its inverse of the form \(\sum_{k=0}^{n-1}c_{k+1}a^k\).
+    \end{proof}
+\end{lemma}
+
+A better result about the unit is unit theorem which is firstly proved by Dirichlet, it shows that the units of the intger ring has an abelian free group structure under multiplication.
 
 \begin{theorem}[Dirichlet's unit theorem] $\\$
     Let \(K\) be a algebraic number field with \(r\) real embeddings and \(2s\) complex embeddings, and let \(\mathcal{O}_K\) be its integer ring, then its unit group has the following structure:
-    \[\mathcal{O}_K^\times \cong \mu(K) \times \mathbb{Z}^{r+s-1}\]
-    where \(\mu(K)\) is the group of roots of unity in \(K\), and it is a finite cyclic gourp.
+    \[\mathcal{O}_K^\times \cong \mu_K \times \mathbb{Z}^{r+s-1}\]
+    where \(\mu_K\) is the group of roots of unity in \(K\), and it is a finite cyclic gourp.
 
     \begin{proof}
-        A standard proof can be founded in Neukirch's book \cite[section 1.7]{neukirch2013algebraic}, here we will just consider the case of \(r=1\) and \(s=1\), i.e. a extension \([K:\qq] =3\). Suppose that \(\sigma_r\) and \(\sigma_s\) are the real embedding and one of the complex embedding, then a unit \(u \in \mathcal{O}_K^\times \) satisfying \(|\sigma_r(u)||\sigma_s(u)|^2 = 1\). Hence we consider a hyperplan of \(\rr^2\)
+        A standard proof can be founded in Neukirch's book \cite[section 1.7]{neukirch2013algebraic}, here we will just consider the case of \(r=1\) and \(s=1\), i.e. an extension \([K:\qq] =3\). Suppose that \(\sigma_r\) and \(\sigma_s\) are the real embedding and one of the complex embedding, then an unit \(u \in \mathcal{O}_K^\times \) satisfying \(|\sigma_r(u)||\sigma_s(u)|^2 = N(u) = 1\) by lemma \ref{unit iff norm 1}. Hence we consider a hyperplan of \(\rr^2\)
         \[H:= \{(a,b)\in \rr^2| a+b=0\}\]
         then we will naturally get a exact sequence \[\begin{tikzcd}
 	1 && {\mu_K} && {\mathcal{O}_K^\times} && l(H) && 0
@@ -17,8 +37,8 @@
 	\arrow[from=1-7, to=1-9]
 \end{tikzcd}\]
          here \(e\) is a trival embedding by \(e(a) = a\), \(l\) is the logarithm map (in the real sense) defiend by
-         \[u\mapsto (\log|\sigma_r(u)|, \log|\sigma_s(u)|)\]
-         which is a homomorphism from the multiplicative group to the additive group, with \(\ker l = \{u\in {\mathcal{O}_K^\times}||\sigma_r(u)|=|\sigma_s(u)|=1\} = \mu_K\), it holds generally by Kronecker's theorme. so immediately we have the isomorphic
+         \[u\mapsto (\ln|\sigma_r(u)|, 2\ln|\sigma_s(u)|)\]
+         which is a homomorphism from the multiplicative group to the additive group, with \(\ker l = \{u\in {\mathcal{O}_K^\times}||\sigma_r(u)|=|\sigma_s(u)|=1\} = \mu_K\), it holds generally by Kronecker's theorme. Immediately we have the isomorphic
          \[{\mathcal{O}_K^\times}/\mu_K \cong l(H)\]
          Then we need to prove that \(l(H)\) is a nontrivial discrete subgroup of \(H\), i.e. a complete lattice of \(H\), which ensures \(l(H) \cong \z\). We consider the embedding \(j: {\mathcal{O}_K^\times} \to \rr \times \cc\) by 
          \[u \mapsto (\sigma_r(u),\sigma_s(u))\]
@@ -37,7 +57,7 @@
              \end{pmatrix} \\
              &= xe_1+ye_2+ze_3
          \end{align*}
-        hence under the base \(B=\{e_1,e_2,e_3\}\) we can see \(j({\mathcal{O}_K^\times})\) as the integer lattice of \(\rr \times \cc\). Now for any \((\log|\sigma_r(u)|,\log|\sigma_s(u)|) \in l(H)\), we take a voisinage \(V\) of the point, then \(\overline{j\circ l^{-1}(V)}\) implies a compact set of \(\rr \times \cc\), so it must contain finite integer lattice under the base \(B\), therefore \(V\) covers finite points, so \(l(H)\) is discrete.
+        hence under the base \(B=\{e_1,e_2,e_3\}\) we can see \(j({\mathcal{O}_K^\times})\) as the integer lattice of \(\rr \times \cc\). Now for any \((\ln|\sigma_r(u)|,\ln|\sigma_s(u)|) \in l(H)\), we take a bounded open voisinage \(V\) of the point, then \(\overline{j\circ l^{-1}(V)}\) implies a compact set of \(\rr \times \cc\), so it must contain finite integer lattices under the base \(B\), therefore \(V\) covers finite points, so \(l(H)\) is discrete.
 
         Finally \(l(H)\) must be nontrivial, it is not clear and even difficult, it is essential to prove the existence of the nontrival unit of \(\mathcal{O}_K^{\times}\)...
     \end{proof}

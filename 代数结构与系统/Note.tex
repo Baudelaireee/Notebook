@@ -886,7 +886,7 @@ Firstly we need some lemma, it is very clear after commutative ring:
 Another ways to consider the field extension is to adjoin new element, that means adding a certain algebra element into the field to get a larger field, it is easy to see that \(\cc = R[i]\), so the complex number can be seen as the field by adjoining \(i\) which satisfies \(i^2+1 = 0\).
 
 \begin{proposition}
-  Let \(K\) be a field and \(f \in K[X]\) irreducible, adjoin element \(c \notin K\) such that \(c\) is a root of \(f\), then \(K[c]\) is a field containning \(K\) as a subfield, so it can be written as \(K(c)\).
+  Let \(K\) be a field and \(f \in K[X]\) irreducible, adjoin element \(c \notin K\) such that \(c\) is a root of \(f\), then \(K[c]\) is a field containning \(K\) as a subfield, and it can be written as \(K(c)\).
   \[K(c) = \{a_0+a_1c+...+a_kc^k| a_1,...,a_k \in K, k= \deg f-1\}\]
   \begin{proof}
     \(K[c]\) naturally is a ring with same identity with \(K\), so we just need to find the inverse. For any polynoimal \(p \in K[X]\) with degree less than \(\deg f\), it is co-prime with \(f\) since \(f\) is irreducible, so by Bezout's theorem for polynoimal, there exists \(r, t \in K[X]\) such that 
@@ -932,10 +932,338 @@ with \(a \mapsto a'\) and \(c \mapsto c\) for all \(c \in K\).
 \end{tikzcd}\]
 where \(h'(p) = p(a')\), and \(\pi\) is the canoncial map. 
 
-\subsubsection{splitting field}
 
 \end{proof}
 \end{theorem}
+
+\subsubsection{splitting field}
+
+\begin{theorem}[Kronecker] If \(K\) is a field and \(f \in K[X]\), then there exists a field \(L\) containing \(K\) as a subfield and with \(f(X)\) a product of linear polynomial in \(K[X]\).
+
+By Kronecker's theorme, we deduce a larger field where \(f\) can be decomposed completlely, so it is meaningful to define the field
+\begin{definition}
+  Let \(L/K\) be a field and \(f \in K[X]\).
+
+  - \(f\) splits over \(L/K\) if there exists \(c,a_1,...a_n \in K\) such that
+  \[f(x) = c(x-a_1)\cdots(x-a_n)\]
+  with \(n = \deg f\).
+
+  - \(L/K\) is called a splitting field of \(f\) over \(K\) if it is the smallest field such that \(f\) splits.
+\end{definition}
+  
+The existence of the splitting field is ensured by above theorem, since for any \(f \in K[X]\), we can obtain a field extension \(L/K\) such that \(f\) splits, and then \(K(a_1,...,a_n) \subset L\) as a splittin field.
+\end{theorem}
+
+\newpage
+
+\section{Linear algebra: Bilinear form}
+
+In this section \(E\) is always a vector space over a field \(K\).
+
+\begin{definition}
+  Let \(E\) be a vector space over a field \(K\), we define a bilinear form on \(E\) as a application \(B:E \times E \to K\) which satisfies the linear properties: for any \(x \in E\), application \(B(x,\cdot)\) and \(B(\cdot,x)\) are all linear.
+\end{definition}
+
+\begin{remark}
+  The matrix representation of a bilinear form can be deduced as following: Suppose that \(B\) is a bilinear form over a finite-dimensional space \(E\), and \(\{e_1,...,e_n\}\) is a base for \(E\), then for any \(x,y \in E\), we have 
+  \begin{align*}
+    x = x_1e_1+...+x_ne_n \\
+    y = y_1e_1+...+y_ne_n
+  \end{align*}
+  then for \(B(x,y)\) we can fix \(x\) such that
+  \begin{align*}
+    B(x,y_1e_1+...+y_ne_n) &= y_1B(x,e_1)+...+y_nB(x,e_n) \\
+    &= (B(x,e_1),...,B(x,e_n))\begin{pmatrix}
+      y_1\\
+      \vdots\\
+      y_n
+    \end{pmatrix}
+  \end{align*}
+  Here we decompose \(x\) then we can get for any \(i =1,...,n\)
+  \begin{align*}
+    B(x,e_i) &= B(x_1e_1+...+x_ne_n,e_i) \\
+    &= (x_1,...,x_n)\begin{pmatrix}
+      B(e_1,e_i)\\
+      \vdots\\
+      B(e_n,e_i)
+    \end{pmatrix}
+  \end{align*}
+  Hence under a base \(\mathcal{E} = \{e_1,...,e_n\}\) a bilinear form can be denoted by 
+  \[B(x,y) = x^tAy\]
+  here \(A = (B(e_i,e_j))_{1\leq i,j\leq n}\), it is Gram matrix when \(A\) satisfies certain condition (symmetric and positive).
+\end{remark}
+
+We define \(\mathrm{BL}(E)\) be the set of all bilinear form on \(E\), by adding the normal opreations of function, we can verify that \(\bl{E}\) actually a vector spoace over \(K\), the idea of the definition is to consider a natural decompoistion like that any function can be written as the sum of odd function and even function:
+\[B(x,y) = \frac{1}{2}(B(x,y)+B(y,x))+\frac{1}{2}(B(x,y)-B(y,x))\]
+
+\begin{definition}
+  Let \(B\) be a bilinear form on \(E\),
+
+  -\(B\) is symmetric if for any \(x,y \in E\) we have \(B(x,y)=B(y,x)\), and we define \(\bls{E}\) as the set of all symmetric bilinear forms.
+  
+  -\(B\) is anti-symmetric if for any \(x,y \in E\) we have \(B(x,y)= -B(y,x)\), and we define \(\bla{E}\) as the set of all anti-symmetric bilinear forms.
+\end{definition}
+
+It is easy to verify that \(\bls{E}\) and \(\bla{E}\) are the subspace of \(\bl{E}\), which allows  us to say more about the bilinear form, we can conclude the following propoerties.
+
+\begin{proposition}[The structure of the bilinear form] $ \\$
+  Let \(K\) be a field with \(\mathrm{char}(K) \neq 2\) and \(B\) is a bilinear form on \(E\), then
+  
+  -(alternating) \(B\) is anti-symmetric if and only if \(B(x,x) = 0\) for any \(x \in E\).
+
+  -(decompoistion) \(\bl{E} = \bls{E} \oplus \bla{E} \)
+
+  -(matrix) If \(E\) is a n-dimensional space, then we have the following structure
+  \[\begin{cases}
+\bl{E} &\cong M_n(K) \\
+\bls{E} &\cong S_n(K) = \{A\in M_n(K)| A^t = A\} \\
+\bla{E} &\cong A_n(K) = \{A\in M_n(K)| A^t = -A\}
+  \end{cases}\]
+
+  \begin{proof}
+    
+  \end{proof}
+
+\end{proposition}
+
+Notice that for a field with characteristic 2, the situation will be complicated, that is because \(\frac{1}{2}\) makes no sense in this field, hence we can not use the decompoistion. Moreover, in this case we will find that anti-symmetric form is just symmetric form by observing that \(-1 = 1\) in this field, so the decompoistion will dependend on alternating form.
+
+\begin{lemma}
+  If \(K\) is a field with characteristic 2 and \(B\) is a bilinear form,
+  \\(1) B is alternating, then \(B\) is anti-symmetric.
+  \\(2) When \(\mathrm{Char}(K)=2\), \(B\) is anti-symmetric if and only if \(B\) is symmetric.
+
+  \begin{proof}
+    (1) Let \(x,y \in E\), suppose \(B\) is alternating then we can caculate
+    \begin{align*}
+      0 = B(x+y,x+y) &= B(x,x)+B(x,y)+B(y,x)+B(y,y) \\
+      &= B(x,y)+B(y,x)
+    \end{align*}
+    so \(B\) is anti-symmetric: \(B(x,y)=-B(y,x)\).
+    
+    (2) Notice that in this field \(1+1=0\), which implies \(B(x,y)=B(y,x)\) if and only if  \(B(x,y) = -B(y,x)\).
+  \end{proof}
+\end{lemma}
+
+\begin{proposition}
+  If \(K\) is a field with characteristic 2, then for any bilinear form \(B\) onn \(E\), there exists an unique decompoistion such that
+  \[B = B_a + B_d\]
+  where \(B_a\) is an alternating form: \(B_a(x,x)\) for any \(x \in E\); \(B_d\) is a diagonal form: \(B(x,y) = 0\) for any \(x\neq y\) in \(E\).
+
+  \begin{proof}
+    We define \(D\) be a diagonal form with \(D(x,x) = B(x,x)\) and \(D(x,y) = 0\) if \(x \neq y\). then we can get a bilinear form \(A = B-D\), notice that \(A(x,x) = B(x,x)-D(x,x) = 0\), which implies that \(A\) is alternating. Hence we get our decompoistion \(B = A+D\).
+
+    To prove the uniqueness, we suppose that \(A'\) and \(D'\) be another pair bilinear form such that \(B=A'+D'\), then we must have \(L=A-A'=D'-D\), \(A(x,x) = 0 \) since \(A-A'\) is still alternating, and \(L(x,y) = 0\) if \(x\neq  y\) since \(D-D'\) is still diagonal.
+
+  \end{proof}
+\end{proposition}
+
+One of the classic bilinear form is inner product, it will be an important tool to study different space. Here we give it a formal definition.
+
+\begin{definition}
+  Let \(E\) be a vector space over \(K\)
+  - An application \(B:E\times E \to K\) is sesquilinear form if it is linear on one argument.
+
+  -If \(K = \rr\), an real inner product is a symmetric and definite positive sesquilinear form, usually we use \(\innerp\) to denote.
+
+  -If \(K = \cc\), \(B\) is a \textbf{Hermite form} if \(B(x,y) = \overline{B(y,x)}\); an complex inner product is a Hermite and definite positive sesquilinear form.
+
+  - An inner product space is a vector space equipped by an inner product; espcailly, If the vector space over field \(\rr\) or \(\cc\), we call a complet inner product space as \textbf{Hilbert space}.
+
+  - \textbf{Euclidean space} is finite-dimensional real inner product space.
+\end{definition}
+
+\begin{remark}
+  By the representation of the matrix, inner product can be described as following:
+
+  -If \(K = \rr\), \(\innerp\) is an inner product if there exists a symmetric (\(A^t=A\)) and definite positive matrix \(A\) such that \(\inner{x}{y} = x^tAy\).
+
+  -If \(K = \cc\), \(\innerp\) is an inner product if there exists a Herimitian (\(\overline{A^t} = \overline{A}^t\)) and definite positive matrix \(A\) such that \(\inner{x}{y} = \bar{x}^tAy\)
+\end{remark}
+
+Although the definition of the inner product just need sesquilinear form, but we can prove that togther with other condition, inner product can be a bilinear form.
+
+\begin{proposition}
+  Let \(\innerp\) be an inner product on \(E\),
+
+  - If \(K = \rr\), \(\innerp\) is a bilinear form.
+
+  - If \(K = \cc\), \(\inner{x}{ay+bz} = \bar{a}\inner{x}{y}+\bar{b}\inner{x}{z}\) for any \(x,y,z \in  E\) and \(a,b \in \cc\).
+
+  \begin{proof}
+    
+  \end{proof}
+\end{proposition}
+
+\subsection{Orthogonal opreator}
+Let \((E,\innerp)\) be a Euclid Space
+\begin{definition}
+  A linear opreator \(f \in \mathcal{L}(E)\) is orthognal if for any \(x \in E\)
+  \[\|f(x)\| = \|x\|\]
+\end{definition}
+
+sometimes we call the map "isometry", it is a important map for a solid motion since it preserves the distance.
+
+\begin{proposition}
+  The following statement is equiavlent:
+  \\(1) \(f\) is a orthognal opreator.
+  \\(2) \(f\) changes an orthonormal base to be another orthonormal base.
+  \\(3) \(f\) changes any orthonormal base to be an orthonormal base.
+  \\(4) If \(A = [f]_\mathcal{B} \) under some base, the column (or the row) of the matrix is composed by an orthonormal base.
+  \\() If \(A = [f]_\mathcal{B} \) under some base, then \(A \in \mathrm{GL}_n(\rr)\) and \(A^t = A^{-1}\).
+  
+  \begin{proof}
+    Suppose that 
+  \end{proof}
+\end{proposition}
+
+The determinate of the orthognal matrix must be \(\pm 1\) since
+\[|A| = |A^t|=|A^{-1}| = |A|^{-1}\]
+Motivated from this we can define different matrix groups:
+
+-\textbf{Orthogonal group:} \(O_n(\rr) := \{A \in \mathrm{GL}_n(\rr) | A^t = A^{-1}\}\)
+
+-\textbf{Special Orthogonal group:} \(SO_n(\rr) := \{A \in O_n(\rr)| det A = 1\}\)
+
+The two groups satisfying \(SO_n(\rr) \lhd O_n(\rr) \), and naturally we can define 
+\[O_n^-(\rr) = O_n(\rr) - SO_n(\rr) = \{A \in O_n(\rr)| det A = -1\}\]
+\newline
+
+The real eigenvalue of an orthognal opreator is \(\pm 1\), it is clear by 
+\[ \|\lambda x\| = \|f(x)\| = \|x\|\]
+However, an orthognal matrix is not necessary to be diagonalized, a typical example is 
+\[R_\theta = \begin{bmatrix}
+  \cos \theta & -\sin \theta\\
+  \sin \theta & \cos \theta
+\end{bmatrix}\]
+The eigenvalue of the matrix can be formulated by \(e^{\pm i\theta}\), it gives the geometric sense of the complex number: rotation.
+
+\begin{example}[Orthogonal symmetry] Suppose that \(F\) is a subspace of \(E\), then there exists a orthognal decompoistion \(E = F \oplus F^\bot \), an orthognal symmetry of F is a linear map defined by
+  \[S_F: E \to E, \quad x+y \mapsto x-y\]
+where \(x \in F\) and \(y \in F^\bot\) as the unique decompoistion. In particular, when \(\dim F = 1\) the maps is actually a reflection with respect to a line. Orthognal symmetry is an orthognal opreator since
+\[\|S_F(x+y)\|^2 = \|x-y\|^2 = \|x\|^2+\|y\|^2 = \|x+y\|^2\]
+under certain orthonormal base, orthognal symmetry can be reduced to the form
+\[S_F \sim \begin{pmatrix}
+  I_F & 0 \\
+  0 & -I_{F^\bot}
+\end{pmatrix}\]
+\end{example}
+
+
+
+
+
+\newpage
+
+\section{group 6/15}
+
+
+\((G,\cdot)\) IS A GROUP 
+
+\begin{definition}[conjuation] $ \\$
+  Let \(x,y\) be two elements of a group \(G\), we say that this two elements are conjugated (\(x \sim_c y \)) iff there exists \(a \in G\) such that \(axa^{-1} = y\).
+
+\end{definition}
+
+It is easy to prove that conjugation actually is a relation of equivalence.
+
+We can define a opreation, we can naturally define a operation like that
+\[aS = a\cdot S = \{a\cdot s | s \in S\}\]
+where \(a \) is an element of the group, and \(S\) is a subset of group. we call the set like this as "coset". Now we study what happens when \(S\) is a subgroup of \(G\).
+
+\textbf{Question: \(aS\) is a subgroup if \(S < G\)?}
+
+Consider \(G=(\z,+)\), and subgroup \(S = 3\z\), we take \(a = 1\), then
+\[aS = 1+3\z\]
+It is not a subgroup, since any subgroup of \(\z\) is of the form \(n\z\).
+
+\textbf{Question:  when \(aS\) is a subgroup?}
+IFF \(a \in  S\). \(aS=S\)\\
+If \(as \in aS\), then clearly since \(a \in S\) and \(s \in S\), so \(as \in S\).\\
+If \(s \in S\), \(s = a \cdot a^{-1}s\), so we want \(a^{-1}s \in S\) and it is clear.
+
+\textbf{Question: when \(aS = bS\)?} IFF \(b^{-1}a \in S\) or \(a^{-1}b \in S\).
+
+\textbf{Question: We can define \(a \sim b \iff a^{-1}b \in  S\), then it is a relation of equiavlence?}\\
+If we take \(s \in S\), then \([s] = \{x \in G| x \sim s\} = sS = S\).\\
+If we take \(a \notin S\), then \([a] = aS\).\\
+So we can conlude that \(aS \cap S = \emptyset \). We can generalize the result:\\
+\textbf{If \(a \nsim b\), then \( aS \cap bS = \emptyset\). otherwise \(aS = bS\).}\\
+A immediate result is  \textbf{theorem of lagrange}: If \(G\) is a group with \(S\) as a subgroup, if \(G\) is finite, then \(|S|\) divides \(|G|\).
+Hint: \(|aS| = |bS|\) if \(aS \neq bS\).
+\[G = S \cup aS \cup bS \cup ....\]
+
+\begin{example}
+  Let \(G = (\z,+)\), take \(S  = 4\z\), then we can find that
+  \[G = 4\z \cup (1+4\z) \cup (2+4\z)\cup (3+4\z)\]
+  6/4 ---2 ;  10/4----2
+\end{example}
+
+\textbf{Question: \(a\cdot S = S\cdot a\)?
+ or any group is a normal group ?}\\
+Ans: If ur group is abelian, then we always have this property. In other words, for two elements in an abelain group, they are not conjugated. for examples, \(x\in G\), then we take \(a \in G\)
+\[axa^{-1} = aa^{-1}x = x\]
+the unique element conjougated with \(x\) is \(x \) itself, so that means,
+\[G/\sim_c  = G\]
+\textbf{Another case is that \(G\) is not abelian.} In this case whether left coset equals to right coset depends on \(S\). for example, \(G = S_3\), and we consider two subgroup \(A_3\) and \(H = \{(1),(12)\}\).\\
+\(aA_3a^{-1} = A_3\)?  Yes! By sign.\\
+\(a = (13)\), \(aH = \{(13),(13)(12) = (123)\}\) and \(Ha = \{(13), (12)(13)=(132)\}\), so \(aH \neq Ha!\)
+
+\begin{proposition}
+  There are some equiavlent definition for normal group \(N \vartriangleleft G\)
+\end{proposition}
+\begin{itemize}
+  \item \(aN = Na\) for any \(a\in G\). 
+  \item \(aga^{-1} \in N\) for any \(a \in G\) and \(g \in N\).
+  \item If we can find a group morphism \(\phi: G \to H\) such that \(\ker\phi = N\).
+\end{itemize}
+
+\begin{definition}
+  Let \((G,\cdot)\) be a group and \(X\) be a set, a group action means that a group \(G\) acts on a set \(X\), and we denote it by \(G \circlearrowleft X\), it relates to a binary operation 
+  \[(\cdot * \cdot): G \times X \to X, \quad (g,x) \mapsto g*x\]
+  which satisfies:\\
+  (identity) \(e*x = x\) for any \(x \in X\).\\
+  (associative law) \((g\cdot h)*x = g * (h * x) \).
+\end{definition}
+
+\begin{example}
+  \(X = G\) a simple case. \(g*x = g\cdot x\) in this case. Let us look at map
+  \[\sigma_g: G \to G, \quad x \mapsto g\cdot x\]
+  we call this map " translate action by g". So we can consider \(\phi(g) = \sigma_g\)
+  \[\phi: G \to ?\]
+  \(? = S_G = \{\text{all bijection from G to G}\}\)! \textbf{(Here u should verify \(\sigma_g\) is bijective)} If \(G\) is finite with \(|G| = n\), then clearly \(S_G \cong S_n\).
+
+  We can veirfy that \(\phi \) is a group morphism:
+  \begin{align*}
+    \phi(a\cdot b) &= \sigma_{a\cdot b} \\\
+  &= \sigma_a \circ \sigma_b \\
+  &= \phi(a)\circ \phi(b)
+  \end{align*}
+  WE need to prove that \(\sigma_{a\cdot b} = \sigma_a \circ \sigma_b \). So we get a beautiful group morphism:
+  \[\phi: G \to S_G, \quad g \mapsto \sigma_g\]
+  You can prove that this morphism is injective, so by The first isomorphism theorem, we can conclude \textbf{Calay theorem}
+  \[G \cong \phi(G) < S_G\]
+\end{example}
+
+We jump out of the example, we can define the \textbf{permutation representation} of a group action \(G \circlearrowleft X\) as a group morphism as following
+\[\phi: G \to S_X, \quad g \to \sigma_g\]
+where \(\sigma_g: X \to X\) by \(\sigma_g(x) = g*x\). \textbf{(Here you should prove that \(\sigma_g\) is a bijection on \(X\), and u can verify that \(\phi\) is a group morphism)}
+
+\textbf{SOME DEFINITION DERIVED FROM representation}
+
+\[Stab(x) = \{g \in G| g*x = x\} = \{g \in G| \sigma_g(x) = x\}\]
+We can describe stabiliser of \(x\) by the set of transalation action which contains \(x\) as a fixed point.
+\[\{\sigma_g \in S_X | \sigma_g(x) = x\}\]
+correspondence between \(g\) and \(\sigma_g\).
+
+\[Orb(x) = \{g*x| g \in G\} = \{\sigma_g(x)|g \in G\}
+\] Hence orbite of an element \(x\) means the image of different translation actions on \(x\).
+
+
+
+
+
+
 
 
 \end{document}

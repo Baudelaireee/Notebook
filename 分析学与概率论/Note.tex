@@ -1174,7 +1174,7 @@ As its name, CLT shows that the sum of large numbers of independent random varia
     Suppose that \(Z {\sim}\normal{0}{1}\) is a random variable subjecting to the standard normal distribution, then its characteristic function will be
     \[\varphi_Z(t) = e^{-t^2/2}  \]
     Gnenerally if \(Y \sim \normal{\mu}{\sigma^2}\) is an other random vraible sujecting to a normal distrbution, then its characteristic function will be 
-    \[\varphi_Y(t) =  e^{it\mu - \frac{\sigma}{2}t^2}\]
+    \[\varphi_Y(t) =  e^{it\mu - \frac{\sigma^2}{2}t^2}\]
 
     \begin{proof}
         wait....
@@ -1230,6 +1230,38 @@ It is the simplest case, we call \(X \sim \text{Unif}(E)\) a random variable \(X
 \end{example}
 
 \newpage 
+
+\section{Classic Mechanics}
+
+It is too complicated to give a complete description of the mathematics structure of machanic, it is one of the oldest topic in physical and mathematics.
+
+\subsection{Conservation of mechanical energy}
+
+Work naturally is a line integral of a vector field, here the vector is the force acting on the object, formally 
+\[W_f = \int_{t_0}^{t_1} \mathbf{f} \cdot \mathbf{v} dt  = \int_C \mathbf{f} d\mathbf{r} \]
+here \(\mathbf{f}\) is the force.
+
+there exists a direct relationship between work and kinetic energy, to apply Newton's second law, we can find 
+\[\mathbf{f} \cdot \mathbf{v} = m \ddot{\mathbf{r}} \cdot \dot{\mathbf{r}} 
+= \frac{1}{2} m \frac{d}{dt} (\dot{\mathbf{r}} \cdot \dot{\mathbf{r}}) 
+= \frac{1}{2} m \frac{d}{dt} (\mathbf{v}^2) 
+= \frac{d}{dt} \left( \frac{1}{2} m \mathbf{v}^2 \right).
+\]
+Therefore we can conclude the \textbf{work-energy theorem}: for a single practicle, the work done by the net force equals the change of kinetic energ,
+\[W_f = \int_{t_0}^{t_1} \mathbf{f} \cdot \mathbf{v} dt = T(t_1)-T(t_0)\]
+
+Consider the model of free falling, the object fall from a certain height, the gravitational potential energy decrease as the kinectic energy incrases, it is easy to verify the sum of energy is the same at any time; Conisder another model, when a moving car suddenly stalls, its kinetic energy gradually decreases to zero as the speed decreases, the energy loss in this process is caused by the friction from the ground. Comparing this two example, we can find that the conservation of the energy depends the system we observe and the force acting on the object: in the two system, if we contain the road into the system, the kinectic energy in facts is transformed into the heat energy, which can not denoted by potential energy, so in the example there exist no potential energy, but the energy is conserved in the sense of the larger system. 
+
+Formally, we define conservative force by defining the conservative vector field。
+
+\begin{definition}
+    Let \(F: U \subset \rr^3 \to \rr^3\) be a vector field, it is said to be conservative if there exists a \(C^1\) scalar function \(\varphi: U \to \rr^3\) such that
+    \[-\nabla \varphi = F\]  
+
+\end{definition}
+
+
+\newpage
 
 \printbibliography
 
