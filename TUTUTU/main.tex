@@ -1,0 +1,139 @@
+\documentclass[12pt,a4paper]{article}
+
+% ==== 导言区 ====
+\input{setup.tex} % 调用你上传的 setup.tex 文件
+% 或者你也可以直接把 setup.tex 的内容复制粘贴在这里
+
+\title{\LaTeX{} Note Template}
+\author{X}
+\date{\today}
+
+\extrainfo{Github: \href{https://github.com/Baudelaireee/Notebook}{https://github.com/Baudelaireee/Notebook}}
+\begin{document}
+
+% \maketitle
+\makecover{cover/tu.jpg}
+\tableofcontents
+\newpage 
+
+\section{Universal property}
+Universal property is a core concept in modern mathematics, it means the same properties but appears in different objects, in the language of category theory, it means the same diagram commutative in different categories. this section is to introduce some common universal properties from set theory to group theory and topology, it can be seen as a review of basic mathematics, and a good inviation for category theory.
+
+\subsection{Quotient}
+
+quotient is a method to see two different things as the same things via an equivalence relation: Let \(X\) be a non-empty set and \(\sim\) be an realtion on \(X\), if it satisfies
+\begin{itemize}
+    \item reflexive: \(x \sim x\)
+    \item symmetric: \(x \sim y \Rightarrow y \sim x    \)
+    \item transitive: \(x \sim y, y \sim z \Rightarrow x \sim z\)
+\end{itemize}
+Then we define \(\sim\) is an \textbf{ equivalence relation} on \(X\). So we can define the equivalence class of some element \(a\) of the set as 
+\[[a] = \{x \in X | x \sim a\}\]
+then the \textbf{quoitent set} of \(X\) with respect to \(\sim\) is defined as
+\[X/\sim := \{[a]| a \in X\}\]
+but it is not the unique method to define quotient, the follwing statement gives different view.
+
+\begin{lemma}
+    Let \(X\) be a non-empty set, then the following statements are equivalent:\\
+
+    (1) There is an equivalence relation \(\sim\) on \(X\).\\
+
+    (2) There is a surjective map \(f: X \to Y\) to some set \(Y\).\\
+
+    (3) There is a partition of \(X\), i.e. a family \(P = \{A_i| i\in I, A_i \subset X\}\) such that the set can be written as the disjoint union of the family
+    \[X = \bigsqcup_{i \in I} A_i\]
+\end{lemma}
+\begin{proof}
+    (1) \(\Rightarrow\) (2): Let \(Y = X/\sim\) and define \(\pi: X \to Y, x \mapsto [x]\), then it is easy to see that \(\pi\) is a surjective map.\\
+
+    (1) \(\Rightarrow\) (3): it is equivalent to prove that the equivalence class \([x]\) and \([y]\) is disjoint if \(x \nsim y\), otherwise they are equal.\\
+
+    (2) \(\Rightarrow\) (1): Define a relation on \(X\) by
+    \[x \sim_f y \iff f(x) = f(y)\]
+    It is a equivalence relation, and the equivlence class can be denoted by pre-image 
+    \[[x] = f^{-1}(y)  \]
+    where \(y = f(x)\).\\
+
+    (3) \(\Rightarrow\) (1): Define a relation on \(X\) by 
+    \[x \sim_P y \iff x\in A_i \wedge y \in A_i\]
+    for some \(i \in I\), similarly the class can be denoted by
+    \[[x] = A_i\]
+    where \(x \in A_i\) and \(X/\sim_P = P\) actually.
+\end{proof}
+
+The application in the proof
+\[\pi: X \to X/\sim, \quad x \mapsto [x]\]
+is called the \textbf{quotient map}, it is a type of \textbf{natural map}, that means the definition of the map is unique and very natural. The statement (2) can be generalized to any map, not only surjective map, but the reason here I only state the surjective map is that (a) any map can be restricted to a surjective map; (b) the quotient map is surjective. 
+
+The universal property of quotient can be explained as following: we expect two objects are the same up to isomorphism, in the sense of set theory, that means there is a bijection between two sets, but it is not easy to construct a bijection directly, or sometimes we do not need know what the bijection exactly is. Now we take a map \(f:X \to Y\), then we can \textbf{uniquely determine} a bijection between \(X/\sim_f\) and a subset of \(Y\), and the bijection is induced by \(f\) and the quotient map, the correspondece can be draw as following commutative diagram:
+% https://q.uiver.app/#q=WzAsMyxbMCwwLCJYIl0sWzIsMCwiWSJdLFswLDIsIlgvXFxzaW1fZiJdLFswLDEsImYiXSxbMCwyLCJcXHBpIiwyLHsic3R5bGUiOnsiaGVhZCI6eyJuYW1lIjoiZXBpIn19fV0sWzIsMSwiXFxleGlzdHMhIFxcYmFye2Z9IiwwLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV1d
+\[\begin{tikzcd}
+	X && Y \\
+	\\
+	{X/\sim_f}
+	\arrow["f", from=1-1, to=1-3]
+	\arrow["\pi"', two heads, from=1-1, to=3-1]
+	\arrow["{\exists! \bar{f}}", dashed, from=3-1, to=1-3]
+\end{tikzcd}\]
+We conclude the result of set theory as following:
+\begin{theorem}[UPQ-SET] $ \\$
+    Let \(X,Y\) be two empty sets and \(f:X \to Y\) a map between them, then there is a unique injective map \(\bar{f}: X/\sim_f \hookrightarrow Y\) such that \(f = \bar{f} \circ \pi\), where \(\pi: X \to X/\sim_f\) is the quotient map.
+    
+\end{theorem}
+
+\begin{proof}
+    The definition of \(\bar{f}\) is natural and uniquely by \(f = \bar{f} \circ \pi\), for any \([x] \in X/\sim_f\), define
+    \[\bar{f}([x]) = f(x)\]
+    the map is well-defined, because if \([x] = [y]\), then \(f(x) = f(y)\) by the definition of \(\sim_f\). To verify that \(\bar{f}\) is injective, we assume \(\bar{f}([x]) = \bar{f}([y])\), then \(f(x) = f(y)\), that means \([x] = [y]\) by the realtion \(\sim_f\)
+\end{proof}
+
+
+
+
+\newpage
+\section{Topological group}
+
+Group and Topological space is two different objects, group is algebraic structure, topological space is geometric structure, but it is not strange to combine them together.
+
+\begin{definition}
+A \textbf{topological group} is a object \((G,\mathcal{T},\cdot)\) such that
+\begin{itemize}
+    \item \((G,\cdot)\) is a group
+    \item \((G,\mathcal{T})\) is a Hausdorff topological space
+    \item The group structure is compatible with topological structure, i.e. multiplication 
+    \[m: G \times G \to G, \quad (x,y) \mapsto x \cdot y\]
+    and inverse \[i: G \to G, \quad x \mapsto x^{-1}\]
+    are continuous maps.
+\end{itemize} 
+\end{definition}
+
+\begin{remark}
+    The definition of Hausdorff space is not necessary, but it is a common convention if we talk about topological group, we can just define \(G\) be a topological space, then the sufficent and necessary condition for \(G\) to be Hausdorff is that the singleton set \(\{e\}\) is closed. Howerever, the group we talk about is usually a Lie group, that means the topological space is furthermore a manifold.
+\end{remark}
+ 
+Before we see some examples, we first prove some properties of topological group, the results are not diffcult, but it is always useful.
+
+\begin{proposition}
+    Let \(G\) be a topological group and \(H\) be a subgroup of \(G\), then\\
+
+    (1-trnslation) For any \(g \in G\), the left-translation \(L_g: G \to G, x \mapsto g \cdot x\) and right-translation \(R_g: G \to G, x \mapsto x \cdot g\) are homeomorphisms.\\
+
+    (2-open subgroup) If \(H\) is open, then it is also closed.\\
+
+    (3-closed subgroup) quotient space \(G/H\) is Hausdorff if and only if \(H\) is closed.\\
+\end{proposition}
+
+\begin{proof}
+    
+\end{proof}
+
+\begin{remark}
+    Translation is very important in topological group, group is a object with symmetry and translation is a way to keep symmetry. For example, let \(x,y\) be two different points in \(G\), then the translation \(L_{yx^{-1}}\) is a homeomorphisms which maps \(x\) to \(y\), therefore each point of \(G\) share the same topological stucture, so the local property is same as golbal poerperty, that means topological group is a \textbf{homogeneous space}.
+\end{remark}
+
+the fundamental theorem of group homeomorphisms can be extended to topological group, in the discussion of topological group, we hope the map between two objects can preserve both two structures, that means the map is both a morphism of group and a continous map. For example, Let \(\mathcal{T}\) be the common topology of \(\rr\) and \(\mathcal{J}\) be the discrete topology of \(\rr\), then the group isomorphism 
+\[ id: (\rr,\mathcal{T},+) \to (\rr,\mathcal{J},+) \]
+is not a homeomorphisms because it is not continous. In a word, the isomorphism in topological group is a \textbf{homeomorphisms and group isomorphism} at the same time.
+
+\end{document}
+
