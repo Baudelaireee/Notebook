@@ -77,18 +77,87 @@ The universal property of quotient can be explained as following: we expect two 
 \end{tikzcd}\]
 We conclude the result of set theory as following:
 \begin{theorem}[UPQ-SET] $ \\$
-    Let \(X,Y\) be two empty sets and \(f:X \to Y\) a map between them, then there is a unique injective map \(\bar{f}: X/\sim_f \hookrightarrow Y\) such that \(f = \bar{f} \circ \pi\), where \(\pi: X \to X/\sim_f\) is the quotient map.
+    Let \(X,Y\) be two empty sets and \(f:X \to Y\) a surjective map between them, then there is a unique bijection map \(\bar{f}: X/\sim_f \hookrightarrow Y\) such that \(f = \bar{f} \circ \pi\), where \(\pi: X \to X/\sim_f\) is the quotient map.
     
 \end{theorem}
 
 \begin{proof}
     The definition of \(\bar{f}\) is natural and uniquely by \(f = \bar{f} \circ \pi\), for any \([x] \in X/\sim_f\), define
     \[\bar{f}([x]) = f(x)\]
-    the map is well-defined, because if \([x] = [y]\), then \(f(x) = f(y)\) by the definition of \(\sim_f\). To verify that \(\bar{f}\) is injective, we assume \(\bar{f}([x]) = \bar{f}([y])\), then \(f(x) = f(y)\), that means \([x] = [y]\) by the realtion \(\sim_f\)
+    the map is well-defined, because if \([x] = [y]\), then \(f(x) = f(y)\) by the definition of \(\sim_f\). The relation \(\sim_f\) implies injection \(\bar{f}\), surjection \(f\) implies surjection \(\bar{f}\), so we finish the proof.
 \end{proof}
 
+It is the simplest universal property of quotient, it can be generalized to other mathematics objects, but a little different, the map between two objects should preserve the structure, so the map will be some type of morphism, hence the quotient map should also be a morphism and the equivalence relation should be compatible with the structure. Let us consider the case of topological space.
 
+In geometry view, a circle can be obtained by glueing the two endpoints of a line segment, for example we identify two endpoints of the interval \([0,1]\) by the relation \(0 \sim 1\), then we can get a quotient set \([0,1]/\sim\), but how to define the topology on the quotient set such that it is a space homemorphic to circle \(\sph^1\)? The answer is that the quotient map should preserve the topological structure, i.e. quotient topology is the smallest topology such that the quotient map is continuous.
 
+\begin{definition}
+    Let \((X,\mathcal{T})\) be a topological space and \(\sim\) be an equivalence relation on \(X\), the \textbf{quotient topology} on \(X/\sim\) is defined as 
+    \[\mathcal{T}_{\sim} := \{U \subset X/\sim | \pi^{-1}(U) \in \mathcal{T}\}\]
+    where \(\pi: X \to X/\sim, x \mapsto [x]\) is the quotient map.
+\end{definition}
+
+We can complete the example just now, firstly we find a surjective map
+\[f: [0,1] \to \sph^1, \quad f(x) = e^{2\pi i x}\]
+It is easy to see that \(0 \sim_f 1\) since \(f(0) = f(1)\), and the relation is exactly the relation we want, so we can conclude a bijection \(\bar{f}: [0,1]/\sim_f \to \sph^1\) such that \(f = \bar{f} \circ \pi\) by UPQ-SET, by the condtion that \(f\) and \(\pi\) are contionous, we can verify that \(\bar{f}\) is also continous. To see whether it is a homemorphism or not, we notice that \(\sph^1\) is a compact space, so we just need to verify thet \([0,1]/\sim_f\) is also a compact space \textbf{(a continous bijection from a compact space to a Hausdorff space is automatically a homeomorphism)}, that needs a properties of quotient space:
+\begin{claim}
+    Let \(X\) be a compact space and the graph of \(\sim\) be closed in \(X^2\), then quotient space \(X/\sim\) is also a compact space.
+\end{claim}
+\begin{proof}
+    \[G = \{(a,b) \in X^2 |  a \sim b\}\]
+    is the graph of \(\sim\),...
+\end{proof}
+
+So we can prove that \([0,1]/\sim_f\) is homeomorphic to \(\sph^1\) as above, and we can generalized the result to any similar case as following:
+\begin{theorem}[UPQ-TOPO] $ \\$
+    Let \((X,\mathcal{T})\) be a topological space and \((Y,\mathcal{J})\) be a topological space, \(f: X \to Y\) be a surjective continuous map, then there is a unique continous bijection \(\bar{f}: (X/\sim_f, \mathcal{T}_{\sim_f}) \to (Y,\mathcal{J})\) such that \(f = \bar{f} \circ \pi\), where \(\pi: X \to X/\sim_f\) is the quotient map.
+\end{theorem}
+
+\begin{proof}
+    By UPQ-SET, there is a unique bijection \(\bar{f}\) such that \(f = \bar{f} \circ \pi\), now we will prove that \(\bar{f}\) is a homeomorphism. Take any open set \(U\) of \(Y\), then 
+    \[f^{-1}(U) = (\bar{f} \circ \pi)^{-1}(U) = \pi^{-1}(\bar{f}^{-1}(U))\]
+    since \(f\) is continous, then \(\pi^{-1}(\bar{f}^{-1}(U))\) is open in \(X\), by the definition of quotient topology, \(\bar{f}^{-1}(U)\) is open in \(X/\sim_f\), so \(\bar{f}\) is continous.
+\end{proof}
+
+\begin{remark}
+    Here we can not get that \(\bar{f}\) is a homeomorphism directly, because the quotient map is not only a continous map, it is strong continous: a map 
+    \(f:X \to Y\) is called \textbf{strong continous} if it satisfies
+    \[U \in \mathcal{T}_Y  \iff f^{-1}(U) \in \mathcal{T}_X\]
+    A example of a continous map but not strong continous is the map \(f: \rr \to \rr, x \mapsto 0\), here we take \(U=[-1,1]\), then \(f^{-1}(U) = \rr\) is open, but \(U\) is not open. 
+
+    So in the statement of UPQ-TOPO, if we add that \(f\) is strong continous (for example, \(f\) is an open map), then \(\bar{f}\) is furthermore a homeomorphism.
+\end{remark}
+
+Finally, we study another basic object: group, Let \(G\) be a group and \(H\) be a subgroup of \(G\), then the subgroup can induces an equivalence relation (verify) on \(G\) by
+\[a \sim_H b \iff a^{-1}b \in H\]
+then the equivalence class can be denoted by left cosets
+\[[a] = \{g \in G | a \sim_H g\} = aH\]
+and the quotient set(it maybe not a group) is denoted by
+\[G/H = \{aH | a \in G\}\]
+and the quoitent map is
+\[\pi: G \to G/H, \quad g \mapsto gH\]
+if the quotient map furthermore preserves the group structure, i.e. it is a group homomorphism, then we expect for any \(g,h \in G\), \(\pi(gh) = \pi(g)\pi(h)\), i.e.
+\[ghH = gHhH\]
+a sufficent condition here is that \(hH = Hh\) for any \(h \in G\), that means \(H\) is a \textbf{normal subgroup}. Hence we can define the quotient group as follwoing:
+\begin{definition}
+    Let \(G\) be a group and \(H\) be a normal subgroup of \(G\), the \textbf{quotient group} of \(G\) with respect to \(H\) is defined as the set \(G/H\) with the multiplication
+    \[(aH)(bH) := (ab)H\]
+    for any \(a,b \in G\), and the group morphism \(\pi: G \to G/H, g \mapsto gH\) is called the \textbf{canonical morphism}.
+\end{definition}
+
+The group is a symmetric object, and the equivalence relation given by subgroup is a little special, the partition of \(G\) given by \(H\) is uniform:\\
+We notice that the translation \(L_g: G \to G, x \mapsto gx\) is a bijection (not a group morphism unless \(g = e\)), so the restriction of \(L_g\) on any subgroup implies \(gH = L_g(H)\), that means any two left cosets(equivalence class) have the same \textbf{cardinality} as \(H\), in particular, if \(G\) is a finite group, then \(|H|\) divdes \(|G|\), this is the \textbf{Lagrange's theorem}.
+
+Like what we do in topology and set theory, we can aslo conclude a universal property for group:
+\begin{theorem}
+    [UPQ-GRP] $ \\$
+    Let \(G\) and \(K\) be two groups, \(H\) be a normal subgroup of \(G\), and \(\varphi: G \to K\) be a surjective group morphism, then there is a unique group isomorphism \(\bar{\varphi}: G/H \to K\) such that \(\varphi = \bar{\varphi} \circ \pi\), where \(\pi: G \to G/H\) is the canonical morphism.
+\end{theorem}
+\begin{proof}
+    By UPQ-SET, there is a unique bijection \(\bar{\varphi}\) such that \(\varphi = \bar{\varphi} \circ \pi\), now we will prove that \(\bar{\varphi}\) is a group isomorphism. Take any \(aH,bH \in G/H\), then
+    \[\bar{\varphi}((aH)(bH)) = \bar{\varphi}((ab)H) = \varphi(ab) = \varphi(a)\varphi(b) = \bar{\varphi}(aH)\bar{\varphi}(bH)\]
+    so \(\bar{\varphi}\) is a group morphism, so we finish the proof.
+\end{proof}
 
 \newpage
 \section{Topological group}
@@ -99,7 +168,7 @@ Group and Topological space is two different objects, group is algebraic structu
 A \textbf{topological group} is a object \((G,\mathcal{T},\cdot)\) such that
 \begin{itemize}
     \item \((G,\cdot)\) is a group
-    \item \((G,\mathcal{T})\) is a Hausdorff topological space
+    \item \((G,\mathcal{T})\) is a topological space
     \item The group structure is compatible with topological structure, i.e. multiplication 
     \[m: G \times G \to G, \quad (x,y) \mapsto x \cdot y\]
     and inverse \[i: G \to G, \quad x \mapsto x^{-1}\]
@@ -107,20 +176,27 @@ A \textbf{topological group} is a object \((G,\mathcal{T},\cdot)\) such that
 \end{itemize} 
 \end{definition}
 
-\begin{remark}
-    The definition of Hausdorff space is not necessary, but it is a common convention if we talk about topological group, we can just define \(G\) be a topological space, then the sufficent and necessary condition for \(G\) to be Hausdorff is that the singleton set \(\{e\}\) is closed. Howerever, the group we talk about is usually a Lie group, that means the topological space is furthermore a manifold.
-\end{remark}
- 
 Before we see some examples, we first prove some properties of topological group, the results are not diffcult, but it is always useful.
 
 \begin{proposition}
     Let \(G\) be a topological group and \(H\) be a subgroup of \(G\), then\\
 
-    (1-trnslation) For any \(g \in G\), the left-translation \(L_g: G \to G, x \mapsto g \cdot x\) and right-translation \(R_g: G \to G, x \mapsto x \cdot g\) are homeomorphisms.\\
+    (1-translation) For any \(g \in G\), the left-translation \(L_g: G \to G, x \mapsto g \cdot x\) and right-translation \(R_g: G \to G, x \mapsto x \cdot g\) are homeomorphisms.\\
 
-    (2-open subgroup) If \(H\) is open, then it is also closed.\\
+     (2-open) If \(H\) is open, then \(H\) is closed and \(G/H\) is discrete.\\
 
-    (3-closed subgroup) quotient space \(G/H\) is Hausdorff if and only if \(H\) is closed.\\
+    (3-Hausdorff)
+    \[
+    \begin{aligned}
+    G &\text{ is Hausdorff} &&\Longleftrightarrow\ \{e\}\text{ is closed}.\\
+    G/H &\text{ is Hausdorff} &&\Longleftrightarrow\ H\text{ is closed in }G.
+    \end{aligned}
+    \]
+
+    (4-homogeneous) If \(G\) is connect, then any voisinage of \(\{e\}\) can generate the group.\\
+
+    (5-CC) Let \(G_0\) be the connected component of \(G\) containing \(e\), then \(G_0\) is a closed normal subgroup of \(G\), and any connected component of \(G\) is homeomorphic to \(G_0\).
+
 \end{proposition}
 
 \begin{proof}
