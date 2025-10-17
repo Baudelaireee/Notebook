@@ -23,9 +23,9 @@
 }
 \usepackage{subcaption}
 % TikZ-cd: commutative diagrams (loads tikz)
+\usepackage{quiver}
 \usepackage{tikz-cd}
-% Optional: enable additional tikz libraries if you need advanced arrow styles
-\usetikzlibrary{arrows.meta,decorations.pathmorphing,cd}
+\usetikzlibrary{spath3,calc,decorations.pathmorphing}
 
 \usepackage[ruled,linesnumbered,noline]{algorithm2e}
 \usepackage{listings}
@@ -176,3 +176,7 @@
 \newcommand{\ffp}{\mathbb{F}_p}
 \newcommand{\sph}{\mathbb{S}}
 \newcommand{\Log}{\operatorname{Log}}
+
+%category theory
+\newcommand{\Ob}{\mathrm{Ob}}
+\newcommand{\Hom}{\mathrm{Hom}}

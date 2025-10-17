@@ -120,7 +120,7 @@ It's a classic example about ring of algebraic integers, we can say more about q
 \end{proof}
 Notice that it is not so easy to prove the similar result for cubic fields or higher degree fields, the concept of \textbf{integral basis} is useful here.
 
-
+\newpage
 \section{Infinite products}
 The form of infinite products is important in complex analysis to study the poles and zeros of functions, here is the definition:
 
@@ -230,7 +230,23 @@ However, we can not ensure the convergence of the product, for example we take z
     by expansion of expoential function \(e^z = 1+z+o(z^2)\), so we can conlude the result.
 \end{proof}
 
-with the 
+So we can response the original question by collecting the above ideas:
+\begin{theorem}[Weierstrass's Factorization Theorem] $ \\$
+    Let \((a_n)_{n \in \nn}\) be a sequence of complex numbers such that \(\lim_{n \to \infty} |a_n| = \infty\), and we make convention that \(E_n(\frac{z}{0}):= z\), then the infinite product
+    \[f(z) = \prod_{n=1}^{\infty} E_{n}(\frac{z}{a_n})\]
+    converges locally uniformly in \(\cc\) to an entire function \(f\) whose zeros are precisely the points \(a_n\), with multiplicities by counting. Moreover, if \(g\) is any other entire function with the same zeros and multiplicities, then there exists an entire function \(h\) such that
+    \[g(z) = f(z)e^{h(z)}\]
+    for all \(z \in \cc\).
+    
+\end{theorem}
+
+Another better theorem is given by \textbf{Hadamard}, it shows the growth of the entire function will influence the construction of the function by given zeros.
+\begin{theorem}[Hadamard's Factorization Theorem] $ \\$
+Suppose that \(f\) is an entire function of finite order \(\rho\) with zeros \((a_n)_{n \in \nn}\) (counting multiplicities), then there exists a polynomial \(P\) of degree at most \(k=\lfloor \rho \rfloor\) such that
+\[f(z) = e^{P(z)}\prod_{n=1}^{\infty} E_{n}(\frac{z}{a_n})\]
+\end{theorem}
+
+\section{a}
 
 
 

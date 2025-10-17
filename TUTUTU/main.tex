@@ -176,7 +176,17 @@ A \textbf{topological group} is a object \((G,\mathcal{T},\cdot)\) such that
 \end{itemize} 
 \end{definition}
 
-Before we see some examples, we first prove some properties of topological group, the results are not diffcult, but it is always useful.
+Let us see some examples of topological groups
+\begin{example}
+    \item (1) \(\rr^n\) with addition and standard topology is a topological group.
+    \item (2) \(\sph^1 = \{z \in \cc | |z|=1\}\) with multiplication and subspace topology of \(\cc\) is a topological group. 
+    \item (3) The torus \(T\) can be seen as the product of two topological groups \(\sph^1 \times \sph^1\), by the universal property of product topology, \(T\) is also a topological group.
+    \item (4) Any discrete group with discrete topology is a topological group.
+    \item (5) \(GL(n,\rr)\) with multiplication and subspace topology of \(\rr^{n^2}\) is a topological group.
+\end{example}
+
+
+we first prove some properties of topological group, the results are not diffcult, but it is always useful.
 
 \begin{proposition}
     Let \(G\) be a topological group and \(H\) be a subgroup of \(G\), then\\
@@ -207,9 +217,294 @@ Before we see some examples, we first prove some properties of topological group
     Translation is very important in topological group, group is a object with symmetry and translation is a way to keep symmetry. For example, let \(x,y\) be two different points in \(G\), then the translation \(L_{yx^{-1}}\) is a homeomorphisms which maps \(x\) to \(y\), therefore each point of \(G\) share the same topological stucture, so the local property is same as golbal poerperty, that means topological group is a \textbf{homogeneous space}.
 \end{remark}
 
-the fundamental theorem of group homeomorphisms can be extended to topological group, in the discussion of topological group, we hope the map between two objects can preserve both two structures, that means the map is both a morphism of group and a continous map. For example, Let \(\mathcal{T}\) be the common topology of \(\rr\) and \(\mathcal{J}\) be the discrete topology of \(\rr\), then the group isomorphism 
-\[ id: (\rr,\mathcal{T},+) \to (\rr,\mathcal{J},+) \]
-is not a homeomorphisms because it is not continous. In a word, the isomorphism in topological group is a \textbf{homeomorphisms and group isomorphism} at the same time.
+the fundamental theorem of group homeomorphisms can be extended to topological group, in the discussion of topological group, we hope the map between two objects can preserve both two structures, that means the map is both a morphism of group and a continous map. 
+
+\begin{example}
+    We consider two topological groups: the first is \(\rr\) with addition and standard topology, the second is \(\sph^1\) with multiplication and subspace topology of \(\cc\) (or \(\rr^2\)). We define a map 
+    \[
+    \varphi: \rr \to \sph^1, \quad x \mapsto e^{2\pi i x}.
+    \]
+    (1) \(\varphi\) is a surjective group morphism with \(\ker \varphi = \mathbb{Z}\).\\
+    (2) By UPQ-GRP, there is a unique group isomorphism \(\bar{\varphi}: \rr/\mathbb{Z} \to \sph^1\) such that \[\rr/\zz \cong \sph^1 \]
+    (3) By UPQ-TOPO, \(\bar{\varphi}\) is also a continous bijection since \(\varphi\) is continous.\\
+    (4) Notice that \(\sph^1\) is a Hausdorff space, \(\rr/\zz\) is compact (verify!) so \(\bar{\varphi}\) is automatically a homeomorphism.
+\end{example}
+We define the \textbf{isomorphism} between two topological groups are an application which is both \textbf{a group isomorphism} and \textbf{a homeomorphism}, the above examples shows that \(\rr/\zz\) and \(\sph^1\) are isomorphic as topological groups, with the similar techniques we can prove that \(SO(2)\) is also isomorphic to \(\sph^1\) as a topological group. We can generalized the result to be a so-called universal properties:
+\begin{theorem}
+    [UPQ-TGRP] $ \\$
+    Let \(G\) and \(K\) be two topological groups, and \(\varphi: G \to K\) be a topological group morphism (i.e. continuous morphism of group), then there is a unique continous morphism of groups \(\bar{\varphi}: G/H \to K\) such that the digaram commutes
+    % https://q.uiver.app/#q=WzAsMyxbMCwwLCJHIl0sWzIsMCwiSyJdLFswLDIsIkcvXFxrZXIgXFx2YXJwaGkiXSxbMCwyLCJcXHBpIiwyLHsic3R5bGUiOnsiaGVhZCI6eyJuYW1lIjoiZXBpIn19fV0sWzAsMSwiXFx2YXJwaGkiXSxbMiwxLCJcXGV4aXN0ISBcXGJhcntcXHZhcnBoaX0iLDIseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XV0=
+\[\begin{tikzcd}
+    G && K \\
+    \\
+    {G/\ker \varphi}
+    \arrow["\varphi", from=1-1, to=1-3]
+    \arrow["\pi"', two heads, from=1-1, to=3-1]
+    \arrow["{\exists! \bar{\varphi}}"', dashed, from=3-1, to=1-3]
+\end{tikzcd}\]
+furthermore, if  the following conditions hold:\\
+(1) \(\varphi\) is surjective,\\
+(2) \(K\) is Hausdorff,\\
+(3) \(G/\ker \varphi\) is compact,\\
+then \(\bar{\varphi}\) is an isomorphism of topological groups.
+\end{theorem}
+
+\newpage
+\section{Dual space and category}
+
+In this section, we will the structure of dual in the view of category, and then discuss some properties of dual space.
+
+\begin{definition}
+    Let \(V\) be a vector space over a field \(K\). The \textbf{dual space} of \(V\), denoted \(V^*\), is the set of all linear functionals from \(V\) to \(K\):
+    \[
+    V^* = \mathcal{L}(V, K) = \{ f: V \to K \mid f \text{ is linear} \}.
+    \]
+\end{definition}
+
+\begin{proposition} \label{dualvectorspace}
+    The dual space \(V^*\) is a vector space over \(K\) with the following operations:
+    \begin{itemize}
+        \item (Addition) If \(f, g \in V^*\), then \((f + g)(v) = f(v) + g(v)\) for all \(v \in V\).
+        \item (Scalar multiplication) If \(f \in V^*\) and \(\alpha \in K\), then \((\alpha f)(v) = \alpha f(v)\) for all \(v \in V\).
+    \end{itemize}
+\end{proposition}
+
+    The dual space \(V^*\) captures the notion of linear functionals on \(V\) and provides a way to study the properties of \(V\) through its dual. Another important concept related to dual space is the dual map induced by a linear map
+
+\begin{proposition} \label{dualmap}
+    Let \(T: V \to W\) be a linear map between vector spaces \(V\) and \(W\). The \textbf{dual map} \(T^*: W^* \to V^*\) is defined by
+    \[
+    T^*(g) = g \circ T
+    \]
+    for all \(g \in W^*\), it is a linear map induced by \(T\).\\
+    Furthermore, \(T^*\) satisfies the following properties:
+    \begin{itemize}
+        \item (Preservation of identity) for any identity linear map \(I:V^* \to V^*\), \(I^*\) is the identity linear map on \(V^*\).
+        \item (Preservation of composition) for any linear maps \(T: V \to W\) and \(S: W \to U\), we have \((S \circ T)^* = T^* \circ S^*\).
+    \end{itemize}
+\end{proposition}
+
+
+    \begin{proof}
+        To show that \(T^*\) is linear, we need to verify that it preserves addition and scalar multiplication. Let \(g_1, g_2 \in W^*\) and \(\alpha \in K\). Then, for any \(v \in V\):
+        \[
+        T^*(g_1 + g_2)(v) = (g_1 + g_2)(T(v)) = g_1(T(v)) + g_2(T(v)) = T^*(g_1)(v) + T^*(g_2)(v).
+        \]
+        Thus, \(T^*(g_1 + g_2) = T^*(g_1) + T^*(g_2)\).
+
+        Next, for scalar multiplication:
+        \[
+        T^*(\alpha g)(v) = (\alpha g)(T(v)) = \alpha g(T(v)) = \alpha T^*(g)(v).
+        \]
+        Therefore, \(T^*(\alpha g) = \alpha T^*(g)\).
+
+        Since \(T^*\) preserves both addition and scalar multiplication, it is a linear map.
+        Now, we verify the preservation of identity. Let \(I: V \to V\) be the identity map. For any \(g \in V^*\) and \(v \in V\):
+        \[I^*(g)(v) = g(I(v)) = g(v).\]
+        Thus, \(I^*(g) = g\), which shows that \(I^*\) is the identity map on \(V^*\).
+
+        Finally, we verify the preservation of composition. Let \(T: V \to W\) and \(S: W \to U\) be linear maps. For any \(h \in U^*\) 
+        \[
+        (S \circ T)^*(h) = h\circ(S \circ T)   = (h \circ S)\circ T = T^*(S^*(h))=(T^* \circ S^*)(h).
+        \]
+    \end{proof}
+
+After knowing the basic definition of dual space and dual map, we can conclude like following:
+\begin{itemize}
+    \item We try to see dual as some function, which maps a vector space to another vector space (by proposition \ref{dualvectorspace}), so we naturally define \(\mathbf{Vect}_K\) to be the set of all vector spaces over field \(K\), then dual can be seen as a function in it
+    \[(-)^*:\mathbf{Vect}_K \to \mathbf{Vect}_K, \quad V \mapsto V^*\]
+    that means dual can be seen \textbf{as a function between classes} (In the set theory, the set of sets is called classes).
+
+    \item Furthermore, dual is not only a function between classes, each linear map \(T: V \to W\) induces a dual map \(T^*: W^* \to V^*\) (by proposition \ref{dualmap}), so we can get annother information about dual: it can be seen as \textbf{a function between sets of morphisms} (in the vector spaces, a morphism is a linear map, which preserves the vector space structure), hence we can define dual as following:
+    \[( - )^* : \mathcal{L}(V,W) \to \mathcal{L}(W^*, V^*), \quad T \mapsto T^*\]
+\end{itemize}
+
+That is two level of dual, and we can draw a picture like following:
+% https://q.uiver.app/#q=WzAsNCxbMCwwLCJWIl0sWzIsMCwiVyJdLFswLDIsIlZeKiJdLFsyLDIsIldeKiJdLFswLDIsIigtKV4qIiwxLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzAsMSwiVCJdLFsxLDMsIigtKV4qIiwxLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzMsMiwiVF4qIl0sWzUsNywiKC0pXioiLDEseyJzaG9ydGVuIjp7InNvdXJjZSI6MjAsInRhcmdldCI6MjB9LCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XV0=
+\[\begin{tikzcd}
+	V && W \\
+	\\
+	{V^*} && {W^*}
+    \arrow[""{name=0, anchor=center, inner sep=0}, "T", from=1-1, to=1-3]
+    \arrow["{(-)^*}"{description}, dashed, from=1-1, to=3-1]
+    \arrow["{(-)^*}"{description}, dashed, from=1-3, to=3-3]
+    \arrow[""{name=1, anchor=center, inner sep=0}, "{T^*}", from=3-3, to=3-1]
+    \arrow["{(-)^*}"{description}, Rightarrow, dashed, from=0, to=1]
+\end{tikzcd}\]
+We should pay attention to the level of dual, the first level is the function between classes, the second level is the function between sets of morphisms, we have the first level, and then we can get the second level by naturally definition, that is why category is a powerful tool! In set theory, we only have elements in a set, and then we use functions to connect two sets, but now we hope to construct a class contatining sets, and then use a function to connect two classes, but that is not ennough, we also need to connect a morphism of two sets in a class to another morphism of two sets in another class, that is the second level of function.
+
+
+\begin{definition}[Category]
+A category $\mathcal{C}$ consists of the following data:
+\begin{itemize}
+  \item a unique class of \textbf{objects}(sets or any other mathematical objects)
+        \[
+        \Ob(\mathcal{C});
+        \]
+  \item for every pair of objects $A, B \in \Ob(\mathcal{C})$, a set of morphisms
+        \[
+        \Hom_{\mathcal{C}}(A,B);
+        \]
+  \item for every triple of objects $A, B, C \in \Ob(\mathcal{C})$, a function called \textbf{composition}
+        \[
+        \circ : \Hom_{\mathcal{C}}(B,C) \times \Hom_{\mathcal{C}}(A,B)
+        \longrightarrow \Hom_{\mathcal{C}}(A,C),
+        \quad (g,f) \mapsto g \circ f;
+        \]
+  \item for each object $A \in \Ob(\mathcal{C})$, there exists an \textbf{identity morphism}
+        \[
+        \mathrm{id}_A \in \Hom_{\mathcal{C}}(A,A).
+        \]
+\end{itemize}
+These data satisfy the following axioms:
+
+  \item \textbf{Associativity:}
+        for all \(f\in \Hom_{\mathcal{C}}(A,B)\), \(g\in \Hom_{\mathcal{C}}(B,C)\), and \(h\in \Hom_{\mathcal{C}}(C,D)\):
+        \[
+        h \circ (g \circ f) = (h \circ g) \circ f.
+        \]
+  \item \textbf{Identity:}
+        for all \(f\in \Hom_{\mathcal{C}}(A,B)\),
+        \[
+        f \circ \mathrm{id}_A = f = \mathrm{id}_B \circ f.
+        \]
+
+\end{definition}
+
+\begin{remark}
+    we often write the following to simplify the notation:
+    \[A \in \mathcal{C} \iff A \in \Ob(\mathcal{C})\]
+    and
+    \[f:A \to B \iff f \in \Hom_{\mathcal{C}}(A,B)\]
+    In set theory, we often see element as a point, similarly, in category theory, we often see object as a point, and morphism as an arrow between two points, so the category can be draw as a graph like following:
+    % https://q.uiver.app/#q=WzAsNCxbMCwwLCJBIl0sWzAsMiwiQyJdLFszLDIsIkQiXSxbMiwwLCJCIl0sWzAsMCwiMV9BIl0sWzEsMSwiMV9DIiwyLHsicmFkaXVzIjotM31dLFsyLDIsIjFfRCIsMix7InJhZGl1cyI6LTN9XSxbMywzLCIxX0IiXSxbMCwzLCJmIiwxXSxbMywxLCJnIiwxXSxbMCwxLCJnXFxjaXJjIGYiLDFdXQ==
+\[\begin{tikzcd}
+	A && B \\
+	\\
+	C &&& D
+	\arrow["{1_A}", from=1-1, to=1-1, loop, in=55, out=125, distance=10mm]
+	\arrow["f"{description}, from=1-1, to=1-3]
+	\arrow["{g\circ f}"{description}, from=1-1, to=3-1]
+	\arrow["{1_B}", from=1-3, to=1-3, loop, in=55, out=125, distance=10mm]
+	\arrow["g"{description}, from=1-3, to=3-1]
+	\arrow["{1_C}"', from=3-1, to=3-1, loop, in=305, out=235, distance=10mm]
+	\arrow["{1_D}"', from=3-4, to=3-4, loop, in=305, out=235, distance=10mm]
+\end{tikzcd}\]
+In the category we defined above, we only have four objects so by definition we at least have four identity morphisms (arrows start and end at the same point); and we only define two morphisms between different objects, i.e. \(f:A \to B\) and \(g:B\to C\), by composition we can get another morphism \(g \circ f: A \to C\), so actually we have six morphism in this category.
+\end{remark}
+
+Category is a strong concept to generalized the objects in mathematics.
+\begin{example}
+    \item (1) The category of sets: \[
+\mathbf{Set} \;\Big|\;
+\begin{array}{l}
+  \text{object: all sets} \\
+  \text{morphisms: functions between sets}
+\end{array}
+\]
+Here a famous paradox in set theory is \textbf{Russell's paradox}, that shows that there does not exists a set containing all sets, otherwise a contradiction will arise according to the axiom of set theory. To avoid the paradox, we use classes instead of sets to define category, but that is not enough, because sometimes we hope to talk about the category of all categories, so a strong axiom called \textbf{Grothendieck universes} is needed here.
+
+(2) The caetgory of groups:
+\[
+\mathbf{Grp} \;\Big|\;
+\begin{array}{l}
+  \text{object: all groups} \\
+  \text{morphisms: group homomorphisms}
+\end{array}
+\]
+(3) The category of topological spaces:
+\[\mathbf{Top} \;\Big|\;
+\begin{array}{l}
+  \text{object: all topological spaces} \\
+  \text{morphisms: continuous maps}
+\end{array}
+\]
+(4) The category of vector spaces over a field \(K\):
+\[
+\mathbf{Vect}_K \;\Big|\;
+\begin{array}{l}
+  \text{object: all vector spaces over } K \\
+  \text{morphisms: linear maps}
+\end{array}
+\]
+\end{example}
+
+In category, we usually ignore the elements of an object, and only care about the morphisms between two objects, so we will care about whether the morphism is injective, surjective or bijective. However, in the traditional definition of functions, the statment will depend on the elements of the set, so a lemma will be need here to generalized the definition of injection and so on in category.
+\begin{lemma}
+    Let \(f:A \to B\) be a function between two sets, then\\
+
+    (1) \(f\) is injective if and only if for any set \(X\) and any two functions \(g_1,g_2: X \to A\), the left-cancellation holds: \[f \circ g_1 = f \circ g_2 \Rightarrow g_1 = g_2\] 
+
+    (2) \(f\) is surjective if and only if for any set \(X\) and any two functions \(h_1,h_2: B \to X\), the right-cancellation holds:
+    \[ h_1 \circ f = h_2 \circ f \Rightarrow h_1 = h_2\]
+\end{lemma}
+
+That will be very useful in the proof referring to universal properties. Another special morphism in a category is isomorphism, the definition is naturally same in group, vector space and so on.
+\begin{definition}
+    Let \(\mathcal{C}\) be a category and \(A,B \in \Ob(\mathcal{C})\), a morphism \(f:A \to B\) is called an \textbf{isomorphism} if there exists a morphism \(g:B \to A\) such that
+    \[g \circ f = \mathrm{id}_A, \quad f \circ g = \mathrm{id}_B\]
+    In this case, we say that \(A\) and \(B\) are isomorphic, denoted by \(A \cong B\).
+\end{definition}
+
+Now with the basic knowledge of category, we can study the functor, the "function" between two categories, as like what we talked just now, dual can be seen as a functor between two categories.
+\begin{definition}
+    Let \(\mathcal{C}\) and \(\mathcal{D}\) be two categories, a functor \(F: \mathcal{C} \to \mathcal{D}\) is a map in two levels:
+    \begin{itemize}
+        \item a function \[F: \Ob(\mathcal{C}) \to \Ob(\mathcal{D}), \quad A \to F(A)\]
+        \item For each \(A,B\), a function \[F: \Hom_{\mathcal{C}}(A,B) \to \Hom_{\mathcal{D}}(F(A),F(B)), \quad f \to F(f)\]
+        the map should satisfy the following axioms:
+        \begin{itemize}
+            \item \(F(\mathrm{id}_A) = \mathrm{id}_{F(A)}\) for all \(A \in \Ob(\mathcal{C})\).
+            \item \(F(g \circ f) = F(g) \circ F(f)\) for all \(f: A \to B\) and \(g: B \to C\) in \(\mathcal{C}\).
+        \end{itemize}
+    \end{itemize}
+\end{definition}
+The reason of axioms is similar to linear map or group homomorphism: To preserve the structure! In another view, without the axioms, the image of functor may not be a category. (Taking mind that a map non-trivially preserving structure will reflect the relation between two objects, that appears everywhere in mathematics).
+
+Reback to dual space, by the discussion above, we want to conclude that dual is a functor, so we naturally take a category \(\mathbf{Vect}_K\) containing all vector spaces over field \(K\), and proposition \ref{dualvectorspace} shows that dual can be seen as a function between objects of \(\mathbf{Vect}_K\), so 
+\((-)^*\) defines a functor from \(\mathbf{Vect}_K\) to \(\mathbf{Vect}_K\) at the first level? Unluckly, that is not true, by proposition \ref{dualmap}, we find that dual maps a linear map \(T: V \to W\) to a linear map \(T^*: W^* \to V^*\) instead of \(T^*: V^* \to W^*\), but that is not a big problem, we are now close to the natural of dual. that means reversing anything, even the category!
+
+\begin{definition}
+    For any category \(\mathcal{C}\), the \textbf{opposite category} \(\mathcal{C}^{op}\) is defined as following:
+    \[
+\mathcal{C}^{op} \;\Big|\;
+\begin{array}{l}
+  \text{object: } \Ob(\mathcal{C}^{op}) = \Ob(\mathcal{C}) \\
+  \text{morphisms: } \Hom_{\mathcal{C}^{op}}(A,B) = \Hom_{\mathcal{C}}(B,A)
+\end{array}
+\]
+
+\end{definition}
+The definition needs some explanation, in the level of morphisms, we see a morphism \(f:A \to B\) as a morphism \(f^{op}:B \to A\) by reversing the direction as followinng:
+% https://q.uiver.app/#q=WzAsMixbMCwwLCJBIl0sWzIsMCwiQiJdLFswLDEsImYiXSxbMSwwLCJmXntvcH0iLDAseyJvZmZzZXQiOi0zLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XV0=
+\[\begin{tikzcd}
+	A && B
+	\arrow["f", from=1-1, to=1-3]
+	\arrow["{f^{op}}", shift left=3, dashed, from=1-3, to=1-1]
+\end{tikzcd}\]
+so the example we gave after the definition of category can be draw as following:
+% https://q.uiver.app/#q=WzAsNCxbMCwwLCJBIl0sWzAsMiwiQyJdLFszLDIsIkQiXSxbMiwwLCJCIl0sWzAsMCwiMV9BXntvcH0iLDIseyJyYWRpdXMiOi0zLCJhbmdsZSI6LTE4MCwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzEsMSwiMV9DXntvcH0iLDAseyJhbmdsZSI6LTE4MCwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzIsMiwiMV9EXntvcH0iLDAseyJhbmdsZSI6LTE4MCwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzMsMywiMV9CXntvcH0iLDIseyJyYWRpdXMiOi0zLCJhbmdsZSI6LTE4MCwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzMsMCwiZl57b3B9IiwxLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzEsMywiZ157b3B9IiwxLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzEsMCwiKGdcXGNpcmMgZilee29wfSIsMSx7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dXQ==
+\[\begin{tikzcd}
+	A && B \\
+	\\
+	C &&& D
+	\arrow["{1_A^{op}}"', dashed, from=1-1, to=1-1, loop, in=125, out=55, distance=10mm]
+	\arrow["{f^{op}}"{description}, dashed, from=1-3, to=1-1]
+	\arrow["{1_B^{op}}"', dashed, from=1-3, to=1-3, loop, in=125, out=55, distance=10mm]
+	\arrow["{(g\circ f)^{op}}"{description}, dashed, from=3-1, to=1-1]
+	\arrow["{g^{op}}"{description}, dashed, from=3-1, to=1-3]
+	\arrow["{1_C^{op}}", dashed, from=3-1, to=3-1, loop, in=235, out=305, distance=10mm]
+	\arrow["{1_D^{op}}", dashed, from=3-4, to=3-4, loop, in=235, out=305, distance=10mm]
+\end{tikzcd}\]
+What we do is just to reversing the direction of arrows! Hence finally we can conclude that dual is a \textbf{functor} from \(\mathbf{Vect}_K\) to \(\mathbf{Vect}_K^{op}\):
+ \[
+(-)^* \;\Big|\;
+\begin{array}{l}
+  \text{object: } V \in \Ob(\mathbf{Vect}_K) \mapsto V^* \in \Ob(\mathbf{Vect}_K^{op}) = \Ob(\mathbf{Vect}_K) \\
+   \\
+  \text{morphisms: } T \in \Hom_{\mathbf{Vect}_K}(V,W) \mapsto T^* \in \Hom_{\mathbf{Vect}_K^{op}}(V^*,W^*) = \Hom_{\mathbf{Vect}_K}(W^*,V^*)
+\end{array}
+\]
 
 \end{document}
 
