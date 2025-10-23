@@ -505,6 +505,130 @@ What we do is just to reversing the direction of arrows! Hence finally we can co
   \text{morphisms: } T \in \Hom_{\mathbf{Vect}_K}(V,W) \mapsto T^* \in \Hom_{\mathbf{Vect}_K^{op}}(V^*,W^*) = \Hom_{\mathbf{Vect}_K}(W^*,V^*)
 \end{array}
 \]
+\subsection*{Finite dimensional: transpose}
+This section can be seen as an example of dual space in linear algebra, where the dual map is closely related to the concept of the transpose of a matrix. In this section, \(V\) and \(W\) always denote finite-dimensional vector spaces over a field \(K\).
+
+Firstly, we study the basic structure of dual space
+\[V^* = \Hom_K(V,K)\]
+A natural question is: What is the dimensional of (\(V^*\))? What is the basis of \(V^*\)? The answer is directly from a decomposition of a linear functional, it is completely determined by the properties of linear map: We take a linear functional \(f: V \to K\) and express it in terms of a basis \(\{e_i\}\) of \(V\),
+\begin{align*}
+    f(x) = f(\sum_i x_i\cdot e_i) = \sum_i f(e_i)x_i
+\end{align*}
+for some scalars \(x_i \in K\), then we hope to find a linear functional mapping \(x\) to \(x_i\), it is natural to define a projection
+\[\phi_i(x) = \phi_i(\sum_k x_k\cdot e_k) = x_i\]
+It is easy to verify that \(\phi_i\) is a linear functional, and then any linear functional \(f\) can be expressed as
+\[f = \sum_i f(e_i) \phi_i\]
+And we can prove that the list \(\{\phi_i\}\) is a basis of \(V^*\): suppose \(\dim V = n\), and see the scalar equation
+\[c_1\phi_1 + \cdots + c_n\phi_n = 0\]
+just take some element of basis \(e_j\) into the equation, then we get \(c_j = 0\) for all \(j\), hence \(\{\phi_i\}\) is linearly independent, and then it is a basis of \(V^*\). Therefore we conclude that
+
+\begin{claim} \label{dimdual}
+    Let \(\mathcal{B} = \{e_1, e_2, \ldots, e_n\}\) be a basis of \(V\), then the \textbf{dual basis} \(\mathcal{B}^* = \{\phi_1, \phi_2, \ldots, \phi_n\}\) defined by 
+    \[\phi_j(v_i) = \delta_{ij} = \begin{cases}
+        1 \quad i=j\\
+        0 \quad i\neq j
+    \end{cases}\]
+    It is a basis of \(V^*\), i.e. \(\dim V^* = \dim V\).
+\end{claim}
+
+The result does not hold when the dimension in infinite, a classical result is the dual space of polynomial space (more generally a free A-module with infinite basis), we take \(V = \rr[X]\), and \(f: \rr[X] \to \rr\) be a linear functional, notice that linear map will be determined by the image of basis uniquely, so we just need to define \(f(X^n) = c_n\), so any sequence \((c_n)_{n \in \nn}\) will be corresponding to a linear functional uniquely, hence we have isomorphism
+\[(\rr[X])^* \cong \rr^{\nn} = \prod_{n=0}^{\infty} \rr\]
+more generally in module theory, we have a generalized result
+\[\Hom_A(A^{(I)},M) = M^I \]
+for any \(A\)-module \(M\) and any set \(I\).
+The example is a little ALGEBRA, following example will be more analysis, that shows dual space of a function space will contain the linear functional which gives the method to evaluate function.
+\begin{example}
+    We consider \(V = C[0,1]\), it is actually a Banach space with the sup norm. Now we condiser a linear functional \(F \in V^*\) such that \(F(f) = f(0)\), the functional evaluates the function at point \(0\). 
+
+    If \((f_n)_{n \in \nn}\) is a sequence of functions in \(C[0,1]\), then \(F(f_n) = f_n(0)\) will evaluate the sequence at point \(0\). Especially, if the squence converges under the sup norm, that means the sequence converges uniformly to some function \(f\), then nartually we have convergence at point \(0\):
+    \[f_n(0) \rightarrow f(0), \quad n \rightarrow \infty\]
+    In the view of functional, \(F\) is continous so we have
+    \[\lim f_n(0) = \lim F(f_n) = F(\lim f_n) = F(f) = f(0)\]
+    this is a higher view that convergence unifrom implies pointwise convergence, let see another linear functional
+    \[I: C[0,1] \to \rr, \quad f \mapsto \int_{0}^{1} |f(x)| \, dx\]
+    It is also a continous linear functional, we take a sequence \(f_n = x^n(1-x)\), then
+    \[I(f_n) = \int_{0}^{1} x^n(1-x) \, dx = \frac{1}{(n+2)(n+1)} \rightarrow 0\]
+    which shows that even if the sequence does not converges uniformly, but if we change a view of convergence, for example convergence in integral sense, then we will get a type of convergence.
+
+    In conclusion, the dual space of function space is badly larger than the function space, in it continuous linear functional will be a kind of functional useful in sense of analysis.
+\end{example}
+
+With the basic knowledge of dual space, we turn our eyes to the dual map, i.e. linear map between dual spaces, a linear map \(T: V \to W\) induces a dual map \(T^*: W^* \to V^*\) as following diagram
+% https://q.uiver.app/#q=WzAsMyxbMCwwLCJWIl0sWzIsMCwiVyJdLFsyLDIsIksiXSxbMCwxLCJUIl0sWzEsMiwiZiJdLFswLDIsIlReKihmKSIsMix7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFs0LDUsIiIsMCx7InNob3J0ZW4iOnsic291cmNlIjoyMCwidGFyZ2V0IjoyMH19XV0=
+\[\begin{tikzcd}
+	V && W \\
+	\\
+	&& K
+	\arrow["T", from=1-1, to=1-3]
+	\arrow[""{name=0, anchor=center, inner sep=0}, "{T^*(f)}"', dashed, from=1-1, to=3-3]
+	\arrow[""{name=1, anchor=center, inner sep=0}, "f", from=1-3, to=3-3]
+    \arrow[Rightarrow, from=1, to=0]
+\end{tikzcd}\]
+As we know dual map can be seen as result of functor on the set of morphisms, in particular the set of linear maps between two vector spaces is still a vector space, so the functor induces a linear map as following:
+\[(-)^*: \mathcal{L}(V,W) \to \mathcal{L}(W^*,V^*), \quad T \mapsto T^*\]
+where \(T^*(f) = f \circ T\) for any \(f \in W^*\) is the \textbf{dual map} induced by \(T\). So naturally we have following properties of dual map:
+\begin{claim}
+    Suppose \(T,S \in \mathcal{L}(V,W)\) and \(\lambda \in K\), then\\
+    (1) \((T+S)^* = T^* + S^*\)\\ 
+    (2) \((\lambda T)^* = \lambda T^*\)\\
+    (3) \((\mathrm{id}_V)^* = \mathrm{id}_{V^*}\)\\
+    (4) \((S \circ T)^* = T^* \circ S^*\)
+\end{claim}
+It is interesting to study the linear map ici \((-)^*\), which will give some relations between a linear map and its dual map.
+\[\ker (-)^* = \{T \in \mathcal{L}(V,W)| f \circ T = 0 \text{ for all } f \in W^*\}\]
+We can prove that the kernel is trival by contradiction: suppose there exists some non-zero linear map \(T \in \ker (-)^*\), then there exists some \(v \in V\) such that \(w=T(v) \neq 0\), so
+\[f(w) = 0 \quad \forall f \in W^*\]
+However, if we take a basis containing \(w\), then a correspondece dual basis containa a linear functional \(\phi_w:W \to K\) such that \(\phi_w(w) = 1\), hence we get a contradiction. Hence \((-)^*\) is a injecetif linear map, together with the claim \ref{dimdual}, we know that
+\[\dim \mathcal{L}(V,W) = \dim \mathcal{L}(W^*,V^*)\]
+Which implies that \((-)^*\) is an \textbf{isomorphism}! Linear map between two dimensional vector space can be denoted by a matrix under some basis, if \(dim V = n\) and \(\dim W = m\), then a linear map \(T \in \mathcal{L}(V,W)\) can be represented by an \(m \times n\) matrix, and then the dual map \(T^* \in \mathcal{L}(W^*,V^*)\) can be represented a \(n \times m\) matrix, so a natural hypthesis is that dual \((-)^*\) can be seen as the \textbf{transpose} of a matrix:
+
+Take \(\mathcal{B}={e_1,...,e_n}\) be a basis of \(V\) and \(\mathcal{C} = \{w_1,...,w_m\}\) be a basis of \(W\), then the dual basis are \(\mathcal{B}^* = \{\phi_1,...,\phi_n\}\) and \(\mathcal{C}^* = \{\psi_1,...,\psi_m\}\). Suppose the matrix of \(T\) under basis \(\mathcal{B}\) and \(\mathcal{C}\) is \(A = (a_{ij})_{m \times n}\), and the matrix of \(T^*\) under basis \(\mathcal{C}^*\) and \(\mathcal{B}^*\) is \(B = (b_{ij})_{n \times m}\) that means
+\[T(e_j) = \sum_{i=1}^{m} a_{ij} w_i, \quad T^*(\psi_i) = \sum_{j=1}^{n} b_{ij} \phi_j\]
+Then we can compute the dual map \(T^*\) under basis \(\mathcal{C}^*\) and \(\mathcal{B}^*\):
+
+\[
+T^*(\psi_k)(e_l) = \psi_k\bigl(T(e_l)\bigr) = \psi_k\Bigl(\sum_{r=1}^{m} a_{r l} w_r\Bigr)
+= \sum_{r=1}^{m} a_{r l}\,\psi_k(w_r) = a_{k l}.
+\]
+On the other hand,
+\[
+T^*(\psi_k)(e_l) = \Bigl(\sum_{p=1}^{n} b_{p k} \phi_p\Bigr)(e_l) = \sum_{p=1}^{n} b_{p k} \phi_p(e_l) = b_{l k}.
+\]
+Comparing the two expressions gives
+\[a_{k l} = b_{l k},\]
+so the matrix of \(T^*\) under two dual bases is the transpose of \(A\) under two bases.
+\\
+
+We can finish the result by the view of category: in this section we talk about finite-dimensional vector spaces over \(K\), i.e. category
+\[\cat{Vect_K^f}{\text{finite-dimensional vector spaces over } K}{\text{linear maps}}\]
+If \(\dim V = n\), then \(V \cong K^n\), so we can define the category of matrices over \(K\):
+\[\cat{Mat_K}{K^n}{\text{matrices over } K}\]
+The category can be seen as a subcategory of \(\mathbf{Vect_K^f} \) by an embedding functor
+\[\cat{J:Mat_K \hookrightarrow Vect_K^f}{K^n \mapsto K^n }{A \mapsto (v \mapsto Av)}\]
+We can prove that \(\mathbf{J}\) is an equivalence of categories(faithful,full and essentially surjective), hence we can identify \(\mathbf{Mat_K}\) and \(\mathbf{Vect_K^f}\) in the view of category. We have already know a dual functor \((-)^*\) inside \(\mathbf{Vect_K^f}\), and in above we have already proved that a dual map can be seen as the transpose of a matrix, then we can define transpose functor as following:
+\[\cat{T: Mat_K \to Mat_K^{op}}{K^n \mapsto K^n}{A \mapsto A^t}\]
+Then by the identification of two categories, we know that dual functor \((-)^*\) and transpose functor \(\mathbf{T}\) are "the same" as dual functor by verification (Joke: reader is the coauthor of category theory paper qwq), so we can conclude the result as following
+\begin{claim}
+Dual map can be seen as the transpose of a matrix under some basis
+\[[T^*]_{\mathcal{C}^* \to \mathcal{B}^*} = [T]_{\mathcal{B}\to{\mathcal{C}}}^t\]
+more precisely, the following diagram commutes up to natural isomorphism:
+\[
+\begin{tikzcd}
+\mathbf{Mat_K} \arrow[r, "\mathbf{T}"] \arrow[d, "\mathbf{J}"'] & \mathbf{Mat_K^{op}} \arrow[d, "\mathbf{J}"] \\
+\mathbf{Vect_K^f} \arrow[r, "(-)^*"] & \mathbf{Vect_K^{f,op}}
+\end{tikzcd}
+\]
+Hence we have same algebraic properties of transpose:
+\begin{itemize}
+    \item \((A+B)^t = A^t + B^t\)
+    \item \((\lambda A)^t = \lambda A^t\)
+    \item \((I_n)^t = I_n\)
+    \item \((AB)^t = B^t A^t\)
+\end{itemize}
+\end{claim}
+
+
+
 
 \end{document}
-
+    
