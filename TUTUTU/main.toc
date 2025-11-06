@@ -1,7 +1,0 @@
-\contentsline {section}{\numberline {1}Universal property}{2}{section.1}%
-\contentsline {subsection}{\numberline {1.1}Quotient}{2}{subsection.1.1}%
-\contentsline {section}{\numberline {2}Some topology}{8}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Compact and Hausdorff space}{8}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}Topological axioms}{14}{subsection.2.2}%
-\contentsline {subsection}{\numberline {2.3}Topological group}{22}{subsection.2.3}%
-\contentsline {section}{\numberline {3}Dual space and category}{25}{section.3}%

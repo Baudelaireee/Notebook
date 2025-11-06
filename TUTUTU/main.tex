@@ -1005,5 +1005,66 @@ Hence we have same algebraic properties of transpose:
 \end{itemize}
 \end{claim}
 
+\subsection{Differential form}
+称 $k$-形式 $\omega$ 为\textbf{闭}，若 $d\omega=0$；称为\textbf{全微分}（exact），若存在 $\eta$ 使 $\omega=d\eta$。
+由于 $d^2=0$，恒有 $\mathrm{exact}\subseteq\mathrm{closed}$。
+直观上：$df=0$ 表示 $f$ 为常数；$d\omega=0$ 的 1-形式对应无旋；2-形式对应无源。
+
+\section{闭但非全与“洞”}
+在 $\mathbb{R}^2\setminus\{0\}$ 上
+\[
+\omega=\frac{-y\,dx+x\,dy}{x^2+y^2},\qquad d\omega=0.
+\]
+但 $\omega\neq df$：极坐标下 $\omega=d\theta$，而 $\theta$ 非单值。
+沿单位圆有 $\oint\omega=2\pi\neq 0$，揭示该空间存在“洞”。
+
+\section{复分析的对应}
+若 $f$ 在域内解析，则 $f(z)\,dz$ 闭，且对任意简单闭曲线 $\oint f(z)\,dz=0$（柯西定理）。
+若 $\oint f(z)\,dz\neq 0$，说明域内存在奇点（如极点），外微分在奇点附近不可定义，格林/斯托克斯不能直接应用；
+将奇点挖掉并在新域应用，会得到留数定理结构（原边界等于外边界加上围绕奇点的小圈）。
+
+\section{de Rham 上同调与洞}
+定义 de Rham 上同调群 $H^k_{\mathrm{dR}}(M)=Z^k(M)/B^k(M)$，
+其中 $Z^k$ 为闭形式集合，$B^k$ 为全微分形式集合。
+$H^k\neq 0$ 表示存在闭而非全的 $k$-形式，反映流形有不可缩循环（“洞”）。
+Poincar\'e 引理说明在局部（坐标图内）闭即全，故“洞”是全局现象。
+
+\section{例：$S^1$ 与 $T^2$}
+在 $S^1$ 上，局部有 $\omega=d\theta$ 且 $d\omega=0$，但 $\theta$ 非单值，
+因此不存在全局 $f$ 使 $\omega=df$，$H^1(S^1)\cong\mathbb{R}$。
+在环面 $T^2=S^1\times S^1$ 上，有两条独立绕圈，$H^1(T^2)\cong\mathbb{R}^2$。
+
+\section{无洞流形与全局势函数}
+若流形单连通，$H^1_{\mathrm{dR}}(M)=0$，则每个闭 1-形式都是全微分：
+\[
+d\omega=0 \;\Rightarrow\; \exists f\ \text{s.t. } \omega=df.
+\]
+这意味着所有局部势函数可在重叠区仅差常数并拼成全局单值函数。
+
+\section{从微分形式到测度}
+在 $n$ 维流形上，处处非零的 $n$-形式 $\omega$ 是\textbf{体积形式}，据此定义测度 $\mu_\omega$：
+\[
+\int_M f\,d\mu_\omega := \int_M f\,\omega.
+\]
+若局部 $\omega=g(x)\,dx^1\wedge\cdots\wedge dx^n$，则
+\[
+d\mu_\omega=|g(x)|\,dx^1\cdots dx^n,
+\]
+其中 $g(x)$ 是相对标准体积元的密度因子。
+
+\section{Jacobian 与体积比例}
+坐标变换 $x=x(y)$ 满足
+\[
+dx^1\wedge\cdots\wedge dx^n
+=\det\!\left(\frac{\partial x}{\partial y}\right)\,dy^1\wedge\cdots\wedge dy^n,
+\]
+因此测度乘以 $|\det(\partial x/\partial y)|$。
+若给定黎曼度量 $g_{ij}$，体积形式
+\[
+\mathrm{vol}_g=\sqrt{|\det g_{ij}|}\,dx^1\wedge\cdots\wedge dx^n,\quad
+d\mu_g=\sqrt{|\det g_{ij}|}\,dx^1\cdots dx^n.
+\]
+
+\end{document}
 \end{document}
     
