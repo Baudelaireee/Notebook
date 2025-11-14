@@ -55,7 +55,8 @@
 \declaretheorem[style=plain, name=Proposition, numbered=yes, sibling=theoremplain]{propositionplain}
 \declaretheorem[style=plain, name=Corollary, numbered=yes, sibling=theoremplain]{corollaryplain}
 \declaretheorem[style=plain, name=Definition, numbered=yes, sibling=theoremplain]{definitionplain}
-
+\declaretheorem[style=plain, name=Lemma, numbered=yes, sibling=theoremplain]{lemmaplain}
+\declaretheorem[style=plain, name=Lemma, numbered=no, sibling=theoremplain]{lemmaplain*}
 
 \declaretheorem[style=plain, name=Theorem, numbered=yes, numberwithin=section]{theorem}
 \declaretheorem[style=plain, name=Theorem, numbered=no]{theorem*}
@@ -171,3 +172,17 @@
 \newcommand{\ff}{\mathbb{F}}
 \newcommand{\ffp}{\mathbb{F}_p}
 \newcommand{\Log}{\operatorname{Log}}
+\newcommand{\End}{\operatorname{End}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\im}{\operatorname{Im}}
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\ev}{\operatorname{ev}}
+\newcommand{\spec}{\operatorname{Spec}}
+
+\newcommand{\cat}[3]{%
+  \mathbf{#1} \;\Big|\;
+  \begin{array}{l}
+    \text{objects: }{#2} \\
+    \text{morphisms: }{#3}
+  \end{array}%
+}
