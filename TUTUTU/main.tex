@@ -160,7 +160,7 @@ Like what we do in topology and set theory, we can aslo conclude a universal pro
 \end{proof}
 
 \newpage
-\section{Some topology}
+\section{Preliminary}
 \subsection{Compact and Hausdorff space}
 
 \begin{definition}
@@ -626,6 +626,231 @@ furthermore, if  the following conditions hold:\\
 (3) \(G/\ker \varphi\) is compact,\\
 then \(\bar{\varphi}\) is an isomorphism of topological groups.
 \end{theorem}
+
+\subsection{Group Action}
+A group action is a natrual language to describe the symmerty of a space, in geomerty it refers to the tansformation which keeps the structure of the space, in dynamics it refers to the evolution of the system, it is a very useful tool to study a given space and system.
+
+\begin{definition}
+    Let \((G,\cdot)\) be a group and \(X\) be a set, a \textbf{group action} of \(G\) on \(X\) is a map
+    \[\phi: G \times X \to X, \quad (g,x) \mapsto g * x\]
+    such that\\
+    (1-identity) for any \(x \in X\), \(e * x = x\) where \(e\) is the identity element of \(G\).\\
+    (2-associativity) for any \(g,h \in G\) and \(x \in X\), \((gh) * x = g * (h * x)\).
+\end{definition}
+
+\begin{remark} $ \\$ If we call the action \(\phi\) as left-action, then we can define the right-action similarly by
+    \[\phi: X \times G \to X, \quad (x,g) \mapsto x * g\]
+    such that it satisfies the similar axioms. One reason to always define action as a left-action is that we always define a group of matrix acting on some geometry object, then it is more natural to write \(A\cdot x\) instead of \(x \cdot A\).\\
+    For notation simplicity, we always \(G\circlearrowleft X\) to denote a group action of \(G\) on \(X\).
+\end{remark}
+
+Historically, group action is first defined as a gorup of transformation (maybe Galois), for example we consider the roots of a polynomial equation \(p(x) = 0\)
+\[X = \{x_1,...,x_n|f(x_i) = 0\}\]
+then consider the set of permuations (i.e. the bijection inside \(X\)) \(S_X\), then with the composition of functions, we know that \(S_X\) is a group, and it acts on \(X\) naturally by
+\[\phi: S_X \times X \to X, \quad (\sigma,x_i) \mapsto \sigma(x_i)\]
+That is the original idea of Galois.
+
+Similarly, the definition of action induces a natural map as following: we fix some element \(g \in G\), then we can define a map
+\[\tau_g: X \to X    , \quad x \mapsto g * x\]
+then by the two axioms of group action, we can prove that \(\tau\) is a bijection from \(X\) to \(X\) (\textbf{verify!}), hence it induces a map from the group to the transformation group of \(X\):
+\[\tau: G \to S_X, \quad g \mapsto \tau_g\]
+we can verfy that \(\tau\) is a group morphsim \textbf{(verify!)}.
+
+Conversely, if we have a group morphism from \(G\) to \(S_X\), and we denote it by \(\tau\), then we can define a group action \textbf{(verify!)} of \(G\) on \(X\) naturally by \(g * x := \tau(g)(x)\). Hence we can conclude a \textbf{correspondece} as following:
+\begin{align*}
+    \{\text{Group action } G \circlearrowleft X \} &\longleftrightarrow \{\text{homomorphism } \tau: G \to S_X\}\\ 
+    g * x &\longleftrightarrow \tau(g)(x)
+\end{align*}
+the homomorphism \(\tau\) is called the \textbf{permutation representation} of the group action. It is a basic relation to understand group action from the veiw of pure group theory.
+
+\begin{example}[Cayley's Theorem]
+    Let \((G,\cdot)\) be a group, we can define a group action of \(G\) on itself by left-translation:
+    \[\phi: G \times G \to G, \quad (g,x) \mapsto g \cdot x\]
+    then by the above correspondece, it induces a permutation representation
+    \[\tau: G \to S_G, \quad g \mapsto \tau_g\]
+    where \(\tau_g(x) = g \cdot x\). Then the kernel is trival since
+    \[\ker \tau = \{g \in G \mid g\cdot x = x,  \forall x \in G\} = \{e\}\]
+    then by the first isomorphism theorem of group, we can conclude: \textbf{any group is isomorphic to a subgroup of some permuation group.}
+\end{example}
+
+\subsection*{Orbit and Stabilizer}
+Let \(G \circlearrowleft X\) be a group action with a operation \(g*x\), then
+we can give a partition of \(X\) by the following definition:
+\[x \sim y \iff \exists g \in G, g * x = y\]
+we can check that \(\sim \) is indeed an equivalence relation on \(X\) (\textbf{verify!}) with the class of equivalence called \textbf{orbits}:
+\[O(x) = \{y \in X \mid x \sim y\} = \{g * x \mid g \in G\}\]
+Sometimes we also use \(G * x\) (or \(G\cdot x\)) to denote the orbit of \(x\), and the partition of \(X\) is given by a geometrical way:
+
+\begin{itemize}
+
+\item In particular, if the orbit of the action is unique, then we say that the orbit is \textbf{transitive}, i.e. for any \(x,y \in X\), there is some \(g \in G\) such that \(g * x = y\).
+
+\item In the picture, we can view there are some fixed points, i.e. the orbit of the point has only one point: \(G*x = \{x\}\), to reflect the scale of the orbits we invite another conncept: for some \(x \in X\), the \textbf{stabilizer} (or isotropy group) of \(x\) is defined by
+\[G_x = \{g \in G \mid g * x = x\}\]
+it is a subgroup of \(G\) (\textbf{verify!}), in particualr a point \(x\) is a fixed point iff \(G_x = G\). It is not diffcult to find the fact that if the stabilizer is "larger", the the orbit is "smaller", here if \(G\) and \(X\) is finite, then what we say is just the order, but if they are infinite, then the vocabulary "small" and "large" are vague, \textbf{here what i say is juat a feeling}.
+
+\item When \(X\) is finite, we can conclue the \textbf{class equation} by the partition of orbits:
+\[|X| = |X_0| + \sum_{\substack{O\in X/\sim \\ |O|>1}} |O|
+\]
+where \(X^0\) is the set of all fixed points. The equation is powerful in the p-group theory to do some counting.
+
+\item We often difine the fixed ponit of the function \(f(x)\) as some point \(a\) such that \(f(a) = a\), it has the sense of stability under the sense of dynamics. In the view of group action, for any tanslation \(l_g:x \mapsto g*x\), we can define the fixed point of the function \(l_g\) as some point \(a\) such that \(g*a = a\), hence the set of fixed points of \(l_g\) is just the stabilizer \(G_a\). For example, if we consider group \(\zz\) acting on some geometry objects by \(n*x = n+x\), then the translation can not fix any ponit unless the translation is the identity, it shows that the action is not stable at all. Hence in that view, we can define a action to be \textbf{free} if any non-trival translation can not fix any point, or equivalently,
+\[\forall x \in G,\quad G_x = \{e\}\]
+the stablizier is always trival.
+\end{itemize}
+
+
+
+\begin{example}
+    Here are some examples of group action:
+
+    (1) Consider permutation group \(S_n\) acting on the set \(X = \{1,2,...,n\}\) by
+    \[\phi: S_n \times X \to X, \quad (\sigma,i) \mapsto \sigma(i)\]
+    then the action is transitive since for any \(i,j \in X\), we can choose \(\sigma = (i j)\) such that \(\sigma(i) = j\). The action is not free since for any \(i \in X\), the stabilizer \(G_i\) is the subgroup of \(S_n\) which keeps \(i\) fixed, it is isomorphic to \(S_{n-1}\).
+
+    (2) Consider \(\rr_{>0}\) acting on \(\rr^2-\{0\}\) by multiplication:
+    \[a*(x,y) := (ax, ay)\]
+    Then the orbit of \((x,y)\) is the ray line with the same direction with \((x,y)\), and actually we can see the quotient space \(\rr^2-\{0\}/\sim\) as \(\sph^1\), where \(\sim\) is the equivalence relation by orbits. The action is actually free \textbf{(Verify!)}.
+
+    (3) Consider \(\zz/2\zz\) acting on \(\sph^1\) by reflection:
+    \[0*(x,y) = (x,y), \quad 1*(x,y) = (-x,-y)\]
+    Then the orbit of \((x,y)\) is \(\{(x,y),(-x,-y)\}\), and the action is free too. Similarly with (2), we can see the quotient space \(\sph^1/\sim\) as \(\sph^1\), the more details of topology will be discussed later.
+
+    (4) Consider a vector space \(V\) acting on \(F(V)\), where \(F\) is a forgetful functor such that \(F(V)\) is only seen as a set, then let the action be
+    \[v*x = x + v \]
+    If the action is free and transitive, then we say that \(F(V)\) is an \textbf{affine space} of the vector space \(V\).\\
+
+    (5) We consider the group \(\mathnormal{SO}(2)\) acting on \(\rr^2\) by rotation:
+    \[R_\theta * (x,y) = \begin{pmatrix}
+    \cos \theta & -\sin \theta \\
+    \sin \theta & \cos \theta
+    \end{pmatrix} \begin{pmatrix} x \\ y \end{pmatrix}\]
+    the rotation action is free but not transitive, since the orbits are \(\{0\}\) and the circles centered at origin.\\
+\end{example}
+
+As we has stated before, the orbit and stabilzier show the perfomance of the action together, and here is the proposition to reflect the deep realtion between them:
+\begin{proposition}
+    Let \(G \circlearrowleft X\) be a group action with operation \(g*x\), then\\
+    - For any \(x \in X\), the map \(\pi: G \to O(x), \quad g \mapsto g*x\) induces a bijection 
+    \[\bar{\pi}: G/G_x \to O(x)\]
+
+    - If \(G\) is finite and \(O(x)\) is finite for some \(x \in X\), then
+    \[|O(x)| = [G : G_x] = \frac{|G|}{|G_x|}\]
+\end{proposition}
+
+\begin{proof}
+    The proof is based on the UPQ-SET, subgroup \(G_x\) gives a equivalence relation on \(G\) by
+    \[g_1 \sim g_2 \iff g_1 G_x = g_2 G_x \iff g_1^{-1} g_2 \in G_x\]
+    then for any \(g_1 \sim g_2\), we have \(g_1^{-1}g_2*x = x\) by relation, then by axiom of group action, we have \(\pi(g_1) = g_1*x = g_2*x = \pi(g_2)\), by universal properties we can conclude a unique map \(\bar{\pi}: G/G_x \to O(x)\) with \(\bar{\pi}(gG_x) = g*x\). This map is surjective since \(\pi\) is surjective, and it is injective since for any \(g_1,g_2 \in G\) such that \(\bar{\pi}(g_1G_x) = \bar{\pi}(g_2G_x)\), then \(g_1*x = g_2*x\), hence \(g_2^{-1}g_1*x = x\), so \(g_2^{-1}g_1 \in G_x\), i.e. \(g_1G_x = g_2G_x\). Therefore \(\bar{\pi}\) is a bijection.
+
+    The second part is immediately by the lagrange's theorem.
+\end{proof}
+
+\begin{remark}
+    Review abve example, in (1) we have indeed the equation
+    \[|S_n/S_{n-1}| = n!/(n-1)! = n = |O(x)|\]
+    Hence the proposition is reasonable here. In (2) and (3), it refers a immediate result of the proposition:
+    \begin{corollaryplain}
+        If the action is free, then for any \(x \in X\), there exists a bijection
+        \[\pi:G \to O(x), \quad g \mapsto g*x\]
+    \end{corollaryplain}
+    Or we say that each orbit as a G-set is isomorphic to the group. Hence in above two examples, we can say that each orbit is isomorphic to \(\rr_{>0}\) and \(\zz/2\zz\) respectively as G-sets.
+\end{remark}
+
+\subsection*{Continous action}
+Now we consider some topology structure on the group action, i.e. we consider \(G\) as a topological group \(X\) as a topological space, then we can define a action \(G \circlearrowleft X\) is \textbf{continous} if the operation
+\[\phi: G \times X \to X, \quad (g,x) \mapsto g*x\]
+is a continous map, where \(G \times X\) is equipped with the product topology, then the translation \(\tau_g: X \to X, x \mapsto g*x\) is a \textbf{homeomorphism} since\\
+- \(\tau_g \) can be seen as the restriction of \(\phi\) on \(\{g\} \times X\), hence it is continous.\\
+- the inverse of \(\tau_g\) is \(\tau_{g^{-1}}\), which is also continous by above argument.\\
+Similarly argument in the previous section, we can define the permuation representation of the continous group action:
+\[\tau: G \to \mathrm{Homeo}(X), \quad g \mapsto \tau_g\]
+where \(\text{Homeo}(X)\) is the group of homeomorphisms on \(X\) with composition of functions, but that is not enough since \(G\) is a topological group when \(\mathrm{Homeo}(X)\) is \textbf{only a group}, hence some topology need to be defined here such that \(\tau\) is a continous map.
+\begin{definitionplain*}
+    Let \(C(X,Y)\) be the set of all continous maps form topological space \(X\) to topological space \(Y\), the \textbf{compact-open topology} on \(C(X,Y)\) is generated by the subbasis
+    \[W(K,V) = \{f \in C(X,Y) \mid f(K) \subset V\}\]
+    where \(K \subset X\) is compact and \(V \subset Y\) is open.
+\end{definitionplain*}
+with this toplogy, we can verify that the permuation representation of continous group action is actually a morphism of topological groups (i.e. continous).
+
+Conversely, a continous permuation representation \(\tau: G \to \mathrm{Homeo}(X)\) can not always define a continous group action, it depends on the topology of \(X\). By \textbf{Ellis-Arens theorem}, the converse holds if \(X\) is locally compact Hausdorff space (ref: \url{https://math.stackexchange.com/questions/3586125/when-are-these-two-definitions-of-a-continuous-action-equivalent?noredirect=1&lq=1}
+).
+
+With the basic concept in group action, we can conclude some topological properties of the action:
+\begin{proposition}
+    Let \(G \circlearrowleft X\) be a continous group action, then\\
+    (1) If \(X\) is Hausdorff, then 
+    \\stabilizer \(G_x\) is a closed subgroup of \(G\);
+    \\the set of fixed points \(X_0\) is closed in \(X\).\\
+    (2) If \(G\) is compact and \(X\) is Hausdorff, then orbirt \(O(x)\) is homemorphic to the quoitent space \(G/G_x\)
+\end{proposition}
+\begin{proof}
+    
+\end{proof}
+
+An interesting part in topology is a quotient space
+\[X/G = X/\sim = \{O(x) \mid x \in X\}\]
+where \(\sim\) is the equivalence relation by orbits, we call it the \textbf{orbit space} of the action if we equip it with the quotient topology. An important fact is that the \textbf{quoitent map is open} without any extra conditions:
+\begin{proof}
+    
+\end{proof}
+
+Some other good properties will hold for compact group action
+\begin{proposition}
+    Let \(G \circlearrowleft X\) be a continous group action with orbit map \(p: X \to X/G\), if \(G\) is compact, both \(X\) and \(G\) are Hausdorff, then\\
+    (1) \(p\) is a closed map.\\
+    (2) \(p\) is a \textbf{proper} map: any pre-image of compact is compact.\\
+    (3) \(X\) is compact if and only if \(X/G\) is compact.\\
+    (4) \(X\) is locally compact if and only if \(X/G\) is locally compact.\\
+\end{proposition}
+\begin{proof}
+    
+\end{proof}
+
+For an action, we always hope the orbit space can keep some good properties, so a restriction here will be helpful:
+\begin{definitionplain*}
+    A continous group action \(G \circlearrowleft X\) is \textbf{proper} if the map
+    \[\Phi: G \times X \to X \times X, \quad (g,x) \mapsto (x, g*x)\]
+    is a proper map, i.e. any compact set in \(X \times X\) has a compact pre-image in \(G \times X\).
+\end{definitionplain*}
+
+Then we can conclude some good properties:
+\begin{proposition}
+    Let \(G \circlearrowleft X\) be a proper action with orbit map \(p: X \to X/G\), if \(X\) is Hausdorff, then\\
+    (1-orbit space) \(X/G\) is Hausdorff.\\
+    (2-stabilizer) For any \(x \in X\), \(G_x\) is compact.\\
+    (3-orbit) For any \(x \in X\), the orbit \(O(x)\) is closed in \(X\).\\
+    (4-quotient map) \(p\) is proper, so closed.\\
+    (5-compactness) \(X\) is (locally) compact if and only if \(X/G\) is (locally) compact.\\
+    (6-homeo) \(G/G_x \cong O(x)\), any orbit is homemorphic to a quoitent space of topological group.
+    (7-)
+\end{proposition}
+
+\begin{remark}
+    If we dont assume that \(X\) is Hausdorff, some properties will fail and something will be vague, but we do not discuss the case since we always consider X to be a Manifold or other nice objects.
+\end{remark}
+
+Proper action is always appear togther with free action to construct a covering space or principal bundle, there are a method to check two condition by following proposition:
+\begin{propositionplain}
+    Let \(G \circlearrowleft X\) be a continous free action, then the following conditions are equivalent:\\
+    (1) The action is proper.\\
+    (2) The image of the map \(\Phi: G \times X \to X \times X\) is closed, and the map \(\varphi: \mathrm{im} \Phi \to G, \quad (x,gx)\mapsto(g)\) is continous.\\
+\end{propositionplain}
+
+For example, we consider gorup action \(\zz \circlearrowleft \rr\) by translation \(n*x = x+n\), the action is free clearly, then proper map
+\[\Phi: \zz \times \rr \to \rr\times \rr,\quad (n,x) \mapsto (x,n+x)\]
+has the image \(C = \{(x,x+n)|x\in \rr,n \in \zz\}\), it is easy to prove that \(C\) is closed in \(\rr \times \rr\), and the map \(\varphi: C \to \zz, \quad (x,x+n) \mapsto n\) is continous since we can explicitly write
+\[\varphi(x,y) = y-x\]
+It is a continous map to \(\rr\), then the restriction is surely continous, so the free action is also proper. 
+
+
+
+
+
+
+
+
+
 
 \newpage
 \section{Dual space and category}
