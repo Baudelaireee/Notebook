@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.12.8)  15 NOV 2025 12:11
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.12.8)  29 NOV 2025 01:26
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -960,17 +960,18 @@ Package: thm-amsthm 2023/05/04 v0.76
 \thmt@style@headstyle=\toks48
 ))
 \c@theoremplain=\count393
-\c@theorem=\count394
-\c@definition=\count395
-\c@example=\count396
-\c@problem=\count397
-\c@remark=\count398
-\c@note=\count399
+\c@exampleplain=\count394
+\c@theorem=\count395
+\c@definition=\count396
+\c@example=\count397
+\c@problem=\count398
+\c@remark=\count399
+\c@note=\count400
 Package thmtools Info: Key `qed' (with value `\ensuremath {\square }')
 (thmtools)             is not a known style key.
 (thmtools)             Will pass this to every \declaretheorem
-(thmtools)             that uses `style=solutionstyle' on input line 105.
-\c@solution=\count400
+(thmtools)             that uses `style=solutionstyle' on input line 106.
+\c@solution=\count401
  (c:/texlive/2024/texmf-dist/tex/latex/tcolorbox/tcolorbox.sty
 Package: tcolorbox 2024/01/10 version 6.2.0 text color boxes
  (c:/texlive/2024/texmf-dist/tex/latex/tools/verbatim.sty
@@ -987,9 +988,9 @@ Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
 \tcb@upperbox=\box131
 \tcb@lowerbox=\box132
 \tcb@phantombox=\box133
-\c@tcbbreakpart=\count401
-\c@tcblayer=\count402
-\c@tcolorbox@number=\count403
+\c@tcbbreakpart=\count402
+\c@tcblayer=\count403
+\c@tcolorbox@number=\count404
 \l__tcobox_tmpa_box=\box134
 \l__tcobox_tmpa_dim=\dimen373
 \tcb@temp=\box135
@@ -998,10 +999,10 @@ Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
 \tcb@temp=\box138
  (c:/texlive/2024/texmf-dist/tex/latex/tcolorbox/tcbraster.code.tex
 Library (tcolorbox): 'tcbraster.code.tex' version '6.2.0'
-\c@tcbrastercolumn=\count404
-\c@tcbrasterrow=\count405
-\c@tcbrasternum=\count406
-\c@tcbraster=\count407
+\c@tcbrastercolumn=\count405
+\c@tcbrasterrow=\count406
+\c@tcbrasternum=\count407
+\c@tcbraster=\count408
 ) (c:/texlive/2024/texmf-dist/tex/latex/tcolorbox/tcbskins.code.tex
 Library (tcolorbox): 'tcbskins.code.tex' version '6.2.0'
 (c:/texlive/2024/texmf-dist/tex/latex/tikzfill/tikzfill.image.sty
@@ -1032,7 +1033,7 @@ Library (tcolorbox): 'tcbfitting.code.tex' version '6.2.0'
 \tcbfitdim=\dimen374
 \tcb@lowerfitdim=\dimen375
 \tcb@upperfitdim=\dimen376
-\tcb@cur@hbadness=\count408
+\tcb@cur@hbadness=\count409
 ) (c:/texlive/2024/texmf-dist/tex/latex/tcolorbox/tcblistingsutf8.code.tex
 Library (tcolorbox): 'tcblistingsutf8.code.tex' version '6.2.0'
 (c:/texlive/2024/texmf-dist/tex/latex/tcolorbox/tcblistings.code.tex
@@ -1042,7 +1043,7 @@ Library (tcolorbox): 'tcblistingscore.code.tex' version '6.2.0'
 (c:/texlive/2024/texmf-dist/tex/latex/tcolorbox/tcbprocessing.code.tex
 Library (tcolorbox): 'tcbprocessing.code.tex' version '6.2.0'
 )
-\c@tcblisting=\count409
+\c@tcblisting=\count410
 ))
 Package tcolorbox Info: Library `listingsutf8' is compatible with pdftex only. Library `listings` is loaded instead. on input line 29.
 ) (c:/texlive/2024/texmf-dist/tex/latex/tcolorbox/tcbexternal.code.tex
@@ -1062,7 +1063,8 @@ Package: titling 2009/09/04 v2.1d maketitle typesetting
 \thanksmarkwidth=\skip94
 \thanksmargin=\skip95
 \droptitle=\skip96
-)) (./main.aux)
+))
+No file main.aux.
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 12.
@@ -1085,7 +1087,6 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 12.
 LaTeX Font Info:    ... okay on input line 12.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 12.
 LaTeX Font Info:    ... okay on input line 12.
-
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
 *geometry* verbose mode - [ preamble ] result:
@@ -1180,11 +1181,13 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
 Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
-\c@lstlisting=\count410
+\c@lstlisting=\count411
 Package hyperref Info: Link coloring ON on input line 12.
-(./main.out) (./main.out)
 \@outlinefile=\write4
 \openout4 = `main.out'.
+
+
+Package hyperref Warning: Rerun to get /PageLabels entry.
 
 *geometry* verbose mode - [ newgeometry ] result:
 * driver: xetex
@@ -1221,7 +1224,7 @@ Package hyperref Info: Link coloring ON on input line 12.
 File: cover/tu.jpg Graphic file (type bmp)
 <cover/tu.jpg>
 LaTeX Font Info:    Trying to load font information for U+msa on input line 15.
- (c:/texlive/2024/texmf-dist/tex/latex/amsfonts/umsa.fd
+(c:/texlive/2024/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
 LaTeX Font Info:    Trying to load font information for U+msb on input line 15.
@@ -1234,11 +1237,12 @@ File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 ) [1
 
 
-] (./main.toc)
+]
+No file main.toc.
 \tf@toc=\write5
 \openout5 = `main.toc'.
 
- [1
+[1
 
 ]
 Package hyperref Info: bookmark level for unknown lemma defaults to 0 on input line 37.
@@ -1364,6 +1368,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 319--320
  []
 
 [13]
+
+LaTeX Warning: Reference `nestseq' on page 14 undefined on input line 334.
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 346--347
 
  []
@@ -1479,38 +1487,60 @@ Underfull \hbox (badness 10000) in paragraph at lines 534--535
  []
 
 [21]
-Underfull \hbox (badness 10000) in paragraph at lines 570--571
+Underfull \hbox (badness 10000) in paragraph at lines 571--572
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 572--573
+Underfull \hbox (badness 10000) in paragraph at lines 573--574
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 574--575
+Underfull \hbox (badness 10000) in paragraph at lines 575--576
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 584--585
+Underfull \hbox (badness 10000) in paragraph at lines 585--586
 
  []
 
-[22] [23] [24] [25] [26]
-Underfull \hbox (badness 10000) in paragraph at lines 720--722
+[22] [23]
+Package hyperref Info: bookmark level for unknown propositionplain defaults to 0 on input line 639.
+ [24]
+Package hyperref Info: bookmark level for unknown corollaryplain defaults to 0 on input line 671.
+ [25]
+Underfull \hbox (badness 10000) in paragraph at lines 706--708
+
+ []
+
+[26]
+Underfull \hbox (badness 10000) in paragraph at lines 723--724
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 727--729
+Underfull \hbox (badness 10000) in paragraph at lines 728--730
 
  []
 
-[27]
-Package hyperref Info: bookmark level for unknown corollaryplain defaults to 0 on input line 754.
- [28]
+
+Underfull \hbox (badness 10000) in paragraph at lines 731--732
+
+ []
+
+[27] [28] [29] [30]
+Underfull \hbox (badness 10000) in paragraph at lines 830--832
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 837--839
+
+ []
+
+[31] [32]
 
 Package fontspec Info: Could not resolve font "FangSong/BI" (it probably
 (fontspec)             doesn't exist).
@@ -1535,52 +1565,55 @@ Package fontspec Info: Font family 'FangSong(0)' created for font 'FangSong'
 (fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
 
 
-Overfull \hbox (175.69937pt too wide) in paragraph at lines 776--778
+Overfull \hbox (175.69937pt too wide) in paragraph at lines 886--888
 [][][][][][][][][][][][][] [] [][][] [] [][][][][][][][][] [] [][][][][][][] [] [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] []
  []
 
-[29]
-Underfull \hbox (badness 10000) in paragraph at lines 800--805
+[33]
+Underfull \hbox (badness 10000) in paragraph at lines 910--915
 
  []
 
-[30]
-Package hyperref Info: bookmark level for unknown propositionplain defaults to 0 on input line 835.
-
-Underfull \hbox (badness 10000) in paragraph at lines 835--838
+[34]
+Underfull \hbox (badness 10000) in paragraph at lines 945--948
 
  []
 
-[31] [32] [33] [34] [35]
-Underfull \hbox (badness 10000) in paragraph at lines 1037--1038
+[35]
+Underfull \hbox (badness 10000) in paragraph at lines 967--968
 
  []
 
-[36] [37]
-Overfull \hbox (13.89754pt too wide) detected at line 1110
-\OT1/cmr/m/n/12 (\OMS/cmsy/m/n/12 ^^@\OT1/cmr/m/n/12 )[] [] []
+[36]
+Overfull \hbox (9.87172pt too wide) in paragraph at lines 1005--1007
+\TU/lmr/m/n/12 Terence Tao’s note (ref: [][]$[][][][][] [] [] [] [][][][][][][][] [] [][][][][][][][][] [] [][][] [] [][][][][][][][][][][] [] [][][][][][][] [] [][][][] []
  []
 
-[38] [39] [40]
-Underfull \hbox (badness 10000) in paragraph at lines 1201--1204
+
+Overfull \hbox (0.98515pt too wide) in paragraph at lines 1005--1007
+[][] [] [][][][][][][][][][][][][] [] [][][] [] [][][] [] [][][][][][] [] [][][][][][][] [] [][][]$[][]\TU/lmr/m/n/12 ). here are some immediate comments: 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1005--1007
 
  []
 
-[41] [42] [43] (./main.aux)
- ***********
-LaTeX2e <2023-11-01> patch level 1
-L3 programming layer <2022/08/05>
- ***********
-Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 09CB0249661E6FE4A554121CC0EE4FD3;1245.
- ) 
-Here is how much of TeX's memory you used:
- 41359 strings out of 474773
- 925128 string characters out of 5761289
- 1940842 words of memory out of 5000000
- 62786 multiletter control sequences out of 15000+600000
- 577657 words of font info for 142 fonts, out of 8000000 for 9000
- 1348 hyphenation exceptions out of 8191
- 122i,17n,123p,796b,1398s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.pdf (44 pages).
+Underfull \hbox (badness 10000) in paragraph at lines 1008--1009
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1011--1013
+
+ []
+
+
+./main.tex:1020: LaTeX Error: Environment numerate undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1

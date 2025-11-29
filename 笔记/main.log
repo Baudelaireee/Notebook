@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.12.8)  11 NOV 2025 21:56
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.12.8)  18 NOV 2025 22:25
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -569,7 +569,7 @@ Package: thm-amsthm 2023/05/04 v0.76
 Package thmtools Info: Key `qed' (with value `\ensuremath {\square }')
 (thmtools)             is not a known style key.
 (thmtools)             Will pass this to every \declaretheorem
-(thmtools)             that uses `style=solutionstyle' on input line 91.
+(thmtools)             that uses `style=solutionstyle' on input line 92.
 \c@solution=\count337
  (c:/texlive/2024/texmf-dist/tex/latex/tcolorbox/tcolorbox.sty
 Package: tcolorbox 2024/01/10 version 6.2.0 text color boxes
@@ -1228,32 +1228,22 @@ Underfull \hbox (badness 10000) in paragraph at lines 861--863
  []
 
 [27] [28]
-Underfull \hbox (badness 10000) in paragraph at lines 900--901
+Underfull \hbox (badness 10000) in paragraph at lines 919--921
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 902--903
+Underfull \hbox (badness 10000) in paragraph at lines 935--937
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 910--911
+Underfull \hbox (badness 10000) in paragraph at lines 938--939
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 912--913
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 915--917
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 918--919
+Underfull \hbox (badness 10000) in paragraph at lines 943--944
 
  []
 
@@ -1267,126 +1257,178 @@ Underfull \hbox (badness 10000) in paragraph at lines 947--948
 
  []
 
-Package hyperref Info: bookmark level for unknown propositionplain defaults to 0 on input line 954.
 
-Underfull \hbox (badness 10000) in paragraph at lines 954--957
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 961--962
+Underfull \hbox (badness 10000) in paragraph at lines 949--950
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 963--964
+Underfull \hbox (badness 10000) in paragraph at lines 951--952
+
+ []
+
+Package hyperref Info: bookmark level for unknown definitionplain* defaults to 0 on input line 964.
+[30] [31]
+Underfull \hbox (badness 10000) in paragraph at lines 1018--1019
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 965--966
+Underfull \hbox (badness 10000) in paragraph at lines 1020--1021
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 967--968
+Underfull \hbox (badness 10000) in paragraph at lines 1028--1029
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 969--970
-
- []
-
-[30]
-Underfull \hbox (badness 10000) in paragraph at lines 971--972
+Underfull \hbox (badness 10000) in paragraph at lines 1030--1031
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 987--988
+Underfull \hbox (badness 10000) in paragraph at lines 1033--1035
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 989--990
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 991--992
-
- []
-
-[31]
-Underfull \hbox (badness 10000) in paragraph at lines 1010--1011
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1015--1016
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1018--1020
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1022--1024
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1026--1028
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1029--1030
+Underfull \hbox (badness 10000) in paragraph at lines 1036--1037
 
  []
 
 [32]
-Underfull \hbox (badness 10000) in paragraph at lines 1064--1065
+Underfull \hbox (badness 10000) in paragraph at lines 1063--1064
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1067--1069
+Underfull \hbox (badness 10000) in paragraph at lines 1065--1066
 
  []
 
-LaTeX Font Info:    Trying to load font information for U+euf on input line 1097.
-(c:/texlive/2024/texmf-dist/tex/latex/amsfonts/ueuf.fd
+Package hyperref Info: bookmark level for unknown propositionplain defaults to 0 on input line 1072.
+
+Underfull \hbox (badness 10000) in paragraph at lines 1072--1075
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1079--1080
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1081--1082
+
+ []
+
+[33]
+Underfull \hbox (badness 10000) in paragraph at lines 1083--1084
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1085--1086
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1087--1088
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1089--1090
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1105--1106
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1107--1108
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1109--1110
+
+ []
+
+[34]
+Underfull \hbox (badness 10000) in paragraph at lines 1128--1129
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1133--1134
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1136--1138
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1140--1142
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1144--1146
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1147--1148
+
+ []
+
+[35]
+Underfull \hbox (badness 10000) in paragraph at lines 1182--1183
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1185--1187
+
+ []
+
+[36]
+LaTeX Font Info:    Trying to load font information for U+euf on input line 1215.
+ (c:/texlive/2024/texmf-dist/tex/latex/amsfonts/ueuf.fd
 File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
-) [33]
-Underfull \hbox (badness 10000) in paragraph at lines 1100--1101
+)
+Underfull \hbox (badness 10000) in paragraph at lines 1218--1219
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1102--1103
+Underfull \hbox (badness 10000) in paragraph at lines 1220--1221
 
  []
 
-Package hyperref Info: bookmark level for unknown lemmaplain* defaults to 0 on input line 1106.
-[34] (./main.aux)
+Package hyperref Info: bookmark level for unknown lemmaplain* defaults to 0 on input line 1224.
+[37] (./main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: A541259FFF96693195023F58EB5DDA40;2198.
+(rerunfilecheck)             Checksum: 6A71D3AF296BDDFB080F0D10F88D88C1;2329.
  ) 
 Here is how much of TeX's memory you used:
- 33540 strings out of 474773
- 684490 string characters out of 5761289
+ 33648 strings out of 474773
+ 687132 string characters out of 5761289
  1940842 words of memory out of 5000000
- 55094 multiletter control sequences out of 15000+600000
+ 55202 multiletter control sequences out of 15000+600000
  578269 words of font info for 127 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  96i,17n,102p,537b,1385s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.pdf (35 pages).
+Output written on main.pdf (38 pages).

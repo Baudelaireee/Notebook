@@ -538,7 +538,8 @@ In general, (1) holds if \(X\) is \textbf{Hausdorff space}, (2) and (3) hold if 
 
 \newpage
 
-\subsection{Topological group}
+\section{Topological group}
+\subsection{Definition}
 
 Group and Topological space is two different objects, group is algebraic structure, topological space is geometric structure, but it is not strange to combine them together.
 
@@ -627,6 +628,115 @@ furthermore, if  the following conditions hold:\\
 then \(\bar{\varphi}\) is an isomorphism of topological groups.
 \end{theorem}
 
+\subsection*{Neighborhood system}
+
+As we have mentioned before, topological group is a homogeneous space, so the local topology at one point can be translated to generate the global topology, for some convenience, we always study the local topology at identity of the group.
+
+Formally, for any group \(G\) we define the \textbf{neighborhood system} (at \(x\)) to be the collection of subsets containing \(x\), denoted by \(\mathcal{V}_x\):
+\[ \forall A \in \mathcal{V}, \quad e \in A \land A \subset G\]
+Hence we can induce a topology on \(G\) by neighborhood system (i.e. determine the open voisinage of identity).
+\begin{propositionplain}
+    Let \(G\) be a group with \(\mathcal{V}_e\) as the neighborhood system at identity \(e\), if \(\mathcal{V}_e\) satisfies the following conditions:
+    \begin{enumerate}
+    \item For any $U,V\in\mathcal{V}_e$, there exists $W\in\mathcal{V}_e$ such that 
+    \[
+    W \subset U\cap V.
+    \]
+
+    \item If $a\in U\in\mathcal{V}_e$, then there exists $V\in\mathcal{V}_e$ such that 
+    \[
+    Va \subset U.
+    \]
+
+    \item For each $U\in\mathcal{V}_e$, there exists $V\in\mathcal{V}_e$ such that 
+    \[
+    V^{-1}V \subset U.
+    \]
+
+    \item For each $U\in\mathcal{V}_e$ and each $x\in G$, there exists $V\in\mathcal{V}_e$ such that 
+    \[
+    x^{-1} V x \subset U.
+    \]
+\end{enumerate}
+then there exist a unique topology \(\mathcal{T}\) such that \(\mathcal{V}_{e}\) is the set of all open voisinage of \(e\), and \((G,\mathcal{T})\) is a topological group.
+
+\begin{proof}
+    The topology \(\mathcal{T}\) is uniquely defined by translation:
+    \[\mathcal{B} = \{gU \mid g \in G, U \in \mathcal{V}_e\}\]
+    we just need to prove that \(\mathcal{B}\) is the topology basis. Notice the condition (1) and (2) ensure that \(\mathcal{B}\) generates a topology, the condition (3) is the requirement of continuity of multiplication and inverse; finally, the condition (4) is obligator for non-abelian group to ensure the continuity.
+\end{proof}
+\end{propositionplain} 
+In partiuclar, we can naturally choose subgroup as the element in the system, the condition can be simplified as following:
+\begin{corollaryplain}
+    Let \(G\) be a group with \( \mathcal{U}\) as a collection of subgroups of \(G\), if \( \mathcal{U}\) satisfies the following conditions:
+    \begin{enumerate}
+    \item For any $U,V\in\mathcal{U}$, there exists $W\in\mathcal{U}$ such that 
+    \[
+    W \subset U\cap V.
+    \]
+
+    \item For each $U\in\mathcal{U}$ and each $x\in G$, there exists $V\in\mathcal{U}$ such that 
+    \[
+    x^{-1} V x \subset U.
+    \]
+\end{enumerate}
+then there exist a unique topology \(\mathcal{T}\) such that \(\mathcal{U}\) is a basis of open voisinage of \(e\), and \((G,\mathcal{T})\) is a topological group.
+\end{corollaryplain} 
+
+Here are some classic examples of topological groups constructed by neighborhood system:
+\begin{example}
+    We consider the usual topology on \(\qq\), then the completion of \(\qq\) is just \(\rr\), it is another method to construct real number (see in Bourkabi's book). We review that we always write the viosinage of \(0\) as the form of \((-\varepsilon, \varepsilon)\), which motivates us to consider the system of subgroup:
+    \[\mathcal{U} = \{\frac{1}{n}\zz \mid n \in \nn^*\}\]
+    pay attention to the choices here! We can not take \(n\zz\) to be an open set (consider it in \(\rr\), it is closed and not open). Then we can verify the topology induced by \(\mathcal{U}\) is just the subspace topology induced by \(\rr\), i.e. it induces a usual absolute value on field \(\qq\):
+    \[|x|_{\infty} = \begin{cases}
+        x \quad x\geq 0 \\
+        -x \quad x \leq 0
+    \end{cases}\]
+\end{example}
+It is natural to ask that can we define other topological stucture on \(\qq\) such that we can get other different completion? The answer is yes, and a classic example is the \textbf{\(p-adic\) number field.}
+\begin{example}
+    We fix a prime number \(p\) and then we can define a subgroup 
+    \[\zz_{(p)} = \{\frac{m}{n} \mid m,n \in \zz, p \nmid n\}\]
+    and we let \(\mathcal{U}= \{p^t\zz_{(p)} \mid t \in \zz\}\) to be the collection of subgroups, which generates an unique toplogy (verify!).
+    Notice that we have a unique chain in the system:
+    \[\dots p^2 \zz_{(p)} \subset p \zz_{(p)} \subset \zz_{(p)} \subset p^{-1} \zz_{(p)} \subset p^{-2} \zz_{(p)} \subset \dots\]
+    motivates from the above example, we consider each subgroup gives a method to measure the size of an elemnt is some sense, for example we consider the following number when \(p=3\):
+    \[1, \quad 4, \quad \frac{1}{2}, \quad \frac{2}{5}\]
+    they are all in \(\zz_{(p)}\), and we consider the distance of them to \(0\) can be bounded by \(\alpha\) (consider (\(-\varepsilon,\varepsilon\)) gives the set of all elements with distance to \(0\) less than \(\varepsilon\)), and then we consider some other numbers:
+    \[\frac{1}{3}, \quad \frac{2}{3}, \quad \frac{7}{6}\]
+    they are all in \(\frac{1}{3}\zz_{(p)}\) but not in \(\zz_{(3)}\), so we can think that their distance to \(0\) is bouned by \(\beta\), and it is natural to give a realtion \(\alpha < \beta\), which motivates us to give a new method to consider the metric on \(\qq\) by conisder the local factorization of \(p\).\\
+
+    Hence we can define something to denote \(\alpha\) and \(\beta\) just now:
+    \[v_p: \zz-\{0\} \to \nn, \quad m \mapsto \max\{k : p^k | m\}  \]
+    for example \(v_3(6) = 2\), \(v_3(-2) = 0\). Then the method of measuring can be extended to \(\qq\) as following:
+    \[v_p: \zz-\{0\} \to \zz, \quad \frac{m}{n} \mapsto v_p(m)-v_p(n)\]
+    And we make a convention that \(v_p(0) = +\infty\), it is called \textbf{p-adic valustion}. for example \(v_3(\frac{1}{3}) = -1\), \(v_3(\frac{9}{2}) = 2\). Then we can get a measure of number
+    \[p^k \zz_{(p)} \iff \{x \in \qq \mid v_p(x) \geq p^k\}\]
+    but a question occurs here is that \(v_3(1) = 0\) and \(v_3(\frac{1}{3}) = -1\), as what we discussed just now, actually we hope the measure of \(1\) should be less than the measure of \(\frac{1}{3}\) (here \(0>-1\)), hence the valuation \(v_p\) can not be treated as the absolute value directly, hence we modify it as following:
+    \[|-|_p: \qq \to \rr_+, \quad x \mapsto \frac{1}{e^{v_p(x)}}\]
+    the convention just now forces \(|0|_p = 0\), and again we can get a clear measure of numbers:
+    \[x \in p^k\zz_{(p)} \iff |x|_p \leq e^{-k}\]
+    hence \(|1|_3 < \frac{1}{3}|_3\), which admits our original idea.
+\end{example}
+
+\begin{remark}
+    it is just a short introduction of p-adic number from the view of topologyical group, and here are sommething to supplement if to go deeper:\\
+
+    (1) The metric of is induced by the absolute value:
+    \[d(x,y) = |x-y|_p\]
+    we can verify that is a \textbf{ultrametric (non-archimedean metric)}, i.e. a metric satifying the strong triangle inequality:
+    \[d(x.z) \leq \max{d(x,y),d(y,z)},\quad \forall x,y,z \in \qq\]
+    which induces different analysis structure on \(\qq\).\\
+
+    (2) Same situation with \(\qq\) equipped by the usual absolute value, \((\qq,|-|_p)\) is not complete as a metric space, we can complete it to get the \textbf{p-adic  number field} \(\qq_p\). (The completion process is same with what we do for the real number, and we can prove that the completion is unique up to isometry.)\\
+
+    (3) By \textbf{Ostrowski's theorem}, any non-trival absolute value on \(\qq\) is equivalent to either the usual absolute value or some \(p\)-adic absolute value. In detail, if \(|-|\) is a non-trival absolute value on \(\qq\), then either there is some \(c>0\) such that
+    \[|x| = |x|_{\infty}^c, \quad \forall x \in \qq\]
+    or there is some prime \(p\) and some \(c>0\) such that
+    \[|x| = |x|_{p}^c, \quad \forall x \in \qq\]
+
+\end{remark}
+
 \subsection{Group Action}
 A group action is a natrual language to describe the symmerty of a space, in geomerty it refers to the tansformation which keeps the structure of the space, in dynamics it refers to the evolution of the system, it is a very useful tool to study a given space and system.
 
@@ -683,7 +793,7 @@ Sometimes we also use \(G * x\) (or \(G\cdot x\)) to denote the orbit of \(x\), 
 
 \begin{itemize}
 
-\item In particular, if the orbit of the action is unique, then we say that the orbit is \textbf{transitive}, i.e. for any \(x,y \in X\), there is some \(g \in G\) such that \(g * x = y\).
+\item In particular, if the orbit of the action is unique, then we say that the orbit is \textbf{transitive}, i.e. for any \(x,y \in X\), there is some \(g \in G\) such that \(g * x = y\). Formally, we call a space \(X\) as a \textbf{G-homogeneous} space if \(G\) acts on \(X\) transitively.
 
 \item In the picture, we can view there are some fixed points, i.e. the orbit of the point has only one point: \(G*x = \{x\}\), to reflect the scale of the orbits we invite another conncept: for some \(x \in X\), the \textbf{stabilizer} (or isotropy group) of \(x\) is defined by
 \[G_x = \{g \in G \mid g * x = x\}\]
@@ -843,8 +953,73 @@ has the image \(C = \{(x,x+n)|x\in \rr,n \in \zz\}\), it is easy to prove that \
 \[\varphi(x,y) = y-x\]
 It is a continous map to \(\rr\), then the restriction is surely continous, so the free action is also proper. 
 
+\subsection{Lie-Group}
+In this section, we suppose that readers have some basic knowledge of differential manifold, for example the chart, altas and so on, it can be founed in chapter 1,2 of Lee's book <<Introduction to Smooth Manifolds>>. The Lie group is a natural combination of topological group and differential manifold:
+\begin{definitionplain*}
+    A Lie group is a group \((G,*,\mathcal{T})\) satisfies:\\
+    (1) \((G,*)\) is a group.\\
+    (2) \((G,\mathcal{T})\) is a smooth manifold.\\
+    (3) The group operation is compatiable with the smooth structure, i.e. the map
+    \[G\times G \to G, \quad (g,h) \mapsto g*h^{-1}\]
+    is a smooth map, where \(G \times G\) is equipped with the product smooth structure.
+\end{definitionplain*}
+\begin{remark}
+    Here are some immediate results from topological group and differential manifold, the verifcation is not difficult, I tend to give them as a definition here:\\
 
+    (1) The \textbf{morphism} of Lie group is a group homomorphsim which is also a smooth map; The \textbf{isomorphism} of Lie group is a group isomorphism which is also a diffeomrphsim. Which motivates us to define the category
+    \[\cat{LieGrp}{\text{Lie group}}{\text{morphism of Lie group}}\]
 
+    (2) The subgroup of a Lie Group is \textbf{not} always a Lie group: consider additive group \(\qq \subset \rr\) with the usual topology, here we know that \(\qq\) is not a manifold. A sufficient condition is that \textbf{closed} subgroup of Lie group is a Lie group \textbf{(Cartan's Theorem)}.
+
+    (3) The translation of the group (by left or right) is a diffeomrphsim:
+    \[L_g :G \to G, \quad x \mapsto g*x\] 
+    and
+    \[R_g: G \to G, \quad x \mapsto x*g\]
+
+    (4) The product of two Lie group is still a Lie group under the product smooth structure and the component-wise group operation.
+
+    (5) The Lie group is always \textbf{Hausdorff} and \textbf{second countable}, since the smooth manifold structure forces it.
+\end{remark}
+
+There are many examples of Lie group, it is a very rich area to study, here we give a proof that \textbf{The circle \(\sph^1\) is a Lie group}, it is a important example in topological group.
+
+\begin{proof}
+    The complete proof under \(\rr^2\) is a bit long and boring, it is better to consider a natural real manifold stucture \(\cc\), the unique chart is given by homemomorphism
+    \[\phi:\cc \to \rr^2, \quad z = x + iy \mapsto (x,y)\]
+    The uniqe transition map is \(\phi \circ \phi^{-1} = id_{\rr^2}\), so it is indeed a smooth manifold.
+
+    Then it is not diffcult to verify a smooth map
+    \[\mu: \cc^* \times \cc^* \to \cc^*, \quad (z,w) \mapsto \frac{z}{w}\]
+    hence we just need to check that \(\sph^1 = \{e^{i\theta} \mid \theta \in \rr\}\) is a one dimensional submanifold of \(\cc\) and then the restriction of \(\mu\) on \(\sph^1\) is automatically smooth, which finishes the proof.
+\end{proof}
+
+In genral, the check of Lie group structure is based on the structure of manifold, many topological groups with manifold structure are Lie groups, It is can be concluded by \textbf{Hilbert's fifth problem}, An formal answer is given by Yamabe in 1953, we state it without proof such that we can quickly determine some Lie group in some cases:
+\begin{theorem}[Neumann-Yamabe] $ \\$
+    If \(G\) is a locally compact topological group, then the following statement are equivalent: \\
+    (1) \(G\) is a Lie group.\\
+    (2) \(G\) is locally euclidean.\\
+    (3) \(G\) has the \textbf{no small subgroup (NSS)} properties: there is an open neighborhood \(U\) of \(e\) containing no non-trival subgroup.
+\end{theorem}
+
+\begin{remark}
+    The theorem is based on the paper (ref: \url{https://www.math.uci.edu/~isaac/Taobookreview-final.pdf?utm_source=chatgpt.com}), another reference is by Terence Tao's note (ref: \url{https://terrytao.wordpress.com/wp-content/uploads/2012/03/hilbert-book.pdf?utm_source=chatgpt.com}).
+    here are some immediate comments:\\
+
+    (1) \(\sph^1\) is a Lie group since it is compact and a one-dimensional manifold. (A Chinese saying: 杀鸡用牛刀...)\\
+
+    (2) A fact is that p-adic number \(\qq_p\) is locally compact since \(\zz_p\) is compact by theorem of Tychonoff, but it is not Lie group by condition NSS: we have a deceasing sequence of subgroups
+    \[\zz_p \supseteq p\zz_p \supseteq p^2\zz_p \supseteq \cdots\]
+    with a comparsion \(p^k\zz_p = \{x \in \qq_p \mid |x|_p \leq e^{-k}\} \subset  B_p(0,e^{-k+1}) \) for any \(k\).\\
+
+    In particular \(\rr\) is a lie group under addition although it is very plain and trival, but by comparing to \(\qq_p\) we see that \(\rr\) has NSS property: For example take \((-1,1)\), then any non-trival subgroup of \(\rr\), if we take some non-zero element \(x\), then there exists \(n \in \nn\) such that \(|nx|>1\) (it is the archimedean property of \(\rr\)!).
+\end{remark}
+
+with the help of the nice theorem, we can state some examples of Lie group without proof with some knowledge of their topology:
+\begin{example}
+    Here are some examples of Lie group:
+    \begin{numerate}
+        \item The additive group \((\rr^n,+)\) is a Lie group.
+\end{example}
 
 
 
@@ -1240,5 +1415,8 @@ where \(\nabla f = \left(\frac{\partial f}{\partial x_1}, \ldots, \frac{\partial
 The idea here is really simple, we just see the left integral as a accumulation of infinitesimal changes of \(f\) along the interval \([a,b]\)
 \[\sum_{t \in P_n} \Delta f(t) \approx \int_{[a,b]} df\]
 where \(P_n\) is a partition of \([a,b]\) by choosinng \(n\) points, and if the partition is fine enough, then the sum will be close to the \textbf{REAL} integral, it is the basic idea of Riemann integral. 
+
+
+
 \end{document}
     
