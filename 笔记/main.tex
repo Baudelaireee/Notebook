@@ -4,6 +4,7 @@
 \input{setup} % 调用你上传的 setup.tex 文件
 % 或者你也可以直接把 setup.tex 的内容复制粘贴在这里
 \usepackage{tikz-cd} % provide \arrow and tikz-cd environments
+\usetikzlibrary{calc,decorations.pathmorphing}
 
 \title{\LaTeX{} Note Template}
 \author{X}
@@ -148,7 +149,183 @@ operatio of ideals: a useful techincs to compute the isomorphism.
 \end{proof}\
 
 \newpage
-\section{Infinite products}
+
+\section{Some Results by Algebraic Topology}
+\subsection{The fundamental theorem of algebra}
+It is a famous theorem in algebra, but the proof can appear in many branches of mathematics via some basic ideas. Here a proof by algebraic topology is given here.
+\begin{quote}
+\emph{“ Tous les théorèmes fondamentaux de l’algèbre reposent sur la compacité. ”}
+
+\hfill — Jean-Pierre Serre, \emph{«Cours d’arithmétique»}
+\end{quote}
+
+\begin{theorem}
+    A polynomial equation
+    \[x^n+a_{n-1}x^{n-1}+\dots+a_1x+a_0 = 0\]
+    with complex coefficients has at least one root in \(\cc\).
+\end{theorem}
+
+\begin{proof}
+    The outline of the proof is as follows:\\
+    (1) Prove that the continous map \(f: \sph^1 \to \cc-\{0\}\) defined by \(f(z) = z^n\) is not nullhomotopic.\\
+    (2) Prove the special case of the theorem when \(|a_{n-1}|+\dots+|a_1|+|a_0|<1\)
+    \[x^n+a_{n-1}x^{n-1}+\dots+a_1x+a_0 = 0\]
+    (3) Prove the general case by (2).\\
+
+   \textbf{ Here are the details:}\\
+    (1) Notice that \(\sph^1\) can be embedded in \(\cc-\{0\}\) by the inclusion map \(i\), and similarly we can define a map \(g:\sph^1 \to \sph^1\) by \(g(z) = z^n\), then we can write \(f\) as the composition
+    \[f=i \circ g\]
+    then by the functoriality of fundamental group, we have
+    \[f_* = i_* \circ g_*\]
+    notice that \(i_*\) is injective since \(\sph^1\) can be seen as a retract of \(\cc-\{0\}\), and for the generated loop \([a]\) of \(\pi_1(\sph^1)\), we can caclulate that \(g_*([a]) = [g(a)] = [a^n]\), hence we can explicit write the formula of \(g_*:\zz \to \zz\) by \(x \mapsto nx\), clearly it is injective.
+    
+    (2) We prove the special case by contradiction, suppose that the polynomial has no root in \(\cc\), hence we can define a continous map \(p:D \to \cc-\{0\} \) by 
+    \[p(z) = z^n+a_{n-1}z^{n-1}+\dots+a_1z+a_0 = 0\]
+    where \(D\) is the unit disk in \(\cc\), similarly if we restrict \(p\) to the boundary \(\sph^1\), i.e. we define \(h = p|_{\sph^1}\), then by functoriality
+    \[h_* = p_* \circ j_*\]
+    where \(j\) is the inclusion from \(\sph^1\) to \(D\). Notice that \(j_*\) is the trivial map since \(\pi_1(D)\) is trival, hence \(h_*\) is also the trivial map, i.e. \(h\) is nullhomotopic.
+
+    Howerver, in (1) we has shown that \(f\) is not nullhomotopic, then a homotopy from \(f\) and \(h\) can lead to the contradiction, we define \(H:\sph^1 \times I \to \cc-\{0\}\) by 
+    \[H(z,t) = z^n+t(a_{n-1}z^{n-1}+\dots+a_1z+a_0)\]
+    then clearly \(H(-,0) = f\) and \(H(-,1) = h\).
+
+    (3) For the general case, we make a substitute \(z = cy\) for some \(c>0\), then
+    \[y^n + \frac{a_{n-1}}{c}y^{n-1}+\dots+\frac{a_1}{c^{n-1}}y+\frac{a_0}{c^n} = 0\]
+    if \(c\) is proper, i.e.
+    \[|\frac{a_{n-1}}{c}|+|\frac{a_{n-2}}{c^2}|+\dots+|\frac{a_1}{c^{n-1}}|+|\frac{a_0}{c^n}| < 1\]
+    then we can conclude the existence of root, and we can make a estimate to find that
+    \[c>\frac{\max\{{|a_{n-1}|,\dots,|a_1|,|a_0|}\}}{n}\]
+\end{proof}
+
+\subsection{Brouwer fixed point theorem}
+The Brouwer Fixed Point Theorem is a fundamental result in topology asserting that a continuous self-map of a compact convex set in finite-dimensional Euclidean space must have a fixed point.
+It captures a purely topological phenomenon: a ball (or simplex) cannot be continuously mapped into itself without leaving at least one point fixed.
+\begin{theorem}[Brouwer]
+    Let \(D^n\) be the closed unit disc of \(\rr^n\), then any continuous map \(f:D^n \to D^n\) has at least one fixed point, i.e. there exists \(x \in D^n\) such that \(f(x) = x\).
+\end{theorem}
+\begin{remark}
+    The case of \(n=1\) is easy to prove by analytic methods; geometrically \(D^1 = [-1,1]\) implies that we can observe the graph of \(f\). Hence the question is equivalent to finding the intersection of the graph and the line \(y = x\). A simple but instructive topological argument is to consider the following two \textbf{open} sets:
+    \[A = \{(x,f(x)) \mid f(x)>x\}, \quad B = \{(x,f(x)) \mid f(x)<x\}\]
+    If we assume that there is no fixed point, then the graph is the disjoint union of the two open sets
+    \[G(f) = A \sqcup B\]
+    and hence the graph is disconnected, which is a contradiction.
+
+    \begin{center}
+    \begin{tikzpicture}[scale=2]
+
+  % Square
+  \draw (-1,-1) rectangle (1,1);
+
+  % Diagonal
+  \draw (-1,-1) -- (1,1);
+
+  % Corner labels
+  \node[above left]  at (-1,1)  {$(-1,1)$};
+  \node[above right] at (1,1)   {$(1,1)$};
+  \node[below left]  at (-1,-1) {$(-1,-1)$};
+  \node[below right] at (1,-1)  {$(1,-1)$};
+
+  % Points a and b
+  \fill (-1,0) circle (0.04);
+  \fill (1,0)  circle (0.04);
+
+    % Wavy function line between the two points
+    \draw[decorate, decoration={snake, amplitude=1.5pt, segment length=8pt}, thick]
+        (-1,0) to[out=20,in=160] (1,0);
+
+    \node[left]  at (-1,0.1) {$(-1,f(-1))$};
+    \node[right] at (1,0.1) {$(1,f(1))$};
+
+\end{tikzpicture}
+    \end{center}
+
+    However, the general case is not easy to prove, and the connectness will be a hard condition to use, the dilemma is that we do not have a good property like intermideate value theorem for any \(n\), in another word, the topology of real line is special.
+\end{remark}
+
+\begin{proof}
+    Here is a proof by homology theory, which is a pure algebraic topology method, we sketch the outline here:\\
+    (1) Assume that there exists a continous function \(f\) without fixed point when \(n\geq 2\), then we can construct a retraction \(r:D^n \to \sph^{n-1}\) by method of analytic geometry.\\
+    (2) We claim that there is no retraction from \(D^n\) to \(\sph^{n-1}\) by homology theory, and prove it.\\
+    (3) conclude the result.\\
+
+    \textbf{Here are the details:}\\
+    (1) For any \(x \in D^n\), we define that \(r(x)\) is the intersection of \(\sph^{n-1}\) and the ray line from \(f(x)\) to \(x\):
+      \begin{center}
+        \begin{tikzpicture}[scale=2]
+
+  % Unit ball (circle)
+  \draw (0,0) circle (1);
+
+  % Points: f(x), x, g(x) are collinear on the x-axis
+  \coordinate (fx) at (-0.45,0);
+  \coordinate (x)  at (0.05,0);
+  \coordinate (gx) at (1,0);   % on the boundary
+
+  % Draw the line from f(x) through x to g(x)
+  \draw[thick] (fx) -- (gx);
+
+  % Arrow from f(x) to x
+  \draw[->, thick] (fx) -- (x);
+
+  % Mark points
+  \fill (fx) circle (0.04);
+  \fill (x)  circle (0.04);
+  \fill (gx) circle (0.04);
+
+  % Labels
+  \node[below] at (fx) {$f(x)$};
+  \node[below] at (x)  {$x$};
+  \node[above right] at (gx) {$g(x)$};
+
+\end{tikzpicture}
+    \end{center}
+    By vector we can write
+    \[r(x) = x + \lambda(x-f(x)), \quad \lambda \neq 0 \text{ iff } \|x\|\neq 1\]
+    by \(\|r(x)\|=1\), we can get a quadratic equation of \(\lambda\)
+    \[\|x-f(x)\|^2 \lambda^2 + 2\langle x, x-f(x) \rangle \lambda + \|x\|^2 - 1 = 0\]
+    with the positive determination, we can get the exact formula of \(\lambda\), which is dependent of \(x\) continously
+    \[\lambda(x) = \frac{-2\langle x, x-f(x)\rangle+2 \sqrt{\langle x, x-f(x) \rangle^2-\|x-f(x)\|^2(\|x\|^2-1)}}{2\|x-f(x)\|^2}\]
+    in particular, when \(x \in \sph^1\) i.e. \(\|x\|=1\), we can get
+    \[\lambda(x) = \frac{-\langle x,f(x) \rangle +  \sqrt{\langle x,f(x) \rangle^2}}{\|x-f(x)\|^2} = 0\]
+    hence \(r(x) = x\), which means that \(r\) is a retratction from \(D^n\) to \(\sph^{n-1}\).\\
+
+    (2) We prove the claim by homology theory, notice that we have the following commutative diagram:
+    
+% https://q.uiver.app/#q=WzAsMyxbMSwwLCJEXm4iXSxbMCwxLCJcXG1hdGhiYntTfV57bi0xfSJdLFsyLDEsIlxcbWF0aGJie1N9XntuLTF9Il0sWzEsMCwiaSJdLFswLDIsInIiXSxbMSwyLCJpZCIsMl1d
+\[\begin{tikzcd}
+	& {D^n} \\
+	{\mathbb{S}^{n-1}} && {\mathbb{S}^{n-1}}
+	\arrow["r", from=1-2, to=2-3]
+	\arrow["i", from=2-1, to=1-2]
+	\arrow["id"', from=2-1, to=2-3]
+\end{tikzcd}\]
+    then by the functoriality of homology, we have the commutative diagram:
+    % https://q.uiver.app/#q=WzAsMyxbMSwwLCJIX2soRF5uKSJdLFswLDEsIkhfayhcXG1hdGhiYntTfV57bi0xfSkiXSxbMiwxLCJIX2soXFxtYXRoYmJ7U31ee24tMX0pIl0sWzEsMCwiaV8qIl0sWzAsMiwicl8qIl0sWzEsMiwiaWRfKiIsMl1d
+\[\begin{tikzcd}
+	& {H_k(D^n)} \\
+	{H_k(\mathbb{S}^{n-1})} && {H_k(\mathbb{S}^{n-1})}
+	\arrow["{r_*}", from=1-2, to=2-3]
+	\arrow["{i_*}", from=2-1, to=1-2]
+	\arrow["{id_*}"', from=2-1, to=2-3]
+\end{tikzcd}\]
+    notice that \(H_{n-1}(D^n) = 0\) and \(H_{n-1}(\sph^{n-1}) \cong \zz\), so \(i_*\) is the trivial map, and \(id_* = r_* \circ i_*\) is also the trival map, which leads to a contradiction (functor keeps idenetity map ).
+
+
+
+
+\end{proof}
+
+There are other proofs by different methods, but generally the fixed point theorem can be generalized to Banach space by the projective theory.
+
+\begin{theorem}[Schauder]
+    Let $X$ be a Banach space and let $K \subset X$ be a nonempty, closed, convex set.
+If $f : K \to K$ is continuous and compact (i.e.\ $f(K)$ is relatively compact),
+then $f$ has a fixed point in $K$.
+\end{theorem}
+
+\newpage
+\section{Complex Analysis}
+\subsection{Infinite Product}
 The form of infinite products is important in complex analysis to study the poles and zeros of functions, here is the definition:
 
 \begin{definition}
@@ -272,6 +449,34 @@ Another better theorem is given by \textbf{Hadamard}, it shows the growth of the
 Suppose that \(f\) is an entire function of finite order \(\rho\) with zeros \((a_n)_{n \in \nn}\) (counting multiplicities), then there exists a polynomial \(P\) of degree at most \(k=\lfloor \rho \rfloor\) such that
 \[f(z) = e^{P(z)}\prod_{n=1}^{\infty} E_{n}(\frac{z}{a_n})\]
 \end{theorem}
+
+\subsection{Mellin transformation for analytic continuation}
+The Mellin transformation is a integral transformation which is useful in complex analysis to study the analytic continuation of functions. For example,
+the gamma function is well-defined for \(\Re(s) > 0\) by the integral
+\[\Gamma(s) = \int_0^{\infty} e^{-t}t^{s-1} dt\]
+Moreover, zeta function is well-defined for \(\Re(s) > 1\) by the integral \textbf{(Ex15, Chapter6, Stein 2, a easy exercise)}
+\[\zeta(s) = \frac{1}{\Gamma(s)}\int_0^{\infty} \frac{t^{s-1}}{e^t - 1} dt\]
+and similarly Beta function, a function has a deep relationship with Gamma function, is well-defined for \(\Re(a), \Re(b) > 0\) by the integral \textbf{(Ex7, chapter 6, Stein 2)}
+\[B(a,b) = \int_0^{\infty} \frac{t^{a-1}}{(1+t)^{a+b}}  dt\]
+Hence we can pay attention to the form of the integration, and then we can a form of integral transformation:
+\[\int_0^{\infty}f(t)t^{z-1}dt\]
+which is called \textbf{Mellin transformation} of the function \(f\), and we usually denote it by \(\mathcal{M}[f;z]\).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 \newpage
 
 \section{Ideal}
@@ -792,10 +997,10 @@ Equivalently, it induces a natural isomoprhism by \(\Phi \mapsto (\phi(e_i))_{i 
 Hence we can generalize the statement of the generating set and basis by the language of morphisms.
 \begin{corollary}
     Let \(M\) be an \(A\)-module, and let \(I\) be an index set, then\\
-    (1) \(M\) is generated by \(\{m_i\}_{i \in I}\) if and only if the morphism \(\Phi: A^{(I)} \to M\) defined by \(\Phi(e_i) = m_i\) for all \(i \in I\) is surjective.\\
-    (2) \(\{m_i\}_{i \in I}\) is linearly independent set of \(M\) if and only if the morphism \(\Phi: A^{(I)} \to M\) defined by \(\Phi(e_i) = m_i\) for all \(i \in I\) is an injective.\\
-    (3) \(\{m_i\}_{i \in I}\) is a basis of \(M\) if and only if the morphism \(\Phi: A^{(I)} \to M\) defined by \(\Phi(e_i) = m_i\) for all \(i \in I\) is an isomorphism.\\
-    (4) \(M\) is a finitely generated \(A\)-module if and only if there exists a surjective morphism \(\Phi: A^n \to M\) for some \(n \in \nn\).
+    (1) \(M\) is \textbf{generated} by \(\{m_i\}_{i \in I}\) if and only if the morphism \(\Phi: A^{(I)} \to M\) defined by \(\Phi(e_i) = m_i\) for all \(i \in I\) is surjective.\\
+    (2) \(\{m_i\}_{i \in I}\) is \textbf{linearly independent} set of \(M\) if and only if the morphism \(\Phi: A^{(I)} \to M\) defined by \(\Phi(e_i) = m_i\) for all \(i \in I\) is an injective.\\
+    (3) \(\{m_i\}_{i \in I}\) is a \textbf{basis} of \(M\) if and only if the morphism \(\Phi: A^{(I)} \to M\) defined by \(\Phi(e_i) = m_i\) for all \(i \in I\) is an isomorphism.\\
+    (4) \(M\) is a \textbf{finitely generated} \(A\)-module if and only if there exists a surjective morphism \(\Phi: A^n \to M\) for some \(n \in \nn\).
 \end{corollary}
 
 
@@ -886,6 +1091,8 @@ Hence we can generalize the statement of the generating set and basis by the lan
         \[\Psi(f) = \Psi(\sum_{\kappa \in \nn^n} a_{\kappa} X^{\kappa}) = \sum_{\kappa \in \nn^n} a_{\kappa} \Psi(X^{\kappa}) = \sum_{\kappa \in \nn^n} a_{\kappa} b^{\kappa} = \Phi(f)\]
         hence we finish the proof.
     \end{proof}
+    
+\subsection{Projective, Injective Modules}
 
 \subsection{Tensor product}
 
@@ -1236,6 +1443,281 @@ So a immediate question is that the two objects above are isomorphic or not? It 
     Let \(S^{-1}A\) be a localization of a ring \(A\), and \(I\) is a ideal of \(A\) such that \(I \cap S = \emptyset\), then there exists a natural isomorphism of rings
     \[\bar{S}^{-1}(A/I) \cong S^{-1}A/S^{-1}I\]
 \end{proposition}
+\begin{proof}
+    
+\end{proof}
+
+The localization can be extended to modules in a natural way, which allows us to study the local properties of modules over commutative rings.
+\begin{definitionplain}
+    Let \(M\) be a \(A\)-module, with \(S^{-1}A\) the localization of \(A\), then we define the \textbf{localization} of \(M\) at \(S\) to be a \(S^{-1}A\)-module
+    \[S^{-1}M := M \times S / \sim\]
+    with the equivalence
+    \[(m,s) \sim (m',s') \iff \exists t \in S, \quad  t\cdot (s'm - sm') = 0_M\]
+    and similarly we denote the class of \((m,s)\) by \(\frac{m}{s}\).\\
+\end{definitionplain}
+
+the process of localization is actullay a type of extension of scalar when we see \(M\) as a subset of \(S^{-1}M\), hence we can apply the tensor product here to give isomorphic construction of localization of modules:
+\begin{proposition}[localization-module] $ \\$
+    The inclusion \(M \hookrightarrow S^{-1}M\) induces a natural isomorphism of \(S^{-1}A\)-modules
+    \[S^{-1}M \cong S^{-1}A \otimes_A M\]
+\end{proposition}
+\begin{proof}
+\end{proof}
+
+
+    The structure shows the essential difference of localization of modules and rings here, the localization of ring is process of extension, it adds some new elements to the ring such that it can be the inverse of some elements; while the localization of modules is a process of extension of scalar, or by the proposition above it is a tensor product, which means that 
+    \begin{center}
+        \textbf{localization of modules is not necessarily larger than the initial module!}
+    \end{center}
+    here is some examples:
+    \begin{lemma}
+        Let \(M\) be a \(A\)-module, and \(S\) be a multiplicative subset of \(A\), then the following conditions are equivalent:\\
+        (1) \(S^{-1}M = 0\)\\
+        (2) for any \(m \in M\), there exists \(s \in S\) such that \(s \cdot m = 0_M\)
+
+        \begin{proof}
+            \((1) \implies (2)\): for any \(m \in M\), we have \(\frac{m}{1} = 0\) in \(S^{-1}M\), by the definition of equivalence, there exists \(s \in S\) such that \(s \cdot (1\cdot m - 1 \cdot 0_M) = 0_M\), hence \(s \cdot m = 0_M\).\\
+
+            \((2) \implies (1)\): for any \(\frac{m}{s} \in S^{-1}M\), by the condition there exists \(t \in S\) such that \(t \cdot m = 0_M\), then by the definition of equivalence we have
+            \[\frac{m}{s} = \frac{t \cdot m}{t \cdot s} = \frac{0_M}{t \cdot s} = 0\]
+            hence \(S^{-1}M = 0\).
+        \end{proof}
+    \end{lemma}
+
+    (1) If \(G\) is an finite abelian group, then any element has finite order, for example \(g \in G\) with order \(n\), then \(n\cdot g = g^n = 0\) which implies that 
+    \[\qq \otimes_{\zz}G = S^{-1}G = 0\]
+    which is a example that the localization of module is even vanishing.\\
+
+    (2) In the previous example, the choice \(\qq\) is a little large such that we can not get any interesting result, here we condier \(G = \zz/15\zz\) and we condier the localization \(\zz_{(3)}\), i.e. take multiplicative subset \(S = \zz - 3\zz\), then
+    \[\zz_{(3)} \otimes_{\zz} G \cong S^{-1}\zz/3\zz \oplus S^{-1}\zz/5\zz \cong \zz/3\zz\]
+    It is easy to the result by the lemma above. The result can be generalized to any finite abelian group \(G\)
+    \[\zz_{(p)} \otimes_{\zz} G \cong G_p\]
+    where \(G_p\) is the p-primary component of \(G\), which is an example that the localization module is smaller.\\
+
+    (3) A \(A\)-module \(M\) induce a map \(\psi:A \to \End(M)\) by 
+    \[\psi_a: (m \mapsto a\cdot m) \in \End(M)\]
+    then the localization \(S^{-1}M = M \) if and only if \(\psi_s\) is bijective for any \(s \in S\), a simple example is that
+    \[\qq \otimes_{\zz} \qq = \qq\]
+
+
+
+
+\newpage
+\section{Affine Algebraic Geometry}
+The object of this section is to give a basic \textbf{geometry-algebra correspondence} between affine algebraic varieties and a polynomial ring over a field, which can be concluded by the following graph:
+% https://q.uiver.app/#q=WzAsNCxbMCwwLCJrXm4iXSxbMywwLCJcXG1hdGhjYWx7T30oa15uKSJdLFszLDMsImtbWF8xLC4uLixYX25dIl0sWzAsMywiXFxtYXRoYmJ7QX1ebl9rIl0sWzAsMSwiXFxtYXRoY2Fse099Il0sWzIsMSwiXFxtYXRocm17Q2hhcn0oayk9MCIsMix7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6ImFycm93aGVhZCJ9LCJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbMiwzLCJcXG1hdGhybXtTcGVjfSJdLFswLDMsIlxcdGV4dHtOdWxsc3RlbGxlbnNhdHp9IiwyLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoiYXJyb3doZWFkIn0sImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dXQ==
+\[\begin{tikzcd}
+	{k^n} &&& {\mathcal{O}(k^n)} \\
+	\\
+	\\
+	{\mathbb{A}^n_k} &&& {k[X_1,...,X_n]}
+	\arrow["{\mathcal{O}}", from=1-1, to=1-4]
+	\arrow["{\text{Nullstellensatz}}"', dashed, tail reversed, from=1-1, to=4-1]
+	\arrow["{\text{infinite field}}"', dashed, tail reversed, from=4-4, to=1-4]
+	\arrow["{\mathrm{Spec}}", from=4-4, to=4-1]
+\end{tikzcd}\]
+
+Firstly we should clarify the isomorphism of polynomial functions and the formal polynomial in certain condition, which allows us to freely use to two objects without confusion.
+\begin{definitionplain}
+    A formal polynomial is a element of the polynomial ring \(k[X_1,\dots,X_n]\) over a field \(k\), while a polynomial function is a function with a formal polynomial expression, i.e. a map
+    \[f: k^n \to k, \quad (x_1,...,x_n) \mapsto \sum_{i=0}^{n}a_i x_i\]
+    and we denote the set of all polynomial functions on \(k^n\) by \(\mathcal{O}(k^n)\).\\
+\end{definitionplain}
+
+It is easy to verify that \(\mathcal{O}(k^n)\) is a \(k\)-algebra type fini, hence by the universal property of polynomial, there exists a unique surjective \(k\)-linear map
+\[\mathrm{ev}:k[X_1,\dots,X_n] \to \mathcal{O}(k^n), \quad X_i \mapsto \pi_i: (x_1,...,x_n) \mapsto x_i\]
+In particular, when \(k\) is an \textbf{infinite field}\textbf{ (verify and find counterexample)}, the map \(\mathrm{ev}\) is also injective, hence it is an isomorphism of \(k\)-algebras, which allows us to abuse the notation of polynomial functions and polynomials.
+
+A classic question in old algebraic geometry is to study the solution of the polynomial equations over some field \(k\), for example the famous Fermat's last theorem is to study the integer solutions of the equation
+\[x^n + y^n = z^n\]
+if we see it as a polynoimial equation over the field \(\qq\). generally, if we have a set of polynoimial equations
+\begin{equation}\label{eq:poly-equations}
+    \begin{cases}
+    f_1(x_1,\dots,x_n) = 0\\
+    f_2(x_1,\dots,x_n) = 0\\
+    \vdots \\
+    f_m(x_1,\dots,x_n) = 0
+    \end{cases}
+\end{equation}
+then it induces a subset of \(k^n\), called algebraic subsets:
+\begin{definitionplain}
+    Let \(k\) be a field, and \(I\) is a ideal (subset) of the polynomial ring \(k[X_1,\dots,X_n]\), then we define the \textbf{algebraic subset} of \(k^n\) defined by \(I\) to be
+    \[V(I) := \{(a_1,\dots,a_n) \in k^n \mid f(a_1,\dots,a_n) = 0, \forall f \in I\}\]
+    it is also called the \textbf{variety} defined by \(I\).\\
+\end{definitionplain}
+
+\begin{remark} \label{varietymakestop}
+    we should remark that the following facts\textbf{(verify!)}: \\
+\[V(S) = V((S)), \quad \text{(S) is the ideal generated by S}\]
+then the common zeros of \(f_1,\dots,f_m\) is just the algebraic subsets defined by the ideal \((f_1,\dots,f_m)\).\\
+
+Moreover, some algebraic facts should be known\textbf{(verify)}:\\
+
+(1) \(V(1) = \emptyset\) and \(V(0) = k^n\) as two trivial cases.\\
+
+(2) \(V(I)\cup V(J) = V(IJ) = V(I \cap J)\) for any two ideals.\\
+
+(3) \(\cap_{k}V(I_k) = V(\sum_k I_k)\) for any index.
+\end{remark}
+
+
+Conversly, for any subset \(V \subset k^n\), we can try to find the largest sets of polynomials vanishing on \(V\), which leads to the definition of \textbf{vanishing ideal}:
+\[I(V) = \{f \in k[X_1,...,X_n] \mid f(a) = 0,  \forall a \in V\}\]
+equivalently, conisder the ideal of polynomial functions, it makes sense to conisder the restriction:
+\[I(V) = \{f \in \mathcal{O}(k^n) \mid f|_V = 0\}\]
+
+
+\begin{remark}
+    Here are some facts:\\
+
+    (1) \(I(k^n) = \{0\}\) and \(I(\emptyset) = k[X_1,...,X_n]\) as two trival case.\\
+
+    (2) vanishing ideal \(I(V)\) is a radical ideal, \textbf{should know}
+    \[\text{maximal ideal} \subset \text{prime ideal} \subset \text{radical ideal}\]
+
+    (3) \textbf{antitone Galois connection:}\\
+
+
+    (4) \(V= V(I(V)) \) for any subset \(V \subset k^n\):\\
+
+    It is clear that \(V \subset V(I(V))\), for avoid confusion of notation in traditional proof, we define a set \(\mathcal{J}=\{I \subset K[X_1,\dots,X_n] \text{ ideal } \mid f|_V = 0, \forall f \in I\}\), then the set is a partial order set under inclusion, it is easy to verify that \(I(V)\) is a maximal element in it, i.e. each chain in \(\mathcal{J}\) will stop at \(V(I(V))\):
+    \[I_1 \subset I_2 \subset \dots \subset I(V)\]
+    then immediately apply \(V(-)\), we can get a decrasing chain of algebraic subsets:
+    \[V \subset V(I(V)) \subset \dots \subset V(I_2) \subset V(I_1)\]
+    \(V(I(V))\) must be the minimal element in the chain, hence \(V(I(V)) = V\).\\
+
+    (5) \(I \subset \sqrt{I} \subset I(V(I))\) for any ideal \(I \subset k[X_1,...,X_n]\):\\
+
+    For example we take \(I = (X^2)\) in \(k[X]\), it is clearly that the common zeros is 0, but the vanising ideal of \(\{0\}\) is \((X)\), strictly larger than \((X^2)\).
+
+\end{remark}
+
+Here we need a strong condition of field such that we can get a correpsondence betwween algebraic subsets and vanishing ideals, which motivates the Hilbert's zero theorem (Nullstellensatz), we review the original statement here:
+\begin{theorem}[1893]
+    Let \(f_1,...,f_m\) be the polynomials of \(\mathcal{O}(\cc^n)\), and \(V\) is the set of common zeros of \(f_1,...,f_m\) in \(\cc^n\), and it is non-empty, then for any other polynomial \(g \in \mathcal{O}(k^n)\)
+    \[g(x) = 0, \forall x \in V \iff g^k \in (f_1,\dots,f_m) \text{ for some } k \in \nn\]
+\end{theorem}
+We will give a general proof later, but firstly we can see how it makes sense. In above we have shown that \(\sqrt{I} \subset I(V(I))\), the other side of inclusion is to ask: when we take a polynomial \(g\) vanishing on \(V(I)\), i.e. the common zeros of some polynomials, what can we say about \(g\)? Clearly, \(I = (f_1,\dots,f_m)\) since we know 
+\[V(\{f_1,\dots,f_m\}) = V((f_1,\dots,f_m))\]
+then the theorem gives the answer when \(k = \cc\), it shows that \(g \in \sqrt{I}\), hence we have
+\[I(V(I)) = \sqrt{I} = I ?\]
+the first equality holds by the theorem, but the second equality holds under the condition that \(I\) is a radical ideal, which shows that the zeros of polynomials has a closed relationship with the radical ideals in certain condition, i.e. algebraic closed fields. Here we give the general statement of zero theorem:
+
+\begin{theorem}[weak Nullstellensatz]
+    Let \(k\) be a field, and \(M\) be a maximal ideal of the polynomial ring \(k[X_1,\dots,X_n]\), then the residue field \(k[X_1,\dots,X_n]/M\) is a \(k\)-algebra of type fini. 
+    
+    In paticular if \(k\) is algebraically closed, then the residue field is isomorphic to \(k\) itself, with \(M \) of the form
+    \[M = (X-a_1,...,X-a_n), \quad (a_1,...,a_n) \in k^n\]
+ \end{theorem}
+\begin{proof}
+    
+\end{proof}
+
+With the weak nullstellensatz, we can give the correspondence we expect:
+\begin{corollary}
+    If \(k\) is algebraically closed, and then\\
+    (1) For any ideals \(I,J \subset K[X_1,\dots,X_n]\), \(V(I) = V(J) \iff \sqrt{I} = \sqrt{J}\).\\
+    (2) application \(I \mapsto V(I)\) and \(V \mapsto I(V)\) induces a bijection
+    \[\{\text{radical ideal of } K[X_1,\dots,X_n]\} \longleftrightarrow \{\text{algebraic variety of } k^n\}\]
+    and
+    \[\{\text{maximal ideal of } K[X_1,\dots,X_n]\} \longleftrightarrow \{\text{one-point variety } of k^n\}\]
+\end{corollary}
+\begin{proof}
+    (1) \(\Leftarrow\) is clear. Conversely, a radical ideal \(I\) can be written as the intersection of some maximal ideals\textbf{(verify)},
+    \[\sqrt{I} = \bigcap_{I \subset \mathfrak{m} } \mathfrak{m}\]
+    then by weak nullstellensatz \(V(\mathfrak{m}) = \{a\}\) for some point of \(k^n\), hence \(I \subset \mathfrak{m}\) if and only if \(a \in V(I)\), i.e.
+    \[\sqrt{I} = \bigcup_{a \in V(I)} \mathfrak{m}_a\]
+    where notice that \(a=(a_1,\dots,a_n) \mapsto (X-a_1,\dots,X-a_n) = \mathfrak{m}_a\) gives a bijection by nullstellensatz. Hence \(V(I) = V(J)\) gives the same radical ideal.\\
+
+    (2) For any algebraic subset \(V \subset k^n\), by definition \(I(V)\) is a radical ideal, and \(V(I(V)) = V\) holds without any condition. Conversely, if \(I = K[X_1,\dots,X_n]\), then \(V(I) = \emptyset\) and \(I(V(I)) = I(\emptyset) = I\). If \(I \subsetneq K[X_1,\dots,X_n]\), then there exits at least one maximal ideal \(\mathfrak{m}\) such that \(I \subset \mathfrak{m}\) by Zorn's lemma, hence \(V(I) \neq \emptyset\), hence we can apply (1) to \(V(I(V(I))) = V(I)\), then \(\sqrt{I(V(I))} = \sqrt{I}\), both are radical ideals, hence we can get the result.
+\end{proof}
+\begin{remark}
+    Actually, we can say more about the original zero theorem, If \(I = (f_1,\dots,f_m)\) forms a proper ideal, then there exists there exists a maximal ideal \(\mathfrak{m}\) containing it, similarly techincs as above shows that there exists a common zeros of \(f_1,\dots,f_m\) in \(k^n\) if \(k\) is algebraically closed. Hence the original zero theorem holds without assumption of non-empty common zeros , generally it is called the \textbf{strong Nullstellensatz}:
+    \[V(I) = \emptyset \iff I = A\]
+    Indeed it reflects the fact about zeros: if a set of polynomials has common zeros if and only if the polynomials forms a proper ideal, i.e. there does not exists some coefficients \(c_i \in k\) such that \[\sum_i c_i f_i = 1\]
+\end{remark}
+
+A immediate question is that how to describe the prime ideals in terms of algebraic variety, it is more meaningful when consider the Zariski topology, here we suppose that \(I(V)\) is a prime ideal of \(K[X_1,\dots,X_n]\), then for any \(f,g \in K[X_1,...,X_n]\),
+\begin{align*}
+    fg \in I(V) &\iff f \in I(V) \text{ or } g \in I(V)\\
+    &\iff V \subset V(f) \text{ or } V \subset V(g)\\
+    &\implies V \subset V(f)\cup V(g)\\
+\end{align*}
+If we want complete above implication, some other condition is needed here.
+\begin{definitionplain}
+    An algebraic subset \(V \subset k^n\) is called \textbf{irreducible} if for any algebraic subsets \(V_1,V_2 \subset k^n\) such that
+    \[V = V_1 \cup V_2\]
+    then \(V = V_1\) or \(V = V_2\).\\
+\end{definitionplain}
+
+The condition is a little like connectness in topology, hence it is more natural to consider a irreducible space in Zariski topology, here we just finish the correspondence via the condition:
+
+\begin{proposition}
+    Let \(k\) be an algebraically closed field, then there exists a bijection
+    \[\{\text{prime ideal of } K[X_1,\dots,X_n]\} \longleftrightarrow \{\text{irreducible algebraic variety of } k^n\}\]
+\end{proposition}
+\begin{proof}
+    Let \(I\) be a prime ideal of \(K[X_1,\dots,X_n]\), then we need to show that \(V(I)\) is irreducible. If \(V(J)\) and \(V(L)\) are two algebraic subsets such that
+    \[V(I) = V(J) \cup V(L) = V(JL)\]
+    then by the correspondence of radical ideals, we have \(\sqrt{I} = \sqrt{JL}\), \(I\) is prime so it is radical, hence \(I = JL\), then by the definition of prime ideal, \(J \subset I\) or \(L \subset I\), hence \(V(I) \subset V(J)\) or \(V(I) \subset V(L)\), which shows that \(V(I)\) is irreducible.\\
+
+    Let \(V\) be an irreducible algebraic subset of \(k^n\), then we need to show that \(I(V)\) is a prime ideal. For any \(f,g \in K[X_1,\dots,X_n]\) such that
+    \[fg \in I(V) \iff V \subset V(fg) = V(f) \cup V(g)\]
+    then by irreducibility of \(V\), we have \(V \subset V(f)\) or \(V \subset V(g)\), hence \(f \in I(V)\) or \(g \in I(V)\), which shows that \(I(V)\) is prime.
+\end{proof}
+
+So far we have built the basic correspondence between variety and ideals, to say something geomtry, we need to consider the topology of the affine space \(k^n\) under the condition of algebraically closed, Review the properties of algebraic varieties in remark \ref{varietymakestop}, we can see that the algebraic varieties naturally defined closed sets of \(k^n\), hence it induces a topology on \(k^n\), and we call it the \textbf{Zariski topology}. Now we will conclude some data of the topological properties:
+
+\begin{enumerate}[(a)]
+    \item It is diffcult to describe the open sets in Zariski topology exactly, but we can define a basis of open sets as following:
+    \[D(f) := k^n \setminus V(f) = \{x \in k^n \mid f(x) \neq 0\}\]
+    for any polynomials \(f \in K[X_1,...,X_n]\), it is called the principal open subset defined by \(f\), and \textbf{the set of all principal open subsets forms a basis of Zariski topology(verify)}. It is easy to verify some properties of principal open subsets:\\
+    (1) \(D(0) = \emptyset\) and \(D(1) = k^n\).\\
+    (2) \(D(f) \cap D(g) = D(fg)\) for any polynomials \(f,g\).\\
+    (3) \(D(f) = \emptyset \iff f\) is nilpotent.\\
+
+    \item When n=1, the Zariski topology on \(k\) is just the cofinite topology: for any finite subset \(F = \{c_1,...,c_n\}\subset k\), we can find that \(f(X) = (X-c_1)\cdots(X-c_n)\) vanishes exactly on \(F\), hence \(V(f) = F\), which shows that any finite subset is closed, and there does not exist a polynomial vanishing at inifinitely many points in \(k[X]\), hence all possible closed sets are
+    \[\mathcal{F} = \{k,\emptyset,\text{finite subsets}\}\]
+    which is exactly the cofinite topology, it is a natural example to understand the Zariski topology. \textbf{Pay attention} that when \(n\geq 2\), the Zariski topology is not the cofinite topology, a example is that 
+    \[V(X_1) = \{(0,a_2,\dots,a_n) \mid a_i \in k\}\]\\
+    it is an infinite closed subset of \(k^n\), hence 
+    \[\text{cofinite topology} < \text{Zariski topology} < \text{Euclidean topology}\]
+    when “<" means “is coarser than".\\
+
+    \item The Zariski topology is a \(T_1\)-space, i.e. any single point is closed. Indeed, and point \(a \in k^n\) can be seen uniquely as a maximal ideal \(\mathfrak{m}_a = (X_1 - a_1,...,X_n - a_n)\) by nullstellensatz.
+    
+    \item The Zariski topology is quasi-compact, i.e. any open cover has a finite subcover. Indeed, let \(\{U_i\}_{i \in I}\) be an open cover of \(k^n\), then by taking complements we have
+\end{enumerate}
+\newpage
+We can do more with the help of nullstellensatz, we condier a non-emprty varitey \(V \subset k^n\), we can consider the quotient ring \(K[X_1,\dots,X_n]/I(V)\), it means we kill all polynomial functions vanishing on \(V\), hence we can view it as the set of polynomial functions on \(V\):
+\begin{definitionplain}
+    Let \(V \subset k^n\) be an algebraic subset, then a function \(f: V \to k\) is called a \textbf{polynomial function} on \(V\) if there exists a polynomial function \(\tilde{f} \in \mathcal{O}(k^n)\) such that \(f = \tilde{f}|_V\). We denote the set of all polynomial functions on \(V\) by \(\mathcal{O}(V)\).\\
+\end{definitionplain}
+
+The restriction induces a natural surjective morphism of \(k\)-algebras
+\[r: \mathcal{O}(k^n) \to \mathcal{O}(V), \quad f \mapsto f|_V\]
+with the kernel \(\ker r = I(V)\), hence by the isomorphism of quotient we have
+\[K[X_1,\dots,K_n]/I(V) \cong \mathcal{O}(k^n)/I(V) \cong \mathcal{O}(V)\]
+and we call \(\mathcal{O}(V)\) the \textbf{coordinate ring} of the variety \(V\), the following corollary reflects the name of "coordinate", it reflects all the information of the variety:
+\begin{proposition}[UPQ-Coordinate ring] $ \\$
+    Let \(V \subset k^n\) be an algebraic subset with \(k\) algebraically closed, then for any \(k\)-algebra \(A\), there exists a natural bijection 
+    \[V \longleftrightarrow \Hom_{k-alg}(\mathcal{O}(V),k)\]
+    by mapping a point \(a \in V\) to the evaluation map \(\mathrm{ev}_a\):
+    \[\mathrm{ev}_a: \mathcal{O}(V) \to k, \quad f \mapsto f(a)\]
+\end{proposition}
+\begin{proof}
+    In particular, if \(V = k^n\), then \(k^n \cong \Hom(\mathcal{O}(k^n),k)\) is just the dual property of polynomial ring.
+\end{proof}
+\begin{remark}
+    In particular, if \(V = \{a\}\) is a single point, then the coordinate ring \(\mathcal{O}(V) \cong k\) itself, and then \textbf{the endomorphism of a \(k\)-algerba is unique}\textbf{(verify!)}, i.e.
+    \[\Hom_{k-alg}(A,A) = \{id\}\]
+    which satisfy the fact here, furthermore we notice that
+    \[\mathcal{O}(k^n)/I(V) \cong \mathcal{O}(V) \cong k\]
+    hence \(I(V)\) must be a maximal ideal, without the assumption of algebraically closed field, we can not get bijection between points and maximal ideals.
+\end{remark}
+
+
+To complete the functoriality, we consider how can we define 
 
 
 

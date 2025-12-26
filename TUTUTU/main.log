@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.12.8)  29 NOV 2025 01:58
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.12.8)  5 DEC 2025 21:03
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1219,4 +1219,441 @@ Package hyperref Info: Link coloring ON on input line 12.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-File: c
+File: cover/tu.jpg Graphic file (type bmp)
+<cover/tu.jpg>
+LaTeX Font Info:    Trying to load font information for U+msa on input line 15.
+ (c:/texlive/2024/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 15.
+ (c:/texlive/2024/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 15.
+ (c:/texlive/2024/texmf-dist/tex/latex/jknapltx/ursfs.fd
+File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
+) [1
+
+
+] (./main.toc)
+\tf@toc=\write5
+\openout5 = `main.toc'.
+
+ [1
+
+]
+Package hyperref Info: bookmark level for unknown lemma defaults to 0 on input line 37.
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--38
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 39--40
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 41--42
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 47--48
+
+ []
+
+[2]
+Underfull \hbox (badness 10000) in paragraph at lines 49--50
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 54--56
+
+ []
+
+[3]
+Package hyperref Info: bookmark level for unknown theorem defaults to 0 on input line 79.
+Package hyperref Info: bookmark level for unknown definition defaults to 0 on input line 95.
+ [4]
+Package hyperref Info: bookmark level for unknown claim defaults to 0 on input line 104.
+Package hyperref Info: bookmark level for unknown remark defaults to 0 on input line 123.
+ [5] [6] [7]
+Underfull \hbox (badness 10000) in paragraph at lines 167--168
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 169--170
+
+ []
+
+Package hyperref Info: bookmark level for unknown proposition defaults to 0 on input line 176.
+
+Underfull \hbox (badness 10000) in paragraph at lines 184--185
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 186--187
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 188--189
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 190--191
+
+ []
+
+[8]
+Package hyperref Info: bookmark level for unknown definitionplain* defaults to 0 on input line 216.
+
+Underfull \hbox (badness 10000) in paragraph at lines 218--219
+
+ []
+
+[9]
+File: graph/nonhausdorff.png Graphic file (type bmp)
+<graph/nonhausdorff.png>
+
+Underfull \hbox (badness 10000) in paragraph at lines 237--238
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 239--240
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 241--242
+
+ []
+
+[10]
+Underfull \hbox (badness 10000) in paragraph at lines 250--251
+
+ []
+
+Package hyperref Info: bookmark level for unknown corollary defaults to 0 on input line 264.
+File: graph/CantorSet.png Graphic file (type bmp)
+<graph/CantorSet.png>
+[11]
+Underfull \hbox (badness 10000) in paragraph at lines 288--289
+
+ []
+
+Package hyperref Info: bookmark level for unknown example defaults to 0 on input line 293.
+
+Underfull \hbox (badness 10000) in paragraph at lines 298--300
+
+ []
+
+[12]
+Underfull \hbox (badness 10000) in paragraph at lines 311--312
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 319--320
+
+ []
+
+[13]
+Underfull \hbox (badness 10000) in paragraph at lines 346--347
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 348--350
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 351--353
+
+ []
+
+[14]
+Underfull \hbox (badness 10000) in paragraph at lines 371--373
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 384--385
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 387--389
+
+ []
+
+[15]
+Underfull \hbox (badness 10000) in paragraph at lines 396--398
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 400--402
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 405--406
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 407--408
+
+ []
+
+[16] [17]
+Underfull \hbox (badness 10000) in paragraph at lines 450--452
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 454--455
+
+ []
+
+[18]
+Underfull \hbox (badness 10000) in paragraph at lines 487--488
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 489--490
+
+ []
+
+[19]
+Underfull \hbox (badness 10000) in paragraph at lines 499--500
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 501--502
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 503--504
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 505--506
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 515--516
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 528--529
+
+ []
+
+[20]
+Underfull \hbox (badness 10000) in paragraph at lines 530--531
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 532--533
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 534--535
+
+ []
+
+[21]
+Underfull \hbox (badness 10000) in paragraph at lines 571--572
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 573--574
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 575--576
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 585--586
+
+ []
+
+[22] [23]
+Package hyperref Info: bookmark level for unknown propositionplain defaults to 0 on input line 639.
+ [24]
+Package hyperref Info: bookmark level for unknown corollaryplain defaults to 0 on input line 671.
+ [25]
+Underfull \hbox (badness 10000) in paragraph at lines 706--708
+
+ []
+
+[26]
+Underfull \hbox (badness 10000) in paragraph at lines 723--724
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 728--730
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 731--732
+
+ []
+
+[27] [28] [29] [30]
+Underfull \hbox (badness 10000) in paragraph at lines 830--832
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 837--839
+
+ []
+
+[31] [32]
+
+Package fontspec Info: Could not resolve font "FangSong/BI" (it probably
+(fontspec)             doesn't exist).
+
+
+Package fontspec Info: Could not resolve font "FangSong/B" (it probably
+(fontspec)             doesn't exist).
+
+
+Package fontspec Info: Could not resolve font "FangSong/I" (it probably
+(fontspec)             doesn't exist).
+
+
+Package fontspec Info: Font family 'FangSong(0)' created for font 'FangSong'
+(fontspec)             with options [Script={CJK}].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->"FangSong/OT:script=hani;language=dflt;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+
+
+Overfull \hbox (175.69937pt too wide) in paragraph at lines 886--888
+[][][][][][][][][][][][][] [] [][][] [] [][][][][][][][][] [] [][][][][][][] [] [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] []
+ []
+
+[33]
+Underfull \hbox (badness 10000) in paragraph at lines 910--915
+
+ []
+
+[34]
+Underfull \hbox (badness 10000) in paragraph at lines 945--948
+
+ []
+
+[35]
+Underfull \hbox (badness 10000) in paragraph at lines 967--968
+
+ []
+
+[36]
+Overfull \hbox (9.87172pt too wide) in paragraph at lines 1005--1007
+\TU/lmr/m/n/12 Terence Tao’s note (ref: [][]$[][][][][] [] [] [] [][][][][][][][] [] [][][][][][][][][] [] [][][] [] [][][][][][][][][][][] [] [][][][][][][] [] [][][][] []
+ []
+
+
+Overfull \hbox (0.98515pt too wide) in paragraph at lines 1005--1007
+[][] [] [][][][][][][][][][][][][] [] [][][] [] [][][] [] [][][][][][] [] [][][][][][][] [] [][][]$[][]\TU/lmr/m/n/12 ). here are some immediate comments: 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1005--1007
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1008--1009
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1011--1013
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1019--1021
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1022--1023
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1024--1025
+
+ []
+
+[37] [38] [39] [40] [41] [42]
+Underfull \hbox (badness 10000) in paragraph at lines 1220--1221
+
+ []
+
+[43] [44]
+Overfull \hbox (13.89754pt too wide) detected at line 1293
+\OT1/cmr/m/n/12 (\OMS/cmsy/m/n/12 ^^@\OT1/cmr/m/n/12 )[] [] []
+ []
+
+[45] [46] [47]
+Underfull \hbox (badness 10000) in paragraph at lines 1384--1387
+
+ []
+
+[48] [49]
+Package hyperref Info: bookmark level for unknown problem defaults to 0 on input line 1419.
+
+Underfull \hbox (badness 10000) in paragraph at lines 1428--1432
+
+ []
+
+[50] [51] (./main.aux)
+ ***********
+LaTeX2e <2023-11-01> patch level 1
+L3 programming layer <2022/08/05>
+ ***********
+Package rerunfilecheck Info: File `main.out' has not changed.
+(rerunfilecheck)             Checksum: 73211A82EF8428EF73A251C2FAACBF21;1624.
+ ) 
+Here is how much of TeX's memory you used:
+ 41393 strings out of 474773
+ 925829 string characters out of 5761289
+ 1940842 words of memory out of 5000000
+ 62820 multiletter control sequences out of 15000+600000
+ 577657 words of font info for 142 fonts, out of 8000000 for 9000
+ 1348 hyphenation exceptions out of 8191
+ 122i,17n,123p,796b,1398s stack positions out of 10000i,1000n,20000p,200000b,200000s
+
+Output written on main.pdf (52 pages).
