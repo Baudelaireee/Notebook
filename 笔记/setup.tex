@@ -52,19 +52,19 @@
 \usepackage{thmtools}
 
 %% define environments
-\declaretheorem[style=plain, name=Theorem, numbered=yes, numberwithin=section]{theoremplain}
-\declaretheorem[style=plain, name=Proposition, numbered=yes, sibling=theoremplain]{propositionplain}
+\declaretheorem[style=definition, name=Theorem, numbered=yes, numberwithin=section]{theoremplain}
+\declaretheorem[style=definition, name=Proposition, numbered=yes, sibling=theoremplain]{propositionplain}
 \declaretheorem[style=plain, name=Corollary, numbered=yes, sibling=theoremplain]{corollaryplain}
 \declaretheorem[style=plain, name=Definition, numbered=yes, sibling=theoremplain]{definitionplain}
 \declaretheorem[style=plain, name=Lemma, numbered=yes, sibling=theoremplain]{lemmaplain}
 \declaretheorem[style=plain, name=Lemma, numbered=no, sibling=theoremplain]{lemmaplain*}
 \declaretheorem[style=plain, name=Definition, numbered=no, sibling=theoremplain]{definitionplain*}
 
-\declaretheorem[style=plain, name=Theorem, numbered=yes, numberwithin=section]{theorem}
-\declaretheorem[style=plain, name=Theorem, numbered=no]{theorem*}
+\declaretheorem[style=definition, name=Theorem, numbered=yes, numberwithin=section]{theorem}
+\declaretheorem[style=definition, name=Theorem, numbered=no]{theorem*}
 
-\declaretheorem[style=plain, name=Proposition, numbered=yes, sibling=theorem]{proposition}
-\declaretheorem[style=plain, name=Proposition, numbered=no]{proposition*}
+\declaretheorem[style=definition, name=Proposition, numbered=yes, sibling=theorem]{proposition}
+\declaretheorem[style=definition, name=Proposition, numbered=no]{proposition*}
 
 \declaretheorem[style=plain, name=Corollary, numbered=yes, sibling=theorem]{corollary}
 \declaretheorem[style=plain, name=Corollary, numbered=no]{corollary*}
@@ -185,7 +185,7 @@
 \newcommand{\spec}{\operatorname{Spec}}
 
 \newcommand{\cat}[3]{%
-  \mathbf{#1} \;\Big|\;
+  {#1} \;\Big|\;
   \begin{array}{l}
     \text{objects: }{#2} \\
     \text{morphisms: }{#3}

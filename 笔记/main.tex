@@ -6,7 +6,7 @@
 \usepackage{tikz-cd} % provide \arrow and tikz-cd environments
 \usetikzlibrary{calc,decorations.pathmorphing}
 
-\title{\LaTeX{} Note Template}
+\title{\LaTeX{} M1 Note}
 \author{X}
 \date{\today}
 
@@ -15,6 +15,7 @@
 
 % \maketitle
 \makecover{cover/R.jpg}
+
 \tableofcontents
 \newpage 
 
@@ -147,6 +148,668 @@ operatio of ideals: a useful techincs to compute the isomorphism.
 \begin{proof}
     If \(a+b \in I\), then \(b = (a+b) - a \in I\), which is a contradiction.
 \end{proof}\
+
+
+
+
+\section{Fundamental group and Covering Space}
+\subsection{Homotopy and \(\pi_1\) functor}
+
+"deforming" is a topological concept, it refers to the process of continously transformation.
+
+\begin{definitionplain}
+    Let \(f,g :X \to Y\) be two continous maps between topological spaces \(X\), we say that \(f\) is \textbf{homotopic} to \(g\) if there exists a continous map \(H:X \times I \to Y\) such that
+    \[H(x,0) = f(x), \quad H(x,1) = g(x)\]
+    and we denote it by \(f \simeq_H g\). 
+    
+    Furthermore, if there exists a subset \(A \subset X\) such that for any \(a \in A\), the homotopy \(H(a,-): I \to Y\) is constant, then we say that \(f\) is \textbf{homotopic relative to A} to \(g\), and we denote it by \(f \simeq_{H,A} g\).
+
+    In particualr, a map \(f:X \to Y\) is (relative) \textbf{nullhomotopic} if it is relative homotopic to a constant map.
+\end{definitionplain}
+
+One point is that realtive homotopy share the most properties with homotopy, the proof is similar, just checking the condition on \(A\). Here are some basic properties of homotopy:
+
+\begin{proposition}
+    Let \(X,Y,Z \in \mathbf{Top}\)\\
+    (1) (relative) homotopy defines \textbf{an equivalence relation} on \(\mathcal{C}(X,Y)\).\\
+
+    homotopy behaves well in composition:\\
+    (2) If \(f,g:X \to Y\) and \(h:Y \to Z\), then (relative) homotopy 
+    \[f \simeq_{H,A} g \implies h\circ f \simeq_{F,A} h \circ g\]
+    with \(F(x,t) = h(H(x,t))\).\\
+    (3) If \(f,g:X \to Y\) and \(h:Z \to X\), then (realtive)homotopy
+    \[f \simeq_{H,A} g \implies f \circ h \simeq_{F,h^{-1}(A)} g \circ h\]
+    with \(F(z,t) = H(h(z),t)\).\\
+    (3) If \(f,g:X \to Y\) and \(f',g':Y \to Z\), then (relative)homotopy
+    \[f \simeq_{H,A} g, \quad  f' \simeq_{H',A'} g' \implies f'\circ f \simeq_{F,A} g' \circ g\]
+    with \[F(x,t) = \begin{cases}
+        f'(H(x,2t)) & t \in [0, \frac{1}{2}] \\
+        H'(g(x),2t-1) & t \in [\frac{1}{2}, 1]
+    \end{cases}\]   
+    The realtive homology holds when \(f(A) \subset A'\) and \(g(A) \subset A'\).
+\end{proposition}
+
+\begin{proof}
+    (1) the proof of reflexive and symmetric property is not difficult, but the proof of transitive properties needs a techinc lemma, which is very impotant in algebraic topology.
+
+    \begin{lemmaplain*}[Gluing Lemma] $ \\$
+        Let \(X\) be a topological spaces with closed subsets \(A\) and \(B\) such that \(X = A \cup B\). If \(f:A \to Y\) and \(g:B \to Y\) are continous maps such that \(f(x) = g(x)\) for all \(x \in A \cap B\), then there exists a unique continous map \(h:X \to Y\) such that \(h|_A = f\) and \(h|_B = g\).
+    \end{lemmaplain*}
+
+    with this lemma we can prove that if \(f \simeq_F g\) and \(g \simeq_H h\), then we can construct a homotopy \(H: X \times I \to Y\)
+    \[H(x,t) = \begin{cases}
+        F(x,2t) & t \in [0, \frac{1}{2}] \\
+        H(x,2t-1) & t \in [\frac{1}{2}, 1]  
+    \end{cases}\]
+    then it finishes the proof. For the realtive case, let \(F(x,-)\) and \(H(x,-)\) be constant for any \(x \in A\), then \(F(x,1) = g(x)\) and \(H(x,0) = g(x)\) show that \(F(x,-) = G(x,-) = H(x,-)\).
+
+    (2)(3)(4) are direct verifications.
+\end{proof}
+
+\begin{remark}
+    Category \(\mathbf{Top}\) is too big and rough that we cannot do more, with above properties, we can define the quotient category
+    \[\cat{\mathbf{hTop}}{\text{topological space } X}{\text{homotopy class } [f] \in \mathcal{C}(X,Y)/\sim}\]
+    similarly if we consider the realtive homotopy, it also defines a quotient category of pair topological sapce \(\mathbf{Top}^2\), where the object is couple \((X,A)\) with \(A \subset X\) as a subspace, and the morphism between \((X,A)\) and \((Y,B)\) is a continous map \(f:X \to Y\) such that \(f(A) \subset B\), i.e. a commutative diagram:
+    % https://q.uiver.app/#q=WzAsNCxbMCwwLCJYIl0sWzIsMCwiWSJdLFsyLDIsIkIiXSxbMCwyLCJBIl0sWzAsMSwiZiJdLFszLDAsImlfQSIsMCx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Imhvb2siLCJzaWRlIjoiYm90dG9tIn19fV0sWzIsMSwiaV9CIiwyLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoiaG9vayIsInNpZGUiOiJib3R0b20ifX19XSxbMywyLCJmfF9BIiwyXV0=
+\begin{tikzcd}
+    X && Y \\
+    \\
+    A && B
+    \arrow["f", from=1-1, to=1-3]
+    \arrow["{i_A}", hook', from=3-1, to=1-1]
+    \arrow["{f|_A}"', from=3-1, to=3-3]
+    \arrow["{i_B}"', hook', from=3-3, to=1-3]
+\end{tikzcd}
+     Then the correspondence quotient category is denoted by
+     \[\cat{\mathbf{hTop}^2}{(X,A) \in \mathbf{Top}^2}{[f] \in \mathcal{C}(X,Y)/\sim_{rel A}}\]
+
+     In above two categories, the composition of morphism is well-defined by the \textbf{composition of homotopy}, i.e. we can define
+     \[[f] \circ [g] := [f \circ g]\]
+     for any \(g:X \to Y\) and \(f:Y \to Z\). And the identity morphism of a object \(X\) is \([id_X]\).
+\end{remark}
+
+In category, we define two objects are isomorphic if there exists two morphisms between them such that their composition is identity morphism, in above two categories, for any two topological spaces \(X \) and \(Y\), they are isomorphic if there exists two classes \([f] \in [X,Y]\) and \([g] \in [Y,X]\) such that
+\[[f] \circ [g] = [id_Y] \quad \text{and} \quad [g] \circ [f] = [id_X]\]
+which isomorphism is very important in algebraic topology, hence it deserves a name:
+\begin{definitionplain}
+    Let \(X\) and \(Y\) be two topological spaces, we say that they are \textbf{homotopy equivalent} if there exists two continous maps \(f:X \to Y\) and \(g:Y \to X\) such that their compoisitions are homotopic to identity maps:
+    \[f \circ g \simeq id_Y \quad \text{and} \quad g \circ f \simeq id_X\]
+\end{definitionplain}
+
+The following object of the section is to define a functor from \(\mathbf{Top}\) to other categories, here we see a simple example to \(\mathbf{Set}\) caetgory, the detail can be found in Rotman's book (GTM 119).
+\begin{definitionplain}
+    \(\pi_0: \mathbf{Top} \to \mathbf{Set}\) is a functor defined as following:\\
+
+    - On objects: for any topological space \(X\), \(\pi_0(X) := X/\sim_c\), where \(\sim_c\) is the equivalence relation defined by path-connectness, i.e. \(X/\sim_c\) is the set of path-connected components of \(X\).\\\
+
+    - On morphisms: for any continous map \(f:X \to Y\), we define
+    \[\pi_0(f): \pi_0(X) \to \pi_0(Y), \quad [x] \mapsto [f(x)]\]
+    which maps a component to another compoent under image, whichi is ensured by the continuity.
+\end{definitionplain}
+
+should pay attention that hoemomorphic condition implies homotopy equivalence, but not vice versa, for example
+\begin{center}
+    \(\sph^1\) and \(\rr^2-\{0\}\) are homotopy equivalent but not homeomorphic.
+\end{center} 
+ Here \(\pi_0\) gives a simple way to distinguish the spaces by counting the number of path-connected components, and we can prove the following proposition:
+\begin{proposition}
+    If \(f,g:X \to Y\) are homotopic, then \(\pi_0(f) = \pi_0(g)\). In particular, If \(X,Y\) are homotopy equivalent, then there exists a bijection between \(\pi_0(X)\) and \(\pi_0(Y)\), i.e. they have same cardinality.
+\end{proposition}
+
+\begin{proof}
+    Let \(H:X \times I \to Y\) be a homotopy from \(f\) to \(g\), for any \(x \in X\), we define a path \(\gamma: I \to Y\) by
+    \[\gamma(t) = H(x,t)\]
+    then \(\gamma(0) = f(x)\) and \(\gamma(1) = g(x)\), hence \(f(x)\) and \(g(x)\) are in the same path-connected component, which implies that \(\pi_0(f)([x]) = [f(x)] = [g(x)] = \pi_0(g)([x])\).
+
+    For the second part, if \(X\) and \(Y\) are homotopy equivalent, then there exists two continous maps \(f:X \to Y\) and \(g:Y \to X\) such that
+    \[f \circ g \simeq id_Y, \quad g \circ f \simeq id_X\]
+    then by the first part we have
+    \[\pi_0(f) \circ \pi_0(g) = \pi_0(f \circ g) = \pi_0(id_Y) = id_{\pi_0(Y)}\]
+    and similarly
+    \[\pi_0(g) \circ \pi_0(f) = id_{\pi_0(X)}\]
+    hence \(\pi_0(f)\) and \(\pi_0(g)\) are bijections between \(\pi_0(X)\) and \(\pi_0(Y)\).
+\end{proof}
+
+This simple construction shows the following concept:\\
+
+(1) If a functor \(F: \mathbf{Top} \to \mathbf{C}\) satisfies that for any two homotopic maps \(f,g:X \to Y\), \(F(f) = F(g)\), then it is called \textbf{homotpic invariant}, then the functor can induce a well-defined functor on \(\mathbf{hTop}\). Here \(\pi_0\) is clearly a homotopic invariant, and we can induce a functor \(\bar{\pi}_0: \mathbf{hTop} \to \mathbf{Set}\) by \(\bar{\pi}_0([f]) = \pi_0(f)\).\\
+
+(2) It often happens that two spaces are not homeomorphic, but they have the similar shape (i.e. homotopy equivalent), usually some topological properties just depends on the the shape of spaces, hence homotopy equivalence will be a good condition to use.\\
+
+(3) Actually \(\pi_0\) is so limited that we can not talk more about the detail of the spaces, one reason is that \(\mathbf{Set}\) is also too rough, we can not get more information from it.\\
+
+From complex analysis and differential geometry, some information can be reflected by loops, i.e. closed paths. for example we consider a such application:
+\[w: C(\cc^*,1) \to \cc, \quad \gamma \mapsto \int_{\gamma}\frac{dz}{z}\]
+where \(C(\cc^*,1)\) denotes the set of closed paths in \(\cc^*\) starting from \(1\), with the basic knowledge we can know that all possible values of \(w\) is of the form \(2\pi i n\) for some integer \(n\). Which requires us to classify all path closed paths in \(\cc^*\), and we can do a very rough partition here without proof, it is very intuitive:
+\[C(\cc^*,1) = \sqcup_{k \in \zz}C_k\]
+where \(C_0\) denotes the set of closed paths which does not enclose the zero, while \(C_k\) for \(k \neq 0\) denotes the set of closed paths which enclose the zero \(k\) times, moreover we make convention that the positive direction is counter-clockwise, hence which allows us to define a winding number for any closed path in \(\cc^*\):
+\[W:C(\cc^*,1)/\sim \to \zz, \quad [\gamma] \mapsto \frac{1}{2 \pi i}\int_{\gamma}\frac{dz}{z} \]
+Furthermore we want to conclude a homomorphism to additive group, because we clearly know that if we concatenate two closed paths \(\gamma_1\) and \(\gamma_2\), then the winding number of the new path is the sum of two original winding numbers:
+\[W([\gamma_1 * \gamma_2]) = W([\gamma_1]) + W([\gamma_2])\]
+hence it gives a group isomorphism. Indeed, the naive patition above is just realtion of homotopy, if we take two homotopy closed path \(\gamma_1,\gamma_2\), then there exists a homotopy \(H\) such that \(\gamma_1 \simeq_{H,\{1\}} \gamma_2\), we can see that
+\[W([\gamma_1])-W([\gamma_2]) = \frac{1}{2\pi i }\int_{\gamma_1 - \gamma_2}\frac{dz}{z} = \frac{1}{2 \pi i }\int_S \frac{dz}{z} = 0\]
+the surface \(S\) is enclosed by \(\gamma_1\) and \(-\gamma_2\), and they will not enclose th zero by homotopy, hence Stoke's theorem (or Cauchy's theorem) shows that the integral is zero since it is a closed form on \(S\). It is a inspiration to the fundamental group theory, and it is a really classic and important example, Hence we should pay our attention to the closed paths of a spaces, and define a group via homotopy.
+
+\begin{definitionplain}
+    For any two path \(f,g:I \to X\) of a topological space with same endpoints, they are \textbf{path homotopic} if they are realtive homotopic with respect to \(\{0,1\}\), i.e. there exists a continous map \(H:I \times I \to X\) such that
+    \[H(s,0) = f(s), \quad H(s,1) = g(s), \quad H(0,t) = f(0) = g(0), \quad H(1,t) = f(1) = g(1)\]
+    for any \(s,t \in I\). 
+\end{definitionplain}
+
+As a special case of realtive homotopy, it defines an equivalence reation on \(\mathcal{C}(I,X)\), i.e. the set of all paths in \(X\). If \(g\) is a path starting from the endpoint of path \(f\), i.e. \(f(1) = g(0)\), we can connect it to get a new path, we can formlize it
+\[(f*g)(t) := \begin{cases}
+    f(2t), &t\in[0,1/2] \\
+    g(2t-1), &t\in[1/2,1]
+\end{cases}\]
+It is the ideal way to define the algebra on the set of path homotopy classes, and in fact it works not bad:
+\begin{proposition}
+    Let \(X\) be a topological space and \(x_0,y_0 \in X\), let \(C(X;x_0,y_0)\) be the set of all paths from \(x_0\) to \(y_0\) and \(\sim \) be the path homotopy relation, then \(C(X;x_0,y_0)/\sim\) forms a groupoid under the operation of concatenation of paths:
+    \[[f]*[g]: = [f*g]\]
+\end{proposition}
+\begin{proof}
+    It needs to check the definition:\\
+    (1) operation is well-defined: if \(f \simeq f'\) and \(g \simeq g'\), then \[[f]*[g] = [f*g] =^? [f'*g'] = [f']*[g']\]
+    (2) associativity: for any three paths \(f,g,h\) with proper endpoints, we can verify that \(([f]*[g])*[h] = [f]*([g]*[h])\) by direct computation.\\
+\end{proof}
+
+In the system, there does not exists a real identity elemnt, but we can actually find right-identity and left-identity. We define two special paths here:
+\[e_{x_0}(t) = x_0 ,\quad e_{y_0}(t) = y_0\]
+for any \(t \in I\), then for any path \(f \in C(X;x_0,y_0)\), we can verify that
+\[[e_{x_0}]*[f] = [f] ,\quad [f]*[e_{y_0}] = [f]\]
+although the two constant paths are exactly not in \(C(X;x_0,y_0)\), in particular when \(x_0 = y_0\), they are the same path, and it is in \(C(X;x_0,x_0)\), hence it will be the identity element of the groupoid, hence we can talk more if we consider about loops(The algebraic reason):
+
+\begin{proposition}
+    Let \(X\) be a topological space and \(x_0 \in X\), let \(C(X;x_0)\) be the set of all loops based at \(x_0\) and \(\sim \) be the path homotopy relation, then \((C(X;x_0)/\sim, *, [e_{x_0}])\) forms a group under the operation of concatenation of paths.
+\end{proposition}
+\begin{proof}
+    Based on the previous proposition, we only need to check:\\
+    (1) \([e_{x_0}]\) is exactly the identity element.\\
+    (2) for any path \(f\), it is natural to reverse the path:
+    \[\bar{f}:I \to X, \quad t \mapsto f(1-t)\]
+    then we can verify that its class is the inverse: \([f]*[\bar{f}] = [e_{x_0}]\)
+\end{proof}
+
+This group is called the \textbf{fundamental group} of \(X\) based at \(x_0\), and it is denoted by \(\pi_1(X,x_0)\), to consider the functoriality here, we consider a special case of pair topogical category
+\[\cat{\mathbf{Top}_*}{\text{topological space with base point }(X,x_0)}{\text{continous map with } f(x_0) = y_0}\]
+Notice that \(f,g:(X,x_0) \to (Y,y_0)\) is homotopy if there exists a continous map \(H:X \times I \to Y\) such that \(f \simeq_{H,\{x_0\}} g\), i.e. relative homotopy with respect to the base point, it is induced by \(\mathbf{hTop}^2\)!
+\begin{definition}
+    \(\pi_1: \mathbf{Top}_* \to \mathbf{Grp}\) is a covariant functor as following:\\
+
+    -on objects: fundamental group \(\pi(X,x_0) = C(X;x_0)/\sim \)\\
+
+    -on morphisms: For any continous map \(f:(X,x_0) \to (Y,y_0)\), we define
+    \[\pi_1(f): \pi_1(X,x_0) \to \pi_1(Y,y_0), \quad [\gamma] \mapsto [f \circ \gamma]\]
+    usually we denote \(\pi_1(f)\) by \(f_*\).
+\end{definition}
+
+Here are some basic properties of fundamental group functor, it can be left to verify:
+\begin{enumerate}
+    \item induce map \(f_*\) is well-defined as a group homomorphism.
+    \item \textbf{functoriality}: for any two continous maps \(f:(X,x_0) \to (Y,y_0)\) and \(g:(Y,y_0) \to (Z,z_0)\), then
+    \[(g \circ f)_* = g_* \circ f_*\]
+    \item Let \(a \in X\) be a based point, and \(X_a\) is the path-connected component of \(X\) containing \(a\), then the inclusion map \(i:X_a \to X\) induces an isomorphism
+    \[i_*: \pi_1(X_a,a) \to \pi_1(X,a)\]
+    \item If \(f:I \to X\) is a path connecting two based points \(x_0\) and \(x_1\), then it induces an isomorphism
+    \[f_{\#}:\pi_1(X,x_0) \to \pi_1(X,x_1), \quad [\gamma] \mapsto [f * \gamma * \bar{f}]\]
+    In particular, if \(X\) is path-connected, then \(\pi_1(X,x_0) \cong \pi_1(X,x_1)\) for any two based points \(x_0,x_1 \in X\).
+    \item product keeps fundamental group: for any two based topological spaces \((X,x_0)\) and \((Y,y_0)\), then
+    \[\pi_1(X \times Y, (x_0,y_0)) \cong \pi_1(X,x_0) \times \pi_1(Y,y_0)\]
+\end{enumerate}
+
+Finally, we conclude the homotopy invariant property of fundamental group functor, it is really important that which allows us to identify the fundamental group of homotopy equivalent spaces.
+\begin{theorem}
+    If \(f,g:(X,x_0) \to (Y,y_0)\) are homotopic continous maps, then \(f_* = g_*\). In particular, if \((X,x_0)\) and \((Y,y_0)\) are homotopy equivalent, then their fundamental groups are isomorphic.
+\end{theorem}
+\begin{proof}
+    Let \(f \simeq_H g\), then for any \([\gamma] \in \pi_1(X,x_0)\), we define a homotopy
+    \[F:I \times I \to Y, \quad (s,t) \mapsto H(\gamma(s),t)\]
+    It is continous by by composition, and \(F(s,0) = f\circ \gamma(s)\) and \(F(s,1) = g \circ \gamma(s)\), moreover \(F(0,t) = H(x_0,t) = y_0\) and \(F(1,t) = H(x_0,t) = y_0\), hence it shows that \(f \circ \gamma \simeq g \circ \gamma\), i.e. \(f_*([\gamma]) = g_*([\gamma])\).
+    For the second part, if \((X,x_0)\) and \((Y,y_0)\) are homotopy equivalent, then there exists two continous maps \(f:(X,x_0) \to (Y,y_0)\) and \(g:(Y,y_0) \to (X,x_0)\) such that
+    \[f \circ g \simeq id_{(Y,y_0)}, \quad g \circ f \simeq id_{(X,x_0)}\]
+    then by the first part and functoriality we have 
+    \[f_* \circ g_* = (f \circ g)_* = (id_{(Y,y_0)})_* = id_{\pi_1(Y,y_0)}\]
+    and similarly \(g_* \circ f_* = id_{\pi_1(X,x_0)}\), QED.
+\end{proof}
+
+\begin{remark}
+    The theorem shows that fundamental group is a homotopy invariant, hence it induces a well-defined functor \(\bar{\pi}_1\) such that the following diagram commutes:
+    % https://q.uiver.app/#q=WzAsMyxbMCwwLCJcXG1hdGhiZntUb3B9XyoiXSxbMCwyLCJcXG1hdGhiZntoVG9wfV8qIl0sWzIsMCwiXFxtYXRoYmZ7R3JwfSJdLFswLDIsIlxccGlfMSJdLFswLDEsIlxcZ2FtbWEiLDJdLFsxLDIsIlxcYmFye1xccGl9XzEiLDIseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XV0=
+\[\begin{tikzcd}
+	{\mathbf{Top}_*} && {\mathbf{Grp}} \\
+	\\
+	{\mathbf{hTop}_*}
+	\arrow["{\pi_1}", from=1-1, to=1-3]
+	\arrow["\gamma"', from=1-1, to=3-1]
+	\arrow["{\bar{\pi}_1}"', dashed, from=3-1, to=1-3]
+\end{tikzcd}\]
+i.e there exists a unique factorization of \(\pi_1\) through \(\mathbf{hTop}_*\), that means functor \(\pi_1\) depends indeed on the homotopy type of spaces, and what we just compress the original category, the construction of fundamental have two steps in general:
+(1) Firstly we forget the specific topological structure of spaces, and just record the shape of spaces and classify them by homotopy equivalence, which gives the homotopy category \(\mathbf{hTop}_*\).\\
+(2) In each homotopy type, we choose a representation to study, and we study them in a certain viewpoint: look at the loops based at a point, actually it will reflect 1-dimensional information of the space, in other words, we forget some other higher-dimensiona information of the space.\\
+\end{remark}
+
+\subsection{Simple cases}
+
+The caculation of fundamental group is not easy in general, and the fundamental group induce a definition of a special coonect space:
+\begin{definitionplain}
+    A topological space \(X\) is \textbf{simply connected} if it is path-connected and its fundamental group is trivial, i.e. for any based point \(x_0 \in X\), \(\pi_1(X,x_0) = \{[e_{x_0}]\}\).
+\end{definitionplain}
+
+In complex analysis, simply connected spaces plays a important role and many good properties holds under this condition, and roughly speaking, simply connected spaces in 2-dimension is just a space without holes. It is easy to prove that \(\rr^n\) is simply connected for any \(n \geq 1\), and more generally, we can conlude that:
+\begin{proposition}
+    Any convex subset \(X\) of \(\rr^n\) is simply connected.
+\end{proposition}
+\begin{proof}
+    For any two points \(x_0,x_1 \in X\), the line segment connecting them is contained in \(X\) by convexity, hence \(X\) is path-connected. For any loop \(\gamma \in C(X;x_0)\), we can define a homotopy
+    \[H:I \times I \to X, \quad (s,t) \mapsto (1-t)\gamma(s) + t x_0\]
+    then clearly \(H(s,0) = \gamma(s)\) and \(H(s,1) = x_0\), moreover \(H(0,t) = x_0\) and \(H(1,t) = x_0\), hence it shows that \(\gamma \simeq_{H,\{0,1\}} e_{x_0}\), which implies that \(\pi_1(X,x_0)\) is trivial.
+\end{proof}
+
+As we have mentioned before, we construct a group isomorphism by winding integration:
+\[C(\cc^*,1)/\sim \cong \zz\]
+under the operation of concatenation, and we prove that same homotopy class implies the same winding number, hence realtion of homotopy is just the subrealtion here, and in fact that this realtion is exactly same with the path homotopy realtion, which means that
+\[\pi_1(\cc^*) = \zz\]
+however, it is not easy to prove that same winding number implies path homotopy, by comparison with specific integration and analysis, homotopy is a more abstract concept, some new ideas and tools are needed. Here we admit the result of fundamental group of \(\cc^*\), and we will see it will be a key to caculate many fundamental groups later.
+
+\begin{claim}
+    \[\pi_1(\sph^1) \cong \zz\]
+\end{claim}
+The reason is that \(\cc^*\) is homotopy equivalent to \(\sph^1\), but more geometrically we realize that the fundamental group depends on the shape of spaces, and \(\sph^{1}\) can viewed as a "smallest" model same as \(\cc^*\), more precisely we define a special case of homotopy equivalent:
+\begin{definitionplain}
+    Let \(X\) be a topological space and \(i:A \hookrightarrow X\) be a embedding map.\\
+    
+    -If there exists a continous map \(r:X \to A\) such that \(r \circ i = id_A\), then \(A\) is called a \textbf{retract} of \(X\), and \(r\) is called a \textbf{retraction}.\\
+
+    -Furthermore if \(i \circ r \simeq id_X\) gives a homotopy, then \(A\) is called a \textbf{deformation retract} of \(X\), and \(r\) is called a \textbf{deformation retraction}.
+\end{definitionplain}
+ By the definition, we can \textbf{verify} that deformation retract is a special case of homotopy equivalent, hence it induces a general isomorphism of fundamental groups:
+ \begin{claim}
+    \[\pi_1(\sph^n) \cong \pi_1(\rr^{n+1}-\{0\}) \]
+ \end{claim}
+ and similarly we can give some other examples:
+ \[\pi(A,a) \cong \zz\]
+ where \(A\) is the annulus \(\{z \in \cc: r<|z|<R\}\) for some \(0<r<R\), and \(a \in A\). Pay attention that \textbf{retract is not necassary deformation retract}, for example the unit circle \(\sph^1\) is a retract of the disk \(D = \{z \in \cc: |z| \leq 1\}\) by the retraction, but they are not same homotopy type since \(\pi_1(D) = \{0\}\) as a convex set.\\
+
+ We should also notice a particular case of deformation retract: the whole space can be contracted to just one point, i.e. the case of \(A = \{\text{pt}\}\), it is indeed possible, for example we consider \(\rr^n\) and define a deformation retraction
+ \[r:\rr^n \to \{0\}, \quad x \mapsto 0\]
+ with the inculsion \(i:\{0\} \to \rr^n\) by \(i(0) = 0\), then we can verify
+ \[r \circ i(0) = 0, \quad i \circ r(x) = 0\]
+ and we can find a homotopy 
+\[H:\rr^n \times I \to \rr^n, \quad (x,t) \mapsto (1-t)x\]
+which satisfies
+\[H(x,0) = x, \quad H(x,1) = 0\]
+hence it shows that \(\rr^n\) is deformation retract to a point, which implies the fundamental group is just the trival group \(\pi_1(\{pt\})\). In general, we can conclude the special spaces:
+\begin{definitionplain}
+    Let \(X\) be a topological space, \(X\) is \textbf{contractible} if it can be deformation retracted to a point, equivalently\textbf{(verify!)}, the identiy map \(id_X\) is nullhomotopic.
+\end{definitionplain}
+
+Pay attention that 
+\begin{center}
+    \textbf{contractible spaces is a special case of simply connected spaces.}
+\end{center}
+It is not true vice versa, a non-trival example is \(\sph^2\) whose fundamental group is trival, but it is not contractible. However, the caculation of fundamental group needs some discussion, what we can do here is just to see how a path in sphere can be contracted to a point, draw some pictures we can know the contious transformation of a loop can be done by passing the pole, it gives us a intuition that the fundamental group is trival.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1.0\textwidth]{cover/sph1.png}
+    \caption{Contract a loop in \(\sph^2\) to a point by passing the pole}
+\end{figure}
+
+To better intepration the idea, we introduce a special construction of contractible space:
+\begin{definitionplain}
+    Let \(X\) be a topological space, the \textbf{cone} of \(X\) is defined by
+    \[C(X) := (X \times I)/(X \times \{1\})\]
+    i.e. we identify all points in \(X \times \{1\}\) to a single point, which is called the \textbf{cone point}. Similarly, the suspension of \(X\) is defined by
+    \[S(X) := (X \times I)/(X \times \{0\},X \times \{1\})\]
+    i.e. we identify all points in \(X \times \{0\}\) to a single point, and all points in \(X \times \{1\}\) to another single point, which are called the \textbf{suspension points}.
+\end{definitionplain}
+
+with this construction, we can identify \(\sph^1\) by homeomorphism
+\[\sph^2 \cong S(\sph^1) \cong C(\sph^1) \sqcup_{\sph^1} C(\sph^1)\]
+the last construction is to glue two copies along the \(\sph^1\), hence the question is reduced to consider when the cone and suspension are contractible
+
+\begin{proposition}
+    For any topological space \(X\),\\
+
+    - The cone \(C(X)\) is contractible.\\
+
+    - If \(X\) is contractible, then the suspension \(S(X)\) is also contractible.
+\end{proposition}
+
+\begin{proof}
+    
+\end{proof}
+
+However, we can not talk more about whether \(\sph^2\) is contractible or not, If \(S(X)\) is contractible, we can not conclude that \(X\) is contractible or not, and the example is very messy, hence it is an ideal way to handle the problem. Anyway, the contractible property of \(\sph^n\) is equivalent to the brouwer fixed-point theorem, and someother important results in topology, it reflects the difficulty of the problem without algebraic topology tools.
+\begin{claim} 
+    \(\sph^n\) is not contractible, in particular \(n \geq 2\)
+    \[\pi_1(\sph^n) \cong \{0\}\]
+\end{claim}
+
+
+\begin{theorem}
+    Let \(f:\sph^1 \to X\) be a continous map, then the following statements are equivalent:\\
+
+    (1) \(f\) is nullhomotopic.\\
+
+    (2) \(f\) can be extended to a continous map \(\tilde{f}:D^2 \to X\) such that \(\tilde{f}|_{\sph^1} = f\).\\
+
+    (3) The induced homomorphism \(f_*:\pi_1(\sph^1) \to \pi_1(X)\) is trivial.
+
+\end{theorem}
+\begin{proof}
+    
+\end{proof}
+
+\begin{remark}
+    It is a techinc and useful result, and generally we can think of fundamental group from the view of \(\sph^1\). For any closed path \(\gamma:I \to X\) with \(\gamma(0) = \gamma(1)\), we can identify it as a map from \(\sph^1\) to \(X\) by the following diagram
+    % https://q.uiver.app/#q=WzAsMyxbMCwwLCJJIl0sWzIsMCwiWCJdLFswLDIsIlxcbWF0aGJie1N9XjEiXSxbMCwxLCJcXGdhbW1hIl0sWzAsMiwiXFxzaW0iLDJdLFsyLDEsIlxcZXhpc3QhZiIsMix7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dXQ==
+\[\begin{tikzcd}
+	I && X \\
+	\\
+	{\mathbb{S}^1}
+	\arrow["\gamma", from=1-1, to=1-3]
+	\arrow["\sim"', from=1-1, to=3-1]
+	\arrow["{f}"', dashed, from=3-1, to=1-3]
+\end{tikzcd}\]
+    Then It makes sense to consider Hom functor \(\Hom_{\mathbf{Top}_*}(\sph^1,-)\) which admits object same with \(C(X;x_0)\), and use the factorization and Yondea lemma we can get clearly the representation of fundamental group functor:
+    \[\pi_1(-) \cong \Hom_{\mathbf{hTop}_*}(\sph^1,-)\]
+    It is the category construction of fundamental group functor, here if we use \(\sph^n\) to replace \(\sph^1\), then we can get the general homotopy group \(\pi_n\).
+
+\end{remark}
+
+\subsection{Van-Kampen Theorem}
+ For a Torus, by classic hoemomorphic we have \(T^2 \cong \sph^1 \times \sph^1\), hence by product property of fundamental group, we have
+ \[\pi_1(T,a) \cong \pi_1(\sph^1,a_1)\times\pi_1(\sph^1,a_2) \cong \zz \times \zz \]
+ for any based point \(a = (a_1,a_2) \in T^2\). Now if we remove a point from the torus, then will the fundamental group change? What's the new fundamental group? To see the homotopy type of \(T^2 - \{pt\}\), we can consider the definition of torus by quotient
+ \[T^2 = [0,1]^2/\sim\]
+ with relation \((0,y) \sim (1,y)\) and \((x,0) \sim (x,1)\) for any \(x,y \in [0,1]\), then we can see that removing a point from the torus is just the quoitent space of the square removing a point inside it
+% https://q.uiver.app/#q=WzAsNCxbMCwwLCJbMCwxXV4yLVxce3BcXH0iXSxbMiwwLCJcXHBhcnRpYWxbMCwxXV4yIl0sWzAsMiwiVF4yLVxce1xcdGV4dHtwdH1cXH0iXSxbMiwyLCJcXHBhcnRpYWxbMCwxXV4yL1xcc2ltIl0sWzAsMSwiciJdLFswLDIsIlxccGkiLDJdLFsxLDMsIlxccGkiXSxbMiwzLCJcXGJhcntyfSIsMix7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dXQ==
+\[\begin{tikzcd}
+	{[0,1]^2-\{p\}} && {\partial[0,1]^2} \\
+	\\
+	{T^2-\{\text{pt}\}} && {\partial[0,1]^2/\sim}
+	\arrow["r", from=1-1, to=1-3]
+	\arrow["\pi"', from=1-1, to=3-1]
+	\arrow["\pi", from=1-3, to=3-3]
+	\arrow["{\bar{r}}"', dashed, from=3-1, to=3-3]
+\end{tikzcd}\]
+
+Here \(r\) is the deformation retraction from the square removing a point to its boundary, and quotient relation \(\sim\) do not affect the deformation by definition, hence the induced map by UPQ-TOP \(\bar{r}\) is exactly a deformation retraction, hence we can conclude the homotopy equivalence.
+
+The object we get is actually a wedge sum of two circles, formally
+\begin{definition}
+    Let \((X,x_0)\) and \((Y,y_0)\) be object of \(\mathbf{Top}_*\), the \textbf{wedge sum} of \(X\) and \(Y\) is defined by
+    \[X \vee Y := (X \sqcup Y)/(x_0 \sim y_0)\]
+    i.e. we glue the two spaces at their base points. and we define the point \([x_0] = [y_0]\) in \(X \vee Y\) as the base point
+
+\end{definition}
+
+From the view of category, wedge sum is just the coproduct in \(\mathbf{Top}_*\), and we (should) know that coproduct in \(\mathbf{Grp}\) is the free product, hence it is natural to guess that the fundamental group of wedge sum is the free product of fundamental groups, and in fact it is true.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{cover/s1vs1.jpeg}
+    \caption{Wedge sum of two circles \(\sph^1 \vee \sph^1\)}
+\end{figure}
+
+let \(A\) and \(B\) be two copies of \(\sph^1\), and consider the wedge sum with the base point at \(w\), and we suppose that \(a\) and \(b\) be two paths based at \(w\) going around \(A\) and \(B\) respectively once (see the figure), then clearly \([a]\) and \([b]\) are the generators of \(\pi_1(A,w)\) and \(\pi_1(B,w)\) respectively, but by conactenation of paths \(a*b\) seems not be homotopic to \(b*a\) (although it is not so clear to see it), hence the fundamental group seems and be generated by \(\langle [a],[b] \rangle\), it is the free product group with rank 2.
+
+\begin{claim}
+    \[\pi_1(\sph^1 \vee \sph^1) \cong \pi_1(\sph^1) * \pi_1(\sph^1) \cong \zz * \zz\]
+\end{claim}
+
+In generally, \(\pi_1\) is not a left-adjoint functor, hence it does not preserve coproudcts, but in some certain case we can see that it does, and in particular preserve push out.
+
+Conversely, we admit the result of fundamental group here, and then we think about the fundamental group of torus in another way, although we have known that \(\pi_1(T^2) \cong \zz \times \zz\). we take small open disc \(U\) in \(T^2\), and set \(D \subsetneq U\) as a smaller closed disc, and then we set \(V = T^2 - D\) to be another open set such that \(U \cap V\) is homotopy equivalent to \(\sph^1\):
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{cover/pi1t2.jpg}
+    \caption{Open cover of \(T^2\) by \(U\) and \(V\)}
+\end{figure}
+
+\(V\) can be seen as a deformation retraction of \(T^2- \{\text{pt}\}\), and U is simplely connected (in view of manifold, it is homeomorphic to \(\rr^2\)), hence we get their fundamental groups by taking a based point \(a \in U\cap V\):
+\[\pi_1(U,a) \cong \{0\}, \quad \pi_1(V,a)\cong \zz * \zz, \quad \pi_1(U \cap V,a) \cong \zz\]
+In the view of topology, \(T^2\) can be viewed as the identification space of \(U\) and \(V\) along their intersection, i.e. we have the following diagram:
+% https://q.uiver.app/#q=WzAsNCxbMCwwLCJVXFxjYXAgViJdLFsyLDAsIlUiXSxbMCwyLCJWIl0sWzIsMiwiVF4yIl0sWzAsMSwiaSJdLFswLDIsImoiLDJdLFsyLDMsInEiLDJdLFsxLDMsInAiXV0=
+\[\begin{tikzcd}
+	{U\cap V} && U \\
+	\\
+	V && {T^2}
+	\arrow["i", from=1-1, to=1-3]
+	\arrow["j"', from=1-1, to=3-1]
+	\arrow["p", from=1-3, to=3-3]
+	\arrow["q"', from=3-1, to=3-3]
+\end{tikzcd}\]
+
+To explictly give the induced maps, we set the generator of \(\pi_1(U \cap V,a) \cong \zz\) to be \([\gamma]\), and the generators of \(\pi_1(V,a) \cong \zz * \zz\) to be \([\alpha]\) and \([\beta]\), then we can prove that induced maps of \(j\) are \(j_*([\gamma]) = [\alpha][\beta][\alpha]^{-1}[\beta]^{-1}\), although it is intuitive to see, but the proof is not trival, we skectch the outline here:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{cover/aba-1b-1.jpg}
+    \caption{the refered paths}
+\end{figure}
+
+(1) Choosing a point \(b\) of the vertex \([0,1]^2\), and let \(\alpha \beta \alpha^{-1} \beta^{-1}\) be a path of \(V\) based at \(b\), then prove \(\gamma\) and \(\alpha \beta \alpha^{-1} \beta^{-1}\) is (free) homotopy in \(V\).
+
+(2) the path connectness ensures to choose a path \(l\) in \(U\) connecting \(a\) and \(b\), and prove that the loop is nullhomotopic in \(V\).
+
+(3) By concatenation, \(\delta \alpha \beta \alpha^{-1} \beta^{-1} \bar{\delta}\) gives a loop based at \(a\), and then prove that it is path homotopic to \(\gamma\) in \(V\), and then we can conclude that 
+\[[\gamma] = [\delta][\alpha \beta \alpha^{-1} \beta^{-1}][\bar{\delta}] = [\alpha \beta \alpha^{-1} \beta^{-1}]\]
+
+By the \textbf{universal property of coproduct (free product of groups)}, \(p_*\) and \(q_*\) induce a unique homomorphism
+\[\varphi: \pi_1(V) * \pi_1(U) \to \pi_1(T^2)\]
+such that \(\varphi \circ k = p_*\) and \(\varphi \circ l = q_*\), where \(k\) and \(l\) are the inclusion maps of \(\pi_1(V)\) and \(\pi_1(U)\) into the free product respectively, and then the functor \(\pi_1\) gives the following commutative diagram:
+% https://q.uiver.app/#q=WzAsNSxbMCwwLCJcXHBpXzEoVVxcY2FwIFYpIl0sWzIsMCwiXFxwaV8xKFVcXGNhcCBWKSJdLFswLDIsIlxccGlfMShWKSJdLFsyLDIsIlxccGlfMShVKSpcXHBpXzEoVikiXSxbMywzLCJcXHBpXzEoVF4yKSJdLFswLDEsImlfKiJdLFswLDIsImpfKiIsMl0sWzIsMywibCIsMl0sWzEsMywiayJdLFsxLDQsInBfKiIsMCx7ImN1cnZlIjotM31dLFsyLDQsInFfKiIsMix7ImN1cnZlIjozfV0sWzMsNCwiXFx2YXJwaGkiXV0=
+\[\begin{tikzcd}
+	{\pi_1(U\cap V)} && {\pi_1(U)} \\
+	\\
+	{\pi_1(V)} && {\pi_1(U)*\pi_1(V)} \\
+	&&& {\pi_1(T^2)}
+	\arrow["{i_*}", from=1-1, to=1-3]
+	\arrow["{j_*}"', from=1-1, to=3-1]
+	\arrow["k", from=1-3, to=3-3]
+	\arrow["{p_*}", curve={height=-18pt}, from=1-3, to=4-4]
+	\arrow["l"', from=3-1, to=3-3]
+	\arrow["{q_*}"', curve={height=18pt}, from=3-1, to=4-4]
+	\arrow["\varphi", from=3-3, to=4-4]
+\end{tikzcd}\]
+
+Then we should analysis \(\varphi\) such that we can get the structure of \(\pi_1(T^2)\). Indeed, \(\pi_1(U \cap V)\) is trival, hence \(k\) and \(p_*\) just \(0 \mapsto 0\), hence we just need to consider \(j_*\) and commute diagram \(\varphi \circ l =q_*\).  Notice that \(\pi_1(V) = \pi_1(U \cap V) = \zz * \zz\), hence \(l = id\) and \(\varphi = q_*\).
+
+Consider inclusion \(q \circ j\), and \(\gamma\) is nullhomotopice in \(T^2\) by embedding, hence \(q_* \circ j_*([\gamma]) = [e_a]\), which implies that
+\[q_*([\alpha][\beta][\alpha]^{-1}[\beta]^{-1}]) = [e_a]\]
+Notice that \(q_*([\alpha])\) and \(q_*([\beta])\) is not trival and generate \(\im q_*\), then \(\im q_*\) must be abelian. \(q_*\) is surjective because any path in \(T^2\) can be countinously deformed to a new path which deoes not pass \(U\), hence by first isomorphism theorem we can conclude that 
+\[\pi_1(T^2) = \langle q_*(\alpha), q_*(\beta) \rangle  /  \langle q_*([\alpha][\beta][\alpha]^{-1}[\beta]^{-1}]) = [e_a] \rangle\]
+actually it is just \(\zz^2\) and can be seen as the pushout of the diagram:
+% https://q.uiver.app/#q=WzAsMyxbMiwwLCJcXG1hdGhiYntafSJdLFswLDAsIlxcezBcXH0iXSxbNCwwLCJcXG1hdGhiYntafSpcXG1hdGhiYntafSJdLFswLDFdLFswLDJdXQ==
+\[\begin{tikzcd}
+	{\{0\}} && {\mathbb{Z}} && {\mathbb{Z}*\mathbb{Z}}
+	\arrow[from=1-3, to=1-1]
+	\arrow[from=1-3, to=1-5]
+\end{tikzcd}\]
+
+\begin{theorem}[Van-Kampen Theorem] $ \\$
+    Let \(X\) be a topological space, \(U\) and \(V\) be two open subsets covering \(X\), if \(U\), \(V\) and \(U \cap V\) is path-connected, then for any \(x_0 \in U \cap V\), we have
+    \[\pi_1(X,x_0) = \pi_1(U,x_0) *_{\pi_1(U \cap V,x_0)} \pi_1(V,x_0)\]
+    i.e. the natural map
+    \[\varphi: \pi_1(U,x_0) * \pi_1(V,x_0) \to \pi_1(X,x_0)\]
+    is surjective with kernel the normal subgroup generated by \(i_*([\gamma])j_*([\gamma])^{-1}\), where \([\gamma]\) are the genertors of \(\pi_1(U \cap V,x_0)\), and \(i_*\) and \(j_*\) are the induced map by inclusion
+    \[i:U\cap V \to U, \quad j:U\cap V \to V\]
+\end{theorem}
+
+\begin{proof}
+    
+\end{proof}
+
+\begin{remark}
+    Consider some speical case of Van-kampen:
+    \begin{enumerate}
+        \item If \(U \cap V\) is just a point, then it is the case of wedge sum, hence
+        \[\pi_1(U\vee V,x_0) \cong \pi_1(U,x_0) * \pi_1(V,x_0)\]
+        with \(x_0\) being the wedge point.
+
+        \item More generally, if \(U \cap V\) is simply connected, then the amalgamation product is just the free product, i.e.
+        \[\pi_1(X,x_0) \cong \pi_1(U,x_0) * \pi_1(V,x_0)\]
+
+        \item If \(U\) is simply connected, then the normal subgroup is only generated by \(j_*([\gamma])\), hence
+        \[\pi_1(X,x_0) \cong \pi_1(V,x_0) / \langle j_*([\gamma]) \rangle\]
+        In above example, torus \(T^2\) is just the case.
+
+
+    \end{enumerate}
+\end{remark}
+
+
+\subsection{Covering Spaces}
+
+In the previous section, we claim that the fundamental group of \(\sph^1\) is \(\zz\), we will prove it in this section.
+\begin{theorem}
+    \(\pi_1(\sph^1) \cong \zz\)
+\end{theorem}
+
+In this example, what we do is to lift the paths of \(\sph^1\) to \(\rr\), and then the paths with the different winding numbers will show the difference and motivates us to conclude the homotopy.
+
+\begin{definitionplain}
+    The covering space of a topological space \(X\) is a topological space \(E\) together with a continnous surjective map \(p:E \to X\) satisfying:\\
+    For any \(x \in X\), there exists an open neighborhood \(U\) of \(x\) such that \(p^{-1}(U)\) is a disjoint union of open sets in \(E\)
+    \[p^{-1}(U) = \sqcup_{i \in I}U_i\]
+    and for each \(U_i\), the restriction \(p|_{U_i}\) gives a homeomorphism from \(U_i\) to \(U\).
+\end{definitionplain}
+
+Usually we use the notation \((E,p)\) or just a map \(p:E \to X\) to denote a covering space, and we call \(E\) the \textbf{covering space} of \(X\) with \textbf{covering map} \(p\). For any \(x \in X\), the preimage \(p^{-1}(\{x\})\) is called the \textbf{fiber} of \(x\), and we denote it by \(F_x\).
+
+The covering space have the following topological property:
+\begin{enumerate}[(a)]
+    \item covering map is open and a local homeomorphism.
+
+    \item If \(Y \subset X\) is a subspace, then the preimage \(p^{-1}(Y)\) gives a covering space of \(Y\) with the covering map \(p|_{p^{-1}}(Y)\).
+    
+    \item \(X\) is Hausdorff if and only if \(E\) is also Hausdorff.
+
+    \item If \(X\) is path-connected, then all fiber have the same cardianlity, hence we can define the \textbf{degree} of covering space as the cardinality of fiber.
+    
+    \item If \(E\) is compact, (path) connected, then \(X\) is also compact, (path) connected.
+\end{enumerate}
+
+Similar with \(\sph^1\), each path in \(X\) can be lifted to a path in \(E\), formally in covering space we define a lifting of a map \(f: Y \to X\) as a map \(\tilde{f}:Y \to E\) such that \(p \circ \tilde{f} = f\):
+% https://q.uiver.app/#q=WzAsMyxbMSwwLCJFIl0sWzAsMSwiWSJdLFsxLDEsIlgiXSxbMSwwLCJcXHRpbGRle2Z9Il0sWzAsMiwicCJdLFsxLDIsImYiLDJdXQ==
+\[\begin{tikzcd}
+	& E \\
+	Y & X
+	\arrow["p", from=1-2, to=2-2]
+	\arrow["{\tilde{f}}", from=2-1, to=1-2]
+	\arrow["f"', from=2-1, to=2-2]
+\end{tikzcd}\]
+Then we can conclude the a general lifting property for covering spaces, they are always be seen as a universal properties.
+\begin{proposition}[lifting criterion]$ \\$
+    Let \(p:E \to X\) be a covering space, \(Y\) is a path-connected and locally path-connected topological space, and \(p(e_0) = x_0\). Then for any continous map \(f:(Y, y_0) \to (X,x_0)\), the \textbf{unique lifting} \(\tilde{f}:(Y,y_0) \to (E,e_0)\) exists if and only if
+    \[f_*(\pi_1(Y,y_0)) \subseteq p_*(\pi_1(E,e_0))\]
+\end{proposition}
+\begin{proof}
+    
+\end{proof}
+
+\begin{remark}
+    This proposition shows that in the certain case, the lifting map to the covering space is unique up to fibre of the based point, and this criterion covers many case of lifting:
+    \begin{enumerate}
+        \item In particular, if \(Y=[0,1]\) (or generally simply connected space), then the lifting always exists and is unique, and it is the lifting of paths:
+        % https://q.uiver.app/#q=WzAsMyxbMSwxLCJYIl0sWzAsMSwiSSJdLFsxLDAsIkUiXSxbMSwyLCJcXHRpbGRle1xcZ2FtbWF9Il0sWzEsMCwiXFxnYW1tYSIsMl0sWzIsMCwicCJdXQ==
+\[\begin{tikzcd}
+	& E \\
+	I & X
+	\arrow["p", from=1-2, to=2-2]
+	\arrow["{\tilde{\gamma}}", from=2-1, to=1-2]
+	\arrow["\gamma"', from=2-1, to=2-2]
+\end{tikzcd}\]
+        For any path \(\gamma: I \to X\) with \(\gamma(0) = x_0\), there exists a unique lifting path \(\tilde{\gamma}: I \to E\) such that \(\tilde{\gamma}(0) = e_0\)
+       
+        \item If \(Y= I \times I\), then we can consider the lifting of path-homotopy, For any homotopy \(H: I \times I \to X\) with \(H(-,0) = f\), if \(\tilde{f}\) is a lifting of \(f\), there exists a unique lifting homotopy \(\tilde{H}: I \times I \to E\) such that \(\tilde{H}(-,0) = \tilde{f}\).
+        
+        \item If \(Y\) is path-connected and locally path-connected, and then we can consider the general lifting of homotopy, For any homotopy \(H: Y \times I \to X\) with \(H(-,0) = f\), if \(\tilde{f}\) is a lifting of \(f\), there exists a unique lifting homotopy \(\tilde{H}: Y \times I \to E\) such that \(\tilde{H}(-,0) = \tilde{f}\)
+            % https://q.uiver.app/#q=WzAsNCxbMCwwLCJZIl0sWzIsMCwiRSJdLFsyLDIsIlgiXSxbMCwyLCJZXFx0aW1lcyBJIl0sWzAsMywiaSIsMl0sWzMsMiwiRiIsMl0sWzEsMiwicCJdLFszLDEsIlxcdGlsZGV7Rn0iLDAseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbMCwxLCJcXHRpbGRle2Z9IiwwLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV1d
+\[\begin{tikzcd}
+	Y && E \\
+	\\
+	{Y\times I} && X
+	\arrow["{\tilde{f}}", dashed, from=1-1, to=1-3]
+	\arrow["i"', from=1-1, to=3-1]
+	\arrow["p", from=1-3, to=3-3]
+	\arrow["{\tilde{H}}", dashed, from=3-1, to=1-3]
+	\arrow["H"', from=3-1, to=3-3]
+\end{tikzcd}\]
+    The remark 2 is the special case of 3, the proof is not diffcult: set \(f(y_0) = x_0\) and fibre \(p(e_0) = x_0\), then homotopy \(H(y_0,0) = f(y_0) = x_0\), then there exists a unique lifting \(\tilde{H}\) with \(\tilde{H}(y_0,0) = \tilde{f}(y_0)\ = e_0\), then we need to verify that \(\tilde{H(-,0)} = \tilde{f}\) exactly, indeed \(\tilde{H(-,0)}:Y \to E\) is a lifting of \(H(-,0) = f\), hence by the uniqueness of lifting we can conclude the result.
+    \end{enumerate}
+\end{remark}
+
+\begin{corollary}
+    Let \(p:E \to X\) be a covering space with \(p(e_0) = x_0\), and \(\gamma\) and \(\gamma'\) be two paths in \(X\) staring at \(x_0\), if they are path homotopic, then their unique liftings at \(e_0\) has the same endpoint and are path homotopic.
+\end{corollary}
+\begin{proof}
+    
+\end{proof}
+
+In particular, if \(\gamma\) is a loop based at \(x_0\), then its lifting \(\tilde{\gamma}\) must end at the fiber of \(x_0\), it is ensured by \(p \circ \tilde{\gamma} = \gamma\). Hence if we consider two homotopic loops based at \(x_0\), then their liftings at \(e_0\) must end at the same fiber point, and hence we can get a natural map
+\[\phi_{e_0}: \pi_1(X,x_0) \to F_{x_0}, \quad [\gamma] \mapsto \tilde{\gamma}(1)\]
+where \(\tilde{\gamma}\) is the unique lifting of \(\gamma\) strating at \(e_0\), and we call it the \textbf{lifting correspondece} at \(e_0\). Should pay attention that this map just depends on the point of fiber, and hence if we fix a homotopy class of loops \(\gamma\) based at \(x_0\), then we can get a natural endomorphism in the sense of \(\mathbf{Set}\)
+\[T_{[\gamma]}: F_{x_0} \to F_{x_0}, \quad e_0 \mapsto \phi_{e_0}([\gamma])\]
+It motivates us to consider the group action of \(\pi_1(X,x_0)\) on the fiber \(F_{x_0}\).
+
+\begin{theorem}
+    Let \(p:E \to X\) be a covering space with \(x_0 \in X\), then the right action \(\pi_1(X,x_0) \circlearrowright F_{x_0}\) defined by
+    \[e_0 \cdot [\gamma] := \phi_{e_0}(\gamma) = \tilde{\gamma}(1)\]
+    is well-defined, and for any \(e_0 \in F_{x_0}\) the orbit of \(e_0\) is exactly the image of lifting correspondece \(\phi_{e_0}\):
+    \[\mathrm{Or}(e_0) = \mathrm{Im}(\phi_{e_0})\]
+    then we have the following conclusions:\\
+
+    - If covering space is path-connected, then the action is transitive.\\
+
+    - If covering space is simply connected, then the action is free and transitive.
+\end{theorem}
+\begin{proof}
+    The outline of the proof is here:\\
+
+    (1)By the definition of group action, we just need to verify that for any class \([\gamma]\), endomorphism \(T_{[\gamma]}\) is bijective, to prove that we just need to prove
+    \[T_[\gamma]^{-1} = T_[\bar{\gamma}] \]
+
+    (2) Next, check the definition of orbit, then the proof of transtive is equivalent to the proof that lifting correspondence is surjective.
+
+    (3) Finally, the freeness is equivalent to the injectivity of lifting correspondence.
+\end{proof}
+
+\textbf{Lifting correspondence gives a new proof of \(\pi_1(\sph^1) \cong \zz\):}
+\begin{proof}
+    \(p:\rr \to \sph^1,\quad t \mapsto e^{2\pi i t}\) is a covering map, and we set the base point \(x_0 = 1\), and then we can get the fiber is \(F_{x_0} = \zz\). The real line is simplement connected, hence the lifting correspondece at \(0\) is a bijection
+    \[\phi: \pi_1(\sph^1,1) \to \zz, \quad [\gamma] \mapsto \tilde{\gamma}(1)\]
+    and we prove that it is a homomorphism to additive group \(\zz\), then we can conclude the isomorphism. Indeed, let \(\gamma\) and \(\delta\) be two loops based at \(1\), and their liftings at \(0 \in \rr\) are \(\tilde{\gamma}\) and \(\tilde{\delta}\) respectively, and we set \(\tilde{\gamma}(1) = m\) and \(\tilde{\delta}(1) = n\). Notice the peridoic
+    \[p(x+n)  = x\]
+    hence we set a new path of \(\rr\) by \(f(t) = m + \tilde{\delta}(t)\), then \(f(0) = \tilde{\gamma}(1)\) allows us to get conactenation \(\tilde{\gamma} * f\), and then we can verify that
+    \[\tilde{\gamma}*f(0) = 0, \quad p(\tilde{\gamma}*f) = \gamma * \delta\]
+    hence \(\tilde{\gamma}*f\) is the unique lifting of \(\gamma * \delta\) at \(0\), and then we have
+    \[\phi([\gamma*\delta]) = \tilde{\gamma}*f(1) = m+n = \phi([\gamma])+ \phi([\delta])\]
+
+\end{proof}
+
+
+
+
+
+
+
+
+The fundamental group of covering space has a deep relation with the fundamental group of base space, and in many case we can find that the fundamental group of covering space is easier to comput.
+\begin{proposition}
+    Let \(p:E \to X\) be a covering space with \(p(e_0) = x_0\), then the covering map \(p\) induces an \textbf{injective} homomorphism
+    \[p_*: \pi_1(E,e_0) \to \pi_1(X,x_0), \quad [\gamma] \mapsto [p \circ \gamma]\]
+\end{proposition}
+\begin{proof}
+    Let \(\delta = p \circ \gamma\) for some loop \(\gamma \) based at \(e_0\), then \(\delta(1) = \delta(0) = x_0\) shows that \(\gamma\) is the lifting of \(\delta\). And we set \(\delta'  = p \circ \gamma\), if \([\delta] = [\delta']\) in \(\pi_1(X,x_0)\), then there exists a path homotopy \(\delta \simeq_H \delta'\), notice that \(H(-,0) = \delta\) has a lifting \(\gamma\) and \(H(-,1) = \delta'\) has a lifting \(\gamma'\), so there exists a unique lifting homotopy \(\tilde{H}\) such that \(\tilde{H}(-,0) = \gamma\) and \(\tilde{H}(-,1) = \gamma'\), hence \([\gamma] = [\gamma']\) in \(\pi_1(E,e_0)\), which implies the injectivity of \(p_*\).
+\end{proof}
+
+we can define a group action 
+
+
+
+
+
+
 
 \newpage
 
@@ -463,51 +1126,95 @@ Hence we can pay attention to the form of the integration, and then we can a for
 which is called \textbf{Mellin transformation} of the function \(f\), and we usually denote it by \(\mathcal{M}[f;z]\).
 
 
+\subsection{Gamma function}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-\newpage
-
-\section{Ideal}
-Ideal is something like normal subgroups in group theory, it is important to reflect the structure and relationship of rings. Here is the definition:
+As we have mentioned above, the gamma function is defined by two equivalent forms, this section is to study the specific properties of gamma function.
 \begin{definition}
-    Let \(R\) be a commutative ring, a subset \(I \subset R\) is called a ideal of \(R\) if the following conditions are satisfied:\\
-    (1) \(I\) is an additive subgroup of \(R\), that is for any \(a,b \in I\), we have \(a-b \in I\).\\
-    (2) For any \(r \in R\) and any \(a \in I\), we have \(ra \in I\) and \(ar \in I\).
+    Let \(\gamma\) be the Euler constant, \(z \in \cc-\zz_{-}\)\\
+
+    -infinite product definition: 
+    \[\Gamma(z) = \frac{1}{ze^{\gamma z} \prod_{n \geq 1}(1+\frac{z}{n})e^{-z/n}}\]
+
+    -integral definition:
+    \[\Gamma(z) = \int_0^{\infty} t^{z-1}e^{-t} dt\]
+    as the mellin transformation of \(f(t) = e^{-t}\).
 \end{definition}
 
+The Gamma function is a \textbf{meromorphic} function on \(\cc\) with poles at all \(\zz_{-} =\{0,-1,-2,\dots\} \), and its residues are
+\[\mathrm{Res}(\Gamma,-n) = \frac{(-1)^n}{n!}, \quad -n \in \zz_{-}\]
+The existence of poles is clear by the infinite product, but the calculation of residues is not clear, it depends on the functional equation to give a simple proof.
+
+\begin{proposition}
+    For any \(z \in \cc - \zz_{-}\)
+    \[\Gamma(z+1) = z\Gamma(z)\]
+    In particular, for any \(n \in \nn\), \(\Gamma(n+1) = n!\).
+\end{proposition}
+
+\begin{proof}
+    
+\end{proof}
+
 \begin{remark}
-    Here is something to add as the properties, proof is not diffcult:\\
-
-    (1) Ideal \(I \subset R\) can be seen as an \(R\)-submodule of \(R\), roughly speaking, it can be seen as a "vector subspace". (The union of ideals is not necassary an ideal)\\
-
-    (2) An ideal generated by a subset \(S \subset R\) is defined by 
-    \[\langle S \rangle := \bigcap_{I \text{ ideal}, S \subset I} I\]
-    it is the smallest ideal containing \(S\), and we can verify that
-    \[\langle S \rangle = \{\sum_{\text{finite}} r_i s_i \mid r_i \in R, s_i \in S\}\]
-    In particular, a \textbf{principal ideal} is an ideal of the form \((a) = \langle \{a\} \rangle\), i.e a ideal generated by a single element (or it is a cyclic \(R\)-module).\\
-
-    (3) A useful statement: If a unit \(r \in I\), then \(I = R\).\\
-
-    (4) The operation of ideal: \(IJ \subset I\cap J \subset I \subset \langle I\cup J \rangle\)
+    With the formula, we can verify the residues at poles easily. For any \(-n \in \zz_{-}\) and \(\Re(z) >-n-1\)
+    \[\Gamma(z)(z+n) = \frac{\Gamma(z+n+1)}{z(z+1)\cdots(z+n-1)}\]
+    by the functional equation, hence calculate the limit of right term at \(-n\), we can get the residue at \(-n\).
 \end{remark}
+
+
+Guass integration is one of the most famous integration 
+\[I = \int_{0}^{\infty}e^{-x^2} dx \]
+we can set \(x^2=t\), then subsitute 
+\[I = \frac{1}{2} \int_{0}^{\infty} t^{-1/2}e^{-t} dt = \frac{\Gamma(1/2)}{2} \]
+hence the gamma function can give the integration result, which motivates the following functional equation:
+\begin{proposition}
+    For any \(z \in \cc - \zz_{-}\)
+    \[\Gamma(z)\Gamma(1-z) = \frac{\pi}{\sin(\pi z)}\]
+    In particular, \(\Gamma(1/2) = \sqrt{\pi}\).
+\end{proposition}
+\begin{proof}
+    
+\end{proof}
+\begin{proposition}[Legendre's Formula]
+    For any \(z \notin \zz_{-1}\cap(\zz_{-1}-\frac{1}{2})\)
+    \[\Gamma(z)\Gamma(z+\frac{1}{2}) = 2^{1-2z}\sqrt{\pi}\Gamma(2z)\]
+    In particular for any \(n \in \nn\)
+    \[\Gamma(n+\frac{1}{2}) = \frac{(2n)!}{4^n n!}\sqrt{\pi}\]
+\end{proposition}
+\begin{proof}
+    
+\end{proof}
+
+In many case, we need to study the asymptotic behavior of gamma function when \(z \rightarrow \infty\), and gamma function has a deep relation with factoria, a useful equivalent formula help us to do that:
+\begin{proposition}[Euler-Gauss's Formula]
+    For any \(z \in \cc - \zz_{-}\)
+    \[\Gamma(z) = \lim_{n \to \infty} \frac{n! n^z}{z(z+1)(z+2)\cdots(z+n)}\]
+    In particular, we have the asymptotic formula:
+    \[\Gamma(z+n+1) \sim_{n \rightarrow \infty} n!n^z\]
+\end{proposition}
+
+\subsection{Zeta function}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 \newpage
 
-\section{Module}
+\section{Commutative Algebra}
 
-\subsection{Generaltisation and Universal Properties}
+\subsection{Modules}
 
 \begin{definitionplain}
     Let \(R\) be a ring, an \(R\)-module \(M\) is an abelian group \((M,+)\) together with an operation of \(R\) on \(M\):
@@ -641,9 +1348,9 @@ Here we just need to verify that \(\ker(\pi_P \circ i) = N\cap P\) and \(pi_P \c
 	\arrow["{\exists! f }"', dashed, from=3-1, to=1-3]
 \end{tikzcd}\]
 \end{proof}
-where \(\bar{\pi}_P\) is induced by the natural quotient map \(\pi_P: M \to M/P\). We just need to verify that \(\ker \bar{\pi}_P = P/N\) and \(\bar{\pi}_P\) is surjective, then by (1) we can get the isomorphism.
+where \(\bar{\pi}_P\) is induced by the natural quotient map \(\pi_P: M \to M/P\). We just need to verify that \(\ker \bar{\pi}_P = P/N\) and \(\bar{\pi}_P\) is surjective, then by (1) we can get the isomorphism.\\
 
-\subsection{Finite generated module}
+
 Like vector spaces, we also hope to find some elemnts to generate the whole module, here is some vacabulary:
 \begin{definitionplain}
     Let \(M\) be a \(R\)-module, let \((m_i)_{i \in I}\) be a family of elements in \(M\), then:\\
@@ -1013,7 +1720,7 @@ Hence we can generalize the statement of the generating set and basis by the lan
     \begin{proof}
     \end{proof}
 
-    \subsection{Construction of polynomial and series}
+    \subsection{Polynomial and Series}
     As we know that a polynomial can be defined as following:
     \[\zz[X] = \{a_nx^n+\dots+ a_1x + a_0 \mid a_i \in \zz\}\]
     It is clearly a free \( \zz \)-module with basis \(\{x^n \mid n \in \nn\}\), that means \(\zz^{(\nn)} \cong \zz[X]\) as modules. Moreover, we notice that the polynomial is furthermore a ring, so it is a \(\zz\)-algebra, hence the operations should be extended here to generalize the definition of polynomial ring.
@@ -1210,9 +1917,32 @@ The tensor product of two module is a larger module containg both information of
 
 
 
-    \newpage
+\newpage
+
+\subsection{Ideal}
+Ideal is something like normal subgroups in group theory, it is important to reflect the structure and relationship of rings. Here is the definition:
+\begin{definition}
+    Let \(R\) be a commutative ring, a subset \(I \subset R\) is called a ideal of \(R\) if the following conditions are satisfied:\\
+    (1) \(I\) is an additive subgroup of \(R\), that is for any \(a,b \in I\), we have \(a-b \in I\).\\
+    (2) For any \(r \in R\) and any \(a \in I\), we have \(ra \in I\) and \(ar \in I\).
+\end{definition}
+\begin{remark}
+    Here is something to add as the properties, proof is not diffcult:\\
+
+    (1) Ideal \(I \subset R\) can be seen as an \(R\)-submodule of \(R\), roughly speaking, it can be seen as a "vector subspace". (The union of ideals is not necassary an ideal)\\
+
+    (2) An ideal generated by a subset \(S \subset R\) is defined by 
+    \[\langle S \rangle := \bigcap_{I \text{ ideal}, S \subset I} I\]
+    it is the smallest ideal containing \(S\), and we can verify that
+    \[\langle S \rangle = \{\sum_{\text{finite}} r_i s_i \mid r_i \in R, s_i \in S\}\]
+    In particular, a \textbf{principal ideal} is an ideal of the form \((a) = \langle \{a\} \rangle\), i.e a ideal generated by a single element (or it is a cyclic \(R\)-module).\\
+
+    (3) A useful statement: If a unit \(r \in I\), then \(I = R\).\\
+
+    (4) The operation of ideal: \(IJ \subset I\cap J \subset I \subset \langle I\cup J \rangle\)
+\end{remark}
     
-\section{Commutative Ring}
+
 \subsection{Noetherian ring}
 \begin{theorem}[Hilbert's Basis Theorem]
     If \(A\) is a Noetherian ring, then the polynomial ring \(A[X]\) is also Noetherian.
@@ -1684,9 +2414,14 @@ So far we have built the basic correspondence between variety and ideals, to say
     \[\text{cofinite topology} < \text{Zariski topology} < \text{Euclidean topology}\]
     when “<" means “is coarser than".\\
 
-    \item The Zariski topology is a \(T_1\)-space, i.e. any single point is closed. Indeed, and point \(a \in k^n\) can be seen uniquely as a maximal ideal \(\mathfrak{m}_a = (X_1 - a_1,...,X_n - a_n)\) by nullstellensatz.
+    \item\textbf{ The Zariski topology is a \(T_1\)-space}, i.e. any single point is closed. Indeed, and point \(a \in k^n\) can be seen uniquely as a maximal ideal \(\mathfrak{m}_a = (X_1 - a_1,...,X_n - a_n)\) by nullstellensatz. Howerver, \textbf{the Zariski topology is not \(T_2\) (Hausdorff)}, consider any two points \(a,b \in k^n\), and two non-empty set principal open subsets \(D(f), D(g)\) containing them respectively, then
+    \[D(f) \cap D(g) = \emptyset \iff D(fg) = \emptyset\]
+    which implies that \(fg\) is nilpotent, then \(f\) or \(g\) is nilpotent,
+    which contradicts the assumption that \(D(f),D(g)\) are non-empty. Hence any two non-empty open subsets of Zariski topology always intersect, which shows that it is not Hausdorff.\\
     
-    \item The Zariski topology is quasi-compact, i.e. any open cover has a finite subcover. Indeed, let \(\{U_i\}_{i \in I}\) be an open cover of \(k^n\), then by taking complements we have
+    \item \textbf{The Zariski topology is quasi-compact}, i.e. any open cover has a finite subcover( easy to verify).
+    
+    \item \textbf{The Zariski topology is connected}: Suppose that \(k^n = U \cup V\) are two non-empty disjoint open subsets, then the open basis allows to choose non-empty open sets \(D(f)\) and \(D(g)\) such that \(D(f)\cap D(g)\), then disjoint condition shows that \(D(fg) = \emptyset\), hence \(fg\) is nilpotent, then \(D(f) =\emptyset\) or \(D(g) = \emptyset\), which leads to contradiction.
 \end{enumerate}
 \newpage
 We can do more with the help of nullstellensatz, we condier a non-emprty varitey \(V \subset k^n\), we can consider the quotient ring \(K[X_1,\dots,X_n]/I(V)\), it means we kill all polynomial functions vanishing on \(V\), hence we can view it as the set of polynomial functions on \(V\):
@@ -1716,8 +2451,52 @@ and we call \(\mathcal{O}(V)\) the \textbf{coordinate ring} of the variety \(V\)
     hence \(I(V)\) must be a maximal ideal, without the assumption of algebraically closed field, we can not get bijection between points and maximal ideals.
 \end{remark}
 
+We should notice that the coordinate ring actually reflects the geometric information of variety in the way of algebra, for example we condiser two algebraic subsets
+\[V_1 = \{(x,0) \in k^2 \mid x \in k\} \quad V_2 = \{(x,x,x) \in k^3 \mid x\in k\}\]
+clearly that they are all strignt lines in affine spaces with different dimensions, and we can calculate their coordiate rings:
+\[\mathcal{O}(V_1) \cong k[X,Y]/(Y) \cong k[X], \quad \mathcal{O}(V_2) \cong k[X,Y,Z]/(X-Y,Y-Z) \cong k[X]\]
+hence the coordiante rings reflects the the functoriality of \(\mathcal{O}\), from a geometric object to an algebraic object. To complete the functoriality of morphism, we naturally define the morphism between varieties:
+\begin{definitionplain}
+    Let \(V \subset k^n\) and \(W \subset k^m\) be two algebraic subsets, then a map \(\varphi: V \to W\) is called a \textbf{polynomials} if it is a restriction of a polynomials map \(k^n \to k^m\)
+    \[(x_1,\dots,x_n) \mapsto (f_1(x_1,\dots,x_n),\dots,f_m(x_1,\dots,x_n))\]
+    where \(f_i \in \mathcal{O}(k^n)\).
+\end{definitionplain}
 
-To complete the functoriality, we consider how can we define 
+Indeed such a map is continous under Zariski topology \textbf{(verify!)}, which allows us to construct a sub-category of \(\mathbf{Top}\), called t\textbf{he category of affine algebraic varieties over \(k\)}:
+\[\cat{\mathbf{Aff}_k}{\text{algebraic variety } V \subset k^n}{\text{polynomial functions } f: V\subset k^n \to W \subset k^m}\]
+
+with this definition, then as a functor \(\mathcal{O}\) maps each object to a coordinate ring, exactly a \(k\)-algebra of type fini, here we denote it by \(\mathbf{Alg}_k^{\text{fini}}\).\\
+
+On the level of morphisms, each polynoimial function \(\varphi:k^n \to k^m\) induces a morphism of \(k\)-algebra like dual map:
+\[\varphi^*: \mathcal{O}(k^m) \to \mathcal{O}(k^n), \quad f \mapsto f\circ \varphi \]
+hence furthermore let \(\varphi|V:V \to W\) be the restriction, then it induces a morphism of coordiante rings by quoitent:
+% https://q.uiver.app/#q=WzAsNCxbMCwwLCJcXG1hdGhjYWx7T30oa15tKSJdLFsyLDAsIlxcbWF0aGNhbHtPfShrXm4pIl0sWzAsMiwiXFxtYXRoY2Fse099KFcpIl0sWzIsMiwiXFxtYXRoY2Fse099KFYpIl0sWzAsMSwiXFx2YXJwaGleKiJdLFswLDIsIlxccGlfVyIsMl0sWzEsMywiXFxwaV9WIl0sWzIsMywiIiwyLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV1d
+\[\begin{tikzcd}
+	{\mathcal{O}(k^m)} && {\mathcal{O}(k^n)} \\
+	\\
+	{\mathcal{O}(W)} && {\mathcal{O}(V)}
+	\arrow["{\varphi^*}", from=1-1, to=1-3]
+	\arrow["{\pi_W}"', from=1-1, to=3-1]
+	\arrow["{\pi_V}", from=1-3, to=3-3]
+	\arrow[dashed, from=3-1, to=3-3]
+\end{tikzcd}\]
+It is easy to check:
+\begin{align*}
+    \varphi^*(f) \in I(V) &\iff f \circ \varphi \in I(V) \\
+    &\iff f(\varphi(a)) = 0, \forall a \in V\\
+    &\iff f(b) = 0, \forall b \in W \quad\\
+    &\iff f \in I(W)
+\end{align*}
+hence it induces a unique morphism of \(k\)-algebras
+\[\varphi^*: \mathcal{O}(W) \to \mathcal{O}(V), \quad f+I(W) \mapsto f \circ \varphi + I(V)\]
+
+Hence we finish the consturction of functor completely
+\[\mathcal{O}: \mathbf{Aff}_k \to \mathbf{Alg}_k^{\text{fini}}\]
+without the assumption that \(k\) is algebraically closed, the functor will not be an equivalence, actually we need another condition to ensure that, which makes us can give a one-side correpsondence completely:
+\begin{theorem}
+    Let \(k\) be an algebraically closed field, then the functor \(\mathcal{O}\) gives a contravariant equivalence to the reduced \(k\)-algebras of type fini:
+    \[\mathbf{Aff}_k \cong (\mathbf{Alg}_k^{\text{fini, red}})^{\text{op}}\]
+\end{theorem}
 
 
 

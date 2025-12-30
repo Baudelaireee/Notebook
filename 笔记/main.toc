@@ -1,21 +1,26 @@
 \contentsline {section}{\numberline {1}9/28 Notes for <<Calculus on Manifolds>> by Spivak}{2}{section.1}%
 \contentsline {section}{\numberline {2} CA: Some examples and technics}{4}{section.2}%
-\contentsline {section}{\numberline {3}Some Results by Algebraic Topology}{7}{section.3}%
-\contentsline {subsection}{\numberline {3.1}The fundamental theorem of algebra}{7}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Brouwer fixed point theorem}{8}{subsection.3.2}%
-\contentsline {section}{\numberline {4}Complex Analysis}{11}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Infinite Product}{11}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Mellin transformation for analytic continuation}{15}{subsection.4.2}%
-\contentsline {section}{\numberline {5}Ideal}{16}{section.5}%
-\contentsline {section}{\numberline {6}Module}{17}{section.6}%
-\contentsline {subsection}{\numberline {6.1}Generaltisation and Universal Properties}{17}{subsection.6.1}%
-\contentsline {subsection}{\numberline {6.2}Finite generated module}{20}{subsection.6.2}%
-\contentsline {subsection}{\numberline {6.3}direct sum and product, free module}{24}{subsection.6.3}%
-\contentsline {subsection}{\numberline {6.4}Construction of polynomial and series}{31}{subsection.6.4}%
-\contentsline {subsection}{\numberline {6.5}Projective, Injective Modules}{33}{subsection.6.5}%
-\contentsline {subsection}{\numberline {6.6}Tensor product}{33}{subsection.6.6}%
-\contentsline {section}{\numberline {7}Commutative Ring}{37}{section.7}%
-\contentsline {subsection}{\numberline {7.1}Noetherian ring}{37}{subsection.7.1}%
-\contentsline {subsection}{\numberline {7.2}UFD}{37}{subsection.7.2}%
-\contentsline {subsection}{\numberline {7.3}Localization}{40}{subsection.7.3}%
-\contentsline {section}{\numberline {8}Affine Algebraic Geometry}{45}{section.8}%
+\contentsline {section}{\numberline {3}Fundamental group and Covering Space}{6}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Homotopy and \(\pi _1\) functor}{6}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Simple cases}{13}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Van-Kampen Theorem}{17}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Covering Spaces}{21}{subsection.3.4}%
+\contentsline {section}{\numberline {4}Some Results by Algebraic Topology}{25}{section.4}%
+\contentsline {subsection}{\numberline {4.1}The fundamental theorem of algebra}{25}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Brouwer fixed point theorem}{26}{subsection.4.2}%
+\contentsline {section}{\numberline {5}Complex Analysis}{29}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Infinite Product}{29}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Mellin transformation for analytic continuation}{33}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Gamma function}{33}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}Zeta function}{35}{subsection.5.4}%
+\contentsline {section}{\numberline {6}Commutative Algebra}{36}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Modules}{36}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}direct sum and product, free module}{43}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Polynomial and Series}{49}{subsection.6.3}%
+\contentsline {subsection}{\numberline {6.4}Projective, Injective Modules}{52}{subsection.6.4}%
+\contentsline {subsection}{\numberline {6.5}Tensor product}{52}{subsection.6.5}%
+\contentsline {subsection}{\numberline {6.6}Ideal}{55}{subsection.6.6}%
+\contentsline {subsection}{\numberline {6.7}Noetherian ring}{55}{subsection.6.7}%
+\contentsline {subsection}{\numberline {6.8}UFD}{55}{subsection.6.8}%
+\contentsline {subsection}{\numberline {6.9}Localization}{58}{subsection.6.9}%
+\contentsline {section}{\numberline {7}Affine Algebraic Geometry}{64}{section.7}%
