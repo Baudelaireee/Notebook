@@ -803,12 +803,6 @@ The fundamental group of covering space has a deep relation with the fundamental
     Let \(\delta = p \circ \gamma\) for some loop \(\gamma \) based at \(e_0\), then \(\delta(1) = \delta(0) = x_0\) shows that \(\gamma\) is the lifting of \(\delta\). And we set \(\delta'  = p \circ \gamma\), if \([\delta] = [\delta']\) in \(\pi_1(X,x_0)\), then there exists a path homotopy \(\delta \simeq_H \delta'\), notice that \(H(-,0) = \delta\) has a lifting \(\gamma\) and \(H(-,1) = \delta'\) has a lifting \(\gamma'\), so there exists a unique lifting homotopy \(\tilde{H}\) such that \(\tilde{H}(-,0) = \gamma\) and \(\tilde{H}(-,1) = \gamma'\), hence \([\gamma] = [\gamma']\) in \(\pi_1(E,e_0)\), which implies the injectivity of \(p_*\).
 \end{proof}
 
-we can define a group action 
-
-
-
-
-
 
 
 \newpage
@@ -988,6 +982,206 @@ then $f$ has a fixed point in $K$.
 
 \newpage
 \section{Complex Analysis}
+\subsection{Holomorphe function}
+
+As a vector space \(\cc\), it is dimension 2 over \(\rr\) but dimension 1 over \(\cc\), although sometimes complex analysis is seen as a special case of real analysis in \(\rr^2\), but the differential structure is quite different.
+
+\begin{lemma}
+    Define two vector space as following:
+    \[\mathcal{L}_{\cc}(\cc) = \{u: \cc \to \cc \mid \forall x,y \in \cc, \forall c \in \cc, u(x+cy) = u(x) + cu(y)\}\]
+    and
+    \[\mathcal{L}_{\rr}(\cc) = \{v: \cc \to \cc \mid \forall x,y \in \cc, \forall r \in \rr, v(x+ry) = v(x) + rv(y)\}\]
+    where \(\mathcal{L}_{\cc}(\cc)\) is the set of \(\cc\)-linear maps from \(\cc\) to \(\cc\), and \(\mathcal{L}_{\rr}(\cc)\) is the set of \(\rr\)-linear maps from \(\cc\) to \(\cc\). Then\\
+
+    - \(\mathcal{L}_{\rr}(\cc)\) is a vector space over \(\rr\) with dimension \(2\), and a basis is given by
+    \[dz: z \mapsto z , \quad d\bar{z}: z \mapsto \bar{z}\]
+
+    - \(\mathcal{L}_{\rr}(\cc)\) has another basis
+    \[dx:z \mapsto \Re(z), \quad dy: z \mapsto \Im(z)\]
+    and the relation between two basis is given by
+    \[dz = dx + i dy, \quad d\bar{z} = dx - i dy\]
+
+    - \(\mathcal{L}_{\cc}(\cc)\) is a vector space over \(\cc\) with dimenson \(1\), and it is the subspace of \(\mathcal{L}_{\rr}(\cc)\) with \(\{dz\}\) as a basis.\\
+\end{lemma}
+\begin{proof}
+    
+\end{proof}
+
+A complex function \(f\) can be naturally seen as a real function
+\[F: \rr^2 \to \rr^2, \quad (x,y) \mapsto (\Re[f(x+iy)], \Im[ f(x+iy)])\]
+Hence we can consider the differentiability of \(F\) in the sense of real function, and its differentiability reflects the property of \(f\) but not equivalent, It is the difference between complex analysis and real analysis.
+
+\begin{definition}
+    Let \(U \subset \cc\) be an open set, a function \(f: U \to \cc\) is called \textbf{holomorphe} at \(z_0 \in U\) if there exists a \(\cc\)-linear map \(L \in \mathcal{L}_{\cc}(\cc)\) such that 
+    \[f(z_0+h) = f(a) + L(h) + o(|h|)\]
+    If \(f\) is holomorphe at any point of \(U\), then we say that \(f\) is holomorphe on \(U\), and we denote the set of all holomorphe functions on \(U\) by \(\mathcal{O}(U)\).
+\end{definition}
+
+Equivalently, we also call "holomorphe" by \textbf{"\(\cc\)-differentiable"}, immediately a complex function is called \textbf{"\(\rr\)-differentiable"} if \(L\) is \(\cc\)-linear map in the definition above, but it actually means that the correspondece real function \(F\) is differentiable in the sense of Banach space \(\rr^2\). 
+
+In paticular \(\cc\)-differentialble is \(\rr\)-differentiable, but conversely it is not true. We consdier the example \(f(z) = \bar{z}\)
+The coorespondent real function is
+\[F: \rr^2 \to \rr^2, \quad (x,y) \mapsto (x,-y)\]
+which is clearly \(\rr\)-differentiable at any point with the invertible Jacobian matrix
+\[J_F(x,y) = \begin{pmatrix}1 & 0 \\ 0 & -1\end{pmatrix}\]
+However, it is not holomorphe (\(\cc\)-differentiable) at any point: Assuming that it is holomorphe at \(z_0\), then there exists a \(\cc\)-linear map \(L\) such that
+\[\overline{z_0+h} = \bar{z_0} + L(h) + o(|h|)\]
+By the structure of \(\cc\)-linear map, then \(L(h)=ch\) for some \(c \in \cc\), hence
+\[\frac{\bar{h}}{h} = c + \frac{o(|h|)}{h}\]
+as \(h\) tends to zero, The right side tends to \(c\) while the left side does not have a limit, which is absurd. It is necessary to avoid the confusion between the two type of differentiable case, to get rid of the notation of \(dx\) and \(dy\), sometimes it is terrible.
+
+If \(f:U \to \cc\) is \(\rr\)-differentiable, in the sense of real function, its differentible at \(a \in U\), as a \(\rr\)-linear map, can be written as
+\[(D_f)_a = \frac{\partial f}{\partial x}(a) dx + \frac{\partial f}{\partial y}(a) dy\]
+with two \(\rr\)-linear maps \(dx\) and \(dy\), then we can change the basis \(\{dx, dy\}\) to \(\{dz, d\bar{z}\}\):
+\[(D_f)_a = \frac{\partial f}{\partial z}(a) dz + \frac{\partial f}{\partial \bar{z}}(a) d\bar{z}\]
+
+\begin{definition}
+    The \textbf{Wirtinger operators} are defined by
+    \[\frac{\partial}{\partial z} = \frac{1}{2}\left(\frac{\partial}{\partial x} - i \frac{\partial}{\partial y}\right), \quad \frac{\partial}{\partial \bar{z}} = \frac{1}{2}\left(\frac{\partial}{\partial x} + i \frac{\partial}{\partial y}\right)\]
+\end{definition}
+
+Hence under the differetial operator with respect to \(z\) and \(\bar{z}\), the complex function \(f\) can be independent of \(x\) and \(y\) completely, with the following properties of differential:
+
+\begin{enumerate}
+    \item For any \(\rr\)-differentiable function \(f:U \to \cc\)
+    \[\overline{\frac{\partial f}{\partial z}} = \frac{\partial \bar{f}}{\partial \bar{z}}\]
+    \item For any \(\rr\)-differentiable function \(f,g:U \to \cc\),
+    \[\frac{\partial (fg)}{\partial z} = f \frac{\partial g}{\partial z} + g \frac{\partial f}{\partial z} \quad \frac{\partial (fg)}{\partial \bar{z}} = f \frac{\partial g}{\partial \bar{z}} + g \frac{\partial f}{\partial \bar{z}}\]
+    \item For any \(\rr\)-differentiable \(f:U \to \cc\) and \(g: f(U) \subset V \to \cc\)
+    \[\frac{\partial (h \circ g)}{\partial z} = (\frac{\partial h}{\partial w}\circ g) \cdot \frac{\partial g}{\partial z} + (\frac{\partial h}{\partial \bar{w}}\circ g) \cdot \frac{\partial \bar{g}}{\partial z}\]
+    and 
+    \[\frac{\partial (h \circ g)}{\partial \bar{z}} = (\frac{\partial h}{\partial w}\circ g) \cdot \frac{\partial g}{\partial \bar{z}} + (\frac{\partial h}{\partial \bar{w}}\circ g) \cdot \frac{\partial \bar{g}}{\partial \bar{z}}\]
+
+\end{enumerate}
+
+Although the holomorphe function is different from real differntiable function, but we can not omit the realtion between them, and in many cases the correspondent real function is easier to study, hence the following proposition is important:
+\begin{proposition}
+    If \(U \subset \cc\) is open and \(f:U \to \cc\) is a complex function, then the following conditions are equivalent:\\
+    (1) \(f\) is holomorphe on \(U\).\\
+
+    (2) \(f\) is \(\rr\)-differentiable on \(U\) and \(\frac{\partial f}{\partial \bar{z}} = 0\) on \(U\).\\
+
+    (3) Writing \(f = u + iv\) with real functions \(u,v:U \to \rr\), then \(u\) and \(v\) are \(\rr\)-differentiable on \(U\) and satisfy the \textbf{Cauchy-Riemann equations}:
+    \[\frac{\partial u}{\partial x} = \frac{\partial v}{\partial y}, \quad \frac{\partial u}{\partial y} = -\frac{\partial v}{\partial x}\]
+
+    In particular, if \(f\) is holomorphe at \(a = p+iq \in U\), then its \(\cc\)-derivative at \(a\) is given by
+    \[f'(a) = \frac{\partial f}{\partial z}(a) = \frac{\partial f}{\partial x}(a) = 2 \frac{\partial u}{\partial z}(a)\]
+    and write \(F\) as the correspondent real function of \(f\), the Jacboian of \(F\) at \((p,q)\) is
+    \[\det J_F(p,q) = |f'(a)|^2\]
+\end{proposition}
+\begin{proof}
+    
+\end{proof}
+
+\subsection{Cauchy's Integral Formula}
+As the one of the most part in complex analysis, cauchy's integral formula shows the deep relation between the integral and holomorphe function, in this section we will give a general statement with the help of differential form, and we will see that it is a special case of Green-Riemann Theorem.
+
+
+
+\subsection{Analytic function}
+In the sense of complex analysis, the constant function are a very strong condition by comparison with real analysis, hence local constant condition can imply global constant condition in some requirement of connectness.
+\begin{corollaryplain}
+    Let \(D \subset \cc\) be a simply connected open set, then the following conditions are equivalent:\\
+    (1) \(f\) is constant. \qquad (2) \(f' = 0\).\qquad  (3) \(|f|\) is constant.\\
+    (4) \(\Re(f)\) is constant. \qquad (5) \(\Im(f)\) is constant. \qquad (6) \(\bar{f}\) is holomorphe.
+\end{corollaryplain}
+
+previous section, it is an important properties, it claims that the local value of the power series determines the global vaule. In general, two analytic function \(f\) and \(g\), if they are equal in a local voinsinage \(V\), then for any \(x \in V\), there exists a open ball \(B(x,r)\) such that their power series expanasions are equal. The most important things is that \(V\) is not compact, so our open cover \(B(x,r)\) will bring the properties by extending, so \(f\) and \(g\) are actually equal!
+
+The statement above is a little abstract, it is better to draw a picture from a voinsinage \(V\), then see that if we want to let \(f=g\) we just need to consider the point nearly the \(\partial V\)... 
+
+In this section we will prove the analytic continuation, and three other important theorems in complex anaylsis, although they have various methods to porve, but here our inspiration is continuation:
+\[\text{Analytic continuation} \implies \text{Isolated zero} \implies \text{Open mapping} \implies \text{Maximum modulus}\]
+
+\begin{theorem}[analytic continuation]$ \\$
+    Given an \textbf{open and connect} set \(U\) in complex plane, and \(f,g: U \to \cc\) are two holomorphic (analytic) functions. If they are equal in a voinsinage of \(U\), then \(f=g\) in whole \(U\).
+
+    \begin{proof}
+        We let \(S = \{z \in U |f^{(n)}(z) = g^{(n)}(z) \text{ for any} n \in \nn \}\), and clearly \(S = \bigcup_{n \in \nn}\{z\in U| f^{(n)}(z) = g^{(n)}(z)\}\). It is easy to verify that \(S\) is the intersection of infinite closed sets, so \(S\) is closed.
+
+        \(S\) is also open. We take any \(z_0 \in S\), we notice that \(S\) is a subset of the voinsinage where \(f\) and \(g\) are equal, then by corollary \ref{analytic continuity series}, it implies that they have the same seires in a voinsinage of \(z_0\) contained in \(S\), then clearly \(f^{(n)}(z) = a_n = b_n = g^{(n)}(z)\) in the voinsinage, so that \(S\) must be open. What's more \(S\) is not empty, and \(U\) is connect, so \(U=S\).
+
+    \end{proof}
+\end{theorem}
+
+\begin{remark}
+        We notice that the proof is based on the topological property of the domain \(U\), so the properties of holomorphic is speacial.
+\end{remark}
+
+    One directly result of analytic continuation is the isolated zero theorem, it claims that the zero of a holomorphic function must be discrete:
+
+\begin{theorem}[isolated zero]
+        Suppose that \(U\) is \textbf{an open and connect set} in complex plane, and \(f \in H(U)\) is a non-zero holomorphic function, then\\
+        - If \(z \in U\) such that \(f(z_0) = 0\), then \(f\) can be expended in a neighborhood \(\Omega \subset U\):
+        \[f(z) = (z-z_0)^ng(z)\]
+        where \(g\) is a non-vanishing holomorphic function in \(\Omega\). \\
+        - Any zero \(z_0\) of \(f\), there exists a neighborhood such that \(z_0\) is the unique zero in the neighborhood. \\
+        - The set of all zeros of \(f\) is discrete.
+
+    \begin{proof}
+            If \(z_0\) is a zero, then there exists a expanasion of power series near the \(z_0\) with 
+            \[f(z) = \sum_{k \in \nn}a_k(z-z_0)^k, \quad a_0 =0\]
+            So we just take \(n = \min\{i \in \nn| a_i \neq 0\}\), then 
+            \[f(z) = (z-z_0)^n\sum_{k \in \nn}a_{n+k}z^k\]
+            So we just take \(g(z) = \sum_{k \in \nn}a_{n+k}z^k\). It is well-defined since in a small reigon near \(z_0\) and does not contain \(z_0\) we have surely \(g(z) = \frac{f(z)}{(z-z_0)^n}\), then by analytic continuation \(g\) is holomorphic on a samll neighborhood with \(z_0\) in it, and \(g(z_0) = a_n \neq 0\). Hence by continuity, there exists a positive \(r>0\) such that 
+            \[||f(z_0)|-|a_n|| \leq |f(z_0)-a_n| < |a_n| /2\]
+            for any \(z \in B(z_0,r)\), which implies \(|f(z_0)| > |a_n|/2 > 0\) in the reigon, so it is non-vanishing. Just take the intersection of the previous neighborhood and \(B(z_0,r)\), then we get the \(\Omega\) we hope.
+
+            The second statement is immediate from the first statement. For the third, if there exists a limit point \(a\) in the set of zeros, then for any small neighborhood with \(a\) in it, it will conatins infinite other zeros, which contradicts with the second statement.
+    \end{proof}
+\end{theorem}
+
+    With the help of the isolated zero theorem, we can generalize the analytic continuation, locally two holomorphic function are just equal in a non-discrete set:
+
+    \begin{theorem}[strong analytic continuation]
+        Given an \textbf{open and connect} set \(U\) in complex plane, and \(f,g: U \to \cc\) are two holomorphic (analytic) functions. If they are equal in a set \(S \subset U\), and \(U\) admet an accumulation point, then \(f=g\) in \(U\).
+
+        \begin{proof}
+            Just take \(f-g\) as the new holomorphic function in U, notice it will be zero in \(S\) and \(S\) is not discrete, so \(f-g\) must be zero by isolated zero.
+        \end{proof}
+    \end{theorem}
+
+    \begin{remark}
+        An direct result if two holomorphic functions are equal in a non-constant convergent sequence, then they will behave equal globally.
+    \end{remark}
+
+    The other two result is the maximum modulus principle and open mapping theorem.
+
+    \begin{theorem}[open mapping]$ \\$
+        A non-constant holomorphic function defined on \textbf{an open and connect set }must be an open map.
+
+        \begin{proof}
+            Take any \(z_0 \in U\), and we will prove that \(f(z_0) \in f(U)\) must be an interior point. By isolated zero theorem, there exists \(B=B(z_0,r) \subset U\) such that in it we have
+            \[f(z) - f(z_0) = (z-z_0)^ng(z)\]
+            so \(f\) can be written as the composition of the following holomorphic functions:\\
+            - \(u:z \mapsto (z-z_0)g^{1/n}(z)\) from \(B\) to \(\cc\).\\
+            - \(v:z \mapsto z^n\) from \(\cc\) to \(\cc\).\\
+            - \(t:z \mapsto z+f(z_0)\) from \(\cc\) to \(\cc\).\\
+            so \(f = t \circ v \circ u\), we just need to verify the three maps are open, it can be proved via \textbf{the local inversion theorem: if the derivative is not zero at some point, then locally there exists a diffeomorphism, so the image of the point will be an interior.}
+
+            For \(u\) we can compute \(u'(z) = g^{1/n}(z) + \frac{(z-z_0)}{n}g'(z)g^{\frac{1-n}{n}}(z)\), clearly \(u'(z_0) =g^{1/n}(z_0) \neq 0\), and \(u\) is holomorphic so class of \(C^1\), so locally there exists a diffeomorphism between neighborhoods \(U_{z_0}\) and \(V_{u(z_0)}\), so \(u(z_0)\) is a interior point of \(f(B)\).
+
+            For \(v\) the proof is similar if we take \(z_0 \neq 0\) since \(v'(z) = nz^{n-1}\). In the case of \(z_0=0\), we take a enough samll positive \(r>0\), then \(|z| <r\) implies \(|z|^n<r^n\), so \(B(v(0),r) \subset B(0,r^n) = v(B(0,r))\), so \(v\) is open. Finally, \(t\) is clearly open. Thus after composition, \(f\) is open.
+        \end{proof}
+    \end{theorem}
+
+\begin{theorem}[Maximum modulus]$ \\$
+    If \(f\) in a non-constant holomorphic function on \textbf{an open and connect set} \(U\), then \(|f|\) can not attain a maximum in \(U\).\\
+    -Weakly, if \(K \subset U\) is a compact set, then \(|f|_K|\) attain the maximum in the boundary:
+    \[\sup_{z \in K}|f(z)| \leq \sup_{\partial K}|f(z)|\]
+
+    \begin{proof}
+        Assume that \(f\) did attain a maximum in \(z_0 \in U\), then we take a small voinsinage of \(x_0\), called \(V\), by open mapping theorem \(f(V)\) must be open with \(f(z_0)\) in it, so there exists \(r>0\) such that \(B(f(z_0),r) \subset f(D)\). We take \(\delta = sign(Re(f(z_0)))\), then \(f(z_0) + \delta\frac{r}{2} \in f(D)\), we denote it \(f(w_0)\), then \(|f(w_0)| > |f(z_0)|\) clearly, which contradicts with the assumption.
+
+        The weakly statement is immediate since \(|f|\) is continous, so \(f(K)\) will be compact in \(\rr\), so \(|f|\) must attain a maximum in \(K\), with the strong statement we know that the maximum can not be in \(int(K)\), so in boundary.
+    \end{proof}
+\end{theorem}
+
+
+
+
+
+
 \subsection{Infinite Product}
 The form of infinite products is important in complex analysis to study the poles and zeros of functions, here is the definition:
 
@@ -1193,6 +1387,8 @@ In many case, we need to study the asymptotic behavior of gamma function when \(
 \end{proposition}
 
 \subsection{Zeta function}
+
+
 
 
 
