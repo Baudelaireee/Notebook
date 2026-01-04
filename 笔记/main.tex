@@ -472,7 +472,9 @@ the last construction is to glue two copies along the \(\sph^1\), hence the ques
 
     - The cone \(C(X)\) is contractible.\\
 
-    - If \(X\) is contractible, then the suspension \(S(X)\) is also contractible.
+    - If \(X\) is contractible, then the suspension \(S(X)\) is also contractible.\\
+
+    - If \(X\) is path-connected, then the suspension \(S(X)\) is also path-connected with \(\pi_1(S(X),a) = 0\)
 \end{proposition}
 
 \begin{proof}
@@ -557,7 +559,7 @@ let \(A\) and \(B\) be two copies of \(\sph^1\), and consider the wedge sum with
     \[\pi_1(\sph^1 \vee \sph^1) \cong \pi_1(\sph^1) * \pi_1(\sph^1) \cong \zz * \zz\]
 \end{claim}
 
-In generally, \(\pi_1\) is not a left-adjoint functor, hence it does not preserve coproudcts, but in some certain case we can see that it does, and in particular preserve push out.
+In generally, \(\pi_1\) is not a \textbf{left-adjoint functor}, hence it does not preserve coproudcts, but in some certain case we can see that it does, and in particular preserve push out.
 
 Conversely, we admit the result of fundamental group here, and then we think about the fundamental group of torus in another way, although we have known that \(\pi_1(T^2) \cong \zz \times \zz\). we take small open disc \(U\) in \(T^2\), and set \(D \subsetneq U\) as a smaller closed disc, and then we set \(V = T^2 - D\) to be another open set such that \(U \cap V\) is homotopy equivalent to \(\sph^1\):
 \begin{figure}[H]
@@ -661,6 +663,7 @@ actually it is just \(\zz^2\) and can be seen as the pushout of the diagram:
 \subsection{Covering Spaces}
 
 In the previous section, we claim that the fundamental group of \(\sph^1\) is \(\zz\), we will prove it in this section.
+
 \begin{theorem}
     \(\pi_1(\sph^1) \cong \zz\)
 \end{theorem}
@@ -674,7 +677,7 @@ In this example, what we do is to lift the paths of \(\sph^1\) to \(\rr\), and t
     and for each \(U_i\), the restriction \(p|_{U_i}\) gives a homeomorphism from \(U_i\) to \(U\).
 \end{definitionplain}
 
-Usually we use the notation \((E,p)\) or just a map \(p:E \to X\) to denote a covering space, and we call \(E\) the \textbf{covering space} of \(X\) with \textbf{covering map} \(p\). For any \(x \in X\), the preimage \(p^{-1}(\{x\})\) is called the \textbf{fiber} of \(x\), and we denote it by \(F_x\).
+Usually we use the notation \((E,p)\) or just a map \(p:E \to X\) to denote a covering space, and we call \(E\) the \textbf{covering space} of \(X\) with \textbf{covering map} \(p\). For any \(x \in X\), the preimage \(p^{-1}(\{x\})\) is called the \textbf{fiber} of \(x\), and we denote it by \(F_x\).\\
 
 The covering space have the following topological property:
 \begin{enumerate}[(a)]
@@ -752,11 +755,11 @@ where \(\tilde{\gamma}\) is the unique lifting of \(\gamma\) strating at \(e_0\)
 \[T_{[\gamma]}: F_{x_0} \to F_{x_0}, \quad e_0 \mapsto \phi_{e_0}([\gamma])\]
 It motivates us to consider the group action of \(\pi_1(X,x_0)\) on the fiber \(F_{x_0}\).
 
-\begin{theorem}
+\begin{theorem} \label{fundamentalgroupaction}
     Let \(p:E \to X\) be a covering space with \(x_0 \in X\), then the right action \(\pi_1(X,x_0) \circlearrowright F_{x_0}\) defined by
     \[e_0 \cdot [\gamma] := \phi_{e_0}(\gamma) = \tilde{\gamma}(1)\]
     is well-defined, and for any \(e_0 \in F_{x_0}\) the orbit of \(e_0\) is exactly the image of lifting correspondece \(\phi_{e_0}\):
-    \[\mathrm{Or}(e_0) = \mathrm{Im}(\phi_{e_0})\]
+    \[\mathrm{Orb}(e_0) = \mathrm{Im}(\phi_{e_0})\]
     then we have the following conclusions:\\
 
     - If covering space is path-connected, then the action is transitive.\\
@@ -795,13 +798,220 @@ It motivates us to consider the group action of \(\pi_1(X,x_0)\) on the fiber \(
 
 
 The fundamental group of covering space has a deep relation with the fundamental group of base space, and in many case we can find that the fundamental group of covering space is easier to comput.
-\begin{proposition}
-    Let \(p:E \to X\) be a covering space with \(p(e_0) = x_0\), then the covering map \(p\) induces an \textbf{injective} homomorphism
+\begin{proposition} \label{injectivemorphism}
+    Let \(p:E \to X\) be a covering space with \(p(e_0) = x_0\), then\\
+    
+    -covering map \(p\) induces an \textbf{injective} homomorphism
     \[p_*: \pi_1(E,e_0) \to \pi_1(X,x_0), \quad [\gamma] \mapsto [p \circ \gamma]\]
+
+    - \(\im p_*\) is the \textbf{stabilizer} of \(e_0\) under the action \(\pi_1(X,x_0) \circlearrowleft F_{x_0}\).\\
+
+    - In particular, if \(E\) is path-connected and the degree of covering is \(n\), then
+    \[n = [\pi_1(X,x_0): \im p_*]\]
 \end{proposition}
 \begin{proof}
-    Let \(\delta = p \circ \gamma\) for some loop \(\gamma \) based at \(e_0\), then \(\delta(1) = \delta(0) = x_0\) shows that \(\gamma\) is the lifting of \(\delta\). And we set \(\delta'  = p \circ \gamma\), if \([\delta] = [\delta']\) in \(\pi_1(X,x_0)\), then there exists a path homotopy \(\delta \simeq_H \delta'\), notice that \(H(-,0) = \delta\) has a lifting \(\gamma\) and \(H(-,1) = \delta'\) has a lifting \(\gamma'\), so there exists a unique lifting homotopy \(\tilde{H}\) such that \(\tilde{H}(-,0) = \gamma\) and \(\tilde{H}(-,1) = \gamma'\), hence \([\gamma] = [\gamma']\) in \(\pi_1(E,e_0)\), which implies the injectivity of \(p_*\).
+    
 \end{proof}
+\begin{proof}
+    Let \(\delta = p \circ \gamma\) for some loop \(\gamma \) based at \(e_0\), then \(\delta(1) = \delta(0) = x_0\) shows that \(\gamma\) is the lifting of \(\delta\). And we set \(\delta'  = p \circ \gamma\), if \([\delta] = [\delta']\) in \(\pi_1(X,x_0)\), then there exists a path homotopy \(\delta \simeq_H \delta'\), notice that \(H(-,0) = \delta\) has a lifting \(\gamma\) and \(H(-,1) = \delta'\) has a lifting \(\gamma'\), so there exists a unique lifting homotopy \(\tilde{H}\) such that \(\tilde{H}(-,0) = \gamma\) and \(\tilde{H}(-,1) = \gamma'\). For any \(s \in I\), we have
+    \[p\circ \tilde{H}(0,s) = H(0,s) = x_0, \quad p\circ \tilde{H}(1,s) = H(1,s) = x_0\]
+    hence \(\tilde{H}(0,-)\) and \(\tilde{H}(1,-)\) are two lifting path of constant path \(c_{x_0}\) starting at \(e_0\), by the uniqueness of lifting path, they are \(c_{e_0}\), which shows that \(\tilde{H}\) is a path-homotopy.
+    
+    For any \([\gamma] \in \pi_1(X,x_0)\), \(e_0 \cdot [\gamma] = e_0\) means that the lifting of \(\gamma\) at \(e_0\) is a loop, hence there exists \([\tilde{\gamma}] \in \pi_1(E,e_0)\) such that \(p \circ \tilde{\gamma} = \gamma\), hence \(\mathrm{Stab}(e_0) \subset \im p_*\). Conversely, for any \(p_*(\delta) \in \im p_*\), \(\delta\) is the lifting of \(p \circ \delta\) at \(e_0\), and as a loop we have
+    \[e_0 \cdot [p\circ \delta] = \delta(1) = e_0\]
+
+    It is clearly that \(n = |F_{x_0}|\) and apply orbit-stabilizer theorem we can conclude
+    \[|\mathrm{Orb}(e_0)| = [\pi_1(X,x_0): \mathrm{Stab}(e_0)] = [\pi_1(X,x_0): \im p_*]\]
+    the path-connectness of \(E\) ensures that the action is transitive, hence \(|\mathrm{Orb}(e_0)| = |F_{x_0}| = n\).
+\end{proof}
+
+\begin{corollary}
+    \[\pi_1(\mathbb{RP},1) \cong \mathbb{Z}/2\mathbb{Z}\]
+\end{corollary}
+\begin{proof}
+    There are the things need to verify:\\
+    (1) \(\sph^2\) is the covering space of \(\mathbb{RP}^2\) of degree \(2\).\\
+    (2) \(\sph^2\) is simply connected so that \(\im p_* = 0\).\\
+    (3) The fibre of \(1 \in \mathbb{RP}^2\) has two points \(F_1 = \{1,-1\}\).\\
+    (4) \(2 = [\pi_1(\mathbb{RP}^2,1): \{0\}]\) shows that \(\pi_1(\mathbb{RP}^2,1) \cong \zz/2\zz\) by the group theory.
+
+\end{proof}
+
+\subsection{The classification of covering spaces}
+
+This section is to conclude the correspondence between covering spaces and group actions of fundamental group, which is one type of geometry-algebra correspondence.
+
+\begin{definitionplain} 
+    Let \(X\) be a toplogical space, then the category of covering spaces over \(X\), denoted by \(\mathbf{Cov}_X\)
+    with data:\\
+
+    - objects: covering spaces \((E,p)\) or \(p:E \to X\).\\
+
+    - morphisms: for two covering spaces \((E,p)\) and \(F,q\), a morphism \(f:E \to F\) is a continous map such that \(q \circ f = p\), can be seen as the commutative diagram:
+    % https://q.uiver.app/#q=WzAsMyxbMCwwLCJFIl0sWzEsMCwiRiJdLFsxLDEsIlgiXSxbMCwxLCJmIl0sWzEsMiwicSJdLFswLDIsInAiLDJdXQ==
+\[\begin{tikzcd}
+	E & F \\
+	& X
+	\arrow["f", from=1-1, to=1-2]
+	\arrow["p"', from=1-1, to=2-2]
+	\arrow["q", from=1-2, to=2-2]
+\end{tikzcd}\]
+\end{definitionplain}
+
+In particular, \(f\) is just the lifting of \(p\) to \(F\), hence some requirement of connectness can ensure the uniqueness of morphism, and by lifting criterion, comparision the image of the induced map can ensure the existence of morphisms.
+
+Simlarily, we should consider the category of group actions of fundamental group, generally we set a group \(G\) and define the category G-space or G-set:
+
+\begin{definitionplain}
+    The categroy of \(G\)-sets, denoted by \(\mathbf{Set}^G\) with data:\\
+
+    -objects: a \textbf{G-set} is defined as \((X,G)\), where \(G\circlearrowright X\) gives a right group action, and denote it by \(x \cdot g\).\\
+
+    -morphisms: For any two G-set \((X,G)\) and \((Y,G)\), a \textbf{G-map} is defined as \(f:X \to Y\) such that for for any \(x \in X\) and \(g \in G\),
+    \[f(x \cdot_X g) = f(y)\cdot_Y g\]
+    where \(\cdot_X\) and \(\cdot_Y\) are the group actions of \(G\) on \(X\) and \(Y\) respectively.
+\end{definitionplain}
+
+Pay attention that the definition is based on the right group action, because we define the action of fundamental group on the fiber as a right action, generally left action can also work.
+
+With these preparations, the proposition \ref{injectivemorphism} can be rewritten as a functor between two subcategories:
+\begin{proposition}
+    Let \(X\) be a \textbf{path-connected} topological space with \(x_0 \in X\), then there exists a faithful functor \(F:\mathbf{Cov}_X \to \mathbf{Set}^{\pi_1(X,x_0)}\) with data:\\
+
+    - objects: \((E,p) \mapsto (p^{-1}(x_0), \pi_1(X,x_0))\) with the right action defined as above (lifting loops).\\
+
+    - morphisms: for any morphism \(f:(E,p) \to (E',p')\), define
+    \[F(f): p^{-1}(x_0) \to p'^{-1}(x_0), \quad e_0 \mapsto f(e_0)\]
+    i.e. \(F(f) = f|_{p^{-1}(x_0)}\).
+\end{proposition}
+\begin{proof}
+\end{proof}
+\begin{corollary}
+    Under above condition, we define \(\mathbf{finiCov}_X\) be the subcategory of \(\mathbf{Cov}_X\) consisting of finite covering spaces, and \(\mathbf{finiSet}^{\pi_1(X,x_0)}\) be a subcategory of \(\mathbf{Set}^{\pi_1(X,x_0)}\) consisting of finite \(\pi_1(X,x_0)\)-sets, then the restriction of functor \(F\) gives a faithful functor
+    \[F:\mathbf{finiCov}_X \to \mathbf{finiSet}^{\pi_1(X,x_0)}\]
+\end{corollary}
+
+
+In the proof of \(\pi_1(\mathbb{RP}^2,1) = \zz/(2)\), the condition of simply-connectness of covering space \(\sph^2\) is a lucky case, generally the covering space may not be simply connected although their fundamantal group is smaller than the base space.
+
+\begin{example}
+    
+\end{example}
+
+
+\begin{definitionplain}
+    Let \(X\) be a topological space, it is called \textbf{semilocally simply connected} if for any \(x \in X\), there exists an open neighborhood \(U\) of \(x\) such that the induced map
+    \[i_*: \pi_1(U,x) \to \pi_1(X,x)\]
+\end{definitionplain}
+
+By the definition, we define a subcategory of topological spaces category:
+\[\mathbf{BonTop} \subset \mathbf{Top}\]
+by requiring the objects to be path-connected, locally path-connected and semilocally simply connected topological spaces, this condition ensures the existence of simply connected covering space:
+
+\begin{proposition}
+    Let \((X,x_0) \in \mathbf{BonTop}_*\), then there exists a covering space \((\tilde{X}, \tilde{p})\) with \(\tilde{p}(\tilde{x}_0) = x_0\), such that \(\tilde{X}\) is simply connected.
+\end{proposition}
+\begin{proof}
+    
+\end{proof}
+
+Conversly, we want to reconstruct the covering space from the fundamantal group of base space, in the sense of \(\mathbf{BonTop}\) we can get a trival covering space and a simply connected covering space, it is two extreme of the subgroup of fundamental group, and we can generalize it to any subgroup:
+\begin{theorem}[classification of covering spaces] $ \\$
+    Let \((X,x_0) \in \mathbf{BonTop}_*\), and \(H \leq \pi_1(X,x_0)\) be a subgroup, then there exists a covering space \((E,p)\) with \(p(e_0) = x_0\), such that the induced map
+    \[p_*: \pi_1(E,e_0) \to \pi_1(X,x_0)\]
+    has image \(H\).\\
+
+    -Essentially, the functor \(F: \mathbf{Cov}_X \xrightarrow{\sim} \mathbf{Set}^{\pi_1(X,x_0)}\) is an equivalence of categories.\\
+\end{theorem}
+\begin{proof}
+    
+\end{proof}
+
+In particular, each path-connected covering space implies a transtive action of fundamental group, conversely, each transitive group action can reconstruct a path-connected covering space:
+...
+
+according to that we get the correspondence
+\[\{\text{path-connected covering space}\} \longleftrightarrow  \{\text{transitive action}\}\]
+
+
+
+\subsection{Deck transformations and normal covering spaces}
+
+This section is to refine the coorespondence, 
+
+020
+
+\begin{definition}
+    Let \(p:E \to X\) be a covering space, then a \textbf{deck transformation} (or automorphism) is a homeomorphism \(f:E \to E\) such that \(p \circ f = p\).
+    % https://q.uiver.app/#q=WzAsMyxbMCwwLCJFIl0sWzEsMCwiRSJdLFsxLDEsIlgiXSxbMCwxLCJmIl0sWzEsMiwicCJdLFswLDIsInAiLDJdXQ==
+\[\begin{tikzcd}
+	E & E \\
+	& X
+	\arrow["f", from=1-1, to=1-2]
+	\arrow["p"', from=1-1, to=2-2]
+	\arrow["p", from=1-2, to=2-2]
+\end{tikzcd}\]
+\end{definition}
+
+In the above definition:
+\begin{itemize}
+    \item Equivalently in the sense of category, a deck transformation is an automorphism of object \((E,p)\) in category \(\mathbf{Cov}_X\).
+
+    \item All the deck transformations of covering space \(p:E \to X\) form a group under composition, denoted by \(\deck(E/X)\) or \(\operatorname{Aut}(E/X)\).
+
+    \item The condition of hemomorphism can be replaced by continous bijection, since the covering map is open.
+\end{itemize}
+
+The deck tansformation group has a natural action on the covering space, and especially on the fiber \(F_{x_0}\) for some \(x_0 \in X\):
+\[\deck(E/X) \circlearrowright F_{x_0}, \quad e_0\cdot f = f(e_0) \]
+
+In particular \(E\) can be seen as the disjoint union of fibers, and we can consider to construct the covering space by the action of fundamental group: Take \(x_0\) and \(x_1\) be two distinct points of \(X\), we assume \(X\) is \textbf{path-connected}, then there exists a path \(\alpha\) connecting \(x_0\) and \(x_1\) such that 
+\[\pi_1(X,x_0) \xrightarrow{\sim} \pi_1(X,x_1), \quad [\gamma_0] \mapsto [\alpha * \gamma * \bar{\alpha}]\]
+By the group action of \(\pi_1(X,x_0)\) and \(\pi_1(X,x_1)\) on the fiber \(F_{x_0}\) and \(F_{x_1}\) respectively, we can get two bijections between fibers:
+\[f_{[\gamma_0]}: F_{x_0} \to F_{x_0}, \quad e_0 \mapsto e_0 \cdot [\gamma]\]
+and
+\[f_{\gamma_1}: F_{x_1} \to F_{x_1}, \quad e_1 \mapsto e_1 \cdot [\gamma_1]\]
+where \([\gamma_0] \in \pi_1(X,x_0)\) and \([\gamma_1] \in \pi_1(X,x_1)\). Notice that for any \([\alpha] \in \pi_1(X,x_0)\), with this method we can try to gluing the application of the fibers to give a bijection
+\[F: \pi_1(X,x_0) \to \deck(E/X), \quad [\gamma] \mapsto f_{\gamma}\]
+while the problem is that is the map well-defined?
+
+
+\begin{lemma}
+    Let \(p:(E,e_0) \to (X,x_0)\) be a path-connected covering space, and \(X\) is locally path-connected, then the following statement are equivalent:\\
+
+    (1) \(\deck(E/X)\) acts \textbf{transitively} on the fiber \(F_{x_0}\).\\
+
+    (2) \(\varphi: \pi_1(X,x_0) \to \deck(E/X)\) is surjective group homomorphism.\\
+
+    (3) \(\im p_*\) is a \textbf{normal} subgroup of \(\pi_1(X,x_0)\).\\
+
+    If a covering space satisfies one of the above conditions, then it is called a \textbf{normal covering space} or \textbf{galois covering space}.
+\end{lemma}
+\begin{proof}
+    
+\end{proof}
+
+\begin{remark}
+    In particualr, galois covering space givees a short exact sequence
+    \[1 \to \pi_1(E,e_0) \xrightarrow{p_*} \pi_1(X,x_0) \xrightarrow{\varphi} \deck(E/X) \to 1\]
+    It encodes the relation between fundamental group of covering space and base space, via deck transformation group, in particular if the covering space is simply connected, then we have an isomorphism
+    \[\pi_1(X,x_0) \cong \deck(E/X)\]
+    Hence the calculation of fundamental group can be transformed to the calculation of deck transformation group, which will be easier in many cases, hence the existence of simply connected covering space motivates us to condiser the using of method in \(\mathbf{BonTop}\).
+
+
+\end{remark}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1073,18 +1283,65 @@ Although the holomorphe function is different from real differntiable function, 
     
 \end{proof}
 
+In the sense of complex analysis, the constant function are a very strong condition by comparison with real analysis, hence local constant condition can imply global constant condition in some requirement of connectness.
+\begin{corollaryplain}
+    Let \(D \subset \cc\) be a connected open set, then the following conditions are equivalent:\\
+    (1) \(f\) is constant. \qquad (2) \(f' = 0\).\qquad  (3) \(|f|\) is constant.\\
+    (4) \(\Re(f)\) is constant. \qquad (5) \(\Im(f)\) is constant. 
+\end{corollaryplain}
+
 \subsection{Cauchy's Integral Formula}
-As the one of the most part in complex analysis, cauchy's integral formula shows the deep relation between the integral and holomorphe function, in this section we will give a general statement with the help of differential form, and we will see that it is a special case of Green-Riemann Theorem.
+
+By the view of manifold, \(\cc\) can be seen as a \textbf{2-dimensional real manifold} with a complex structure, hence it is natural to consider the differential form on it. Let \(f: U \to \cc\) a differenetiable function on an open set \(U \subset \cc\), then it induces a differential
+\[df: U \to \mathcal{L}_{\rr}(\cc), \quad a \mapsto (Df)_a = = \frac{\partial f}{\partial z}(a) dz + \frac{\partial f}{\partial \bar{z}}(a) d\bar{z}\]
+
+about the \(d(df) = ...\)
+
+\begin{definitionplain}
+    Let \(U\) be an open set in \(\cc\), and then we define 
+    \begin{align*}
+        \text{0-form}: & \quad \Omega^0(U) = C^{\infty}(U,\cc) \\
+        \text{1-form}: & \quad \Omega^1(U) = \{f dz + g d\bar{z} \mid f,g \in C^{\infty}(U,\cc)\}\\
+        \text{2-form}: & \quad \Omega^2(U) = \{h d\bar{z} \wedge dz \mid h \in C^{\infty}(U,\cc)\}
+    \end{align*}
+    and generally we define differential forms on \(U\) by
+    \[\Omega(U) = \bigoplus_{k=0}^2 \Omega^k(U)\]
+\end{definitionplain}
+
+
+
+
+As the one of the most part in complex analysis, cauchy's integral formula shows the deep relation between the integral and holomorphe function, in this section we will give a general statement with the help of differential form, and we will see that it is a application of stoke's theorem in complex plane, i.e. Green-Riemann theorem.
+
+\begin{theorem}[Green-Riemann] $ \\$
+    Let \(K\) be a compact with smooth boundary \(\partial K\) in \(\cc\), and \(w \in \Omega^1(\mathring{K})\) be a 1-form of class \(C^1\), then
+    \[\int_{K} dw = \int_{\partial K}w\] 
+\end{theorem}
+
+\begin{proof}
+    
+\end{proof}
+
+The classic statement of Cauchy's integral formula is that if \(f\) is holomorphe on an open set \(U\), then for any point \(a \in U\) and a open ball \(B(a,r) \subsetneq U\), then
+\[\int_{C(a,r)}fdz  = 0\]
+where \(C(a,r)\) is the circle cnetre at \(a\) with radius \(r\) and positive orientation, it can be seen as the boundary of the \(B(a,r)\), and \(fdz\) is always a closed 1-form of class \(C^1\), hence by Greee-Riemann formula, the formula holds. But we can do more with the Green-Riemann theorem, it gives a more general statement about the reigion of integration.
+
+\begin{theorem}[1912, Cauchy-Pompeiu] $ \\$
+    Let \(U\) be an open subset of \(\cc\) and \(K\) is a compact of \(U\) with smooth boundary \(\partial K\), if \(f \in C^1(U)\), then we have
+    \[\frac{1}{2\pi i}\int_{\partial K} \frac{f(z)}{z - a} dz + \int_{K} \frac{\partial f}{\partial \bar{z}}(z) \frac{1}{z - a} d\bar{z} \wedge dz = \begin{cases}
+        f(a) & a \in \mathring{K} \\ 0 & a \in \cc-K
+    \end{cases}\]
+    in particular, if \(f \in \mathcal{O}(U)\) holomorphe,
+    \[\int_{\partial K} fdz = 0\]
+    and for any \(a \in \mathring{K}\),
+    \[f^{(k)}(a) = \frac{k!}{2\pi i }\int_{\partial K} \frac{f(z)}{(z - a)^{k+1}} dz\]
+\end{theorem}
+
 
 
 
 \subsection{Analytic function}
-In the sense of complex analysis, the constant function are a very strong condition by comparison with real analysis, hence local constant condition can imply global constant condition in some requirement of connectness.
-\begin{corollaryplain}
-    Let \(D \subset \cc\) be a simply connected open set, then the following conditions are equivalent:\\
-    (1) \(f\) is constant. \qquad (2) \(f' = 0\).\qquad  (3) \(|f|\) is constant.\\
-    (4) \(\Re(f)\) is constant. \qquad (5) \(\Im(f)\) is constant. \qquad (6) \(\bar{f}\) is holomorphe.
-\end{corollaryplain}
+
 
 previous section, it is an important properties, it claims that the local value of the power series determines the global vaule. In general, two analytic function \(f\) and \(g\), if they are equal in a local voinsinage \(V\), then for any \(x \in V\), there exists a open ball \(B(x,r)\) such that their power series expanasions are equal. The most important things is that \(V\) is not compact, so our open cover \(B(x,r)\) will bring the properties by extending, so \(f\) and \(g\) are actually equal!
 
@@ -1386,29 +1643,112 @@ In many case, we need to study the asymptotic behavior of gamma function when \(
     \[\Gamma(z+n+1) \sim_{n \rightarrow \infty} n!n^z\]
 \end{proposition}
 
-\subsection{Zeta function}
+\subsection{Harmonic function}
+
+For the function of class \(C^2\), the laplace operator is defined as
+\[\Delta = \frac{\partial^2}{\partial x^2} + \frac{\partial^2}{\partial y^2}\]
+By the Wirtinger operators, we can rewrite the laplace opeator as
+\[\Delta = 4\frac{\partial^2}{\partial z \partial \overline{z}} = 4\frac{\partial^2}{\partial \overline{z} \partial z}\]
+
+\begin{definition}
+    Let \(U \subset \cc\) be an open set and \(K= \cc\) or \(\rr\), a function \(u: U \to K\) of class \(C^2\) is called \textbf{harmonic} if it satisfies the laplace equation:
+    \[\Delta u = 0\]
+    The set of complex harmonic funnction on \(U\) is denoted by \(\mathcal{H}(U,\cc)\), the set of real hamonic function on \(U\) is denoted by \(\mathcal{H}(U,\rr)\).
+\end{definition}
+
+The holomorphe function is naturally related to harmonic function in two senses:
+\begin{enumerate}
+    \item If \(f \) is holomorphe sur \(U\), then \(\frac{\partial f}{ \partial \bar{z}} = 0\) imples that \(\Delta = 0\).
+    \item write \(f\) as \(f = u + iv\), then cauchy Riemann equation gives that
+    \[u_x = v_y, \quad u_y = -v_x\]
+    holomorphe ensures that \(u\) and \(v\) are of class \(C^{\infty}\) as real-differentiable functions, hence we can apply the lemma of schwartz
+    \[\Delta = u_{xx}+u_{yy} = v_{xy} + (-v_{yx}) = 0\]
+    and similarly \(\Delta v = 0\), hence \textbf{both real part and imaginary part of holomorphe function are harmonic functions}.
+\end{enumerate}
+
+We can see that holomorphe function is a strong condition for harmonic function.
+
+\begin{propositionplain}
+    Let \(U \subset \cc\) be an open set and \(f \in \mathcal{O}(U)\), if \(f(z) \neq 0\) for any \(z \in U\), then \(\ln|f| \in \mathcal{H}(U,\rr)\).
+\end{propositionplain}
+
+\begin{proof}
+    
+\end{proof}
+
+A classic question is to find the holomorphe function by a known real part or imaginary part, it refers to the solution of Cauchy-Riemann equation, formally
+\begin{definitionplain}
+    Let \(u,v: U \to \rr\) be two function of class \(C^2\), then \((u,v)\) is called \textbf{a pari of harmonic conjuagets} on \(U\) if they are all harmonic functions and satisfy the Cauchy-Riemann equation.
+\end{definitionplain}
+
+Harmonic conjuagtes allows us to denote a harmonic function as the real (imaginary) part of a holomorphe function.
+
+\begin{proposition}
+    Let \(U \subset \cc\) be an open set and \(u: U \to \rr\) be a real harmonic function, then for any \(a\in U\) there exists a neighborhood \(V \subset U\) of \(a\) and a holomorphe function \(f \in \mathcal{O}(V)\) such that
+    \[u = \Re(f) \text{ on } V\]
+    and locally on \(V\), \(\Im(f)\) is a harmonic conjugate of \(u\).
+\end{proposition}
 
 
 
+The global existence does not hold in general, for example, we take \(u(z) = \ln|z|\) on \(U = \cc - \{0\}\)
+
+\begin{proposition}[Simply-connectness]$ \\$
+    Let \(U \subset \cc\) be a simply-connected open set and \(u: U \to \rr\) be a real harmonic function, then there exists a holomorphe function \(f \in \mathcal{O}(U)\) such that
+    \[u = \Re(f) \text{ on } U\]
+    generally, \(f \mapsto \Re(f)\) induces an isomrphism between function spaces:
+    \[\mathcal{O}(U)/i\rr \xrightarrow{\sim} \mathcal H(U,\rr)\]
+\end{proposition}
 
 
+\begin{proposition}[Mean value property]$ \\$
+    Let \(u:U \to \cc\) be a haromonic function on an open set \(U \subset \cc\), then for any \(a \in U\) with \(B(a,r) \subset U\) for some positive \(r>0\), we have
+    \[u(a) = \frac{1}{2\pi r}\int_{C(a,r)} u(z) \, |dz| = \frac{1}{2 \pi} \int_{0}^{2\pi} u(a + re^{i\theta}) \, d \theta\]
+    where \(C(a,r) = \{z \in \cc | |z-a| = r\}\) is the circle centered at \(a\) with radius \(r\), and \(|dz|\) is the length element on the circle.
+\end{proposition}
+
+\begin{proof}
+    
+\end{proof}
+
+Mean value property shows that the value at a point is determined by the integration along a circle centered at the point, exactly the harmonic function is characterized by this property, that means given the information of the function along the boundary of a disk, we can get all the vaules inside the disk.
+
+\begin{theorem}[Dirichlet problem on \(\mathbb{D}\)] $ \\$
+    For any continous function \(\varphi: \mathbb{T} \to \cc\), then there exists a unique continous function \(u: \overline{\dd} \to \cc\) such that \(u\) is harmonic on \(\dd\) and \(u|_{\mathbb{T}} = \varphi\).
+\end{theorem}
+
+\begin{proof}
+    
+\end{proof}
+
+\begin{corollary}
+    Let \(f: U \to \cc\) be a continous function on an open set \(U \subset \cc\), then \(f\) is harmonic on \(U\) if and only if \(f\) has the mean value property on \(U\).
+\end{corollary}
 
 
+One of the most important properties of holomorphe function is the principal of maximum modulus, although we can get the property from analytic continuation, it is actually the properties of harmonic function:
 
+\[\text{Maximum modulus} \Longleftarrow \text{Mean value property}\]
 
+\begin{proposition}[principle of maximum] $ \\$
+    Let \(u: U \to \rr\) be a real harmonic function on an \textbf{connected} open set \(U \subset \cc\), then \(u\) can not attain a maximum or minimum in \(U\) unless \(u\) is constant. In particular, for any compact set \(K \subset U\), we have
+    \[\max_{z \in K} u(z) = \max_{z \in \partial K} u(z) \qquad \min_{z \in K} u(z) = \min_{z \in \partial K} u(z)\]
+    
+\end{proposition}
 
-
-
-
-
-
-
+\begin{corollary}[Principle of maximum modulus] $ \\$
+    Let \(f: U \to \cc\) be a harmonic function on an \textbf{connected} open set \(U \subset \cc\), then \(|f|\) can not attain a maximum in \(U\) unless \(f\) is constant. In particular, for any compact set \(K \subset U\), we have
+    \[\|f\|_K = \|f\|_{\partial K}\]
+    
+\end{corollary}
 
 
 
 \newpage
 
 \section{Commutative Algebra}
+
+The ring talked about in this section is always commutative ring with unity.
 
 \subsection{Modules}
 
@@ -1490,7 +1830,7 @@ Similar with vector spaces, we can define the submodule annd quotient module as 
         Then \(M/N\) is called the quotient module of \(M\) by \(N\).
 
         \item the \(R\)-module homomorphism \(\pi: M \to M/N\) is called the quotient map or \textbf{canonical projection}. It induced a correspondence:
-        \[\{\text{submodules of } M  \text{containing } N\} \leftrightarrow \{submodules \text{ of } M/N\}\]
+        \[\{\text{submodules of } M  \text{containing } N\} \leftrightarrow \{\text{submodules  of } M/N\}\]
     \end{itemize}
 
 \end{definitionplain}
@@ -1573,7 +1913,7 @@ Like vector spaces, we also hope to find some elemnts to generate the whole modu
     \text{$k$-module}
   \end{array}
 \,\}
-  = \{\text{finite dimensional vector space}\} \implies \text{free}\]
+  = \{\text{finite-dimensional vector space}\} \implies \text{free}\]
 
     (b) An example that a finitely generated module is not free: let \(R = \zz\), \(M = \zz/2\zz\) as a \(\zz\)-module, then \(M\) is finitely generated by \(\{1+2\zz\}\), but it is not free since it is not a base by
     \[2 \cdot \bar{1} = \bar{2} = \bar{0}\]
@@ -1586,114 +1926,8 @@ Like vector spaces, we also hope to find some elemnts to generate the whole modu
     (d) An submodule of a finitely generated module is not necessarily finitely generated, for example, let \(R = k[x_1, x_2, \cdots]\) be the polynomial ring of infinite variables over a field \(k\), then \(R\) is a finitely generated module over itself, but the ideal \(I = \langle x_1, x_2, \cdots \rangle\) is not finitely generated.
 \end{remark}
 
-Some basic properties about finitely generated modules is useful, because we always need to claim whether a module is finitely generated or not.
-\begin{proposition} \label{typefini}
-Let \(M\) be a \(R\)-module, and \(N \subset M\) be a submodule:\\
-(1) If \(M\) is finitely generated, then quotient module \(M/N\) is also finitely generated.\\
-
-(2) If \(N\) and \(M/N\) are finitely generated, then \(M\) is also finitely generated.\\
-
-(3) If \(M_i\) is finitely generated \(R\)-modules for all \(i=1,2,\cdots, n\), then the product module \(\prod_{i=1}^n M_i\) is also finitely generated.\\
-
-(4) Let \(M\) be \(A\)-module, and \((A,\phi)\) be a \(R\)-algebra, then if \(M\) is finitely generated as a \(R\)-module, then \(M\) is also finitely generated as a \(A\)-module.
-\end{proposition}
-\begin{proof}
-    (1) Let \((m_1, m_2, \cdots, m_n)\) be a finite generate set of \(M\), then we claim that \((\bar{m_1}, \bar{m_2}, \cdots, \bar{m_n})\) is a finite generate set of \(M/N\). For any \(\bar{m} \in M/N\), there exists \(c_i \in R\) such that
-    \[m = \sum_{i=1}^n c_i m_i\]
-    hence
-    \[\bar{m} = \sum_{i=1}^n c_i \bar{m_i}\]
-    it implies the result.\\
-    (2) Let \((n_1, n_2, \cdots, n_k)\) be a finite generate set of \(N\), and let \((\bar{m_1}, \bar{m_2}, \cdots, \bar{m_l})\) be a finite generate set of \(M/N\). We claim that \((n_1, n_2, \cdots, n_k, m_1, m_2, \cdots, m_l)\) is a finite generate set of \(M\). For any \(m \in M\), there exists \(c_j \in R\) such that
-    \[\bar{m} = \sum_{j=1}^l c_j \bar{m_j}\]
-    hence
-    \[m - \sum_{j=1}^l c_j m_j \in N\]
-    so there exists \(d_i \in R\) such that
-    \[m - \sum_{j=1}^l c_j m_j = \sum_{i=1}^k d_i n_i\]
-    it implies that
-    \[m = \sum_{i=1}^k d_i n_i + \sum_{j=1}^l c_j m_j\]
-    hence the result.
-
-    (3) Let \((m_{i1}, m_{i2}, \cdots, m_{in_i})\) be a finite generate set of \(M_i\) for each \(i=1,2,\cdots,r\), then the finite set (order is \(n_1+\cdots+n_r\))
-    \[\{(0,\cdots,0,m_{ij},0,\cdots,0) \mid i=1,2,\cdots,r; j=1,2,\cdots,n_i\}\]
-    is a generate set of \(\prod_{i=1}^r M_i\).
-
-    (4) Let \((m_1, m_2, \cdots, m_n)\) be a finite generate set of \(M\) as a \(R\)-module, then for any \(m \in M\), there exists \(c_i \in R\) such that
-    \[m = \sum_{i=1}^n c_i \cdot m_i = \sum_{i=1}^n \phi(c_i) m_i\]
-\end{proof}
-
-The statement (2) can be generalized to a exact sequence as following:
-\begin{corollary}
-Let \(0 \to N \to M \to P \to 0\) be an exact sequence of \(R\)-modules, then
-\[\{N,P\} \text{ finitely generated} \implies M \text{ finitely generated}\]
-\end{corollary}
-
-However, we can not say more about the implication because the submodule of a finitely generated module is not necessarily finitely generated. We should make some restriction on the module such that some good properties can be ensured, that is called \textbf{Noetherian module}.
-\begin{definitionplain}
-    A \(R\)-module \(M\) is called a \textbf{Noetherian module} if it satisfies the following equivalent conditions:\\
-    (1) Any submodule of \(M\) is finitely generated.\\
-    (2) Any ascending chain of submodules of \(M\)
-    \[N_1 \subset N_2 \subset N_3 \subset \cdots\]
-    stabilizes, i.e. there exists \(k \in \nn\) such that for all \(n \geq k\), \(N_n = N_k\).\\
-    (3) Any non-empty set of submodules of \(M\) has a maximal element with respect to inclusion.
-
-\end{definitionplain}
-
-The equivalent of the conditions need a proof here for clarification.
-\begin{proof}
-
-\end{proof}
-
-Immediate with the definition, we can get some properties of Noetherian modules like proposition \ref{typefini}:
-\begin{itemize}
-    \item Let \(0 \to N \to M \to P \to 0\) be an exact sequence of \(R\)-modules, then
-     \[\{N,P\} \text{ Noetherian} \iff M \text{ Noetherian}\]
-    in particular, let \(N\) be a submodule of \(M\), then
-    \[M \text{ Noetherian} \iff \{N, M/N\} \text{ Noetherian}\]
-
-    \item Let \(M_i\) be Noetherian \(R\)-modules for all \(i=1,2,\cdots, n\), then the product module \(\prod_{i=1}^n M_i\) is also Noetherian.
-
-    \item Let \(M\) be a \(A\)-module, and \((A,\phi)\) be a \(R\)-algebra, then \(M\) is Noetherian as a \(A\)-module if it is Noetherian as a \(R\)-module.
-\end{itemize}
-
-Noetherian condition is very important in commutative algebra, because it ensures that many bad situations will not happen. For example, in a locally ring \((R,m)\), we only have one chain of ideals 
-\[\cdots I_2 \subset I_1 \subset m\]
-so which ensures the maximal ideal \(m\) is finitely generated, and other ideals will be generated by part of the generators of \(m\).
-
-\begin{definition}
-    Let \(R\) be a commutative ring, \(R\) is called a \textbf{Noetherian ring} if it is Noetherian as a \(R\)-module, i.e. it satisfies one of the following equivalent conditions:\\
-    (1) Any ideal of \(R\) is finitely generated.\\
-    (2) A.C.C condition on ideals.\\
-    (3) Any non-empty set of ideals has a maximal element with respect to inclusion.
-\end{definition}
-\begin{remark}
-    Many rings we meet are Noetherian rings:\\
-
-    (a) Any field \(k\) is a Noetherian ring, because the only ideals are \(\{0\}\) and \(k\).\\
-
-    (b) Any principal ideal domain (PID) is a Noetherian ring, because any ideal is generated by a single element.\\
-
-    (c) The extension of \(\zz\) is a Noetherian ring, for example 
-    \(\zz[\sqrt{2}]\) and \(\zz[i]\). The result can be generalized to the following proposition.\\
-\end{remark}
-
-\begin{proposition}
-    Let \(R\) be a Noetherian ring, and \(M\) is a finitely generated \(R\)-algebra, then \(M\) is also a Noetherian ring.
-\end{proposition}
-\begin{proof}
-    Let \(\{m_1,\dots ,m_n\}\) be a set of generators of \(M\) as a \(R\)-module, then define  \(R^n := \prod_{i=1}^n R\) to be the product \(R\)-module. It is clear that \(R^n\) is a Noetherian module since \(R\) is a Noetherian module as a \(R\)-module, then we can define a natural surjection of \(R\)-modules by
-    \[\varphi: R^n \to M, \quad (a_1,...,a_n) \mapsto \sum_{i=1}^{n} a_i m_i\]
-    It is actually a \(R\)-module homomorphism, so by the first isomorphism can conclude that \(A^n/\ker \varphi \cong M\), then the quotient module of the Noetherian module \(R^n\) is also Noetherian, hence \(M\) is a Noetherian ring.
-\end{proof}
-
-The idea of the proof is important, In the proof we try to construct a module isomorphic to \(M\), so we define a natural object \(R^n\) and a natural morphism \(\varphi\) to \(M\), we can find that the propoerty of \(R^n\) is so nice that we can transfer the property to \(M\) by the isomorphism theorem, i.e. \(R^n\) is a free object.
-
-The statement without the finiteness condition is not correct, for example we consider rational number \(\qq\), it is not finitely generated as a \(\zz\)-module, and it is not a noetheriam ring since we can find a chain of ideals:
-\[\zz \subset \frac{1}{2}\zz \subset \cdots \subset \frac{1}{2^n}\zz \subset \cdots\]
-it will not stop, so \(\qq\) is not a Noetherian ring.
-
-\subsection{direct sum and product, free module}
 With the basic knowledge of modules, we can define the the category of modules
-\[\cat{Mod_R}{R\text{-modules } }{ R\text{-module homomorphisms}}\]
+\[\cat{\mathbf{Mod}_R}{R\text{-modules } }{ R\text{-linear maps}}\]
 
 We define the product of modules as following:
 \begin{definitionplain}
@@ -1994,8 +2228,6 @@ Hence we can generalize the statement of the generating set and basis by the lan
         \[\Psi(f) = \Psi(\sum_{\kappa \in \nn^n} a_{\kappa} X^{\kappa}) = \sum_{\kappa \in \nn^n} a_{\kappa} \Psi(X^{\kappa}) = \sum_{\kappa \in \nn^n} a_{\kappa} b^{\kappa} = \Phi(f)\]
         hence we finish the proof.
     \end{proof}
-    
-\subsection{Projective, Injective Modules}
 
 \subsection{Tensor product}
 
@@ -2015,7 +2247,6 @@ Hence we can generalize the statement of the generating set and basis by the lan
     for any \(A\)-module \(P\) and any bilinear map \(f: M \times N \to P\), there exists a unique \(A\)-linear \(\bar{f}: M \otimes_A N \to P\) such that \(f = \bar{f} \circ t\), i.e. \(\bar{f}(a \otimes b) = f(a,b)\).
 \end{definition}
 
-\begin{remark}
     The definition is concluded by some work to give a good construction
 
     (1) The existence of tensor product can be constructed by taking the free module \(A^{(M\times N)}\) and its submodule \(R\) generated by the following elements:
@@ -2046,9 +2277,8 @@ Hence we can generalize the statement of the generating set and basis by the lan
     then \(j\circ j':T \to T\) a morpshim satisfying \(b = (j \circ j') \circ b\), by the uniqueness of universal property we have \(j \circ j' = \id_T\). Similarly, we can get \(j' \circ j = \id_{T'}\), hence \(T \cong T'\).\\
 
     (3) The concret construction of tensor product is not important, the nice universal property allows us to treat a multilinear map as a linear map, usually we call \(M \otimes_A N\) as <<tensor>>, and \(m \otimes n \in M\otimes_A N\) as <<tensor element>>.\\
-\end{remark}
 
-Some basic algebraic properties of tensor product can be concluded as following:
+Some basic algebraic properties of tensor product can be concluded as following, isomorphism here should be understood to aviod the abusion of equality:
 \begin{lemmaplain}
     The letter we use are \(A\)-modules, then we have the following isomorphisms of \(A\)-modules:\\
 
@@ -2065,11 +2295,10 @@ Some basic algebraic properties of tensor product can be concluded as following:
     Pay attention to the abuse of the equality, sometimes we write \(=\) instead of \(\cong\) to simplify the notation.\\
     (1) the first result can be generalized to \(A^n \otimes_A M \cong M^n\).\\
     (2) the last result can be generalized to 
-    \[M \otimes_A (\bigotimes_{i \in I}M_i) \cong \bigotimes_{i \in I} (M \otimes_A M_i)\]
+    \[M \otimes_A (\bigoplus_{i \in I}M_i) \cong \bigoplus_{i \in I} (M \otimes_A M_i)\]
     where \(I\) is any index set, with the isomorphism we can conclude that tensor product can preserve the free module structure by isomoprhism
     \[A^{(I)} \otimes_A M \cong M^{(I)}\]
-    which covers the first remark.\\
-    (3) In general, by above result we can conclude in category: \(\mathbf{Mod_A}\) with tensor product \(\otimes_A\) forms a monoidal category.
+    which covers the first remark. Hence we can conlude: \(\mathbf{Mod_A}\) with tensor product \(\otimes_A\) forms a \textbf{monoidal category}.
     \begin{definitionplain*}
         A monoidal category contains following data:\\
         (1) a category \(\mathcal{C}\).\\
@@ -2097,49 +2326,346 @@ The tensor product of two module is a larger module containg both information of
     \[f \otimes g : M \otimes_A N \to M' \otimes_A N', \quad m \otimes n \mapsto f(m) \otimes g(n)\]
 \end{proposition}
 
+Review that if \(f: A \to B\) be a ring homomorphism, and \(M\) is a \(B\)-module, then it is reasonable to view \(M\) as an \(A\)-module by
+\[a \cdot m := f(a)m ,\quad \forall a \in A\]
+and we say that \(A\)-module \(M\) is obtained from \(B\)-module \(M\) by \textbf{restriction of scalars} along \(f\). Conversely, if \(M\) is an \(A\)-module, then we can construct a \(B\)-module by tensor product:
+\begin{proposition}[Extension of scalars] $ \\$ 
+    Let \(M\) be an \(A\)-module, and \(N\) be a \((A,B)\)-bimodule, then \(N \otimes_A M\) is a \(B\)-module with the unique sturcture defined by
+    \[b \cdot (n \otimes m) : = (bn) \otimes m, \quad \forall b \in B, n \in N, m \in M\]
+    In particular, if \(B\) is a \(A\)-algebra, then \(B \otimes_A M\) is a \(B\)-module with a natural map
+    \[\tau: M \to B \otimes_A M, \quad m \mapsto 1_B \otimes m\]
+
+\end{proposition}
+
+
+Hence for any \(A\)-algebra \(B\) and any \(A\)-module \(M\), we define the module obtained by \textbf{extension of scalar from \(A\) to \(B\)} as following
+\[M_B : = B \otimes_A M\]
+Sometimes we need to caculate tensor product under different ring, it is useful to do some identificaion:
+\begin{lemma}[Mixed associativity of tensor product] $ \\$
+    Let \(M\) be a \(A\)-module, \(N\) be a \(B\)-module and \(P\) be a \((A,B)\)-bimodule, then there exists a natural isomorphism
+    \[M \otimes_A (P \otimes_B N) \cong (M \otimes_A P) \otimes_B N\]
+    In particualr, if \(B\) is an \(A\)-algebra, then there exists a natural isomorphism
+    \[M \otimes_A N \cong M_B \otimes N\]
+\end{lemma}
+
+
+And we can talk more about morphism after extension of scalars, than restriction of scalars:
+\begin{proposition}[UPA-Extension of scalars] $ \\$
+    Let \(B\) be an \(A\)-algebra, \(M\) be a \(A\)-module and \(N\) be a \(B\)-module, then there exists a natural isomorphism by \(f \mapsto \varphi_f,\quad \varphi_f(m) = f(1\otimes m)\) 
+    \[\Hom_{B}(M_B,N) \xrightarrow{\sim} \Hom_{A}(M,N)\]
+    with the inverse given by \(g \mapsto \psi_g, \quad \psi_g(b \otimes m) = b \cdot g(m)\).
+
+\end{proposition}
+
+\begin{remark}
+    It is the adjoint properties in category of module, we consider a ring homomorphism \(f:A \to B\), then the restriction of scalar can be described as a functor by
+    \[\cat{\mathrm{Res}_A^B: \mathbf{Mod}_B \to \mathbf{Mod}_A}{B\text{-module}M \mapsto A\text{-module}M}{\Hom_B(M,N) \subset \Hom_A(M,N)}\]
+    It is a forgetful functor, since it forgets the extra structure of \(B\)-module. Conversely, the extension of scalars can be described as a functor by
+    \[\cat{B\otimes_A-: \mathbf{Mod}_A \to \mathbf{Mod}_B}{M \mapsto M_B}{f \mapsto \id_B \otimes f}\]
+    Hence by the above proposition, the isomoprhism can be rewritten as
+    \[\Hom_{B}(B \otimes_A M,N) \cong \Hom_{A}(M, \mathrm{Res}_A^B(N))\]\
+    which shows that extensior of scalar can be seen as the \textbf{left adjoint} functor of restriction of scalar in the sense of category:
+    \[B\otimes_A- \dashv \mathrm{Res}_A^B\]
+\end{remark}
+
+We have seen that extension of scalars is a left adjoint functor, hence it is more meaningful to discuss its functoriality than a forgetful functor, and indeed it behaves well in exactness:
+\begin{lemma}
+    Let
+    % https://q.uiver.app/#q=WzAsNCxbMCwwLCJNIl0sWzEsMCwiTSciXSxbMiwwLCJNJyciXSxbMywwLCIwIl0sWzAsMSwiZiJdLFsxLDIsImciXSxbMiwzXV0=
+\[\begin{tikzcd}
+	M & {M'} & {M''} & 0
+	\arrow["f", from=1-1, to=1-2]
+	\arrow["g", from=1-2, to=1-3]
+	\arrow[from=1-3, to=1-4]
+\end{tikzcd}\]
+    be an exact sequence of \(A\)-modules, and let \(N\) be another \(A\)-module, it induces an exact sequence of \(A\)-modules
+    % https://q.uiver.app/#q=WzAsNCxbMCwwLCJNXFxvdGltZXNfQU4iXSxbMSwwLCJNJ1xcb3RpbWVzX0FOIl0sWzIsMCwiTScnXFxvdGltZXNfQU4iXSxbMywwLCIwIl0sWzAsMSwiZiJdLFsxLDIsImciXSxbMiwzXV0=
+\[\begin{tikzcd}
+	{M\otimes_AN} & {M'\otimes_AN} & {M''\otimes_AN} & 0
+	\arrow["f\otimes \id_N", from=1-1, to=1-2]
+	\arrow["g\otimes \id_N", from=1-2, to=1-3]
+	\arrow[from=1-3, to=1-4]
+\end{tikzcd}\]
+    Equivalently, the functor \( - \otimes_A N: \mathbf{Mod}_A \to \mathbf{Mod}_A\) is a right exact functor.
+    
+\end{lemma}
+\begin{proof}
+    
+\end{proof}
+
+Hence which motivates us to classify the modules like projective modules or injective modules to guarantee the exactness after tensor product.
+
+\begin{definition}
+    An \(A\)-module \(N\) is called a \textbf{flat module} if the functor \(- \otimes_A N: \mathbf{Mod}_A \to \mathbf{Mod}_A\) is an exact functor, i.e. it preserves the exactness of any exact sequence of \(A\)-modules.
+
+    - In particular, if \(N = B\) is a \(A\)-algebra, then we say that \(B\) is a \textbf{flat algebra} over \(A\) if \(B\) is flat as an \(A\)-module.
+\end{definition}
+
+Flat algebra is a good concept for extension of scalars, for example let \(M\) be an \(A\)-module, then the natural map
+\[\tau: M \to M_B = B \otimes_A M\]
+is not necessary a inclusion. For example we consider \(\zz\)-module \(M = \zz/(3)\) and \(B = \zz/(2)\), then \(M_B = 0\) shows a collapse as a case of bad extension. However, \textbf{faithful flatness} can avoid this problem.
+
+\subsection*{Category of Algebra}
+
+As we have discussed before, for a commutative ring \(A\), all commutative \(A\)-algebras forms a category
+\[\cat{\mathbf{CAlg}_A}{(B,f) \text{ or } A \xrightarrow{f} B}{h:(B,f) \to (C,g) \text{ s.t. } h \circ f = g} \]
+
+We will see that tensor product can be described as the product with universal property in this category.
+\begin{proposition}[UP-cproduct-tensor]
+    we have natural isomorphism
+    \[\Hom_{A-alg}(B \otimes_A C, D) \cong \Hom_{A-alg}(B,D) \times \Hom_{A-alg}(C,D)\]
+\end{proposition}
+
+With the universal property, we can conclude some basic identifications
+
+\begin{claim}
+    \[A/I \otimes_A A/J \cong A/(I+J) \]
+\end{claim}
+\begin{proof}
+    By the universal property
+    \[\Hom_{A-alg}(A/I\otimes_A A/J,R) \cong \Hom_{A-alg}(A/I,R) \times \Hom_{A-alg}(A/J,R)\]
+    and morphisms \(f:A/I \to R\) and \(g:A/J \to R\) are uniquely \textbf{(verify)} determined by a morphism \(T:A \to R\) with \(I \subset \ker T\) and \(J \subset \ker T\), and it is equivalent to \(I+J \subset \ker T\), since \(I+J\) is the smallest ideal containing both \(I\) and \(J\), hence it uniquely determined a morphism \(\bar{T}: A/I+J \to R\).
+\end{proof}
+
+\begin{claim}
+    \[A[X,Y] \cong A[X] \otimes_A A[Y]\]
+\end{claim}
+\begin{proof}
+    Review the universal property of polynomial gives
+    \[\Hom_{A-alg}(A[X_1,\dots,X_n],R) \cong R^n\]
+    In particular \(n=1\) gives \(\Hom_{A-alg}(A[X],R) \cong R\), hence 
+    \[\Hom_{A-alg}(A[X_1,\dots,X_n],R) \cong \prod_{i=1}^n \Hom_{A-alg}(A[X_i],R)\]
+    hence we can conlude the result.
+\end{proof}
+\begin{claim}
+    \[A[X] = A \otimes_{\zz} \zz[X] \]
+    which shows that any polynomial ring is the result of extension of scalars.
+\end{claim}
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-\newpage
 
 \subsection{Ideal}
 Ideal is something like normal subgroups in group theory, it is important to reflect the structure and relationship of rings. Here is the definition:
 \begin{definition}
-    Let \(R\) be a commutative ring, a subset \(I \subset R\) is called a ideal of \(R\) if the following conditions are satisfied:\\
+    Let \(R\) be a ring, a subset \(I \subset R\) is called a ideal of \(R\) if the following conditions are satisfied:\\
     (1) \(I\) is an additive subgroup of \(R\), that is for any \(a,b \in I\), we have \(a-b \in I\).\\
     (2) For any \(r \in R\) and any \(a \in I\), we have \(ra \in I\) and \(ar \in I\).
 \end{definition}
-\begin{remark}
-    Here is something to add as the properties, proof is not diffcult:\\
 
-    (1) Ideal \(I \subset R\) can be seen as an \(R\)-submodule of \(R\), roughly speaking, it can be seen as a "vector subspace". (The union of ideals is not necassary an ideal)\\
+    Here is something to add as the properties, proof is not diffcult:
+    \begin{enumerate}
+        \item Ideal \(I \subset R\) can be seen as an \(R\)-submodule of \(R\), roughly speaking, it can be seen as a "vector subspace". (The union of ideals is not necassary an ideal)
 
-    (2) An ideal generated by a subset \(S \subset R\) is defined by 
+        \item An ideal generated by a subset \(S \subset R\) is defined by 
     \[\langle S \rangle := \bigcap_{I \text{ ideal}, S \subset I} I\]
     it is the smallest ideal containing \(S\), and we can verify that
     \[\langle S \rangle = \{\sum_{\text{finite}} r_i s_i \mid r_i \in R, s_i \in S\}\]
-    In particular, a \textbf{principal ideal} is an ideal of the form \((a) = \langle \{a\} \rangle\), i.e a ideal generated by a single element (or it is a cyclic \(R\)-module).\\
+    In particular, a \textbf{principal ideal} is an ideal of the form \((a) = \langle \{a\} \rangle\), i.e a ideal generated by a single element (or it is a cyclic \(R\)-module).
 
-    (3) A useful statement: If a unit \(r \in I\), then \(I = R\).\\
+        \item A useful statement: If a unit \(r \in I\), then \(I = R\).
 
-    (4) The operation of ideal: \(IJ \subset I\cap J \subset I \subset \langle I\cup J \rangle\)
-\end{remark}
+        \item The operation of ideal: \(IJ \subset I\cap J \subset I \subset \langle I\cup J \rangle\)
+    \end{enumerate}
+
+
+In this section, many different ideals will be introduced.
+\begin{lemma}
+    Let \(I \subset R\) be an ideal of a ring \(R\), then 
+    \[I = \sqrt{I} = \{a \in R \mid \exists n \in \nn^*, a^n \in I\}\]
+    defines an ideal of \(R\), called the \textbf{radical} of \(I\).
+\end{lemma}
+
+\begin{definition}
+    Let \(I \subset R\) be an ideal of a ring \(R\), we say that\\
+
+    -\(I\) is a \textbf{maximal ideal} if it is a proper ideal such that for any ideal \(J\) of \(R\) satisfying \(I \subset J \), we have either \(J = I\) or \(J = R\).\\
+
+    -\(I\) is a \textbf{prime ideal} if it is a proper ideal such that for any \(a,b \in R\) satisfying \(ab \in I\), we have either \(a \in I\) or \(b \in I\).\\
+
+    -\(I\) is called a \textbf{radical ideal} if \(I = \sqrt{I}\).\\
+
+    The set of all prime ideals of \(R\) is called the \textbf{spectrum} of \(R\), denoted by \(\mathrm{Spec}(R)\); The set of all maximal ideals of \(R\) is denoted by \(\mathrm{Max}(R)\).
+\end{definition}
+
+Here are some important remarks:
+\begin{enumerate}
+    \item Any ring has at least one maximal ideal, the proof will depend on 
+    Zorn's lemma.
+
+    \item It is necessary to verify that radical ideal is indeed an ideal of \(R\), and it satisfy \(I \subset \sqrt{I}\).
+
+    \item The nilpotent elements of a ring \(R\) is an element \(a \in R\) such that there exists \(n \in \nn^*\) satisfying \(a^n = 0\), and a ring is called \textbf{reduced} if its nilpotent elements is only \(0\). It is easy to verify that the set of nilpotent element is a radical ideal, and we call it the \textbf{nilradical} of \(R\), denoted by \(\mathrm{Nil}(R)\):
+    \[\mathrm{Nil}(A) = \sqrt{(0)}\]
+
+    \item A exercise: \(I \subsetneq \sqrt{I} \iff \mathrm{Nil}(A/I) \neq \{\bar{0}\}\)
+
+    \item A exercise: \(\mathrm{Nil}(A/I) = \sqrt{I}/I\)
+
+    \item prime ideals or maximal ideals are radical with:
+    \[\sqrt{\mathfrak{I}} = \mathfrak{I}, \quad \forall \mathfrak{I} \in \mathrm{Max}(R) \cup \mathrm{Spec}(A)\]
+\end{enumerate}
+
+Quotient rings gives us a good way to describe this ideals via the characterizations of rings:
+\begin{proposition}
+    Let \(I \subset R\) be an ideal of a ring \(R\), then\\
+    (a) \(I\) is a maximal ideal if and only if the quotient ring \(R/I\) is a field.\\
+
+    (b) \(I\) is a prime ideal if and only if the quotient ring \(R/I\) is an integral domain.\\
+
+    (c) \(I\) is a radical ideal if and only if the quotient ring \(R/I\) is a reduced ring.\\
+\end{proposition}
+
+The raidcal ideal has a deep relation with prime ideals, one can characterize the radical ideal by the intersection of prime ideals:
+
+\begin{lemma}
+    Let \(I \subsetneq\) R be an ideal of a ring \(R\), then 
+    \[\sqrt{I} = \bigcap_{\substack{\mathfrak{p} \in \mathrm{Spec}(R) \\ I \subset \mathfrak{p}}} \mathfrak{p}\]
+    In particular, if \(I = 0\) we can conconlude that nilradical is the intersection of all prime ideals:
+    \[\mathrm{Nil}(R) = \bigcap_{\mathfrak{p} \in \mathrm{Spec}(R)} \mathfrak{p}\]
+\end{lemma}
+\begin{proof}
     
+\end{proof}
+
+The insection of ideals gives a equivalent definition of nilradical ideal, similarly we can define \textbf{Jacobson radical} by the intersection of maximal ideals:
+
+\[\mathrm{Jac}(R) = \bigcap_{\mathfrak{m} \in \mathrm{Max}(R)} \mathfrak{m}\]
+
+An important property of Jacbosion radical is the following:
+\begin{lemma}
+    Let \(R\) be a ring, then for any \(a \in R\), we have
+    \[a \in \mathrm{Jac}(R) \iff \forall b \in R, 1 - ab \text{ is a unit in } R\]
+\end{lemma}
+
+\begin{proof}
+    
+\end{proof}
+
+with the Jacoboson radical, we can use the condition of finitely generated module, which is a certain techinc lemma in commutative alegbra but useful in many situations:
+\begin{theorem}[Nakayama] $ \\$
+    Let \(M\) be a finitely generated \(A\)-module, and \(I \subset \mathrm{Jac}(A)\) be an ideal of \(A\). If \(IM = M\), then \(M = 0\).
+\end{theorem}
+\begin{proof}
+    
+\end{proof}
+
+Notice that the condition \(IM = M\) is equivalent to the quoitent module \(M/IM = 0\), a better understanding of Nakayama lemma can be based on the tensor product:
+\begin{lemma}
+    Let \(M\) be a \(A\)-module, and \(I \subset A\) be an ideal of \(A\). Then there exists a natural isomorphism \(\bar{m} \mapsto 1 \otimes m\)
+    \[M/IM \cong (A/I) \otimes_A M\]
+\end{lemma}
+
+In particular, Nakyama lemma gives a useful support to show that the module over local ring has many good properties like field.
+
+
 
 \subsection{Noetherian ring}
+
+Some basic properties about finitely generated modules is useful, because we always need to claim whether a module is finitely generated or not.
+\begin{proposition} \label{typefini}
+Let \(M\) be a \(R\)-module, and \(N \subset M\) be a submodule:\\
+(1) If \(M\) is finitely generated, then quotient module \(M/N\) is also finitely generated.\\
+
+(2) If \(N\) and \(M/N\) are finitely generated, then \(M\) is also finitely generated.\\
+
+(3) If \(M_i\) is finitely generated \(R\)-modules for all \(i=1,2,\cdots, n\), then the product module \(\prod_{i=1}^n M_i\) is also finitely generated.\\
+
+(4) Let \(M\) be \(A\)-module, and \((A,\phi)\) be a \(R\)-algebra, then if \(M\) is finitely generated as a \(R\)-module, then \(M\) is also finitely generated as a \(A\)-module.
+\end{proposition}
+\begin{proof}
+    (1) Let \((m_1, m_2, \cdots, m_n)\) be a finite generate set of \(M\), then we claim that \((\bar{m_1}, \bar{m_2}, \cdots, \bar{m_n})\) is a finite generate set of \(M/N\). For any \(\bar{m} \in M/N\), there exists \(c_i \in R\) such that
+    \[m = \sum_{i=1}^n c_i m_i\]
+    hence
+    \[\bar{m} = \sum_{i=1}^n c_i \bar{m_i}\]
+    it implies the result.\\
+    (2) Let \((n_1, n_2, \cdots, n_k)\) be a finite generate set of \(N\), and let \((\bar{m_1}, \bar{m_2}, \cdots, \bar{m_l})\) be a finite generate set of \(M/N\). We claim that \((n_1, n_2, \cdots, n_k, m_1, m_2, \cdots, m_l)\) is a finite generate set of \(M\). For any \(m \in M\), there exists \(c_j \in R\) such that
+    \[\bar{m} = \sum_{j=1}^l c_j \bar{m_j}\]
+    hence
+    \[m - \sum_{j=1}^l c_j m_j \in N\]
+    so there exists \(d_i \in R\) such that
+    \[m - \sum_{j=1}^l c_j m_j = \sum_{i=1}^k d_i n_i\]
+    it implies that
+    \[m = \sum_{i=1}^k d_i n_i + \sum_{j=1}^l c_j m_j\]
+    hence the result.
+
+    (3) Let \((m_{i1}, m_{i2}, \cdots, m_{in_i})\) be a finite generate set of \(M_i\) for each \(i=1,2,\cdots,r\), then the finite set (order is \(n_1+\cdots+n_r\))
+    \[\{(0,\cdots,0,m_{ij},0,\cdots,0) \mid i=1,2,\cdots,r; j=1,2,\cdots,n_i\}\]
+    is a generate set of \(\prod_{i=1}^r M_i\).
+
+    (4) Let \((m_1, m_2, \cdots, m_n)\) be a finite generate set of \(M\) as a \(R\)-module, then for any \(m \in M\), there exists \(c_i \in R\) such that
+    \[m = \sum_{i=1}^n c_i \cdot m_i = \sum_{i=1}^n \phi(c_i) m_i\]
+\end{proof}
+
+The statement (2) can be generalized to a exact sequence as following:
+\begin{corollary}
+Let \(0 \to N \to M \to P \to 0\) be an exact sequence of \(R\)-modules, then
+\[\{N,P\} \text{ finitely generated} \implies M \text{ finitely generated}\]
+\end{corollary}
+
+However, we can not say more about the implication because the submodule of a finitely generated module is not necessarily finitely generated. We should make some restriction on the module such that some good properties can be ensured, that is called \textbf{Noetherian module}.
+\begin{definitionplain}
+    A \(R\)-module \(M\) is called a \textbf{Noetherian module} if it satisfies the following equivalent conditions:\\
+    (1) Any submodule of \(M\) is finitely generated.\\
+    (2) Any ascending chain of submodules of \(M\)
+    \[N_1 \subset N_2 \subset N_3 \subset \cdots\]
+    stabilizes, i.e. there exists \(k \in \nn\) such that for all \(n \geq k\), \(N_n = N_k\).\\
+    (3) Any non-empty set of submodules of \(M\) has a maximal element with respect to inclusion.
+
+\end{definitionplain}
+
+The equivalent of the conditions need a proof here for clarification.
+\begin{proof}
+
+\end{proof}
+
+Immediate with the definition, we can get some properties of Noetherian modules like proposition \ref{typefini}:
+\begin{itemize}
+    \item Let \(0 \to N \to M \to P \to 0\) be an exact sequence of \(R\)-modules, then
+     \[\{N,P\} \text{ Noetherian} \iff M \text{ Noetherian}\]
+    in particular, let \(N\) be a submodule of \(M\), then
+    \[M \text{ Noetherian} \iff \{N, M/N\} \text{ Noetherian}\]
+
+    \item Let \(M_i\) be Noetherian \(R\)-modules for all \(i=1,2,\cdots, n\), then the product module \(\prod_{i=1}^n M_i\) is also Noetherian.
+
+    \item Let \(M\) be a \(A\)-module, and \((A,\phi)\) be a \(R\)-algebra, then \(M\) is Noetherian as a \(A\)-module if it is Noetherian as a \(R\)-module.
+\end{itemize}
+
+Noetherian condition is very important in commutative algebra, because it ensures that many bad situations will not happen. For example, in a locally ring \((R,m)\), we only have one chain of ideals 
+\[\cdots I_2 \subset I_1 \subset m\]
+so which ensures the maximal ideal \(m\) is finitely generated, and other ideals will be generated by part of the generators of \(m\).
+
+\begin{definition}
+    Let \(R\) be a commutative ring, \(R\) is called a \textbf{Noetherian ring} if it is Noetherian as a \(R\)-module, i.e. it satisfies one of the following equivalent conditions:\\
+    (1) Any ideal of \(R\) is finitely generated.\\
+    (2) A.C.C condition on ideals.\\
+    (3) Any non-empty set of ideals has a maximal element with respect to inclusion.
+\end{definition}
+\begin{remark}
+    Many rings we meet are Noetherian rings:\\
+
+    (a) Any field \(k\) is a Noetherian ring, because the only ideals are \(\{0\}\) and \(k\).\\
+
+    (b) Any principal ideal domain (PID) is a Noetherian ring, because any ideal is generated by a single element.\\
+
+    (c) The extension of \(\zz\) is a Noetherian ring, for example 
+    \(\zz[\sqrt{2}]\) and \(\zz[i]\). The result can be generalized to the following proposition.\\
+\end{remark}
+
+\begin{proposition}
+    Let \(R\) be a Noetherian ring, and \(M\) is a finitely generated \(R\)-algebra, then \(M\) is also a Noetherian ring.
+\end{proposition}
+\begin{proof}
+    Let \(\{m_1,\dots ,m_n\}\) be a set of generators of \(M\) as a \(R\)-module, then define  \(R^n := \prod_{i=1}^n R\) to be the product \(R\)-module. It is clear that \(R^n\) is a Noetherian module since \(R\) is a Noetherian module as a \(R\)-module, then we can define a natural surjection of \(R\)-modules by
+    \[\varphi: R^n \to M, \quad (a_1,...,a_n) \mapsto \sum_{i=1}^{n} a_i m_i\]
+    It is actually a \(R\)-module homomorphism, so by the first isomorphism can conclude that \(R^n/\ker \varphi \cong M\), then the quotient module of the Noetherian module \(R^n\) is also Noetherian, hence \(M\) is a Noetherian ring.
+\end{proof}
+
+The idea of the proof is important, In the proof we try to construct a module isomorphic to \(M\), so we define a natural object \(R^n\) and a natural morphism \(\varphi\) to \(M\), we can find that the propoerty of \(R^n\) is so nice that we can transfer the property to \(M\) by the isomorphism theorem, i.e. \(R^n\) is a free object.
+
+The statement without the finiteness condition is not correct, for example we consider rational number \(\qq\), it is not finitely generated as a \(\zz\)-module, and it is not a noetheriam ring since we can find a chain of ideals:
+\[\zz \subset \frac{1}{2}\zz \subset \cdots \subset \frac{1}{2^n}\zz \subset \cdots\]
+it will not stop, so \(\qq\) is not a Noetherian ring.
 \begin{theorem}[Hilbert's Basis Theorem]
     If \(A\) is a Noetherian ring, then the polynomial ring \(A[X]\) is also Noetherian.
 \end{theorem}
@@ -2391,7 +2917,7 @@ the process of localization is actullay a type of extension of scalar when we se
 \end{proof}
 
 
-    The structure shows the essential difference of localization of modules and rings here, the localization of ring is process of extension, it adds some new elements to the ring such that it can be the inverse of some elements; while the localization of modules is a process of extension of scalar, or by the proposition above it is a tensor product, which means that 
+    The structure shows the essential difference of localization of modules and rings here, the localization of \textbf{intergal domian} is process of extension, it adds some new elements to the ring such that it can be the inverse of some elements; while the localization of modules is a process of extension of scalar, or by the proposition above it is a tensor product, which means that 
     \begin{center}
         \textbf{localization of modules is not necessarily larger than the initial module!}
     \end{center}
@@ -2425,6 +2951,78 @@ the process of localization is actullay a type of extension of scalar when we se
     then the localization \(S^{-1}M = M \) if and only if \(\psi_s\) is bijective for any \(s \in S\), a simple example is that
     \[\qq \otimes_{\zz} \qq = \qq\]
 
+    Localization is a strong tool to study the local properties of commutative rings and modules without changing the global structure too much, and conversely we can study the global structure by gluing the local structures togther, in number thoery it is called the \textbf{local-global principle}, which is a fundamental idea in modern number theory.
+
+    \begin{proposition}
+        The \textbf{localization of ring} preserves the following properties:\\
+        (1) reduced ring \qquad (2) integral domain \qquad  (3) Noetherian ring\\ (4) UFD \qquad (5) integral closed
+    \end{proposition}
+    \begin{proof}
+        
+    \end{proof}
+
+    Finally, the examples of localization will be introduced as the techinic base.
+
+    \begin{example}
+        Let \(A\) be a ring, and \(f\) be an non-nilpotent element of \(A\), then \(S = \{f^n, n \in \nn\}\) is a multiplicative subset of \(A\), and the localization is called the \textbf{localization of \(A\) at \(f\)}, denoted by \(A[f^{-1}]\). Here are some examples:\\
+
+        (1) \(\zz[\frac{1}{2}]\) is the localization of \(\zz\) at \(2\).\\
+
+        (2) Laurent polynomial ring \(A[X,X^{-1}]\) is the localization of polynomial ring \(A[X]\) at \(X\).\\
+
+        (3) \textbf{The localization at a point is just to omit the information at this point.} Let \(M\) be a \(\zz\)-module with \(2\) is a torsion element (for example \(M = \zz/(6)\)), then the localization of module \(M\) at point \(2\) allows us to view \(2\) as a unit, hence in \(M[2^{-1}]\)
+        \[2x = 0 \implies x=0\]
+        we loose the information about \(2\) as a torsion element after localization, which is actually the important characterizations of \(2\) in \(\zz\)-module \(M\).
+    \end{example}
+
+    The requiremenet that \(f\) is non-nilpotent ensures that \(0 \notin S\), hence it is necessary to avoid the form of \(\frac{a}{0}\). tHE structure OF localization at a single elemet is easier to study, and it is clearly that \(f^{-1}\) as the element in \(A[f^{-1}]\) is always not intergal, but it can be write as a solution of a linear equation:
+    \begin{lemma}
+        Let \(A\) be a ring, and \(f \in A\) be a non-nilpotent element
+        \[A[f^{-1}] \cong A[X]/(fX-1)\]
+    \end{lemma}
+
+    \begin{example}
+        Let \(\mathfrak{p}\) be a prime ideal of a ring \(A\), then \(S = A - \mathfrak{p}\) is a multiplicative subset of \(A\) \textbf{(verify!)}, and the localization is called the \textbf{localization of \(A\) at \(\mathfrak{p}\)}, denoted by \(A_{\mathfrak{p}}\). Here are some examples:\\
+
+        (1) For any integral domian \(A\), the localization \(A_{(\{0\})}\) is the field of fractions of \(A\).\\
+
+        (2) Notice \(2\zz\) is a prime ideal of \(\zz\), then the localization is
+        \[\zz_{(2)} = \{\frac{a}{b} \in \qq \mid a,b \in \zz, b \notin 2\zz\} \]
+        In the view of valuation it is
+        \[\zz_{(2)} = \{x \in \qq \mid v_2(x) \geq 0\}\]
+        while
+        \[\zz[2^{-1}] = \{x \in \qq \mid v_2(x) < 0 \}\]
+        In a PID, the localization at a prime ideal \((p)\) is opposite to the localization at a point, i.e. it will keep all the information about \(p\) to give a extension.\\ 
+
+        (3) for any ring \(A\) and any maximal ideal \(\mathfrak{m}\), the localization \(A_{\mathfrak{m}}\) is a local ring with unique maximal ideal \(\mathfrak{m}A_{\mathfrak{m}}\).\\
+    \end{example}
+
+    In particular, the prime ideals of localization at a prime ideal havs a nice description:
+
+    \begin{lemma}
+        Let \(A\) be a ring and \(\mathfrak{p}\) be a prime ideal of \(A\), then there exists a bijective correspondece
+        \[\spec(A_{\mathfrak{p}}) \to \{\mathfrak{q} \in \spec(A) \mid \mathfrak{q} \subset \mathfrak{p}\}\]
+        In particualr, \(\mathfrak{p}A_{\mathfrak{p}}\) is the unique maximal ideal of \(A_{\mathfrak{p}}\), i.e.\(A_{\mathfrak{p}}\) is a \textbf{local ring}.
+    \end{lemma}
+    \begin{proof}
+        
+    \end{proof}
+
+    The fraction field of a integral domian \(A\) is the localization of \(A\) at \(S = A-\{0\}\), and trivally the set contains all zero-divisors of \(A\), hence it motivates a general case
+    \begin{example}
+        For any ring \(A\), we deefine \(A_{reg}\) to be the set of all regular elements (non-zero divisors) of \(A\), then \(A_{reg}\) is a multiplicative subset of \(A\) \textbf{(verify!)}, the localization is called the \textbf{total ring of fractions} of \(A\), and it is denoted by \(Q(A)\). Here are some examples:\\
+
+        (1) If \(A\) is an integral domain, then the total ring of fractions is just the fraction field of \(A\).\\
+
+        (2) Let \(A = \zz/6\zz\), then the regular elements are \(\{1,5\}\), hence the total ring of fractions is
+        \[Q(A) = \left\{\frac{a}{1}, \frac{a}{5} \mid a \in \zz/6\zz\right\} \]
+        notice that \(5^2 = 1 \mod 6\), then \(\frac{a}{5} = \frac{5a}{1}\), which shows that \(Q(A) = A\).\\
+    \end{example}
+
+    Total ring of fractions can be seen as the "biggeest localization" of a ring \(A\) such that \(A \to Q(A)\) is a inclusion.
+
+
+\subsection{Local ring and Valuation ring}
 
 
 

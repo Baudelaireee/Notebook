@@ -51,14 +51,16 @@
 
 \usepackage{thmtools}
 
+\declaretheoremstyle[headfont=\bfseries, bodyfont=\normalfont, spaceabove=3pt, spacebelow=3pt]{normalstyle}
+
 %% define environments
 \declaretheorem[style=definition, name=Theorem, numbered=yes, numberwithin=section]{theoremplain}
 \declaretheorem[style=definition, name=Proposition, numbered=yes, sibling=theoremplain]{propositionplain}
-\declaretheorem[style=plain, name=Corollary, numbered=yes, sibling=theoremplain]{corollaryplain}
-\declaretheorem[style=plain, name=Definition, numbered=yes, sibling=theoremplain]{definitionplain}
-\declaretheorem[style=plain, name=Lemma, numbered=yes, sibling=theoremplain]{lemmaplain}
-\declaretheorem[style=plain, name=Lemma, numbered=no, sibling=theoremplain]{lemmaplain*}
-\declaretheorem[style=plain, name=Definition, numbered=no, sibling=theoremplain]{definitionplain*}
+\declaretheorem[style=definition, name=Corollary, numbered=yes, sibling=theoremplain]{corollaryplain}
+\declaretheorem[style=definition, name=Definition, numbered=yes, sibling=theoremplain]{definitionplain}
+\declaretheorem[style=definition, name=Lemma, numbered=yes, sibling=theoremplain]{lemmaplain}
+\declaretheorem[style=definition, name=Lemma, numbered=no, sibling=theoremplain]{lemmaplain*}
+\declaretheorem[style=definition, name=Definition, numbered=no, sibling=theoremplain]{definitionplain*}
 
 \declaretheorem[style=definition, name=Theorem, numbered=yes, numberwithin=section]{theorem}
 \declaretheorem[style=definition, name=Theorem, numbered=no]{theorem*}
@@ -66,10 +68,10 @@
 \declaretheorem[style=definition, name=Proposition, numbered=yes, sibling=theorem]{proposition}
 \declaretheorem[style=definition, name=Proposition, numbered=no]{proposition*}
 
-\declaretheorem[style=plain, name=Corollary, numbered=yes, sibling=theorem]{corollary}
-\declaretheorem[style=plain, name=Corollary, numbered=no]{corollary*}
+\declaretheorem[style=definition, name=Corollary, numbered=yes, sibling=theorem]{corollary}
+\declaretheorem[style=definition, name=Corollary, numbered=no]{corollary*}
 
-\declaretheorem[style=plain, name=Lemma, numbered=yes, sibling=theorem]{lemma}
+\declaretheorem[style=definition, name=Lemma, numbered=yes, sibling=theorem]{lemma}
 \declaretheorem[style=plain, name=Lemma, numbered=no]{lemma*}
 
 \declaretheorem[style=plain, name=Claim, numbered=yes, sibling=theorem]{claim}
@@ -82,7 +84,7 @@
 \declaretheorem[style=definition, name=Example, numbered=no]{example*}
 
 \declaretheorem[style=definition, name=Problem, numbered=yes, numberwithin=section]{problem}
-\declaretheorem[style=definition, name=Problem, numbered=no]{problem*}
+\declaretheorem[style=normalstyle, name=Problem, numbered=no]{problem*}
 
 \declaretheorem[style=remark, name=Remark, numbered=yes, numberwithin=section]{remark}
 \declaretheorem[style=remark, name=Remark, numbered=no]{remark*}
@@ -173,6 +175,7 @@
 \newcommand{\qq}{\mathbb{Q}}
 \newcommand{\rr}{\mathbb{R}}
 \newcommand{\cc}{\mathbb{C}}
+\newcommand{\dd}{\mathbb{D}}
 \newcommand{\ff}{\mathbb{F}}
 \newcommand{\sph}{\mathbb{S}}
 \newcommand{\ffp}{\mathbb{F}_p}
@@ -183,6 +186,10 @@
 \newcommand{\id}{\operatorname{id}}
 \newcommand{\ev}{\operatorname{ev}}
 \newcommand{\spec}{\operatorname{Spec}}
+
+
+%operator 
+\newcommand{\deck}{\operatorname{Deck}}
 
 \newcommand{\cat}[3]{%
   {#1} \;\Big|\;
