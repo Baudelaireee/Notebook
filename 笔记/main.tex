@@ -977,7 +977,7 @@ while the problem is that is the map well-defined?
 
 
 \begin{lemma}
-    Let \(p:(E,e_0) \to (X,x_0)\) be a path-connected covering space, and \(X\) is locally path-connected, then the following statement are equivalent:\\
+    Let \(p:(E,e_0) \to (X,x_0)\) be a coveing space, and \(E\) is path-connected and locally path-connected, then the following statement are equivalent:\\
 
     (1) \(\deck(E/X)\) acts \textbf{transitively} on the fiber \(F_{x_0}\).\\
 
@@ -1001,6 +1001,31 @@ while the problem is that is the map well-defined?
 
 \end{remark}
 
+As we have discussed above, normal covering space allows us to construct a global automorphism along the fundamental group action on fibers, and the automorphism group can act on the covering space freely. However, in many cases we find that a topological space can be denoted as the orbit space of some group action, i.e.
+\[G \circlearrowleft X  \implies X/G: = \{G\cdot a \mid a \in X\} \]
+In particular, the galois covering space shows that deck transformation group acts on the fiber transitively, and the fiber is always discrete, hence the transformation group should be discrete too, which motivates us to consider the discrete action.
+
+\begin{lemma}
+    Let \(G \circlearrowleft X\) be a \textbf{discrete} group action on a topological space \(X\), if the action is free and proper, then the quotient map 
+    \[p: X \to X/G, \quad x \mapsto G \cdot x\]
+    is a covering map, i.e. \(X\) is a covering space of \(X/G\).
+\end{lemma}
+
+
+\begin{proposition}
+    Let \(p:E \to X\) be a covering space, if \(E\) is path-connected and locally path-connected, the covering space is normal if and only if there exists a discrete group \(G\) acting on \(E\) freely and properly such that \(X \cong E/G\) hoemomorphic and the following diagram commutes:
+    % https://q.uiver.app/#q=WzAsMyxbMiwxLCJYIl0sWzAsMSwiRS9HIl0sWzEsMCwiRSJdLFsyLDEsInEiLDJdLFsyLDAsInAiXSxbMSwwLCJcXHNpbSIsMl1d
+\[\begin{tikzcd}
+	& E \\
+	{E/G} && X
+	\arrow["q"', from=1-2, to=2-1]
+	\arrow["p", from=1-2, to=2-3]
+	\arrow["\sim"', from=2-1, to=2-3]
+\end{tikzcd}\]
+
+    In particular,
+\end{proposition}
+
 
 
 
@@ -1021,9 +1046,10 @@ while the problem is that is the map well-defined?
 \subsection{The fundamental theorem of algebra}
 It is a famous theorem in algebra, but the proof can appear in many branches of mathematics via some basic ideas. Here a proof by algebraic topology is given here.
 \begin{quote}
-\emph{“ Tous les théorèmes fondamentaux de l’algèbre reposent sur la compacité. ”}
+\emph{“ Tous les théorèmes fondamentaux de l'algèbre reposent sur la compacité. ”}
 
-\hfill — Jean-Pierre Serre, \emph{«Cours d’arithmétique»}
+\hfill --- Jean-Pierre Serre, \emph{``Cours d'arithmétique''}
+
 \end{quote}
 
 \begin{theorem}
@@ -2922,6 +2948,11 @@ the process of localization is actullay a type of extension of scalar when we se
         \textbf{localization of modules is not necessarily larger than the initial module!}
     \end{center}
     here is some examples:
+
+
+
+
+    
     \begin{lemma}
         Let \(M\) be a \(A\)-module, and \(S\) be a multiplicative subset of \(A\), then the following conditions are equivalent:\\
         (1) \(S^{-1}M = 0\)\\
