@@ -1,0 +1,71 @@
+\section{Some linear algebra}
+
+This section can be seen as a breif review of linear agebra, it mainly focus on something related to lie theory and representation theory.
+
+\subsection{Decomposition of endomorphisms}
+
+
+\begin{colortheorem}[real-Polar decomposition] $ \\$
+For any real endomorphism \(A \in \mathrm{GL}_n( \rr)\), there exists a unique orthogonal endomorphism \(O \in O(n)\) and a unique symmetric positive definite endomorphism \(P \in S^{++}_n(\rr)\) such that
+\[A = OP\]
+\end{colortheorem}
+
+\begin{proof}
+    Here is the outline of the proof:\\
+    (1) A \textbf{lemma} about the existence of square root are needed here: If \(A \in S^+_n(\rr)\), then there exists a (unique) \(B \in S^+_n(\rr)\) such that \(B^2 = A\). \\
+    (2) Prove that \(A^tA\) is (semi-definite) positive, thus by the lemma there exist a (unique) squar root \(P = \sqrt{A^tA}\), and we prove that \(P\) is positive definite. \\
+    (3) Define \(O = AP^{-1}\), and prove that \(O\) is orthogonal.\\
+    (4) Prove the uniqueness of the decompoistion.\\
+
+    Here is the details:\\
+    (1) By real-spectral theorem, there exists \(O \in O(n)\) such that
+    \[A = ODO^T, \quad D = \mathrm{dig}(\lambda_1,...,\lambda_n)\]
+    where \(\lambda_i \geq 0\) are the eigenvalues of \(A\), and we set \(\Sigma = \mathrm{dig}(\sqrt{\lambda_1},...,\sqrt{\lambda_n})\) such that
+    \[A = (O\Sigma O^T)^2\]
+    which shows that \(B = O \Sigma O^T\) is a (unique) square root of \(A\) and it is positive since \(\sqrt{\lambda_i} \geq 0\). 
+
+    (2) \(A^T A\) is clearly symmetric, and it is positive since
+    \[x^T (A^T A) x = \|Ax\| \geq 0\]
+    for any \(x \in \rr^n\) under the common inner product, and \(A\) is invertible such that \(\|Ax\| = 0\) if and only if \(x = 0\), thus \(A^TA\) is positive definite, so does its square root (the eignevalues is strictly positive).
+
+    (3) \(P^{-1} = (P^{-1})^T\) since \(P\) is symmetric, so we have
+    \[O^T O = (P^{-1})^T A^T A P^{-1} = (P^{-1})^T P^2 P^{-1} = I\]
+
+    (4) Suppose that there eixsts another decomposition \(A = O_0P_0\), then we have
+    \[A^TA = P_0^T O_0^T O_0 P_0 = P_0^2\]
+    so \(P_0\) is the positive square root of \(A^TA\), if the uniqueness of (1) is proved, we can finish the proof, but here we give another proof of the uniqueness only under the existence of the square root: we have \(O_0^{-1}O = P_0P^{-1}\), so it is easy to check that \(P_0P^{-1}\) is \textbf{orthogonal}; notice that \(P_0\) and \(A^TA\) commute, and there exists a polynomial \(f\) such that
+    \[f(A^TA) = P\]
+    it can be done by using lagrange interpolation, thus \(P_0\) and \(P\) commute as two symmetric matrix, then \(P\) and \(P_0\) can be diagonalized simultaneously by one orthogonal \(H\) such that
+    \[P = HDH^T \quad P_0 = H D_0 H^T\]
+    where \(D = \mathrm{dig}(\lambda_1,...,\lambda_n)\) and \(D_0 = \mathrm{dig}(\mu_1,...,\mu_n)\), thus
+    \[P_0P^{-1} = HD_0^{-1}DH^T\]
+    it is \textbf{symmetric and positive definite} since \(D^{-1}_0 D\) is digonal with positive entries, thus \(P_0P^{-1} \in O(n) \cap S^{++}_n(\rr) = \{I\}\), which implies that \(P_0 = P\) and \(O_0 = O\).
+\end{proof}
+
+\begin{colortheorem}[complex-Polar decomposition] $ \\$
+    For any complex endomorphism \(A \in \mathrm{GL}_n( \cc)\), there exists a unique unitary endomorphism \(U \in U(n)\) and a unique hermitian positive definite endomorphism \(P \in H^{++}_n(\cc)\) such that
+    \[A = UP\]
+\end{colortheorem}
+
+The proof is similar to the real case, we set \(P = \sqrt{A^*A}\) and \(U = AP^{-1}\), and the lemma is based on the complex-spectral theorem for normal opreator: The postive Hermitian endomorphism has a unique positive Hermitian square root.
+
+
+\begin{remark}
+    In particular, if \(n=1\), we have the polar decompistion in \(\mathrm{GL}_1(\cc) = \cc^*\) by 
+    \[z = |z|e^{iArg(z)}\]
+    it is easy to see that \(U(1) \cong \sph^1\), it is the original ideal of the decomposition. Similarly, in the real case, we can embed \(\cc\) into \(\mathrm{GL}_2(\rr)\) by
+    \[a+ib \mapsto \begin{pmatrix}
+        a & -b\\
+        b & a
+    \end{pmatrix}\]
+    and we have the polar decomposition for the matrix form of complex numbers:
+    \[\begin{pmatrix}
+        a & -b\\
+        b & a
+    \end{pmatrix} = \begin{pmatrix}
+        \sqrt{a^2+b^2} & 0\\
+        0 & \sqrt{a^2+b^2}
+    \end{pmatrix} \begin{pmatrix}
+        \frac{a}{\sqrt{a^2+b^2}} & -\frac{b}{\sqrt{a^2+b^2}}\\
+        \frac{b}{\sqrt{a^2+b^2}} & \frac{a}{\sqrt{a^2+b^2}} \end{pmatrix}\]
+\end{remark}

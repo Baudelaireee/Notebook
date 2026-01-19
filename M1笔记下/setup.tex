@@ -1,0 +1,263 @@
+%================================
+% note-setup-simple.tex
+% fenglielie@qq.com 2025-10-22
+%================================
+
+\usepackage{amsmath,amsthm,amsfonts,amssymb}
+\usepackage{mathtools}
+\usepackage{mathrsfs}
+\usepackage{bm}
+\usepackage{extarrows}
+\usepackage[a4paper, margin=1in]{geometry}
+\usepackage{float}
+\usepackage{indentfirst}
+\usepackage{anyfontsize}
+\usepackage{booktabs,multirow,multicol}
+\usepackage[shortlabels,inline]{enumitem}
+\usepackage{appendix}
+
+\usepackage[dvipsnames]{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{graphicx}
+\graphicspath{
+    {./figure/}{./figures/}{./image/}{./images/}{./graphic/}{./graphics/}{./picture/}{./pictures/}
+}
+\usepackage{subcaption}
+
+\usepackage[ruled,linesnumbered,noline]{algorithm2e}
+\usepackage{listings}
+\lstdefinestyle{simpleStyle}{
+    basicstyle=\ttfamily\small,
+    breaklines=true,
+    keywordstyle=\color{blue},
+    identifierstyle=\color{black},
+    stringstyle=\color{violet},
+    commentstyle=\color[RGB]{34,139,34},
+    showstringspaces=false,
+    numbers=left,
+    numbersep=2em,
+    numberstyle=\footnotesize,
+    frame=single,
+    framesep=1em,
+}
+\lstset{style=simpleStyle}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,linkcolor=,urlcolor=cyan
+}
+
+\renewcommand*{\proofname}{\normalfont\bfseries Proof}
+
+\usepackage{thmtools}
+
+\declaretheoremstyle[headfont=\bfseries, bodyfont=\normalfont, spaceabove=3pt, spacebelow=3pt]{normalplain}
+
+\declaretheoremstyle[headfont=\bfseries, bodyfont=\normalfont, spaceabove=3pt, spacebelow=3pt]{colordefinitionstyle}
+
+%% define environments
+
+\declaretheorem[style=normalplain, name=Theorem, numbered=yes, numberwithin=section]{theorem}
+\declaretheorem[style=normalplain, name=Theorem, numbered=no]{theorem*}
+
+\declaretheorem[style=normalplain, name=Proposition, numbered=yes, sibling=theorem]{proposition}
+\declaretheorem[style=normalplain, name=Proposition, numbered=no]{proposition*}
+
+\declaretheorem[style=normalplain, name=Corollary, numbered=yes, sibling=theorem]{corollary}
+\declaretheorem[style=normalplain, name=Corollary, numbered=no]{corollary*}
+
+\declaretheorem[style=normalplain, name=Lemma, numbered=yes, sibling=theorem]{lemma}
+\declaretheorem[style=normalplain, name=Lemma, numbered=no]{lemma*}
+
+\declaretheorem[style=normalplain, name=Claim, numbered=yes, sibling=theorem]{claim}
+\declaretheorem[style=normalplain, name=Claim, numbered=no]{claim*}
+
+\declaretheorem[style=normalplain, name=Theorem, numbered=yes, numberwithin=section]{colortheorem}
+\declaretheorem[style=normalplain, name=Theorem, numbered=no]{colortheorem*}
+
+\declaretheorem[style=normalplain, name=Proposition, numbered=yes, sibling=theorem]{colorproposition}
+\declaretheorem[style=normalplain, name=Proposition, numbered=no]{colorproposition*}
+
+\declaretheorem[style=normalplain, name=Corollary, numbered=yes, sibling=theorem]{colorcorollary}
+\declaretheorem[style=normalplain, name=Corollary, numbered=no]{colorcorollary*}
+
+\declaretheorem[style=normalplain, name=Lemma, numbered=yes, sibling=theorem]{colorlemma}
+\declaretheorem[style=normalplain, name=Lemma, numbered=no]{colorlemma*}
+
+\declaretheorem[style=normalplain, name=Claim, numbered=yes, sibling=theorem]{colorclaim}
+\declaretheorem[style=normalplain, name=Claim, numbered=no]{colorclaim*}
+
+\declaretheorem[style=definition, name=Definition, numbered=yes, numberwithin=section]{definition}
+\declaretheorem[style=definition, name=Definition, numbered=no]{definition*}
+
+\declaretheorem[style=colordefinitionstyle, name=Definition, numbered=yes, numberwithin=section]{colordefinition}
+\declaretheorem[style=colordefinitionstyle, name=Definition, numbered=no]{colordefinition*}
+
+\declaretheorem[style=definition, name=Example, numbered=yes, numberwithin=section]{example}
+\declaretheorem[style=definition, name=Example, numbered=no]{example*}
+
+\declaretheorem[style=colordefinitionstyle, name=Example, numbered=yes, numberwithin=section]{colorexample}
+\declaretheorem[style=colordefinitionstyle, name=Example, numbered=no]{colorexample*}
+
+\declaretheorem[style=definition, name=Problem, numbered=yes, numberwithin=section]{problem}
+\declaretheorem[style=definition, name=Problem, numbered=no]{problem*}
+
+\declaretheorem[style=colordefinitionstyle, name=Problem, numbered=yes, numberwithin=section]{colorproblem}
+\declaretheorem[style=colordefinitionstyle, name=Problem, numbered=no]{colorproblem*}
+
+\declaretheorem[style=remark, name=Remark, numbered=yes, numberwithin=section]{remark}
+\declaretheorem[style=remark, name=Remark, numbered=no]{remark*}
+\usepackage[most]{tcolorbox}
+
+\newcommand{\newtcbenvironment}[2]{
+    \tcolorboxenvironment{#1}{#2, enhanced, breakable, sharp corners,leftrule=2pt, rightrule=0pt, toprule=0pt, bottomrule=0pt}
+    \tcolorboxenvironment{#1*}{#2, enhanced, breakable, rounded corners,leftrule=2pt, rightrule=0pt, toprule=0pt, bottomrule=0pt}
+}
+
+%% define styles
+
+\newtcbenvironment{colortheorem}{colframe=RoyalPurple, colback=RoyalPurple!8}
+\newtcbenvironment{colorproposition}{colframe=RoyalPurple, colback=RoyalPurple!8}
+\newtcbenvironment{colorcorollary}{colframe=NavyBlue, colback=SkyBlue!8}
+\newtcbenvironment{colorlemma}{colframe=NavyBlue, colback=SkyBlue!8}
+\newtcbenvironment{colorclaim}{colframe=NavyBlue, colback=SkyBlue!8}
+
+\newtcbenvironment{colordefinition}{colframe=ForestGreen, colback=ForestGreen!5}
+\newtcbenvironment{colorexample}{colframe=RawSienna, colback=RawSienna!5}
+\newtcbenvironment{colorproblem}{colframe=WildStrawberry!30, colback=WildStrawberry!5}
+
+%% cbox
+\newtcolorbox{cbox}[1][]{%
+    enhanced,
+    breakable,
+    sharp corners,
+    leftrule=2pt, rightrule=0pt, toprule=0pt, bottomrule=0pt,
+    colframe=SkyBlue,
+    colback=SkyBlue!8,
+    #1
+}
+
+
+%% cover
+\usepackage{titling}
+\newcommand{\extrainfo}{}
+\renewcommand{\extrainfo}[1]{\renewcommand{\extrainfocontent}{#1}}
+\newcommand{\extrainfocontent}{}
+\newcommand{\makecover}[1]{%
+    \begin{titlepage}
+        \newgeometry{margin=0in}
+        \parindent=0pt
+        \includegraphics[width=\linewidth]{#1} % size = 1280*1024
+        \vfill
+        \begin{center}
+            \parbox{0.618\textwidth}{%
+                \raggedleft{\bfseries \Huge \thetitle} \\[0.6pt]
+                \rule{0.618\textwidth}{4pt} \\
+            }
+        \end{center}
+        \vfill
+        \begin{center}
+            \parbox{0.618\textwidth}{%
+                \raggedleft\Large
+                \begin{tabular}{r}
+                    \theauthor \\
+                    \thedate   \\
+                \end{tabular}%
+            }
+        \end{center}
+        \vfill
+        \begin{center}
+            \parbox[t]{0.7\textwidth}{\centering \itshape \extrainfocontent}
+        \end{center}
+        \vfill
+    \end{titlepage}
+    \restoregeometry
+    \thispagestyle{empty}
+}
+% USAGE
+% \extrainfo{xxx}
+% \makecover{/path/to/cover.png}
+
+
+
+%记号定义
+\newcommand{\nn}{\mathbb{N}}
+\newcommand{\zz}{\mathbb{Z}}
+\newcommand{\qq}{\mathbb{Q}}
+\newcommand{\rr}{\mathbb{R}}
+\newcommand{\cc}{\mathbb{C}}
+\newcommand{\dd}{\mathbb{D}}
+\newcommand{\ff}{\mathbb{F}}
+\newcommand{\sph}{\mathbb{S}}
+\newcommand{\ffp}{\mathbb{F}_p}
+\newcommand{\Log}{\operatorname{Log}}
+\newcommand{\End}{\operatorname{End}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\im}{\operatorname{Im}}
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\ev}{\operatorname{ev}}
+\newcommand{\spec}{\operatorname{Spec}}
+
+
+%operator 
+\newcommand{\deck}{\operatorname{Deck}}
+
+\newcommand{\cat}[3]{%
+  {#1} \;\Big|\;
+  \begin{array}{l}
+    \text{objects: }{#2} \\
+    \text{morphisms: }{#3}
+  \end{array}%
+}
+
+
+
+% *** quiver ***
+% A package for drawing commutative diagrams exported from https://q.uiver.app.
+%
+% This package is currently a wrapper around the `tikz-cd` package, importing necessary TikZ
+% libraries, and defining new TikZ styles for curves of a fixed height and for shortening paths
+% proportionally.
+%
+% Version: 1.6.0
+% Authors:
+% - varkor (https://github.com/varkor)
+% - AndréC (https://tex.stackexchange.com/users/138900/andr%C3%A9c)
+% - Andrew Stacey (https://tex.stackexchange.com/users/86/andrew-stacey)
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{quiver}[2025/09/20 quiver]
+
+% `tikz-cd` is necessary to draw commutative diagrams.
+\RequirePackage{tikz-cd}
+% `amssymb` is necessary for `\lrcorner` and `\ulcorner`.
+\RequirePackage{amssymb}
+% `calc` is necessary to draw curved arrows.
+\usetikzlibrary{calc}
+% `pathmorphing` is necessary to draw squiggly arrows.
+\usetikzlibrary{decorations.pathmorphing}
+% `spath3` is necessary to draw shortened edges.
+\usetikzlibrary{spath3}
+
+% A TikZ style for curved arrows of a fixed height, due to AndréC.
+\tikzset{curve/.style={settings={#1},to path={(\tikztostart)
+    .. controls ($(\tikztostart)!\pv{pos}!(\tikztotarget)!\pv{height}!270:(\tikztotarget)$)
+    and ($(\tikztostart)!1-\pv{pos}!(\tikztotarget)!\pv{height}!270:(\tikztotarget)$)
+    .. (\tikztotarget)\tikztonodes}},
+    settings/.code={\tikzset{quiver/.cd,#1}
+        \def\pv##1{\pgfkeysvalueof{/tikz/quiver/##1}}},
+    quiver/.cd,pos/.initial=0.35,height/.initial=0}
+
+% A TikZ style for shortening paths without the poor behaviour of `shorten <' and `shorten >'.
+\tikzset{between/.style n args={2}{/tikz/execute at end to={
+    \tikzset{spath/split at keep middle={current}{#1}{#2}}
+}}}
+
+% TikZ arrowhead/tail styles.
+\tikzset{tail reversed/.code={\pgfsetarrowsstart{tikzcd to}}}
+\tikzset{2tail/.code={\pgfsetarrowsstart{Implies[reversed]}}}
+\tikzset{2tail reversed/.code={\pgfsetarrowsstart{Implies}}}
+% TikZ arrow styles.
+\tikzset{no body/.style={/tikz/dash pattern=on 0 off 1mm}}
+
+\endinput
