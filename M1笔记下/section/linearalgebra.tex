@@ -5,7 +5,7 @@ This section can be seen as a breif review of linear agebra, it mainly focus on 
 \subsection{Decomposition of endomorphisms}
 
 
-\begin{colortheorem}[real-Polar decomposition] $ \\$
+\begin{colortheorem}[Real-Polar decomposition] $ \\$
 For any real endomorphism \(A \in \mathrm{GL}_n( \rr)\), there exists a unique orthogonal endomorphism \(O \in O(n)\) and a unique symmetric positive definite endomorphism \(P \in S^{++}_n(\rr)\) such that
 \[A = OP\]
 \end{colortheorem}
@@ -42,7 +42,7 @@ For any real endomorphism \(A \in \mathrm{GL}_n( \rr)\), there exists a unique o
     it is \textbf{symmetric and positive definite} since \(D^{-1}_0 D\) is digonal with positive entries, thus \(P_0P^{-1} \in O(n) \cap S^{++}_n(\rr) = \{I\}\), which implies that \(P_0 = P\) and \(O_0 = O\).
 \end{proof}
 
-\begin{colortheorem}[complex-Polar decomposition] $ \\$
+\begin{colortheorem}[Complex-Polar decomposition] $ \\$
     For any complex endomorphism \(A \in \mathrm{GL}_n( \cc)\), there exists a unique unitary endomorphism \(U \in U(n)\) and a unique hermitian positive definite endomorphism \(P \in H^{++}_n(\cc)\) such that
     \[A = UP\]
 \end{colortheorem}
@@ -69,3 +69,7 @@ The proof is similar to the real case, we set \(P = \sqrt{A^*A}\) and \(U = AP^{
         \frac{a}{\sqrt{a^2+b^2}} & -\frac{b}{\sqrt{a^2+b^2}}\\
         \frac{b}{\sqrt{a^2+b^2}} & \frac{a}{\sqrt{a^2+b^2}} \end{pmatrix}\]
 \end{remark}
+
+\vspace{2ex}
+
+Another useful decomposition is QR decomoposition, which is also called as Gram-Schimidt decompoistion. Suppose that 

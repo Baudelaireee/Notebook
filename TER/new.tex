@@ -1,0 +1,287 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}	% Para caracteres en español
+\usepackage{amsmath,amsthm,amsfonts,amssymb,amscd}
+\usepackage{multirow,booktabs}
+\usepackage[table]{xcolor}
+\usepackage{fullpage}
+\usepackage{lastpage}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{mathrsfs}
+\usepackage{wrapfig}
+\usepackage{setspace}
+\usepackage{calc}
+\usepackage{multicol}
+\usepackage{cancel}
+\usepackage[retainorgcmds]{IEEEtrantools}
+\usepackage[margin=3cm]{geometry}
+\usepackage{amsmath}
+\newlength{\tabcont}
+\setlength{\parindent}{0.0in}
+\setlength{\parskip}{0.05in}
+\usepackage{empheq}
+\usepackage{framed}
+\usepackage[most]{tcolorbox}
+\usepackage{xcolor}
+\colorlet{shadecolor}{orange!15}
+\parindent 0in
+\parskip 12pt
+\geometry{margin=1in, headsep=0.25in}
+
+%定理环境
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{corollary}[theorem]{Corollary}
+
+
+%记号定义
+\newcommand{\nn}{\mathbb{N}}
+\newcommand{\zz}{\mathbb{Z}}
+\newcommand{\qq}{\mathbb{Q}}
+\newcommand{\rr}{\mathbb{R}}
+\newcommand{\cc}{\mathbb{C}}
+\newcommand{\dd}{\mathbb{D}}
+\newcommand{\ff}{\mathbb{F}}
+\newcommand{\sph}{\mathbb{S}}
+\newcommand{\ffp}{\mathbb{F}_p}
+\newcommand{\Log}{\operatorname{Log}}
+\newcommand{\End}{\operatorname{End}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\im}{\operatorname{Im}}
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\ev}{\operatorname{ev}}
+\newcommand{\spec}{\operatorname{Spec}}
+\newcommand{\Res}{\operatorname{Res}}
+
+
+
+
+
+\begin{document}
+%\setcounter{section}{8}
+
+%\title{}
+%\maketitle
+
+\thispagestyle{empty}
+
+\begin{center}
+{\LARGE \bf TER NOTEBOOK}\\
+{\large towards Tate's Thesis}
+\end{center}
+
+\section{Zeta function}
+
+\subsection{Riemann's idea I: analytical continuation of zeta function}
+As the core object in number theory, it is formally defined as a meomorphic function on complex pane by Riemann in 1859, in his famous-9-pages paper. \textbf{This section is the reconstruction of the zeta function along the Riemann's original ideas, it refers to the page 1 and 2 of the original paper.}
+\begin{equation} \label{eulerproduct}
+    \sum_{n \geq 1} \frac{1}{n^s}  = \prod_p \frac{1}{1-p^{-s}}
+\end{equation}
+This is the Euler's product formula proved by Euler (among 1740), with the basic ideas of geometrical series
+\[ \frac{1}{1-p^{-s}} =  1 + p^{-s} + p^{-2s}+\cdots \]
+and using unique factorization to build a basic correspondence of  terms. The formal proof of the formula holds true in half-plane $\Re(z)>1$ is given by Dirichlet, it is important that the analytical formula makes sense and plays an core role in the analytic number thoery. As the student of Dirichlet, Riemann exactly knows the analytical results about the series, and in his era, complex analysis was the advanced branch and analytical continuation was developed completely, hence Riemann tried to treat the Euler's formula \ref{eulerproduct} as a analytical function instead of a formal identity:
+\[\zeta(s) = \sum_{n\geq 1} \frac{1}{n^s}, \quad \Re(s)>1\]
+A similar object is Gamma function, which was called "factorial function" in the age of Gauss and Euler, and Euler noticed an identity of integration:
+\begin{equation} \label{eulergamma}
+    n! =  \int_0^{\infty} e^{-x}x^ndx, \quad n =1,2,3...
+\end{equation}
+which motivates Gauss (1813) to introduce the notation
+\[ \Pi(s) = \int_0^{\infty} e^{-x}x^sdx, \quad \Re(s)>-1 \]
+By the mordern notation, \(\Pi(s-1) = \Gamma(s)\). Before Riemann developed the zeta function, some importatnt functional equation of Gamma function was already known, especially the following results:
+\begin{align}
+    \Gamma(s+1) &= s \Gamma(s) \label{gammafunc} \\
+    \Gamma(s) \Gamma(1-s) &= \frac{\pi}{\sin(\pi s)} \label{reflection} \\
+    \Gamma(s) \Gamma\left(s+\frac{1}{2}\right) &= 2^{1-2s} \sqrt{\pi} \Gamma(2s) \label{duplication}
+\end{align}
+the duplication formula was developed by Legendre (1809), many results about Gamma function was developed by Euler and Gauss, Riemann surely knew these and he give the analytical continuation of zeta function by the following integration:
+\begin{equation} \label{prezetagamma}
+\int_0^{\infty} e^{-nx}x^{s-1} dx = \frac{\Gamma(s)}{n^s}
+\end{equation}
+hence it is natural to consider the summation, it is not difficult to conclude that
+\begin{equation} \label{zetagamma}
+\int_{0}^{\infty} \frac{x^{s-1}}{e^x-1} dx = \Gamma(s) \zeta(s), \quad \Re(s)>1
+\end{equation}
+Then Riemann considered the contour intgeral
+\[\int_{\mathcal{H}} \frac{(-z)^{s-1}}{e^z - 1} dz\]
+where the contour \(\mathcal{H}\) can be drawed as following:
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{Fig/henkel.jpg}
+    \caption{Henkel contour}
+\end{figure}
+This type of contour is called \textbf{Henkel contour}, it wassystematically studied by Hermann Hankel, who was the student of Riemann and infulenced by him greatly. For the sake of convience, we denote \(\delta = \frac{\varepsilon}{\sqrt{2}}\) and \(T = \sqrt{R^2 - \varepsilon^2}\), and then we can write
+\[\gamma_+(x) = x - i\delta, \quad (-\gamma_-)(x) = x + i\delta\]
+for \(x \in [\delta, T]\). Notice that \(\mathcal{H}\) is of negative orientation, and \(f: z \mapsto \frac{(-z)^{s-1}}{e^z-1}\) has simple poles in the imaginary axis, so we choose \(\varepsilon\) sufficiently small such that \(B(0,\varepsilon)\) only contains the pole at zero, then by Residue theorem, we have
+\begin{align} \label{henkelresidue}
+    \int_{\mathcal{H}} \frac{(-z)^{s-1}}{e^z - 1} dz &= -2\pi i \sum_{|k| \in \zz \cap (0,R)}\Res(f,2\pi i k) 
+\end{align}
+Hence we should evaluate the left hand side. For the small circle, we can estimate that
+\[|\int_{C_{\varepsilon}^+}f(z)dz| \leq \int_{\pi/4}^{3\pi/2}\frac{\varepsilon^{\Re(s)-1}}{e^{\varepsilon \cos \theta} - 1} d\theta \xrightarrow[\varepsilon \rightarrow 0]{}  0\]
+and for the middle two lines, we take principal branch of logarithm \(\Log\) and write
+\[(-z)^{s-1} = e^{(s-1)\Log(-z)}\]
+the identity makes sense when \(z \notin [0,+\infty)\), hence \(f\) is exactly well-defined on the contour, and it allows us to calculate
+\begin{align*}
+    \int_{\gamma_+ \cup \gamma_-} f(z) dz &= \int_{\delta}^{T} \frac{e^{(s-1)\Log(-x+i\delta)}}{e^{x - i\delta}-1} dx - \int_{\delta}^{T} \frac{e^{(s-1)\Log(-x - i\delta)}}{e^{x + i\delta}-1} dx 
+\end{align*}
+By argument principle, for any \(z \in \cc-\rr_-\) we have
+\[\Log|z| = \ln|z| + i\cdot \arg(z) \]
+where \(\arg\) is a continous function with value in \((-\pi,\pi)\), which allows us to take limit
+\[\Log(-x+i \delta) = \ln \sqrt{x^2+\delta^2}+i\cdot \arg(-x+i\delta) \xrightarrow[\varepsilon \rightarrow 0]{} \ln x + i\pi \] 
+Hence we can evaluate
+\[\int_{\gamma_+ \cup \gamma_-} f(z) dz \xrightarrow[\varepsilon \rightarrow 0]{} (e^{-i\pi s}-e^{i\pi s})\int_{0}^T \frac{x^{s-1}}{e^x - 1} dx \]
+in particular, when \(R\) tends to infinity, we can apply the integration (\ref{zetagamma}) here
+\begin{equation} \label{middlelineeval}
+    \int_{\gamma_+ \cup \gamma_-} f(z) dz \xrightarrow[\varepsilon \rightarrow 0, R \rightarrow \infty]{} -2i\cdot \sin(\pi s) \Gamma(s) \zeta(s)
+\end{equation}
+Finally we consider the large circle,
+\begin{align*}
+    |\int_{C_R^-} f(z) dz| &\leq \int_{0+c}^{2\pi-c} \frac{R^{\Re(s)-1}}{e^{R \cos \theta}-1} d\theta \\
+    & \xrightarrow[R \rightarrow \infty, \cos(\theta) \neq 0]{} 0 
+\end{align*}
+In conclusion, by taking limits in (\ref{henkelresidue}), and setting (\ref{middlelineeval}) into it, we have
+\begin{align*}
+    2\sin(\pi s)\Gamma(s)\zeta(s) &= 2\pi \sum_{k \in \zz \backslash \{0\}} \Res(f, 2\pi i k) \\
+    &= 2\pi \sum_{k \in \zz \backslash \{0\}} (-2\pi i k)^{s-1} \\
+    &= 2\sin(\frac{\pi s}{2})(2\pi)^s \sum_{n \geq 1} \frac{1}{n^{1-s}}\\
+\end{align*}
+which is the equation given in Riemann's paper, but before the equation he had stated that zeta function is actually mermorphic in the whole complex plane with only one simple pole at \(s=1\), reason is that we just consider the integral on the path \(\mathcal{H} - C_R^-\), and we can conclude
+\[2 \sin(\pi s) \Gamma(s) \zeta(s) = i \int_{\mathcal{H}-C_R^-}\frac{(-x)^{s-1}}{e^x - 1} dx\]
+the right hand side is a entire function and we can get the analytical continuation of zeta. Therefore, Riemann's euqation can be rewritten as
+\begin{equation} \label{riemanneq}
+    \sin(\pi s) \Gamma(s) \zeta(s) = \sin(\frac{\pi s}{2})(2\pi)^s \zeta(1-s), \quad s \neq 0, 1
+\end{equation}
+ many mordern books pointed out that the proof of Riemann is not rigorous enough, but it is not the core of the papaer, Riemann noticed the symmetry of the zeta function and gave the functional euqation
+ \[\pi^{-\frac{s}{2}}\Gamma(\frac{s}{2})\zeta(s) = \pi^{\frac{1-s}{2}}\Gamma(\frac{1-s}{2})\zeta(1-s)\]
+
+\begin{proof}
+    The short paper do not give the proof, but with a hint of using the properties of Gamma function, so it can be seen as one of "exercises left to the reader" in this paper. Subtituting \(\sin(\pi s)\) in (\ref{riemanneq}) by the reflection formula (\ref{reflection}), we have
+    \[\zeta(s) = 2^s \pi^{s-1} \sin(\frac{\pi s}{2})\Gamma(1-s)\zeta(1-s)\]
+    and subtitue \(\sin(\frac{\pi s}{2})\) by the duplication formula (\ref{duplication}), we have
+    \[\Gamma(\frac{s}{2})\zeta(s) =  \pi^{s-\frac{1}{2}}\Gamma(\frac{1-s}{2})\zeta(1-s)\]
+    then it is not difficult to rearrange the equation to the desired form.
+\end{proof}
+
+\subsection{Riemann's idea II: relation with theta function}
+
+We can found that zeta function is not so perfectly symmetric as Gamma function, the functional equation has a complicated form with other factor involved, so Riemann introduced the function we talked above, in the sense of mordern notation:
+\[Z(s) = \pi^{-\frac{s}{2}}\Gamma(\frac{s}{2})\zeta(s)  \]
+it is so-called \textbf{completed zeta function}, with the functional equation \(Z(s) = Z(1-s)\). Riemann further considered the integration representation of \(Z(s)\) by some work on prevous integral (\ref{prezetagamma}) and (\ref{zetagamma}), the idea is real stright forward: by just consider the term \(n^2\) we have
+\[\frac{\Gamma(s)}{n^{2s}} = \int_0^{\infty} e^{-n^2x}x^{s-1} dx\]
+we expect the appearance of some factor about \(\pi\), then we change variable to the right side by setting \(x = \pi t\), hence
+\[\frac{\Gamma(s)}{n^{2s}} = \pi^{s}\int_0^{\infty} e^{-n^2 \pi t} t^{s-1}  dt\]
+without talking about the interchange of integration, we rearrannge and sum over \(n\) we can get
+\[Z(s) =  \int_{0}^{\infty} (\sum_{n\geq 1}e^{-n^2\pi t}) t^{\frac{s}{2}-1} dt\]
+Riemann noticed that the summation is cloesely related to the theta function, and hence he cited the formula of Jacobi to get the analyical continuation of \(Z(s)\) and define the xi-function, which is the core object in his following discussion. We stoped here for the moment, the page 3 is so rich that we need to rewrite it carefully in mordern notation, the reason is as following:
+\begin{itemize}
+    \item Maybe Riemann do not relaize that he actually gived the analytic continuation of zeta function again, because completed zeta function 
+\end{itemize}
+
+\begin{definition}
+    The \textbf{Jacobi theta function} is defined as
+    \[\theta(z) = \sum_{n \in \zz} e^{\pi i n^2 z}\]
+    it is holomorphic in the upper half-plane \(\mathbb{H} = \{z \in \cc: \Im(z)>0\}\).
+\end{definition}
+
+It is not difficult to see that
+\[|e^{\pi i n^2(x+iy)}| = |e^{-\pi n^2 y}| \]
+so the series convergence abosolutely and uniformly on any compact subset \(\mathbb{H}\), so \(\theta\) is exactly holomoprhic, and it has a important functional equation, which was first proved by Jacobi (1829), and Riemann cited it in his paper without proof.
+
+\begin{lemma}(Jacobi) $ \\$
+    For any \(z \in \mathbb{H}\), we have
+    \[\theta(z) = (-iz)^{-\frac{1}{2}} \theta(-1/z)\]
+\end{lemma}
+
+\begin{proof}
+    
+\end{proof}
+
+
+
+
+
+In particular, when \(z = it\) for \(t>0\), i.e. on the positive imaginary axis, \(\theta\) function has a deep relation with the completed zeta function:
+
+\begin{proposition}
+    For \(\Re(s)>1\), completed zeta function is holomoprhic and 
+    \[Z(s) = \frac{1}{2} \int_0^{\infty} (\theta(it) - 1) t^{\frac{s}{2}-1} dt\]
+\end{proposition}
+
+\begin{proof}
+    \(\zeta\) and \(\Gamma\) are both holomoprhic on \(\Re(s)>1\), and \(s \mapsto pi^{-\frac{s}{2}}\) is entire, so \(Z\) is holomorphic on \(\Re(s)>1\). By definition of \(\theta\) function, we have
+    \[\frac{\theta(it)-1}{2} = \sum_{n\geq 1} e^{-n^2\pi t}\]
+    which allows us to rewrite
+    \[\frac{1}{2} \int_0^{\infty} (\theta(it) - 1) t^{\frac{s}{2}-1} dt = \int_{0}^{\infty} (\sum_{n\geq 1}e^{-n^2\pi t}) t^{\frac{s}{2}-1} dt\]
+    and if we admits the integration representation (\ref{zetagamma}) and calculate as above we can get
+    \[Z(s) = \sum_{n\geq 1}\int_0^{\infty}e^{-\pi n^2 t} t^{\frac{s}{2}-1} dt\]
+    for \(Re(s)>1\), so we should verify the interchange of summation and integration. 
+    \[|\sum_{n\geq 1}e^{-\pi n^2 t} t^{s/2-1}| \leq \sum_{n\geq 1}e^{-\pi n t}t^a = \frac{t^a}{e^{\pi t} -1} \sim_{t \rightarrow \infty}t^{a}e^{-\pi t}\]
+    with \(a = \Re(s)/2 - 1 > -1/2\), so the integration converges at infinity, and by Jacobi's formula we can estimate the integration near zero:
+    \[\theta(it) = (t)^{-1/2}\theta(i/t) = t^{-1/2} \sum_{k \in \zz}e^{-\pi k^2/t} \xrightarrow[t \rightarrow 0]{} t^{-1/2}\]
+    which allows us to get a global bound function for some constant \(C>0\):
+    \[|\sum_{n\geq 1}e^{-\pi n^2 t} t^{s/2-1}| \leq g(t) = \begin{cases}
+        Ct^{a}e^{-\pi t} & t \geq 1 \\
+        Ct^{(a-1/2)} & 0<t < 1
+    \end{cases}\]
+    and \(g\) is measurable and integrable on \((0,\infty)\), hence by Dominated Convergence Theorem we can interchange the summation and integration.
+\end{proof}
+
+with the integral representation, completed zeta function can extend mermorphicly to the whole complex plane like what we do to Gamma function, for the sake of convience, Riemann introduced the auxillary function:
+\[\psi(t) = \frac{\theta(it) - 1}{2}, \quad t>0\]
+by the Jacobi's functional equation, we can get the relfection formula
+\begin{equation} \label{psireflection}
+    t^{1/2}(2\psi(t)+1) = 2\psi(1/t)+1, \quad t>0
+\end{equation}
+with that we can get the following result which is roughly sketched in Riemann's paper:
+
+\begin{theorem}
+    The completed zeta function \(Z\) has a analyic continuation to complex palne \(\cc\), and\\
+    - it only has simple poles at \(s=0\) and \(s=1\);\\
+    - residue number: \(\Res(Z,0) = -1\) and \(\Res(Z,1) = 1\);\\
+    - it satisfies the functional equation \(Z(s) = Z(1-s)\) for \(s \neq 0,1\).
+\end{theorem}
+
+\begin{proof}
+    The proof is based on the integral representation on \(\Re(s)>1\), we divide the integration into two parts and change variable
+    \begin{align*}
+        Z(s) &=  \int_0^{1} \psi(t) t^{\frac{s}{2}-1} dt +  \int_1^{\infty} \psi(t) t^{\frac{s}{2}-1} dt \\
+        &=  \int_1^{\infty} \psi(1/u) u^{-\frac{s}{2}-1} du +  \int_1^{\infty} \psi(t) t^{\frac{s}{2}-1} dt
+    \end{align*}
+    then apply the formula (\ref{psireflection}) to the first term, we have
+    \begin{align*}
+        Z(s) &=  \frac{1}{2}\int_1^{\infty}t^{-s/2-1/2} dt - \frac{1}{2}\int_1^{\infty} t^{s/2 -1} dt + \int_1^{\infty} \psi(t) (t^{s/2 -1} + t^{-s/2 -1/2}) dt \\
+        &= \frac{1}{s-1} - \frac{1}{s} + \int_1^{\infty} \psi(t) (t^{s/2 -1} + t^{-s/2 -1/2}) dt
+    \end{align*}
+    the asymptotic expansion holds true for \(\Re(s)>1\), and we notice that the first two terms actually give the simple poles at \(s=0\) and \(s=1\), so if the last term is entire, then we can finish the analytic continuation. We set
+    \[F(s,t) =  \psi(t) (t^{s/2 -1} + t^{-s/2 -1/2})\]
+    then \(t \mapsto F(s,t)\) is continous on \((1,+\infty)\) for any fixed \(s\), and \((s \mapsto F(s,t))\) is entire for any fixed \(t>1\). For any compact subset \(K\) of \(\cc\), there exists a constant \(M\) such that \(|\Re(s)| \leq M\) for any \(s \in K\), hence we can estimate
+    \[|F(s,t)| \leq Ce^{-\pi t }\cdot (t^{M/2 -1} + t^{M/2 -1/2}) = g(t)\]
+    for some constant \(C>0\) which arises from the asymptotic behavior of \(\psi\) function, and \(g\) is integrable on \((1,+\infty)\) since for any real number \(a\), \(e^{-t}t^a\) converges on \((1,+\infty)\), hence by convergence dominate for holomoprhic functions, we can conclude that the parameter integral of \(F(s,t)\) on \((1,+\infty)\) defines a entire function. Finally, it is easy to check the functional equation by just changing variable \(s\) to \((1-s)\) in the integral representation, since analytic continuous of \(Z\) allows us to write the intgeral representation for \(s \neq 0,1\).
+\end{proof}
+
+\begin{corollary}
+    Riemann zeta function \(\zeta\) has a analytic continuation to the whole complex plane except for a simple pole at \(s=1\) with residue number \(1\), with functional euqation
+    \[\zeta(1-s) = 2(2\pi)^s \cos(\pi s/2) \Gamma(s) \zeta(s) 
+    \qquad  s\neq 1,0,-1,-2,\dots\]
+\end{corollary}
+\begin{proof}
+    By completed zeta function, we have
+    \[\zeta(s) = \frac{Z(s)}{\pi^{-\frac{s}{2}} \Gamma\left(\frac{s}{2}\right)}\]
+    notice that \(Z\) and \(\Gamma\) have both simple poles at \(s=0\), so \(\zeta\) is actually holomophic at \(s=0\), with only simple pole at \(s=1\) left by \(Z(s)\), that because \(\Gamma\) has no zeros and \(s \mapsto \pi^{-s/2}\) is entire.
+\end{proof}
+
+\begin{remark}
+    The method of analytic continuation via integral representation can be generalized, it is so called Mellin transformation, an important and natural integration transform: Let \(f\) be a positive real-valued function, then its \textbf{Mellin transform} is defined as
+    \[\mathcal{M}(f,s) = \int_0^\infty f(t) t^{s-1} dt\]
+    here completd zeta function is just the Mellin transform of \(\psi\) function.  
+\end{remark}
+
+
+
+
+\end{document}
