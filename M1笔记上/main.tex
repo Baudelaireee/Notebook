@@ -3053,8 +3053,100 @@ the process of localization is actullay a type of extension of scalar when we se
 
     Total ring of fractions can be seen as the "biggeest localization" of a ring \(A\) such that \(A \to Q(A)\) is a inclusion.
 
+\section{PID and modules over it}
 
-\subsection{Local ring and Valuation ring}
+
+Module is the generalization of vector space, but module is not as nice as vector space in many respects, many properties of vector space can not hold in module.
+
+\begin{itemize} 
+    \item A submodule of a finitely generated module may not be finitely generated, which needs the noetherian condition, and in particular PID is a noetherian ring; a submodule of a free module may not be free, the noetherian condition is not suffisant here: For example in \(k[X,Y]\)-module \(K[X,Y]\), the submodule (ideal) \((X,Y)\) is not free since \(YX-XY = 0\) gives a non-trivial relation.
+    \item A submodule of a module may not have a complement, even in free module a linear indpendent lists can not be extended to a basis: for example in \(\zz\)-module \(\zz\), the only basis is \(\{1\}\), and we can not extend \(\{2\}\) to be a basis.
+    \item Similarly with the above point, any generated family can not be reduced to a basis: For example in \(\{z\}\), the family \(\{2,3\}\) generates the module by Bezout's theorem, but it can not be reduced to a basis.
+    \item Although the torsion element will prevent the module to be free, but a torsion-free module may not be free: Like the first example a \(k[X,Y]\)-module \((X,Y)\), it has no torsion element, but it is not free.
+    
+    \item Even more terrible, a module can not have any linearly independent family: for example \(\zz\)-module \(\qq\), any two elements \(\frac{a}{b}\) and \(\frac{c}{d}\) are linearly dependent since \[ad \cdot \frac{a}{b} - bc \cdot \frac{c}{d} = 0\]
+\end{itemize}
+
+That is the reason why we talk about principal ideal domain, the module over it will show the similar properties as vector space although they are not same, but it keeps many important sturctures and conversly we can explain the good behiavior of vector space from a higher view. The module over PID can be divided into two parts: torsion part and free part, so we review the notation here:
+
+\begin{definition}
+    Let \(M\) be a \(A\)-module and \(A\) is a integral domain\\
+    
+    - An element \(m \in M\) is called a \textbf{torsion element} if there exists a non-zero element \(a \in A\) such that \(a \cdot m = 0_M\), and we define the \textbf{annihilator} of \(m\) be the set of elements in \(A\) that kills \(m\):
+    \[\ann(m) := \{a \in A \mid a \cdot m = 0_M\}\]
+
+    - We denote the set of all torsion elements of \(M\) by \(T(M)\) or \(M_{tor}\), and module \(M\) is called a \textbf{torsion module} if \(M = T(M)\), and it is called a \textbf{torsion-free module} if \(T(M) = \{0_M\}\).
+
+\end{definition}
+
+By the definition, we can say that \(a\) is torsion element if and only if \(\ann(m) \neq \{0\}\). Any free module over a integral domian is torsion-free, and any finite abelian group can be seen as a torsion module over \(\zz\).
+
+\begin{propositionplain}
+    Let \(M\) be a module over a integral domian \(A\).\\
+
+    (a) \(\ann(m)\) is a ideal of \(A\) and \(T(M)\) is a submodule of \(M\).\\
+
+    (b) \(M/T(M)\) is torsion-free as a \(A\)-module.
+
+    \begin{proof}
+        (a) is just the verification. For (b), we suppose that \(\bar{m} \in M/T(M)\) is a torsion element, and we will show that \(m \in T(M)\), that means the torsion element in \(M/T(M)\) is \(\bar{0}\), which finishes the proof. By the assumption, there exists non-zero \(a \in A\) such that
+        \[a \cdot \bar{m} = \overline{a \cdot m} = 0\]
+        which shows that \(am \in T(M)\), and there exists non-zero \(b \in A\) such that \(bam = 0\). \(A\) is integral domain, then \(ba \neq 0\), so at least \(ba \in \ann(m)\), which shows that \(m \in T(M)\).
+    \end{proof}
+\end{propositionplain}
+
+Later we will see that the decomposition of module over PID is analogue to the decomposition of finite abelin group, so cyclic module is important to study here as cyclic group in finite abelian group. As we have mentioned before, a \(A\)-module \(M\) is \textbf{cyclic} if there exists \(m \in M\) such that
+\[M = (m) = Am = \{a \cdot m \mid a \in A\}\]
+Here is some properties of cyclic module over PID or not:
+
+\begin{propositionplain} \label{cyclicmodule}
+    Let \(M\) be a module over \(A\).\\
+
+    (a) If \(M\) is cyclic, then there exists an ideal \(I \subset A\) such that \(M \cong A/I\), in particular \(I = \ann(m)\) with \(m\) a generator of \(M\).\\
+
+    (b) If \(A\) is a PID, then a cyclic module \(M\) is torsion-free if and only if \(M \cong A\), i.e. \(M\) is free of rank \(1\).
+\end{propositionplain}
+
+\begin{proof}
+    (a) Consider the surjective morphism of \(A\)-modules
+    \[\varphi: A \to M, \quad a \mapsto a \cdot m\]
+    then by the first isomorphism theorem we can conclude the result.
+
+    (b) If \(M \cong A\), then it is free hence torsion-free. Conversely if \(M\) is cyclic then by (a) there exists \(a \in A\) such that \(M \cong A/(a)\), it must be principal since \(A\) is PID. If \(a \neq 0\), then for the class \(\bar{1} \in A/(a)\) we have \(a \cdot \bar{1} = \bar{0}\), which shows that \(\bar{1}\) is a torsion element, contradicting the assumption. Hence \(a = 0\) and \(M \cong A\).
+\end{proof}
+
+\begin{theorem}
+    Any finitely generated torsion-free module over a PID is free.
+\end{theorem}
+\begin{proof}
+        Let \(M\) is a module over a PID \(A\), and here is the outline of the proof:\\
+        (1) If \(x,y \in M\) and \(a,b \in A -\{0\}\) such that \(ax=by\), then there exists \(z \in M\) such that \(x = bz\) and \(y = az\).\\
+        (2) For \(m \in M- \{0\}\), we define \textbf{saturated set}
+        \[S(m) = \{x \in M \mid \exists a \in A-\{0\},ax \in Am\}\]
+        then prove that \(S(m)\) is a cyclic submodule of \(M\) and \(M/S(M)\) is torsion-free.\\
+        (3) Prove by induction.
+
+        \textbf{Deatils:}\\
+
+        (1) We assume that \((a,b)=1\), i.e. they have no common divisors, then by PID there exists \(u,v \in A\) such that \(ua+vb=1\), we can define \(z = uy+vx\), then we can verify that \(x = bz\) and \(y = az\). If \((a,b) \neq 1\), we can divide them by their gcd to reduce to the above case.\\
+
+        (2) For any \(x,y \in S(m)\), there exists non-zero \(a,b \in A\) such that \(ax \in Am\) and \(by \in Am\), then \(abx,aby \in Am\), hence \(x+y \in S(m)\). For any \(c \in A\) and \(x \in S(m)\), there exists non-zero \(a \in A\) such that \(ax \in Am\), then \(a(cx) = c(ax) \in Am\), hence \(cx \in S(m)\). So \(S(m)\) is a submodule of \(M\). 
+        
+        To show that it is cyclic, for any \(x,y \in S(M)\), there exists non-zero \(a,b \in A\) such that \(ax = rm\) and \(by = sm\) for some \(r,s \in A\), then \((sa)x = (rb)y\), and we can apply (1) to conclude that there exists \(z \in M\) such that \(x = bz\) and \(y = az\), hence \(z \in S(m)\) and \(S(m) = Az\) is cyclic. 
+        
+        Finally we show that \(M/S(m)\) is torsion-free, for any \(\bar{x} \in M/S(m)\) and non-zero \(a \in A\) such that \(ax \in S(m)\), which implies \(b \in A-\{0\}\) and \(\alpha \in M\) such that \((ba)x = \alpha m\), which shows that \(x \in S(m)\), hence the unique torsion element in \(M/S(m)\) is \(\bar{0}\).\\
+
+        (3) Let \(\{v_1,...,v_n\}\) be the generated familly of \(M\), we will prove by induction on \(n\). If \(n=1\), then \(M\) is cyclic and so it is free by proposition \ref{cyclicmodule}. If \(n>1\), we assume that the statement holds for \(n-1\), and we will prove it for \(n\): 
+        
+        Let \(v \in \{v_1,\dots,v_m\}\) and then saturated set \(S(v)\) is a torsion-free cyclic submodule of \(M\) generated by some \(z \in M\) by (2), and notice that \(v \in S(v)\), which shows that \(M/S(v)\) is generated by \(n-1\) elements, so by induction \(M/S(v)\) is free with basis \(\bar{e}_1,\dots,\bar{e}_{n-1}\), and then we can lift them to prove that \(M\) is free with basis \(z,e_1,\dots,e_{n-1}\).
+\end{proof}
+
+\begin{remark}
+   Notice that in the final parts of the proof, if we allow to use the propertes of projective module, then the result is immediate: Since \(M/S(v)\) is free so projective, then the exact sequence
+   \[0 \to S(v) \to M \to M/S(v) \to 0\]
+   splits, which shows that \(M\) is the direct sum immediately. 
+\end{remark}
+
 
 
 
@@ -3340,7 +3432,6 @@ without the assumption that \(k\) is algebraically closed, the functor will not 
     Let \(k\) be an algebraically closed field, then the functor \(\mathcal{O}\) gives a contravariant equivalence to the reduced \(k\)-algebras of type fini:
     \[\mathbf{Aff}_k \cong (\mathbf{Alg}_k^{\text{fini, red}})^{\text{op}}\]
 \end{theorem}
-
 
 
 

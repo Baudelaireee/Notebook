@@ -1,0 +1,9 @@
+\contentsline {section}{\numberline {1}Some linear algebra}{2}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Decomposition of endomorphisms}{2}{subsection.1.1}%
+\contentsline {section}{\numberline {2}Exponential map}{3}{section.2}%
+\contentsline {section}{\numberline {3}Toplogical Groups}{5}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Basic properties}{5}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Homogeneous Spaces}{12}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}The Pontryagin Duality}{13}{subsection.3.3}%
+\contentsline {section}{\numberline {4}Field and Galois Theory}{17}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Finite extension and splitting Field}{17}{subsection.4.1}%

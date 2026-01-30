@@ -26,5 +26,5 @@
 \contentsline {subsection}{\numberline {6.5}Noetherian ring}{72}{subsection.6.5}%
 \contentsline {subsection}{\numberline {6.6}UFD}{75}{subsection.6.6}%
 \contentsline {subsection}{\numberline {6.7}Localization}{78}{subsection.6.7}%
-\contentsline {subsection}{\numberline {6.8}Local ring and Valuation ring}{85}{subsection.6.8}%
-\contentsline {section}{\numberline {7}Affine Algebraic Geometry}{86}{section.7}%
+\contentsline {section}{\numberline {7}PID and modules over it}{85}{section.7}%
+\contentsline {section}{\numberline {8}Affine Algebraic Geometry}{88}{section.8}%

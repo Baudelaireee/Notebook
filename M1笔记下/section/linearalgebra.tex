@@ -73,3 +73,30 @@ The proof is similar to the real case, we set \(P = \sqrt{A^*A}\) and \(U = AP^{
 \vspace{2ex}
 
 Another useful decomposition is QR decomoposition, which is also called as Gram-Schimidt decompoistion. Suppose that 
+
+\section{Exponential map}
+
+Remember that \(M_n(K) \cong K^{n^2}\) for any field (even any ring), in particualr we consider \(K = \mathbb{C}\)  or $\mathbb{R}$, then the space of endomorphisms or matirces  is just a finite-dimensional vector space over the field, so we can define the typical norm on it:
+\begin{align*}
+    \|A\| &= \sqrt{\sum_{i,j} |a_{ij}|^2} \quad \text{(euclidean norm)}\\
+    \|A\|_{\infty} &= \max_{i,j} |a_{ij}| \quad \text{(Max norm)}\\
+    \|A\|_1 &= \sum_{i,j} |a_{ij}| \quad \text{(Sum norm)}
+\end{align*}
+
+
+Moreover, we can consider the norm of $M_n(K)$ from another view, we view it as the linear continous operator inside $K^n$,  hence in particular the norm of $K^n$ can induce the norm of operator:
+\[ \|A\|_{op} = \sup_{x \in K^n - \{0\}} \frac{\|Ax\|}{\|x\|} \]
+Anyway, the space of endomrphisms on finitie-dimensional vector space or the matrix space is still finite-dimensional, as a Banach space, all the norms on $M_n(K)$ is equivalent, with the basic knowledge of topology on it, we can talk about some whether some series in analysis makes sense or not, in particular, exponential map:
+
+\begin{definition}
+    For a matrix $A \in M_n(K)$, the exponential of $A$ is defined by
+    \[\exp(A) = \sum_{k \geq 0} \frac{A^k}{k!}  \]
+    or sometimes we denote it by $e^A$.
+\end{definition}
+The definition is analogous to the exponential map in $\mathbb{C}$, and we can verify that it is well-defined for any $A$ by
+\[ \|\exp(A) \|  \leq \sum_{k \geq 0} \frac{\|A\|^k}{k!} = \exp(\|A\|) < +\infty\]
+so exponential map still makes sense for linear algebra! Some algebraic properties can be conclude to handle different calculation, and they are important.
+
+\begin{proposition}
+    
+\end{proposition}
