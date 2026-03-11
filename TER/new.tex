@@ -490,6 +490,8 @@ where \(m\) is unique Haar measure induced by the inner product while \(l\) is t
 \begin{corollary}
     Let \(A\) be a positive-definite symmetric matrix, and \(L \subset V\) be a complete lattice, then
     \[\sum_{v \in L} e^{-\pi \cdot v^tAv} = \frac{\det A^{-1/2}}{\mathrm{vol}(V/L)} \sum_{v \in L^*} e^{-\pi \cdot v^tA^{-1}v}\]
+    In particular, if \(A = \mathrm{dig}(c_1,\dots,c_n)\) and \(L = \zz^n\), then
+    \[\sum_{v \in \zz^n} e^{-\pi \sum_{i}c_iv_i^2} = \frac{1}{\sqrt{c_1\cdots c_n}}\sum_{v \in \zz^n}e^{-\pi \sum_{i} v_i^2/c_i}\]
 \end{corollary}
 
 \begin{proof}
@@ -515,6 +517,14 @@ Notice that \(\mathcal{O}_k\) is a free \(\zz\)-module of rank \(N\), so \(\sigm
         \item For any ideal \(\mathfrak{a}\), we set \(\mathfrak{a}^\vee  = \mathfrak{d}^{-1}\mathfrak{a}^{-1}\), then \(\sigma(a^\vee)\) is the dual lattice of \(\sigma(\mathfrak{a})\).
     \end{enumerate}
 \end{lemma}
+
+
+\begin{proposition}
+    Let \(\mathfrak{a}\) be an fractional ideal of \(k\), and define 
+    \[\Theta(c,\mathfrak{a}) = \sum_{z \in \mathfrak{a}} \exp(-\pi \sum_{c_i})\]
+    where \(\|\cdot\|\) is the norm defined by trace paring, then we have the equation
+    \[\Theta(z,\mathfrak{a}) = \frac{z^{-N/2}}{N(\mathfrak{a})\sqrt{|d_k|}}\Theta(1/z,\mathfrak{a}^\vee)\]
+\end{proposition}
 
 
 \subsection{Functional Equation}
