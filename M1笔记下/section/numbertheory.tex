@@ -1,0 +1,337 @@
+\section{Algebraic approach to number theory}
+
+\subsection{Number fields}
+
+To motivate the algebraic approach, we firstly consider a typical example in number theory, it will be the basis of the discussion.
+
+\begin{itemize}
+    \item The finite extension of \(K/\qq\) is called a \textbf{number field}, typically it an separable extension since \(\mathrm{Char}(\qq) = 0\), so we can apply \textbf{primitive element} theorem to conclude that \(K = \qq(a)\) for some \(a \in K\).
+    \item The element \(a \in K\) is called an \textbf{algebraic integer} if there exists a monic polynomial \(f(x) \in \zz[x]\) such that \(f(a) = 0\). Notice that the following conditions are equivalent:
+    \begin{enumerate} [(a)]
+        \item \(a\) is an algebraic integer.
+        \item minimal polynomial \(\Pi_a(X) \in \zz[X]\).
+        \item \(\zz[a]\) is a finitely generated \(\zz\)-module.
+    \end{enumerate}
+    \begin{proof}
+        
+    \end{proof}
+
+    \item Following the above definition, we can verify a similar result with the algebraic numbers: (a) sum of two algebraic integers is an algebraic integer, (b) product of two algebraic integers is an algebraic integer.
+    \begin{proof}
+        
+    \end{proof}
+    \item It is trival that algebraic integers are algebraic numbers, so similarly we can define
+    \[\tilde{\qq} = \{x \in \bar{\qq} : x \text{ is an algebraic integer}\}\]
+    It is a subring of algebraic closed field \(\bar{\qq}\) or \(\cc\), and then we can define the ring of integers of number field \(K\) as 
+    \[\ok := \tilde{\qq} \cap K\]
+    equivalently, it is the set of all algebraic integers contained in \(K\). 
+\end{itemize}
+
+So we skecth the basic notation and definitions, the ring of integers of number field is special and important, since it is analogous to \(\zz\) in \(\qq\), and in particualr number theory is the study of "integers", although here the integraility is not clear, so we will focus on it.
+
+\begin{colortheorem}
+    Let \(K/ \qq\) be a number field with \(\ok\) its ring of intgers, then
+    \begin{enumerate}
+        \item \((\ok,+)\) is a free \(\zz\)-module of rank \([K:\qq]\), hence it is a noetherian ring.
+        \item \(\ok\) is integrally closed in \(K\) (following the definition).
+        \item Any non-zero prime ideal in \(\ok\) is maximal, i.e. the krull dimension of \(\ok\) is 1.
+    \end{enumerate}
+\end{colortheorem}
+\begin{proof}
+
+\end{proof}
+
+To study the arithmetic of "integers" we should understand the factorization of elements in \(\ok\), unfortunately, the ring of integers are not always UFD, typcial example is \(\ok = \zz[\sqrt{-5}]\) with \(K = \qq(\sqrt{-5})\), in it we have
+\[6 = 2 \times 3 = (1 + \sqrt{-5})\times (1 - \sqrt{-5})\]
+even more terrible, for the simplest example \(K=\qq(\sqrt{d})\) ( \(d\) is square-free), we have the following known results:\\
+
+- When \(d<0\), \(\ok\) is a UFD if and only if \(d\) is one of the following integer:
+\[-1,-2,-3,-7,-11,-19,-43,-67,-163\]
+It is owe to the \textbf{Heegner-Baker-Stark theorem}, and the proof is non-trivial.\\
+
+- When \(d>0\), it is conjectured by Gauss that there are infinitely many \(d\) such that \(\ok\) is a UFD, but it is still open (till 2026...).\\
+
+Hence it is almost hopeless to consider the factorization of elements in \(\ok\). After dedekind and Kummer introduced the concept of ideal, a more general factorization is possible, in particular it holds for any number fields.
+
+\begin{colortheorem} \label{fract}
+    For any number field \(K\) with ring of integers \(\ok\), any non-zero proper ideal \(I \subsetneq \ok\) can be factored into prime ideals, i.e. there exist prime ideals \(\pp_1,\cdots,\pp_n\) such that
+    \[I = \pp_1 \cdots \pp_n\]
+and the factorization is unique up to permutation of the prime ideals.
+\end{colortheorem}
+
+For example we consider \(\ok = \zz[\sqrt{-5}]\), we have the following factorization of ideals:
+\[(6) = \mathfrak{p}_2^2 \mathfrak{p}_3 \mathfrak{p}_3'\]
+with \[\mathfrak{p_2} = (2,1+\sqrt{-5}),\quad \mathfrak{p_3} = (3,1+\sqrt{-5}),\quad \mathfrak{p_3'} = (3,1-\sqrt{-5})\]
+then we can find that the factorization of \(6\) is unique in the sense of ideals:
+\[(2) = \mathfrak{p}_2^2 , \quad (3) = \mathfrak{p}_3 \mathfrak{p}_3'\]
+while
+\[(1+\sqrt{-5}) = \mathfrak{p}_2 \mathfrak{p}_3 ,\quad (1-\sqrt{-5}) = \mathfrak{p}_2 \mathfrak{p}_3'\]
+
+To prove the theorem, some preparation should be done since the result is eseentailly not trival, firstly we should consider the division of ideals:
+
+\begin{definition}
+    Let \(\mathfrak{a}\) and \(\mathfrak{b}\) be two non-zero ideals in \(\ok\), we define 
+    \[\mathfrak{a} | \mathfrak{b} \iff \mathfrak{b} \subset \mathfrak{a}\]
+\end{definition}
+
+This definition can be done for any commutative ring, but the properties of rings of integers ensures the following results, which is the key to the proof.
+
+\begin{lemma}
+    \(\pp\) is a prime ideal of \(\ok\) if and only if for any ideals \(\mathfrak{a}\) and \(\mathfrak{b}\) in \(\ok\), we have \(\pp | \mathfrak{a}\mathfrak{b} \implies \pp | \mathfrak{a} \text{ or } \pp | \mathfrak{b}\).
+\end{lemma}
+\begin{proof}
+    
+\end{proof}
+
+\begin{lemma}
+    For any non-zero ideals \(\mathfrak{a} \in \ok\), there exists non-zero prime ideals \(\mathfrak{p_1},\cdots,\mathfrak{p_n}\) such that \( \mathfrak{p_1}\cdots\mathfrak{p_n} \subset \mathfrak{a}\). 
+\end{lemma}
+
+\begin{proof}
+    
+\end{proof}
+
+\begin{lemma} \label{lemma2forfract}
+    For any prime ideal \(\pp\) in \(\ok\), we define its inverse ideal as \[\pp^{-1} = \{x \in K : x\pp \subset \ok\}\]
+then for any non-zero ideal \(\mathfrak{a}\) in \(\ok\), we have \(\mathfrak{a}\subsetneq \mathfrak{a}\pp^{-1} \). In particular, \(\pp\pp^{-1} = \ok\).
+\end{lemma}
+\begin{proof}
+    
+\end{proof}
+
+With the two lemma we can finish the proof:
+\begin{proof}[Proof of theorem \ref{fract}]
+    For the existence, we set a set \(S\) of ideals which can not be factorized into prime ideals, if \(S\) is empty then we are done, \textbf{hence we assume \(S\) is non-empty}. We consider the partial ordered set \((S,\subset)\), then the noetherian condition ensures the existence of maximal element, denoted by \(\mathfrak{a}\).
+
+    \(\mathfrak{a}\) can not be prime (i.e. maximal), otherwise it is already factorized, hence there exists a maxiaml ideal (i.e prime) such that \(\mathfrak{a} \subsetneq \pp\), which implies
+    \[\mathfrak{a} \subsetneq \mathfrak{a}\pp^{-1} \subsetneq \pp\pp^{-1} = \ok \]
+    the chain holds trus by lemma \ref{lemma2forfract}, hence we construct an element \(\mathfrak{a}\pp^{-1} \notin S\), which allows us to factorize
+    \[\mathfrak{a}\pp^{-1} = \pp_1 \cdots \pp_r\]
+    then \(\mathfrak{a} = \mathfrak{a}\ok = \mathfrak{a}\pp^{-1}\pp\) shows that the maximal element can be factorized, which is a contradiction.
+
+    For the uniqueness, we assume that there are two factorization for an ideal \(\mathfrak{a}\)
+    \[\mathfrak{a} = \mathfrak{p}_1\cdots \mathfrak{p}_n = \mathfrak{q}_1 \cdots \mathfrak{q}_m\] 
+    then \(\pp_1 | \mathfrak{a}\) shows that there exists \(i\) such that \(\pp_1 | \mathfrak{q}_i\), prime ideals are maximal so \(\pp_1 = \mathfrak{q}_i\) exactly, and we can cancel then by multiplying \(\pp^{-1}\), then we can repeat the process to conclude that \(n=m\) and \(\pp_i = \mathfrak{q}_{\sigma(i)}\) for any permutation \(\sigma \in S_n\).
+\end{proof}
+
+
+
+
+
+
+
+
+\newpage
+
+\section{Analytic approach to number theory}
+
+\subsection{Characater}
+
+\begin{definition}
+    Let \(G\) be a finite abelian group, a \textbf{character} of \(G\) is a group homomorphism \(\chi : G \to \cc^\times\), and we denote the set of all characters of \(G\) as \(\hat{G}\), it forms a group under function multiplication
+    \[\forall g \in G: (\chi_1\cdot \chi_2)(g) : = \chi_1(g)\chi_2(g)\]
+    And we call \(\hat{G}\) the \textbf{Character group} of \(G\).
+\end{definition}
+
+Here are some quick obeservations:
+\begin{itemize}
+        \item \textbf{image of character should be in \(\sph^1\)}: any elements \(a \in G\) is of finite order, and homomorphism of groups makes \(\chi(e) = 1\), hence \(\chi(a)^n = 1\) with \(n = ord(a)\).
+    \item \textbf{Inverse of character is the complex conjugate}: \(|\chi(n)| = 1\), which allows us to define the inverse
+    \[\chi^{-1}(n) = 1/\chi(n) = \bar{\chi}(n)\]
+    \item In particular, \(\chi(-1) = \pm 1\) since \(\chi(-1)^2 = \chi(1) = 1\), which allows us to classify the character into two types: \textbf{even} character with \(\chi(-1) = 1\) and \textbf{odd} character with \(\chi(-1) = -1\).
+\end{itemize}
+\begin{remark}
+    We consider the categroy of all abelian groups, denoted by \(\mathbf{Ab}\), the character group can be generalized in the category by a contravariant functor \(\hat{(-)}: \mathbf{Ab} \to \mathbf{Ab}^{op}\): For the object \(G \in \mathbf{Ab}\), we have \(\hat{G} = \Hom(G, \cc^\times)\) ; For the morphism \(f:G \to H\), it induces a morphism between dual groups \(\hat{f}: \hat{H} \to \hat{G}\) by \(\chi \mapsto \chi \circ f\), i.e.
+    % https://q.uiver.app/#q=WzAsNCxbMCwwLCJHIl0sWzIsMF0sWzEsMCwiSCJdLFsxLDEsIlxcbWF0aGJie0N9XioiXSxbMiwzLCJcXGNoaSJdLFswLDIsImYiXSxbMCwzLCJcXGhhdHtmfShcXGNoaSkiLDIseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XV0=
+\[\begin{tikzcd}
+	G & H & {} \\
+	& {\mathbb{C}^*}
+	\arrow["f", from=1-1, to=1-2]
+	\arrow["{\hat{f}(\chi)}"', dashed, from=1-1, to=2-2]
+	\arrow["\chi", from=1-2, to=2-2]
+\end{tikzcd}\]
+    However, the functor is not an equivalent since it is not full, that is the reason why we only consider the character group of finite abelian groups.
+\end{remark}
+
+\begin{remark}
+    Another view of character is that the character is naturally a one-dimensional complex representation of \(G\) since \(\cc^* \cong \GL_1(\cc)\), so any character as a representation is irreducible.
+\end{remark}
+
+
+\begin{proposition}
+    For any finite abelian group \(G\), we have \(\hat{G} \cong G\)
+\end{proposition}
+
+\begin{proof}
+    For any finite abelian group \(G\), there exists a decomposition of cyclic groups \(G \cong \zz/n_1 \oplus \cdots \oplus \zz/n_r\), the universal property of direct sum allows \(\widehat{G \oplus H} \cong \widehat{G} \times \widehat{H}\) hence we have
+    \[\hat{G} \cong \widehat{\zz/n_1}\oplus \cdots \oplus \widehat{\zz/n_{r}}\]
+    hence it is enough to prove the isomorphism for any cyclic group \(\zz/n\).
+\end{proof}
+
+Here is a useful lemma, which appears in many proofs, from the view of category, it shows that the induced morphism of a injection is a surjection.
+\begin{lemma}
+    Let \(G\) be a finite abelian group and \(H\) be its subgroup, then for any character \(\chi \in \hat{H}\), there exists exactly \([G:H]\) characters \(\hat{G}\) that extend \(\chi\) to \(G\).
+\end{lemma}
+\begin{proof}
+    Consider restriction map \(r: \hat{G} \to \hat{H}\) defined by \(\chi \mapsto \chi|_H\), it is a group homomorphism, and we will show that \(r\) is surjective, then we consider the equivalence relation on \(\hat{G}\) by
+    \[\chi_1 \sim \chi_2 \iff \chi_1|_H = \chi_2|_H\]
+    the relation gives that the class of \(\chi\) is exactly the set of characters that extend \(\chi\) to \(G\), and the relation is actually same as the relation defined by cosets of \(\bar{H}\), then we can deduce the number by isomorphism of dual groups:
+    \[\#[\chi] = [\hat{G}:\hat{H}] = [G:H]\]
+
+    \textbf{Surjective:} We take \(g_1 \notin H\) and construct a subgroup of \(G\) by
+    \[G_1 = \langle H,g_1 \rangle = \{g_1^kh \mid k\in \nn, h \in H\}\]
+    then we can extend the character \(\chi\) by defining \(\chi_1(g_1^kh) = \chi(h)\), i.e. we set \(\chi_1(g_1) = 1\) and allow \(\chi_1(ab) = \chi_1(a)\chi_1(b)\), then we can verify that \(\chi_1 \in \widehat{H_1}\) and \(\chi_1|_H = \chi\). Similarly we can construct a chain of subgroups by \(G_k = \langle G_{k-1},g_k \rangle\) with some \(g_k \notin G_{k-1}\), so we have
+    \[G_0 = H \subsetneq G_1 \subsetneq \dots \subsetneq G_n = G\]
+    the chain will stop since \(G\) is finite (or it is finitely generated \(\zz\)-module, so we can use noetherian condition).
+\end{proof}
+\begin{remark}
+    Notice that \(\cc^*\) is a divisible abelian group, then for any short squence of abelian groups
+    \[0 \to H \to G \to G/H \to 0\]
+    we have a conversion of exact sequence
+    \[0 \to \widehat{G/H} \to \hat{G} \to \hat{H} \to 0\]
+    we can talk more if we restrict our view on finite abelian groups.
+\end{remark}
+
+\begin{theorem}
+    Let \(G\) be a finite abelian group, then any quotient group of \(G\) can be seen as a subgroup of \(G\), furthermore we have
+    \[G \cong H \oplus G/H\]
+\end{theorem}
+
+\begin{proof}
+    We set \(H^\perp = \{\chi \in \hat{G} \mid \chi(h) = 1, \forall h \in H\}\) as the complement of \(\hat{H}\) in \(\hat{G}\), it is natural in the sense of \(\zz\)-module, then we can prove that \(H^{\perp} \cong\widehat{G/H}\). Notice that \(H^{\perp}\) is exactly a subgroup of \(\hat{G}\), and \(H^\perp \cap \hat{H} = \{1_H\}\) , so we have a direct sum \[\hat{G} = \hat{H} \oplus H^\perp \cong \hat{H} \oplus \widehat{G/H}\]
+    by the isomprhism of dual groups, we can deduce the result. 
+\end{proof}
+
+\begin{proposition}[orthogonality]
+    Let \(G\) be a finite abelian group,
+    \begin{enumerate}
+        \item Fix \(\chi \in \bar{G}\), then \[\sum_{g \in G} \chi(g) = \begin{cases}
+            |G|  \quad &\chi = 1 \\
+            0 \quad &\chi \neq 1
+        \end{cases}\]
+        \item Fix \(g \in G\), then \[\sum_{\chi \in \hat{G}} \chi(g) = \begin{cases}
+            |G|  \quad &g = e \\
+            0 \quad &g \neq e
+        \end{cases}\]
+    \end{enumerate}
+    
+\end{proposition}
+
+\begin{proof}
+    For the first case, if \(\chi = 1\) then it is trivial, otherwise we can take \(h \in G\) such that \(\chi(h) \neq 1\), and the transaltion \(g \mapsto h^{-1}g\) is a bijection of \(G\), so we have
+    \[\sum_{g\in G}\chi(g) = \sum_{g \in G}\chi(h)\chi(h^{-1}g) = \chi(h) \sum_{g \in G}\chi(g)\]
+    then we can deduce the result. For the second case, we suppose that \(g \neq e\), then there exists a character \(\psi\) such that \(\psi(g) \neq 1\), and the translation \(\chi \mapsto \psi^{-1}\cdot \chi\) is a bijection of \(\hat{G}\), so we have
+    \[\sum_{\chi \in \hat{G}} \chi(g) = \psi(g) \sum_{\chi \in \hat{G}} (\psi^{-1}\cdot 
+    \chi)(g) = \psi(g) \sum_{\chi \in \hat{G}} \chi(g)\]
+    then we can deduce the result.
+\end{proof}
+
+A special result of orthogonality is about the structure of the character, we set \(\mathbf{FinAb}\) to be the category of finite abelian groups, as we have mentioned before, there exists a contravariant functor inside the categroy, here we set \(D: \mathbf{FinAb} \to \mathbf{FinAb}^{op}\), the following result shows that the functor is actually an equivalence with \(D^2 = Id\).
+
+\begin{colortheorem}
+    Let \(G\) be a finite abelian group, there exists a natural isomorphism \(\phi: G \to \hat{\hat{G}}\) defined by \(g \mapsto \phi_g\) with \(\phi_g(\chi) = \chi(g) \).
+\end{colortheorem}
+\begin{proof}
+    It is easy to verify that the map is a morphism, so it is enough to show injection since it is finite, and we consider the kernel.
+    \begin{align*}
+        g \in \ker \phi &\iff \phi_g(\chi) = 1, \forall \chi \in \hat{G} \\
+        &\iff \chi(g) = 1, \forall \chi \in \hat{G} \\
+        &\iff \sum_{\chi \in \hat{G}} \chi(g) = |\hat{G}| = |G| \\
+        &\iff g = e
+    \end{align*}
+\end{proof}
+
+\begin{remark}
+    Notice that the map is <<natrual>> since it does not depend on the choice of groups, and we can verify the following diagram commutes for any morphism \(f: G \to H\)
+    \[
+\begin{tikzcd}
+G \arrow[r,"\phi_G"] \arrow[d,"f"'] & \widehat{\widehat{G}} \arrow[d,"D^2(f)"] \\
+H \arrow[r,"\phi_H"] & \widehat{\widehat{H}}
+\end{tikzcd}
+\]
+    which ensures that the functor \(D\) is an equivalence 
+\end{remark}
+
+
+\subsubsection{Legendre Symbol}
+A character of a finite abelian group is called \textbf{real character} if its image is contained in \(\{\pm 1\}\), this parts is to introduce a typcial example of real character.
+
+Historically, a classical diophantine problem is to solve
+\[X^2 = b \mod p\]
+with \(p\) a prime, and \(b\) is a given non-zero intger, equivalently, solve the quadratic equation in the finite field \(\ff_p\). For example,
+\(X^2 - 2 = 0\) has no solution in \(\ff_5\) while it has solution in \(\ff_3\).
+
+\begin{proposition}
+    Let \(p\) be an odd prime, then \(\varphi: \ff_p^* \to \ff_p^*\) with \(x \mapsto x^{\frac{p-1}{2}}\) defines a homomorphism of groups, with kernel \(S_p\) the set of all squares in \(\ff_p^*\), and the image is \(\{1,-1\}\).
+\end{proposition}
+\begin{proof}
+    \(p\) is prime so \(\frac{p-1}{2}\) is an integer, which is enough to show the map is a homomorphism. Notice that \(S_p \subset \ker \varphi\), it is enough to show that \(|S_P| = |\ker \varphi| = \frac{p-1}{2}\). After that, the cardianlity of the image is \(2\), and \(\varphi(x)\) is exactly the roots of \(X^2-1 = 0\), which implies the image is \(\{1,-1\}\).
+
+    \(S_p\) is the image of morphism \(f(x) = x^2\) inside \(\ff_p^*\), the kernel of \(f\) is exactly the solutions of \(X^2-1=0\) in \(\ff_p\), they are exactly \({-1,1}\) since there are at most two distinct solutions, hence \(|S_p| = |\ff_p^*/\ker f| = \frac{p-1}{2}\).
+
+    \(\varphi(x) = 1\) means that \(x\) is a roots of \(X^{\frac{p-1}{2}} - 1 = 0\) in \(\ff_p\), which has at most \(\frac{p-1}{2}\) distinct solutions, hence \(|\ker \varphi| \leq \frac{p-1}{2} = |S_p|\), so immediately \(\ker \varphi = S_p\).
+\end{proof}
+
+Notice that the image of homomorphism is again a group, and the group \(\{-1,1\}\) in \(\ff_p^*\) is isomorphic to \(\zz/2\zz\), so it has no problem to identify \(\{-1,1\}\) in \(\ff_p\) as \(\{-1,1\}\) in \(\cc^*\), and we define the \textbf{Legendre symbol} as a character of \(\ff_p^*\) by
+\[(\frac{a}{p}) = \begin{cases}
+    1 & a \in S_p \\
+    -1 & a \notin S_p
+\end{cases}\]
+
+
+
+\subsubsection{Dirichlet Character}
+
+\begin{definition}
+    Let \(N \in \nn^*\), a \textbf{Dirichlet character} modulo \(N\) is a character of the multuplicative group \((\zz/N\zz)^\times\), i.e. \
+\[\chi: (\zz/N\zz)^\times \to \cc^\times\]
+\end{definition}
+
+Here are some quick descriptions of this type of character: 
+\begin{itemize}
+
+    \item The order of \((\zz/N\zz)^\times\) is \(\varphi(N)\) with \(\varphi\) the Euler totient function, so the orthogonality of characters can be written as
+    \[\sum_{a \in (\zz/N\zz)^\times} \chi(a) = \begin{cases}
+        \varphi(N)  \quad &\chi = 1 \\
+        0 \quad &\chi \neq 1
+    \end{cases} \qquad \sum_{\chi \in \widehat{(\zz/N\zz)^\times}} \chi(g) = \begin{cases}
+        \varphi(N)  \quad &g = 1 \\
+        0 \quad &g \neq 1
+    \end{cases}\]
+    \item Let \(\chi\) be a Dirichlet character modulo \(N\), then we can extend \(\chi\) to a function on \(\zz\) by \[\tilde{\chi}(a) = \begin{cases}
+        \chi(\bar{a}) \quad &\gcd(a,N) = 1 \\
+        0 \quad &\gcd(a,N) \neq 1
+    \end{cases}\]
+    It defines an arithmetic function that is \textbf{completely multiplicative} and \textbf{\(N\)-periodic}. Each character can be extended like that, so we sometimes do not distinguish the character and the arithemetic function.
+\end{itemize}
+
+
+\begin{theorem}
+    Let \(f: \zz \to \cc\) be an arithemetic function is a Dirichlet character modulo \(N\) if it satisfies the following conditions: \\
+    (1) completely multiplicative.\\
+    (2) \(N\)-periodic for some \(N \in \nn^*\).\\
+    (3) \(|f(n)| = 1\) if and only if \(\gcd(n,N) = 1\).
+\end{theorem}
+\begin{proof}
+    
+\end{proof}
+
+In particular, we noticed that as a real character, the Legendre symbo is a Dirichlet character modulo \(p\).
+
+
+
+
+
+
+
+
+
+%
+%\begin{proposition}
+%    For any finite abelian group \(G\), there exists a natural isomorphism \
+%    \[\phi: G \to \hat{\hat{G}}, \quad g \mapsto (\chi \mapsto \chi(g))\]
+%\end{proposition}
+
+%\begin{proof}
+    
+%\end{proof}

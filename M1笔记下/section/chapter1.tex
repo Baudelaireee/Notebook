@@ -285,6 +285,35 @@ Review that a group action \(G \circlearrowleft X\) is \textbf{transtive} if for
     A \textbf{homogeneous space} is a Hausdorff topological space \(X\) with a transtive continous action of a group \(G\), in particular, we call it \textbf{G-homogeneous space} to emphasize the acting group \(G\).
 \end{definition}
 
+Before talking about the properties of homogeneous space, we consider a basic example but important example: rotatio action on sphere \(SO(n) \circlearrowleft \sph^{n-1}\)
+\[SO(n) \times \sph^{n-1}, \quad (A,v) \mapsto Av\]
+the operation is defined by matrix multiplication, so it defines a continous action, then we can verify the following results:
+\begin{enumerate}
+    \item \textbf{The action is transitive.} When \(n = 2\), it is clear since \(SO(n)\) is just the set of rotations of plane, so we prove the case \(n \geq 3\) by induction. We assume that the action is transitive for \(n-1\),\dots
+    \item \textbf{The isotropy group at \(e_1\) is isomorphic to \(SO(n-1)\).} Suppose that \(A \in SO(n)\) is matrix such that \(Ae_1 = e_1\), then by caculation we can veify that \(A\) is of the form
+    \[
+M=
+\begin{pmatrix}
+1 & 0_{1\times n} \\
+0_{n\times 1} & A'
+\end{pmatrix},
+\qquad A' \in SO(n-1).
+\]
+    Then it is easy to establish a isomorphism and a hoemomorphism.
+    \item \textbf{There exists a homeomorphism \(SO(n)/SO(n-1) \cong \sph^{n-1}\).} By the stablizer-orbit lemma, we can deduce a continous bijection \(SO(n)/SO(n-1) \to \sph^{n-1}\), so it is enough to verify that \(SO(n)\) is compact.
+    \item \textbf{\(SO(n)\) is connected.} When \(n = 2\), a classic homeomorphism \(SO(2) \cong \sph^1\) shows that \(SO(2)\) is connected, then we can prove the case \(n \geq 3\) by induction.
+\end{enumerate}
+
+From this example, we can see here sphere \(\sph^n\) is a homogeneous space under the action of \(SO(n+1)\), we are very faimilar with the topology of sphere, but we are not fimilar the topology of \(SO(n)\), so homogeneous space gives us a method to understand the topology of group by the homogeneous space. Conversely, if we are fimilar with the structure of the topological group, we can understand a strange space by this method, anyway homogeneous space gives a deep relation
+\[\{\text{topological group}\} \sim \{\text{space with same local structure}\}\]
+
+\begin{colortheorem}
+    Let \(G\) be a Lie group and \(X\) be a \(G\)-homogeneous space, if \(I_x\) the isotropy group at \(x \in X\), then there exists a hoemomorphism
+    \[G/I_x \cong X\]
+\end{colortheorem}
+
+
+
 
 
 
@@ -432,3 +461,309 @@ It is wonderful to see what we can get from the duality, we make a convention th
 
     - \(G\) is connected if and only if \(G^*\) is torsion-free.
 \end{colorproposition}
+    
+ \newpage
+
+\section{Linear Lie groups}
+Matrix groups are the most important examples of Lie groups and Lie algebras, this section is some preparation for the general case.
+
+\subsection{Exponential map}
+
+Remember that \(M_n(K) \cong K^{n^2}\) for any field (even any ring), in particualr we consider \(K = \mathbb{C}\)  or $\mathbb{R}$, then the space of endomorphisms or matirces  is just a finite-dimensional vector space over the field, so we can define the typical norm on it:
+\begin{align*}
+    \|A\| &= \sqrt{\sum_{i,j} |a_{ij}|^2} \quad \text{(euclidean norm)}\\
+    \|A\|_{\infty} &= \max_{i,j} |a_{ij}| \quad \text{(Max norm)}\\
+    \|A\|_1 &= \sum_{i,j} |a_{ij}| \quad \text{(Sum norm)}
+\end{align*}
+
+
+Moreover, we can consider the norm of $M_n(K)$ from another view, we view it as the linear continous operator inside $K^n$,  hence in particular the norm of $K^n$ can induce the norm of operator:
+\[ \|A\|_{op} = \sup_{x \in K^n - \{0\}} \frac{\|Ax\|}{\|x\|} \]
+Anyway, the space of endomrphisms on finitie-dimensional vector space or the matrix space is still finite-dimensional, as a Banach space, all the norms on $M_n(K)$ is equivalent, with the basic knowledge of topology on it, we can talk about some whether some series in analysis makes sense or not, in particular, exponential map:
+
+\begin{definition}
+    For a matrix $A \in M_n(K)$, the exponential of $A$ is defined by
+    \[\exp(A) = \sum_{k \geq 0} \frac{A^k}{k!}  \]
+    or sometimes we denote it by $e^A$.
+\end{definition}
+The definition is analogous to the exponential map in $\mathbb{C}$, and we can verify that it is well-defined for any $A$ by
+\[ \|\exp(A) \|  \leq \sum_{k \geq 0} \frac{\|A\|^k}{k!} = \exp(\|A\|) < +\infty\]
+so exponential map still makes sense for linear algebra! Some algebraic properties can be conclude to handle different calculation, and they are important.
+
+\begin{proposition} \label{prop:exp} $ \\$
+    Let \(K = \cc \) or \(\rr\), then\\
+
+    (1) \(ge^Xg^{-1} = e^{gXg^{-1}}\) for any \(g \in \mathrm{GL}_n(K)\) and \(X \in M_n(K)\).\\
+
+    (2) If \(XY = YX\), then \(e^{X+Y} = e^X e^Y\).\\
+
+    (3) \(e^X\) is invertible with inverse \(e^{-X}\).
+\end{proposition}
+
+\begin{proof}
+    (1) It is easy to check that
+    \[(gXg^{-1})^k = gX^kg{-1}\]
+    thus by definition we have the equality. For (2), we can expand \(e^{X+Y}\) by definition and binomial formula, and the commutativity of \(X\) and \(Y\) allows us to rerrange the terms. For (3), we see the \(X\) as the complex matrix and then by Jordan form, we have
+    \[gXg^{-1} = D(I+N)\]
+    under the base change of \(g\), where \(D\) is diagonal and \(N\) is nilpotent such that \(DN = ND\), thus
+    \[ge^Xg^{-1} = e^De^{I+D}\]
+    with \(e^D\) is diagonal and \(e^{I+D}\) an upper-triangular matrix with non-zero diagonal entries, so we can conclude that \(e^X\) is invertible with inverse \(e^{-X}\) by the property (2).
+\end{proof}
+
+There are many other proof of the propoistion, and each of them gives a new view about the matrix group and Lie group, for example, we can consider the exponential map as the solution of ODE:
+\begin{colortheorem}
+    For any \(X \in M_n(K)\), the one-parameter 
+    \[\Phi_X:\rr \to M_n(K), \qquad t \mapsto e^{tX}\]
+    is the unique \textbf{global \(C^1\) solution} of the initial value problem of ODE:
+    \[\frac{d}{dt} Y(t) = X \Phi_Y(t), \qquad \Phi_X(0) = I\]
+    with \(Y\) the matrix-valued function of \(t\).
+\end{colortheorem}
+
+\begin{proof}
+    The uniqueness of the solution can be proved by Cauchy-Lipschitz theorem, for the existence, we should veirfy that \(\Phi_X\) is exactly the solution: For any \(t \in \rr\)
+    \[\frac{\Phi_X(t+h)-\Phi_X(t)}{h} = \frac{e^{(t+h)X} - e^{tX}}{h} = e^{tX}\frac{(e^{hX} - I)}{h}\]
+    The convergence of the expoential series is uniform, which allows us to exchange the limit and the sum, thus we can deduce the derivative of \(\Phi_X\) is exactly \(X\Phi_X\), hence \(\Phi_X\) is the solution of the ODE (surely it is \(C^1\), \(\Phi_X\) is derivative so it is continous, that implies that \(X\Phi_X\) is continuous too).
+\end{proof}
+
+\begin{remark}
+    For property (2) in propoistion \ref{prop:exp}, here we can consider the ODE
+    \[Z'(t) = (X+Y)Z(t), \qquad Z(0) = I\]
+    we can verify that \(t \mapsto e^{X+Y}\) and \(t \mapsto e^{X}e^{Y}\) are both solutions when \(X\) and \(Y\) commute, thus they are equal by the uniqueness of the solution.
+\end{remark}
+
+\begin{remark}
+    Actually, the theorem contain an simple information is that
+    \[\frac{d}{dt}(e^{tX}) = Xe^{tX}\]
+    so we notice the amazing similarity with the case in euclidean space, which allows us to consider the one-parameter subgroup as a dynamic system, and the exponential map is the flow of the system, this is the original ideal of the exponential map in Lie theory.
+\end{remark}
+
+Another method to prove that \(e^X\) is invertible is to consider its determinant, which is natural to motivate the following result:
+
+\begin{colortheorem}[Jacobi's formula]
+    For any \(A \in M_n(K)\), we have
+    \[\det(e^A) = e^{\mathrm{tr}(A)}\]
+    
+\end{colortheorem}
+\begin{proof}
+    By Schur's lemma, any \(X \in M_n(\cc)\) can be upper-triangularized by some \(g \in \mathrm{GL}_n(\cc)\) such that \(X = gTg^{-1}\) the upper-trianglue matrix \(T\) with diagonal entries \(\lambda_1,...,\lambda_n\), thus
+    \[\det (e^X) = e^{\lambda_1}\cdots e^{\lambda_n} =  e^{\lambda_1+\dots+\lambda_n} = e^{\mathrm{tr}(X)}\]
+\end{proof}
+
+Another analytic aspects of the exponential map is asymptotic expansion, that means we can manuiplate the exponential map as what we do in analysis, but first of all we prove that the exponential map is similarly a smooth map by the requirement of the expansion:
+
+\begin{proposition}
+    For any \(X \in M_n(K)\), the one-parameter
+    \[\Phi_X: \rr \to GL_n(K), \quad t \mapsto e^{tX}\]
+    defines a real-analytic homomorphism, and we have the following expansion\\
+
+    (1) \(\exp(tX)\exp(tY) = \exp(t(X+Y)+\frac{1}{2}[X,Y]+O(t^3))\)\\
+    
+    (2) \(\exp(tX)\exp(tY)\exp(-tX)\exp(-tY) = \exp(t^2[X,Y]+O(t^3))\)\\
+
+    for any \(X,Y \in M_n(K)\), with bracket \([X,Y] = XY - YX\) the commutator of \(X\) and \(Y\).
+\end{proposition}
+\begin{proof}
+    For any \(t_0 \in \rr\), we can expand \(\Phi_X\) at \(t_0\) by definition:
+    \[e^{tX} = e^{t_0X}e^{(t-t_0)X} = e^{t_0X} \sum_{k=0}^\infty \frac{(t-t_0)^k}{k!} X^k\]
+    The series converges uniformly on any compact interval, so the map is real-analytic. To prove the formula, we just need to expand the left-hand side by definition and rearrange the terms.
+\end{proof}
+
+\begin{remark}
+    If \(XY = YX\), then the commutator \([X,Y] = 0\), thus the expansion in (1) is exact, which is just the property (2) in proposition \ref{prop:exp}, hence we get the same result by using the expansion.
+\end{remark}
+
+Above properties of one-parameter allows us to consider the general case in matrix group, later we will see that the matrix group is indeed a smooth manifold, i.e. a Lie group.
+
+\begin{theorem}
+    Let \(\gamma: \rr \to GL_n(\rr)\) be a one-parameter subgroup, then there exists a unique \(X \in M_n(\rr)\) such that \(\gamma(t) = e^{tX}\) for any \(t \in \rr\), so any one-parameter subgroup of \(GL_n(\rr)\) is exactly real-analytic.
+\end{theorem}
+\begin{proof}
+    convolution...
+\end{proof}
+
+\subsection{General linear group}
+Formally, we define the real-general linear group as following:
+\[GL_n(\rr) : = \{A \in M_n(\rr) \mid \det(A) \neq 0\}\]
+it is the subset of \(M_n(\rr)\), while the topology of \(GL_n(\rr)\) is just the subspace topology induced by \(M_n(\rr) \cong \rr^{n^2}\), hence we can conlude something about the topology of the group:
+
+\begin{itemize}
+    \item \(GL_n(\rr)\) is a open subset of \(M_n(\rr)\), it is immediately by
+    \[GL_n(\rr) = \mathrm{det}^{-1}(\rr-\{0\})\]
+    since determinant is a continuous map, so it can be viewed as a open subset of euclidean space \(\rr^{n^2}\), so it is a smoooth manifold.
+    \item Following the above result, since it can be viewed as an open subset of euclidean space, so it is a "bon espace" in the sense of topology, i.e. semi-locally simply connected, locally path-connected, locally compact, and Hausdorff.
+    \item Consider the opreation of the group
+    \[m(A,B) = AB^{-1} = \frac{1}{\det(B)}A\cdot adj(B)\]
+    where \(adj(B)\) is the adjoint matrix of \(B\), which is a polynomial of entries of \(B\), hence this map is smooth as polynomial map, which shows that \(GL_n(\rr)\) is a topological group, and in particular, with the good smooth structure, it is a Lie group.
+    \item As the topological group, the local structure is same , so we can just consider the point \(I \in GL_n(\rr)\). As a differential manifold, we can consider the tangent space at \(I\), so we can identify the tangent space
+    \[T_I(\mathrm{GL}_n(\rr)) \cong \rr^{n^2} \cong M_n(\rr)\]
+    Actually, we can view a strong result: For any \(X \in M_n(\rr)\), we define a curve on manifold by \[\gamma_X: \rr \to GL_n(\rr), \quad t \mapsto e^{tX}\]
+    by exponential map, this is smooth curve with derivative \(\gamma_X'(0) = X\), hence we prove that \(M_n(\rr)\) is exactly the tangent space of \(GL_n(\rr)\) at \(I\), and we realize the connection between the local structure of the Lie group and its tangent space by one-parameter subgroup, that is the basic ideal of Lie theory.
+\end{itemize}
+
+We conclude above discussion by the following definition, or exactly the \textbf{vocabulary}, because they are just te new notation of manifold and vector space, but they are the basic object of Lie theory, so we need to give them a name:
+\begin{definition} 
+    A \textbf{lie group} is a smooth manifold \(G\) with a group structure such that the group operation \(m: G \times G \to G\) defined by \(m(g,h) = gh^{-1}\) is smooth.\\
+
+    A \textbf{lie algebra} is a \(\rr\)-vector space \(\mathfrak{g}\) with a bilinear map \([-, -]: \mathfrak{g} \times \mathfrak{g} \to \mathfrak{g}\) such that for any \(x,y,z \in \mathfrak{g}\) and \(a,b \in \rr\), we have\\
+
+    (1) \([x,y] = -[y,x]\) (antisymmetry)\\
+
+    (2) \([x,[y,z]] + [y,[z,x]] + [z,[x,y]] = 0\) (Jacobi identity)
+\end{definition}
+
+with above discuss we can see that \(GL_n(\rr)\) is exactly a Lie group, while its tangent space at identity \(M_n(\rr)\) is a vector space, actually it is a Lie alegbra by defining the bracket as following:
+\[[X,Y] = XY - YX\]
+and we say \(\mathfrak{h}\) is a \textbf{sub(-lie) algebra} of \(\mathfrak{g}\) if \(\mathfrak{h}\) is a subspace of \(\mathfrak{g}\) and is closed under the bracket, i.e.
+ \[\forall x,y \in \mathfrak{h}, [x,y] \in \mathfrak{h}\]
+To study other matrix groups, we can just consider the submanifold of \(GL_n(\rr)\), i.e. the subgroup of \(GL_n(\rr)\) with the subspace topology, hence we can get the following result:
+
+\begin{colortheorem} \label{linearliegroup}
+    Let \(G\) be a closed subgroup of \(GL_n(\rr)\), then \(G\) is a submanifold of \(GL_n(\rr)\), and the tangent space of \(G\) at identity is a Lie algebra with
+    \[T_I(G) = \{M \in M_n(\rr) \mid e^{tM} \in G, \forall t \in \rr\}\]
+    it is a \textbf{subalgebra} of \(M_n(\rr)\) with the bracket defined by commutator.
+\end{colortheorem}
+
+\begin{proof}
+    
+\end{proof}
+
+which motivates the following definition:
+
+\begin{colordefinition}
+    A \textbf{linear lie group} is a closed subgroup of \(GL_n(\rr)\) for some \(n\), and its lie algebra is defined as 
+    \[\mathrm{Lie}(G) = \{M \in M_n(\rr) \mid e^{tM} \in G, \forall t \in \rr\}\]
+    and we usually denote it by frak character \(\mathfrak{g}\).
+\end{colordefinition}
+
+We invite the Lie algebra of \(GL_n(\rr)\) by consider its tangent space at identity, conversely, exponential map allows us to know the local structure of the group by its Lie algebra, which can be done beyond the general manifold
+\begin{theorem}
+    The exponential map \(\exp: M_n(\rr) \to GL_n(\rr)\) is a local diffeomorphism at \(0\), in particular, it is a diffeomorphism from some neighborhood of \(0\) to the image.
+\end{theorem}
+
+\begin{proof}
+    
+\end{proof}
+
+Let us consider some examples related to the general linear group:
+
+\begin{example}
+    We view \(\cc\) as a real vector space, then there exists a natural embedding
+    \[i:M_n(\cc) \to M_{2n}(\rr), \quad A+iB \mapsto \begin{pmatrix} A & -B \\ B & A \end{pmatrix}\]
+    it is a injective continous linear map, and we can verify that 
+    \[(A+iB)(x+iy) = 0 \iff \begin{pmatrix}
+        A & -B \\
+        B & A 
+    \end{pmatrix} \begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \end{pmatrix}\]
+    which shows that restriction of \(i\) on \(GL_n(\cc)\) takes image in \(GL_{2n}(\rr)\), and image \(i(GL_n(\cc))\) is indeed a closed subgroup of \(GL_{2n}(\rr)\), hence it is a linear lie group, and its lie algebra is exactly the image of \(i\) on \(M_n(\cc)\), which motivates the following diagrame
+    \[
+\begin{tikzcd}
+M_n(\mathbb{C}) \arrow[r, "\iota"] \arrow[d, "\exp"'] 
+& M_{2n}(\mathbb{R}) \arrow[d, "\exp"] \\
+\mathrm{GL}_n(\mathbb{C}) \arrow[r, "\iota"] 
+& \mathrm{GL}_{2n}(\mathbb{R})
+\end{tikzcd}
+\]
+similarly with general linear group, the closed subgroup of \(\GL_n(\cc)\) is also a submanifold of \(\GL_n(\cc)\), and the tangent space at identity is the subalgebra of \(M_n(\cc)\) with the bracket defined by commutator, hence we can get a large class of linear lie groups and lie algebras by this method, it is a big case of linear lie groups.
+\end{example}
+
+\begin{example} (Affine group)
+    We consider a closed subgroup of \(\GL_{n+1}(\rr)\) defined by
+\[G = \left\{\begin{pmatrix}A & b \\ 0 & 1\end{pmatrix} \mid A \in GL_n(\rr), b \in \rr^n\right\}\]
+and we consider the group action \(G \circlearrowleft \rr^n\) defined by
+\[\begin{pmatrix}
+    A & b\\
+    0 & 1
+\end{pmatrix}\cdot x = \begin{pmatrix}
+    A & b\\
+    0 & 1
+\end{pmatrix}\begin{pmatrix}
+    x\\
+    1
+\end{pmatrix} = Ax +b\]
+This action is transitive so \(\rr^n\) is a homogeneous space under \(G\), and we can establish a homeomorphism
+\[G/\GL_n(\rr) \cong \rr^n\]
+It is a classic example about Erlangen progamme, here \(G\) is a important geometric group, we usually call it the \textbf{affine group} \(\mathrm{Aff}_n(\rr)\).
+\end{example}
+
+\subsection{Adjoint map}
+Review a bsic fact about the finite-dimensional vector space: any norm on a finite-dimensional Banach space is equivalent, hence it is natural to consider the abstract exponential map on linear opreators
+
+\begin{definition}
+    Let \(V\) be a finite-dimensional vector space over \(\rr\) or \(\cc\), we define the exponential map \(\Exp: \End(V) \to \GL(V)\) by
+    \[\Exp(T)  = \sum_{k \geq 0} \frac{T^k}{k!}\]
+    where \(T^k = T\circ \cdots \circ T\) is the \(k\)-th composition of \(T\).
+\end{definition}
+
+The definition is well-defined when we consider \(\End(V)\) as a Banach space, and we can verify that the properties in proposition \ref{prop:exp} still hold for the abstract exponential map. In particular, if we choose a basis of \(V\) and denote it by \(\mathcal{B}\), then we can see their connection by the following commutative diagram:
+% https://q.uiver.app/#q=WzAsNCxbMCwwLCJcXG1hdGhybXtFbmR9KFYpIl0sWzEsMCwiXFxtYXRocm17R0x9KFYpIl0sWzAsMSwiTV9uKEspIl0sWzEsMSwiXFxtYXRocm17R0x9X24oSykiXSxbMCwxLCJcXG1hdGhybXtFeHB9Il0sWzAsMiwiW1xcY2RvdF1fe1xcbWF0aGNhbHtCfX0iLDJdLFsyLDMsIlxcZXhwIiwyXSxbMSwzLCJbXFxjZG90XV97XFxtYXRoY2Fse0J9fSJdXQ==
+\[\begin{tikzcd}
+	{\mathrm{End}(V)} & {\mathrm{GL}(V)} \\
+	{M_n(K)} & {\mathrm{GL}_n(K)}
+	\arrow["{\mathrm{Exp}}", from=1-1, to=1-2]
+	\arrow["{[\cdot]_{\mathcal{B}}}"', from=1-1, to=2-1]
+	\arrow["{[\cdot]_{\mathcal{B}}}", from=1-2, to=2-2]
+	\arrow["\exp"', from=2-1, to=2-2]
+\end{tikzcd}\]
+or simply the equality \[[\Exp(T)]_{\mathcal{B}} = \exp([T]_{\mathcal{B}})\].
+
+
+We consider the conjugation action of a linear lie group \(G\) on itself, and then for any \(g \in G\), there exists a diffeomorphism by the smooth structure of \(G\)
+\[c_g: G \to G, \quad h \mapsto ghg^{-1}\]
+with \(c_g(I) = I\), hence it allows us to consider the differential of \(c_g\) at identity,
+\[(Dc_g)_I: T_I(G) \to T_I(G), \quad X \mapsto gXg^{-1} \]
+the reason is as following: for linear lie group, the tangent space at identity is just \(\mathrm{Lie}(G)\) by theorem \ref{linearliegroup}, so for any \(X \in \mathrm{Lie}(G)\), there exists a one-parameter subgroup \(\gamma_X: \rr \to G\) defined by \(\gamma_X(t) = e^{tX}\) with \(X = \frac{d}{dt}\big|_{t=0} \gamma_X(t)\), hence we consider the parameterziation of the conjugation
+\[\frac{d}{dt}\big|_{t=0} c_g(\gamma_X(t)) = \frac{d}{dt}\big|_{t=0} g\gamma_X(t)g^{-1} = gXg^{-1}\]
+which shows that \((Dc_g)_I(X) = gXg^{-1}\) exactly, hence by the construction we induce a representation
+\[\Ad: G \to \GL(\mathfrak{g}), \quad g \mapsto Ad_g = (Dc_g)_I\]
+and we call the representation \(\Ad\) the \textbf{adjoint representation} of \(G\).
+
+Notice that \(\mathfrak{g}\) is finite-dimensional, so \(\GL(\mathfrak{g})\) is also a linear Lie group, with its Lie algebra \(\End(\mathfrak{g})\), hence we can consider the differential of \(\Ad\) at identity
+
+\begin{proposition}
+    Let \(G\) be a linear lie group with lie algebra \(\mathfrak{g}\), then the direction derivative of the adjoint representation at identity is 
+    \[(D\Ad)_I(X) = \frac{d}{dt}\big|_{t=0} \Ad_{\exp(tX)} = \ad_X\]
+    with \(\ad(X): \mathfrak{g} \to \mathfrak{g}\) defined by \(\ad_X(Y) = XY-YX\) the commutator of \(X\) and \(Y\).
+\end{proposition}
+
+\begin{proof}
+    caculation...
+\end{proof}
+
+Hence we get the basic idea of the adjoint 
+
+\begin{definition}
+    Let \(G\) be a linear lie group with its lie algebra \(\mathfrak{g}\), then 
+    \begin{itemize}
+        \item The adjoint representation of \(G\) is defined by
+        \[\Ad: G \to \Aut(\mathfrak{g}), \quad g \mapsto \Ad_g\]
+        with \(\Ad_g(X) = gXg^{-1}\) for any \(X \in \mathfrak{g}\).\\
+        \item The adjoint representation of Lie algebra \(\mathfrak{g}\) is defined by
+        \[\ad: \mathfrak{g} \to \End(\mathfrak{g}), \quad X \mapsto \ad_X\]
+        with \(\ad_X(Y) = [X,Y]\) for any \(Y \in \mathfrak{g}\).
+    \end{itemize}
+\end{definition}
+
+\begin{remark}
+    An application bettween two lie algebras \(f: \mathfrak{g} \to \mathfrak{h}\) is a \textbf{morphism of Lie algebra} if it is a linear map and preserves the bracket \[f([X,Y]_{\mathfrak{g}}) = [f(X), f(Y)]_{\mathfrak{h}}\]
+    In particular, the isomorphism in the categroy of lie algebras is called \textbf{automorphism}, and we use \(\Aut(\mathfrak{g})\) to denote the group of automorphisms of \(\mathfrak{g}\), which is subspace of \(\GL(\mathfrak{g})\), the latest one is the set of all bijective linear maps on \(\mathfrak{g}\). 
+\end{remark}
+
+with above discussion, we can describe a core properties of the adjoint representation, which is the connection between the local structure of the group and its lie algebra:
+
+\begin{colortheorem}
+    Let \(G\) be a linear lie group with its lie algebra \(\mathfrak{g}\), then for any \(X \in \mathfrak{g}\), we have \[\Ad_{\exp(X)} = \Exp(\ad_X)\]
+    i.e. the following diagram commutes:
+    \[
+\begin{tikzcd}
+\mathfrak g \arrow[r, "\ad"] \arrow[d, "\exp"'] 
+& \End(\mathfrak g) \arrow[d, "\Exp"] \\
+G \arrow[r, "\Ad"] 
+& \GL(\mathfrak g)
+\end{tikzcd}
+\]
+\end{colortheorem}
+
+\begin{proof}
+    
+\end{proof}
+

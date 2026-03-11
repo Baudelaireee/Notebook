@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.12.8)  29 JAN 2026 20:19
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.12.8)  8 MAR 2026 19:51
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -898,7 +898,7 @@ Package: xparse 2024-02-18 L3 Experimental document command parser
 \g__spath_anon_int=\count378
 )
 \l__tikzspath_tmpa_int=\count379
-)) (./main.aux (./section/linearalgebra.aux) (./section/chapter1.aux) (./section/extension.aux))
+)) (./main.aux (./section/linearalgebra.aux) (./section/chapter1.aux) (./section/extension.aux) (./section/numbertheory.aux))
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 12.
@@ -1037,13 +1037,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 14--19
 
 ]
 Package hyperref Info: bookmark level for unknown remark defaults to 0 on input line 54.
- [3]
-Package hyperref Info: bookmark level for unknown definition defaults to 0 on input line 92.
-Package hyperref Info: bookmark level for unknown proposition defaults to 0 on input line 101.
-) [4]
+) [3]
 \openout2 = `section/chapter1.aux'.
 
  (./section/chapter1.tex
+Package hyperref Info: bookmark level for unknown definition defaults to 0 on input line 7.
 Package hyperref Info: bookmark level for unknown lemma defaults to 0 on input line 20.
 Package hyperref Info: bookmark level for unknown colorproposition defaults to 0 on input line 35.
 
@@ -1056,7 +1054,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 38--39
 
  []
 
-[5
+[4
 
 
 
@@ -1096,7 +1094,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 87--89
 
  []
 
-[6]
+[5]
 Underfull \hbox (badness 10000) in paragraph at lines 114--116
 
  []
@@ -1106,7 +1104,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 117--118
 
  []
 
-[7]
+[6]
 Package hyperref Info: bookmark level for unknown colorlemma defaults to 0 on input line 146.
 
 Underfull \hbox (badness 10000) in paragraph at lines 157--158
@@ -1123,14 +1121,16 @@ Underfull \hbox (badness 10000) in paragraph at lines 161--162
 
  []
 
-[8] [9]
+[7]
+Package hyperref Info: bookmark level for unknown proposition defaults to 0 on input line 179.
+ [8]
 Package hyperref Info: bookmark level for unknown example defaults to 0 on input line 228.
 
 Underfull \hbox (badness 10000) in paragraph at lines 246--248
 
  []
 
-[10]
+[9]
 Underfull \hbox (badness 10000) in paragraph at lines 263--264
 
  []
@@ -1145,27 +1145,88 @@ Underfull \hbox (badness 10000) in paragraph at lines 271--272
 
  []
 
-[11] [12]
-Underfull \hbox (badness 10000) in paragraph at lines 332--333
+[10] [11] [12]
+Underfull \hbox (badness 10000) in paragraph at lines 361--362
 
  []
 
 [13] [14]
-Underfull \hbox (badness 10000) in paragraph at lines 405--406
+Underfull \hbox (badness 10000) in paragraph at lines 434--435
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 429--430
+Underfull \hbox (badness 10000) in paragraph at lines 458--459
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 431--432
+Underfull \hbox (badness 10000) in paragraph at lines 460--461
 
  []
 
-[15]) [16]
+[15] [16]
+Underfull \hbox (badness 10000) in paragraph at lines 493--495
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 496--497
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 498--499
+
+ []
+
+[17] [18]
+Underfull \hbox (badness 10000) in paragraph at lines 556--558
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 559--560
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 561--562
+
+ []
+
+Package hyperref Info: bookmark level for unknown theorem defaults to 0 on input line 578.
+[19]
+Underfull \hbox (badness 10000) in paragraph at lines 605--606
+
+ []
+
+LaTeX Font Info:    Trying to load font information for U+euf on input line 607.
+(c:/texlive/2024/texmf-dist/tex/latex/amsfonts/ueuf.fd
+File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
+)
+Underfull \hbox (badness 10000) in paragraph at lines 607--608
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 609--610
+
+ []
+
+[20]
+Package hyperref Info: bookmark level for unknown colordefinition defaults to 0 on input line 633.
+ [21]
+Overfull \hbox (0.89134pt too wide) in paragraph at lines 656--658
+\TU/lmr/m/n/12 which shows that restriction of $\OML/cmm/m/it/12 i$ \TU/lmr/m/n/12 on $\OML/cmm/m/it/12 GL[]\OT1/cmr/m/n/12 (\U/msb/m/n/12 C\OT1/cmr/m/n/12 )$ \TU/lmr/m/n/12 takes image in $\OML/cmm/m/it/12 GL[]\OT1/cmr/m/n/12 (\U/msb/m/n/12 R\OT1/cmr/m/n/12 )$\TU/lmr/m/n/12 , and image $\OML/cmm/m/it/12 i\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 GL[]\OT1/cmr/m/n/12 (\U/msb/m/n/12 C\OT1/cmr/m/n/12 ))$
+ []
+
+[22]
+Underfull \hbox (badness 10000) in paragraph at lines 738--740
+
+ []
+
+[23]) [24]
 \openout2 = `section/extension.aux'.
 
  (./section/extension.tex
@@ -1173,33 +1234,115 @@ Underfull \hbox (badness 10000) in paragraph at lines 17--19
 
  []
 
-[17
+[25
 
 
 
-] [18] [19]
-Package hyperref Info: bookmark level for unknown colorexample defaults to 0 on input line 136.
-
-Underfull \hbox (badness 10000) in paragraph at lines 137--139
+] [26] [27]
+Underfull \hbox (badness 10000) in paragraph at lines 144--145
 
  []
 
-Package hyperref Info: bookmark level for unknown theorem defaults to 0 on input line 147.
-[20]) [21] (./main.aux (./section/linearalgebra.aux) (./section/chapter1.aux) (./section/extension.aux))
+
+Underfull \hbox (badness 10000) in paragraph at lines 146--147
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 148--149
+
+ []
+
+[28]
+Package hyperref Info: bookmark level for unknown colorexample defaults to 0 on input line 206.
+
+Underfull \hbox (badness 10000) in paragraph at lines 207--209
+
+ []
+
+[29]
+
+Package tcolorbox Warning: Using nobreak failed. Try to enlarge `lines before break' or set page breaks manually on input line 211.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 219--221
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 222--223
+
+ []
+
+[30] [31] [32] [33]
+Package hyperref Info: bookmark level for unknown colorcorollary defaults to 0 on input line 410.
+ [34]
+Underfull \hbox (badness 10000) in paragraph at lines 422--424
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 433--434
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 435--436
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 437--438
+
+ []
+
+[35]
+Overfull \hbox (12.21913pt too wide) in paragraph at lines 485--486
+[][]\TU/lmr/m/it/12 Remark \TU/lmr/m/n/12 4.9\TU/lmr/m/it/12 . []\TU/lmr/m/n/12 Consider the inseparable example of $\OML/cmm/m/it/12 L \OT1/cmr/m/n/12 = \U/msb/m/n/12 F[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 t[]\OT1/cmr/m/n/12 )$\TU/lmr/m/n/12 , we can calculate $[][]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 u[]\OT1/cmr/m/n/12 ) =
+ []
+
+[36]) [37]
+\openout2 = `section/numbertheory.aux'.
+
+ (./section/numbertheory.tex [38
+
+
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 45--47
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 49--51
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 52--53
+
+ []
+
+
+Overfull \hbox (0.63414pt too wide) in paragraph at lines 87--88
+[][]\TU/lmr/bx/n/12 Lemma 5.2. []\TU/lmr/m/n/12 For any non-zero ideals $\U/euf/m/n/12 a \OMS/cmsy/m/n/12 2 O[]$\TU/lmr/m/n/12 , there exists non-zero prime ideals $[]\OML/cmm/m/it/12 ; []  ; []$
+ []
+
+[39] [40] [41] [42] [43] [44]) [45] (./main.aux (./section/linearalgebra.aux) (./section/chapter1.aux) (./section/extension.aux) (./section/numbertheory.aux))
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 13FF4FC1617366AC80047C0BB665349E;1488.
+(rerunfilecheck)             Checksum: FAA7E098B4740415596D1121B0379075;3429.
  ) 
 Here is how much of TeX's memory you used:
- 35505 strings out of 474773
- 744760 string characters out of 5761289
- 1940842 words of memory out of 5000000
- 57027 multiletter control sequences out of 15000+600000
- 575812 words of font info for 114 fonts, out of 8000000 for 9000
+ 35807 strings out of 474773
+ 751956 string characters out of 5761289
+ 1939842 words of memory out of 5000000
+ 57317 multiletter control sequences out of 15000+600000
+ 576520 words of font info for 117 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 106i,15n,110p,711b,1100s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 106i,17n,110p,711b,1370s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.pdf (22 pages).
+Output written on main.pdf (46 pages).

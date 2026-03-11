@@ -26,7 +26,7 @@ It is a well-defined injective field homomorphism, so it is a endomorphism, but 
 \end{example}
 A good case is finite field, in that case frobenius endomorphism is furthermore a automorphism, so the frobenius map will be in galois group and it reflects the structure of the finite field.
 
-\subsection{Finite extension and splitting Field}
+\subsection{Finite extension}
 
 For the beginning, notice a classic isomorphism:
 \[\rr[X]/(X-a) \cong \rr \]
@@ -62,7 +62,7 @@ Hence the a contrsuction of field extension can be given by the quotient of poly
   (2) \(p\) has a root \(\beta\) in \(L\), exactly \(\beta = X + I \in L\) \\
   (3) If \(g \in K[X]\) and \(\beta\) is a root of \(g\) in  \(L\), then \(p|g\).\\
   (4) \(p\) is the unique monic irreducible polynoimal in \(K[X]\) having \(\beta\) as a root in \(L\).\\
-  (5) \(L\) can be viewed as a \(K\)-vector space with the basis \(\{1,\beta,...,\beta^{d-1}\}\).
+  (5) \(L\) is a finite extension of \(K\) of degree \(d\) with the basis \(\{1,\beta,...,\beta^{d-1}\}\).
 
 \end{colorproposition}
 
@@ -129,27 +129,63 @@ where \(h'(p) = p(a')\), and \(\pi\) is the canoncial map.
 \begin{remark}
     The theorem shows a induction
     \[\{\text{algebraic elements in } L/K\} \leadsto \{\text{monic irreducible polynoimal over } K\}\]
-    conversely it is not right since the field extension may be not enough large, which refers the \textbf{"closure"} in the sense of algebraic element. For statement (3), a simple example is \(\qq(\sqrt{2}) = \qq(-\sqrt{2})\), and monic irreducible polynoimal \(X^2-2 \in \qq[X]\).
+    conversely it is not right since the field extension \(L\) may be not enough large, which refers the \textbf{"closure"} in the sense of algebraic element. For statement (3), a simple example is \(\qq(\sqrt{2}) = \qq(-\sqrt{2})\), and monic irreducible polynoimal \(X^2-2 \in \qq[X]\).
 \end{remark}
 
-\begin{colorexample}
-    We consider the field extension \(\qq(\sqrt[3]{2})/\qq\), here the minimal polynoimal of \(\sqrt[3]{2}\) over \(\qq\) is \(X^3-2\), we can sovle it in \(\cc\) with roots:
-    \[\sqrt[3]{2}, \quad \sqrt[3]{2}\omega, \quad \sqrt[3]{2}\omega^2 \quad  \text{with } \omega = e^{2\pi i/3}\]
-    by above theorem we can connclude \(\qq(\sqrt[3]{2}) \cong \qq(\sqrt[3]{2}\omega) \cong \qq(\sqrt[3]{2}\omega^2)\), and it also implies a \textbf{question}: quotient ring such as \(\qq[X]/(X^3-2)\) can not construct a field containing all roots of irreducible polynoimal such as \(X^3-2\).\\
+\subsubsection*{Trace,norm and Discriminant}
+For any finite extension \(L/K\) of degree \(n\), we can view element \(a \in L\) as a \(K\)-linear map
+\[m_a: L \to L, \quad x \mapsto ax\]
+in pariticular, it is an automorphism of \(L\) if \(a \neq 0\), and it satifies several properties:
+\begin{itemize}
+  \item \(m_{a+b} = m_a + m_b\)
+  \item \(m_{ab} = m_a \circ m_b\)
+  \item \(m_{c\cdot a} = c\cdot m_a\)
+\end{itemize}
+with \(a,b \in L\) and \(c \in K\). Since \(L\) is a finite-dimensional, it is natural to consider \(m_a\) as a matrix and define two invariants in linear algebra\\
 
-    But we can construct a larger field since \(\qq(\sqrt[3]{2})\) has been a field: equivalently, we can adjoin \(\omega\) to \(\qq(\sqrt[3]{2})\), or consider the irreducible polynoimal \(X^2+X+1\) over \(\qq(\sqrt[3]{2})\), then we can get a larger field \(\qq(\sqrt[3]{2},\omega)\) containing all roots of \(X^3-2\).
-\end{colorexample}
+- Trace of \(a\) over \(K\): \(\mathrm{Tr}_{L/K}(a) = \mathrm{Tr}(m_a)\)\\
 
-For a polynoimal \(f \in K[X]\), we say \(f\) \textbf{splits} over \(K\) if there exists \(c,a_1,\dots,a_n \in K\) such that \(f\) can be factorized as linear terms:
-\[f(x) = c(x-a_1)(x-a_2)\cdots(x-a_n)\]
-above examples motivates us to construct a larger field containing all roots of a polynoimal:
+- Norm of \(a\) over \(K\): \(\mathrm{N}_{L/K}(a) = \det(m_a)\)\\
 
-\begin{theorem}[splitting field] $ \\$
-    Let \(K\) be a field and \(f \in K[X]\) with degree \(n \geq 1\), then there exists a smallest field extension \(L/K\) such that \(f\) splits over \(L\), and it is unique up to isomorphism, formally such a field extension is called \textbf{splitting field} of \(f\) over \(K\).
-\end{theorem}
+exactly what we do can be concluded as the following
+\[L \hookrightarrow \End_K(L) \to K\]
+the first map refers to a \textbf{regular representation} of \(L\) over \(K\), and the second map is what we are familar with, and we can verify some properties of trace and norm:
+\begin{itemize}
+  \item \(\mathrm{Tr}_{L/K}(a+b) = \mathrm{Tr}_{L/K}(a) + \mathrm{Tr}_{L/K}(b)\)
+  \item \(\mathrm{Tr}_{L/K}(c\cdot a) = c\cdot \mathrm{Tr}_{L/K}(a)\)
+  \item \(\mathrm{N}_{L/K}(ab) = \mathrm{N}_{L/K}(a)\cdot\mathrm{N}_{L/K}(b)\)
+  \item \(\mathrm{N}_{L/K}(c\cdot a) = c^n \cdot \mathrm{N}_{L/K}(a)\)
+  \item \(\mathrm{Tr}_{L/K}(c) = nc\) and \(\mathrm{N}_{L/K}(c) = c^n\)
+\end{itemize}
+with \(a,b \in L\) and \(c \in K\). We can also give a more explicit description of trace and norm by the minimal polynoimal of \(a\) over \(K\), moreover, for any endomorphism \(m_a\) we can consider its \textbf{characteristic polynomial} \(\chi_a(t) = \det(t\cdot \mathrm{id}_L - m_a)\), and conclude the following result:
+
+\begin{colorproposition}
+  For any \(L/K\) finite extension with degree \(n\) and \(a \in L\),
+  \begin{enumerate}[(a)]
+    \item \(\chi_a = (\Pi_a)^d\) with \(d = [L:K(a)]\).
+    \item Suppose \(\Pi_a(t) = t^m + c_{m-1}t^{m-1}+...+c_0\), then \[\mathrm{Tr}_{L/K}(a) = -dc_{m-1} \qquad \mathrm{N}_{L/K}(a) = (-1)^{n}c_0^d\]
+  \end{enumerate}
+\end{colorproposition}
 
 \begin{proof}
-    
+  (a) It is clear that \(\deg \Pi_a = [K(a):K]\), we denote it by \(m\), then 
+  \[\Pi_a(t)\ = t^m + c_{m-1}t^{m-1}+...+c_0\]
+  for some \(c_i \in K\), and \(\{1,a,...,a^{m-1}\}\) is a basis for \(K(a)/K\), we suppose that \(\{e_1,..,e_d\}\) is a basis for \(L/K(a)\), then we can conclude a basis of \(L/K\) is
+  \[e_1,\dots,e_1a^{m-1} \mid e_2,\dots,e_2a^{m-1} \mid \dots \mid e_{d},\dots,e_da^{m-1}\]
+  so we can write the matrix of \(m_a\) under this basis
+  
+  \[m_a \sim \mathrm{diag}(A_1,\dots,A_d), \quad A_i = \begin{pmatrix}
+    0 & 0 & \dots & -c_0 \\
+    1 & 0 & \dots & -c_1 \\
+    0 & 1 & \dots & -c_2 \\
+    \vdots & \vdots & \ddots & \vdots \\
+    0 & 0 & \dots & -c_{m-1}
+  \end{pmatrix}\]
+  By caclulate the characteristic polynomial of \(A_i\) we can get exactly
+  \[\chi_a(t) = \prod_{i = 1}^d \det(t\cdot I- A_i) = (\Pi_a(t))^d\]
+  (b) By vieta's formula we can conclude that
+  \[\chi_a(t) = t^{n} - \mathrm{Tr}_{L/K}(a)t^{n-1} + \cdots + (-1)^n\mathrm{N}_{L/K}(a)\]
+  then by formula of (a) we can caclculate the result.
 \end{proof}
 
 
@@ -157,18 +193,340 @@ above examples motivates us to construct a larger field containing all roots of 
 
 
 
-\begin{theorem}[Kronecker] If \(K\) is a field and \(f \in K[X]\), then there exists a field \(L\) containing \(K\) as a subfield and with \(f(X)\) a product of linear polynomial in \(K[X]\).
+
+
+
+
+
+\subsection{Algebraic Closed field}
+
+\subsection{Normal extension and Automorphism}
+
+\begin{colorexample}
+    We consider the field extension \(\qq(\sqrt[3]{2})/\qq\), here the minimal polynoimal of \(\sqrt[3]{2}\) over \(\qq\) is \(X^3-2\), we can sovle it in \(\cc\) with roots:
+    \[\sqrt[3]{2}, \quad \sqrt[3]{2}\omega, \quad \sqrt[3]{2}\omega^2 \quad  \text{with } \omega = e^{2\pi i/3}\]
+    by above theorem we can connclude \(\qq(\sqrt[3]{2}) \cong \qq(\sqrt[3]{2}\omega) \cong \qq(\sqrt[3]{2}\omega^2)\), and it also implies a \textbf{question}: quotient ring such as \(\qq[X]/(X^3-2)\) can not construct a field containing all roots of irreducible polynoimal such as \(X^3-2\).\\
+
+    However, we can construct a larger field since \(\qq(\sqrt[3]{2})\) has been a field: equivalently, we can adjoin \(\omega\) to \(\qq(\sqrt[3]{2})\), or consider the irreducible polynoimal \(X^2+X+1\) over \(\qq(\sqrt[3]{2})\), then we can get a larger field \(\qq(\sqrt[3]{2},\omega)\) containing all roots of \(X^3-2\).
+\end{colorexample}
+
+Above is a typical example to motivate the definition of splitting field, and we can give a more general definition:
+
+Suppose \(L/K\) is a extension and a polynoimal \(f \in K[X]\), we say \(f\) \textbf{splits} over \(K\) if there exists \(c,a_1,\dots,a_n \in K\) such that \(f\) can be factorized as linear terms:
+\[f(x) = c(x-a_1)(x-a_2)\cdots(x-a_n)\]
+above examples shows that a extension \(L/K\) can not always contain all roots of a polynomial, and we can construct a larger field.
+
+\begin{theorem}[splitting field] $ \\$
+    Let \(K\) be a field and \(f \in K[X]\) with degree \(n \geq 1\), then there exists a smallest field extension \(L/K\) such that \(f\) splits over \(L\), formally such a field extension is called \textbf{splitting field} of \(f\) over \(K\), and it satisfies:\\
+
+    - \(L\cong K[r_1,\dots,r_n]\) with \(r_1,...,r_n\) are the roots of \(f\) in \(L\), it shows that the splitting field is unique up to isomorphism.\\
+
+    - As a finite extension, \([L:K] \leq n!\)
 \end{theorem}
 
-By Kronecker's theorme, we deduce a larger field where \(f\) can be decomposed completlely, so it is meaningful to define the field
-\begin{definition}
-  Let \(L/K\) be a field and \(f \in K[X]\).
+\begin{proof}
+    
+\end{proof}
 
-  - \(f\) splits over \(L/K\) if there exists \(c,a_1,...a_n \in K\) such that
-  \[f(x) = c(x-a_1)\cdots(x-a_n)\]
-  with \(n = \deg f\).
+\begin{remark}
+  L.Kronecker proved that for any field \(K\) and \(f \in K[X]\), there exists a extension \(L/K\) such that \(f\) splits over \(L\). The smallest of such extension is the splitting field of \(f\), and an extremely larger field is the algebraic closed field of \(K\), although the result is a little old in nowdays.
+\end{remark}
 
-  - \(L/K\) is called a splitting field of \(f\) over \(K\) if it is the smallest field such that \(f\) splits.
-\end{definition}
+For the example at the begining, the experience of \(\cc\) gives us a hint that \(\qq(\sqrt[3]{2})\) can not contain the complex number \(\omega\), which reminds us to consider the roots of the polynomial in algebraic closure.
+\begin{colordefinition}
+  Let \(L/K\) be an algebraic extension, we define
+  \[\Hom_{K-alg}(L,\bar{K}) = \{f:L \hookrightarrow \bar{K} \mid f|_K = id_K\}\]
+  to be \textbf{\(K\)-embedding of \(L\)}.   
+\end{colordefinition}
+
+\begin{remark}
+  It is natural to consider the category of field extensions of \(K\), we denote it by \(\mathbf{Ext}_K\). Its objects are the extension \(K \subset L\), or we can see it as a \(K\)-algebra by an embedding \(\tau:K \hookrightarrow L\). Hence its morphism is just the morhism of \(K\)-algebra, for example if we consider \(f:L \to L'\), then \(f\) must be injective since it is a morphism of field, and \(f(r) = rf(1) = r\) for any \(r \in K\), in particular \(L' = \bar{K}\) we get the definition of \(K\)-embedding of \(L\). Hence here we get a (non-full) subcategory of \(\mathbf{CAlg}_K\).
+\end{remark}
+
+For any \(L/\qq\) algebraic extension, we consider \(f\) is a embedding, then we have
+\[ f(X^3-2) = f(X)^3 - 2 \qquad f(X^2+X+1) = f(X)^2+f(X)+1\]
+for any \(X \in L\). which allows us to calculate that
+\begin{align*}
+  \Hom_{\qq-alg}(\qq(\sqrt[3]{2}),\bar{\qq}) = \{f_1,f_2,f_3\}
+\end{align*}
+with \(f_i(\sqrt[3]{2}) = \sqrt[3]{2} \omega^{i-1}\) for \(i=1,2,3\).
+\[\Hom_{\qq-alg}(\qq(\sqrt[3]{2},\omega),\bar{\qq}) = \{f_{1,1},f_{1,2},f_{1,3},f_{2,1},f_{2,2},f_{2,3}\}\]
+with \(f_{i,j}(\sqrt[3]{2}) = f_i(\sqrt[3]{2})\) and \(f_{i,j}(\omega) = \omega^j\) for \(i=1,2,3\) and \(j=1,2\). We can obeserve that the second case forms exactly a group since the image of \(f_{i,j}\) is \(\qq(\sqrt[3]{2},\omega)\) itself, and in particular it can be identified as \(S_3\) (notice \(f_{2,1}\) is of order 3 and \(f_{1,2}\) is of order 2, they are not commute).
+
+
+\begin{colordefinition}
+  Let \(L/K\) be a field extension, we define 
+  \[\Gal(L/K)  = \Hom_{K-alg}(L,L) = \{ \sigma \in \Aut(L) \mid \sigma|_K = \id_K \} \]
+  to be the \textbf{Galois group} (or \textbf{automorphism group}) of \(L/K\), it is a subgroup of \(\Aut(L)\) which fixes \(K\).
+\end{colordefinition}
+
+Notice a clear inclusion 
+\[\Gal(L/K) \subset \Hom_{K-alg}(L,\bar{K})\]
+which is suffisant to prove that when \(L = \qq(\sqrt[3]{2},\omega)\), the inclusion turns to be an equality. while \(L = \qq(\sqrt[3]{2})\), we can only get \(\Gal(L/\qq) = \{f_1\}\), hence the difference between Galois group and the embeddings is the key to distinguish the extensions.
+
+
+\begin{colortheorem}
+  Let \(L/K\) be a algebraic extension, then the following conditions are equivalent:
+  \begin{enumerate}
+    \item \(L\) is a splitting field of of a set of polynoimal in \(K[X]\).
+    \item \(\Gal(L/K) = \Hom_K(L,\bar{K})\)
+    \item For any \(a \in L\), the minimal polynomial \(\Pi_a \in K[X]\) splits over \(L\).
+  \end{enumerate}
+  If one of the above conditions is satisfied, we say \(L/K\) is a \textbf{normal extension}.
+\end{colortheorem}
+
+\begin{remark}
+  Let \(a \in  L\) and \(\Pi_a\) is the minimal polynomial of \(a\), then \(K\)-embedding induces a bijection to the roots of \(\Pi_a\) in \(\bar{K}\), denote the set by \(R_a\)
+  \[\Hom_{K}(L,\bar{K}) \to R_a, \quad f \mapsto f(a)\]
+  exactly
+\end{remark}
+
+
+
+
+\subsection{Separable extension}
+\begin{colorexample}
+  Let us consider the function field \(K=\ff_p(t)\)
+  \begin{itemize}
+    \item \(X^p-t\) is irreducible in \(K[X]\) since \(K\) is the fraction field of \(\ff_p[t]\), and
+    \[\ff_p[t][X] \cong \ff_p[t,X] \cong \ff_p[X,t]\]
+    allow us to prove the irreducibility in \(\ff_p[t][X]\), so it holds in fraction field as well.
+    \item consider \(L = K[X]/(X^p-t)\), then we can get a extension \(L\cong\ff_p(t^{1/p})\), which allows to factorize the minimal polynomial
+    \[X^p - t = (X-t^{1/p})^p\]
+    That shows \(L\) is a splitting field of \(X^p-t\) over \(K\), so \(L/K\) is a normal extension of degree \(p\).
+    \item We exactly construct a extension \(L/K\) such that the minimal polynomial has repeated root, in this case the \(\bar{K}\)-embedding fails to distinguish the roots and \(\Gal(L/K) = \Hom_K(L,\bar{K}) = \{id\}\).
+  \end{itemize}
   
-The existence of the splitting field is ensured by above theorem, since for any \(f \in K[X]\), we can obtain a field extension \(L/K\) such that \(f\) splits, and then \(K(a_1,...,a_n) \subset L\) as a splittin field.
+\end{colorexample}
+
+
+Review the case in \(\rr[X]\), although we do not prove the FTA exactly, but the our experience in \(\cc\) enough to conclude that any irreducible polynomial in \(\rr[X]\) can not have multiple roots in \(\cc\), since for the given distinct roots \(R = \{r_1,...,r_k\}\) with multiplicity \(\{m_1,...,m_k\}\), we can uniqely determine the monic polynomial of the form
+\[\prod_{r_i \in \rr \cap R}(X-r_i)^{m_i} \cdot \prod_{\text{otherwise}}(X^2+b_jx+c_j)^{m_j}\]
+since the complex roots always appear in pairs, so we can roughly conclude the result. Even more, we can not find a counterexample in \(\qq[X]\) as well, this section is to distinguish such a field.
+
+\begin{definition}
+  Let \(A\) be a \(k\)-algebra, an endomorphism \(\partial: A \to A\) is called a \textbf{derivation} if it satisfies the Leibniz rule:
+  \[\forall f,g \in A, \quad \partial(fg) = \partial(f)g + f \partial(g) \quad \]
+  It is easy to verify that
+  \begin{align*}
+    &\partial(\lambda) = 0, \quad \forall \lambda \in k \\
+    &\partial(f^n) = nf^{n-1}\partial(f), \quad \forall f \in A, n \in \nn
+  \end{align*}
+\end{definition}
+We can use the derivation to define the formal derivative of a polynoimal, which is a good view that does not depend on the the exactly form of the polynoimal.
+\[\Omega_{L/K}=0 \iff L/K \text{ is separable}\]
+This is the general explanation of the separable extension by Kähler differentials. Exactly in the definition we take \(A = k[X]\), and then endomorphism will be determined by the image of \(X\) by the universal property of polynomial ring, then we can get the formal derivative of any polynoimal
+\begin{definition}
+  Let \(\partial(X) = 1\), then for any \(f = \sum_n a_nX^n \in k[X]\), we can define the formal derivative of \(f\) by
+  \[f'(X) := \partial(f) = \sum_n na_nX^{n-1}\]
+  and a polynoimal \(f\) is called \textbf{separable} if \(f\) is coprime with its formal derivative \(f'\) in \(k[X]\).
+\end{definition}
+
+Notice that \(k[X]\) is a PID, so the coprime condition is equivalent to the existence of \(r, s \in k[X]\) such that
+\[1 = r(X)f(X) + s(X)f'(X)\]
+we describle the separable polynomial without talking about roots of polynoimal, and similarly we can give a definition of roots of a polynoimal via arithemtic of polynoimal:
+\begin{definition}
+  Let \(f \in k[X]\) and \(a \in k\), then \(a\) is a \textbf{root} of \(f\) if there exists \(k \in \nn^*\)such that
+  \[(X-a)^n \mid f(X)\]
+  and the \textbf{order of the root} is defined as the largest integer \(m\) such that
+  \[(X-a)^m \mid f(X) \land (X-a)^{m+1} \nmid f(X)\]
+  in particular, \(a\) is a \textbf{simple root} if the order of the root is 1, and it is a multiple root if the order of the root is greater than 1.
+\end{definition}
+
+\begin{remark}
+  Following this definition, \(f(a) = 0\) if \(a\) is a root of \(f\), the coverse is not right in general, the ring should at least be an integral domain \textbf{(sure for field)} or the polynoimal should be monic, the proof depends on the division of polynoimal.
+\end{remark}
+
+\begin{proposition}
+  For polynoimal \(f \in k[X]\), the following conditions are equivalent:
+  \begin{enumerate}
+    \item \(f\) is separable.
+    \item \(f\) has no multiple root in \(\bar{k}\).
+    \item \(f\) and \(f'\) has no common root in a algebraic closure \(\bar{k}\) of \(k\).
+    \item \(f\) has exactly \(\deg f\) distinct roots in \(\bar{k}\).
+    \item \(\bar{k}[X]/(f)\) is reduced and isomorphic to \(\bar{k}^{\deg f}\).
+  \end{enumerate}
+\end{proposition}
+
+\begin{proof}
+  (1) \(\Rightarrow\) (2): If \(f\) has a multiple root \(a\), then \((X-a)^2 \mid f(X)\), so \(f(X) = (X-a)^2g(X)\) for some \(g \in k[X]\), then we can calculate the formal derivative of \(f\):
+  \[f'(X) = 2(X-a)g(X)+(X-a)^2g'(X)\]
+  hence we get \((X-a)|f(X)\) and \((X-a)|f'(X)\), which contradicts the coprime condition.
+
+  (2) \(\Rightarrow\) (3): in \(\bar{k}\), we can factorized \(f\) as linear terms, and the formal derivative of \(f\) can be caculated of the form
+  \[f'(X) = \sum_{a} \frac{f(X)}{X-a}\]
+  where \(a\) runs over all roots of \(f\), we suppose that \(b\) is a common root of \(f'\), then \(f'(b) = f(X)/(X-b)|_{b=0} = 0 \) implies that \(X-b\) divides \(f(X)/-b\), which gives a contradiction.
+
+  (3) \(\Rightarrow\) (4): similar argument as above.
+
+  (4) \(\Rightarrow\) (5): The isomorphism can be proved by the\textbf{ chinese remainder theorem}, and the product of fields is reduced surely.
+
+  (5) \(\Rightarrow\) (4): Notice that \(\bar{k}[X]/(X-a)^2\) is not reduced with \(\overline{X-a}^2 = 0 \) in the quotient, and for any \(f\) we can factorized it to get a isomorphism
+  \[\bar{k}[X]/(f) \cong \prod_{a } \bar{k}[X]/(X-a)^{m_a}\]
+  with \(a\) distinct roots of \(f\) and \(m_a\) the multiplicity, so surely \(m_a\) should be all \(1\).
+
+  (4) \(\Rightarrow\) (1): caculation.
+\end{proof}
+
+actually we can characterize the irreducible polynomial if it is separable, it depends on the characteristic of the field.
+
+\begin{proposition}
+  Let \(f\) be an irreducible polynomial in \(k[X]\), then \(f\) is inseparable if and only if \(f' = 0\), which shows that \\
+  - If \(\mathrm{Char}(k) = 0\), any irreducible polynomial is separable.\\
+  - If \(\mathrm{Char}(k) =p\), any irreducible polynomial is of the form \(g(X^{p^r})\) with \(g\) a separable irreducible polynomial and \(r \in \nn\), and the representation is unique.
+\end{proposition}
+
+\begin{proof}
+  In \(k[X]\) (a UFD), \(f\) and \(f'\) coprime means their gcd associates to \(1\), or equivalently the gcd is a unit. When \(f\) is irreducible, then \(f\) is a prime element in \(k[X]\), so the gcd is either \(f\) or a unit. If \(f\) is inseparable, then the gcd is \(f\), so \(f|f'\) implies \(f' = 0\) since \(\deg f' < \deg f\). 
+
+\end{proof}
+
+\begin{definition}
+  Let \(L/K\) be a algebraic extension, then \(L/K\) is called a \textbf{separable extension} if for any \(a \in L\), the minimal polynomial \(\Pi_a\) of \(a\) over \(K\) is separable.
+\end{definition}
+
+\begin{remark}
+  \textbf{Any subextension of a separable extension is separable}: Let \(K \subset E \subset L\) be a tower of algebraic extension, and \(L/K\) is separable. If \(a \in E\), then \(\Pi_{a,E}\) divides \(\Pi_{a,L}\), and factor of separable polynoimal is still separable (verify).
+\end{remark}
+
+By proposition above, we can conclude that \textbf{any algebraic extension of a field with characteristic zero is separable}, in particular the extension of \(\qq\), it is the core object in number theory. Hence, it is hopeless to find a example of inseparable extension of \(\qq\) or \(\rr\), when we change our attention to field of non-zero characteristic, we can find a such example like beginning of this section.
+
+\begin{colortheorem}
+  Let \(L/K\) be a finite extension, then the following conditions are equivalent:
+  \begin{enumerate}
+    \item \(L/K\) is separable.
+    \item \(|\Hom_{K}(L,\bar{K})| = [L:K]\)
+    \item \(\bar{K} \otimes_K L \) is reduced and is isomorphic to \(\bar{K}^{[L:K]}\). 
+  \end{enumerate}
+\end{colortheorem}
+\begin{proof}
+  
+\end{proof}
+
+\begin{remark}
+  When the extension is infinite, the condition 2 makes no sense, but it is still make sense to consider the condition 3. In the example of \(L = \ff_p(t^{1/p})\), we can find that the degree is \(p\) while the number of embedding is \(1\), so it is another way to show that \(L\) is an inseparble extension.
+\end{remark}
+
+\begin{colorcorollary}[Primitive element theorem]
+  Any finite separable extension is a simple extension, that is, for any finite separable extension \(L/K\), there exists \(a \in L\) such that \(L = K(a)\), such a element \(a\) is called a \textbf{primitive element} of the extension.
+\end{colorcorollary}
+
+\begin{proof}
+  
+\end{proof}
+
+\begin{remark}
+  If \(L = K(a)\) a simple algebraic extension, we denote the roots of the minimal polynomial \(\Pi_a\) in \(\bar{K}\) by \(R\), then we can get a natural bijection:
+\[\Hom_K(L,\bar{K}) \to R, \quad f \mapsto f(a)\]
+It is well-defined since embedding sends \(a\) to another root, and the map is always injective: For any \(f, g \in \Hom_K(L,\bar{K})\) with \(f(a) = g(a)\), take any \(x \in L=K(a)\), then there exists a polynoimal \(p \in K[X]\) such that \(x = p(a)\), so we can calculate
+\[f(x) = f(p(a)) = p(f(a)) = p(g(a)) = g(p(a)) = g(x)\]
+which shows that \(f = g\).\\
+
+Hence the simple algebraic extension allows to identify the conjuations of the primitive element with the \(K\)-embeddings of the extension, and surely simple algebraic extension is not necessary separable, for example \(L = \ff_p(t^{1/p})\).
+
+\end{remark}
+
+
+\subsubsection*{Discriminant}
+
+\begin{colorproposition} \label{tracenormformule}
+  Let \(L/K\) be a separable finite extension of degree \(n\), then \\
+
+  - \(\mathrm{N}_{L/K}(a) = \prod_{\sigma} \sigma(a)\) \\
+
+  - \(\mathrm{Tr}_{L/K}(a) = \sum_{\sigma} \sigma(a)\)\\
+
+  - \(\chi_a(X) = \prod_{\sigma} (X - \sigma(a))\)\\
+  where \(a \in L\) and \(\sigma \in \Hom_K(L,\bar{K})\) runs over all \(K\)-embeddings
+\end{colorproposition}
+
+\begin{proof}
+  We consider a relation of equivalence for \(\Sigma = \Hom_{K}(L,\bar{K})\) by
+  \[\sigma_1 \sim_a \sigma_2 \iff \sigma_1(a) = \sigma_2(a)\]
+  it holds for any finite extension, then we calculate the class of equivalence:
+  \begin{align*}
+    [\sigma] &= \{\tau \in \Sigma \mid \tau(a) = \sigma(a)\} \\
+    &= \{\tau \in \Sigma \mid \tau(p(a)) = \sigma(p(a)) , \forall p \in K[X]\}\\
+    &= \{\tau \in \Sigma \mid \tau = \sigma \text{ on } K(a)\}
+  \end{align*}
+  which shows that \( |[\sigma]| = |\Hom_{K(a)}(L,\bar{K})|\), in particular, if \(L/K\) is separable, then \(L/K(a)\) is also separble, so exactly \(|[\sigma]| = [L:K(a)]\), it implies
+  \[\prod_{\sigma}(X-\sigma(a)) = \prod_{[\sigma] \in \Sigma/\sim_a} (X-\sigma(a))^{[L:K(a)]} = \Pi_a(X)^{[L:K(a)]} = \chi_a(X)\]
+  Here \(\sigma(a)\) runs over all roots of \(\Pi_a\) since the restriction map
+\[res: \Hom_K(L,\bar{K}) \to \Hom_K(K(a),\bar{K}), \quad \sigma \mapsto \sigma|_{K(a)}\]
+is srujective.
+
+\end{proof}
+
+\begin{definition}
+  Let \(L/K\) be a finite extension of degree \(n\)\\
+  - The \textbf{trace pairing} of the extension is a symmetric \(K\)-bilinear form
+  \[Q_{L/K}(x,y) =  \mathrm{Tr}_{L/K}(xy)\]
+  - we define the \textbf{discriminant} of a family \(\{e_1,\dots,e_k\}_{k \leq n}\) in \(L\)  by
+\[\mathrm{Disc}(e_1,...,e_n) = \det(\mathrm{Tr}_{L/K}(e_ie_j)) = \det(Q_{L/K}(e_i,e_j)) \]
+\end{definition}
+
+It is better to consider the discriminant in a separable extension, although we always use the \textbf{"free condition"} in the extension of \(\qq\), the reason is as following:
+
+\begin{proposition}
+  Let \(L/K\) be a finite extension, then the following conditions are equivalent:
+  \begin{enumerate}
+    \item \(L/K\) is separable.
+    \item \(\mathrm{Tr}_{L/K} \neq 0\).
+    \item The trace pairing \(Q_{L/K}\) is non-degenerate.
+  \end{enumerate}
+
+\end{proposition}
+
+\begin{proof}
+  
+\end{proof}
+
+\begin{remark}
+  Consider the inseparable example of \(L = \ff_p(t^{1/p})\), we can calculate  \(\mathrm{Tr}_{L/K}(u^k) = 0\) with \(u = t^{1/p}\) and \(k = 0,1,...,p-1\), which shows that the trace is identically zero, so the discriminant of any basis is zero, which provides no information about the extension.
+\end{remark}
+
+\begin{colorproposition}
+  Let \(L/K\) be a finite separable extension of degree \(n\), and \(a_1,...,a_n\) be a basis of \(L/K\), then the discriminant of the basis 
+  \[\mathrm{Disc}(a_1,...,a_n) = \det(\mathrm{Tr}_{L/K}(\sigma_i(a_j)))^2\]
+  with \(\sigma_i \in \Hom_K(L,\bar{K})\) \(n\) distinct \(K\)-embeddings of \(L\). 
+\end{colorproposition}
+
+\begin{proof}
+  Review that for any two n order square matrices \(A,B\), we have
+  \[(AB)_{i,j} = \sum_{k=1}^n A_{i,k} B_{k,j}\]
+  In particular
+  \[(A^TA)_{i,j} = \sum_{k=1}^n A_{k,i}A_{k,j}\]
+  so For any \((i,j)\)-entry of trace matrix, applying proposition \ref{tracenormformule} we can calculate
+  \[\mathrm{Tr}_{L/K}(a_ia_j) = \sum_{k=1}^n \sigma_k(a_i)\sigma_k(a_j) = 
+  \sum_{k=1}^n \sigma_k(a_i)\sigma_k(a_j) = \sum_{k=1}^n = (A^TA)_{i,j}\]
+  where \(A = \mathrm{Tr}_{L/K}(\sigma_i(a_j))_{1 \leq i,j \leq n}\).
+\end{proof}
+
+\begin{colorcorollary}
+  Let \(L/K\) be a finite separable extension of degree \(n\), then the discriminant of any basis of \(L/K\) is no-zero, in particular, if \(a\) is the primitive element such that \(L=K(a)\) and \(\{1,...,a^{n-1}\}\), then
+  \[\Disc(1,a,...,a^{n-1}) = \prod_{i<j}(r_i-r_j)^2\]
+  where \(r_i\) are the distinct \(n\) roots of \(\Pi_a\) in \(\bar{K}\).
+\end{colorcorollary}
+
+\begin{proof}
+  Review that 
+  \[(PAP^T)_{i,j}  = \sum_{1\leq k,l \leq n}P_{i,k}P_{j,l}A_{k,l}\]
+  For any two n order square matrices \(A,P\).
+  For any basis \(\{e_1,...,e_n\}\), there exists a invertible matrix \(P\) such that \(e_i = \sum_{j=1}^n P_{ij} a^{j-1}\), since \(\{1,\dots,a^{n-1}\}\) is a basis, then 
+  \begin{align*}
+    \mathrm{Tr}_{L/K}(e_ie_j) &= \mathrm{Tr}_{L/K}\left(\left(\sum_{k=1}^n P_{ik} a^{k-1}\right)\left(\sum_{l=1}^n P_{jl} a^{l-1}\right)\right) \\
+    &= \sum_{k,l=1}^n P_{ik}P_{jl}\mathrm{Tr}_{L/K}(a^{k+l-2}) \\
+    &= \sum_{k,l=1}^n P_{ik}P_{jl}\mathrm{Tr}_{L/K}(a^{k+l-2})
+  \end{align*}
+  which shows that the trace matrix of the basis is \(P^T A P\), where \(A = (\mathrm{Tr}_{L/K}(a^{i-1}a^{j-1}))_{i,j}\), which suffice to calculate that
+  \[\Disc(e_1,...,e_n) = |\det(P)|^2 \Disc(1,a,\dots,a^{n-1}) \]
+  Hence just need to calculate the discriminant of the basis \(\{1,...,a^{n-1}\}\), and prove that it is non-zero, which finishes the proof. By the above proposition, we can calculate
+  \[\Disc(1,a,\dots,a^{n-1}) = \begin{vmatrix}
+    1 & \sigma_1(a) & \dots & \sigma_1(a)^{n-1} \\
+    1 & \sigma_2(a) & \dots & \sigma_2(a)^{n-1} \\
+    \vdots & \vdots & \ddots & \vdots \\ 
+    1 & \sigma_n(a) & \dots & \sigma_n(a)^{n-1}
+  \end{vmatrix}^2\]
+  where \(\sigma_i(a)\) runs over all distinct roots since \(L/K\) is separable, hence we can conclude the result by the \textbf{Vandermonde determinant formula}.
+
+\end{proof}

@@ -75,18 +75,21 @@
 {\large towards Tate's Thesis}
 \end{center}
 
-\section{Zeta function}
+\tableofcontents
+
+
+\section{Riemann's zeta function}
 
 \subsection{Riemann's idea I: analytical continuation of zeta function}
-As the core object in number theory, it is formally defined as a meomorphic function on complex pane by Riemann in 1859, in his famous-9-pages paper. \textbf{This section is the reconstruction of the zeta function along the Riemann's original ideas, it refers to the page 1 and 2 of the original paper.}
+As the core object in number theory, it is formally defined as a meomorphic function on a complex pane by Riemann in 1859, in his famous-9-page paper. \textbf{This section is the reconstruction of the zeta function along the Riemann's original ideas, it refers to pages 1 and 2 of the original paper.}
 \begin{equation} \label{eulerproduct}
     \sum_{n \geq 1} \frac{1}{n^s}  = \prod_p \frac{1}{1-p^{-s}}
 \end{equation}
-This is the Euler's product formula proved by Euler (among 1740), with the basic ideas of geometrical series
+This is Euler's product formula proved by Euler (among 1740), with the basic ideas of geometrical series
 \[ \frac{1}{1-p^{-s}} =  1 + p^{-s} + p^{-2s}+\cdots \]
-and using unique factorization to build a basic correspondence of  terms. The formal proof of the formula holds true in half-plane $\Re(z)>1$ is given by Dirichlet, it is important that the analytical formula makes sense and plays an core role in the analytic number thoery. As the student of Dirichlet, Riemann exactly knows the analytical results about the series, and in his era, complex analysis was the advanced branch and analytical continuation was developed completely, hence Riemann tried to treat the Euler's formula \ref{eulerproduct} as a analytical function instead of a formal identity:
+using unique factorization to build a basic correspondence of  terms. The formal proof of the formula holds true in half-plane $\Re(z)>1$ is given by Dirichlet, it is important that the analytical formula makes sense and plays an core role in the analytic number theory. As the student of Dirichlet, Riemann exactly knows the analytical results about the series, and in his era, complex analysis was the advanced branch and analytical continuation was developed completely, hence Riemann tried to treat the Euler's formula \ref{eulerproduct} as an analytical function instead of a formal identity:
 \[\zeta(s) = \sum_{n\geq 1} \frac{1}{n^s}, \quad \Re(s)>1\]
-A similar object is Gamma function, which was called "factorial function" in the age of Gauss and Euler, and Euler noticed an identity of integration:
+A similar object is the Gamma function, which was called "factorial function" in the age of Gauss and Euler, and Euler noticed an identity of integration:
 \begin{equation} \label{eulergamma}
     n! =  \int_0^{\infty} e^{-x}x^ndx, \quad n =1,2,3...
 \end{equation}
@@ -115,15 +118,15 @@ where the contour \(\mathcal{H}\) can be drawed as following:
     \includegraphics[width=0.5\textwidth]{Fig/henkel.jpg}
     \caption{Henkel contour}
 \end{figure}
-This type of contour is called \textbf{Henkel contour}, it wassystematically studied by Hermann Hankel, who was the student of Riemann and infulenced by him greatly. For the sake of convience, we denote \(\delta = \frac{\varepsilon}{\sqrt{2}}\) and \(T = \sqrt{R^2 - \varepsilon^2}\), and then we can write
+This type of contour is called \textbf{the Henkel contour}, it was systematically studied by Hermann Hankel, who was the student of Riemann and infulenced by him greatly. For the sake of convience, we denote \(\delta = \frac{\varepsilon}{\sqrt{2}}\) and \(T = \sqrt{R^2 - \varepsilon^2}\), and then we can write
 \[\gamma_+(x) = x - i\delta, \quad (-\gamma_-)(x) = x + i\delta\]
-for \(x \in [\delta, T]\). Notice that \(\mathcal{H}\) is of negative orientation, and \(f: z \mapsto \frac{(-z)^{s-1}}{e^z-1}\) has simple poles in the imaginary axis, so we choose \(\varepsilon\) sufficiently small such that \(B(0,\varepsilon)\) only contains the pole at zero, then by Residue theorem, we have
+for \(x \in [\delta, T]\). Notice that \(\mathcal{H}\) has negative orientation, and \(f: z \mapsto \frac{(-z)^{s-1}}{e^z-1}\) has simple poles in the imaginary axis, so we choose \(\varepsilon\) sufficiently small such that \(B(0,\varepsilon)\) only contains the pole at zero, then by the residual theorem we have
 \begin{align} \label{henkelresidue}
     \int_{\mathcal{H}} \frac{(-z)^{s-1}}{e^z - 1} dz &= -2\pi i \sum_{|k| \in \zz \cap (0,R)}\Res(f,2\pi i k) 
 \end{align}
 Hence we should evaluate the left hand side. For the small circle, we can estimate that
 \[|\int_{C_{\varepsilon}^+}f(z)dz| \leq \int_{\pi/4}^{3\pi/2}\frac{\varepsilon^{\Re(s)-1}}{e^{\varepsilon \cos \theta} - 1} d\theta \xrightarrow[\varepsilon \rightarrow 0]{}  0\]
-and for the middle two lines, we take principal branch of logarithm \(\Log\) and write
+and for the middle two lines, we take the principal branch of the logarithm \(\Log\) and write
 \[(-z)^{s-1} = e^{(s-1)\Log(-z)}\]
 the identity makes sense when \(z \notin [0,+\infty)\), hence \(f\) is exactly well-defined on the contour, and it allows us to calculate
 \begin{align*}
@@ -192,18 +195,9 @@ It is not difficult to see that
 \[|e^{\pi i n^2(x+iy)}| = |e^{-\pi n^2 y}| \]
 so the series convergence abosolutely and uniformly on any compact subset \(\mathbb{H}\), so \(\theta\) is exactly holomoprhic, and it has a important functional equation, which was first proved by Jacobi (1829), and Riemann cited it in his paper without proof.
 
-\begin{lemma}(Jacobi) $ \\$
-    For any \(z \in \mathbb{H}\), we have
-    \[\theta(z) = (-iz)^{-\frac{1}{2}} \theta(-1/z)\]
+\begin{lemma}(Jacobi) For any \(z \in \mathbb{H}\), we have
+    \[\theta(-1/z) = \sqrt{z/i} \cdot \theta(z)\]
 \end{lemma}
-
-\begin{proof}
-    
-\end{proof}
-
-
-
-
 
 In particular, when \(z = it\) for \(t>0\), i.e. on the positive imaginary axis, \(\theta\) function has a deep relation with the completed zeta function:
 
@@ -255,16 +249,13 @@ with that we can get the following result which is roughly sketched in Riemann's
     then apply the formula (\ref{psireflection}) to the first term, we have
     \begin{align*}
         Z(s) &=  \frac{1}{2}\int_1^{\infty}t^{-s/2-1/2} dt - \frac{1}{2}\int_1^{\infty} t^{s/2 -1} dt + \int_1^{\infty} \psi(t) (t^{s/2 -1} + t^{-s/2 -1/2}) dt \\
-        &= \frac{1}{s-1} - \frac{1}{s} + \int_1^{\infty} \psi(t) (t^{s/2 -1} + t^{-s/2 -1/2}) dt
+        &= \frac{1}{s-1} - \frac{1}{s} + \int_1^{\infty} \psi(t) (t^{s/2 -1} + t^{-s/2 -1/2}) dt \\
+        &= \frac{1}{s-1} - \frac{1}{s} + F(s) + F(1-s)
     \end{align*}
-    the asymptotic expansion holds true for \(\Re(s)>1\), and we notice that the first two terms actually give the simple poles at \(s=0\) and \(s=1\), so if the last term is entire, then we can finish the analytic continuation. We set
-    \[F(s,t) =  \psi(t) (t^{s/2 -1} + t^{-s/2 -1/2})\]
-    then \(t \mapsto F(s,t)\) is continous on \((1,+\infty)\) for any fixed \(s\), and \((s \mapsto F(s,t))\) is entire for any fixed \(t>1\). For any compact subset \(K\) of \(\cc\), there exists a constant \(M\) such that \(|\Re(s)| \leq M\) for any \(s \in K\), hence we can estimate
-    \[|F(s,t)| \leq Ce^{-\pi t }\cdot (t^{M/2 -1} + t^{M/2 -1/2}) = g(t)\]
-    for some constant \(C>0\) which arises from the asymptotic behavior of \(\psi\) function, and \(g\) is integrable on \((1,+\infty)\) since for any real number \(a\), \(e^{-t}t^a\) converges on \((1,+\infty)\), hence by convergence dominate for holomoprhic functions, we can conclude that the parameter integral of \(F(s,t)\) on \((1,+\infty)\) defines a entire function. Finally, it is easy to check the functional equation by just changing variable \(s\) to \((1-s)\) in the integral representation, since analytic continuous of \(Z\) allows us to write the intgeral representation for \(s \neq 0,1\).
+    where \(F(s) = \int_1^{\infty} \psi(t) t^{s/2 -1} dt\) is an entire function, which ca be proved by theorem of convergence dominated (wait to complete...). Hence we can get the analytic continuation of \(Z\) to the whole complex plane, with only simple poles at \(s=0\) and \(s=1\) left, and the residue number can be calculated by the formula above. Finally, the functional equation when \(s \mapsto 1-s\).
 \end{proof}
 
-\begin{corollary}
+\begin{corollary} \label{functionaleqofzeta}
     Riemann zeta function \(\zeta\) has a analytic continuation to the whole complex plane except for a simple pole at \(s=1\) with residue number \(1\), with functional euqation
     \[\zeta(1-s) = 2(2\pi)^s \cos(\pi s/2) \Gamma(s) \zeta(s) 
     \qquad  s\neq 1,0,-1,-2,\dots\]
@@ -281,6 +272,338 @@ with that we can get the following result which is roughly sketched in Riemann's
     here completd zeta function is just the Mellin transform of \(\psi\) function.  
 \end{remark}
 
+\subsection{Value of Riemann's Zeta function}
+This section is to give a basic description of the distrubution of values of Riemann zeta function, mainly focus on the value of $\zz$, and then the result of Hamadard about the critial strip. 
+
+Firstly, the value at the positive odd integer of zeta function is hard and few results about that we can know. In 1978, Apery proved that $\zeta(3)$ is irrational; In 2001, Rivoal proved that there exists infinite irrational number in $\{\zeta(2k+1) \mid k \in \nn\}$, and he gave the lower bound of the cardinal (as the scale of $\log k$);  Another folklore conjecture about the irrationality is that $\zeta(2k+1)$ is algebraical independent over $\qq$, it is the corollary of the famous \textbf{Grothendieck's period conjecture}, which is still open.
+
+The simplest case is at the negative even integer, which is concluded in Riemann's paper as a samll comments: $\zeta(-2k)= 0 $ for any $k \in \nn$.
+
+\begin{proof}
+    The proof is based on the functional equation of zeta function, it refers to corollary \ref{functionaleqofzeta}, just take $1-s = -2k$, for $k \in \nn$; then we can find that $\cos(\pi s/2) = 0$, and we can  conclude the result. A little remark here is that the method can not be extended to the positive odd integer, the reason is that $\Gamma$ is only well-defined on the positive integer, which shows that the lack of information is the diffculty of the question at positive odd integer.
+\end{proof}
+
+The value at negative odd intgers and at positive even integers are the same story, that is clear by the functional equation, if we set $1-s  = -2k-1$ for $k \in \nn $, then we can conclude
+\[ \zeta(-2k-1)  = 2(2\pi)^{2k+4}(-1)^{k+1}(2k+1)! \zeta(2k+2)\]
+so our attention will focus on the values of positive even integers firstly. Indeed the values of zeta function at $\zz$ has a deep relation with Bernoulli's number, formally we define:
+
+\begin{definition}
+    The function $z \mapsto \frac{z}{e^z-1}$ is holomorphic at the voisinage of zero, with the expansion of the series:
+    \[\frac{z}{e^z-1}  = \sum_{n \geq 0 } \frac{B_n}{n!}z^n\]
+    the n-th \textbf{Bernoulli's number} is defined  as $B_n$, with respect to the coefficient of the series. 
+\end{definition}
+The original definition of Bernoulli's number is given by Jacob Bernoulli in his book "Ars Conjectandi" (1713), he defined the number by the summation of powers:
+\[\sum_{k=1}^m k^n = \frac{1}{n+1} \sum_{j=0}^n \binom{n+1}{j} B_j \cdot m^{n+1-j}\]
+for any $n,m \in \nn$, and the two definitions can be shown to be equivalent by the method of \textbf{generating function}. The definition of power series is easy for us to calculate the values of Bernoulli's number, for Example
+\[B_0 = 1, \quad B_1 = \frac{-1}{2}, \quad B_2 = \frac{1}{6}, \quad B_3 = 0, \quad B_4 = \frac{-1}{30} \quad \dots\]
+\begin{lemma}
+    The Bernoulli's number is rational, and \(B_{2k+3} = 0\) for any \(k \in \nn\).
+\end{lemma}
+\begin{proof}
+    Obeserve that 
+    \[\frac{ze^z}{e^z - 1} = \frac{-z}{e^{-z}-1} \]
+    which allows us to write
+    \[z = \frac{ze^z}{e^z-1}-\frac{z}{e^z-1} = \sum_{n\geq 0} ((-1)^n-1)\frac{B_n}{n!} \cdot z^n \]
+    at the voisinage of zero, hence by comparing the coefficients we can conclude that \(B_0 = 1\) and \(B_n = 0\) for any odd integer \(n \geq 3\). To prove the rationalty, by the properties of analytical function we know
+    \[B_n = n! \frac{d^n}{dz^n} \left(\frac{z}{e^z-1}\right) \bigg|_{z=0}\]
+    the derivatives can be proved to be a rational number by induction on \(n\), hence the result holds true. 
+\end{proof}
+
+With the notation of the Bernoulli's number, the values can be written as a neat form
+
+\begin{proposition}
+    Let $k \in \nn$, then
+    \begin{align*}
+        \zeta(2k) &= (-1)^{k+1} \frac{(2\pi)^{2k}}{2(2k)!} \cdot B_{2k}\\
+        \zeta(-2k+1) &= \frac{B_{2k}}{-2k}
+    \end{align*}
+    which shows that the values at negative odd integers are rational numbers, while the values at positive even integers are transcendental numbers (rational number \(\times\) the factor \(\pi\)).
+\end{proposition}
+
+\begin{proof}
+    One way to prove the result is to use the formula of cotangent function
+    \[\pi z \cot(\pi z) = 1 + \sum_{n=1}^\infty \frac{2z^2}{z^2 - n^2} \qquad z \in \cc - \zz\]
+    using gemetric series we can rewrite the formula
+    \begin{align*}
+        \pi z \cot(\pi z) &= 1 + 2z^2 \sum_{n\geq 1} \frac{-1}{n^2} \cdot \frac{1}{1 - z^2/n^2} \\
+        &= 1 - 2z^2 \sum_{n\geq 1} \frac{1}{n^2} \sum_{k\geq 0} \left(\frac{z^2}{n^2}\right)^k \\
+        &= 1 - 2 \sum_{k \geq 1} \zeta(2k) z^{2k}
+    \end{align*}
+    here the formula holds true for $|z|<1$, and the last equality holds by Fubini's theorem, so we get a power series expansion at zeros. To finish the proof, we write the trigonometric function in terms of exponential function, then we can calculate
+    \[z \cot(z) = \frac{2iz}{e^{2iz} - 1} + iz = 1+ \sum_{k=1}^{\infty} (-1)^k \frac{2^{2k}}{(2k)!}B_{2k} \cdot z^{2k}\]
+    which allows us to get another power series expansion at zeros, if we replace $z$ by $\pi z$ and compare the two expansions, then we can conclude the first formula. The second formula can be concluded by the functional equation of zeta function.
+\end{proof}
+
+
+\section{L-function}
+
+\subsection{Some preparation}
+
+\subsection{Functional equation of L-function}
+Review the functional equation of Riemann zeta function and its analytical continuation, we can conclude the method by two steps: Firstly, we find an integral representation of zeta function by the Gamma function, and rerrange the integration to get the integral reprsentation of completed zeta function, it gives a relation with theta function; Secondly, we use the functional equation of theta function to rewrite the integral, which allows us to get the functional equation of completed zeta function, and hence the functional equation of zeta function.
+
+For any Dirichlet character \(\chi\) modulo \(q\), there exists a conductor \(q'\) which divides \(q\) such that
+\[\chi = \chi' \cdot 1\]
+with \(\chi'\) a primitive Dirichlet character modulo \(q'\), and \(1\) the trivial character modulo \(q\). Hence for any L-function on \(\chi\), we can write
+\begin{align*}
+L(s,\chi) &= L(s,\chi')\cdot \prod_{p|q} (1 - \chi(p)p^{-s}) \\
+\end{align*}
+the last term defines a entire function, so the analytic continuation will be reduced to the case of primitive character.
+
+The method is so natural that it can be generalized to the L-function, and we start from the integral
+\[\pi^{-\frac{s}{2}}\Gamma(\frac{s}{2})\frac{1}{n^s} = \int_{0}^{\infty}e^{-\pi n^2t}t^{\frac{s}{2}-1} dt \qquad \Re(s)>1\]
+if we sum over \(n\), that will be what we do in the last section, but now we want to sum over \(n\) with \textbf{some primitive Dirichlet character} \(\chi\) modulo \(q\), and we expect the auxillary function is a certain arithemetic function, with at least the information of the character (periodic \(q\)).
+\begin{equation} \label{lfun1}
+    (q/\pi)^{s/2}\Gamma(\frac{s}{2})\frac{\chi(n)}{n^s} = \frac{1}{\sqrt{q}}\int_{0}^{\infty} [\chi(n)e^{-\pi n^2t/p}]t^{\frac{s}{2}-1}dt
+\end{equation}
+what we do is to change the variable by setting \(t \to t/q\), hence we can sum over \(n\) and get
+\[(q/\pi)^{s/2}\Gamma(\frac{s}{2})L(s,\chi) = \frac{1}{\sqrt{q}}\int_{0}^{\infty} [\sum_{n \geq 1} \chi(n) e^{-\pi n^2 t/q}] t^{\frac{s}{2}-1} dt\]
+we can extend the sum to the whole integer, but it depends on the values of \(\chi(-1)\). If \(\chi(-1) = 1\), then we can write
+\[\sum_{n \geq 1} \chi(n) e^{-\pi n^2 t/q} = \frac{1}{2}\sum_{n \in \zz} \chi(n) e^{-\pi n^2 t/q}\]
+and if \(\chi(-1) = -1\) we find that the right term above is zero, it makes no sense, hence we should modify the integration (\ref{lfun1}) a little to avoid the problem, we can introduce a translation on \(s\) by setting \(s \to s+1\), then we can write
+\begin{equation} \label{lfun2}
+    (q/\pi)^{(s+1)/2}\Gamma(\frac{s+1}{2})\frac{\chi(n)}{n^{s}} = \frac{1}{\sqrt{q}}\int_{0}^{\infty} [n\chi(n)e^{-\pi n^2t/p}]t^{\frac{s-1}{2}}dt
+\end{equation}
+then the sum over \(n\) allows us to get
+\[\sum_{n \geq 1}n \chi(n) e^{-\pi n^2t/q} = \frac{1}{2}\sum_{n \in \zz}n \chi(n) e^{-\pi n^2t/q}\]
+It is the basic idea of the proof, similarly we introduce the \textbf{auxillary function}
+\[\psi(t,\chi) = \sum_{n \in \zz}n^{\mathfrak{v}}\chi(n)e^{-\pi n^2 t/q}\]
+with \(\mathfrak{v} = \frac{1-\chi(-1)}{2}\), then we can deduce the functional equation via Poisson's formula.
+
+\begin{lemma}
+    let \(t>0\), then \(\psi\) satisfies the equation
+    \[\tau(\bar{\chi})\psi(t,\chi) = (i/t)^{\mathfrak{v}}\sqrt{q/t} \cdot \psi(\bar{\chi},1/t)\]
+    where \(\tau(\chi) = G(1,\chi)\) as the Gauss sum of \(\chi\).
+
+\end{lemma}
+
+\begin{proof}
+    We consider the \(f(x) = e^{-\pi x^2t}\) for some \(t>0\), and then we can calculate \[\hat{f}(s) = \frac{1}{\sqrt{t}}f(\frac{s}{t}) = \frac{1}{\sqrt{t}}e^{-\pi s^2/t}\]
+    hence by poisson's formula we have
+    \begin{equation} \label{lfunpoisson}
+        \sum_{n \in \zz}e^{-\pi (n+a)^2 t} = \frac{1}{\sqrt{t}} \sum_{n \in \zz}e^{-\pi n^2/t} e^{2\pi i n a}
+    \end{equation}
+    now we consider \(\chi\) is a arithemetic function on \(\zz\) with period \(q\), then we can write
+    \[\chi(n) = \frac{\tau(\chi)}{q}\sum_{m=1}^{q}\bar{\chi}(m)e^{2\pi i mn/q}\]
+    by the primitive character \(\overline{\tau(\chi)} = \chi(-1)\tau(\bar{\chi})\), we have
+    \[\tau(\bar{\chi}) \chi(n) = \sum_{m=1}^{q}\bar{\chi}(m)e^{2\pi i mn/q}\]
+    hence we can calculate
+    \begin{align*}
+        \tau(\bar{\chi})\psi(t,\chi) &= \sum_{n \in \zz}n^{\mathfrak{v}}\tau(\bar{\chi})\chi(n)e^{-\pi n^2 t/q} \\
+        &= \sum_{m=1}^{q} \bar{\chi}(m) \sum_{n \in \zz} n^{\mathfrak{v}} e^{-\pi n^2 t/q}e^{2 \pi i n m/q} \\
+    \end{align*}
+    when \(\chi(-1) = 1\), i.e. \(\mathfrak{v} = 0\), we can apply the Poisson's formula (\ref{lfunpoisson}) to get 
+    \begin{align*}
+        \tau(\bar{\chi})\psi(t,\chi) &= \sqrt{q/t} \cdot \sum_{m=1}^{q} \bar{\chi}(m) \cdot \sum_{n \in \zz} e^{-\pi (qn+m)^2/q t} \\
+        &= \sqrt{q/t} \cdot \sum_{l \in \zz} \bar{\chi}(l) e^{-\pi l^2/t} \\
+        &= \sqrt{q/t} \cdot \psi(\bar{\chi},1/t)
+    \end{align*}
+    when \(\chi(-1) = -1\), i.e. \(\mathfrak{v} = 1\), we can modify the poisson's formula (\ref{lfunpoisson}) by taking derivative of \(f(x)\), then we have 
+    \[it^{3/2}\sum_{n \in \zz}(n+a) e^{-\pi (n+a)^2 t} = \sum_{n \in \zz} n e^{-\pi n^2/t} e^{2\pi i n a}\]
+    then apply it we can get
+    \begin{align*}
+        \tau(\bar{\chi})\psi(t,\chi) &= \sum_{m=1}^{q} \bar{\chi}(m) \cdot i(q/t)^{3/2} \sum_{n \in \zz} (n+\frac{m}{q}) e^{-\pi (qn+m)^2/qt} \\
+        &= (i/t)\sqrt{q/t} \cdot \sum_{l \in \zz} l\cdot\bar{\chi}(l) e^{-\pi l^2/t} \\
+        &= (i/t)\sqrt{q/t} \cdot \psi(\bar{\chi},1/t)
+    \end{align*}
+\end{proof}
+
+With the functional equation of \(\psi\), it is sufficient to get the functional equation of \(L\) function, firstly we define the \textbf{completed \(L\) function} by
+\[\Lambda(s,\chi) = (q/\pi)^{\frac{s+\mathfrak{v}}{2}}\Gamma(\frac{s+\mathfrak{v}}{2})L(s,\chi)\]
+by (\ref{lfun1}) and (\ref{lfun2}), we can write down the integral representation
+\[\Lambda(s,\chi) = \frac{1}{2\sqrt{q}}\int_0^{\infty} \psi(t,\chi) t^{\frac{s+\mathfrak{v}}{2}-1} dt\]
+when \(\Re(s)>1\), and then by the functional equation of \(\psi\), we can get
+
+\begin{theorem}
+    For any \textbf{non-principal} primitive Dirichlet character \(\chi\) modulo \(q\), the completed \(L\) function \(\Lambda(s,\chi)\) has an analytic continuation to the whole complex plane, and it satisfies the functional equation
+    \[\Lambda(1-s,\bar{\chi}) = \frac{i^{\mathfrak{v}}\sqrt{q}}{\tau(\chi)} \Lambda(s,\chi) \qquad \] 
+\end{theorem}
+\begin{proof}
+    when \(\chi(-1)=1\), i.e. \(\mathfrak{v} = 0\), we have
+    \begin{align*}
+        2\sqrt{q}\Lambda(s,\chi) &= \int_0^{1} \psi(t,\chi) t^{\frac{s}{2}-1} dt + \int_1^{\infty} \psi(t,\chi) t^{\frac{s}{2}-1} dt \\
+        &= \int_{1}^{\infty} \psi(1/u,\chi) u^{-\frac{s}{2}-1} du + \int_1^{\infty} \psi(t,\chi) t^{\frac{s}{2}-1} dt \\
+        &= \frac{\tau(\chi)}{\sqrt{q}}\int_{1}^{\infty} \psi(u,\bar{\chi}) u^{\frac{-s-1}{2}} du + \int_1^{\infty} \psi(t,\chi) t^{\frac{s}{2}-1} dt 
+    \end{align*}
+    notice that in this case we have \(\overline{\tau(\chi)} = \tau(\bar{\chi})\), so we can write
+    \begin{align*}
+        2\sqrt{q}\Lambda(s,\chi) &= \frac{\tau(\chi)}{\sqrt{q}}[\int_{1}^{\infty} \psi(u,\bar{\chi}) u^{\frac{-s-1}{2}} du + \frac{\tau(\bar{\chi})}{\sqrt{q}}\int_1^{\infty} \psi(t,\bar{\chi}) t^{\frac{-s-1}{2}-1} dt] \\
+        &= \frac{\tau(\chi)}{\sqrt{q}}\cdot 2\sqrt{q}\Lambda(1-s,\bar{\chi})
+    \end{align*}
+    Finally, when \(\chi(-1)=-1\), i.e. \(\mathfrak{v} = 1\), we have
+    \begin{align*}
+        2\sqrt{q}\Lambda(s,\chi) &= \int_0^{1} \psi(t,\chi) t^{\frac{s-1}{2}} dt + \int_1^{\infty} \psi(t,\chi) t^{\frac{s-1}{2}} dt \\
+        &= \int_{1}^{\infty} \psi(1/u,\chi) u^{-\frac{s+3}{2}} du + \int_1^{\infty} \psi(t,\chi) t^{\frac{s-1}{2}} dt \\
+        &= \frac{\tau(\chi)}{i\sqrt{q}}\int_{1}^{\infty} \psi(u,\bar{\chi}) u^{-\frac{s}{2}} du + \int_1^{\infty} \psi(t,\chi) t^{\frac{s-1}{2}} dt 
+    \end{align*}
+    and notice that in this case we have \(\overline{\tau(\chi)} = -\tau(\bar{\chi})\), so we can write
+    \begin{align*}
+        2\sqrt{q}\Lambda(s,\chi) &= \frac{\tau(\chi)}{i\sqrt{q}}[\int_{1}^{\infty} \psi(u,\bar{\chi}) u^{-\frac{s}{2}} du + \frac{\tau(\bar{\chi})}{i\sqrt{q}}\int_1^{\infty} \psi(t,\bar{\chi}) t^{\frac{s-1}{2}} dt] \\
+        &= \frac{\tau(\chi)}{i\sqrt{q}}\cdot 2\sqrt{q}\Lambda(1-s,\bar{\chi})
+    \end{align*}
+\end{proof}
+
+similarly, we can conclude that the
+
+
+\newpage
+
+
+\section{Dedekind zeta function}
+
+\subsection{Lattice}
+
+\begin{definition}
+    Let \((V, \langle \cdot, \cdot \rangle)\) be a finite-dimensional inner product space over \(\rr\):\\
+
+    - A \textbf{lattice} \(L\) in \(V\) is a discrete subgroup of \(V\).
+
+    - A lattice \(L\) is called \textbf{complete} if it is a free \(\zz\)-module of rank \(n= \dim V\) with basis \(\{v_1, \dots, v_n\}\), its fundamental domain in defined as 
+    \[P = \{\sum_{i}^n c_iv_i \mid c_i \in [0,1)\}\]
+
+    - For any lattice \(L \subset V\), the dual lattice under the inner product is defined as
+    \[L^* = \{v \in V \mid \langle v, w\rangle \in \zz, \forall w \in L\}\]
+\end{definition}
+
+Notice that \(V/L\) is compact if and only if \(L\) is complete, hence we can define the \textbf{volume} of \(V/L\) by
+\[\mathrm{Vol}(V/L) = m(P) = \sqrt{\det G} \cdot l(P)\]
+where \(m\) is unique Haar measure induced by the inner product while \(l\) is the usuel lebesgue measure, and \(G\) is the Gram matrix with entries \(\langle v_i, v_j \rangle\). 
+
+\begin{lemma}
+    \[\mathrm{Vol}(V/L)\cdot \mathrm{Vol}(V/L^*) = 1\]
+\end{lemma}
+
+\begin{proof}
+    
+\end{proof}
+
+\begin{theorem}[Poisson's formula for lattice]
+    Let \(L\) be a complete lattice in \(V\), then for any Schwartz function \(f\) on \(V\), we have
+    \[\sum_{v \in L} f(v) = \frac{1}{\mathrm{vol}(V/L)} \sum_{v^* \in L^*} \hat{f}(v^*)\]
+    
+\end{theorem}
+
+\begin{proof}
+    
+\end{proof}
+
+\begin{corollary}
+    Let \(A\) be a positive-definite symmetric matrix, and \(L \subset V\) be a complete lattice, then
+    \[\sum_{v \in L} e^{-\pi \cdot v^tAv} = \frac{\det A^{-1/2}}{\mathrm{vol}(V/L)} \sum_{v \in L^*} e^{-\pi \cdot v^tA^{-1}v}\]
+\end{corollary}
+
+\begin{proof}
+    
+\end{proof}
+
+Now we consider the case of number field, suppose that \(k/\qq\) is a number field with degree \(N\), and we embded \(k\) into \(\rr^N\) by
+\[\sigma: k \to \rr^{s}\times \cc^{t}, \quad x \mapsto (\sigma_i(x))_i\]
+view \(\cc\) as a real vector space and then we can define inner product by trace 
+\[\langle \sigma(x), \sigma(y) \rangle = \mathrm{Tr}_{k/\qq}(xy)\]
+Notice that \(\mathcal{O}_k\) is a free \(\zz\)-module of rank \(N\), so \(\sigma(\mathcal{O}_k)\) is a complete lattice, and it motivates us to define its dual lattice.
+\begin{definition}
+    The inverse different of \(k\) is a fractional ideal defined by
+    \[\mathfrak{d}^{-1} = \{x \in k \mid \mathrm{Tr}_{k/\qq}(x \mathcal{O}_k) \subset \zz\}\]
+\end{definition}
+
+\begin{lemma}
+    Along the notion above,
+    \begin{enumerate}
+        \item \(\sigma(\mathfrak{d}^{-1})\) is the dual lattice of \(\sigma(\mathcal{O}_k)\) under the inner product defined by trace.
+        \item \(\mathfrak{d} := (\mathfrak{d}^{-1})^{-1}\) is an ideal of \(\mathcal{O}_k\), and it is called the \textbf{different} of \(k\).
+        \item The norm of different is the discriminant of the field \(N(\mathfrak{d}) = |d_k| \)
+        \item For any ideal \(\mathfrak{a}\), we set \(\mathfrak{a}^\vee  = \mathfrak{d}^{-1}\mathfrak{a}^{-1}\), then \(\sigma(a^\vee)\) is the dual lattice of \(\sigma(\mathfrak{a})\).
+    \end{enumerate}
+\end{lemma}
+
+
+\subsection{Functional Equation}
+Suppose that \(k/\qq\) is a number field with degree \(N\), we make the convention for the notion:\\
+\begin{enumerate}
+    \item \(r\) and \(t\) are the number of real and complex embedding of \(k\) respectively, so \(N = r + 2t\);
+    
+    \item \(C_k = J_k/P_k\) is the ideal class group of \(k\), and \(h_k = |C_k|\) is the class number of \(k\);
+
+    \item \(w_k\) is the number of roots of unity in \(k\), \(r_k\) is the regulator of \(k\), and \(d_k\) is the discriminant of \(k\).
+\end{enumerate} 
+
+
+For any ideal class \(R \in C_k\), we take an representative \(\mathfrak{a}\) of \(R^{-1}\), then for any integral ideal \(\mathfrak{b} \in R\) we have a well-defined applicaion to \(P_k\):
+\[\mathfrak{b} \mapsto \mathfrak{a}\mathfrak{b} = (x)\]
+notice that \(\mathfrak{b} \subset \mathcal{O}_k\) as an integral ideal, so \(x \in \mathfrak{a}^*\). Conversely, for any \(x \in \mathfrak{a}^*\) we can set \(\mathfrak{b} = a^{-1}(x)\), then \(\mathfrak{b} \subset \mathcal{O}_k^*\) implies \(\mathfrak{b}\) is exactly a integral ideal,  so the application is surjective to \(\mathfrak{a}^*\).  For a bijection, we consider an equivalence relation on \(\mathfrak{a^*}\) by setting \(x \sim x'\) if and only if \(x' = ux\) for some unit \(u\), i.e. two elements are associative, it is equivalent to the the action of \(\mathcal{O}_k^*\) on \(\mathfrak{a}^*\), hence we can get a bijection
+\[\{\text{The integral ideal of } R\} \longleftrightarrow  \mathfrak{a}^*/\mathcal{O}_k^*\] 
+the right term is the orbit space of the action. Hence we can rewrite the Dedekind zeta function 
+
+\[\zeta_k(s)  = \sum_{R \in C_k} \zeta(s,R)
+\]
+as the sum of function on ideal classes.
+\[\zeta(s,R) = N(\mathfrak{a})^s\sum_{x \in \mathfrak{a}^*/\mathcal{O}_k^*} \frac{1}{|N(x)|^s}
+= (d_{\mathfrak{a}}/d_k)^{1/2}\sum ...\]
+where \(\mathfrak{a}\) is the representative of  \(R^{-1}\),  Hence it motivates us to find the functional equation of zeta function on ideal class.
+
+We  consider the minkowski space \(\rr^r \times \cc^t\) , then in it we can denote the norm as following 
+\[|N(x)| = \prod_{v}|x_v|^{a_v}
+\]
+with \(x_v = \sigma_v(x)\) and \(v\) runs over embeddings modulo conjugation, and 
+\[
+a_v  = \begin{cases}
+    1 \quad &\text{if } \sigma_v \text{ is a real embedding} \\
+    2 \quad &\text{if } \sigma_v \text{ is a complex embedding}
+\end{cases}\]
+
+
+\begin{proposition}
+    With the notion above, we set
+    \[
+    A = 2^{-t}d_k^{-1/2}\pi^{-N/2}
+    \]
+    and let 
+    \[\zeta(s,\infty) = A^s\Gamma(s/2)^r\Gamma(s)^t\]
+    then define the completed ideal class zeta function
+    \[\Lambda(s,R) = \zeta(s,\infty)\zeta(s,R)\]
+Then \(\Lambda(s,R)\) attains an analytical continuation on complex plane with only simple poles at \(s= 0\) and \(s = 1\), and it satisfies a functional equation for any \(s \neq 0, 1\)
+\[\Lambda(1-s,R^{-1})  = \Lambda(s,R)\]   
+\end{proposition}
+
+\begin{proof}
+    (1) Representation of function: We consider the haar measure on \(\rr_>0\) and definition of Gamma function, it sufficient to prove that
+\[
+\frac{\Gamma(s/2)}{a^s} = \int_{\rr_{>0}} e^{-a^2y}y^{s/2}\frac{dy}{y}
+\]
+Applying this formula to \(a^2   = ...\),  it is enough to get
+\begin{equation} \label{heckeeq1}
+    (\pi^{-1/2}d_k^{1/2N}N(\mathfrak{a})^{1/N})^s = \int_{\rr_{>0}} \exp(-\pi d_{\mathfrak{a}}^{-1/N}|x_v|^2y)y^{s/2}\frac{dy}{y}
+\end{equation}
+For real parts we will multiply (\ref{heckeeq1}) r times, while for complex embedding, we should let \(s \to 2s\), and change variable in integral such that \(y \mapsto 2y\). The first operation is because we will only multiply complex parts  t times while \(N  =r+ 2t \); The second operation is necessary, because we expect a fourier transform with respects to the inner product in Minkowski space, hence for complex parts \(|x_v|\) we have
+\begin{equation} \label{heckeeq2}
+    (2^{-1}\pi^{-1}d_k^{1/N}N(\mathfrak{a})^{2/N})^s = \int_{\rr_{>0}} \exp(-\pi d_{\mathfrak{a}}^{-1/N}\cdot 2|x_v|^2y)y^{s}\frac{dy}{y}
+\end{equation}
+As we mentioned, consider \( (\ref{heckeeq1}) \times r + (\ref{heckeeq2})\times t\)  and sum over \(\mathfrak{a}^*/\mathcal{O}_k^*\)  we have
+\[
+\Lambda(s,R) = \int_{G}\sum_{x} \exp(-\pi d_{\mathfrak{a}}^{1/N} \cdot \langle x,y \rangle_m)\|y\|^{s/2}d^*y
+\]
+where \(G  = \rr_{>0}^{s+t}\) as a locally compact group under the restricted product with Harr measure such that 
+\[
+d^*y = \prod_{v} \frac{dy_v}{y_v}
+\]
+
+
+(2) Decomposition of integration: We now consider the spherical decomposition of group \(G = \rr_{>0}\times G_0\) with 
+\[
+G_0 = \{x \in G \mid \|x\| = 1\}
+\]
+i.e. we set \(y  = l^{1/N}c\)  with \(l  = \|y\|\), then we have
+\[
+\Lambda(s,R) = \int_{\rr>0} \int_{G_0}\exp(-\pi d_{\mathfrak{a}}^{1/N} \cdot \langle x,l^{1/N}c\rangle) d^*c  \quad  t^{s/2}\frac{dt}{t} 
+\]
+
+
+
+
+
+
+
+\end{proof}
 
 
 
