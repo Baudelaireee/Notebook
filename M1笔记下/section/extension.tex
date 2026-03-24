@@ -132,61 +132,7 @@ where \(h'(p) = p(a')\), and \(\pi\) is the canoncial map.
     conversely it is not right since the field extension \(L\) may be not enough large, which refers the \textbf{"closure"} in the sense of algebraic element. For statement (3), a simple example is \(\qq(\sqrt{2}) = \qq(-\sqrt{2})\), and monic irreducible polynoimal \(X^2-2 \in \qq[X]\).
 \end{remark}
 
-\subsubsection*{Trace,norm and Discriminant}
-For any finite extension \(L/K\) of degree \(n\), we can view element \(a \in L\) as a \(K\)-linear map
-\[m_a: L \to L, \quad x \mapsto ax\]
-in pariticular, it is an automorphism of \(L\) if \(a \neq 0\), and it satifies several properties:
-\begin{itemize}
-  \item \(m_{a+b} = m_a + m_b\)
-  \item \(m_{ab} = m_a \circ m_b\)
-  \item \(m_{c\cdot a} = c\cdot m_a\)
-\end{itemize}
-with \(a,b \in L\) and \(c \in K\). Since \(L\) is a finite-dimensional, it is natural to consider \(m_a\) as a matrix and define two invariants in linear algebra\\
 
-- Trace of \(a\) over \(K\): \(\mathrm{Tr}_{L/K}(a) = \mathrm{Tr}(m_a)\)\\
-
-- Norm of \(a\) over \(K\): \(\mathrm{N}_{L/K}(a) = \det(m_a)\)\\
-
-exactly what we do can be concluded as the following
-\[L \hookrightarrow \End_K(L) \to K\]
-the first map refers to a \textbf{regular representation} of \(L\) over \(K\), and the second map is what we are familar with, and we can verify some properties of trace and norm:
-\begin{itemize}
-  \item \(\mathrm{Tr}_{L/K}(a+b) = \mathrm{Tr}_{L/K}(a) + \mathrm{Tr}_{L/K}(b)\)
-  \item \(\mathrm{Tr}_{L/K}(c\cdot a) = c\cdot \mathrm{Tr}_{L/K}(a)\)
-  \item \(\mathrm{N}_{L/K}(ab) = \mathrm{N}_{L/K}(a)\cdot\mathrm{N}_{L/K}(b)\)
-  \item \(\mathrm{N}_{L/K}(c\cdot a) = c^n \cdot \mathrm{N}_{L/K}(a)\)
-  \item \(\mathrm{Tr}_{L/K}(c) = nc\) and \(\mathrm{N}_{L/K}(c) = c^n\)
-\end{itemize}
-with \(a,b \in L\) and \(c \in K\). We can also give a more explicit description of trace and norm by the minimal polynoimal of \(a\) over \(K\), moreover, for any endomorphism \(m_a\) we can consider its \textbf{characteristic polynomial} \(\chi_a(t) = \det(t\cdot \mathrm{id}_L - m_a)\), and conclude the following result:
-
-\begin{colorproposition}
-  For any \(L/K\) finite extension with degree \(n\) and \(a \in L\),
-  \begin{enumerate}[(a)]
-    \item \(\chi_a = (\Pi_a)^d\) with \(d = [L:K(a)]\).
-    \item Suppose \(\Pi_a(t) = t^m + c_{m-1}t^{m-1}+...+c_0\), then \[\mathrm{Tr}_{L/K}(a) = -dc_{m-1} \qquad \mathrm{N}_{L/K}(a) = (-1)^{n}c_0^d\]
-  \end{enumerate}
-\end{colorproposition}
-
-\begin{proof}
-  (a) It is clear that \(\deg \Pi_a = [K(a):K]\), we denote it by \(m\), then 
-  \[\Pi_a(t)\ = t^m + c_{m-1}t^{m-1}+...+c_0\]
-  for some \(c_i \in K\), and \(\{1,a,...,a^{m-1}\}\) is a basis for \(K(a)/K\), we suppose that \(\{e_1,..,e_d\}\) is a basis for \(L/K(a)\), then we can conclude a basis of \(L/K\) is
-  \[e_1,\dots,e_1a^{m-1} \mid e_2,\dots,e_2a^{m-1} \mid \dots \mid e_{d},\dots,e_da^{m-1}\]
-  so we can write the matrix of \(m_a\) under this basis
-  
-  \[m_a \sim \mathrm{diag}(A_1,\dots,A_d), \quad A_i = \begin{pmatrix}
-    0 & 0 & \dots & -c_0 \\
-    1 & 0 & \dots & -c_1 \\
-    0 & 1 & \dots & -c_2 \\
-    \vdots & \vdots & \ddots & \vdots \\
-    0 & 0 & \dots & -c_{m-1}
-  \end{pmatrix}\]
-  By caclulate the characteristic polynomial of \(A_i\) we can get exactly
-  \[\chi_a(t) = \prod_{i = 1}^d \det(t\cdot I- A_i) = (\Pi_a(t))^d\]
-  (b) By vieta's formula we can conclude that
-  \[\chi_a(t) = t^{n} - \mathrm{Tr}_{L/K}(a)t^{n-1} + \cdots + (-1)^n\mathrm{N}_{L/K}(a)\]
-  then by formula of (a) we can caclculate the result.
-\end{proof}
 
 
 
@@ -268,7 +214,7 @@ which is suffisant to prove that when \(L = \qq(\sqrt[3]{2},\omega)\), the inclu
 \begin{colortheorem}
   Let \(L/K\) be a algebraic extension, then the following conditions are equivalent:
   \begin{enumerate}
-    \item \(L\) is a splitting field of of a set of polynoimal in \(K[X]\).
+    \item \(L\) is a splitting field of of a set of polynoimals in \(K[X]\).
     \item \(\Gal(L/K) = \Hom_K(L,\bar{K})\)
     \item For any \(a \in L\), the minimal polynomial \(\Pi_a \in K[X]\) splits over \(L\).
   \end{enumerate}
@@ -427,106 +373,101 @@ Hence the simple algebraic extension allows to identify the conjuations of the p
 \end{remark}
 
 
-\subsubsection*{Discriminant}
 
-\begin{colorproposition} \label{tracenormformule}
-  Let \(L/K\) be a separable finite extension of degree \(n\), then \\
 
-  - \(\mathrm{N}_{L/K}(a) = \prod_{\sigma} \sigma(a)\) \\
 
-  - \(\mathrm{Tr}_{L/K}(a) = \sum_{\sigma} \sigma(a)\)\\
+\subsection{Galois extension}
 
-  - \(\chi_a(X) = \prod_{\sigma} (X - \sigma(a))\)\\
-  where \(a \in L\) and \(\sigma \in \Hom_K(L,\bar{K})\) runs over all \(K\)-embeddings
-\end{colorproposition}
+Let \(K/k\) be a finite extension, with \(\Aut(K/k)\) the automorphism group then we can consider the group action \(\Aut(K/k) \circlearrowleft K\) defined by
+\[\sigma \cdot a : = \sigma(a)\]
+the fixed point of the action will be remarkable:
+
+\begin{lemma}
+  Let \(S \subset \Aut(K/k)\) be a non-empty subset, then
+  \[K^S := \{x \in K \mid  \sigma(x) = x \text{ for all } \sigma \in S\}\]
+  is a intermediate field of \(K/k\).
+\end{lemma}
+\begin{proof}
+  \(\sigma \in \Aut(K/k)\) fixes \(k\), so \(k \subset K^S\). For any \(x,y \in K^S\) and \(\sigma \in S\), we can calculate
+\[\sigma(x+y) = \sigma(x) + \sigma(y) = x+y\]
+\[\sigma(xy) = \sigma(x)\sigma(y) = xy\]
+it is enough to show the reuslt.
+\end{proof}
+
+
+
+
+\begin{colortheorem}
+  Let \(K/k\) be a finite extension, then the following conditions are equivalent:
+  \begin{enumerate}
+    \item \(K/k\) is normal and separable.
+    \item For any \(a \in K\), the minimal polynomial of \(a\) splits over \(K\) with \[\Pi_a(X) = \prod_{\sigma \in \Aut(K/k)}(X - \sigma(a))\]
+    \item \(K\) is a splitting field of a separable polynomial in \(k[X]\).
+    \item \(|\Aut(K/k)| = [K:k]\)
+    \item Fixed field \(K^{\Aut(K/k)} = k\). 
+  \end{enumerate}
+\end{colortheorem}
 
 \begin{proof}
-  We consider a relation of equivalence for \(\Sigma = \Hom_{K}(L,\bar{K})\) by
-  \[\sigma_1 \sim_a \sigma_2 \iff \sigma_1(a) = \sigma_2(a)\]
-  it holds for any finite extension, then we calculate the class of equivalence:
-  \begin{align*}
-    [\sigma] &= \{\tau \in \Sigma \mid \tau(a) = \sigma(a)\} \\
-    &= \{\tau \in \Sigma \mid \tau(p(a)) = \sigma(p(a)) , \forall p \in K[X]\}\\
-    &= \{\tau \in \Sigma \mid \tau = \sigma \text{ on } K(a)\}
-  \end{align*}
-  which shows that \( |[\sigma]| = |\Hom_{K(a)}(L,\bar{K})|\), in particular, if \(L/K\) is separable, then \(L/K(a)\) is also separble, so exactly \(|[\sigma]| = [L:K(a)]\), it implies
-  \[\prod_{\sigma}(X-\sigma(a)) = \prod_{[\sigma] \in \Sigma/\sim_a} (X-\sigma(a))^{[L:K(a)]} = \Pi_a(X)^{[L:K(a)]} = \chi_a(X)\]
-  Here \(\sigma(a)\) runs over all roots of \(\Pi_a\) since the restriction map
-\[res: \Hom_K(L,\bar{K}) \to \Hom_K(K(a),\bar{K}), \quad \sigma \mapsto \sigma|_{K(a)}\]
-is srujective.
+  (1) implies (2): Since \(K/k\) is normal, then \(\Aut(K/k)\) is just the \(k\)-embedding onto itself, that means \(\sigma(a)\) runs over all roots of \(\Pi_a\) in \(\bar{k}\) exactly, and since \(K/k\) is separable, the roots are of one-multiplicity, so \(Pi_a\) splits like the form in (2).
 
+  (2) implies (3): \(\Pi_a\) is a separable polynomial in \(K[X]\) and splits over \(K\), so we can consider the splitting field of all minimal polynomials.
+
+  (3) implies (1), it is immediate.
+
+  (3) implies (4): Since (1) and (3) are equivalent, so it is enough to show that (1) implies (4), and it can be proved by cardinal
+  \[|\Aut(K/k)| = |\Hom(K,\bar{k})| = [K:k]\]
+  The first equality holds since \(K/k\) is normal, and the second equality holds since \(K/k\) is separable.
+
+  (4) implies (5): Set \(k' = K^{\Aut(K/k)}\), then we can prove that \(\Aut(K/k') = \Aut(K/k)\), and then we can prove that \(k' = k\) by proving that 
+  \[[K:k'] \leq [K:k] = |\Aut(K/k)| = |\Aut(K/k')| \leq [K:k']\]
+  the first inequality holds since \(k \subset k'\), and the last inequality holds since for any finite extension \(K/k\) we have
+  \[\Aut(K/k) \subset \Hom(K,\bar{k}), \quad |\Hom(K,\bar{k})| \leq [K:k]\]
+
+  (5) implies (1): For any \(a \in K\), we can set consider the orbit of \(a\), it contains the distinct roots of \(\Pi_a\) in \(K\), and then we set \(f(X) = \prod_{r \in Orb(a)}(X-r)\). For any \(\sigma \in \Aut(K/k)\), we can view that \(\sigma(f) = f\) since \(\sigma\) just permutes the roots
+  \[\sigma(f) = \prod_{r \in Orb(a)}(X-\sigma(r)) = \prod_{r \in Orb(\sigma(a))}(X-r) = f\]
+   that means any coefficient of \(f\) will lie in \(K^{\Aut(K/k)} = k\), i.e. \(f \in k[X]\). Hence \(\Pi_a\) divides \(f\) since \(f(a) = 0\), and \(\Pi_a\) is separable since \(f\) is separable. So we can actually show (5) implies (3), and (3) implies (1) as before.
 \end{proof}
+
+The equivalent statement motivates us to give the definition:
 
 \begin{definition}
-  Let \(L/K\) be a finite extension of degree \(n\)\\
-  - The \textbf{trace pairing} of the extension is a symmetric \(K\)-bilinear form
-  \[Q_{L/K}(x,y) =  \mathrm{Tr}_{L/K}(xy)\]
-  - we define the \textbf{discriminant} of a family \(\{e_1,\dots,e_k\}_{k \leq n}\) in \(L\)  by
-\[\mathrm{Disc}(e_1,...,e_n) = \det(\mathrm{Tr}_{L/K}(e_ie_j)) = \det(Q_{L/K}(e_i,e_j)) \]
+  An algebraic extension \(K/k\) is called a \textbf{Galois extension} if it is normal and separable, and in this case we call \(\Aut(K/k)\) the \textbf{Galois group} of the extension, and denote it by \(\Gal(K/k)\).
+
+Another \textbf{alternative definition} of galois extension is an algebraic extension \(K/k\) such that \(K^{\Aut(K/k)} = k\), which is equivalent to the definition above by the theorem.
+
 \end{definition}
 
-It is better to consider the discriminant in a separable extension, although we always use the \textbf{"free condition"} in the extension of \(\qq\), the reason is as following:
 
-\begin{proposition}
-  Let \(L/K\) be a finite extension, then the following conditions are equivalent:
-  \begin{enumerate}
-    \item \(L/K\) is separable.
-    \item \(\mathrm{Tr}_{L/K} \neq 0\).
-    \item The trace pairing \(Q_{L/K}\) is non-degenerate.
-  \end{enumerate}
+To establish the correspondence between the intermediate fields of a galois extension and the subgroups of the galois group, we investigate an example carefully:
 
-\end{proposition}
-
-\begin{proof}
-  
-\end{proof}
-
-\begin{remark}
-  Consider the inseparable example of \(L = \ff_p(t^{1/p})\), we can calculate  \(\mathrm{Tr}_{L/K}(u^k) = 0\) with \(u = t^{1/p}\) and \(k = 0,1,...,p-1\), which shows that the trace is identically zero, so the discriminant of any basis is zero, which provides no information about the extension.
-\end{remark}
-
-\begin{colorproposition}
-  Let \(L/K\) be a finite separable extension of degree \(n\), and \(a_1,...,a_n\) be a basis of \(L/K\), then the discriminant of the basis 
-  \[\mathrm{Disc}(a_1,...,a_n) = \det(\mathrm{Tr}_{L/K}(\sigma_i(a_j)))^2\]
-  with \(\sigma_i \in \Hom_K(L,\bar{K})\) \(n\) distinct \(K\)-embeddings of \(L\). 
-\end{colorproposition}
-
-\begin{proof}
-  Review that for any two n order square matrices \(A,B\), we have
-  \[(AB)_{i,j} = \sum_{k=1}^n A_{i,k} B_{k,j}\]
-  In particular
-  \[(A^TA)_{i,j} = \sum_{k=1}^n A_{k,i}A_{k,j}\]
-  so For any \((i,j)\)-entry of trace matrix, applying proposition \ref{tracenormformule} we can calculate
-  \[\mathrm{Tr}_{L/K}(a_ia_j) = \sum_{k=1}^n \sigma_k(a_i)\sigma_k(a_j) = 
-  \sum_{k=1}^n \sigma_k(a_i)\sigma_k(a_j) = \sum_{k=1}^n = (A^TA)_{i,j}\]
-  where \(A = \mathrm{Tr}_{L/K}(\sigma_i(a_j))_{1 \leq i,j \leq n}\).
-\end{proof}
-
-\begin{colorcorollary}
-  Let \(L/K\) be a finite separable extension of degree \(n\), then the discriminant of any basis of \(L/K\) is no-zero, in particular, if \(a\) is the primitive element such that \(L=K(a)\) and \(\{1,...,a^{n-1}\}\), then
-  \[\Disc(1,a,...,a^{n-1}) = \prod_{i<j}(r_i-r_j)^2\]
-  where \(r_i\) are the distinct \(n\) roots of \(\Pi_a\) in \(\bar{K}\).
-\end{colorcorollary}
-
-\begin{proof}
-  Review that 
-  \[(PAP^T)_{i,j}  = \sum_{1\leq k,l \leq n}P_{i,k}P_{j,l}A_{k,l}\]
-  For any two n order square matrices \(A,P\).
-  For any basis \(\{e_1,...,e_n\}\), there exists a invertible matrix \(P\) such that \(e_i = \sum_{j=1}^n P_{ij} a^{j-1}\), since \(\{1,\dots,a^{n-1}\}\) is a basis, then 
-  \begin{align*}
-    \mathrm{Tr}_{L/K}(e_ie_j) &= \mathrm{Tr}_{L/K}\left(\left(\sum_{k=1}^n P_{ik} a^{k-1}\right)\left(\sum_{l=1}^n P_{jl} a^{l-1}\right)\right) \\
-    &= \sum_{k,l=1}^n P_{ik}P_{jl}\mathrm{Tr}_{L/K}(a^{k+l-2}) \\
-    &= \sum_{k,l=1}^n P_{ik}P_{jl}\mathrm{Tr}_{L/K}(a^{k+l-2})
-  \end{align*}
-  which shows that the trace matrix of the basis is \(P^T A P\), where \(A = (\mathrm{Tr}_{L/K}(a^{i-1}a^{j-1}))_{i,j}\), which suffice to calculate that
-  \[\Disc(e_1,...,e_n) = |\det(P)|^2 \Disc(1,a,\dots,a^{n-1}) \]
-  Hence just need to calculate the discriminant of the basis \(\{1,...,a^{n-1}\}\), and prove that it is non-zero, which finishes the proof. By the above proposition, we can calculate
-  \[\Disc(1,a,\dots,a^{n-1}) = \begin{vmatrix}
-    1 & \sigma_1(a) & \dots & \sigma_1(a)^{n-1} \\
-    1 & \sigma_2(a) & \dots & \sigma_2(a)^{n-1} \\
-    \vdots & \vdots & \ddots & \vdots \\ 
-    1 & \sigma_n(a) & \dots & \sigma_n(a)^{n-1}
-  \end{vmatrix}^2\]
-  where \(\sigma_i(a)\) runs over all distinct roots since \(L/K\) is separable, hence we can conclude the result by the \textbf{Vandermonde determinant formula}.
-
-\end{proof}
+\begin{example}
+  Let \(K = \qq(\sqrt[3]{2}, \omega)\) be the extension of \(\qq\), it is exactly a galois extension with \(\Gal(K/\qq) = S_3\). We set \(a = \sqrt[3]{2}\), then we can denote the basis by 
+  \[1,a,a^2,\omega,a\omega,a^2\omega\]
+  Exactly the galois group can be generated by two elements \(g=f_{1,2}\) and \(h=f_{2,1}\), with
+  \[g(a) = a\omega, \quad g(\omega) = \omega\]
+  \[h(a) = a, \quad h(\omega) = \omega^2\]
+  so we can find that \(g\) is of order \(3\) and fixes \(\qq(\omega)\), while \(h\) is of order \(2\) and fixes \(\qq(\sqrt[3]{2})\), i,e. we construct two intemediate fields in according to the subgroups
+  \[K^{G} = \qq(\omega), \quad G = \langle g \rangle \cong \langle(1,2,3)\rangle \cong A_3\]
+  \[K^{H} = \qq(\sqrt[3]{2}), \quad H = \langle h \rangle \cong \langle(1,2)\rangle\]
+  Similarly, we can recover all possible intermediate fields by considering the subgroups of \(S_3\), and it can be drawn as following
+  % https://q.uiver.app/#q=WzAsNixbMSwwLCJcXG1hdGhiYntRfShhLFxcb21lZ2EpIl0sWzAsMSwiXFxtYXRoYmJ7UX0oXFxvbWVnYSkiXSxbMSwxLCJcXG1hdGhiYntRfShhKSJdLFsyLDEsIlxcbWF0aGJie1F9KGFcXG9tZWdhKSJdLFszLDEsIlxcbWF0aGJie1F9KGFcXG9tZWdhXjIpIl0sWzEsMiwiXFxtYXRoYmJ7UX0iXSxbMCwxLCIiLDAseyJzdHlsZSI6eyJoZWFkIjp7Im5hbWUiOiJub25lIn19fV0sWzAsMiwiIiwyLHsic3R5bGUiOnsiaGVhZCI6eyJuYW1lIjoibm9uZSJ9fX1dLFswLDMsIiIsMix7InN0eWxlIjp7ImhlYWQiOnsibmFtZSI6Im5vbmUifX19XSxbMCw0LCIiLDIseyJzdHlsZSI6eyJoZWFkIjp7Im5hbWUiOiJub25lIn19fV0sWzEsNSwiIiwwLHsic3R5bGUiOnsiaGVhZCI6eyJuYW1lIjoibm9uZSJ9fX1dLFsyLDUsIiIsMix7InN0eWxlIjp7ImhlYWQiOnsibmFtZSI6Im5vbmUifX19XSxbMyw1LCIiLDIseyJzdHlsZSI6eyJoZWFkIjp7Im5hbWUiOiJub25lIn19fV0sWzQsNSwiIiwyLHsic3R5bGUiOnsiaGVhZCI6eyJuYW1lIjoibm9uZSJ9fX1dLFsyLDMsIlxcc2ltIiwwLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn0sImhlYWQiOnsibmFtZSI6Im5vbmUifX19XSxbMyw0LCJcXHNpbSIsMCx7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRvdHRlZCJ9LCJoZWFkIjp7Im5hbWUiOiJub25lIn19fV1d
+\[\begin{tikzcd}
+	& {\mathbb{Q}(a,\omega)} && \\
+	{\mathbb{Q}(\omega)} & {\mathbb{Q}(a)} & {\mathbb{Q}(a\omega)} & {\mathbb{Q}(a\omega^2)} \\
+	& {\mathbb{Q}}
+	\arrow[no head, from=1-2, to=2-1]
+	\arrow[no head, from=1-2, to=2-2]
+	\arrow[no head, from=1-2, to=2-3]
+	\arrow[no head, from=1-2, to=2-4]
+	\arrow[no head, from=2-1, to=3-2]
+	\arrow["\sim", dotted, no head, from=2-2, to=2-3]
+	\arrow[no head, from=2-2, to=3-2]
+	\arrow["\sim", dotted, no head, from=2-3, to=2-4]
+	\arrow[no head, from=2-3, to=3-2]
+	\arrow[no head, from=2-4, to=3-2]
+\end{tikzcd}\]
+where the intermediate fields correspond to all non-trival proper subgroups of \(S_3\):
+\[A_3, \langle(1,2)\rangle , \langle(2,3)\rangle, \langle(1,3)\rangle\]
+Notice that \(A_3\) is the unique normal subgroup of \(S_3\), while \(\qq(\omega)\) is the unique sub-galois extension of \(K/\qq\), so it motivates us to consider the general case.
+\end{example}

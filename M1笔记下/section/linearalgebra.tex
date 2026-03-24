@@ -2,6 +2,93 @@
 
 This section can be seen as a breif review of linear agebra and group theory, it mainly focus on something related to lie theory and representation theory.
 
+\subsection{Semi-direct product}
+
+\begin{definition}
+    Let \(G\) and \(H\) be groups, and let \(\varphi: H \to \Aut(G)\) be a group homomorphism. The \textbf{semi-direct product} \(G \rtimes_\varphi H\) is the set \(G \times H\) with the multiplication defined by
+    \[(g_1, h_1)(g_2, h_2) = (g_1 \varphi(h_1)(g_2), h_1 h_2)\]
+    for all \(g_1, g_2 \in G\) and \(h_1, h_2 \in H\).
+
+\end{definition}
+
+\begin{remark}
+    If \(\varphi\) is trival, i.e. \(\varphi(h) = \mathrm{id}_G\) for all \(h \in H\), then the semi-direct product \(G \rtimes_\varphi H\) is just the \textbf{direct product} \(G \times H\).
+
+    Conversely, if \(G \rtimes H\) is abelian, then \(\varphi\) must be trivial by caculating \((1,h)(g,1) = (g,1)(1,h)\), since it will be \(\varphi(h)(g) = g\) for any \(h\) and \(g\).
+
+\end{remark}
+
+\begin{lemma}
+    Let \(N\vartriangleleft G\) be a normal subgroup, and \(H <G\) be a subgroup, then \(\langle H \cup N \rangle = NH\).
+\end{lemma}
+\begin{proof}
+    
+\end{proof}
+
+\begin{definition}
+    A group \(G\) is an inner semi-direct product of \(N\) and \(H\) if \(N \vartriangleleft G\), \(H < G\) and \(G = NH\) with \(N \cap H = \{e\}\).
+\end{definition}
+
+\begin{remark}
+    The definition implies that the group has semi-direct product structure, and the automorphism comes from the inner automorphism:
+    \[G \cong N \rtimes_{\varphi} H, \quad\]
+    where \(\varphi: H \to \Aut(N)\) is defined by \(\varphi(h)(n) = hnh^{-1}\), it is well-defined since \(N\) is normal. To prove the isomorphism, we set \(f:N \rtimes H \to G\) by \(f(n,h) = nh\), then it is surjective since \(NH = G\), and the it is indeed a morphism
+    \begin{align*}
+        f((n_1,h_1)(n_2,h_2)) &= f(n_1 \varphi(h_1)(n_2), h_1 h_2)\\
+        &= n_1 h_1 n_2 h_1^{-1} h_1 h_2\\
+        &= n_1 h_1 n_2 h_2\\
+        &= f(n_1,h_1)f(n_2,h_2)
+    \end{align*}
+    So it is enough to check the injectivity: if \(f(n,h) = e\), then \(n = h^{-1} \in N \cap H\), thus \(n = e\) and \(h = e\).
+
+\end{remark}
+
+
+\begin{proposition}
+    Let \(G \rtimes H\) be a semi-direct product with respect to \(\varphi: H \to \Aut(G)\), then \(G\) can be idetified as  a normal subgroup of \(G \rtimes H\) while \(H\) can be identified as a subgroup of \(G \rtimes H\), and we have a splitting exact sequence
+\[0 \to G \to G \rtimes H \to H \to 0\]
+\end{proposition}
+
+\begin{proof}
+    We consider the inclusion \(i:G \to G \rtimes H\) defined by \(i(g) = (g,1)\) and the projection \(\pi:G \rtimes H \to H\) defined by \(\pi(g,h) = h\), then we can verify  that \(i\) and \(\pi\) are homomorphisms, and \(\ker \pi = i(G) \cong G\), so it shows that \(G\) can be identified as a normal subgroup of \(G \rtimes H\) and the sequence is exact. Finally, to prove that the sequence splits, we define a section \(s:H \to G \rtimes H\) by \(s(h) = (1,h)\), then it is easy to check that \(s\) is a injective hormomorphism such that \(\pi \circ s = id_H\), it shows that the sequence splits, and \(H\) can be identified as \(s(H)\).
+\end{proof}
+
+
+
+
+
+\newpage
+
+\subsection{Minimal polynomial}
+
+\begin{lemma}
+    Let \(f:V \to V\) be a linear endomorphism with \(V\) a finite-dimensional vector space over \(k\), and \(\mathcal{V} = \{v_1,\dots,v_n\}\) be a basis of \(V\) such that \(A\) is the matrix of \(f\) with respect to \(\mathcal{V}\), then the minimal polynomial of the matrix  \(A\) is exactly the minimal polynomial of the endomorphism \(f\).
+\end{lemma}
+
+\begin{proof}
+    We consider the twist map \(\varphi : k^n \to V\) defined by \(\varphi(e_i) = v_i\), where \(e_i\) is the standard basis of \(k^n\), then we have the following commutative diagram:
+    % https://q.uiver.app/#q=WzAsNCxbMCwwLCJrXm4iXSxbMCwxLCJrXm4iXSxbMSwwLCJWIl0sWzEsMSwiViJdLFswLDIsIlxcdmFycGhpIl0sWzEsMywiXFx2YXJwaGkiXSxbMCwxLCJBIiwyXSxbMiwzLCJmIl1d
+\[\begin{tikzcd}
+	{k^n} & V \\
+	{k^n} & V
+	\arrow["\varphi", from=1-1, to=1-2]
+	\arrow["A"', from=1-1, to=2-1]
+	\arrow["f", from=1-2, to=2-2]
+	\arrow["\varphi", from=2-1, to=2-2]
+\end{tikzcd}\]
+    thus for any polynomial \(p \in k[X]\), we have \(p(f)\circ \varphi = \varphi \circ p(A)\), hence \(f\) will have the same minimal polynomial as \(A\).
+\end{proof}
+
+\begin{remark}
+    We can consider two representations of \(k[X]\)-module by
+    \[\rho:k[X] \to \End(V), \quad X \mapsto f\]
+    and
+    \[\rho_A:k[X] \to \End(k^n), \quad X \mapsto A\]
+    then \(\varphi\) gives an isomorphism of two representations.
+\end{remark}
+
+
+
 \subsection{Decomposition of endomorphisms}
 
 
@@ -73,4 +160,52 @@ The proof is similar to the real case, we set \(P = \sqrt{A^*A}\) and \(U = AP^{
 \vspace{2ex}
 
 Another useful decomposition is QR decomoposition, which is also called as Gram-Schimidt decompoistion. Suppose that 
+
+
+\subsection{Lattice}
+
+\begin{definition}
+    Let \(V\) be a \(\rr\)-vector space of dimension \(n\)
+\end{definition}
+
+\begin{definition}
+    Let \(V\) be a \(\rr\)-vector space of dimension \(n\), a parallelotope of \(V\) with respect to a basis \(\{v_1, \dots, v_n\}\) is the set of points
+    \[P = \{\sum_{i = 1}^n c_iv_i \mid c_i \in [0,1)\}\]
+    The volume of \(P\) corresponds to the an inner product \(\langle\cdot,\cdot\rangle\) is defined by
+    \[\mathrm{Vol}(P) = \sqrt{\det G(v_1,\dots,v_n)}\]
+    where \(G(v_1,\dots,v_n)\) is the Gram matrix with entries \(G_{ij} = \langle v_i, v_j \rangle\).
+\end{definition}
+
+The definition is resonable with the following reasons:
+\begin{enumerate}
+    \item Let \(P\) be of dimension 3 with respect to the euclidean inner product, then the volume of \(P\) is given by the triple product
+    \[\mathrm{Vol}(P) = |v_1\cdot(v_2\times v_3)| = |\det [v_1, v_2, v_3]|\]
+    with respect to the standard basis.
+
+    \item Let \(\{v_i\}_i\) be an orthogonal basis, then the Gram matrix \(G = I_n\) exactly, hence the volume of a hypercube is 1, which same as what we do in plane geometry and solid geometry.
+    
+    \item 
+\end{enumerate}
+
+with the convention above, it allows us to construct the invrariant measure on any real inner product space.
+
+\begin{proposition}
+    For any real inner product space \(V\) of dimension \(n\), there exists a natural isometry (\(\rr^n\) equipped with the standard inner product) 
+    \[\Phi: \rr^n \to V, \quad (x_1,\dots,x_n) \mapsto \sum_{i=1}^n x_ie_i\]
+    where \(\{e_1,\dots,e_n\}\) is an orthonormal basis of \(V\), then \(\mu = \lambda \circ \Phi^{-1}\) defines a Haar measure on \(V\) such that for any parallelotope \(P\) we have
+    \(\mu(P) = \mathrm{Vol}(P) \) exactly.
+\end{proposition}
+
+\begin{proof}
+    \(\mu\) is exactly a pushforward measure, to verify that it is a Haar measure, we need to check the translation invariance: for any \(v \in V\) and any measurable set \(S \subset V\), we have
+    \[\mu(v+S) = \lambda(\Phi^{-1}(v+S)) = \lambda(\Phi^{-1}(v) + \Phi^{-1}(S)) = \lambda(\Phi^{-1}(S)) = \mu(S)\]
+    where the second equality is due to the linearity of \(\Phi\) and the third equality is due to the translation invariance of the Lebesgue measure \(\lambda\). Now we consider the parallelotope \(P\) with respect to a basis \(\{v_1,\dots,v_n\}\) and set \(\Phi(a_i) = v_i\), then we have
+    \[\mu(P) = \lambda (\Phi^{-1}(P)) = |\det A| = \sqrt{\det A^tA}\]
+    where \(A\) is the matrix with columns \(a_i\), and isometry shows that \(A^TA\) is exactly the Gram matrix \(G(v_1,\dots,v_n)\), which finishes the proof.
+\end{proof}
+
+
+
+
+
 
