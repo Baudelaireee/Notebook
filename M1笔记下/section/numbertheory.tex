@@ -1,4 +1,4 @@
-\section{Algebraic approach to number theory}
+\section{Theory of Algebraic Number}
 \subsection{Norm, Trace and Discriminant}
 
 For any finite extension \(L/K\) of degree \(n\), we can view element \(a \in L\) as a \(K\)-linear map
@@ -354,6 +354,40 @@ and the \textbf{residue index} of \(\pp\) is defined as the extension degree
     where \(\pp_i\) runs over all prime ideals lying over \(p\), with \(e_i\) and \(f_i\) as its ramification index and residue index respectively.
 \end{colorcorollary}
 
+We can talk more about the factorization of prime numbers, which is the basis of the study of arithemtic of number fields.
+
+\begin{enumerate}
+    \item For any number field \(K\), as a separable extension there eixsts \(a \in K\) such that \(K = \qq(a)\) and \(\ok = \zz[a] \cong \zz[X]/(\Pi_a(X))\). We want to study \((p) = p\ok\) for some \textbf{integral prime} \(p\), so it is natural to consider the quotient \(\ok/p\ok\): if the quoitent is a field or just integral domain, we can determine that \((p)\) is prime.
+
+    \item Otherwise, we consider \(\ok\) as a \(\zz\)-module
+    \[\ok/p\ok \cong (\zz/(p)) \otimes_{\zz} \zz[X]/(\Pi_a) \cong \ff_p[X]/(\overline{\Pi}_a)\]
+    we consider the factorization of \(\bar{\Pi}_a\) in \(\ff_p[X]\), it will be unique since \(\ff_p[X]\) is a PID, so by chinese remainder theorem we can decompose the quotient as a product 
+    \[\ok/p\ok \cong \prod_{i}\ff_p[X]/(\bar{Q}_i^{e_{i}})\]
+    notice that the structure is analogoue to the factorization of ideals \((p) = \prod_i \pp^{e_i}\), so it is natural to find \(\pp_i\) by consider the lifting of each irreducible factor \(\bar{Q}_i\), so it motivates us to define
+    \[I_p(Q) = p\ok + Q(a)\ok\]
+    where \(Q \in \zz[X]\) is a monic polynomial such that \(\bar{Q} \in \ff_p[X]\) is a factor of \(\bar{\Pi}_a\).
+
+    \item Notice that \(\bar{a} \mapsto \bar{X}\) gives the first isomorphism in 2, so if \(\bar{Q}\) is a irreducible factor of \(\bar{\Pi}_a\), then  we can conclude  \[I_p(Q)/p\ok \cong (Q)/(Q^{e})\] this is the maximal ideal in local ring \(\ff_p[X]/(Q^{e})\), so by this isomorphism we can conclude that \textbf{\(I_p(Q)\) is the maximal (so prime) ideal.}
+    
+    \item The lifting \(Q\) is not unique, but \(I_p(Q)\) \textbf{does not depend on the choice of} \(Q\): In fact if we set \(Q' \in \zz[X]\) as another lifting of \(\bar{Q}\), then \(Q(a) - Q'(a) = 0 \mod p\), which shows that \(Q(a) \in I_p(Q')\) and \(Q' \in I_p(Q)\) respectively, hence \(I_p(Q) = I_p(Q')\).
+    
+    \item In fact as we have known, the factorization of \((p)\) is unique, so in priori we can write the isomorphism \(\ok/p\ok \cong \prod_{i} \ok/\pp_i^{e_i}\), and \(I_p(Q)\) as we have shown is a prime ideal lying over \(p\), so we can conclude directly the following result (It is another view to prove the uniqueness of factorization of ideals)
+\end{enumerate}
+
+
+\begin{colortheorem}[Dedkind-Kummer] $\\$
+    Let \(K\) be a number field with primitive element \(a\), and \(p \in \zz\) a prime, then
+    \begin{enumerate} [(a)]
+        \item The bijection \(Q \mapsto I_p(Q)\) gives a correspondence
+        \[\{\text{monic factors of } \overline{\Pi}_a \in \ff_p[X]\} \leftrightarrow \{\text{ideal dividing } (p)\}\]
+        \[\{\text{ irreducible factors}\} \leftrightarrow \{\text{prime ideals}\}\]
+        \item The norm of \(I_p(Q)\) is \(p^{\deg(Q)}\). When \(\bar{Q}\) is a irreducible factor, \(\deg (Q)\) is exactly the residue index of \(I_p(Q)\).
+        \item there exists integer \(e_i \in \nn\) such that
+        \[(p) = \prod_i I_p(Q_i)^{e_i}\]
+        where \(\bar{Q}_i\) runs over all distinct irreducible factors of \(\bar{\Pi}_a\) in \(\ff_p[X]\), and \(e_i\) is the multiplicity of \(\bar{Q}_i\) in \(\bar{\Pi}_a\), it is exactly the ramification index of \(I_p(Q_i)\).
+    \end{enumerate}
+    
+\end{colortheorem}
 
 
 
@@ -447,17 +481,88 @@ This theory corresponds to the geometry of numbers, the idea is to consider embe
     for any subset \(S \subset K\) (or \(K_{\infty}\)).
 
     \begin{theorem}[Minkowski's convex theorem] $ \\$
-        Let \(K\) be a number field of degree \(n\) with ring of integers \(\ok\), and let \(\iota(S) \subset K_{\infty}\) be a convex symmetric measurable subset with \(\mathrm{Vol}(\iota(S)) > 2^n \cdot \mathrm{covol}(\iota(\ok))\), then there exists a non-zero element \(x \in \ok\) such that \(\iota(x) \in S\).
+        Let \(K\) be a number field of degree \(n\) with ring of integers \(\ok\), and let \(\iota(S) \subset K_{\infty}\) be a convex symmetric measurable subset with 
+        \[\mu(\iota(S)) > 2^n \cdot \mu(\iota(\ok))\]for any Haar measure on \(K_{\infty}\), then there exists a non-zero element \(x \in \ok\) such that \(\iota(x) \in S\).
     \end{theorem}
-    \begin{proof}
-        
-    \end{proof}
+
+    \textbf{The proof is owe to the theory of lattice, should pay attention to the habite that we usually consider the lebesgue measure \(\lambda\), and choose a proper convex body we can get some interesting results about number fields.}
 
     \begin{colortheorem}
         For any non-zero ideal \(\mathfrak{a}\) in \(\ok\), there exists a non-zero element \(a \in \mathfrak{a}\) such that
-        \[|N_{K/\qq}(a)| \leq M\]
+        \[|N_{K/\qq}(a)| \leq M_K N(\mathfrak{a})\]
+        where \(M_k = \frac{n!}{n^n}(\frac{4}{\pi})^s\sqrt{|d_K|}\) is defined as the \textbf{Minkowski's bound} of \(K\).
     \end{colortheorem}
 
+    \begin{proof}
+        We define a \(L^1\) norm on \(K_{\infty}\) by
+        \[\|(x_1,\dots,x_r,z_1,\dots,z_s)\|_1 = \sum_{i=1}^r |x_i| + 2\sum_{i=1}^s  |z_i|\]
+        and then under this norm we define a convex symmetric body by
+        \[C_R = \{x \in K_{\infty} : \|x\|_1 \leq R\}, \quad R>0\]
+        then we can calculate the volume \(\lambda(C_R) = 2^r(\frac{\pi}{2})^s\frac{R^n}{n!} \), and then we apply Minkowski's theorem here to conclude the lower bound of \(R\) such that \(\mathfrak{a} \cap \iota^{-1}(C_R) \neq \emptyset\) will be
+        \[R^n \geq n! \cdot \frac{2^{n-r}}{\pi^s} \cdot N(\mathfrak{a}) \sqrt{|d_K|}\]
+        under this condition, we set \(a \in \mathfrak{a}\) to be a such element, to estimate the norm of \(a\), we apply \textbf{the inequality of arithmetic and geometric means} to get
+        \begin{align*}
+            |N_{K/\qq}(a)| &= \prod_{\sigma \in \Sigma} |\sigma(a)| \\
+            &\leq \frac{1}{n^n} \|\iota(a)\|_1^n \\
+            &\leq \frac{R^n}{n^n}
+        \end{align*}
+        so it is enough to take the lower bound
+         of \(R\) to finishe the proof.
+    \end{proof}
+
+    \subsection{Logarithmic space and Unit theorem}
+    This section is the complement of the the last section, and the notation will be the same as before for the sake of consistency. 
+
+    \begin{definition}
+        The \textbf{logarithmic space} of \(K\) is defined as the \(\rr\)-vector space \(\mathbb{L} \cong \rr^{r+s}\) together with the map
+        \[l: K^\times \to \mathbb{L}, \quad x \mapsto (a_\sigma \cdot \log|x_{\sigma}|)_{\sigma \in \Sigma_0}\]
+        the map is \textbf{a homomorphism onto a additive group}, i.e.
+        \[l(xy) = l(x) + l(y)\] 
+        For any \(x,y \in K^\times\).
+    \end{definition}
+
+    \begin{remark}
+        The alternative definition is via the minkowski's space
+        % https://q.uiver.app/#q=WzAsMyxbMCwwLCJLIl0sWzEsMCwiS197XFxpbmZ0eX0iXSxbMiwwLCJcXG1hdGhiYntMfSJdLFsxLDIsIlxcbG9nIl0sWzAsMSwiXFxpb3RhIl1d
+\[\begin{tikzcd}
+	K^\times & {K^\times_{\infty}} & {\mathbb{L}}
+	\arrow["\iota", from=1-1, to=1-2]
+	\arrow["\Log", from=1-2, to=1-3]
+\end{tikzcd}\]
+
+with the logarithm map naturally defined by
+\[\log: K^\times_{\infty} \to \mathbb{L}, \quad (x_1,\dots,x_r,z_1,\dots,z_s) \mapsto (\log|x_1|,\dots,\log|x_r|,2\log|z_1|,\dots,2\log|z_s|)\]
+hence exactly here \(l = \Log \circ \iota\), based on the definition we can quickly investigate some properties:
+\begin{itemize}
+    \item The kernel of \(l\) is the group of roots of unity  \(\mu(K)\), hence it motivates us to restrict the map \(l\) on \(\ok^\times\) for the structure.
+    \item Define the norm map
+    \[N: K_{\infty} \to \rr, \quad x \mapsto \prod_{x \text{ real }}x \prod_{z \text{ complex }} |z|^2 \]
+    and trace map
+    \[T: \mathbb{L} \to \rr, \quad x \mapsto \sum_{i=1}^{r+s} x_i\]
+    such that the following diagram commutes
+    % https://q.uiver.app/#q=WzAsNixbMCwwLCJLXlxcdGltZXMiXSxbMSwwLCJLX3tcXGluZnR5fV5cXHRpbWVzIl0sWzIsMCwiXFxtYXRoYmJ7TH0iXSxbMCwxLCJcXG1hdGhiYntRfV5cXHRpbWVzIl0sWzEsMSwiXFxtYXRoYmJ7Un1eXFx0aW1lcyJdLFsyLDEsIlxcbWF0aGJie1J9Il0sWzAsMSwiXFxpb3RhIiwwLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoiaG9vayIsInNpZGUiOiJ0b3AifX19XSxbMSwyLCJcXExvZyJdLFsxLDQsIk4iLDJdLFsyLDUsIlQiLDJdLFszLDQsIiIsMSx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Imhvb2siLCJzaWRlIjoidG9wIn19fV0sWzQsNSwiXFxsb2d8LXwiLDJdLFswLDMsIlxcbWF0aHJte059X3tLL1xcbWF0aGJie1F9fSIsMl1d
+\[\begin{tikzcd}
+	{K^\times} & {K_{\infty}^\times} & {\mathbb{L}} \\
+	{\mathbb{Q}^\times} & {\mathbb{R}^\times} & {\mathbb{R}}
+	\arrow["\iota", hook, from=1-1, to=1-2]
+	\arrow["{\mathrm{N}_{K/\mathbb{Q}}}"', from=1-1, to=2-1]
+	\arrow["\Log", from=1-2, to=1-3]
+	\arrow["N"', from=1-2, to=2-2]
+	\arrow["T"', from=1-3, to=2-3]
+	\arrow[hook, from=2-1, to=2-2]
+	\arrow["{\log|-|}"', from=2-2, to=2-3]
+\end{tikzcd}\]
+
+    \item To restrict the map, notice the following equivalent conditions
+    \[x \in \ok^\times \iff \mathrm{N}_{K/\mathbb{Q}}(x) = \pm 1 \iff N(\iota(x)) = \pm 1 \iff T(l(x)) = 0\]
+    Hence it motivates us to define the \textbf{hyperplane}
+    \[H := \{x \in \mathbb{L} \mid x_1 + \cdots + x_{r+s} = 0\} \]
+    as the \(r+s-1\) dimensional subspace of \(\mathbb{L}\) 
+    
+\end{itemize}
+
+    \end{remark}
+    \newpage
     \subsection{Class group and Class number}
 
 It is natural to consider the group structre of the ideal under multplication since the factorization of prime ideals is unqiue, similarly with \(\zz\), it can not exactly forms a group under mutiplication, and it needs a "localization" to complete the elements, it is back to the dedekind's original definition of ideal.
@@ -477,7 +582,7 @@ It is natural to consider the group structre of the ideal under multplication si
         \item Notice that \(x\mathfrak{a} \subset \ok\) is equivalent to \(x\mathfrak{a}\) is an integral ideal, hence the definition can be expressed precisely by saying that a fractional ideal is a set of the form
         \[xI := \{xa \mid a \in I\} \subset K\] 
         where \(x \in K-\{0\}\) and \(I\) is an intergal ideal, since as a fractional field \(K = \mathrm{Frac}(\ok)\), we can always write \(x = a/b\) with \(a,b \in \ok\).
- 
+
     \end{itemize}
 \end{remark}
 
@@ -498,7 +603,7 @@ It is natural to consider the group structre of the ideal under multplication si
 \begin{remark}
     There are serval imediate consequences of the properties:
     \begin{enumerate}
-        \item \(J_k\) forms a abelian group under multiplication, it is clear that \(\ok=(1)\) is the identity, so for any fractional ideal \(\mathfrak{a} = \mathfrak{p}_1^{r_n} \cdots \pp_n^{r_n}\), we can exactly find an inverse by \(\mathfrak{a}^{-1} = \mathfrak{p}_1^{-r_1} \cdots \pp_n^{-r_n}\) since lemma \ref{lemma2forfract} shows that \(\mathfrak{a}\mathfrak{a}^{-1} = \ok\). In the sense of monoid, the existence of inverse ensures uniqueness of inverse, hence \(J_K\) is exactly a group.
+        \item \(J_K\) forms a abelian group under multiplication, it is clear that \(\ok=(1)\) is the identity, so for any fractional ideal \(\mathfrak{a} = \mathfrak{p}_1^{r_n} \cdots \pp_n^{r_n}\), we can exactly find an inverse by \(\mathfrak{a}^{-1} = \mathfrak{p}_1^{-r_1} \cdots \pp_n^{-r_n}\) since lemma \ref{lemma2forfract} shows that \(\mathfrak{a}\mathfrak{a}^{-1} = \ok\). In the sense of monoid, the existence of inverse ensures uniqueness of inverse, hence \(J_K\) is exactly a group.
         \item Indeed \(J_K\) is a free abelian group generated by the prime ideals, it is immediate by a natural bijection
         \[v:  J_K \to \zz^{(\mathcal{P})}  , \quad \prod_{\pp \in \mathcal{P}} \mathfrak{p}_\pp^{a_\pp} \mapsto  (a_{\pp})_{\pp \in \mathcal{P}} \]
         where \(\mathcal{P}\) is the set of all prime ideals of \(\ok\).
@@ -517,14 +622,14 @@ It is natural to consider the group structre of the ideal under multplication si
 
 \begin{colorlemma}
     In each class of, there exists an integral ideal \(I\) such that
-    \[N(I) \leq (\frac{2}{\pi})^s\sqrt{|d_K|}\]
-where \(d_K\) is the discriminant of \(K\), thus \(J_K/P_K\) is exactly a finite abelian group, and we call it the \textbf{class group} of \(K\), and its order is called the \textbf{class number} of \(K\).
+    \[N(I) \leq M_K\]
+where \(M_k\) is the Minkowski's bound of \(K\), thus \(J_K/P_K\) is exactly a finite abelian group, and we call it the \textbf{class group} of \(K\), and its order is called the \textbf{class number} of \(K\).
 \end{colorlemma}
 \begin{proof}
     \(J_K\) is an abelian group with \(P_K\) as its subgroup, and the relation defined above is exactly the relation defined by cosets of \(P_K\), so it is enough to show the first statement, since there exists only finitely many ideal of \(\ok\) with norm less than a fixed number, and each class can be represented by an integral ideal.
 
     For any class [\(\mathfrak{a}\)], let \(y \in \ok\) such that \(y\mathfrak{a}^{-1} \subset \ok\) be a non-zero ideal of \(\ok\), the there exists a non-zero element \(x \in y\mathfrak{a}^{-1}\) such that
-    \[|N_{K/\qq}(x)| \leq (\frac{2}{\pi})^s\sqrt{|d_K|} N(y\mathfrak{a^{-1}})\]
+    \[|N_{K/\qq}(x)| \leq M_K N(y\mathfrak{a^{-1}})\]
     we set \(xy^{-1}\mathfrak{a} = \mathfrak{b}\), then \(\mathfrak{b}\) is an integral ideal since \(xy^{-1} \in \mathfrak{a}^{-1}\), hence we multiply the inequality both sides by \(N(y^{-1}\mathfrak{a})\) to conclude that \(\mathfrak{b}\) is exactly the ideal we hope for the class.
 \end{proof}
 

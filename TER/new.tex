@@ -15,7 +15,6 @@
 \usepackage{cancel}
 \usepackage[retainorgcmds]{IEEEtrantools}
 \usepackage[margin=3cm]{geometry}
-\usepackage{amsmath}
 \newlength{\tabcont}
 \setlength{\parindent}{0.0in}
 \setlength{\parskip}{0.05in}
@@ -23,6 +22,7 @@
 \usepackage{framed}
 \usepackage[most]{tcolorbox}
 \usepackage{xcolor}
+\usepackage{tikz-cd}
 \colorlet{shadecolor}{orange!15}
 \parindent 0in
 \parskip 12pt
@@ -58,6 +58,10 @@
 \newcommand{\spec}{\operatorname{Spec}}
 \newcommand{\Res}{\operatorname{Res}}
 
+\newcommand{\ok}{\mathcal{O}_k}
+\newcommand{\mm}{\mathfrak{m}}
+\newcommand{\pp}{\mathfrak{p}}
+
 
 
 
@@ -81,13 +85,13 @@
 \section{Riemann's zeta function}
 
 \subsection{Riemann's idea I: analytical continuation of zeta function}
-As the core object in number theory, it is formally defined as a meomorphic function on a complex pane by Riemann in 1859, in his famous-9-page paper. \textbf{This section is the reconstruction of the zeta function along the Riemann's original ideas, it refers to pages 1 and 2 of the original paper.}
+As the core object in number theory, it is formally defined as a meromorphic function on a complex plane by Riemann in 1859, in his famous-9-page paper. \textbf{This section is the reconstruction of the zeta function along the Riemann's original ideas, it refers to pages 1 and 2 of the original paper.}
 \begin{equation} \label{eulerproduct}
     \sum_{n \geq 1} \frac{1}{n^s}  = \prod_p \frac{1}{1-p^{-s}}
 \end{equation}
-This is Euler's product formula proved by Euler (among 1740), with the basic ideas of geometrical series
+This is Euler's product formula proved by Euler (around 1740), with the basic ideas of geometric series
 \[ \frac{1}{1-p^{-s}} =  1 + p^{-s} + p^{-2s}+\cdots \]
-using unique factorization to build a basic correspondence of  terms. The formal proof of the formula holds true in half-plane $\Re(z)>1$ is given by Dirichlet, it is important that the analytical formula makes sense and plays an core role in the analytic number theory. As the student of Dirichlet, Riemann exactly knows the analytical results about the series, and in his era, complex analysis was the advanced branch and analytical continuation was developed completely, hence Riemann tried to treat the Euler's formula \ref{eulerproduct} as an analytical function instead of a formal identity:
+using unique factorization to build a basic correspondence between terms. The formal proof of the formula holds true in half-plane $\Re(s)>1$ is given by Dirichlet, it is important that the analytic formula makes sense and plays a core role in the analytic number theory. As a student of Dirichlet, Riemann knew the analytic results about the series exactly, and in his era, complex analysis was an advanced branch and analytic continuation was developed completely, hence Riemann tried to treat Euler's formula \ref{eulerproduct} as an analytic function instead of a formal identity:
 \[\zeta(s) = \sum_{n\geq 1} \frac{1}{n^s}, \quad \Re(s)>1\]
 A similar object is the Gamma function, which was called "factorial function" in the age of Gauss and Euler, and Euler noticed an identity of integration:
 \begin{equation} \label{eulergamma}
@@ -95,13 +99,13 @@ A similar object is the Gamma function, which was called "factorial function" in
 \end{equation}
 which motivates Gauss (1813) to introduce the notation
 \[ \Pi(s) = \int_0^{\infty} e^{-x}x^sdx, \quad \Re(s)>-1 \]
-By the mordern notation, \(\Pi(s-1) = \Gamma(s)\). Before Riemann developed the zeta function, some importatnt functional equation of Gamma function was already known, especially the following results:
+By the mordern notation, \(\Pi(s-1) = \Gamma(s)\). Before Riemann developed the zeta function, some important functional equations of the Gamma function were already known, especially the following results:
 \begin{align}
     \Gamma(s+1) &= s \Gamma(s) \label{gammafunc} \\
     \Gamma(s) \Gamma(1-s) &= \frac{\pi}{\sin(\pi s)} \label{reflection} \\
     \Gamma(s) \Gamma\left(s+\frac{1}{2}\right) &= 2^{1-2s} \sqrt{\pi} \Gamma(2s) \label{duplication}
 \end{align}
-the duplication formula was developed by Legendre (1809), many results about Gamma function was developed by Euler and Gauss, Riemann surely knew these and he give the analytical continuation of zeta function by the following integration:
+the duplication formula was developed by Legendre (1809), many results about the Gamma function were developed by Euler and Gauss, Riemann surely knew these and he gave the analytic continuation of the zeta function by the following integration:
 \begin{equation} \label{prezetagamma}
 \int_0^{\infty} e^{-nx}x^{s-1} dx = \frac{\Gamma(s)}{n^s}
 \end{equation}
@@ -109,9 +113,9 @@ hence it is natural to consider the summation, it is not difficult to conclude t
 \begin{equation} \label{zetagamma}
 \int_{0}^{\infty} \frac{x^{s-1}}{e^x-1} dx = \Gamma(s) \zeta(s), \quad \Re(s)>1
 \end{equation}
-Then Riemann considered the contour intgeral
+Then Riemann considered the contour integral
 \[\int_{\mathcal{H}} \frac{(-z)^{s-1}}{e^z - 1} dz\]
-where the contour \(\mathcal{H}\) can be drawed as following:
+where the contour \(\mathcal{H}\) can be drawn as following:
 
 \begin{figure}[h]
     \centering
@@ -134,7 +138,7 @@ the identity makes sense when \(z \notin [0,+\infty)\), hence \(f\) is exactly w
 \end{align*}
 By argument principle, for any \(z \in \cc-\rr_-\) we have
 \[\Log|z| = \ln|z| + i\cdot \arg(z) \]
-where \(\arg\) is a continous function with value in \((-\pi,\pi)\), which allows us to take limit
+where \(\arg\) is a continuous function with value in \((-\pi,\pi)\), which allows us to take limit
 \[\Log(-x+i \delta) = \ln \sqrt{x^2+\delta^2}+i\cdot \arg(-x+i\delta) \xrightarrow[\varepsilon \rightarrow 0]{} \ln x + i\pi \] 
 Hence we can evaluate
 \[\int_{\gamma_+ \cup \gamma_-} f(z) dz \xrightarrow[\varepsilon \rightarrow 0]{} (e^{-i\pi s}-e^{i\pi s})\int_{0}^T \frac{x^{s-1}}{e^x - 1} dx \]
@@ -608,12 +612,280 @@ i.e. we set \(y  = l^{1/N}c\)  with \(l  = \|y\|\), then we have
 \]
 
 
-
-
-
-
-
 \end{proof}
+
+
+
+\section{Hecke L-function}
+\subsection{Größencharakter}
+As we have done for Riemann zeta function, we hope to consider dedekind zeta function with character, so it is natural to consider the character
+\[\chi_{\mathfrak{m}}:  (\ok/\mathfrak{m})^* \to \cc^*\]
+where \(\mm\) is an ideal in \(\ok\). Notice that \(\ok/\mm\) is finite, so the character is finite onto \(\sph^1\) exactly. However, ring of integers \(\ok\) is not always a UFD, so it is natural to consider the character on ideals.
+
+Firstly set some notation here:\\
+
+- \(J(\mm) = \{\mathfrak{a} \in J_k \mid v_{\pp}(\mathfrak{a}) = 0,\ \forall \pp \mid \mm\}\)  \quad fractional ideals coprime with \(\mm\)
+
+- \(P(\mm) = J(\mm) \cap P_k\) \quad principal ideals coprime with \(\mm\)
+
+- \(\iota: k^* \to P_k, x \mapsto (x)\) is a surjective group homomorphism with kernel \(\ok^*\) the group of units.
+
+- \(k(\mm) = \iota^{-1}(P(\mm))\) \quad the pre-image, it is a subgroup of \(k^*\)
+
+
+\textbf{The first things is to translate the additive group structure to multiplicative group structure, from elements to ideals}
+
+To determine which elements are inversible in \(\ok/\mm\), we can write
+\begin{align*}
+    \bar{a} \in (\ok/\mm)^* & \iff \exists b \in \ok, ab = 1 \mod \mm \\
+    & \implies 1 = ab + (ab - 1) \in (a) + \mm \\
+    & \implies (a) + \mm = \ok
+\end{align*}
+conversely, if \((a)+\mm = \ok\), then there exists \(x \in \mm\) and \(b \in \ok\) such that \(1 = ab + x\), so \(ab - 1 = x  = 1 \mod \mm\), hence we have
+\[\ok(\mm) = \{a \in \ok \mid (a) + \mm = \ok\} = k(\mm) \cap \ok \]
+where \(\ok(\mm)\) is exactly the set of elements which are invertible in \(\ok/\mm\), so it restricts us to consider characters on \(k(\mm)\).
+
+Then we rewrite the residue class, for any \(a,b \in k(\mm)\)
+\begin{align*}
+    a = b \mod \mm & \iff a-b \in \mm \\
+    & \iff \mm | (a-b) \\
+    & \iff v_{\pp}(a-b) \geq v_{\pp}(\mm), \forall \pp (| \mm) \\
+    & \iff a-b \in S
+\end{align*}
+ where \(S = \{x \in k(\mm) \mid v_{\pp}(x) \geq v_{\pp}(\mm), \forall \pp (| \mm)  \}\) as the set of elements \(x = 0 \mod \mm\). We can investigate the structure of \(S\) to find that
+ \begin{itemize}
+    \item \(a,b \in S\) then \(ab \in S\): \(v_{\pp}(ab) = v_{\pp}(a)+ v_{\pp}(b) \geq 2v_{\pp}(\mm) \geq v_{\pp}(\mm)\).
+    \item \(S\) is not a subgroup since for any \(a \in S\), \(v_{\pp}(a^{-1}) = -v_{\pp}(a) \leq 0\).
+    \item \(aS = S\) for any \(a \in k(\mm)\): for any \(s \in S\), we have 
+    \[v_{\pp}(as) = v_{\pp}(a)+v_{\pp}(s) \geq 0 + v_{\pp}(\mm)\]
+    where \(\pp | \mm\), so it is enough to get \(as \in S\). Conversely, \(a^{-1} \in k(\mm)\) since \(k(\mm)\) is a group, hence for any \(s \in S\),
+    \[v_{\pp}(s) = v_{\pp}(a^{-1})+v_{\pp}(as) = v_{\pp}(as)\]
+    which implies \(as \in S\).
+ \end{itemize}
+
+ Hence \(S\) is not a good choice to rewrite the residue class, but by the final point above, we can keep going on 
+ \begin{align*}
+    a = b \mod \mm &\iff a \in b +S = b+bS = b(1+S) \\
+    &\iff a/b \in 1 + S
+ \end{align*}
+
+ so here the relation given by addition turns to a relation given by multiplication, and hence we can define
+ \begin{align*}
+    k_{\mm} =1+S &= \{x \in k(\mm) \mid v_{\pp}(x-1) \geq v_{\pp}(\mm), \forall \pp (| \mm)  \} \\
+    &= \{x \in k(\mm) \mid x = 1 \mod \mm\}
+    \end{align*}
+ and then we can conclude the following things:
+
+ \begin{lemma}
+    \(k_{\mm}\) is a subgroup of \(k(\mm)\), and there exists an isomorphism
+    \[(\ok/\mm)^* \to k(\mm)/k_{\mm}, \quad x + \mm \mapsto x \cdot k_{\mm}\]
+    hence any character \(\chi_{\mm}\) on \((\ok/\mm)^*\) can be lifted to a character \(f\) on \(k(\mm)\) with \(f|_{k_{\mm}} = 1 \); Conversely, any such character can be pushed down to a character on \((\ok/\mm)^*\).
+ \end{lemma}
+ 
+ Now we consider the principal ideals by natural map:
+ \[\iota: k(\mm) \to P(\mm), \quad x \mapsto (x) = x \ok \]
+ then the kernel is \(\ok^* \cap k(\mm) = \ok^*\) such that we can consider the following diagram
+ % https://q.uiver.app/#q=WzAsNCxbMCwwLCJrKFxcbWF0aGZyYWt7bX0pIl0sWzEsMCwiUChcXG1hdGhmcmFre219KSJdLFsxLDEsIlAoXFxtYXRoZnJha3ttfSkvUF97XFxtYXRoZnJha3ttfX0iXSxbMCwxLCJrKFxcbWF0aGZyYWt7bX0pL1xcb2teKiBcXGNkb3Qga197XFxtYXRoZnJha3ttfX0iXSxbMCwxLCJcXGlvdGEiXSxbMSwyXSxbMCwzXSxbMywyLCJcXHNpbSIsMCx7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dXQ==
+\[\begin{tikzcd}
+	{k(\mathfrak{m})} & {P(\mathfrak{m})} \\
+	{k(\mathfrak{m})/ \mathcal{O}_k^* \cdot k_{\mathfrak{m}}} & {P(\mathfrak{m})/P_{\mathfrak{m}}}
+	\arrow["\iota", from=1-1, to=1-2]
+	\arrow[from=1-1, to=2-1]
+	\arrow["\pi", from=1-2, to=2-2]
+	\arrow["\sim", dashed, from=2-1, to=2-2]
+\end{tikzcd}\]
+here the kernel is calculated as following
+\begin{align*}
+    \ker(\pi \circ \iota) &= \{x \in k(\mm) \mid (x) \in P_{\mathfrak{m}}\} \\
+    &= \{x \in k(\mm) \mid \exists u\in \ok^*,  ux \in k_{\mathfrak{m}}\} \\
+    &= \ok^* \cdot k_{\mathfrak{m}}
+\end{align*}
+
+\textbf{Then we consider the infinite places, it is necessary to handle unit here.}
+
+We set the minkowski's space \(k^*_{\infty} = (\rr^*)^r\times (\cc^*)^s\), and then 
+% https://q.uiver.app/#q=WzAsMyxbMCwwLCJrXioiXSxbMSwwLCJrXipfe1xcaW5mdHl9Il0sWzIsMCwiXFxtYXRoYmJ7Q31eKiJdLFswLDEsImkiLDAseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJob29rIiwic2lkZSI6InRvcCJ9fX1dLFsxLDIsIlxcY2hpX3tcXGluZnR5fSJdXQ==
+\[\begin{tikzcd}
+	{k^*} & {k^*_{\infty}} & {\mathbb{C}^*}
+	\arrow["i", hook, from=1-1, to=1-2]
+	\arrow["{\chi_{\infty}}", from=1-2, to=1-3]
+\end{tikzcd}\]
+
+we consider the continous character here, its form can be determined as following
+\begin{lemma}
+    Along the notation
+    \begin{enumerate}
+        \item Any continous character \(\rr^* \to \cc^*\) is of the form 
+        \[\chi(t) = \chi(\mathrm{sign}(t)) \cdot |t|^{\lambda}\]
+        with \(\lambda \in \cc\) and \(\mathrm{sign}(t) = \frac{t}{|t|} = \pm 1\).
+        \item Any continous character \(\cc^* \to \cc^*\) is of the form
+        \[\chi(z) = (\frac{z}{|z|})^n \cdot |z|^{\lambda}\]
+        with \(\lambda \in \cc\) and \(n \in \zz\).
+        \item Any continous character \(\chi_{\infty}: k^*_{\infty} \to \cc^*\) is of the form
+        \[\chi_{\infty}(x) =w(x) \cdot \prod_v |x_v|^{it_v}\]
+        where \(t_v \in \rr\) while \(w\) is a finite character on the group of units \(U_{\infty} = \{x \in k^*_{\infty} \mid |x_v| = 1, \forall v\}\).
+    \end{enumerate}
+\end{lemma}
+
+\begin{proof}
+    
+\end{proof}
+
+The reason why we consider the character on infinite places is as following: for a character \(\chi_{\mm} : (\ok/\mm)^* \to \sph^1\), we consider its induced character \(f:k(\mm) \to \sph^1\) with \(f|_{k_{\mm}} = {1}\). It motivates us to define as following
+\[\chi: P(\mm) \to \sph^1, \quad (a) \mapsto f(a)\]
+however, here are some problems:
+\begin{itemize}
+    \item Any \(\mathfrak{a} \in J(\mm)\), then \(\mathfrak{a}^h = (a) \in P(\mm)\) with \(h\) here the class number, so we can try to extend \(\chi\) on \(P(\mm)\) by writing
+    \[\chi(\mathfrak{a})^h = \chi((a)) = f(a)\]
+    but the extension is not unique since we can choose any \(h\)-th root of \(f(a)\) to be \(\chi(\mathfrak{a})\).
+
+    \item Above map we defined is not well-defined: if \((a) = (b) = (ua)\) for some unit \(u\), then we have 
+    \[\chi((a)) = \chi((ua)) \iff f(u) = 1\]
+    but \(f\) can be non-trival on units, so problems comes out.
+
+    \item To solve the problem, we try to invite the character on infinite places satisfying
+    \[\chi((a)) = f(a)\cdot \chi_{\infty}(i(a)) \quad \forall a \in k(\mm)\]
+    in this case if \(u \in \ok^*\)
+    \[1 = f(u) \cdot \chi_{\infty}(i(u))\]
+    and if \(a \in k_{\mathfrak{m}}\) such that \(f(a) =1\)
+    \[\chi((a)) = \chi_{\infty}(i(a))\]
+    this gives the restrictions on \(\chi\), or a commute digram as following
+    % https://q.uiver.app/#q=WzAsNCxbMSwwLCJQKFxcbWF0aGZyYWt7bX0pIl0sWzEsMSwiXFxtYXRoYmJ7U31eMSJdLFswLDAsImtfe1xcbWF0aGZyYWt7bX19Il0sWzAsMSwia14qX3tcXGluZnR5fSJdLFswLDEsIlxcY2hpIl0sWzIsMCwiXFxpb3RhIl0sWzIsMywiIiwyLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoiaG9vayIsInNpZGUiOiJib3R0b20ifX19XSxbMywxLCJcXGNoaV97XFxpbmZ0eX0iLDJdXQ==
+\[\begin{tikzcd}
+	{k_{\mathfrak{m}}} & {P(\mathfrak{m})} \\
+	{k^*_{\infty}} & {\mathbb{S}^1}
+	\arrow["\iota", from=1-1, to=1-2]
+	\arrow[hook', from=1-1, to=2-1]
+	\arrow["\chi", from=1-2, to=2-2]
+	\arrow["{\chi_{\infty}}"', from=2-1, to=2-2]
+\end{tikzcd}\]
+
+\end{itemize}
+
+
+
+\begin{theorem}[Weak apporximation theorem] $ \\$
+    Let \(v_1,\dots,v_m\) be pairwise inequivalent \textbf{absolute values} of the field \(k\), and \(a_1,\dots,a_m \in k\) be any elements, then for any \(\epsilon > 0\), there exists an element \(x \in k\) such that
+    \[v_i(x-a_i) < \epsilon \quad \text{for} i = 1,\dots,m\]
+\end{theorem}
+
+\begin{proof}
+    notice that for any \(i\), there exists an element \(y_i\) such that
+    \[v_j(y_i) \begin{cases}
+        >1 \quad j = i \\
+        <1 \quad j \neq i
+    \end{cases} \]
+    hence  we can consider the sequence \(x^{(i)}_n = \frac{y_i^n}{1+ y_i^n}\), then 
+    \[v_j(x^{(i)}_n) \xrightarrow{n \rightarrow \infty} \begin{cases}
+        1 \quad j = i \\
+        0 \quad j \neq i
+    \end{cases}\]
+    Hence we can consider \(x_n = \sum_{k=1}^m a_kx^{(k)}_n\), then for any \(i\) we have
+    \begin{align*}
+    v_i(x_n - a_i) &= v_i(a_i)v_i(1-x_n^{(i)}) + \sum_{k \neq i}v_i(a_k)v_i(x_n^{(k)}) \\
+    &\xrightarrow{n \rightarrow \infty} v_i(a_i) \cdot 0 + 0 = 0
+    \end{align*}
+    so we can choose a suitable \(n\) for any \(\epsilon > 0\) such that \(v_i(x_n - a_i) < \epsilon\) for any \(i\).
+\end{proof}
+
+\begin{corollary}
+    \(k_{\mm}\) is dense in \(k_{\infty}^*\) under the embedding
+    \[i: k \hookrightarrow k_{\infty}, \quad x \mapsto (x_\sigma)_{\sigma \in\Sigma_o}\]
+    where \(\Sigma_0\) is the set of ditinct embeddings up to conjuation, and \(x_\sigma = \sigma(x)\) is the image of \(x\) under embedding \(\sigma\).
+\end{corollary}
+
+\begin{proof}
+    Let \(S = S_{\mm} \cup S_{\infty}\) be a set of absolute values on \(k\), where \(S_{\mm}\) is the set of non-archmedean absolute values given by prime ideals diving \(\mm\), while \(S_{\infty}\) is the set of archemedean absolute values given by \(v(x) = |\sigma(x)|\) for any \(\sigma \in \Sigma_0\). Hence we choose \(a_v = 1\) if \(v \in S_{\mm}\), and \(a_v \in k^*\) arbitrary if \(v \in S_{\infty}\), apply the weak approximation theorem, we can get an element \(x \in k\) such that \(v(x-1) < 1\) for any \(v \in S_{\mm}\), and \(v(x-a_v) < \epsilon\) for any \(v \in S_{\infty}\). The first condition implies that \(x \in k_{\mm}\), while the second condition implies that \(i(x)\) is close to \((a_v)_v\) in \(k_{\infty}^*\), hence we can conclude that \(i(k_{\mm}) \subset i(k^*)\) dense, and then we can conclude that \(k_{\mm}\) is dense in \(k_{\infty}^*\) since \(i(k)\) is dense in \(k_{\infty}\).
+\end{proof}
+
+With enough preparation, we can define the character defined by Hecke (1920) in his original paper as following
+
+\begin{definition}
+    Let \(\mm\) be an ideal of \(\ok\), a \textbf{Größencharakter modulo \(\mm\)} is a character \(\chi: J(\mm) \to \sph^1\) for which there eixsts a pair of (continous) characters
+    \[\chi_{\mm}: (\ok/\mm)^* \to \sph^1, \quad \chi_{\infty}: k_{\infty}^* \to \sph^1\]
+    such that
+    \[\chi((a)) = \chi_{\mm}(\bar{a}) \cdot \chi_{\infty}(i(a))\]
+    for any \(a \in k(\mm) \cap \ok\).
+\end{definition}
+
+\begin{remark}
+    Here are several explanations:
+    \begin{itemize}
+        \item \(\chi_m\) can be identifies as a character \(f: k(\mm) \to \sph^1\) as before, what we do here is to translate the relation before back to \(\chi_{\mm}\).
+        
+        \item Review that \(\chi((a)) = \chi_{\infty}(i(a)\) for any \(a \in k_{\mm}\), the condition of continuity uniqeuly determines \(\chi_{\infty}\) since embedding \(k_{\mm}\) is dense in \(k^*_{\infty}\).
+        
+        \item Conversely, we can determine \(\chi\) by the values on \(P(\mm)\), but it is not unqiue.
+    \end{itemize}
+
+\end{remark}
+
+\subsection{Ideal number system}
+
+In Hecke's papaer, he uses the notation of ideal numbers to make sum on ideals can be written as sum of elemenets, that is what we done above in Dedekind zeta function to to make the functional equation.
+
+\begin{definition}
+    For a number field \(k\), the \textbf{ideal number system} of \(k\) is a multiplicative abelian group \(\hat{k^*}\) containing \(k^*\) such that the following diagram commutes and the rows are exact sequences
+    % https://q.uiver.app/#q=WzAsMTAsWzAsMCwiMCJdLFsxLDAsIlxcb2teKiJdLFsyLDAsImteKiJdLFszLDAsIlBfayJdLFs0LDAsIjAiXSxbMSwxLCJcXG9rXioiXSxbMCwxLCIwIl0sWzIsMSwiXFxoYXR7a14qfSJdLFszLDEsIkpfayJdLFs0LDEsIjAiXSxbMCwxXSxbMSwyLCIiLDAseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJob29rIiwic2lkZSI6InRvcCJ9fX1dLFsyLDNdLFszLDQsIlxcaW90YSJdLFsxLDUsIiIsMCx7InN0eWxlIjp7ImhlYWQiOnsibmFtZSI6Im5vbmUifX19XSxbNiw1XSxbNSw3XSxbNyw4XSxbOCw5XSxbMiw3LCIiLDEseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJob29rIiwic2lkZSI6ImJvdHRvbSJ9fX1dLFszLDgsIiIsMSx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Imhvb2siLCJzaWRlIjoiYm90dG9tIn19fV1d
+\[\begin{tikzcd}
+	1 & {\ok^*} & {k^*} & {P_k} & 1 \\
+	1 & {\ok^*} & {\hat{k^*}} & {J_k} & 1
+	\arrow[from=1-1, to=1-2]
+	\arrow[hook, from=1-2, to=1-3]
+	\arrow[no head, from=1-2, to=2-2]
+	\arrow[from=1-3, to=1-4]
+	\arrow[hook', from=1-3, to=2-3]
+	\arrow[ from=1-4, to=1-5]
+	\arrow[hook', from=1-4, to=2-4]
+	\arrow[from=2-1, to=2-2]
+	\arrow[from=2-2, to=2-3]
+	\arrow[from=2-3, to=2-4]
+	\arrow[from=2-4, to=2-5]
+\end{tikzcd}\]
+\end{definition}
+
+\textbf{The construction of the system can be done as following:}
+
+By the theory of Minkowski, there exists a prime ideal \(\pp\) in each class in class group \(J_k/P_k\), so for any class we choose exactly one prime ideal \(\pp\) as the representative, then there eixts a divisor \(d\) of class number \(h_k\) such that \(\pp^d = (a)\) for some \(a \in \ok\), hence we define \(\hat{p} \in \bar{k^*}\) as an ideal number of \(\pp\) which statisfies \((\hat{p}) = \pp\), immediately \(\hat{p}^d = ua\) for some unit \(u\).
+
+Then we can define \(\hat{k^*}\) as a group generated by \(k^*\) and finite ideal numbers \(\hat{p}\) of all classes (notice that in principal class, \(\hat{p}\) is just in \(k^*\)). Now if we take any fractional ideals \(\mathfrak{b}\), it will be in some class \([\pp]\), then there exists \(x \in k^*\) such that
+\[\mathfrak{b} = (x)\pp = (x)(\hat{p}) \]
+\textcolor{red}{anyway some problem here ... }
+
+some properties of the system:
+
+\begin{itemize}
+    \item By two exact sequences, we have \(k^*/\ok^* \cong P_k\) and \(\hat{k^*}/\ok^* \cong J_k\), hence by isomorphism theorem, we can conclude an isomorphism for class group
+    \[\hat{k^*}/k^* \cong J_k/P_k\]
+    \item The norm of elements can be extends to ideal numbers as following:
+    \[\mathcal{N}(\hat{a}) = N((\hat{a}))\]
+    i.e. make use of the absolute norm of ideals, clearly if we restrict the norm on \(k^*\), it will be the algebraic norm \(N_{k/\qq}\).
+    \item Let \(\hat{a} \in k^*\), we call it an ideal integer if \((\hat{a})\) is an integral ideal, and we define \(\widehat{\mathcal{O}}\) as the set of all ideal integers, it is a semi-group (may not have a ) under multiplication
+
+\end{itemize}
+
+
+\subsection{Primitive character and Gauss sum}
+
+
+\newpage
+
+
+\section{Tate's Thesis}
+
+\subsection{Adele Ring}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

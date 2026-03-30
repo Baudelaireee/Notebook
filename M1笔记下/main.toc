@@ -7,10 +7,11 @@
 \contentsline {subsection}{\numberline {2.1}Basic properties}{8}{subsection.2.1}%
 \contentsline {subsection}{\numberline {2.2}Homogeneous Spaces}{15}{subsection.2.2}%
 \contentsline {subsection}{\numberline {2.3}The Pontryagin Duality}{17}{subsection.2.3}%
-\contentsline {section}{\numberline {3}Linear Lie groups and its Lie algebra}{21}{section.3}%
+\contentsline {section}{\numberline {3}Classical Groups and Lie algebras}{21}{section.3}%
 \contentsline {subsection}{\numberline {3.1}Exponential map}{21}{subsection.3.1}%
 \contentsline {subsection}{\numberline {3.2}General linear group}{24}{subsection.3.2}%
 \contentsline {subsection}{\numberline {3.3}Adjoint map}{26}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}The category of representation}{28}{subsection.3.4}%
 \contentsline {section}{\numberline {4}Lie Algebra}{29}{section.4}%
 \contentsline {subsection}{\numberline {4.1}Ideal}{29}{subsection.4.1}%
 \contentsline {subsection}{\numberline {4.2}Killing form}{31}{subsection.4.2}%
@@ -20,12 +21,13 @@
 \contentsline {subsection}{\numberline {5.3}Normal extension and Automorphism}{36}{subsection.5.3}%
 \contentsline {subsection}{\numberline {5.4}Separable extension}{38}{subsection.5.4}%
 \contentsline {subsection}{\numberline {5.5}Galois extension}{42}{subsection.5.5}%
-\contentsline {section}{\numberline {6}Algebraic approach to number theory}{45}{section.6}%
-\contentsline {subsection}{\numberline {6.1}Norm, Trace and Discriminant}{45}{subsection.6.1}%
-\contentsline {subsection}{\numberline {6.2}Number fields}{49}{subsection.6.2}%
-\contentsline {subsection}{\numberline {6.3}Minkowski's space}{54}{subsection.6.3}%
-\contentsline {subsection}{\numberline {6.4}Class group and Class number}{56}{subsection.6.4}%
-\contentsline {section}{\numberline {7}Analytic approach to number theory}{59}{section.7}%
-\contentsline {subsection}{\numberline {7.1}Characater}{59}{subsection.7.1}%
-\contentsline {subsubsection}{\numberline {7.1.1}Legendre Symbol}{62}{subsubsection.7.1.1}%
-\contentsline {subsubsection}{\numberline {7.1.2}Dirichlet Character}{62}{subsubsection.7.1.2}%
+\contentsline {section}{\numberline {6}Theory of Algebraic Number}{48}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Norm, Trace and Discriminant}{48}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Number fields}{52}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Minkowski's space}{58}{subsection.6.3}%
+\contentsline {subsection}{\numberline {6.4}Logarithmic space and Unit theorem}{61}{subsection.6.4}%
+\contentsline {subsection}{\numberline {6.5}Class group and Class number}{63}{subsection.6.5}%
+\contentsline {section}{\numberline {7}Analytic approach to number theory}{65}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Characater}{65}{subsection.7.1}%
+\contentsline {subsubsection}{\numberline {7.1.1}Legendre Symbol}{68}{subsubsection.7.1.1}%
+\contentsline {subsubsection}{\numberline {7.1.2}Dirichlet Character}{68}{subsubsection.7.1.2}%

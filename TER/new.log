@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.12.8)  11 MAR 2026 07:56
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.12.8)  30 MAR 2026 18:46
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -711,7 +711,19 @@ File: tikzlibraryfadings.code.tex 2023-01-15 v3.1.10 (3.1.10)
 File: pgflibraryfadings.code.tex 2023-01-15 v3.1.10 (3.1.10)
 ))) (c:/texlive/2024/texmf-dist/tex/latex/tcolorbox/tcbposter.code.tex
 Library (tcolorbox): 'tcbposter.code.tex' version '6.2.0'
-))
+)) (c:/texlive/2024/texmf-dist/tex/latex/tikz-cd/tikz-cd.sty
+Package: tikz-cd 2021/05/04 v1.0 Commutative diagrams with TikZ
+ (c:/texlive/2024/texmf-dist/tex/generic/tikz-cd/tikzlibrarycd.code.tex (c:/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarymatrix.code.tex
+File: tikzlibrarymatrix.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (c:/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryquotes.code.tex
+File: tikzlibraryquotes.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (c:/texlive/2024/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.meta.code.tex
+File: pgflibraryarrows.meta.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfarrowinset=\dimen345
+\pgfarrowlength=\dimen346
+\pgfarrowwidth=\dimen347
+\pgfarrowlinewidth=\dimen348
+)))
 \c@theorem=\count348
  (c:/texlive/2024/texmf-dist/tex/latex/l3backend/l3backend-xetex.def
 File: l3backend-xetex.def 2024-02-20 L3 backend support: XeTeX
@@ -723,26 +735,26 @@ File: l3backend-xetex.def 2024-02-20 L3 backend support: XeTeX
 ) (./new.aux)
 \openout1 = `new.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 65.
-LaTeX Font Info:    ... okay on input line 65.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 65.
-LaTeX Font Info:    ... okay on input line 65.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 65.
-LaTeX Font Info:    ... okay on input line 65.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 65.
-LaTeX Font Info:    ... okay on input line 65.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 65.
-LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 65.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 69.
+LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 69.
  (c:/texlive/2024/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 65.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 65.
-LaTeX Font Info:    ... okay on input line 65.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 65.
-LaTeX Font Info:    ... okay on input line 65.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 65.
-LaTeX Font Info:    ... okay on input line 65.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
@@ -798,28 +810,29 @@ File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 
  [1
 
-]
+] [2]
 File: Fig/henkel.jpg Graphic file (type bmp)
 <Fig/henkel.jpg>
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[2] [3] [4] [5] [6] [7] [8] [9] [10]
-LaTeX Font Info:    Trying to load font information for U+euf on input line 370.
+ [3] [4] [5] [6] [7] [8] [9] [10]
+LaTeX Font Info:    Trying to load font information for U+euf on input line 374.
  (c:/texlive/2024/texmf-dist/tex/latex/amsfonts/ueuf.fd
 File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
 ) [11] [12] [13]
-Underfull \hbox (badness 10000) in paragraph at lines 457--458
+Underfull \hbox (badness 10000) in paragraph at lines 461--462
 
  []
 
 [14]
-Underfull \hbox (badness 10000) in paragraph at lines 531--533
+Underfull \hbox (badness 10000) in paragraph at lines 535--537
 
  []
 
-[15] [16] [17] 
+[15] [16]
+Underfull \hbox (badness 10000) in paragraph at lines 625--626
+
+ []
+
+[17] [18] [19] [20] [21] [22] [23] [24] 
 enddocument/afterlastpage: lastpage setting LastPage.
 (./new.aux)
  ***********
@@ -828,12 +841,12 @@ L3 programming layer <2024-02-20>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 22931 strings out of 474773
- 488521 string characters out of 5761289
- 1933842 words of memory out of 5000000
- 44651 multiletter control sequences out of 15000+600000
+ 24127 strings out of 474773
+ 524435 string characters out of 5761289
+ 1938842 words of memory out of 5000000
+ 45829 multiletter control sequences out of 15000+600000
  564007 words of font info for 71 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 101i,18n,107p,649b,265s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 101i,18n,107p,942b,1042s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on new.pdf (17 pages).
+Output written on new.pdf (24 pages).

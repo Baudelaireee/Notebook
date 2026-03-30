@@ -327,9 +327,9 @@ actually we can characterize the irreducible polynomial if it is separable, it d
 
 \end{proof}
 
-\begin{definition}
+\begin{colordefinition}
   Let \(L/K\) be a algebraic extension, then \(L/K\) is called a \textbf{separable extension} if for any \(a \in L\), the minimal polynomial \(\Pi_a\) of \(a\) over \(K\) is separable.
-\end{definition}
+\end{colordefinition}
 
 \begin{remark}
   \textbf{Any subextension of a separable extension is separable}: Let \(K \subset E \subset L\) be a tower of algebraic extension, and \(L/K\) is separable. If \(a \in E\), then \(\Pi_{a,E}\) divides \(\Pi_{a,L}\), and factor of separable polynoimal is still separable (verify).
@@ -434,7 +434,7 @@ The equivalent statement motivates us to give the definition:
 \begin{definition}
   An algebraic extension \(K/k\) is called a \textbf{Galois extension} if it is normal and separable, and in this case we call \(\Aut(K/k)\) the \textbf{Galois group} of the extension, and denote it by \(\Gal(K/k)\).
 
-Another \textbf{alternative definition} of galois extension is an algebraic extension \(K/k\) such that \(K^{\Aut(K/k)} = k\), which is equivalent to the definition above by the theorem.
+Another \textbf{alternative definition} of galois extension is an algebraic extension \(K/k\) such that \(K^{\Aut(K/k)} = k\), which is equivalent to the definition above by the theorem without limitation on the finiteness of the extension.
 
 \end{definition}
 
@@ -471,3 +471,121 @@ where the intermediate fields correspond to all non-trival proper subgroups of \
 \[A_3, \langle(1,2)\rangle , \langle(2,3)\rangle, \langle(1,3)\rangle\]
 Notice that \(A_3\) is the unique normal subgroup of \(S_3\), while \(\qq(\omega)\) is the unique sub-galois extension of \(K/\qq\), so it motivates us to consider the general case.
 \end{example}
+
+
+\begin{colorproposition}
+  Let \(K/k\) be a galois extension with \(L\) a intermediate field, then 
+  \begin{enumerate}
+    \item \(K/L\) is a galois extension.
+    \item \(\Gal(K/L)\) a is subgroup of \(\Gal(K/k)\), if extension \(K/k\) is finite, then the index of galois group is \([L:k]\).
+    \item For any \(\sigma \in \Gal(K/k)\), we have conjugation
+    \[\Gal(K/\sigma(L)) = \sigma \Gal(K/L) \sigma^{-1}\]
+    \item \(L/k\) is galois if and only if \(\Gal(K/L)\) is a normal subgroup of \(\Gal(K/k)\), and in this case we have an isomorphism
+    \[\Gal(L/k) \cong \Gal(K/k)/\Gal(K/L)\]
+  \end{enumerate}
+\end{colorproposition}
+
+\begin{proof}
+  (1) For any \(a \in K\), Let \(\Pi_a \in k[X]\) be the minimal polynomial of \(a\) over \(k\), and \(M_a \in L[X]\) be the minimal polynomial of \(a\) over \(L\), then \(M_a \) divides \(\Pi_a\), it implies that \(M_a\) is separable since \(\Pi_a\) is separable. What's more, the roots of \(M_a\) are also the roots of \(\Pi_a\), and \(\Pi_a\) takes all roots in \(K\), so does \(M_a\), hence \(K/L\) is normal amd separable.
+
+  (2) Since \(k \subset L\), hence \(Gal(K/L)\subset Gal(K/k)\), and it is not hard to verify it is exactly a subgroup, for index we can conclude that
+  \[[\Gal(K/k):\Gal(K/L)] = [K:k]/[K:L] = [L:k]\]
+  The first equality holds since the two extensions are galois, and the second holds by tower law.
+
+  (3) For any \(\sigma\) we have
+
+  \begin{align*}
+    f \in \Gal(K/\sigma(L)) &\iff f(\sigma(x)) = \sigma(x) , \quad \forall x \in L \\
+    &\iff \sigma^{-1}\circ f \circ \sigma|_{L} = id_L \\
+    &\iff \sigma^{-1}\circ f \circ \sigma \in \Gal(K/L) \\
+    &\iff f \in \sigma \Gal(K/L) \sigma^{-1}
+  \end{align*}
+
+  (4) If \(L/k\) is galois, then \(\Gal(L/k) = \Hom_{k}(L,\bar{k})\) since it is normal, hence for any \(\sigma \in \Gal(K/k)\), when consider \(\sigma|_{L}\) as the restriction map, it will be contained in the \(k\)-embedding of \(L\), so \(\sigma(L) = L\), which shows that the following map is well-defined
+  \[\Gal(K/k) \to \Gal(L/k), \quad \sigma \mapsto \sigma|_{L}\]
+  the kenel of the map is exactly \(\Gal(K/L)\), so it is enough to prove it is surjective.
+
+  Conversely, if \(\Gal(K/L)\) is normal, then for any \(\sigma \in \Gal(K/k)\) we have
+  \[\sigma(L) = K^{\Gal(K/\sigma(L))} = K^{\sigma\Gal(K/L)\sigma^{-1}} = K^{\Gal(K/L)} = L\]
+  so again above map is well-defined and surjective, so any \(\tau \in Gal(L/k)\), there exists \(\sigma \in \Gal(K/k)\) such that \(\tau(L) = \sigma|_{L}(L) = L\), which shows that \(L/k\) is normal, so it is galois as well since the sub-extension of a separable extension is separable.
+
+
+\end{proof}
+
+\begin{definition}
+  Let \((\mathcal{F},\leq_F)\) and \((\mathcal{G},\leq_G)\) be two partially ordered sets, a application \(r:\mathcal{F} \to \mathcal{G}\) is called \textbf{order-preserving (isotone)} if for any \(x,y \in \mathcal{F}\) with \(x \leq_F y\), we have \(r(x) \leq_G r(y)\). Conversely, is is called \textbf{order-reversing (antitone)} if \(r(x) \geq_G r(y)\).
+\end{definition}
+
+The galois correspondence can be stated by the language of category, firstly any partial ordered set \((P,\leq)\) can be viewed as a categroy as following:
+\[\cat{\mathcal{C}_P}{x \in P}{\Hom(x,y) = \{*\} \text{ if } x \leq y, \text{ otherwise } \emptyset}\]
+hence an isotone (antitone) bijection between two partially ordered sets can be viewed as an (anti)euquiavlence between the corresponding categories, so we can restate the galois correspondence as following:
+
+\begin{colortheorem}[Galois correspondence] $ \\$
+  Let \(K/k\) be a galois extension, let \(\mathcal{I}\) be the set of intermediate fields of \(K/k\) and \(\mathcal{S}\) be the set of subgroups of \(\Gal(K/k)\), then they are all partial ordered sets by inclusion \(\subset\), and there exists an antitone bijection between them by
+  \[L \mapsto \Gal(K/L) \quad \text{with inverse} \quad H \mapsto K^H\]
+  In another word, the antitone as a functor gives an equivalence
+  \[\mathcal{C}_{\mathcal{I}} \simeq \mathcal{C}_{\mathcal{S}}^{op}\]
+\end{colortheorem}
+
+\begin{proof}
+  
+\end{proof}
+
+As we have seen in the previous example (\(a = \sqrt[3]{2}\)), we can consider the galois extension tower
+\[\qq \subset \qq(\omega) \subset \qq(a,\omega)\]
+with Galois groups \(\Gal(\qq(\omega)/\qq) \cong \zz/(2)\) and \(\Gal(\qq(a,\omega)/\qq) \cong \zz/(3)\), while in the theory of group the symmetric group can be viewed as a semi-direct product
+\[S_3 = \zz/(3) \rtimes \zz/(2)\] 
+so it is natural to ask whether the sturcture of galois group can be reflected in a extension tower.
+
+\begin{definition}
+Let \(K/k\) and \(L/k\) be two extensions contained in an extension\(\Omega/k\), then we define the composite of \(K\) and \(L\) over \(k\) by
+\[KL = \langle K \cup L \rangle = \bigcap_{K\cup L \subset E \subset \Omega}E\]
+as the samllest subextension of \(\Omega/k\) containing both \(K\) and \(L\). 
+\end{definition}
+
+\begin{remark}
+  For any two algebraic extensions, we can always take \(\Omega = \bar{k}\) to define, Furthermore if \(K\) and \(L\) are finite extensions, then we always have
+  \[[KL:K] \leq [K:k][L:k]\]
+  since if we write \(K=k(a_1,\dots,a_n)\) and \(L = k(b_1,\dots,b_m)\), clearly \(KL \subset k(a_ib_j) \) since \(K\cup L \subset k(a_ib_j)\). In the category of \(\mathbf{Ext_k}\)
+\end{remark}
+
+\begin{remark}
+  Composite of extensions is \textbf{stable} under the separable and normal condition, hence the composite of galois extensions is still a galois extension, if the composite is exactly a pushout, we can talk something about the structure of galois group.
+\end{remark}
+
+\begin{colorproposition}
+  Let \(K_1\) and \(K_2\) be the  separable extensions of \(k\), denote \(K_{12} = K_1K_2\), then the following conditions are equivalent:
+  \begin{enumerate}
+    \item The canconical map \(K_1 \otimes_k K_2 \to K_{12}, x_1 \otimes x_2 \mapsto x_1x_2\) is an isomorphism.
+    \item \(K_1 \otimes_k K_2\) is a integral domain.
+    \item For any \(a \in K_2\), the minimal polynomial of \(a\) over \(k\) is still irreducible in \(K_1[X]\).
+    \item[] \textbf{If \(K_1/k\) and \(K_2/k\) are finite}
+    \item \([K_{12}:k] = [K_1:k][K_2:k]\)
+    \item[]\textbf{ If \(K_1/k\) and \(K_2/k\) are galois (i.e. normal here)}
+    \item \(K_1\cap K_2 = k\)
+  \end{enumerate}
+
+  If one of above conditions holds, we say that \(K_1\) and \(K_2\) are \textbf{linearly disjoint} over \(k\), and \(K_{12}\) is the \textbf{extension étrangère}.
+\end{colorproposition}
+
+\begin{remark}
+  The normal condition here is necessary, consider the previous example \(a = \sqrt[3]{2}\), we take \(K_1 = \qq(a)\) and \(K_2 = \qq(a\omega)\), then we can find that \(K_{12} = \qq(a,\omega)\) exactly, while 
+  \[9 = [K_1:k][K_2:k] \neq [K_{12}:k] = 6\]
+  although \(K_1 \cap K_2 = \qq\) exactly.
+\end{remark}
+
+\begin{proof}
+  
+\end{proof}
+
+
+\begin{colorcorollary}
+  Along above notation, if \(K_{12}/k\) and \(K_1/k\) are finite galois extensions, then galois group of the composite extension is \textbf{the inner semi-direct product}
+  \[\Gal(K_{12}/K_1) \rtimes \Gal(K_{12}/K_2) \cong \Gal(K_{12}/k) \]
+  In particular the product is reduced to diredct product \textbf{if and only if} \(K_1\) and \(K_2\) are linearly disjoint and \(K_{2}/k\) is also galois.
+\end{colorcorollary}
+
+\begin{proof}
+  
+\end{proof}
+
