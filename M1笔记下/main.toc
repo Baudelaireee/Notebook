@@ -3,31 +3,32 @@
 \contentsline {subsection}{\numberline {1.2}Minimal polynomial}{4}{subsection.1.2}%
 \contentsline {subsection}{\numberline {1.3}Decomposition of endomorphisms}{4}{subsection.1.3}%
 \contentsline {subsection}{\numberline {1.4}Lattice}{6}{subsection.1.4}%
-\contentsline {section}{\numberline {2}Toplogical Groups}{8}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Basic properties}{8}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}Homogeneous Spaces}{15}{subsection.2.2}%
-\contentsline {subsection}{\numberline {2.3}The Pontryagin Duality}{17}{subsection.2.3}%
-\contentsline {section}{\numberline {3}Classical Groups and Lie algebras}{21}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Exponential map}{21}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}General linear group}{24}{subsection.3.2}%
-\contentsline {subsection}{\numberline {3.3}Adjoint map}{26}{subsection.3.3}%
-\contentsline {subsection}{\numberline {3.4}The category of representation}{28}{subsection.3.4}%
-\contentsline {section}{\numberline {4}Lie Algebra}{29}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Ideal}{29}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Killing form}{31}{subsection.4.2}%
-\contentsline {section}{\numberline {5}Field and Galois Theory}{33}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Finite extension}{33}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}Algebraic Closed field}{36}{subsection.5.2}%
-\contentsline {subsection}{\numberline {5.3}Normal extension and Automorphism}{36}{subsection.5.3}%
-\contentsline {subsection}{\numberline {5.4}Separable extension}{38}{subsection.5.4}%
-\contentsline {subsection}{\numberline {5.5}Galois extension}{42}{subsection.5.5}%
-\contentsline {section}{\numberline {6}Theory of Algebraic Number}{48}{section.6}%
-\contentsline {subsection}{\numberline {6.1}Norm, Trace and Discriminant}{48}{subsection.6.1}%
-\contentsline {subsection}{\numberline {6.2}Number fields}{52}{subsection.6.2}%
-\contentsline {subsection}{\numberline {6.3}Minkowski's space}{58}{subsection.6.3}%
-\contentsline {subsection}{\numberline {6.4}Logarithmic space and Unit theorem}{61}{subsection.6.4}%
-\contentsline {subsection}{\numberline {6.5}Class group and Class number}{63}{subsection.6.5}%
-\contentsline {section}{\numberline {7}Analytic approach to number theory}{65}{section.7}%
-\contentsline {subsection}{\numberline {7.1}Characater}{65}{subsection.7.1}%
-\contentsline {subsubsection}{\numberline {7.1.1}Legendre Symbol}{68}{subsubsection.7.1.1}%
-\contentsline {subsubsection}{\numberline {7.1.2}Dirichlet Character}{68}{subsubsection.7.1.2}%
+\contentsline {section}{\numberline {2}Representation of finite group}{8}{section.2}%
+\contentsline {section}{\numberline {3}Toplogical Groups}{10}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Basic properties}{10}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Homogeneous Spaces}{17}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}The Pontryagin Duality}{19}{subsection.3.3}%
+\contentsline {section}{\numberline {4}Classical Groups and Lie algebras}{23}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Exponential map}{23}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}General linear group}{26}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Adjoint map}{28}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}The category of representation}{30}{subsection.4.4}%
+\contentsline {section}{\numberline {5}Lie Algebra}{31}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Ideal}{31}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Killing form}{33}{subsection.5.2}%
+\contentsline {section}{\numberline {6}Field and Galois Theory}{35}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Finite extension}{35}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Algebraic Closed field}{38}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Normal extension and Automorphism}{38}{subsection.6.3}%
+\contentsline {subsection}{\numberline {6.4}Separable extension}{40}{subsection.6.4}%
+\contentsline {subsection}{\numberline {6.5}Galois extension}{44}{subsection.6.5}%
+\contentsline {section}{\numberline {7}Theory of Algebraic Number}{50}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Norm, Trace and Discriminant}{50}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Number fields}{54}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}Minkowski's space}{60}{subsection.7.3}%
+\contentsline {subsection}{\numberline {7.4}Logarithmic space and Unit theorem}{63}{subsection.7.4}%
+\contentsline {subsection}{\numberline {7.5}Class group and Class number}{65}{subsection.7.5}%
+\contentsline {section}{\numberline {8}Analytic approach to number theory}{67}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Characater}{67}{subsection.8.1}%
+\contentsline {subsubsection}{\numberline {8.1.1}Legendre Symbol}{70}{subsubsection.8.1.1}%
+\contentsline {subsubsection}{\numberline {8.1.2}Dirichlet Character}{70}{subsubsection.8.1.2}%

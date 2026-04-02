@@ -23,6 +23,8 @@
 \usepackage[most]{tcolorbox}
 \usepackage{xcolor}
 \usepackage{tikz-cd}
+\usepackage[backend=biber,style=numeric,sorting=none]{biblatex}
+\addbibresource{refs.bib}
 \colorlet{shadecolor}{orange!15}
 \parindent 0in
 \parskip 12pt
@@ -41,6 +43,8 @@
 
 %记号定义
 \newcommand{\nn}{\mathbb{N}}
+\newcommand{\adele}{\mathbb{A}}
+\newcommand{\idele}{\mathbb{I}}
 \newcommand{\zz}{\mathbb{Z}}
 \newcommand{\qq}{\mathbb{Q}}
 \newcommand{\rr}{\mathbb{R}}
@@ -86,6 +90,7 @@
 
 \subsection{Riemann's idea I: analytical continuation of zeta function}
 As the core object in number theory, it is formally defined as a meromorphic function on a complex plane by Riemann in 1859, in his famous-9-page paper. \textbf{This section is the reconstruction of the zeta function along the Riemann's original ideas, it refers to pages 1 and 2 of the original paper.}
+.
 \begin{equation} \label{eulerproduct}
     \sum_{n \geq 1} \frac{1}{n^s}  = \prod_p \frac{1}{1-p^{-s}}
 \end{equation}
@@ -616,7 +621,7 @@ i.e. we set \(y  = l^{1/N}c\)  with \(l  = \|y\|\), then we have
 
 
 
-\section{Hecke L-function}
+\section{Hecke character}
 \subsection{Größencharakter}
 As we have done for Riemann zeta function, we hope to consider dedekind zeta function with character, so it is natural to consider the character
 \[\chi_{\mathfrak{m}}:  (\ok/\mathfrak{m})^* \to \cc^*\]
@@ -868,13 +873,152 @@ some properties of the system:
 \subsection{Primitive character and Gauss sum}
 
 
+\subsection{Local field}
+
+Some preparations about valuations are necessary here to claim some notations:
+
+\begin{definition}
+    Let \(K\) be a field, \textbf{a vluation (or a absolute value)} on \(K\) is a map \(v: K \to \rr_{\geq 0}\) satisfying the following conditions:
+    \begin{enumerate}
+        \item \(v(x) = 0 \iff x = 0\)
+        \item \(v(xy) = v(x)v(y)\)
+        \item there exists a constant \(C > 0\) such that \(v(1+x) \leq C\) whenever \(v(x) \leq 1\).
+    \end{enumerate}
+\end{definition}
+
+\begin{remark}
+    The third condition is special here: if \(C = 2\), it is equivalent to the triangle inequality \(v(x+y) \leq v(x) + v(y)\), in this case we call \(v\) an archimedean valuation; if \(C=2\), then it is equivalent to the weak triangle inequality \(v(x+y) \leq \max\{v(x), v(y)\}\), in this case we call \(v\) a non-archimedean valuation; If \(v(x) = 1\) for any \(x \neq 0\), then it is called a \textbf{trivial valuation}, usually we do not consider it. 
+\end{remark}
+
+\begin{lemma}
+    Any valuation \(v\) induces a topology on \(K\) with the open basis given by
+    \[B_r(a) = \{x\in K \mid v(a-b) < d\}\]
+    for any \(a \in K\) and \(d > 0\), and any two valuations \(v_1\) and \(v_2\) are equivalent (i.e. they induce the same topology) if there exists a constant \(C > 0\) such that \(v_1(x) = v_2(x)^C\) for any \(x \in K\).
+\end{lemma}
+
+\begin{remark}
+    Notice the topology here is pre-metrizable by define a quasi-metric
+    \[d_v(x,y) = v(x-y)\]
+    it satisfies definition of metric except the inequality. In particular, if \(v\) is archimedean, then \(d_v\) is exactly a metric; If \(v\) is non-archimedean, then \(d_v\) is an ultrametric.
+\end{remark}
+
+ Let \(\mathcal{V}\) be the set of all non-trivial valuations on \(K\), and we define a equivalence relation on \(\mathcal{V}\) by 
+    \[v_1 \sim v_2 \iff v_1 \text{ is equivalent to } v_2\]
+    Then it induces a set \(V(k) = \mathcal{V} /\sim\) of equivalence classes, and we call each class as \textbf{a place} of \(K\), and we claim that in each calss, there exists a valuation \(v\) such that \(d_v\) is exactly a metric, \textcolor{blue}{if \(d_v\) is non-archemedean, we call \(v\) a prime place and denote it by \(v \nmid \infty\); if \(d_v\) is archimedean, we call \(v\) an infinite place and denote it by \(v \mid \infty\).}
+
+\begin{theorem}
+    Let \(k\) be a number field, then the \(V(k)\) is determined by the following valuations:\\
+
+    - For any prime ideal \(\pp\) of \(\ok\), there exists a discrete additive valuation on \(k^*\) by 
+    \[v_{\pp}(x) = \max \{n \in \zz \mid \pp^n \text{ divise }  (x)\}\]
+    it defines a non-archemedean aboslute value on \(k\) by
+    \[|x|_{\pp} = e^{-v_{\pp}(x)}\]
+    each prime ideal gives distinct prime places of \(k\) as above.
+
+    - For any embedding \(\sigma : k \to \cc\), it defines an aboslute value on \(k\) by
+    \[|x|_{\sigma} = |\sigma(x)|\]
+    where \(|-|\) denotes the usual absolute value on \(\cc\). Distinct embeddings \textbf{up to conjuation} give all infinite places of \(k\) as above.
+\end{theorem}
+
+\begin{remark}
+    When \(k =\qq\), the theorem is just Ostrowski's theorem, which states that any non-trivial valuation on \(\qq\) is equivalent to either the \(p\)-adic valuation for some prime \(p\), or the usual absolute value. 
+\end{remark}
+
+\begin{remark}
+    Any normed field attains an unique completion, in this case we denote the completion of \((k,|-|_v)\) by \(k_{v}\), it is clearly that \(k_v\) is \(\qq\) or \(\cc\) if \(v\) is an infinite place, in particular the minkowski's space is just the product of completions at infinite places
+    \[\prod_{v | \infty} k_v \cong k_{\infty} \cong k \otimes_{\qq} \rr\]
+    with \(r\) the number of real embeddings and \(s\) the number of pairs of complex embeddings.
+
+    For prime places, each prime ideal lies on a unqiue prime number \(p\), hence similarly we can conclude 
+    \[\prod_{\pp | p} k_{\pp} \cong k \otimes_{\qq} \qq_p\]
+\end{remark}
+
+
+
 \newpage
-
-
-\section{Tate's Thesis}
-
 \subsection{Adele Ring}
 
+To define adele ring of a number field, we introduce the restricted direct product of toplogical spaces as following:
+
+\begin{lemma}
+    Let \(\{X_i\}_{i \in I}\) be a family of topological spaces, and \(\{U_i\}_{i \in I}\) be a family of open subset of \(X_i\), then the\textbf{ the restricted direct product of \(\{X_i\}\) with respect to \(\{U_i\}\)} is defined as a subspace of direct product \(\prod_{i \in I}X_i\) as following
+    \[\prod_{i \in I}^{\prime}X_i := \{(x_i)_{i \in I} \in \prod_{i \in I} \mid x_i \in U_i \text{ for almost all } i \in I\}\]
+    it can be viewed as a topological space with the open basis given by 
+    \[\mathcal{B} = \{\prod_{i \in I}V_i \mid V_i = U_i \text{ for almost all } i \in I\}\]
+\end{lemma}
+
+\begin{lemma} \label{locallycompact}
+    If \(X_i\) is a locally compact group for any \(i \in I\), and \(U_i\) is a compact open subgroup of \(X_i\) for any \(i \in I\), then the restricted direct product \(\prod_{i \in I}^{\prime}X_i\) is a locally compact group under the restricted product.
+\end{lemma}
+
+\begin{lemma}
+    measure
+\end{lemma}
+
+
+\begin{remark}
+    If \(I\) is a finite index set, then whatever open subset \(U_i\) we choose, the restricted direct product is reduced to the direct product,
+    i.e. \[\prod_{i \in I}^{\prime}X_i = \prod_{i \in I}X_i\]
+\end{remark}
+
+
+\begin{definition}
+    Along the notation above, if \(k\) is a number field, then we define the finite adele ring of \(k\) as the restricted direct product of local fields at prime places 
+    \[\adele_{k,f} = \prod_{\pp \nmid \infty}^{\prime} k_{\pp} \qquad \text{with respect to } \mathcal{O}_{\pp}\]
+    and the adele ring of \(k\) is the direct product of finite adele ring and the minkowski's space
+    \[\adele_{k} = k_{\infty} \times \adele_{k,f}\]
+    the addition and multiplication on \(\adele_k\) are defined componentwise.
+\end{definition}
+
+\begin{remark}
+    Here are some quick descriptions of the adele ring:
+    \begin{itemize}
+        \item \textcolor{blue}{The adele ring is a locally compact}. It is enough to proved that the finite adele ring is locally compact by lemma \ref{locallycompact}, we just set \(X_i \) by additive locally compact group \(k_{\pp}\), and notice that local ring \(\mathcal{O}_{\pp}\) is a compact open subgroup.
+        \item \textcolor{blue}{The adele ring is a topological ring.} It is enough to prove that the multiplication is continous
+        \[m:\adele_{k} \times \adele_{k} \to \adele_{k}, \quad ((x_i)_i,(y_i)_i) \mapsto (x_i \cdot y_i)\]
+        by the universal property of product topology, it is continous if and only if each compoent is a topological ring.
+        \item If \(k =\qq\), we can conclude that 
+        \[\adele_{\qq} = \rr \times \prod_{p} \qq_{p}\]
+        where \(p\) runs all prime numbers, hence generally for any number field \(k\), we can conclude that
+        \[\adele_{k} \cong k \otimes_{\qq} \adele_{\qq}\]
+        is a isomorphism of topological rings, hence as a \(\adele_{\qq}\)-module, \(\adele_k\) is free of rank \([k:\qq]\).
+        \item It is natural to consider the digonal embedding
+        \[\Delta: k \to \adele_k, \quad x \mapsto (x_v)_{v \in V(k)}\]
+        the image of \(\Delta\) is exactly a subring of adele ring, with the subspace topology, we call it \textbf{ring of princial adeles}.
+    \end{itemize}
+\end{remark}
+
+\subsection{Idele group}
+
+\begin{definition}
+    For any number field \(k\), we define the idele group is the multiplicative group of units in adele ring, that is
+    \[\idele_k = \adele_k^*\]
+\end{definition}
+
+\textcolor{blue}{As John Tate wrote in his thesis, we can do nothing signficant with idele until we consider the embedding of \(k\).} 
+
+The reason is a little delicated, in general, for a topological ring \(R\), its subspace \(R^*\) is exactly a group, but not necessarily a topological group, since the the inverse map is not necessarily continous, \textbf{we do not need towards to other examples, adele ring is exactly such an example!}
+
+\begin{lemma}
+    If \(\idele_k\) is viewed as a topological subspace of \(\adele_k\), then the inverse map 
+    \[i:\idele_k \to \idele_k,\quad  (a_v)_v \mapsto (a_v^{-1})_v\]
+    is not continous.
+\end{lemma}
+
+\begin{proof}
+    
+\end{proof}
+
+\begin{remark}
+    In general, if \(R\) is a topological ring such that \(R^*\) is a topological group under the subspace topology, then \(R\) is called an absolute tolopogical ring, a short note can be found in \cite{tarizadeh2025notestopologicalringsgroups}
+\end{remark}
+
+Hence we should consider another topology on idele group such that it can be a topological group.
+
+\begin{lemma}
+    Idele group is a locally compact group under the restricted direct product topology with respect
+    
+\end{lemma}
 
 
 
@@ -887,6 +1031,8 @@ some properties of the system:
 
 
 
+\newpage
 
+\printbibliography
 
 \end{document}

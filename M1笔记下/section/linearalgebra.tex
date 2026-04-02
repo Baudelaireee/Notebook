@@ -206,6 +206,58 @@ with the convention above, it allows us to construct the invrariant measure on a
 
 
 
+\newpage
+
+\section{Representation of finite group}
+
+The representation theory appears in almost all branches of mathematics, but the basic ideas and techniques are quite similar, among them the representation theory of finite groups is the most basic one to start with.
+
+\begin{definition}
+    Let \(G\) be a finite group and \(k\) be a field, \(\mathbf{Rep}_k(G)\) is a category definied as following:
+\begin{itemize}
+    \item The objects is of the form \((V,\rho)\), where \(V\) is a \(k\)-vector space such that \(\rho\) a group homomorphism 
+    \[\rho : G \to \mathrm{GL}(V)\]
+    such a objects is called a \textbf{\(k\)-representation of \(G\)}.
+
+    \item A morphism from \((V,\rho)\) to \((W,\tau)\) is a \(k\)-linear map \(T \in \mathcal{L}(V,W)\) such that for any \(g \in G\) we have the following commutative diagram:
+    % https://q.uiver.app/#q=WzAsNCxbMCwwLCJWIl0sWzEsMCwiVyJdLFswLDEsIlYiXSxbMSwxLCJXIl0sWzAsMSwiVCJdLFsyLDMsIlQiXSxbMCwyLCJcXHJobyhnKSIsMl0sWzEsMywiXFx0YXUoZykiXV0=
+\[\begin{tikzcd}
+	V & W \\
+	V & W
+	\arrow["T", from=1-1, to=1-2]
+	\arrow["{\rho(g)}"', from=1-1, to=2-1]
+	\arrow["{\tau(g)}", from=1-2, to=2-2]
+	\arrow["T", from=2-1, to=2-2]
+\end{tikzcd}\]
+    such a morphism is called an \textbf{intertwiner} or a \textbf{\(G\)-equivariant}. The isomorphisms in the category is just a linear isomorphism such that above diagram commutes.
+
+    \item In fact under the composition of map, the morphisms is well-defined and associative, and the identity inside a representation \((V,\rho)\) is the identity map \(T(x) = x\) for any \(x \in V\), thus it is indeed a category.
+    
+    \item A representation is called faithful if \(\rho\) is injective, and it is called trivial if \(\rho(g) = id_V\) for any \(g \in G\).
+    
+    \item If \(V\) is finite-dimensional over \(k\), then a representation \((V,\rho)\) is called finite-dimensional, and the dimension of \(V\) is called the dimension of the representation.
 
 
+\end{itemize}
+\end{definition}
 
+It is the basic definition of representation of groups, so firstly we need to describle more structures of the objects and morphisms such that we can know more about what the category exactly looks like.
+
+\begin{definition}
+    Let \(W \subset V\) as a subspace, we say that \(W\) is invariant under the representation \((V,\rho)\) if for any \(g \in G\) we have
+    \[\rho(W) \subset W\]
+    and we define \((W, \rho|_{W})\) as a subrepresentation of \((V,\rho)\). There always exists two trivial subrepresentations: \((\{0\},\rho|_{\{0\}})\) and \((V,\rho)\) itself.
+\end{definition}
+
+\begin{remark}
+    The definition is exactly natural, in the sense of morphism, subrepresentation is just a representation can be embedded into a larger representation by a injective intertwiner, i.e. if \((W,\tau)\) a representation with \(W \subset V\) as a subspace, then the inclusion \(i: V \to W\) will be an intertiwner such that
+    \[\tau(w) = \tau(g)(i(w)) = i(\rho(w)) = \rho(w)\]
+    by the definition of \(\tau\), then we can recover the definition of invariant.
+\end{remark}
+
+\textcolor{blue}{As we study groups by classifying their subgroups, we can also study representation by considering their subrepresentations, so it motivates us to consider a special case, which is analogous to simple groups.
+}
+
+\begin{definition}
+    A representation \((V,\rho)\) is called irreducible if it has no non-trivial subrepresentation, i.e. the only subrepresentations are \((\{0\},\rho|_{\{0\}})\) and \((V,\rho)\) itself.
+\end{definition}

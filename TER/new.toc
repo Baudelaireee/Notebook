@@ -8,9 +8,10 @@
 \contentsline {section}{\numberline {3}Dedekind zeta function}{14}{}%
 \contentsline {subsection}{\numberline {3.1}Lattice}{14}{}%
 \contentsline {subsection}{\numberline {3.2}Functional Equation}{15}{}%
-\contentsline {section}{\numberline {4}Hecke L-function}{17}{}%
+\contentsline {section}{\numberline {4}Hecke character}{17}{}%
 \contentsline {subsection}{\numberline {4.1}Größencharakter}{17}{}%
 \contentsline {subsection}{\numberline {4.2}Ideal number system}{22}{}%
 \contentsline {subsection}{\numberline {4.3}Primitive character and Gauss sum}{23}{}%
-\contentsline {section}{\numberline {5}Tate's Thesis}{24}{}%
-\contentsline {subsection}{\numberline {5.1}Adele Ring}{24}{}%
+\contentsline {subsection}{\numberline {4.4}Local field}{23}{}%
+\contentsline {subsection}{\numberline {4.5}Adele Ring}{25}{}%
+\contentsline {subsection}{\numberline {4.6}Idele group}{26}{}%
