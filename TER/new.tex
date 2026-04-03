@@ -1015,10 +1015,40 @@ The reason is a little delicated, in general, for a topological ring \(R\), its 
 
 Hence we should consider another topology on idele group such that it can be a topological group.
 
+\begin{definition}
+    The idele topology on \(\idele_k\) is defined as the restricted direct product with respect to \(\mathcal{O}_{\pp}^*\), equivalently, it is the smallest topology such that the following map continous
+    \[j:\idele_k \to \adele_k \times \adele_k, \quad x \mapsto (x,x^{-1})\]
+\end{definition}
+
+\begin{remark}
+    Here are some quick notes:
+    \begin{itemize}
+        \item When it comes to the idele group, we always consider it with the idele topology, and then \textcolor{blue}{it is a locally compacttopological group} since \(k_v^*\) is locally compact and \(\ok^*\) is a compact open subgroup for any place \(v\).
+        \item The digonal map \(k^* \to \idele_k, x \mapsto (x_v)_v\) naturally embeds \(k^*\), and its image as a subgroup of \(\idele\), we call it as group principal ideles, \textcolor{blue}{it is a discrete subgroup of idele group.}
+
+        In fact, \(k^*\) is discrete in \(\adele_k\), and \(j\) is a continous injection, hence \(j(k^*)\) is discrete implies that \(k^*\) is discrete in \(\idele_k\) under the idele topology.
+        
+        \item We define the content (magnitude) of an idele as a positive map
+        \[c: \idele_k \to \rr_{>0}, \quad a = (a_v)_v  \mapsto \prod_v \|a\|_v\]
+        where \(v\) runs all places and \(\|-\|_v\) is the normalized valuation on \(k_v\), it defines a continous homomorphism with kernel denoted by \(\idele_k^1\).
+    \end{itemize}
+\end{remark}
+
+It is better to handle \(\idele_k^1\) as a special subgroup of idele group, it can be viewed as the radical part of idele group when we consider the decomposition, here are the related properties:
+
 \begin{lemma}
-    Idele group is a locally compact group under the restricted direct product topology with respect
-    
+    Along the notation above, we have the following properties:
+    \begin{enumerate}
+        \item \(I_k^1\) is a closed subgroup of \(\idele_k\), so it is a locally compact group under the subspace topology.
+        \item The adele-subspace topology and idele-subspace topology on \(\idele_k^1\) are same.
+        \item There exists an isomoprhism \(\idele_k \cong \idele_k^1 \times \rr_{>0}\).
+        \item \(k^*\) can be identified as a subgroup of \(\idele_k^1\) under the digonal embedding, and the quotient group \(\idele_k^1/k^*\) is compact.
+    \end{enumerate}
 \end{lemma}
+\begin{proof}
+    
+\end{proof}
+
 
 
 
