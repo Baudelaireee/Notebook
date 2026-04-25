@@ -488,7 +488,7 @@ Notice that \(A_3\) is the unique normal subgroup of \(S_3\), while \(\qq(\omega
 \begin{proof}
   (1) For any \(a \in K\), Let \(\Pi_a \in k[X]\) be the minimal polynomial of \(a\) over \(k\), and \(M_a \in L[X]\) be the minimal polynomial of \(a\) over \(L\), then \(M_a \) divides \(\Pi_a\), it implies that \(M_a\) is separable since \(\Pi_a\) is separable. What's more, the roots of \(M_a\) are also the roots of \(\Pi_a\), and \(\Pi_a\) takes all roots in \(K\), so does \(M_a\), hence \(K/L\) is normal amd separable.
 
-  (2) Since \(k \subset L\), hence \(Gal(K/L)\subset Gal(K/k)\), and it is not hard to verify it is exactly a subgroup, for index we can conclude that
+  (2) Since \(k \subset L\), hence \(\Gal(K/L)\subset \Gal(K/k)\), and it is not hard to verify it is exactly a subgroup, for index we can conclude that
   \[[\Gal(K/k):\Gal(K/L)] = [K:k]/[K:L] = [L:k]\]
   The first equality holds since the two extensions are galois, and the second holds by tower law.
 
@@ -561,7 +561,7 @@ as the samllest subextension of \(\Omega/k\) containing both \(K\) and \(L\).
     \item For any \(a \in K_2\), the minimal polynomial of \(a\) over \(k\) is still irreducible in \(K_1[X]\).
     \item[] \textbf{If \(K_1/k\) and \(K_2/k\) are finite}
     \item \([K_{12}:k] = [K_1:k][K_2:k]\)
-    \item[]\textbf{ If \(K_1/k\) and \(K_2/k\) are galois (i.e. normal here)}
+    \item[]\textbf{ If \(K_1/k\) or \(K_2/k\) are galois (i.e. normal here)}
     \item \(K_1\cap K_2 = k\)
   \end{enumerate}
 
@@ -582,7 +582,7 @@ as the samllest subextension of \(\Omega/k\) containing both \(K\) and \(L\).
 \begin{colorcorollary}
   Along above notation, if \(K_{12}/k\) and \(K_1/k\) are finite galois extensions, then galois group of the composite extension is \textbf{the inner semi-direct product}
   \[\Gal(K_{12}/K_1) \rtimes \Gal(K_{12}/K_2) \cong \Gal(K_{12}/k) \]
-  In particular the product is reduced to diredct product \textbf{if and only if} \(K_1\) and \(K_2\) are linearly disjoint and \(K_{2}/k\) is also galois.
+  In particular the product is reduced to diredct product \textbf{if and only if} \(K_1\) and \(K_2\) are linearly disjoint.
 \end{colorcorollary}
 
 \begin{proof}

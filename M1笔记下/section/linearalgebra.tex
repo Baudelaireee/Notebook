@@ -208,9 +208,11 @@ with the convention above, it allows us to construct the invrariant measure on a
 
 \newpage
 
-\section{Representation of finite group}
+\section{Representation of groups}
 
 The representation theory appears in almost all branches of mathematics, but the basic ideas and techniques are quite similar, among them the representation theory of finite groups is the most basic one to start with.
+
+\subsection{Category and Schur's lemma}
 
 \begin{definition}
     Let \(G\) be a finite group and \(k\) be a field, \(\mathbf{Rep}_k(G)\) is a category definied as following:
@@ -229,7 +231,7 @@ The representation theory appears in almost all branches of mathematics, but the
 	\arrow["{\tau(g)}", from=1-2, to=2-2]
 	\arrow["T", from=2-1, to=2-2]
 \end{tikzcd}\]
-    such a morphism is called an \textbf{intertwiner} or a \textbf{\(G\)-equivariant}. The isomorphisms in the category is just a linear isomorphism such that above diagram commutes.
+    such a morphism is called an \textbf{intertwiner} or a \textbf{\(G\)-equivariant}. The isomorphisms in the category is just a linear isomorphism such that above diagram commutes. Usually, we will denote the set of morphisms from \((V,\rho)\) to \((W,\tau)\) by \(\mathrm{Hom}_G(V,W)\), and the set of endomorphisms of \((V,\rho)\) by \(\mathrm{End}_G(V)\).    
 
     \item In fact under the composition of map, the morphisms is well-defined and associative, and the identity inside a representation \((V,\rho)\) is the identity map \(T(x) = x\) for any \(x \in V\), thus it is indeed a category.
     
@@ -255,9 +257,263 @@ It is the basic definition of representation of groups, so firstly we need to de
     by the definition of \(\tau\), then we can recover the definition of invariant.
 \end{remark}
 
+In linear algebra, we always consider the invariant subspace of a linear opreator, in the context of representation, the invariant subspace is the invariant under a collection of linear opeartors, so there are some analogue.
+
+\begin{lemma}
+    Let \((V,\rho)\) and \(W,\pi\) be two reprsentation of \(G\), then
+    \begin{enumerate}
+        \item If \(T:V \to W\) is an interwiner, then \(\ker T\) is an invariant subspace of \(V\) and \(\mathrm{im} T\) is an invariant subspace of \(W\).
+        \item If \(T \in \End_G(V)\), then the eigenspaces of \(T\) are invariant subspaces of \(V\).
+    \end{enumerate}
+\end{lemma}
+\begin{proof}
+    
+\end{proof}
+
 \textcolor{blue}{As we study groups by classifying their subgroups, we can also study representation by considering their subrepresentations, so it motivates us to consider a special case, which is analogous to simple groups.
 }
 
 \begin{definition}
     A representation \((V,\rho)\) is called irreducible if it has no non-trivial subrepresentation, i.e. the only subrepresentations are \((\{0\},\rho|_{\{0\}})\) and \((V,\rho)\) itself.
 \end{definition}
+
+\begin{colortheorem}[Schur] $ \\$
+    Let \((V,\rho)\) and \((W,\pi)\) be two irreducible representations of \(G\), and \(T:V \to W\) be an interwiner, then \(T\) is either an isomorphism or the zero map.
+\end{colortheorem}
+
+\begin{proof}
+    By above lemma, \(\ker T\) is an invarant subspace of \(V\), so we can conclude that \(\ker T\) is either \(\{0\}\) or \(V\) since \((V,\rho)\) is irreducible. If \(\ker T = V\), then \(T\) is the zero map; If \(\ker T = \{0\}\), then \(T\) is injective, notice that \(\mathrm{im}T\) is an invariant subspace of \(W\) and \((W,\pi)\) is irreducible, in this case we have \(\mathrm{im}T = W\) since \(T\) is injective, thus \(T\) is an isomorphism.
+\end{proof}
+
+\begin{remark}
+    If two representations are not isomorphic, then intwerwiner must be zero, i.e. \(\mathrm{Hom}_{G}(V,W) = \{0\}\), and we can define a equivalence relation on \textbf{the irreducible repesentations} of \(G\) as following:
+    \[(V,\rho) \sim (W,\pi) \iff \text{they are isomorphic}\]
+    and we use \(\hat{G}\) to denote the set of equivalence classses.
+\end{remark}
+
+\begin{colorcorollary}
+    \(\End_G(V)\) is a division \(k\)-algebra for any irreducible representation \((V,\rho)\) of \(G\), \textbf{in particular if \(k = \cc\) and \(V\) is finite-dimensional}, then \(\End_G(V) \cong \cc\) is the set of scalar multiplications. 
+\end{colorcorollary}
+
+\begin{proof}
+    \(\End_G(V)\) contains zero map and isomorphisms by schur's lemma, thus it is a divison algebra over \(k\), and the unique finite-dimensional division algebra over \(\cc\) is \(\cc\) itself, so we have \(\End_G(V) \cong \cc\).
+\end{proof}
+
+\subsection{Group algebra and convolution}
+
+\begin{definition}
+    Let \(G\) be a group and \(k\) be a field, then the group alegbra \(k[G]\) is a \(k\)-algebra defined as following:
+    \[k[G] : = \{\sum_{g \in G}c_ge_g \mid c_g \in k \text{ and } c_g = 0 \text{ for almost all } g\}\]
+    where \(e_g\) is a formal component with respect to \(g\), which satisifies
+    \[\forall g,h \in G, \quad e_g \times e_h = e_{gh}\]
+    and \(e_1\) is the multiplicative identity of \(k[G]\),
+    the operation is defined as following:\\
+    - Addition:
+    \[\sum_{g \in G}a_ge_g + \sum_{g \in G}b_ge_g = \sum_{g \in G} (a_g + b_g)e_g\]
+    - Scalar multiplication:
+    \[c \cdot \sum_{g \in G} a_ge_g = \sum_{g \in G} (ca_g)e_g\]
+    - Multiplication:
+    \[(\sum_{g \in G} a_ge_g) \times (\sum_{h \in G} b_he_h) = \sum_{g \in G}c_ge_g\]
+    with \(c_g = \sum_{uv = g}a_ub_v\).
+\end{definition}
+
+\begin{remark}
+    Generally, the definition can be extended to a monoid and a ring insetead of a group and a field. If \(G\) is a finite group, then \(k[G]\) is a finite-dimensional \(k\)-vector space with basis \(\{e_g\}_{g \in G}\). Moreover, the group alegbra is a commutative algebra if and only if \(G\) is an abelian group.
+\end{remark}
+
+\begin{colorproposition}
+    There exists a equivalence of catgegories
+    \[\mathbf{Rep}_k(G) \cong {}_{k[G]}\mathbf{Mod}\]
+\end{colorproposition}
+
+\begin{proof}
+    Let \((V,\rho)\) be a representation of \(G\), the definition indues a group action of \(G\) on \(V\) by \(\rho\), i.e. a map 
+    \[G\times V \to V, \quad (g,v) \mapsto \rho(g)(v) \]
+    defines a group action, thus we can extend it to be an \(k[G]\)-module. Conversely, for an \(k[G]\)-module \(M\), the definition of scalar multiplication induces a group action of \(k[G]\) on \(M\), and by restriction we can get a represenation of \(G\).
+
+    For morphisms,...
+\end{proof}
+
+\begin{remark}
+    Similar argument can be applied to the right \(k[G]\)-module, but we are used to use left \(k[G]\)-module.
+\end{remark}
+
+\begin{colordefinition}
+    A \textbf{(left) regular representation} of \(G\) is the representation of \(G\) on \(k[G]\) defined as following:
+    \[\rho: G \to \mathrm{GL}(k[G]), \quad g \mapsto \rho(g)\]
+    where \(\rho(g)\) is the left multiplication by \(e_g\):
+    \[\rho(g)(\sum_{h \in G}c_he_h) = \sum_{h \in G}c_h e_{gh}\]
+\end{colordefinition}
+
+\begin{remark}
+    By above equivalence of categories, a representation of \(G\) is (left) regular if and only if the corresponding \(k[G]\)-module is \(k[G]\) itself, or equivalently a free \(k[G]\)-module of rank 1.
+\end{remark}
+
+\textcolor{blue}{More generally, any group action can be extended linearly to be a reprsentation}, we construct as following
+\begin{enumerate}
+    \item Let \(G \circlearrowleft X\) be a group action with a well-defined operation \(g*x\), firstly we can extend the set \(X\) to be a vector space over \(k\)
+    \[k[X] := \{\sum_{x \in X}c_xe_x \mid c_x \in k \text{ and } c_x = 0 \text{ for almost all } x \in X\}\]
+    where \(e_x\) is a formal component with respect to \(x\), and toghether forms a basis of \(k[G]\), it is easy to check that it is a vector space.
+
+    \item The group action can be equivalently defined as a group homomorphism \(\sigma: G \to S_X\) with \(\sigma(g)(x) = g*x\), then we can extend the morphism to 
+    \[\rho:G \mapsto \mathrm{GL}(k[X]), \quad g \mapsto \rho(g)\]
+    where \(\rho(g)\) is the linear extension of \(\sigma(g)\):
+    \[\rho(g)(\sum_{x \in X}c_xe_x) = \sum_{x \in X}c_x e_{g*x}\]
+    It is easy to check that \(\rho\) is a group homomorphism, and we consider a natural inclusion \(\iota:X \to K[X]\) by \(\iota(x) = e_x\), then we have the following commutative diagram:
+    \[
+\begin{tikzcd}
+X \arrow[r, "\sigma(g)"] \arrow[d, "\iota"'] 
+& X \arrow[d, "\iota"] \\
+k[X] \arrow[r, "\rho(g)"] 
+& k[X]
+\end{tikzcd}
+\]
+    which shows that \(\rho\) is exactly the linear extension of \(\sigma\) as a representation of \(G\).
+
+    \item The extension can be applied to morphism of \(G\)-sets. if \(G\) is a group acting on two sets \(X\) and \(Y\) with opreation \(*\) and \(\star \) respectively, then we consider a \(G\)-map \(f: X \to Y\) which satisfies
+    \[\forall g \in G, x \in X,\quad f(g*x) = g \star f(x)\]
+    then we can extend \(f\) to be a linear map \(\tilde{f}: k[X] \to k[Y]\) by
+    \[\tilde{f}(\sum_{x \in X}c_xe_x) = \sum_{x \in X}c_x e_{f(x)}\]
+    Let \(\rho_X\) and \(\rho_Y\) be reprsentations defined as 2, then we can check
+    \begin{align*}
+    \rho_Y(g) \circ \tilde{f}(\sum_{x \in X}c_xe_x) &= \rho_Y(g)(\sum_{x \in X}c_x e_{f(x)})\\
+    &= \sum_{x \in X}c_x e_{g \star f(x)})\\
+    &= \sum_{x \in X}c_x e_{f(g*x)})\\
+    &= \tilde{f}(\sum_{x \in X}c_x e_{g*x})\\
+    &= \tilde{f} \circ \rho_X(g)(\sum_{x \in X}c_xe_x)  
+    \end{align*}
+    which shows that \(\tilde{f}\) is an interwiner between \(\rho_X\) and \(\rho_Y\).
+\end{enumerate}
+
+The constuction shows that representation thoery is a powerful tool, as a core tool in group theory, group action can be contained in represetation theory, which can be concluded by the language of category as following:
+\begin{colorproposition}
+    Let \(L:G \mathbf{-Set} \to \mathbf{Rep}_k(G)\) be a functor defined by the construction above:\\
+    - On objects: \(L(X) = (k[X],\rho)\) where \(\rho\) is the linear extension of the group action of \(G\) on \(X\).\\
+    - On morphisms: \(L(f) = \tilde{f}\) where \(\tilde{f}\) is the linear extension of the \(G\)-map \(f\).\\
+    Then \(L\) is a well-defined functor which staifies
+    \begin{enumerate} [(a)]
+        \item \(L\) is faithful but not full, and for any \(G\)-set \(X\), the image \(L(X)\) is called a \textbf{permutation representation} of \(G\).
+        \item \(L\) is a free functor.
+         \[
+\begin{tikzcd}
+X \arrow[r, "\eta_X"] \arrow[dr, "f"'] 
+& U(k[X]) \arrow[d, "U(\widetilde{f})"] \\
+& U(V)
+\end{tikzcd}
+\]
+    \end{enumerate}
+
+\end{colorproposition}
+
+
+Now we turn our attention to the finite-dimensional representation of finite groups  
+
+
+\begin{definition}
+    Let \(G\) be a finite group and \(k\) be a field, we set the space of functions on \(G\) by \(\mathcal{F}(G)\), and we define the operation such that it is a \(k\)-alegbra:\\
+    - Addition:
+    \[(f+g)(x) = f(x) + g(x)\]
+    - Scalar multiplication:
+    \[(c\cdot f)(x) = cf(x)\]
+    - Multiplication:
+\[(fg)(x) = f(x) \cdot g(x)\]
+    where \(f,g \in \mathcal{F}(G)\) and \(c \in k\).
+\end{definition}
+
+As a vector space, \(\mathcal{F}(G)\) is finite-dimensional with basis \(\{\delta_g\}_{g \in G}\) where \(\delta_g\) is the delta function defined by
+\[\delta_g(x) = \begin{cases} 1 & x = g\\ 0 & x \neq g\end{cases}\]
+hence there exists a natural isomorphism \(\mathcal{F}(G) \cong k[G]\) by sending \(\delta_g\) to \(e_g\).
+
+However, as \(k\)-alegbra the group alegbra \(k[G]\) is not isomorphic to \(\mathcal{F}(G)\), since \(k[G]\) can be non-commutative if \(G\) while \(\mathcal{F}(G)\) is always commutative, but a different multiplication can be defined on \(\mathcal{F}(G)\) such that we can get an isomorphism.
+
+\begin{lemma}
+    For any \(f_1,f_2 \in \mathcal{F}(G)\), we define the \textbf{convolution} of \(f_1\) and \(f_2\) by
+    \[(f_1 * f_2)(g) = \frac{1}{|G|} \sum_{t \in G} f_1(t) f_2(t^{-1}g)\]
+    it has the following properties:
+    \begin{enumerate} [(a)]
+        \item The convolution is associative.
+        \item The convolution is commutative if and only if \(G\) is an abelian group.
+        \item \(\delta_g * \delta_h = \delta_{gh}\) for any \(g,h \in G\).
+        \item \((\mathcal{F}(G),+,*)\) is isomorphic to group algebra \(k[G]\) as \(k\)-alegbra.
+        \item \(f(g_1^{-1}xg_2) = (\delta_{g_1}*f*\delta_{g_2^{-1}})(x)\)
+    \end{enumerate}
+\end{lemma}
+\begin{proof}
+    
+\end{proof}
+
+\begin{proposition}
+    For any \(g \in G\), we define the left translation on \(\mathcal{F}(G)\) by
+    \[L_g:\mathcal{F}(G) \to \mathcal{F}(G), \quad L_g(f)(x) = f(g^{-1}x)\]
+    then \(L_g\) is an algebra automorphism of \((\mathcal{F}(G),+,*)\) and the map \(g \mapsto L_g\) defines a representation \((\mathcal{F}(G),L)\), which is equivalent to the left regular representation of \(G\).
+
+    Simiarly, the right translation on \(\mathcal{F}(G)\) defined by
+    \[R_g:\mathcal{F}(G) \to \mathcal{F}(G), \quad R_g(f)(x) = f(xg)\]
+    and \(g \mapsto R_g\) induces a representation \((\mathcal{F}(G),R)\) of \(G\), it is equivalent to the right regular representation of \(G\).
+\end{proposition}
+
+\begin{proof}
+    
+\end{proof}
+
+\begin{remark}
+    This proposition explicitly constructs a left and right regular representation via the convolution on algebra of functions on a finite group \(G\), more generally, if \(G\) is finite then there exists a equivalence of categories
+    \[\mathbf{Rep}_k (G) \cong {}_{\mathcal{F}(G)}\mathbf{Mod}\]
+    where \(\mathcal{F}(G)\) is the \textbf{convolution algebra}.
+\end{remark}
+
+Finally, we will write a representation of finite group \(G\) as a \(\mathcal{F}(G)\)-module, we set a representation \(\rho: G \to \mathrm{GL}(V)\), we should extend it such that the following diagram commutes:
+% https://q.uiver.app/#q=WzAsNCxbMCwwLCJHIl0sWzEsMCwiXFxtYXRocm17R0x9KFYpIl0sWzAsMSwiXFxtYXRoY2Fse0Z9KEcpIl0sWzEsMSwiXFxtYXRocm17RW5kfShWKSJdLFswLDEsIlxccmhvIl0sWzAsMiwiZyBcXG1hcHN0byBcXGRlbHRhX2ciLDIseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJob29rIiwic2lkZSI6InRvcCJ9fX1dLFsxLDMsIiIsMCx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Imhvb2siLCJzaWRlIjoidG9wIn19fV0sWzIsMywiXFxSaG8iLDJdXQ==
+\[\begin{tikzcd}
+	G & {\mathrm{GL}(V)} \\
+	{\mathcal{F}(G)} & {\mathrm{End}(V)}
+	\arrow["\rho", from=1-1, to=1-2]
+	\arrow["{g \mapsto \delta_g}"', hook, from=1-1, to=2-1]
+	\arrow[hook, from=1-2, to=2-2]
+	\arrow["\widetilde{\rho}"', from=2-1, to=2-2]
+\end{tikzcd}\]
+we define the extension as following:
+\[\widetilde{\rho}(f)(v) = \frac{1}{|G|}\sum_{g\in G}f(g) \cdot \rho(g)(v)\]
+for any \(f \in \mathcal{F}(G)\) and \(v \in V\), it needs to check that \(\widetilde{\rho}\) is a ring homomorphism, then it induces a \(\mathcal{F}(G)\)-module structure on \(V\). Moreover, when \(f = \delta_h\) for some \(h \in G\), we have
+\[\widetilde{\rho}(\delta_h) = \rho(h)\]
+so exactly \(\widetilde{\rho}\) gives a extension exactly.
+
+
+
+
+
+\subsection{Character and orthogonality relations}
+
+\begin{definition}
+    Suppose that \((V,\rho)\) is a finite-dimensional representation of \(G\), we define the character of \((V,\rho)\) as a function \(\chi_\rho: G \to k\) by
+    \[\chi_\rho(g) = \mathrm{tr}(\rho(g))\]
+    for any \(g \in G\).
+\end{definition}
+
+    Notice that if \(\dim V = 1\), then \(\mathrm{GL}(V) \cong k^\times\), which shows that the character of the representation will be the representation itself: a group homomorphism from \(G\) to \(k^\times\). \textcolor{blue}{Generally, the character of a representation is not necessary a group homomorphism.}
+
+
+\begin{definition}
+    Let \(G\) be a group and \(k\) be a field, we denote \(\cl(G) = G/\sim_c\) be the quotient of \(G\) by the conjugacy relation
+    \[x \sim y \iff \exists g \in G, y = gxg^{-1}\]
+    a function \(f:\cl(G) \to k\) is called a \textbf{class function}, or equivalently, a function \(f:G \to k\) such that 
+    \[f(gxg^{-1}) = f(x)\]
+    for any \(g,x \in G\).
+\end{definition}
+
+\begin{remark}
+    The algebraic properties of trace shows that \textcolor{blue}{the character of a representation is always a class function}, thus it can be regarded as a function on \(\cl(G)\).
+
+    The conjugacy classes can be described by group action \(G \circlearrowleft G\) with operation \(g*x = gxg^{-1}\), then \(\cl(G)\) is exactly the set of orbits with 
+    \[C_G(x) = \{g \in G \mid gxg^{-1}= x\}\]
+    the centralizer (stablizer) of \(x\) in \(G\). When \(G\) is finite, \([G:C_G(x)]\) is exactly the size of orbit of \(x\).
+\end{remark}
+
+\begin{proposition}
+        Let \((V,\rho)\) be a finite-dimensional representation of \(G\), then \\
+        (a) \(\chi_\rho(e) = \dim V\).\\ 
+        (b) \(\chi_{\rho^*}(g) = \chi_\rho(g^{-1}) = \mathrm{tr}(\rho(g)^{-1})\) for any \(g \in G\).\\
+        Let \((W,\pi)\) be another finite-dimensional representation of \(G\), then \\
+        (c) \(\chi_{\rho \oplus \pi} = \chi_\rho + \chi_\pi\)\\
+        (d) \(\chi_{\rho \otimes \pi} = \chi_{\rho} \cdot \chi_\pi\)
+\end{proposition}

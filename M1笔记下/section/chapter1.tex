@@ -581,7 +581,7 @@ Above properties of one-parameter allows us to consider the general case in matr
     convolution...
 \end{proof}
 
-\subsection{General linear group}
+\subsection{Correspondence between lie group and lie algebra}
 Formally, we define the real-general linear group as following:
 \[GL_n(\rr) : = \{A \in M_n(\rr) \mid \det(A) \neq 0\}\]
 it is the subset of \(M_n(\rr)\), while the topology of \(GL_n(\rr)\) is just the subspace topology induced by \(M_n(\rr) \cong \rr^{n^2}\), hence we can conlude something about the topology of the group:
@@ -597,14 +597,14 @@ it is the subset of \(M_n(\rr)\), while the topology of \(GL_n(\rr)\) is just th
     \item As the topological group, the local structure is same , so we can just consider the point \(I \in GL_n(\rr)\). As a differential manifold, we can consider the tangent space at \(I\), so we can identify the tangent space
     \[T_I(\mathrm{GL}_n(\rr)) \cong \rr^{n^2} \cong M_n(\rr)\]
     Actually, we can view a strong result: For any \(X \in M_n(\rr)\), we define a curve on manifold by \[\gamma_X: \rr \to GL_n(\rr), \quad t \mapsto e^{tX}\]
-    by exponential map, this is smooth curve with derivative \(\gamma_X'(0) = X\), hence we prove that \(M_n(\rr)\) is exactly the tangent space of \(GL_n(\rr)\) at \(I\), and we realize the connection between the local structure of the Lie group and its tangent space by one-parameter subgroup, that is the basic ideal of Lie theory.
+    by exponential map, this is smooth natrual curve with derivative \(\gamma_X'(0) = X\), hence we prove that \(M_n(\rr)\) is exactly the tangent space of \(GL_n(\rr)\) at \(I\), and we realize the connection between the local structure of the Lie group and its tangent space by one-parameter subgroup, that is the basic ideal of Lie theory.
 \end{itemize}
 
 We conclude above discussion by the following definition, or exactly the \textbf{vocabulary}, because they are just te new notation of manifold and vector space, but they are the basic object of Lie theory, so we need to give them a name:
 \begin{definition} 
     A \textbf{lie group} is a smooth manifold \(G\) with a group structure such that the group operation \(m: G \times G \to G\) defined by \(m(g,h) = gh^{-1}\) is smooth.\\
 
-    A \textbf{lie algebra} is a \(\rr\)-vector space \(\mathfrak{g}\) with a bilinear map \([-, -]: \mathfrak{g} \times \mathfrak{g} \to \mathfrak{g}\) such that for any \(x,y,z \in \mathfrak{g}\) and \(a,b \in \rr\), we have\\
+    A \textbf{real lie algebra} is a \(\rr\)-vector space \(\mathfrak{g}\) with a bilinear map \([-, -]: \mathfrak{g} \times \mathfrak{g} \to \mathfrak{g}\) such that for any \(x,y,z \in \mathfrak{g}\) and \(a,b \in \rr\), we have\\
 
     (1) \([x,y] = -[y,x]\) (antisymmetry)\\
 
@@ -630,7 +630,7 @@ To study other matrix groups, we can just consider the submanifold of \(GL_n(\rr
 which motivates the following definition:
 
 \begin{colordefinition}
-    A \textbf{linear lie group} is a closed subgroup of \(GL_n(\rr)\) for some \(n\), and its lie algebra is defined as 
+    A \textbf{linear lie group} is a closed subgroup of \(GL_n(\rr)\) for some \(n\), and its lie algebra is defined as its tangent space
     \[\mathrm{Lie}(G) = \{M \in M_n(\rr) \mid e^{tM} \in G, \forall t \in \rr\}\]
     and we usually denote it by frak character \(\mathfrak{g}\).
 \end{colordefinition}
@@ -648,13 +648,13 @@ Let us consider some examples related to the general linear group:
 
 \begin{example}
     We view \(\cc\) as a real vector space, then there exists a natural embedding
-    \[i:M_n(\cc) \to M_{2n}(\rr), \quad A+iB \mapsto \begin{pmatrix} A & -B \\ B & A \end{pmatrix}\]
+    \[\iota:M_n(\cc) \to M_{2n}(\rr), \quad A+iB \mapsto \begin{pmatrix} A & -B \\ B & A \end{pmatrix}\]
     it is a injective continous linear map, and we can verify that 
     \[(A+iB)(x+iy) = 0 \iff \begin{pmatrix}
         A & -B \\
         B & A 
     \end{pmatrix} \begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \end{pmatrix}\]
-    which shows that restriction of \(i\) on \(GL_n(\cc)\) takes image in \(GL_{2n}(\rr)\), and image \(i(GL_n(\cc))\) is indeed a closed subgroup of \(GL_{2n}(\rr)\), hence it is a linear lie group, and its lie algebra is exactly the image of \(i\) on \(M_n(\cc)\), which motivates the following diagrame
+    which shows that restriction of \(\iota\) on \(GL_n(\cc)\) takes image in \(GL_{2n}(\rr)\), and image \(\iota(GL_n(\cc))\) is indeed a closed subgroup of \(GL_{2n}(\rr)\), hence it is a linear lie group, and its lie algebra is exactly the image of \(\iota\) on \(M_n(\cc)\), which motivates the following diagram    
     \[
 \begin{tikzcd}
 M_n(\mathbb{C}) \arrow[r, "\iota"] \arrow[d, "\exp"'] 
@@ -684,6 +684,7 @@ This action is transitive so \(\rr^n\) is a homogeneous space under \(G\), and w
 \[G/\GL_n(\rr) \cong \rr^n\]
 It is a classic example about Erlangen progamme, here \(G\) is a important geometric group, we usually call it the \textbf{affine group} \(\mathrm{Aff}_n(\rr)\).
 \end{example}
+
 
 \subsection{Adjoint map}
 Review a bsic fact about the finite-dimensional vector space: any norm on a finite-dimensional Banach space is equivalent, hence it is natural to consider the abstract exponential map on linear opreators
@@ -769,7 +770,7 @@ G \arrow[r, "\Ad"]
     
 \end{proof}
 
-\subsection{The category of representation}
+
 
 
 

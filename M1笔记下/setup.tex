@@ -9,12 +9,16 @@
 \usepackage{bm}
 \usepackage{extarrows}
 \usepackage[a4paper, margin=1in]{geometry}
+\setlength{\parindent}{0.0in}
+\setlength{\parskip}{12pt}
+\geometry{headsep=0.25in}
 \usepackage{float}
 \usepackage{indentfirst}
 \usepackage{anyfontsize}
 \usepackage{booktabs,multirow,multicol}
 \usepackage[shortlabels,inline]{enumitem}
 \usepackage{appendix}
+\usepackage{booktabs}
 
 \usepackage[dvipsnames]{xcolor}
 \usepackage[most]{tcolorbox}
@@ -51,9 +55,16 @@
 
 \usepackage{thmtools}
 
-\declaretheoremstyle[headfont=\bfseries, bodyfont=\normalfont, spaceabove=3pt, spacebelow=3pt]{normalplain}
+\newlength{\theoremtopbottomskip}
+\setlength{\theoremtopbottomskip}{\parskip}
 
-\declaretheoremstyle[headfont=\bfseries, bodyfont=\normalfont, spaceabove=3pt, spacebelow=3pt]{colordefinitionstyle}
+\declaretheoremstyle[headfont=\bfseries, bodyfont=\normalfont, spaceabove=\theoremtopbottomskip, spacebelow=\theoremtopbottomskip]{normalplain}
+
+\declaretheoremstyle[headfont=\bfseries, bodyfont=\normalfont, spaceabove=\theoremtopbottomskip, spacebelow=\theoremtopbottomskip]{colordefinitionstyle}
+
+\declaretheoremstyle[headfont=\bfseries, bodyfont=\normalfont, spaceabove=\theoremtopbottomskip, spacebelow=\theoremtopbottomskip]{normaldefinition}
+
+\declaretheoremstyle[headfont=\bfseries, bodyfont=\normalfont, spaceabove=\theoremtopbottomskip, spacebelow=\theoremtopbottomskip]{normalremark}
 
 %% define environments
 
@@ -87,31 +98,31 @@
 \declaretheorem[style=normalplain, name=Claim, numbered=yes, sibling=theorem]{colorclaim}
 \declaretheorem[style=normalplain, name=Claim, numbered=no]{colorclaim*}
 
-\declaretheorem[style=definition, name=Definition, numbered=yes, numberwithin=section]{definition}
-\declaretheorem[style=definition, name=Definition, numbered=no]{definition*}
+\declaretheorem[style=normaldefinition, name=Definition, numbered=yes, numberwithin=section]{definition}
+\declaretheorem[style=normaldefinition, name=Definition, numbered=no]{definition*}
 
 \declaretheorem[style=colordefinitionstyle, name=Definition, numbered=yes, numberwithin=section]{colordefinition}
 \declaretheorem[style=colordefinitionstyle, name=Definition, numbered=no]{colordefinition*}
 
-\declaretheorem[style=definition, name=Example, numbered=yes, numberwithin=section]{example}
-\declaretheorem[style=definition, name=Example, numbered=no]{example*}
+\declaretheorem[style=normaldefinition, name=Example, numbered=yes, numberwithin=section]{example}
+\declaretheorem[style=normaldefinition, name=Example, numbered=no]{example*}
 
 \declaretheorem[style=colordefinitionstyle, name=Example, numbered=yes, numberwithin=section]{colorexample}
 \declaretheorem[style=colordefinitionstyle, name=Example, numbered=no]{colorexample*}
 
-\declaretheorem[style=definition, name=Problem, numbered=yes, numberwithin=section]{problem}
-\declaretheorem[style=definition, name=Problem, numbered=no]{problem*}
+\declaretheorem[style=normaldefinition, name=Problem, numbered=yes, numberwithin=section]{problem}
+\declaretheorem[style=normaldefinition, name=Problem, numbered=no]{problem*}
 
 \declaretheorem[style=colordefinitionstyle, name=Problem, numbered=yes, numberwithin=section]{colorproblem}
 \declaretheorem[style=colordefinitionstyle, name=Problem, numbered=no]{colorproblem*}
 
-\declaretheorem[style=remark, name=Remark, numbered=yes, numberwithin=section]{remark}
-\declaretheorem[style=remark, name=Remark, numbered=no]{remark*}
+\declaretheorem[style=normalremark, name=Remark, numbered=yes, numberwithin=section]{remark}
+\declaretheorem[style=normalremark, name=Remark, numbered=no]{remark*}
 \usepackage[most]{tcolorbox}
 
 \newcommand{\newtcbenvironment}[2]{
-    \tcolorboxenvironment{#1}{#2, enhanced, breakable, sharp corners,leftrule=2pt, rightrule=0pt, toprule=0pt, bottomrule=0pt}
-    \tcolorboxenvironment{#1*}{#2, enhanced, breakable, rounded corners,leftrule=2pt, rightrule=0pt, toprule=0pt, bottomrule=0pt}
+    \tcolorboxenvironment{#1}{#2, enhanced, breakable, sharp corners,leftrule=2pt, rightrule=0pt, toprule=0pt, bottomrule=0pt, before skip=\theoremtopbottomskip, after skip=\theoremtopbottomskip}
+    \tcolorboxenvironment{#1*}{#2, enhanced, breakable, rounded corners,leftrule=2pt, rightrule=0pt, toprule=0pt, bottomrule=0pt, before skip=\theoremtopbottomskip, after skip=\theoremtopbottomskip}
 }
 
 %% define styles
@@ -217,6 +228,10 @@
 \newcommand{\spec}{\operatorname{Spec}}
 
 \newcommand{\GL}{\operatorname{GL}}
+
+\newcommand{\cl}{\operatorname{Cl}}
+
+\newcommand{\legendre}[2]{\left(\frac{#1}{#2}\right)}
 
 
 

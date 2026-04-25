@@ -1,34 +1,38 @@
-\contentsline {section}{\numberline {1}Some group and linear algebra}{2}{section.1}%
-\contentsline {subsection}{\numberline {1.1}Semi-direct product}{2}{subsection.1.1}%
-\contentsline {subsection}{\numberline {1.2}Minimal polynomial}{4}{subsection.1.2}%
-\contentsline {subsection}{\numberline {1.3}Decomposition of endomorphisms}{4}{subsection.1.3}%
-\contentsline {subsection}{\numberline {1.4}Lattice}{6}{subsection.1.4}%
-\contentsline {section}{\numberline {2}Representation of finite group}{8}{section.2}%
-\contentsline {section}{\numberline {3}Toplogical Groups}{10}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Basic properties}{10}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Homogeneous Spaces}{17}{subsection.3.2}%
-\contentsline {subsection}{\numberline {3.3}The Pontryagin Duality}{19}{subsection.3.3}%
-\contentsline {section}{\numberline {4}Classical Groups and Lie algebras}{23}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Exponential map}{23}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}General linear group}{26}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}Adjoint map}{28}{subsection.4.3}%
-\contentsline {subsection}{\numberline {4.4}The category of representation}{30}{subsection.4.4}%
-\contentsline {section}{\numberline {5}Lie Algebra}{31}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Ideal}{31}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}Killing form}{33}{subsection.5.2}%
-\contentsline {section}{\numberline {6}Field and Galois Theory}{35}{section.6}%
-\contentsline {subsection}{\numberline {6.1}Finite extension}{35}{subsection.6.1}%
-\contentsline {subsection}{\numberline {6.2}Algebraic Closed field}{38}{subsection.6.2}%
-\contentsline {subsection}{\numberline {6.3}Normal extension and Automorphism}{38}{subsection.6.3}%
-\contentsline {subsection}{\numberline {6.4}Separable extension}{40}{subsection.6.4}%
-\contentsline {subsection}{\numberline {6.5}Galois extension}{44}{subsection.6.5}%
-\contentsline {section}{\numberline {7}Theory of Algebraic Number}{50}{section.7}%
-\contentsline {subsection}{\numberline {7.1}Norm, Trace and Discriminant}{50}{subsection.7.1}%
-\contentsline {subsection}{\numberline {7.2}Number fields}{54}{subsection.7.2}%
-\contentsline {subsection}{\numberline {7.3}Minkowski's space}{60}{subsection.7.3}%
-\contentsline {subsection}{\numberline {7.4}Logarithmic space and Unit theorem}{63}{subsection.7.4}%
-\contentsline {subsection}{\numberline {7.5}Class group and Class number}{65}{subsection.7.5}%
-\contentsline {section}{\numberline {8}Analytic approach to number theory}{67}{section.8}%
-\contentsline {subsection}{\numberline {8.1}Characater}{67}{subsection.8.1}%
-\contentsline {subsubsection}{\numberline {8.1.1}Legendre Symbol}{70}{subsubsection.8.1.1}%
-\contentsline {subsubsection}{\numberline {8.1.2}Dirichlet Character}{70}{subsubsection.8.1.2}%
+\contentsline {section}{\numberline {1}Some group and linear algebra}{3}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Semi-direct product}{3}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Minimal polynomial}{5}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}Decomposition of endomorphisms}{5}{subsection.1.3}%
+\contentsline {subsection}{\numberline {1.4}Lattice}{7}{subsection.1.4}%
+\contentsline {section}{\numberline {2}Representation of groups}{9}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Category and Schur's lemma}{9}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Group algebra and convolution}{11}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Character and orthogonality relations}{15}{subsection.2.3}%
+\contentsline {section}{\numberline {3}Toplogical Groups}{17}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Basic properties}{17}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Homogeneous Spaces}{25}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}The Pontryagin Duality}{27}{subsection.3.3}%
+\contentsline {section}{\numberline {4}Classical Groups and Lie algebras}{31}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Exponential map}{31}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Correspondence between lie group and lie algebra}{34}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Adjoint map}{37}{subsection.4.3}%
+\contentsline {section}{\numberline {5}Lie Algebra}{40}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Ideal}{40}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Killing form}{43}{subsection.5.2}%
+\contentsline {section}{\numberline {6}Field and Galois Theory}{45}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Finite extension}{46}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Algebraic Closed field}{49}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Normal extension and Automorphism}{49}{subsection.6.3}%
+\contentsline {subsection}{\numberline {6.4}Separable extension}{51}{subsection.6.4}%
+\contentsline {subsection}{\numberline {6.5}Galois extension}{55}{subsection.6.5}%
+\contentsline {section}{\numberline {7}Theory of Algebraic Number}{62}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Norm, Trace and Discriminant}{62}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Number fields}{66}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}Minkowski's space}{72}{subsection.7.3}%
+\contentsline {subsection}{\numberline {7.4}Logarithmic space and Unit theorem}{76}{subsection.7.4}%
+\contentsline {subsection}{\numberline {7.5}Class group and Class number}{78}{subsection.7.5}%
+\contentsline {section}{\numberline {8}Analytic approach to number theory}{80}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Arithmetic function}{80}{subsection.8.1}%
+\contentsline {subsubsection}{\numberline {8.1.1}periodic arithmetic function}{80}{subsubsection.8.1.1}%
+\contentsline {subsection}{\numberline {8.2}Character}{80}{subsection.8.2}%
+\contentsline {subsubsection}{\numberline {8.2.1}Dirichlet Character and Gauss sum}{84}{subsubsection.8.2.1}%
+\contentsline {subsubsection}{\numberline {8.2.2}Legendre Symbol and real character}{88}{subsubsection.8.2.2}%

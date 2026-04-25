@@ -651,7 +651,36 @@ where \(M_k\) is the Minkowski's bound of \(K\), thus \(J_K/P_K\) is exactly a f
 
 \section{Analytic approach to number theory}
 
-\subsection{Characater}
+\subsection{Arithmetic function}
+\subsubsection{periodic arithmetic function}
+
+\begin{definition}
+    An arithmetic function \(f: \nn \to \cc\) is called periodic if there exists a positive integer \(k\) such that
+    \[f(n+k) = f(n)\]
+    for all \(n \in \nn\), and we call the smallest such \(k\) the (fundamental) period of \(f\).
+\end{definition}
+
+\begin{remark}
+    \textbf{The fundamental period is unique}, and it divides any other period of \(f\). In fact, if we set \(\mathcal{P}\) as the set of all periods of \(f\), as a non-empty subset of \(\nn\), it has a minimum element \(k\). If \(N\) is another period, by the division we have \(N = qk+ r\) for some \(q \in \nn\) and \(0 \leq r < k\), hence we have
+    \[f(n) = f(n+N) = f(n+r+qk) = f(n+r)\]
+    for any \(n \in \nn\), hence \(r\) is also a period of \(f\) if \(r \neq 0\), hence \(\mathcal{P} = k\nn^*\) exactly.
+\end{remark}
+
+\begin{colorexample}
+    A natural example is exponential function, for the sake of notation,
+    \[e(n) = e^{2\pi i n}\]
+    it is a 1-peridoic function.
+\end{colorexample}
+
+\begin{theorem}[finite Fourier series] $ \\$ \label{ffs}
+    Let \(f\) be an arithmetical function with period \(k\), then there exists a unique arithmetical function \(\hat{f}\) such that 
+    \[f(m ) = \sum_{n = 1}^k\hat{f}(n) e(\frac{mn}{k})\]
+    In fact \(\hat{f}\) is the fourier transform of \(f\) on \(\zz/k\zz\) by
+    \[\hat{f}(n) = \frac{1}{k}\sum_{m = 1}^k f(m) e(-\frac{mn}{k})\]
+    
+\end{theorem}
+
+\subsection{Character}
 
 \begin{definition}
     Let \(G\) be a finite abelian group, a \textbf{character} of \(G\) is a group homomorphism \(\chi : G \to \cc^\times\), and we denote the set of all characters of \(G\) as \(\hat{G}\), it forms a group under function multiplication
@@ -680,7 +709,7 @@ Here are some quick obeservations:
 \end{remark}
 
 \begin{remark}
-    Another view of character is that the character is naturally a one-dimensional complex representation of \(G\) since \(\cc^* \cong \GL_1(\cc)\), so any character as a representation is irreducible.
+    Another view of character is that the character is naturally \textbf{a one-dimensional complex representation} of \(G\) since \(\cc^* \cong \GL_1(\cc)\), and any character as such is irreducible.
 \end{remark}
 
 
@@ -752,6 +781,19 @@ Here is a useful lemma, which appears in many proofs, from the view of category,
     then we can deduce the result.
 \end{proof}
 
+\begin{colorcorollary}
+    Let \(a,b \in G\), then we have 
+    \[\sum_{\chi \in \hat{G}}\chi(a)\overline{\chi(b)} = \begin{cases}
+        |G|  \quad &a = b \\
+        0 \quad &a \neq b
+    \end{cases}
+\]
+\end{colorcorollary}
+
+\begin{proof}
+    
+\end{proof}
+
 A special result of orthogonality is about the structure of the character, we set \(\mathbf{FinAb}\) to be the category of finite abelian groups, as we have mentioned before, there exists a contravariant functor inside the categroy, here we set \(D: \mathbf{FinAb} \to \mathbf{FinAb}^{op}\), the following result shows that the functor is actually an equivalence with \(D^2 = Id\).
 
 \begin{colortheorem}
@@ -775,38 +817,15 @@ G \arrow[r,"\phi_G"] \arrow[d,"f"'] & \widehat{\widehat{G}} \arrow[d,"D^2(f)"] \
 H \arrow[r,"\phi_H"] & \widehat{\widehat{H}}
 \end{tikzcd}
 \]
-    which ensures that the functor \(D\) is an equivalence 
+    which ensures that the functor \(D\) is an equivalence, it is a special case of the \textbf{Pontryagin duality} for locally compact abelian groups, since every finite group can be endowed with the discrete topology.
 \end{remark}
 
 
-\subsubsection{Legendre Symbol}
-A character of a finite abelian group is called \textbf{real character} if its image is contained in \(\{\pm 1\}\), this parts is to introduce a typcial example of real character.
-
-Historically, a classical diophantine problem is to solve
-\[X^2 = b \mod p\]
-with \(p\) a prime, and \(b\) is a given non-zero intger, equivalently, solve the quadratic equation in the finite field \(\ff_p\). For example,
-\(X^2 - 2 = 0\) has no solution in \(\ff_5\) while it has solution in \(\ff_3\).
-
-\begin{proposition}
-    Let \(p\) be an odd prime, then \(\varphi: \ff_p^* \to \ff_p^*\) with \(x \mapsto x^{\frac{p-1}{2}}\) defines a homomorphism of groups, with kernel \(S_p\) the set of all squares in \(\ff_p^*\), and the image is \(\{1,-1\}\).
-\end{proposition}
-\begin{proof}
-    \(p\) is prime so \(\frac{p-1}{2}\) is an integer, which is enough to show the map is a homomorphism. Notice that \(S_p \subset \ker \varphi\), it is enough to show that \(|S_P| = |\ker \varphi| = \frac{p-1}{2}\). After that, the cardianlity of the image is \(2\), and \(\varphi(x)\) is exactly the roots of \(X^2-1 = 0\), which implies the image is \(\{1,-1\}\).
-
-    \(S_p\) is the image of morphism \(f(x) = x^2\) inside \(\ff_p^*\), the kernel of \(f\) is exactly the solutions of \(X^2-1=0\) in \(\ff_p\), they are exactly \({-1,1}\) since there are at most two distinct solutions, hence \(|S_p| = |\ff_p^*/\ker f| = \frac{p-1}{2}\).
-
-    \(\varphi(x) = 1\) means that \(x\) is a roots of \(X^{\frac{p-1}{2}} - 1 = 0\) in \(\ff_p\), which has at most \(\frac{p-1}{2}\) distinct solutions, hence \(|\ker \varphi| \leq \frac{p-1}{2} = |S_p|\), so immediately \(\ker \varphi = S_p\).
-\end{proof}
-
-Notice that the image of homomorphism is again a group, and the group \(\{-1,1\}\) in \(\ff_p^*\) is isomorphic to \(\zz/2\zz\), so it has no problem to identify \(\{-1,1\}\) in \(\ff_p\) as \(\{-1,1\}\) in \(\cc^*\), and we define the \textbf{Legendre symbol} as a character of \(\ff_p^*\) by
-\[(\frac{a}{p}) = \begin{cases}
-    1 & a \in S_p \\
-    -1 & a \notin S_p
-\end{cases}\]
 
 
 
-\subsubsection{Dirichlet Character}
+
+\subsubsection{Dirichlet Character and Gauss sum}
 
 \begin{definition}
     Let \(N \in \nn^*\), a \textbf{Dirichlet character} modulo \(N\) is a character of the multuplicative group \((\zz/N\zz)^\times\), i.e. \
@@ -816,34 +835,314 @@ Notice that the image of homomorphism is again a group, and the group \(\{-1,1\}
 Here are some quick descriptions of this type of character: 
 \begin{itemize}
 
-    \item The order of \((\zz/N\zz)^\times\) is \(\varphi(N)\) with \(\varphi\) the Euler totient function, so the orthogonality of characters can be written as
-    \[\sum_{a \in (\zz/N\zz)^\times} \chi(a) = \begin{cases}
-        \varphi(N)  \quad &\chi = 1 \\
-        0 \quad &\chi \neq 1
-    \end{cases} \qquad \sum_{\chi \in \widehat{(\zz/N\zz)^\times}} \chi(g) = \begin{cases}
-        \varphi(N)  \quad &g = 1 \\
-        0 \quad &g \neq 1
-    \end{cases}\]
     \item Let \(\chi\) be a Dirichlet character modulo \(N\), then we can extend \(\chi\) to a function on \(\zz\) by \[\tilde{\chi}(a) = \begin{cases}
         \chi(\bar{a}) \quad &\gcd(a,N) = 1 \\
         0 \quad &\gcd(a,N) \neq 1
     \end{cases}\]
     It defines an arithmetic function that is \textbf{completely multiplicative} and \textbf{\(N\)-periodic}. Each character can be extended like that, so we sometimes do not distinguish the character and the arithemetic function.
+    
+    \item The order of \((\zz/N\zz)^\times\) is \(\varphi(N)\) with \(\varphi\) the Euler totient function, so the orthogonality of characters can be written as
+    \[\sum_{\chi \in \widehat{(\zz/N\zz)^*}}\chi(a)\overline{\chi(b)} = \begin{cases}
+    \varphi(N)  \quad &a \equiv b \mod N \\
+    0 \quad &a \not\equiv b \mod N
+    \end{cases} \]
+    for any \(a,b \in \zz\) with \((b,N) = 1\).
+
+    \item We call a dirchlet character to be \textbf{principal or trival} if \(\chi(g) = 1\) for any \(g \in (\zz/N\zz)^\times\), and we denote the principal character by \(\chi_0\).
 \end{itemize}
 
 
 \begin{theorem}
-    Let \(f: \zz \to \cc\) be an arithemetic function is a Dirichlet character modulo \(N\) if it satisfies the following conditions: \\
-    (1) completely multiplicative.\\
-    (2) \(N\)-periodic for some \(N \in \nn^*\).\\
-    (3) \(|f(n)| = 1\) if and only if \(\gcd(n,N) = 1\).
+    Let \(f: \nn \to \cc\) be an arithemetic function is a Dirichlet character modulo \(N\) if it satisfies the following conditions:
+    \begin{enumerate} [(a)]
+        \item completely multiplicative
+        \item \(N\)-periodic for some \(N \in \nn^*\)
+        \item \(|f(n)| = 1\) if and only if \(\gcd(n,N) = 1\)
+    \end{enumerate}
 \end{theorem}
 \begin{proof}
     
 \end{proof}
 
-In particular, we noticed that as a real character, the Legendre symbo is a Dirichlet character modulo \(p\).
 
+\begin{example}
+    Notice that \((\zz/3\zz)^\times\) is of order \(2\), so there are exactly two characters, it can be given by the following table:
+    \[\begin{tabular}{c| c c c c c c}
+$n$      &0 &1 &2 \\
+\midrule
+$\chi_1$ &0 &1 &1 \\
+\midrule
+$\chi_2$ &0 &1 &-1 \\
+\end{tabular}\]
+while \((\zz/6\zz)^\times \cong (\zz/2\zz)^\times \times (\zz/3\zz)^\times\) is of order \(2\), so the dirichlet character mod \(6\) can be given by the product of the chracter mod 2 (trival character) and mod 3 (\(\chi_1\) and \(\chi_2\) as above), and we write down the table
+\[\begin{tabular}{c|cccccc}
+$n$      &0 &1 &2 &3 &4 &5  \\
+\midrule
+$\psi_1$ &0 &1 &0 &0 &0 &-1 \\
+\midrule
+$\psi_2$ &0 &1 &0 &0 &0 &1 \\
+    
+\end{tabular}\]
+\end{example}
+
+\begin{example}
+    Another example is the character mod 9, there are exactly 6 characters, while in it there are two characters can be written down by character mod 3
+    \[\begin{tabular}{c|ccccccccccc}
+$n$      &0 &1 &2 &3 &4 &5 &6 &7 &8  \\
+\midrule
+$\tilde{\chi_1}$ &0 &1 &-1 &0 &1 &-1 &0 &1 &-1 \\
+\midrule
+$\tilde{\chi_2}$ &0 &1 &-1 &0 &1 &-1 &0 &1 &-1\\
+    \end{tabular}\]
+    for instane,
+    \[\tilde{\chi}_1(n) = (\chi_1 \cdot f_0)(n) = \begin{cases}
+\chi_1(n) \quad &\gcd(n,9) = 1 \\
+0 \quad &\gcd(n,9) \neq 1
+    \end{cases}\]
+    where \(f_0\) is the trival character mod 9, it is clearly that \(\tilde{\chi_1}\) is a 9-periodic function and completely multiplicative, and for any \(n\) coprime with 9 (\(9=3^2\) so also coprime with 3), we have \(\tilde{\chi_1}(n) = \chi_1(n) = \pm 1\), hence it is a dirichlet character mod 9, and the same for \(\tilde{\chi_2}\).
+\end{example}
+
+The second example shows that for a dirichlet character mod \(N\), if \(N\) is large then it may be determined by a dirichlet charcter mod the factors of \(N\), which induces the following definition.
+
+\begin{lemma}
+    Let \(\chi\) be a dirichlet character mod \(N\), and \(d \) a positive divisor of \(N\), then the following statements are equivalant:
+    \begin{enumerate} [(a)]
+        \item \(\chi\) factors through \((\zz/d\zz)^\times\): there exists a character \(\psi_d\) mod \(d\) such that the following diagram commutes:
+        % https://q.uiver.app/#q=WzAsMyxbMCwwLCIoXFxtYXRoYmJ7Wn0vTlxcbWF0aGJie1p9KV5cXHRpbWVzIl0sWzEsMCwiXFxtYXRoYmJ7Q30iXSxbMCwxLCIoXFxtYXRoYmJ7Wn0vZFxcbWF0aGJie1p9KV5cXHRpbWVzIl0sWzAsMSwiXFxjaGkiXSxbMCwyLCJcXHBpIiwyXSxbMiwxLCJcXGNoaV9kIiwyXV0=
+\[\begin{tikzcd}
+	{(\mathbb{Z}/N\mathbb{Z})^\times} & {\mathbb{C}} \\
+	{(\mathbb{Z}/d\mathbb{Z})^\times}
+	\arrow["\chi", from=1-1, to=1-2]
+	\arrow["\pi"', from=1-1, to=2-1]
+	\arrow["{\psi_d}"', from=2-1, to=1-2]
+\end{tikzcd}\]
+        where \(\pi\) is the natural projection sending \([x]_N\) to \([x]_d\).
+        \item \(\chi(a) = 1\) for any \(a \in \nn\) such that \(\gcd(a,N) = 1\) and \(a \equiv 1 \mod d\).
+        
+        \item there is a character \(\psi_d\) mod \(d\) such that in the sense of arithemetic function
+        \[\chi(n) = \psi_d(n)\chi_0(n)\]
+    \end{enumerate}
+    If one of the above statements holds, we say that \(d\) is an \textbf{induced modulus} of \(\chi\).
+\end{lemma}
+
+\begin{proof}
+    
+\end{proof}
+
+\begin{remark}
+    Notice that \(N\) is alaways an induced modulus of \(\chi\), while \(1\) is an induced modulus of \(\chi\) if and only if \(\chi\) is trival. In above example, \(3\) is an induced modulus of \(\tilde{\chi}_1\) and \(\tilde{\chi}_2\).
+\end{remark}
+
+
+
+\begin{colordefinition}
+    Let \(\chi\) be a dirichlet character mod \(N\), the conductor of \(\chi\) is the smallest induced modulus of \(\chi\).\\
+
+    The character \(\chi\) is called \textbf{primitive} if its conductor is exactly \(N\).
+\end{colordefinition}
+
+\begin{remark}
+    \textcolor{blue}{\textbf{Any non-trival charcter mod a prime number \(p\) is primitive}}, since the divisor of \(p\) is only \(1\) and \(p\), so the conductor can only be \(1\) or \(p\), it is \(p\) since the character is non-trival.
+\end{remark}
+
+\begin{remark}
+    By lemma, for any dirichlet chracter \(\chi\) mod \(N\), there exists a unique primitive character \(\psi\) mod conductor of \(\chi\), such that 
+    \[\chi(n) = \psi(n)\chi_0(n)\]
+    the proof depends on the fact that conductor is the smallest induced modulus (cf.~\cite{Apostol}, Theorem 8.18).
+\end{remark}
+
+Notice that \textcolor{blue}{ dirichlet character can be viewed as a periodic arithemetic function, which allows us to consider its fourier transform}, here is the notation introduced by Gauss in the study of quadratic reciprocity.
+
+\begin{colordefinition}
+    The \textbf{Gauss sum} of a dirichlet character \(\chi\) mod \(N\) is defined by
+    \[G(n,\chi) = \sum_{m = 1}^N \chi(m) e(\frac{mn}{N})\]
+    and we write \(\tau(\chi) = G(1,\chi)\) for convenience.
+\end{colordefinition}
+
+
+
+\begin{lemma}
+    If \(\chi\) is a dirichlet character mod \(N\), then for any \(\gcd(n,N) = 1\) we have
+    \[G(n,\chi) = \bar{\chi}(n)\tau(\chi)\]
+\end{lemma}
+
+\begin{proof}
+    
+\end{proof}
+
+
+    \(\chi\) can be viewed as a function on \(\zz/N\zz\), so by theorem \ref{ffs} we can rewrite
+    \[G(n,\chi) = N \cdot \hat{\chi}(-n) \]
+    so we can desrible primitive character by gauss sum again, since we believe that fourier transform can keep the information of the original function.
+
+\begin{lemma}
+    Along above notation, the following statements are equivalent:
+    \begin{enumerate} [(a)]
+    \item \(\chi\) is primitive.
+    \item \(G(n,\chi) = \bar{\chi}(n) \tau(\chi)\) for any \(n \in \nn\).
+    \item \(G(n,\chi) = 0\) for any \(\gcd(n,N) \neq 1\).
+    \end{enumerate}
+    If one of the above statements holds, we call the Gauss sum is \textbf{separable}.
+\end{lemma}
+\begin{proof}
+    
+\end{proof}
+
+\begin{proposition}
+    Let \(\chi\) be a primitive character mod \(N\), then
+    \[|G(n,\chi)| = \begin{cases}
+        \sqrt{N} \quad &\gcd(n,N) = 1 \\
+        0 \quad &\gcd(n,N) \neq 1
+    \end{cases}\]
+\end{proposition}
+
+\begin{proof}
+    
+\end{proof}
+
+\begin{remark}
+    If \(\chi\) is not primitive, then by Ramanujan sum we can show that 
+    \[\tau(\chi) = 0\]
+\end{remark}
+
+Finally, when the character is primitive, then the fourier expansion of character will be simple since the guass sum is separable, we can conclude that as following, which is important in many applications.
+
+\begin{colortheorem}
+    Let \(\chi\) be a primitive character mod \(N\), then its fourier trnasform is 
+    \[\hat{\chi} = \frac{\tau(\chi) \bar{\chi}(-1)}{N} \cdot \bar{\chi}\]
+    with the fourier expansion
+    \[\chi(n) = \frac{\tau(\chi)}{N} \sum_{m = 1}^N \bar{\chi}(n) e(-\frac{mn}{N})\]
+\end{colortheorem}
+
+\begin{proof}
+    
+\end{proof}
+
+\subsubsection{Legendre Symbol and real character}
+A character of a finite abelian group is called \textbf{real character} if its image is contained in \(\{\pm 1\}\), this parts is to introduce a typcial example of real character.
+
+Historically, a classical diophantine problem is to solve
+\[X^2 = b \mod p\]
+with \(p\) a prime, and \(b\) is a given non-zero intger, equivalently, solve the quadratic equation in the finite field \(\ff_p\). For example,
+\(X^2 - 2 = 0\) has no solution in \(\ff_5\) while it has solution in \(\ff_3\).
+
+\begin{lemma}
+    Let \(p\) be an odd prime, then \(\varphi: \ff_p^* \to \ff_p^*\) with \(x \mapsto x^{\frac{p-1}{2}}\) defines a homomorphism of groups, with kernel \(S_p\) the set of all squares in \(\ff_p^*\), and the image is \(\{1,-1\}\).
+\end{lemma}
+\begin{proof}
+    \(p\) is prime so \(\frac{p-1}{2}\) is an integer, which is enough to show the map is a homomorphism. Notice that \(S_p \subset \ker \varphi\), it is enough to show that \(|S_P| = |\ker \varphi| = \frac{p-1}{2}\). After that, the cardianlity of the image is \(2\), and \(\varphi(x)\) is exactly the roots of \(X^2-1 = 0\), which implies the image is \(\{1,-1\}\).
+
+    \(S_p\) is the image of morphism \(f(x) = x^2\) inside \(\ff_p^*\), the kernel of \(f\) is exactly the solutions of \(X^2-1=0\) in \(\ff_p\), they are exactly \({-1,1}\) since there are at most two distinct solutions, hence \(|S_p| = |\ff_p^*/\ker f| = \frac{p-1}{2}\).
+
+    \(\varphi(x) = 1\) means that \(x\) is a roots of \(X^{\frac{p-1}{2}} - 1 = 0\) in \(\ff_p\), which has at most \(\frac{p-1}{2}\) distinct solutions, hence \(|\ker \varphi| \leq \frac{p-1}{2} = |S_p|\), so immediately \(\ker \varphi = S_p\).
+\end{proof}
+
+\begin{colordefinition}
+    A integer \(a\) is called a \textbf{quadratic residue} modulo \(p\) if \(a\) is a square in \(\ff_p\), i.e. the diophantine equation
+    \[x^2 \equiv a \mod p\]
+    has a solution in \(\ff_p\). The \textbf{legendre symbol} is a function defined by
+    \[\legendre{a}{p} = \begin{cases}
+        0 & a = 0 \mod p \\
+        1 & a \text{ is a non-zero quadratic residue modulo } p \\
+        -1 &  \text{ otherwise }
+    \end{cases}\]
+    where \(p\) is an odd prime and \(a\) is an integer.
+\end{colordefinition}
+
+Here are some quick descriptions:
+
+\begin{itemize}
+    \item If \(p = 2\), then any elements in \(\ff_2\) is square, so legndre symbol makes no sense to distinguish the quadratic residue, hence we only consider odd prime \(p\).
+
+    \item If we fixed the prime \(p\), then the legendre symbol is a extension of the character on \((\zz/p\zz)^\times\) defined by \(a \mapsto a^{\frac{p-1}{2}}\) in the above lemma, exactly it is \textbf{a real primitive character mod \(p\)}.
+    
+    \item \textcolor{blue}{It is the unique non-trival real character mod \(p\):} In fact, \((\zz/p\zz)^\times\) is a cyclic group of order \(p-1\), so we can choose a generator \(g\), then the character will depend only on \(\chi(g) = \{\pm 1\}\), if \(\chi(g) = 1\), then \(\chi\) is trival, hence along the last statement, we can conclude.
+\end{itemize} 
+
+\begin{proposition}
+    Let \(a\) be a non-zero square free integer and \(m = 4|a|\), then there exists a unique dirichlet character \(\chi_a\) mod \(m\) such that 
+    \[\forall \text{ prime } p \nmid m, \quad \chi_a(p) = \legendre{a}{p}\]
+    it will be non-trival if \(a \neq 1\).
+\end{proposition}
+
+\begin{proposition}
+Let \(p\) be an odd prime, then we have the following formula:
+\begin{enumerate}[(a)]
+    \item Euler's criterion: \(\legendre{n}{p} = n^{\frac{p-1}{2}} \mod p\) for any intger \(n\).
+    \item Gauss's lemma: Let \(n\) be an integer coprime with \(p\), and consider the following numbers:
+    \[n,2n,3n,\dots, \frac{p-1}{2}n\]
+    For any above numbers, there exists a unique number \(1 \leq a_k \leq p-1\) such that \(a_k = kn \mod p\) with \(1 \leq k \leq \frac{p-1}{2}\), then we have
+    \[\legendre{n}{p} = (-1)^s\]
+    where \(s\) is the number of \(a_k\) that is greater than \(\frac{p}{2}\).
+\end{enumerate}
+
+\end{proposition}
+
+
+Via the lemma, Gauss proved a remarkable result about the legendre symbol, so-called quadratic reciprocity, for sake of a proof, ~\cite{Apostol} Theorem 9.8 sketches as such style. Here we will see legendre symbol as a character, and consider the gauss sum of other type, such that we can get a series of results about characters.
+
+\begin{lemma}
+    The \textbf{ quadratic gauss sum} is defined as 
+    \[G_n = \sum_{k=1}^n e(\frac{k^2}{n})\]
+    then we have
+    \[G_n = \frac{1+i^{-m}}{1+i^{-1}}\sqrt{m} = \begin{cases}
+        (1+i)\sqrt{m} & m \equiv 0 \mod 4 \\
+        \sqrt{m} & m \equiv 1 \mod 4 \\
+        0 & m \equiv 2 \mod 4 \\
+        i\sqrt{m} & m \equiv 3 \mod 4
+    \end{cases}\]
+\end{lemma}
+
+\begin{proof}
+    
+\end{proof}
+
+\begin{lemma}
+    The \textbf{generalized gauss sum} is defined as 
+    \[G_n(a) = \sum_{k=1}^n e(\frac{ak^2}{n})\]
+    with \(G_n(1) = G_n\) exactly, then we conclude following properties:
+    \begin{enumerate}[(a)]
+        \item If \(\gcd(a,n) = d\), then \(G_n(a) = d \cdot G_{n/d}(a/d)\).
+        \begin{center}
+            \textcolor{blue}{hence we usually consider the case \(a\) coprime with \(n\)}
+        \end{center}
+
+        \item If \(a\) is coprime with \(n = n_1n_2\) and \(n_1\) is corpime with \(n_2\), then 
+        \[G_n(a) = G_{n_1}(an_2) G_{n_2}(an_1)\] 
+
+        \item If \(n\) is fixed, then \(a \mapsto G_n(a)\) is \(n\)-periodic and in particular if \(n = p\) is an odd prime then
+        \[G_p(a) = \legendre{a}{p} G_p = \legendre{a}{p} \varepsilon_p \sqrt{p}\]
+        with a factor depening on \(p\)
+        \[\varepsilon_p = \begin{cases}
+            1 & p \equiv 1 \mod 4 \\
+            i & p \equiv 3 \mod 4
+        \end{cases}\]
+
+        \item Let \(p\) be an odd prime, then the gauss sum of legendre symbol \(\chi_p = \legendre{\cdot}{p}\) is exactly \(G_p\) with
+        \[\varepsilon(\chi_p) = \varepsilon_p \sqrt{p}\]
+    \end{enumerate}
+\end{lemma}
+
+\begin{colortheorem}[Quadratic reciprocity]
+    Let \(p\) and \(q\) be two distinct odd primes, then we have
+    \[\legendre{p}{q} \legendre{q}{p} = (-1)^{\frac{p-1}{2}\cdot \frac{q-1}{2}}\]
+\end{colortheorem}
+\begin{proof}
+    
+\end{proof}
+
+\begin{colortheorem}[Gauss sum]
+    Let \(n\) be a square-free odd, and \(\chi\) be a real primitive character mod \(n\), then 
+    \[\tau(\chi) = \varepsilon_m \sqrt{m}\]
+    with
+    \[\varepsilon_m = \begin{cases}
+        1 & m \equiv 1 \mod 4 \\
+        i & m \equiv 3 \mod 4
+    \end{cases}\]
+\end{colortheorem}
+\begin{proof}
+    
+\end{proof}
 
 
 

@@ -984,15 +984,23 @@ To define adele ring of a number field, we introduce the restricted direct produ
         is a isomorphism of topological rings, hence as a \(\adele_{\qq}\)-module, \(\adele_k\) is free of rank \([k:\qq]\).
         \item It is natural to consider the digonal embedding
         \[\Delta: k \to \adele_k, \quad x \mapsto (x_v)_{v \in V(k)}\]
-        the image of \(\Delta\) is exactly a subring of adele ring, with the subspace topology, we call it \textbf{ring of princial adeles}.
+        the image of \(\Delta\) is exactly a subring of adele ring, with the subspace topology,\textcolor{blue}{ we call it pincipal aldele, it is a discrete subgroup.}
     \end{itemize}
 \end{remark}
+
+In claasical harmonic analysis, we usually consider groups \(\rr\), \(\zz\) and \(\sph^1 \cong \rr/\zz\), they are all locally compact abelian groups, and the dual group are \(\rr\), \(\sph^1\) and \(\zz\) respectively, we can turn to the harmonic analysis in the context of adele ring, by the topological analogue of the groups.
+
+\begin{lemma}
+    For any number field \(k\), the adele ring \(\adele_k\) is a locally compact topological ring, and the principal adele \(k\) is a discrete subgroup of \(\adele_k\), and the quotient group \(\adele_k/k\) is compact.
+\end{lemma}
+
+
 
 \subsection{Idele group}
 
 \begin{definition}
-    For any number field \(k\), we define the idele group is the multiplicative group of units in adele ring, that is
-    \[\idele_k = \adele_k^*\]
+    For any number field \(k\), we define the (algebraic) idele group as the multiplicative group of units in the adele ring, that is
+    \[\idele_k = \adele_k^* = \prod_{v \in V(k)} k_v^*\]
 \end{definition}
 
 \textcolor{blue}{As John Tate wrote in his thesis, we can do nothing signficant with idele until we consider the embedding of \(k\).} 
