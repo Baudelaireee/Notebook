@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.12.8)  25 APR 2026 14:38
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.12.8)  4 MAY 2026 06:30
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -23,6 +23,8 @@ File: size10.clo 2023/05/17 v1.4n Standard LaTeX file (size option)
 \abovecaptionskip=\skip48
 \belowcaptionskip=\skip49
 \bibindent=\dimen140
+) (c:/texlive/2024/texmf-dist/tex/latex/doublestroke/dsfont.sty
+Package: dsfont 1995/08/01 v0.1 Double stroke roman fonts
 ) (c:/texlive/2024/texmf-dist/tex/latex/amsmath/amsmath.sty
 Package: amsmath 2023/05/13 v2.17o AMS math features
 \@mathmargin=\skip50
@@ -180,6 +182,9 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \float@box=\box53
 \@float@everytoks=\toks34
 \@floatcapt=\box54
+) (c:/texlive/2024/texmf-dist/tex/latex/tools/enumerate.sty
+Package: enumerate 2023/07/04 v3.00 enumerate extensions (DPC)
+\@enLab=\toks35
 ) (c:/texlive/2024/texmf-dist/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2024-01-20 v7.01h Hypertext links for LaTeX
  (c:/texlive/2024/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
@@ -287,8 +292,8 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 28
 \Hy@SectionHShift=\skip56
 ) (c:/texlive/2024/texmf-dist/tex/latex/base/inputenc.sty
 Package: inputenc 2021/02/14 v1.3d Input encoding file
-\inpenc@prehook=\toks35
-\inpenc@posthook=\toks36
+\inpenc@prehook=\toks36
+\inpenc@posthook=\toks37
 
 
 Package inputenc Warning: inputenc package ignored with utf8 based engines.
@@ -339,7 +344,7 @@ File: dvipsnam.def 2016/06/17 v3.0m Driver-dependent file (DPC,SPQR)
 ) (c:/texlive/2024/texmf-dist/tex/latex/tcolorbox/tcolorbox.sty
 Package: tcolorbox 2024/01/10 version 6.2.0 text color boxes
  (c:/texlive/2024/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty (c:/texlive/2024/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty (c:/texlive/2024/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex
-\pgfutil@everybye=\toks37
+\pgfutil@everybye=\toks38
 \pgfutil@tempdima=\dimen169
 \pgfutil@tempdimb=\dimen170
 ) (c:/texlive/2024/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def
@@ -351,10 +356,10 @@ Package: pgf 2023-01-15 v3.1.10 (3.1.10)
  (c:/texlive/2024/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty (c:/texlive/2024/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty (c:/texlive/2024/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex
 Package: pgfsys 2023-01-15 v3.1.10 (3.1.10)
  (c:/texlive/2024/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
-\pgfkeys@pathtoks=\toks38
-\pgfkeys@temptoks=\toks39
+\pgfkeys@pathtoks=\toks39
+\pgfkeys@temptoks=\toks40
  (c:/texlive/2024/texmf-dist/tex/generic/pgf/utilities/pgfkeyslibraryfiltered.code.tex
-\pgfkeys@tmptoks=\toks40
+\pgfkeys@tmptoks=\toks41
 ))
 \pgf@x=\dimen171
 \pgf@y=\dimen172
@@ -372,9 +377,9 @@ Package: pgfsys 2023-01-15 v3.1.10 (3.1.10)
 \c@pgf@countb=\count292
 \c@pgf@countc=\count293
 \c@pgf@countd=\count294
-\t@pgf@toka=\toks41
-\t@pgf@tokb=\toks42
-\t@pgf@tokc=\toks43
+\t@pgf@toka=\toks42
+\t@pgf@tokb=\toks43
+\t@pgf@tokc=\toks44
 \pgf@sys@id@count=\count295
  (c:/texlive/2024/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
 File: pgf.cfg 2023-01-15 v3.1.10 (3.1.10)
@@ -400,9 +405,9 @@ Package: pgfcore 2023-01-15 v3.1.10 (3.1.10)
 \pgfmath@dimen=\dimen181
 \pgfmath@count=\count299
 \pgfmath@box=\box57
-\pgfmath@toks=\toks44
-\pgfmath@stack@operand=\toks45
-\pgfmath@stack@operation=\toks46
+\pgfmath@toks=\toks45
+\pgfmath@stack@operand=\toks46
+\pgfmath@stack@operation=\toks47
 ) (c:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.tex) (c:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic.code.tex) (c:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigonometric.code.tex) (c:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.random.code.tex) (c:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.comparison.code.tex) (c:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.code.tex) (c:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round.code.tex) (c:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.code.tex) (c:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerarithmetics.code.tex) (c:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex) (c:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
 \c@pgfmathroundto@lastzeros=\count300
 )) (c:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfint.code.tex) (c:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.tex
@@ -483,8 +488,8 @@ Package: pgfcomp-version-0-65 2023-01-15 v3.1.10 (3.1.10)
 Package: pgfcomp-version-1-18 2023-01-15 v3.1.10 (3.1.10)
 )) (c:/texlive/2024/texmf-dist/tex/latex/tools/verbatim.sty
 Package: verbatim 2023-11-06 v1.5v LaTeX2e package for verbatim enhancements
-\every@verbatim=\toks47
-\verbatim@line=\toks48
+\every@verbatim=\toks48
+\verbatim@line=\toks49
 \verbatim@in@stream=\read4
 ) (c:/texlive/2024/texmf-dist/tex/latex/environ/environ.sty
 Package: environ 2014/05/04 v0.3 A new way to define environments
@@ -508,50 +513,143 @@ Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
 Package thmtools Info: Key `name' (with value `Theorem')
 (thmtools)             is not a known style key.
 (thmtools)             Will pass this to every \declaretheorem
-(thmtools)             that uses `style=thmsty' on input line 22.
+(thmtools)             that uses `style=thmsty' on input line 24.
 \c@theorem=\count307
 Package thmtools Info: Key `name' (with value `Proposition')
 (thmtools)             is not a known style key.
 (thmtools)             Will pass this to every \declaretheorem
-(thmtools)             that uses `style=prosty' on input line 26.
+(thmtools)             that uses `style=prosty' on input line 28.
 Package thmtools Info: Key `name' (with value `Lemma')
 (thmtools)             is not a known style key.
 (thmtools)             Will pass this to every \declaretheorem
-(thmtools)             that uses `style=prosty' on input line 30.
+(thmtools)             that uses `style=prosty' on input line 32.
+Package thmtools Info: Key `name' (with value `Example')
+(thmtools)             is not a known style key.
+(thmtools)             Will pass this to every \declaretheorem
+(thmtools)             that uses `style=defsty' on input line 36.
+\c@definition=\count308
+ (./command.tex
+
+LaTeX Warning: You have requested package `',
+               but the package provides `quiver'.
+
+Package: quiver 2025/09/20 quiver
+(c:/texlive/2024/texmf-dist/tex/latex/tikz-cd/tikz-cd.sty
+Package: tikz-cd 2021/05/04 v1.0 Commutative diagrams with TikZ
+ (c:/texlive/2024/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty (c:/texlive/2024/texmf-dist/tex/latex/pgf/utilities/pgffor.sty (c:/texlive/2024/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty (c:/texlive/2024/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex)) (c:/texlive/2024/texmf-dist/tex/latex/pgf/math/pgfmath.sty (c:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex)) (c:/texlive/2024/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex
+Package: pgffor 2023-01-15 v3.1.10 (3.1.10)
+\pgffor@iter=\dimen265
+\pgffor@skip=\dimen266
+\pgffor@stack=\toks50
+\pgffor@toks=\toks51
+)) (c:/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex
+Package: tikz 2023-01-15 v3.1.10 (3.1.10)
+ (c:/texlive/2024/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers.code.tex
+File: pgflibraryplothandlers.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@plot@mark@count=\count309
+\pgfplotmarksize=\dimen267
+)
+\tikz@lastx=\dimen268
+\tikz@lasty=\dimen269
+\tikz@lastxsaved=\dimen270
+\tikz@lastysaved=\dimen271
+\tikz@lastmovetox=\dimen272
+\tikz@lastmovetoy=\dimen273
+\tikzleveldistance=\dimen274
+\tikzsiblingdistance=\dimen275
+\tikz@figbox=\box72
+\tikz@figbox@bg=\box73
+\tikz@tempbox=\box74
+\tikz@tempbox@bg=\box75
+\tikztreelevel=\count310
+\tikznumberofchildren=\count311
+\tikznumberofcurrentchild=\count312
+\tikz@fig@count=\count313
+ (c:/texlive/2024/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex
+File: pgfmodulematrix.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfmatrixcurrentrow=\count314
+\pgfmatrixcurrentcolumn=\count315
+\pgf@matrix@numberofcolumns=\count316
+)
+\tikz@expandcount=\count317
+ (c:/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopaths.code.tex
+File: tikzlibrarytopaths.code.tex 2023-01-15 v3.1.10 (3.1.10)
+))) (c:/texlive/2024/texmf-dist/tex/generic/tikz-cd/tikzlibrarycd.code.tex (c:/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarymatrix.code.tex
+File: tikzlibrarymatrix.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (c:/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryquotes.code.tex
+File: tikzlibraryquotes.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (c:/texlive/2024/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.meta.code.tex
+File: pgflibraryarrows.meta.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfarrowinset=\dimen276
+\pgfarrowlength=\dimen277
+\pgfarrowwidth=\dimen278
+\pgfarrowlinewidth=\dimen279
+))) (c:/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarycalc.code.tex
+File: tikzlibrarycalc.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (c:/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.pathmorphing.code.tex (c:/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.code.tex (c:/texlive/2024/texmf-dist/tex/generic/pgf/modules/pgfmoduledecorations.code.tex
+\pgfdecoratedcompleteddistance=\dimen280
+\pgfdecoratedremainingdistance=\dimen281
+\pgfdecoratedinputsegmentcompleteddistance=\dimen282
+\pgfdecoratedinputsegmentremainingdistance=\dimen283
+\pgf@decorate@distancetomove=\dimen284
+\pgf@decorate@repeatstate=\count318
+\pgfdecorationsegmentamplitude=\dimen285
+\pgfdecorationsegmentlength=\dimen286
+)
+\tikz@lib@dec@box=\box76
+) (c:/texlive/2024/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.pathmorphing.code.tex)) (c:/texlive/2024/texmf-dist/tex/latex/spath3/tikzlibraryspath3.code.tex (c:/texlive/2024/texmf-dist/tex/latex/spath3/spath3.sty (c:/texlive/2024/texmf-dist/tex/latex/l3kernel/expl3.sty
+Package: expl3 2024-02-20 L3 programming layer (loader) 
  (c:/texlive/2024/texmf-dist/tex/latex/l3backend/l3backend-xetex.def
 File: l3backend-xetex.def 2024-02-20 L3 backend support: XeTeX
-\g__graphics_track_int=\count308
-\l__pdf_internal_box=\box72
-\g__pdf_backend_object_int=\count309
-\g__pdf_backend_annotation_int=\count310
-\g__pdf_backend_link_int=\count311
-) (./main.aux)
+\g__graphics_track_int=\count319
+\l__pdf_internal_box=\box77
+\g__pdf_backend_object_int=\count320
+\g__pdf_backend_annotation_int=\count321
+\g__pdf_backend_link_int=\count322
+))
+Package: spath3 2022/08/24 v2.7 Functions for manipulating PGF soft paths
+ (c:/texlive/2024/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
+Package: xparse 2024-02-18 L3 Experimental document command parser
+)
+\g__spath_output_int=\count323
+\l__spath_tmpa_dim=\dimen287
+\l__spath_tmpb_dim=\dimen288
+\l__spath_tmpa_int=\count324
+\l__spath_tmpb_int=\count325
+\l__spath_move_x_dim=\dimen289
+\l__spath_move_y_dim=\dimen290
+\l__spath_rectx_dim=\dimen291
+\l__spath_recty_dim=\dimen292
+\g__spath_anon_int=\count326
+)
+\l__tikzspath_tmpa_int=\count327
+)) (./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 49.
-LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 49.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 56.
+LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 56.
  (c:/texlive/2024/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
@@ -587,16 +685,16 @@ LaTeX Font Info:    ... okay on input line 49.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package hyperref Info: Link coloring OFF on input line 49.
+Package hyperref Info: Link coloring OFF on input line 56.
 (./main.out) (./main.out)
 \@outlinefile=\write4
 \openout4 = `main.out'.
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 69.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 76.
  (c:/texlive/2024/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 69.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 76.
  (c:/texlive/2024/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
@@ -605,30 +703,39 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 \tf@toc=\write5
 \openout5 = `main.toc'.
 
- [2] [3] (./contents/1.tex) [4]
-No file main.bbl.
-(./main.aux)
+ [2] [3] (./contents/1.tex
+Package hyperref Info: bookmark level for unknown definition defaults to 0 on input line 6.
+LaTeX Font Info:    Trying to load font information for U+euf on input line 19.
+ (c:/texlive/2024/texmf-dist/tex/latex/amsfonts/ueuf.fd
+File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
+)
+Package hyperref Info: bookmark level for unknown lemma defaults to 0 on input line 43.
+ [4]
+Package hyperref Info: bookmark level for unknown theorem defaults to 0 on input line 66.
+Package hyperref Info: bookmark level for unknown remark defaults to 0 on input line 76.
+ [5]
+Package hyperref Info: bookmark level for unknown proposition defaults to 0 on input line 105.
+
+Overfull \hbox (3.72705pt too wide) in paragraph at lines 139--140
+[]\TU/lmr/m/n/10 The vocabulary here follows Tate’s thesis, here are the examples in the case of archimedean
+ []
+
+Package hyperref Info: bookmark level for unknown example defaults to 0 on input line 141.
+[6] [7] [8] [9] [10] [11]) (./contents/2.tex) [12] (./main.bbl) [13] (./main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
-
-
-Package rerunfilecheck Warning: File `main.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `main.out':
-(rerunfilecheck)             Before: D41D8CD98F00B204E9800998ECF8427E;0
-(rerunfilecheck)             After:  9534070C232AA0A3F935CB7C3E3F8D46;35.
+Package rerunfilecheck Info: File `main.out' has not changed.
+(rerunfilecheck)             Checksum: D7CEEDE0804935B6131D018B71BE9CAA;662.
  ) 
 Here is how much of TeX's memory you used:
- 21732 strings out of 474773
- 404783 string characters out of 5761289
- 1921842 words of memory out of 5000000
- 43508 multiletter control sequences out of 15000+600000
- 563138 words of font info for 63 fonts, out of 8000000 for 9000
+ 27659 strings out of 474773
+ 562904 string characters out of 5761289
+ 1936842 words of memory out of 5000000
+ 49319 multiletter control sequences out of 15000+600000
+ 566504 words of font info for 81 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 83i,6n,87p,537b,342s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 83i,15n,100p,799b,1086s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.pdf (4 pages).
+Output written on main.pdf (13 pages).
