@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.12.8)  27 APR 2026 17:58
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.12.8)  7 MAY 2026 17:31
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1633,7 +1633,16 @@ Overfull \hbox (9.73616pt too wide) in paragraph at lines 950--952
 
 LaTeX Warning: Citation 'Apostol' on page 89 undefined on input line 1082.
 
-[89]) [90]
+[89]
+
+LaTeX Warning: Citation 'Riemann' on page 90 undefined on input line 1151.
+
+[90] [91]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1218.
+
+[92] [93] [94]) [95]
 
 LaTeX Warning: Empty bibliography on input line 33.
 
@@ -1647,7 +1656,7 @@ L3 programming layer <2024-02-20>
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 9ADFB090BDB568BFBA606CAB96382964;6648.
+(rerunfilecheck)             Checksum: A2E066D35F5BA525F29E4A1D4AD8B1DA;7357.
 
 Package biblatex Warning: Please (re)run Biber on the file:
 (biblatex)                main
@@ -1658,12 +1667,12 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 43379 strings out of 474773
- 906461 string characters out of 5761289
+ 43391 strings out of 474773
+ 906687 string characters out of 5761289
  1940842 words of memory out of 5000000
- 64842 multiletter control sequences out of 15000+600000
+ 64854 multiletter control sequences out of 15000+600000
  576520 words of font info for 117 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  106i,17n,110p,982b,1523s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.pdf (91 pages).
+Output written on main.pdf (96 pages).

@@ -3,3 +3,6 @@
 \contentsline {subsection}{\numberline {1.1}Additive Character}{4}{subsection.1.1}%
 \contentsline {subsection}{\numberline {1.2}Multiplicative Character}{6}{subsection.1.2}%
 \contentsline {subsection}{\numberline {1.3}Local Zeta Function}{9}{subsection.1.3}%
+\contentsline {section}{\numberline {2}Global Functional Equation}{12}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Adele Ring and Idele group}{12}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}The Adelic Additive Characters}{14}{subsection.2.2}%

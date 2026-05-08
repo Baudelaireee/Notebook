@@ -1,0 +1,124 @@
+\section{Global Functional Equation}
+
+\subsection{Adele Ring and Idele group}
+
+Firstly we introduce a construction of the topological space, which allows us to obtain a finer topology than the product topology.
+
+\begin{definition}
+    Let \(\{X_i\}_{i \in I}\) be a family of topological spaces, and \(\{U_i\}_{i \in I}\) be a family of open subset of \(X_i\), then the\textbf{ the restricted direct product of \(\{X_i\}_{i \in I}\) with respect to \(\{U_i\}_{i \in I }\)} is defined as a subspace of direct product \(\prod_{i \in I}X_i\) as following
+    \[\prod_{i \in I}^{\prime}(X_i, U_i) := \{(x_i)_{i \in I} \in \prod_{i \in I} \mid x_i \in U_i \text{ for almost all } i \in I\}\]
+    it can be viewed as a topological space with the open basis given by 
+    \[\mathcal{B} = \{\prod_{i \in I}V_i \mid V_i = U_i \text{ for almost all } i \in I\}\]
+\end{definition}
+
+and some properties of the restricted direct product are given as following.
+
+\begin{lemma}
+    Let \(\{G_i\}_{i \in I}\) be a family of locally compact abelian groups, and \(\{U_i\}_{i \in I}\) be a family of compact-open subgroups \(U_i \subset G_i\), then 
+    \begin{enumerate} [(a)]
+        \item The restricted direct product of \(\{G_i\}_{i \in I}\) with respect to \(\{U_i\}_{i \in I}\) is a locally compact abelian group \(G\).
+        \item If \({\mu}_{i \in I}\) is a family of Haar measure on \(G_i\) such that \(\mu_i(U_i) = 1\) for all but finitely many \(i \in I\), then there exists a unique Haar measure \(\mu\) on \(G\) such that 
+        \[\mu(\prod_{i \in S}A_i \times \prod_{i \notin S}U_i) = \prod_{i \in S} \mu_i(A_i) \cdot \prod_{i \notin S} \mu_i(U_i)\]
+        for any finite subset \(S \subset I\).
+
+        \item The measure \(\mu\) on (b)
+    \end{enumerate}
+\end{lemma}
+
+with the above lemma, we can formally define the adele ring.
+
+\begin{definition}
+    Let \(K\) be a number field, then the adele ring of \(K\) is defined as the restricted direct product of \(\{K_v\}_{v \in V(K)}\) with respect to \(\{\mathcal{O}_v\}_{v \in V(K)}\), where \(\oo_v = K_v\) if \(v\) is archimedean, and \(\oo_v\) is the valuation ring of \(K_v\) if \(v\) is non-archimedean. The operation of addition and multiplication on \(\mathbb{A}_K\) are defined pointwisely by
+    \[(ab)_v = a_vb_v, \quad (a+b)_v = a_v+b_v\]
+    For any \(a,b \in \adele_K\).
+\end{definition}
+
+\begin{remark}
+    The adele ring \(\adele_K\) is a locally compact abelian group under addition, and it is also a topological ring with the multiplication defined above. 
+\end{remark}
+
+We can only consider the finite place of \(K\), that means the restricted direct product of \(\{K_v\}_{v | \infty}\) with repect to \(\{\oo_v\}_{v | \infty}\), which is denoted by \(\adele_{K,f}\) and call it \textbf{the finite adele ring} of \(K\). Review that the minkowski space \(K_{\infty}\) of \(K\) is defined by the embedding of \(K\) into \(\rr^{[K:\qq]}\), and \(K_{\infty } \cong K \otimes_{\qq} \rr \cong \prod_{v \nmid \infty} K_v\), then the adele ring can be decomposed as the direct product
+\[\adele_K \cong K_{\infty} \times \adele_{K,f} \cong K \otimes_{\qq} \adele_{\qq}\] 
+
+The unit group of the adele ring \(\adele_K^\times\) is not a topological group (the subspace topology of \(\adele_K\)) under the multiplication, the reason is that the inverse map \((a_v)_v \mapsto (a_v^{-1})_v\) is not continous, so a different topology should be given to the unit group for a further study.
+
+\begin{definition}
+    The idele group of \(K\) is defined as the restricted direct product of \(K_v^\times\) with respect to \(\oo_v^\times\), where \(\oo_v^\times = K_v^\times\) if \(v\) is archimedean, and \(\oo_v^\times\) is the unit group of \(\oo_v\) if \(v\) is non-archimedean.
+\end{definition}
+
+\begin{remark}
+    It is a multiplicative locally compact abelian group, and analogously to the adele ring, \textbf{the finite idele group} of \(K\) is defined as the restricted direct product of \(\{K_v^\times\}_{v \nmid \infty}\) with respect to \(\{\oo_v^\times\}_{v \nmid \infty}\) for all non-archimedean place \(v\), which is denoted by \(\adele_{K,f}^\times\), and idele group can be decomposed as the direct product
+    \[\adele_K^\times \cong K_{\infty}^\times \times A^\times_{K,f}\]
+\end{remark}
+
+There exists a natural embedding of \(K\) into \(\adele_K\) by diagonal map \(a \mapsto (a_v)_v\) with \(a_v = a\) for any place \(v\), it is a continous ring homomorphism, so it allows us to see \(K\) as a additive subgroup of \(\adele_K\); restrict the diagonal map on \(K^\times\), it allows to  see \(K^\times\) as a multiplicative subgroup of \(\adele_K^\times\).
+
+\begin{lemma}
+    \(K\) and \(K^\times\) are discrete subgroups of \(\adele_K\) and \(\adele_K^\times\) respectively. 
+\end{lemma}
+
+\begin{proof}
+    
+\end{proof}
+
+\begin{theorem}[Weak Approximation Theorem]
+    
+\end{theorem}
+
+\begin{proof}
+    
+\end{proof}
+
+\begin{corollary}
+    The quoitent groups \(\adele_K/K\) and \(\adele_K^\times/K^\times\) are compact.
+\end{corollary}
+
+\begin{proof}
+    
+\end{proof}
+
+\begin{definition}
+    Let \(x = (x_v)_v \in \adele_K\), then the adele norm of \(x\) is defined as
+    \[\|x\|_{\adele_K} = \prod_{v} |x_v|_v\]
+    where \(|\cdot|_v\) is the module (rf. lemma \ref{normalizedmodule}) on local field \(K_v\) 
+ \end{definition}
+
+\begin{remark}
+   Let \(S\) be the set of places \(v\) such that \(x_v \notin \oo_v\), then \(S\) must be finite cotaining all archimedean places, and 
+   \[\|x\|_{\adele_K} = \prod_{v \in S}|x_v|_v \cdot \prod_{v \notin S} |x_v|_v \leq \prod_{v \in S}|x_v|_v < \infty\]
+   which measn the adele norm is well-defined. Morover, the norm of a non-zero element \(x\) can be zero, so it is not a usual norm. 
+\end{remark}
+
+the adele norm induces a continous homomorphism on the idele group
+\[\adele_K^\times \to \rr_{>0}, \quad x \mapsto \|x\|_{\adele_K}\]
+and its kernel is denoted by \(\adele_K^1\), which is a closed subgroup of idele group.
+
+
+\subsection{The Adelic Additive Characters}
+
+This section is analogous to the section 1.2, that means the fourier analysis will be developed on the adele ring, so firstly the dual group structure should be determined.
+
+\begin{proposition}
+    There exists an isomorphism
+    \[\prod_{v}^{\prime} (\hat{K_v}, \widehat{K_v/\oo_v}) \to \widehat{\adele_K}, \quad (\psi_v)_v \mapsto \prod_v \psi_v\]
+    where the product of chracters is defined by
+    \[\prod_v \psi_v: (x_v)_v \mapsto \prod_v \psi_v(x_v)\]
+\end{proposition}
+
+\begin{proof}
+    
+\end{proof}
+
+As we have seen in the section 1.2, each local field \(K_v\) is self-dual, and the dual group of \(K_v/\oo_v\) is \(\oo_v\) if \(v\) is non-archimedean, then an imdediate consequence is that \(\adele_K\) is self-dual.
+
+\begin{corollary}
+    Let \(\{\psi_v\}_v\) be a family of non-trival characters on local field \(K_v\) such that \(\psi_v\) is trival on \(\oo_v\) for almost all non-archimedean places \(v\), then there exists an isomorphism of LCA groups
+    \[\Psi: \adele_K \to \widehat{\adele_K}, \quad a \mapsto \prod_v \psi_v(a_v -) \]
+\end{corollary}
+
+\begin{proof}
+    
+\end{proof} 
+
+
+

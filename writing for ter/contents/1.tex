@@ -39,7 +39,7 @@ Let \(F\) be a local field, then in each case we can know that \((F,+)\) is a lo
 \[\forall E \subset F \text{ measurable }, \quad  \mu_a(E) = \mu(aE)  \]
 and we can conculde the following result:
 
-\begin{lemma}
+\begin{lemma} \ref{normalizedmodule}
     \(\mu_a\) is a Haar measure on \(F\), and there exists a constant factor \(|a|\) such that \(\mu_a = |a| \mu\), such a factor is independent of the choice of \(\mu\) with
     \[|a| = \begin{cases}
         \text{the standard absolute value if } F = \rr \\
@@ -100,13 +100,13 @@ There is no confusion to identify \(y\) as \(\psi_y\) by isomorphism, and the no
 
 In particular, if \(F =\qq\), the standard character is \(\psi(z) = e^{-2 \pi i(z + \bar{z})}\). In the case of \(F =\qq_p\), we have \(\{x\} \in \zz[1/p]\) and \(x - \{x\} \in \zz_p\), the intersection \(\zz_p \cap \zz[1/p] = \zz\) implies that standard character \(\psi\) is a non-trival homomoprhism. In the aspect of continuity, we notice that \(\zz_p \subset \ker \psi\) as an open subset containing \(0\), which shows that \(\psi\) is continous at \(0\), then \(\psi\) is continous on \(\qq_p\) since it is a topological group. Hence \(\psi\) is exactly a non-trival additive character of \(\qq_p\), It is not clear than the case \(F =\rr\).
 
-From now on, we will always use standard character in the Fourier transform, so the fourier transform will depend only on the choice of Haar measure, so a normalization can be done to obtain the inversion formula.
+From now on, we will always use standard character in the Fourier transform, so the transform will depend only on the choice of Haar measure, so a normalization can be done to obtain the inversion formula.
 
 \begin{proposition} \label{selddualmeasure}
-    Let \(F\) be a local field, then there exists a unique self-dual Haar measure \(\mu\), that means if \(f \in \mathcal{S}(F)\), then \(\hat{f} \in \mathcal{S}(F)\) and \(\widehat{\hat{f}}(x) = f(-x)\), explicitly measure is given by following:
+    Let \(F\) be a local field, then there exists a unique self-dual Haar measure \(\mu\), that means if \(f \in \mathcal{S}(F)\), then \(\hat{f} \in \mathcal{S}(F)\) and \(\widehat{\hat{f}}(x) = f(-x)\), explicitly the measure is given as following:
     \[dx = \begin{cases}
-        \text{lebesgue measure  } &\text{If } F = \rr \\
-        2 \times \text{lebesgue measure if } &\text{If } F = \cc \\
+        \text{lebesgue measure of } \rr &\text{If } F = \rr \\
+        2 \times \text{lebesgue measure of } \cc &\text{If } F = \cc \\
         \text{the Haar measure such that } \mu(\mathcal O) = N(\mathfrak{d})^{-\frac{1}{2}} &\text{If } F \text{ is non-archimedean}
     \end{cases}\]
 
@@ -177,7 +177,7 @@ By the example, it is natural to separate the quasi-character into two parts, th
 \begin{lemma}
     The map \(\chi \mapsto (\chi|_U,{\chi} \cdot ({\chi|_U \circ \rho})^{-1}) \) gives an isomorphism
         \[\mathcal{X}(F^\times) \xrightarrow{\sim} \Hom_{\text{cont}}(U,\sph^1) \times \mathcal{U}(F^\times    )\]
-    where \(\rho : F^\times \to U\) is a retraction depending on the local field \(F\), and every quasi-character \(\chi\) is of the form \(\chi = \tilde{\chi} |\cdot|^s\) for some \(s \in \cc\) and a ramified character \(\tilde{\chi}\) conciding with \(\chi\) on \(U\).
+    where \(\rho : F^\times \to U\) is a retraction depending on the local field \(F\), and every quasi-character \(\chi\) is of the form \(\chi = \tilde{\chi} |\cdot|^s\) for some \(s \in \cc\) and a unitary character \(\tilde{\chi}\) conciding with \(\chi\) on \(U\).
 \end{lemma}
 
 \begin{proof}
@@ -203,7 +203,7 @@ By the example, it is natural to separate the quasi-character into two parts, th
 and form a basis of open neighborhood of \(1\) in \(F^\times\), so there exists a integer \(n \geq 0\) such that \(1 + \pp^n \subset \chi^{-1}(V)\), which implies that \(\chi\) is trivial on \(1 + \pp^n\).
 \end{proof}
 
-Hence there is no confusion to take the samllest integer \(\mathfrak{f}\) and define it as the \textbf{conductor} of quasi-character \(\chi\), with a convention that \(1+\pp^0 = \oo^\times\), then \(\chi\) is unramified if and only if its conductor is \(0\).
+Hence there is no confusion to take the samllest integer \(\mathfrak{f}\) and define it as the \textbf{conductor} of quasi-character \(\chi\), with a convention that \(1+\pp^0 = \oo^\times\), then \(\chi\) is unramified if and only if its conductor is \(0\), and such a concept measures how far a quasi-character is away from being unramified.
 
 \begin{remark}
     Let \(F = \qq_p\) and \(\chi: F^\times \to \cc^\times\) be ramified character, and then \(\chi|_{\zz_p^\times}\) factors through \(\zz_p^\times/(1+p^\mathfrak{f}\zz_p)\) with conductor \(\mathfrak{f} > 0\) as following
@@ -257,12 +257,7 @@ It is not hard to check that \(\chi \mapsto \chi^\vee\) is a homeomorphism on \(
 \begin{lemma}
     Let \(dx\) be the self-dual Haar measure on \(F\) defined in the previous, then 
     \begin{enumerate} [(a)]
-        \item \(m(E) = \int_{E}\frac{dx}{|x|}\) defines a Haar measure on multiplicative group \(F^\times\);
-        \item There exists a unique Haar measure \(d^\times x\) on \(F^\times\) such that \(U\) gets measure \(1\) and \(N(\mathfrak{d})^{-1/2}\) if \(F\) is archimedean and non-archimedean respectively, explicitly it is given by
-        \[d^\times x = \begin{cases}
-            \frac{dx}{|x|} & \text{if } F \text{ is archimedean} \\
-            \frac{1}{1-N(\pp)^{-1}}\cdot \frac{dx}{|x|} & \text{if } F \text{ is non-archimedean}
-        \end{cases}\]
+        \item \(m(E) = \int_{E}\frac{dx}{|x|}\) defines a Haar measure on multiplicative group \(F^\times\), and when \(F\) is non-archimedean, \(\oo^\times \) gets measure \(\frac{1}{1-N(\pp)^{-1}}N(\mathfrak{d})^{-1/2}\).
         \item A function \(f\) is integrable on \(F^\times\) with respect to \(d^\times x\) if and only if \(x \mapsto f(x)/|x|\) is integrable on \(F-{0}\) with respect to \(dx\). 
     \end{enumerate}
 \end{lemma}

@@ -1144,6 +1144,150 @@ Via the lemma, Gauss proved a remarkable result about the legendre symbol, so-ca
     
 \end{proof}
 
+\subsection{Riemann Zeta-function}
+
+\subsubsection{Analytical Continuation: different methods}
+
+As a core object in number theory, Riemann defines the zeta-function in his short paper \cite{Riemann} as following
+\[\zeta(s) = \sum_{n \geq 1}\frac{1}{n^s}\]
+The basic description can be given as following:
+\begin{enumerate}
+    \item \(\zeta\) defines a homomorphic function on the half-plane \(\Re(s) >1\), the reason is that the series is uniformly convergent on any compact subset of the half-plane, and \(s \mapsto n^s\) is a entire function.
+    
+    \item On the half-plane \(\Re(s) > 1\), we have the Euler product expansion
+    \[\zeta(s) = \prod_{p \text{ prime}} \frac{1}{1 - p^{-s}}\]
+    which encodes the information of prime numbers into this function, that is the reason why it plays an important role in number theory.
+
+    \item On the half-plane \(\Re(s) > 0\), make use of the Gamma function we have the formula
+    \[\frac{\Gamma(1+s)}{n^s} = \int_{0}^{\infty} e^{-nt}\, t^{s} \, \frac{dt}{t}\]
+    then some calculation can be done to arrange the formula in the form of Mellin transform:
+    \begin{equation} \label{integralrepofzeta}
+        \pi^{-s/2} \Gamma(s/2) \zeta(s) =  \int_0^\infty \frac{\Theta(t) -1}{2} \, t^{s/2-1} \, \frac{dt}{t}
+    \end{equation}
+    with theta function defined by
+    \[\Theta(t) := \sum_{n \in \zz}e^{-\pi n^2 t} \quad t>0 \]
+    and by the poisson's formula it satisfies the functional equation 
+    \begin{equation} \label{fctequationoftheta}
+    \Theta(t) = t^{-1/2}\Theta(1/t)
+    \end{equation}
+\end{enumerate}
+
+It can be proved in half plane by complex analysis with no diffcult, and the analytic continuation can be done by mellin transform, the result will be important in number theory, and we state as following:
+
+\begin{colortheorem} \label{completedzetafct}
+    Define \(Z(s) = \pi^{-s/2} \Gamma(s/2) \zeta(s)\) as the c\textbf{ompleted zeta-function}, then \(Z\) is holomorphic on half plane \(\Re(s) >1\) and it satisfies
+    \begin{enumerate}
+        \item \(Z\) has an meomorphic continuation the whole complex plane.
+        \item \(Z\) has the only simple poles at \(s = 0\) and \(s = 1\) with residue \(-1\) and \(1\) respectively.
+        \item For any \(s \neq 0,1\), functional equation is \(Z(1-s) = Z(s)\).
+    \end{enumerate}
+\end{colortheorem}
+\begin{proof}
+    Set the auxiliary function \(\psi(t) = \frac{\Theta(t) - 1}{2}\) and by equation (\ref{fctequationoftheta}) we have
+    \[t^{1/2}(2\psi(t)+1) = 2\psi(1/t)+1, \quad t>0\]
+    then we can rewrite the integral representation (\ref{integralrepofzeta}) 
+    \begin{align*}
+        Z(s) &=  \int_0^{1} \psi(t) t^{\frac{s}{2}-1} dt +  \int_1^{\infty} \psi(t) t^{\frac{s}{2}-1} dt \\
+        &=  \int_1^{\infty} \psi(1/t) t^{-s/2} \, \frac{dt}{t} +  \int_1^{\infty} \psi(t) t^{\frac{s}{2}} \, \frac{dt}{t}
+    \end{align*}
+    plug the reflection fomrula of \(\psi\) into the first integral, we can calculate as following
+    \begin{align*}
+        Z(s) &=  \frac{1}{2}\int_1^{\infty}t^{-s/2-1/2} dt - \frac{1}{2}\int_1^{\infty} t^{s/2 -1} dt + \int_1^{\infty} \psi(t) (t^{s/2 -1} + t^{-s/2 -1/2}) dt \\
+        &= \frac{1}{s-1} - \frac{1}{s} + \int_1^{\infty} \psi(t) (t^{\frac{s}{2}}+ t^{\frac{1-s}{2}}) \, \frac{dt}{t} \\
+        &= \frac{1}{s-1} - \frac{1}{s} + F(s) + F(1-s)
+    \end{align*}
+    with \(F(s) = \int_0^{\infty} \psi(t) t^{s/2} \, dt\), the integrand can be proved to be a entire function since \(\psi\) is rapidly decreasing, so it finishes the proof by a quick verification.
+\end{proof}
+
+The consequence is immediately about the zeta function, and such a method can be seen as a standard model to get the analytic continuation and functional equation of L-fuctions.
+
+\begin{colorcorollary}
+    Riemann zeta function \(\zeta\) has an analytic continuation to the whole complex plane with only a simple pole at \(s = 1\) with residue \(1\), and it satisfies the functional equation
+     \[\zeta(1-s) = 2(2\pi)^{-s} \cos(\frac{\pi s}{2}) \, \Gamma(s) \, \zeta(s) 
+    \qquad  s\neq 1,0,-1,-2,\dots\]
+\end{colorcorollary}
+
+\begin{proof}
+    By completed zeta function, the function
+    \[s \mapsto \frac{Z(s)}{\pi^{-\frac{s}{2}} \Gamma\left(\frac{s}{2}\right)}\]
+    defines an meomorphic function on the hole complex plane, which concides with \(\zeta\) on the half-plane \(\Re(s)>1\), so it is the analytic continuation of \(\zeta\). Notice that \(\Gamma\) has a simple pole at \(s = 0\), which cancels the simple pole of \(Z\) at \(s = 0\), hence \(\zeta\) is actually holomorphic at \(s = 1\) with residue
+    \[\mathrm{Res}_{z=1} \zeta = \lim_{s \to 1}  \frac{(s-1)Z(s)}{\pi^{-s/2} \Gamma(s/2)} = \frac{1}{\pi^{-1/2} \pi^{1/2}} = 1\]
+    and the funnctional equation can be derived via the formula of gamma function.
+\end{proof}
+
+\subsubsection{The values on \(\zz\) and critical strip}
+
+We rewrite the functional equation of zeta function here
+\begin{equation} \label{fcteqofzeta}
+    \zeta(1-s) = 2(2\pi)^{-s} \cos(\frac{\pi s}{2}) \, \Gamma(s) \, \zeta(s) 
+    \qquad  s\neq 1,0,-1,-2,\dots
+\end{equation}
+it gives a symmetry of values, and determine when the values is zero.
+
+\begin{example}
+    We set \(s= 2\) in the functional equation, then we have
+    \[\zeta(-1) = - \frac{1}{2\pi^2} \Gamma(2) \zeta(2) = -1/12\]
+    since \(\zeta(2) = -\pi^2/6\) and \(\Gamma(2) = 1\). In another case, we hope the cosine term vanish, for example we set \(s = 3\) then \(\zeta(-2) = 0\), it gives a zero of zeta function.
+\end{example}
+
+Following the example, the functional equation (\ref{fcteqofzeta}) establishes a non-vanish relation between the negative odd integers and the positive even integers, to know them all we should firstly know one sides of them. To do that, a remarkable constant is introduced.
+
+\begin{colordefinition}
+    The function $z \mapsto \frac{z}{e^z-1}$ is holomorphic near the zeros, with the expansion of the series:
+    \[\frac{z}{e^z-1}  = \sum_{n \geq 0 } \frac{B_n}{n!}z^n\]
+    the \(n\)-th \textbf{Bernoulli's number} is defined  as $B_n$, with respect to the coefficient of the series. 
+\end{colordefinition}
+
+The original definition of Bernoulli's number is given by Jacob Bernoulli in his book "Ars Conjectandi" (1713), he defined the number by the summation of powers:
+\[\sum_{k=1}^m k^n = \frac{1}{n+1} \sum_{j=0}^n \binom{n+1}{j} B_j \cdot m^{n+1-j}\]
+for any $n,m \in \nn$, and the two definitions can be shown to be equivalent by the method of \textbf{generating function}. The definition of power series is easy for us to calculate the values of Bernoulli's number, for Example
+\[B_0 = 1, \quad B_1 = \frac{-1}{2}, \quad B_2 = \frac{1}{6}, \quad B_3 = 0, \quad B_4 = \frac{-1}{30} \quad \dots\]
+\begin{lemma}
+    The Bernoulli's number is rational, and \(B_{2k+3} = 0\) for any \(k \in \nn\).
+\end{lemma}
+\begin{proof}
+    Obeserve that 
+    \[\frac{ze^z}{e^z - 1} = \frac{-z}{e^{-z}-1} \]
+    which allows us to write
+    \[z = \frac{ze^z}{e^z-1}-\frac{z}{e^z-1} = \sum_{n\geq 0} ((-1)^n-1)\frac{B_n}{n!} \cdot z^n \]
+    at the voisinage of zero, hence by comparing the coefficients we can conclude that \(B_0 = 1\) and \(B_n = 0\) for any odd integer \(n \geq 3\). To prove the rationalty, by the properties of analytical function we know
+    \[B_n = n! \frac{d^n}{dz^n} \left(\frac{z}{e^z-1}\right) \bigg|_{z=0}\]
+    the derivatives can be proved to be a rational number by induction on \(n\), hence the result holds true. 
+\end{proof}
+
+\begin{colorproposition}
+    Let \(k\) be a positive integer, then \(\zeta(-2k) = 0\) and
+    \[\zeta(-2k+1) = -\frac{B_{2k}}{2k} \]
+    by the functional equation a corollary is that
+    \[\zeta(2k) = (-1)^{k+1} \frac{(2\pi)^{2k}B_{2k}}{2(2k)!}  \]
+\end{colorproposition}
+
+\begin{proof}
+    The first result is immediate by the functional equation (\ref{fcteqofzeta}) by setting \(s = 1+2k\), then \(\Gamma(s)\) and \(\zeta(s)\) are both finite, while the consine term vanishes, hence \(\zeta(-2k) = 0\). 
+    
+    For the second result, a classical formula about cotangent function is
+    \[\pi z \cot(\pi z) = 1 + \sum_{n=1}^\infty \frac{2z^2}{z^2 - n^2}, \qquad z \in \cc \backslash  \zz\]
+    and we can expand the formula by geometric series as following
+    \begin{align*}
+        \pi z \cot(\pi z) &= 1 + 2z^2 \sum_{n\geq 1} \frac{-1}{n^2} \cdot \frac{1}{1 - z^2/n^2} \\
+        &= 1 - 2z^2 \sum_{n\geq 1} \frac{1}{n^2} \sum_{k\geq 0} \left(\frac{z^2}{n^2}\right)^k \\
+        &= 1 - 2 \sum_{k \geq 1} \zeta(2k) z^{2k}
+    \end{align*}
+    here the formula holds true for $|z|<1$, and the last equality holds by Fubini's theorem, so we get a power series expansion at zeros. To finish the proof, we write the trigonometric function in terms of exponential function, then we can calculate
+    \[z \cot(z) = \frac{2iz}{e^{2iz} - 1} + iz = 1+ \sum_{k=1}^{\infty} (-1)^k \frac{2^{2k}}{(2k)!}B_{2k} \cdot z^{2k}\]
+    which allows us to get another power series expansion at zeros, if we replace $z$ by $\pi z$ and compare the two expansions, then we can conclude the first formula.
+\end{proof}
+
+\begin{remark}
+    The absance of values on positive odd integers is a mystery, if we set \(s = 1+2k\) then \(\cos(\pi s/2)= 0\), which prevents us to get any information from the functional equation, although \(\zeta(-2k)\) and \(\zeta(2k+1)\) are lie on two sides, before the work of Apéry in 1978, we even can not determine whether \(\zeta(3)\) is rational or not.
+\end{remark}
+
+\begin{remark}
+    Another obeservation about zeros is via the completed zeta function
+    \[Z(s) = \pi^{-s/2} \Gamma(s/2) \zeta(s)\]
+    as we know in theorem \ref{completedzetafct}, \(Z\) is finite at \(s = -2n\), while \(s \mapsto \Gamma(s/2)\) has a simple pole at \(s = -2n\), so the unique possible is that \(\zeta\) has a simple zero at \(s= -2n\) to cancel the pole, and we call such zeros from the Gamma factor the \textbf{trivial zeros} of zeta function.
+\end{remark}
+
 
 
 

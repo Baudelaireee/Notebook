@@ -36,3 +36,6 @@
 \contentsline {subsection}{\numberline {8.2}Character}{80}{subsection.8.2}%
 \contentsline {subsubsection}{\numberline {8.2.1}Dirichlet Character and Gauss sum}{84}{subsubsection.8.2.1}%
 \contentsline {subsubsection}{\numberline {8.2.2}Legendre Symbol and real character}{88}{subsubsection.8.2.2}%
+\contentsline {subsection}{\numberline {8.3}Riemann Zeta-function}{91}{subsection.8.3}%
+\contentsline {subsubsection}{\numberline {8.3.1}Analytical Continuation: different methods}{91}{subsubsection.8.3.1}%
+\contentsline {subsubsection}{\numberline {8.3.2}The values on \(\mathbb {Z}\) and critical strip}{93}{subsubsection.8.3.2}%
