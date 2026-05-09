@@ -13,7 +13,7 @@ Firstly we introduce a construction of the topological space, which allows us to
 
 and some properties of the restricted direct product are given as following.
 
-\begin{lemma}
+\begin{lemma} \label{restrictedproduct}
     Let \(\{G_i\}_{i \in I}\) be a family of locally compact abelian groups, and \(\{U_i\}_{i \in I}\) be a family of compact-open subgroups \(U_i \subset G_i\), then 
     \begin{enumerate} [(a)]
         \item The restricted direct product of \(\{G_i\}_{i \in I}\) with respect to \(\{U_i\}_{i \in I}\) is a locally compact abelian group \(G\).
@@ -51,7 +51,7 @@ The unit group of the adele ring \(\adele_K^\times\) is not a topological group 
     \[\adele_K^\times \cong K_{\infty}^\times \times A^\times_{K,f}\]
 \end{remark}
 
-There exists a natural embedding of \(K\) into \(\adele_K\) by diagonal map \(a \mapsto (a_v)_v\) with \(a_v = a\) for any place \(v\), it is a continous ring homomorphism, so it allows us to see \(K\) as a additive subgroup of \(\adele_K\); restrict the diagonal map on \(K^\times\), it allows to  see \(K^\times\) as a multiplicative subgroup of \(\adele_K^\times\).
+There exists a natural embedding of \(K\) into \(\adele_K\) by diagonal map \(a \mapsto (a_v)_v\) with \(a_v = a\) for any place \(v\), it is a continous ring homomorphism, so it allows us to see \(K\) as an additive subgroup of \(\adele_K\); restrict the diagonal map on \(K^\times\), it allows to  see \(K^\times\) as a multiplicative subgroup of \(\adele_K^\times\).
 
 \begin{lemma}
     \(K\) and \(K^\times\) are discrete subgroups of \(\adele_K\) and \(\adele_K^\times\) respectively. 
@@ -98,27 +98,47 @@ and its kernel is denoted by \(\adele_K^1\), which is a closed subgroup of idele
 
 This section is analogous to the section 1.2, that means the fourier analysis will be developed on the adele ring, so firstly the dual group structure should be determined.
 
-\begin{proposition}
-    There exists an isomorphism
-    \[\prod_{v}^{\prime} (\hat{K_v}, \widehat{K_v/\oo_v}) \to \widehat{\adele_K}, \quad (\psi_v)_v \mapsto \prod_v \psi_v\]
-    where the product of chracters is defined by
-    \[\prod_v \psi_v: (x_v)_v \mapsto \prod_v \psi_v(x_v)\]
-\end{proposition}
+\begin{definition}
+    Let \(\{f_v\}_v\) be a family of functions \(f_v: K_v \to \cc^\times\) such that \(f_v|_{\oo_v} = 1\) for all but finitely many \(v\), then for any \(x = (x_v)_v \in \adele_K\), a product of \(\{f_v\}_v\) is defined as following 
+    \[(\prod_v f_v)(x) := \prod_vf_v(x_v)\]
+\end{definition}
 
-\begin{proof}
-    
-\end{proof}
+The condition on the family of functions is necessary to ensure the product is finite, so the product defines a function on \(\adele_K\).
 
-As we have seen in the section 1.2, each local field \(K_v\) is self-dual, and the dual group of \(K_v/\oo_v\) is \(\oo_v\) if \(v\) is non-archimedean, then an imdediate consequence is that \(\adele_K\) is self-dual.
+\begin{definition}
+    A Schwartz-Bruhat function on \(\adele_K\) is defined as the product \(\prod_v f_v\), with each \(f_v \in \mathcal{S}(K_v)\) and \(f_v = \mathbf{1}_{\oo_v}\) for almost all finite place \(v\). And the space of Schwartz-Bruhat functions on \(\adele_K\) is denoted by \(\mathcal{S}(\adele_K)\).
+\end{definition}
 
-\begin{corollary}
-    Let \(\{\psi_v\}_v\) be a family of non-trival characters on local field \(K_v\) such that \(\psi_v\) is trival on \(\oo_v\) for almost all non-archimedean places \(v\), then there exists an isomorphism of LCA groups
-    \[\Psi: \adele_K \to \widehat{\adele_K}, \quad a \mapsto \prod_v \psi_v(a_v -) \]
-\end{corollary}
+From now on, we fixe \(\psi_v\) to be the standard character on \(K_v\) in the context of definition \ref{standardcharacter}, and \(\psi = \prod_v \psi_v\). As we have seen in the section 1.2, each local field \(K_v\) is self-dual, and the dual group of \(K_v/\oo_v\) is \(\oo_v\) if \(v\) is non-archimedean, then an similar consequence is that \(\adele_K\) is self-dual.
+
+\begin{theorem}
+    The map
+    \[\Psi: \adele_K \to \widehat{\adele_K}, \quad a \mapsto \psi(a-) = \prod_v \psi_v(a_v -) \]
+    gives an isomorphism of LCA groups.
+\end{theorem}
 
 \begin{proof}
     
 \end{proof} 
+
+\begin{corollary}
+    The dual group of \(K\) is isomorphic to \(\adele_K/K\).
+\end{corollary}
+
+\begin{proof}
+
+\end{proof}
+
+The analogue of \(\zz \subset \rr\) and \(K \subset \adele_K\) allows us to develop the adelic harmonic analysis.
+
+\begin{definition}
+    Let \(f \in \mathcal{S}(\adele_K)\), the fourier transform of \(f\) is defined as integrand
+    \[\hat{f}(y) := \int_{\adele_K} f(x) \psi(xy) \, dx\]
+    where \(dx = \prod_v dx_v\) is the product of self-dual Haar measure in the context of proposition \ref{selfdualmeasure}.
+\end{definition}
+
+Notice that \(K_v/\qq_{p_v}\) is unramified for almost all finite place \(v\), so \(\oo_v\) gets measure \(N(\mathfrak{d}_v)^{-1/2} = N(\oo_v)^{-1/2} = 1\) for almost all finite places \(v\), hence \(dx\) here is exactly a Haar measure by lemma \ref{restrictedproduct}. In fact, the measure \(dx\) choosen here is self-dual, and it is enough to choose a nice function \(f \in S(\adele_K)\) to verify.
+
 
 
 

@@ -32,10 +32,16 @@
 \contentsline {subsection}{\numberline {7.5}Class group and Class number}{78}{subsection.7.5}%
 \contentsline {section}{\numberline {8}Analytic approach to number theory}{80}{section.8}%
 \contentsline {subsection}{\numberline {8.1}Arithmetic function}{80}{subsection.8.1}%
-\contentsline {subsubsection}{\numberline {8.1.1}periodic arithmetic function}{80}{subsubsection.8.1.1}%
-\contentsline {subsection}{\numberline {8.2}Character}{80}{subsection.8.2}%
-\contentsline {subsubsection}{\numberline {8.2.1}Dirichlet Character and Gauss sum}{84}{subsubsection.8.2.1}%
-\contentsline {subsubsection}{\numberline {8.2.2}Legendre Symbol and real character}{88}{subsubsection.8.2.2}%
-\contentsline {subsection}{\numberline {8.3}Riemann Zeta-function}{91}{subsection.8.3}%
-\contentsline {subsubsection}{\numberline {8.3.1}Analytical Continuation: different methods}{91}{subsubsection.8.3.1}%
-\contentsline {subsubsection}{\numberline {8.3.2}The values on \(\mathbb {Z}\) and critical strip}{93}{subsubsection.8.3.2}%
+\contentsline {subsubsection}{\numberline {8.1.1}Dirichlet convolution}{80}{subsubsection.8.1.1}%
+\contentsline {subsubsection}{\numberline {8.1.2}sommation formula and average}{83}{subsubsection.8.1.2}%
+\contentsline {subsubsection}{\numberline {8.1.3}periodic arithmetic function}{86}{subsubsection.8.1.3}%
+\contentsline {subsection}{\numberline {8.2}Character}{87}{subsection.8.2}%
+\contentsline {subsubsection}{\numberline {8.2.1}Dirichlet Character and Gauss sum}{90}{subsubsection.8.2.1}%
+\contentsline {subsubsection}{\numberline {8.2.2}Legendre Symbol and real character}{94}{subsubsection.8.2.2}%
+\contentsline {subsection}{\numberline {8.3}Riemann Zeta-function}{97}{subsection.8.3}%
+\contentsline {subsubsection}{\numberline {8.3.1}Analytical Continuation: different methods}{97}{subsubsection.8.3.1}%
+\contentsline {subsubsection}{\numberline {8.3.2}The values on \(\mathbb {Z}\) and critical strip}{99}{subsubsection.8.3.2}%
+\contentsline {subsubsection}{\numberline {8.3.3}Prime number theorem}{101}{subsubsection.8.3.3}%
+\contentsline {subsection}{\numberline {8.4}Dirichlet L-function}{101}{subsection.8.4}%
+\contentsline {subsubsection}{\numberline {8.4.1}Analytical continuation}{101}{subsubsection.8.4.1}%
+\contentsline {subsubsection}{\numberline {8.4.2}The arithmetic progressions}{105}{subsubsection.8.4.2}%

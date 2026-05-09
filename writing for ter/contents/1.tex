@@ -39,7 +39,7 @@ Let \(F\) be a local field, then in each case we can know that \((F,+)\) is a lo
 \[\forall E \subset F \text{ measurable }, \quad  \mu_a(E) = \mu(aE)  \]
 and we can conculde the following result:
 
-\begin{lemma} \ref{normalizedmodule}
+\begin{lemma} \label{normalizedmodule}
     \(\mu_a\) is a Haar measure on \(F\), and there exists a constant factor \(|a|\) such that \(\mu_a = |a| \mu\), such a factor is independent of the choice of \(\mu\) with
     \[|a| = \begin{cases}
         \text{the standard absolute value if } F = \rr \\
@@ -85,7 +85,7 @@ By the theory of harmonic analysis on LCA, if LCA group \(G\) is self-dual, then
 
 There is no confusion to identify \(y\) as \(\psi_y\) by isomorphism, and the norm of \(\psi\) is always 1, so \(|\hat{f}(y)| \leq \|f\|_{L^1} < \infty \) ensures that the transform is well-defined.
 
-\begin{definition}
+\begin{definition} \label{standardcharacter}
     The standard additive character of \(F\) is defined as following:
     \begin{itemize}
         \item If \(F = \rr\), let \(\psi(x) = e^{-2\pi i x}\);
@@ -102,7 +102,7 @@ In particular, if \(F =\qq\), the standard character is \(\psi(z) = e^{-2 \pi i(
 
 From now on, we will always use standard character in the Fourier transform, so the transform will depend only on the choice of Haar measure, so a normalization can be done to obtain the inversion formula.
 
-\begin{proposition} \label{selddualmeasure}
+\begin{proposition} \label{selfdualmeasure}
     Let \(F\) be a local field, then there exists a unique self-dual Haar measure \(\mu\), that means if \(f \in \mathcal{S}(F)\), then \(\hat{f} \in \mathcal{S}(F)\) and \(\widehat{\hat{f}}(x) = f(-x)\), explicitly the measure is given as following:
     \[dx = \begin{cases}
         \text{lebesgue measure of } \rr &\text{If } F = \rr \\

@@ -652,6 +652,233 @@ where \(M_k\) is the Minkowski's bound of \(K\), thus \(J_K/P_K\) is exactly a f
 \section{Analytic approach to number theory}
 
 \subsection{Arithmetic function}
+\subsubsection{Dirichlet convolution}
+An arithemetic function is a complex-valued function defined on the positive intgers \(\nn^*\), a remarkable operation on the set is defined as following:
+
+\begin{definition}
+    Let \(f,g\) be two arithmetic functions, we define the \textbf{Dirichlet convolution} of \(f\) and \(g\) by
+\[(f * g)(n) = \sum_{d|n} f(d)g(n/d)\]
+\end{definition}
+
+such a operation is commutative and associative, and the identity element is the dirac function
+\[\delta: \nn^* \to \cc, \quad n \mapsto \begin{cases}
+    1 \quad &\text{if } n = 1\\
+    0 \quad &\text{otherwise}
+\end{cases} = [\frac{1}{n}]\]
+that shows the set of arithemetic functions forms a monoid under the convolution, furthermore some restrictions can make it a group.
+
+\begin{colorproposition}
+    If \(f\) is an arithmetic function with \(f(1) \neq 0\), then there exists a unique arithmetical function \(g\) such that 
+    \[f*g = g* f = \delta\]
+    and \(g\) is given by the recursion formulas
+    \[g(1) = f(1)^{-1}, \quad g(n) = -g(1) \sum_{d \mid n, d<n} f(n/d)g(d)\]
+\end{colorproposition}
+\begin{proof}
+    
+\end{proof}
+
+\begin{remark}
+    We shall denote the set of all arithmetical functions by \(\mathcal{A}\), and the set of all arithmetical functions with \(f(1) \neq 0\) by \(\mathcal{A}^*\), then \((\mathcal{A}, *)\) is a monoid, and \((\mathcal{A}^*, *)\) is a group. Notice that such a construction holds generally for any function \(f: \nn^* \to R\) with \(R\) a commutative ring, in this case \(f(1) \in R^\times\) is the condition for the existence of inverse.
+\end{remark}
+
+\begin{example}
+    \textbf{1-function} is defined by \(\mathbf{1}(n) = 1\) for any \(n \in \nn^*\), it is a function with \(\mathbf{1}(1) = 1\), and we can calculate that 
+    \[(\mathbf{1} * \mathbf{1})(n) = \sum_{d|n} \mathbf{1}(d)\mathbf{1}(n/d) = \sum_{d|n} 1 =: \tau(n)\]
+    \(\tau\) is defines as the \textbf{divisor function} which counts the number of divisors. More generally, use some combinatorial trick we can prove that 
+    \[\underbrace{\mathbf{1} * \cdots *\mathbf{1}}_{k \text{ times}} (n) = \tau_k(n) = \# \{(a_1,\dots,a_k) \in \nn^k \mid a_1 \cdots a_k = n\} \]
+    where \(\tau_k\) is the \textbf{k-th power divisor function}, with a convention that \(\tau_2 = \tau\) and \(\tau_1 = \mathbf{1}\).
+    
+\end{example}
+
+\begin{colorexample}
+    \textbf{Möbius function} \(\mu\) is defined as following:
+    \[\mu(n) = \begin{cases}
+        1 \quad & n =1 \\
+        (-1)^k \quad & n=p_1\cdots p_k \\
+        0 \quad & \text{otherwise}
+    \end{cases}\]
+    a remarkable equality is that 
+    \[\sum_{d \mid n} \mu(d) = \delta(n)\]
+    that shows \(\mu \in \mathcal{A}^*\) with inverse \(\mathbf{1}\), so \(\tau_k^{-1} = \mu^{*k}\).
+    
+\end{colorexample}
+
+\begin{example}
+    \textbf{Identity map} is denoted by \(I\) with \(I(n) = n\) for any \(n \in \nn^*\), it is a function with \(I(1) = 1\), and we can calculate that
+    \[(I*I)(n) = \sum_{d \mid n} d \cdot \frac{n}{d} = n \tau(n)\]
+    which shows that \(I *I = I\tau \), and more generally we have 
+    \[\underbrace{I * \cdots * I}_{k \text{ times}} (n) = n \tau_k(n) \]
+    and its inverse is \(\mu \cdot I\), in fact
+    \[(I * \mu I)(n) = \sum_{d|n}n \mu(n/d)  = n \delta (n) = \delta(n)\]
+\end{example}
+
+\begin{colorexample} \label{eulerfunction}
+    \textbf{Euler totient function} \(\varphi\) is defined by
+    \[\varphi(n) = \sum_{\substack{1 \leq k \leq n \\ (k,n) = 1}} 1\]
+    and a famous formula is that
+    \[\sum_{d \mid n} \varphi(d) = n\]
+    that shows \(\varphi * \mathbf{1} = I\), with \(I\) the identity function mapping \(n\) to \(n\), so 
+    \[\varphi(n) =  (\varphi* \mathbf{1} * \mu)(n) = (I * \mu)(n) = n\sum_{d \mid n}\frac{\mu(d)}{d}\]
+    and the inverse of \(\varphi\) is \(\mu I * \mathbf{1}\).
+\end{colorexample}
+
+The example of Euler totient function can be seen as a motivation to define the convlution, since it plays an important role in number theory, and another property related to the Euler function can be concluded as following:
+
+\begin{definition}
+    A arithmetic function \(f\) is called \textbf{multiplicative} if 
+    \[f(mn) = f(m)f(n), \quad (m,n) = 1\]
+    and \(f\) is called \textbf{completely multiplicative} if 
+    \[f(mn) = f(m)f(n), \quad \forall m,n \in \nn^*\]
+    
+\end{definition}
+
+\begin{remark}
+    The multiplicative function \(f \) must be in \(\mathcal{A}^*\), the reason is that \(f(n) = f(1)f(n)\) for any \(n \in \nn^*\).
+\end{remark}
+
+\begin{example}
+    The Euler totient function is multiplicative, which allows to deduce the formula for \(n = p_1^{a_1} \cdots p_k^{a_k}\),
+    \[\varphi(n) = \prod_{i = 1}^k (p_i - 1)p_i^{a_i-1}\]
+    while \(\varphi\) is not completely multiplicative, since \(\varphi(4) = 2 \neq \varphi(2)^2 = 1\).
+\end{example}
+
+\begin{example}
+    The Möbius function is multiplicative, but not completely multiplicative. Hence in example \ref{eulerfunction} we notice that \(d \mapsto \mu(d)/d\) is multiplicative, which allows us to deduce the another formula for Euler totient function
+    \[\varphi(n) = n \prod_{p \mid n}(1-p^{-1})\]
+
+\end{example}
+
+\begin{colortheorem}
+    The set of multiplicative functions, denote by \(\mathcal{M}\), it forms a subgroup of \(\mathcal{A}^*\) under the convolution.
+\end{colortheorem}
+
+\begin{proof}
+    It
+\end{proof}
+
+\begin{remark}
+    The completely multiplicative functions is not stable, for example 1-function \(\mathbf{1}\) is completely multiplicative, while divisor function \(\tau = \mathbf{1} * \mathbf{1}\) is mutiplicative but not completely (\(\tau(p^2) = 3 \neq 4 = \tau(p)\tau(p)\)).
+\end{remark}
+
+\begin{proposition}
+    Let \(f\) be a multiplicative function, then 
+    \begin{enumerate}[(a)]
+        \item \(f\) is completely multiplicative if and only if \(f^{-1} = \mu \cdot f\).
+        \item we have
+        \[\sum_{d \mid n }\mu(d)f(d) = \prod_{p \mid n}(1-f(p))\]
+        and consequently \(\varphi^{-1}(n) = \sum_{p \mid n }(1-p)\).
+    \end{enumerate}
+\end{proposition}
+\begin{proof}
+    
+\end{proof}
+
+
+\subsubsection{sommation formula and average}
+Let \(f\) be an arithmetic function, its average in many cases means a limit
+\[\lim_{N \rightarrow \infty} \frac{\sum_{n \leq N} f(n)}{N} = \lim_{x \rightarrow \infty} \frac{\sum_{n \leq x}f(n)}{x}\]
+and we are interested in the existence of such a limit, or the asymptotic behavior at infty.
+
+\begin{definition}
+    Let \(f\) be an arithmetic function and \(g\) be a smooth function, we say that \textbf{the averge of \(f\) is of order \(g\)} if 
+    \[
+    \frac{1}{x}\sum_{n \leq x} f(n) \sim g(x) \quad \text{ as } x \to \infty\]
+\end{definition}
+
+the order of average measures the growth of the average of arithmetic function, or behavior of the average at infty, by a comparison with a well-kown function.
+
+\begin{example}[distribution of prime numbers]
+    Let \(\pi(n) = \sum_{p \leq n}1 \) be the prime counting function, a remarkable result is that
+    \[\lim_{x \rightarrow \infty} \frac{\pi(x) x}{ \log x}  = 1\]
+    in the language of average, we define the prime characteristic function by
+    \[\mathbf{1}_{\mathbb{P}}(n) = \begin{cases}
+    1 \quad &\text{if } n \text{ is a prime}\\
+    0 \quad &\text{otherwise}
+    \end{cases}\]
+    it means that the average of \(\mathbf{1}_{\mathbb{P}}\) is of order \(1/\log n\), which shows that the density of prime numbers is zero.
+\end{example}
+
+
+\begin{theorem}[Euler-Maclaurin] \label{euler-maclaurin}
+     If \(f\) est class \(C^1\) on \([a,b]\) with \(a,b \in \zz\). then 
+    \[\sum_{a \leq n \leq b} f(n) = \int_a^{b}f(t) + \psi(t)f'(t) \,dt +\frac{f(a) + f(b)}{2}\]
+where \(\psi(t) = t-[t]-1/2\).
+    
+\end{theorem}
+
+
+
+\begin{colorexample}
+    If \(x \geq 1\), then we have asymptotic equality:
+    \begin{enumerate} [(1)]
+        \item \(\sum_{n \leq x} \frac{1}{n}= \log x + C + O(1/x)\) with \(C\) the euler constant.
+        \item \(\sum_{n \leq x} \frac{1}{n^s} = \zeta(s) + \frac{x^{1-s}}{1-s} + O(x^{-s})\) if \(s > 1\) and \(s \neq 0\).
+    \end{enumerate}
+\end{colorexample}
+
+\begin{proof}
+    In (1), we take \(a = 1\) and \(b  = [x]\), apply the formula to \(f(n) = 1/n\) we have
+    \begin{align*}
+        \sum_{n \leq x} \frac{1}{n} &= \int_{1}^b \frac{dt}{t} + \int_1^b \psi(t)\frac{-1}{t^2} \,dt + \frac{1}{2}+ \frac{1}{2b} \\
+        &\leq \log b + \frac{1}{2} - \underbrace{\int_1^b \frac{1}{2t^2} \,dt}_{\text{ converges if } b \to \infty} + O(1/b)
+    \end{align*}
+    and notice that \(b = x + O(1)\), so there exists a constant \(C\) such that (a) holds, and take the limit \(x \to \infty\) we can conclude the value of \(C\) as the euler constant.
+\end{proof}
+
+\begin{theorem}[Abel]
+    Let \(a(n)\) be an arithmetical function and \(f\) be a function of class \(C^1\) on \([y,x]\), then 
+    \[\sum_{y < n \leq x} a(n)f(n) = A(x)f(x) - A(y)f(y) - \int_{y}^x A(t)f'(t) \,dt\] 
+    where \(A(x) = \sum_{n \leq x}a(n)\) with convention \(A(x) = 0\) if \(x<1\).  
+\end{theorem}
+
+\begin{proof}
+    One proof is based on Abel's sum, such a proof can be found in theorem 4.2 \cite{Apostol}. Another proof is more direct, we notice that \(x \mapsto A(x)\) is a step function and increasing, so the sum can be expressed as a Riemann-Stieltjes integral
+    \[\sum_{y < n \leq x} a(n)f(n) = \int_{y}^x f(t) dA(t)\]
+    then we can apply the integration by parts to get the result. 
+\end{proof}
+
+\begin{remark}
+    An other version of Euler-Maclaurin formula can be derived here by setting \(a(n) = 1\), then we can get
+    \[\sum_{y< n \leq x}f(n) = \int_y^x f(t) +(t-[t])f'(t) \,dt + f(y)(y-[y]) - f(x)(x-[x])\]
+    a comparison with theorem \ref{euler-maclaurin} shows that the two versions are equivalent.
+\end{remark}
+
+Another method of sumnation is \textbf{Hyperbola method}, loosely speaking, we can express the sum as following
+\[\sum_{n \leq x} \sum_{d \mid n} f(d,n) = \sum_{qd \leq x} f(d,qd)\]
+the reason can be expressed geometrically
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{cover/hyperbola.jpg}
+    \caption{example \(x =2 \)}
+    \label{fig:mylabel}
+\end{figure}
+
+the sum on the left is indeed the number of integer points in a family of hyperbolas, it allows us to rewrite the sum of dirichlet convolution as following
+\[\sum_{n \leq x}(a*b)(n) = \sum_{n \leq x} \sum_{d | n}a(d)b(n/d) = \sum_{qd \leq x}a(d)b(q) = \sum_{d \leq x}a(d)\sum_{q \leq x/d}b(q)\]
+
+
+\begin{colorexample}(Dirichlet's formula) For any \(x\geq 1\), we have
+    \[\sum_{n \leq x} \tau(n) = x \log x + (2C-1)x +O(x^{1/2})\]
+    where \(C\) is the euler constant, and a rougher estimate is 
+    \[\sum_{n \leq x} \tau(n) = x \log x + O(x)\]
+\end{colorexample}
+
+\begin{proof}
+    By hyberbola method \(\sum_{n \leq x} \tau(n) = \sum_{d \leq x} \sum_{q \leq x/d} 1 = \sum_{d \leq x} [\frac{x}{d}]\),
+    so if we estimate \([\frac{x}{d}] \leq \frac{x}{d}\) and apply the asymptotic formula for harmonic series we can get a rough estimate. To get a refined estimate, we reconsider \(\sum_{n \leq x} \tau(x) = \sum_{qd \leq x} 1\) to count the lattice, notice that the number of lattice on the line \(q = d\) are \([\sqrt{x}]\), and the distribution of lattice are symmetric with respect to the line, so we have
+    \begin{align*}
+        \sum_{n \leq x} \tau(n) &= (2 \sum_{qd \leq x, d \leq \sqrt{x}}1) - [\sqrt{x}]^2 \\
+        &= (2 \sum_{d \leq \sqrt{x}} [\frac{x}{d}]) - [\sqrt{x}]^2  \\
+        &= \{2 \sum_{d \leq \sqrt{x}} \frac{x}{d} + O(1)\} - \{\sqrt{x}+O(1)\}^2 \\
+        &= \{2x \sum_{d \leq \sqrt{x}} \frac{1}{d} \} + O([\sqrt{x}]) - \{x + O(\sqrt{x})\} \\
+        &= 2x\{\log \sqrt{x} + C + O(1/\sqrt{x})\} - x + O(\sqrt{x}) \\
+        &= x \log x + (2C-1)x + O(\sqrt{x})
+    \end{align*}
+\end{proof} 
+
+
+
 \subsubsection{periodic arithmetic function}
 
 \begin{definition}
@@ -1257,7 +1484,7 @@ for any $n,m \in \nn$, and the two definitions can be shown to be equivalent by 
 
 \begin{colorproposition}
     Let \(k\) be a positive integer, then \(\zeta(-2k) = 0\) and
-    \[\zeta(-2k+1) = -\frac{B_{2k}}{2k} \]
+    \[\zeta(-n) = - \frac{B_{n+1}}{n+1} \]
     by the functional equation a corollary is that
     \[\zeta(2k) = (-1)^{k+1} \frac{(2\pi)^{2k}B_{2k}}{2(2k)!}  \]
 \end{colorproposition}
@@ -1274,7 +1501,7 @@ for any $n,m \in \nn$, and the two definitions can be shown to be equivalent by 
         &= 1 - 2 \sum_{k \geq 1} \zeta(2k) z^{2k}
     \end{align*}
     here the formula holds true for $|z|<1$, and the last equality holds by Fubini's theorem, so we get a power series expansion at zeros. To finish the proof, we write the trigonometric function in terms of exponential function, then we can calculate
-    \[z \cot(z) = \frac{2iz}{e^{2iz} - 1} + iz = 1+ \sum_{k=1}^{\infty} (-1)^k \frac{2^{2k}}{(2k)!}B_{2k} \cdot z^{2k}\]
+    \[z \cot(z) = \frac{2iz}{e^{2iz} - 1} + iz = 1+ \sum_{k \geq 1} (-1)^k \frac{2^{2k}}{(2k)!}B_{2k} \cdot z^{2k}\]
     which allows us to get another power series expansion at zeros, if we replace $z$ by $\pi z$ and compare the two expansions, then we can conclude the first formula.
 \end{proof}
 
@@ -1288,14 +1515,155 @@ for any $n,m \in \nn$, and the two definitions can be shown to be equivalent by 
     as we know in theorem \ref{completedzetafct}, \(Z\) is finite at \(s = -2n\), while \(s \mapsto \Gamma(s/2)\) has a simple pole at \(s = -2n\), so the unique possible is that \(\zeta\) has a simple zero at \(s= -2n\) to cancel the pole, and we call such zeros from the Gamma factor the \textbf{trivial zeros} of zeta function.
 \end{remark}
 
+\begin{colortheorem}
+    \(\zeta\) does not vanish on the line \(\mathrm{Re}(s) = 1\).
+\end{colortheorem}
+
+\begin{proof}
+    
+\end{proof}
+
+
+\subsubsection{Prime number theorem}
 
 
 
+\subsection{Dirichlet L-function}
+
+\subsubsection{Analytical continuation}
+
+\begin{definition}
+    \textbf{The dirichlet \(L\)-function associated to a dirichlet character \(\chi\) mod \(N\)} is defined by the series
+    \[L(s,\chi) = \sum_{n \geq 1} \frac{\chi(n)}{n^s}\]
+\end{definition}
+
+about the analytic properties, some quick descriptions are as following:
+\begin{enumerate}
+    \item \(s \mapsto L(s,\chi)\) defines a holomorphic function on the half-plane \(\Re(s) > 1\), and the Euler product formula holds as well one the half-plane
+    \[L(s,\chi) = \prod_{p \text{ prime}} \frac{1}{1 - \chi(p)p^{-s}}\]
+    the prove is similar to the case of zeta function.
+    
+    \item If \(\chi\) is a character with conductor \(q\) of the form \(\chi = \psi_q \cdot \chi_0 \), where \(\chi_0\) is the trival character mod \(N\) and \(\psi_q\) is a primitive character mod \(q\), then we have the factorization
+    \[L(s,\chi) = L(s,\psi_q) \prod_{p \mid N} (1 - \psi_q(p)p^{-s})\]
+     which allows us to reduce the analytic properties of \(L(s,\chi)\) to the primitive case.
+
+    \item Riemann zeta function can be viewed as a L-function associated to the character mod \(1\), and for any trival character \(\chi_0\) mod \(N\), we have
+    \[L(s,\chi_0) = \sum_{n \geq 1, (n,N) =1} \frac{1}{n^s} = \zeta(s) \prod_{p \mid N} (1 - p^{-s})\]
+    so \textcolor{blue}{if \(\chi_0\) is trival, then \(L(s,\chi_0)\) has a meomorhic continuation to the whole complex plane with only a simple pole at \(s = 1\) with residue \(\prod_{p \mid N} (1 - p^{-1})\).}
+\end{enumerate}
+
+To do the analytical continuation, we start from the integral we use in the Riemann zeta function
+\[\pi^{-\frac{s}{2}}\Gamma(\frac{s}{2})\frac{1}{n^s} = \int_{0}^{\infty}e^{-\pi n^2t}t^{\frac{s}{2}-1} dt \qquad \Re(s)>1\]
+to make use of the Gauss sum of the character, so it is natural to modify the integral a little bit \textbf{with a asuumption that the character is non trivial and primitive \(\chi\) mod \(q\)}
+\begin{equation} \label{integralrepofdirichletL}
+    (q/\pi)^{s/2}\Gamma(\frac{s}{2})\frac{\chi(n)}{n^s} = \frac{1}{\sqrt{q}}\int_{0}^{\infty} [\chi(n)e^{-\pi n^2t/p}]t^{\frac{s}{2}-1}dt
+\end{equation}
+
+In the case of \(\chi(-1) = 1\), we can sum equation (\ref{integralrepofdirichletL}) over \(n\) to get 
+\begin{equation} \label{evnecharacter}
+(q/\pi)^{s/2}\Gamma(\frac{s}{2})L(s,\chi) = \frac{1}{2\sqrt{q}}\int_{0}^{\infty} \psi(t,\chi) \, t^{\frac{s}{2}-1} dt
+\end{equation}
+with 
+\[\psi(t,\chi) =  \sum_{n \in \zz}\chi(n)e^{-\pi n^2 t/q}\]
+
+In the case of \(\chi(-1) = -1\), then \(\psi(t,\chi) = 0\) such that representation (\ref{evnecharacter}) will make no sense in this case, so we should modify the equation (\ref{integralrepofdirichletL}) a little bit (introduce a translation \(s \mapsto s+1\)) to get 
+\begin{equation*}
+    (q/\pi)^{(s+1)/2}\Gamma(\frac{s+1}{2})\frac{\chi(n)}{n^{s}} = \frac{1}{2\sqrt{q}}\int_{0}^{\infty} \psi(t,\chi) \, t^{\frac{s-1}{2}}dt
+\end{equation*}
+with
+\[\psi(t,\chi) = \sum_{n \in \zz }n \chi(n) e^{-\pi n^2 t/q} \]
+
+above discussion can be summarized as following:
+
+\begin{lemma}
+    On the half-plane \(\Re(s) > 1\), the integral repsentation of a  L-function \(L(s,\chi)\) associated to a non-trivial primitive character \(\chi\) mod \(q\) is given by
+    \[(q/\pi)^{\frac{s+\mathfrak{v}}{2}}\Gamma(\frac{s+\mathfrak{v}}{2})L(s,\chi) = \frac{1}{2\sqrt{q}}\int_0^{\infty} \psi(t,\chi) t^{\frac{s+\mathfrak{v}}{2}-1} dt\]
+    with \(\mathfrak{v} = \frac{1-\chi(-1)}{2}\) and auxiliary function 
+    \[\psi(t,\chi) = \sum_{n \in \zz}n^{\mathfrak{v}}\chi(n)e^{-\pi n^2 t/q}\]
 
 
+\end{lemma}
 
+So we should know the functional equation of \(\psi\) firstly.
 
-%
+\begin{lemma}
+    Let \(t>0\), then \(\psi\) satisfies the equation
+    \[\tau(\bar{\chi})\psi(t,\chi) = (i/t)^{\mathfrak{v}}\sqrt{q/t} \cdot \psi(\bar{\chi},1/t)\]
+    where \(\tau(\chi) = G(1,\chi)\) as the Gauss sum of \(\chi\).
+
+\end{lemma}
+
+\begin{proof}
+    We consider the \(f(x) = e^{-\pi x^2t}\) for some \(t>0\), and then we can calculate \[\hat{f}(s) = \frac{1}{\sqrt{t}}f(\frac{s}{t}) = \frac{1}{\sqrt{t}}e^{-\pi s^2/t}\]
+    hence by poisson's formula we have
+    \begin{equation} \label{lfunpoisson}
+        \sum_{n \in \zz}e^{-\pi (n+a)^2 t} = \frac{1}{\sqrt{t}} \sum_{n \in \zz}e^{-\pi n^2/t} e^{2\pi i n a}
+    \end{equation}
+    now we consider \(\chi\) is a arithemetic function on \(\zz\) with period \(q\), then we can write
+    \[\chi(n) = \frac{\tau(\chi)}{q}\sum_{m=1}^{q}\bar{\chi}(m)e^{2\pi i mn/q}\]
+    by the primitive character \(\overline{\tau(\chi)} = \chi(-1)\tau(\bar{\chi})\), we have
+    \[\tau(\bar{\chi}) \chi(n) = \sum_{m=1}^{q}\bar{\chi}(m)e^{2\pi i mn/q}\]
+    hence we can calculate
+    \begin{align*}
+        \tau(\bar{\chi})\psi(t,\chi) &= \sum_{n \in \zz}n^{\mathfrak{v}}\tau(\bar{\chi})\chi(n)e^{-\pi n^2 t/q} \\
+        &= \sum_{m=1}^{q} \bar{\chi}(m) \sum_{n \in \zz} n^{\mathfrak{v}} e^{-\pi n^2 t/q}e^{2 \pi i n m/q} \\
+    \end{align*}
+    when \(\chi(-1) = 1\), i.e. \(\mathfrak{v} = 0\), we can apply the Poisson's formula (\ref{lfunpoisson}) to get 
+    \begin{align*}
+        \tau(\bar{\chi})\psi(t,\chi) &= \sqrt{q/t} \cdot \sum_{m=1}^{q} \bar{\chi}(m) \cdot \sum_{n \in \zz} e^{-\pi (qn+m)^2/q t} \\
+        &= \sqrt{q/t} \cdot \sum_{l \in \zz} \bar{\chi}(l) e^{-\pi l^2/t} \\
+        &= \sqrt{q/t} \cdot \psi(\bar{\chi},1/t)
+    \end{align*}
+    when \(\chi(-1) = -1\), i.e. \(\mathfrak{v} = 1\), we can modify the poisson's formula (\ref{lfunpoisson}) by taking derivative of \(f(x)\), then we have 
+    \[it^{3/2}\sum_{n \in \zz}(n+a) e^{-\pi (n+a)^2 t} = \sum_{n \in \zz} n e^{-\pi n^2/t} e^{2\pi i n a}\]
+    then apply it we can get
+    \begin{align*}
+        \tau(\bar{\chi})\psi(t,\chi) &= \sum_{m=1}^{q} \bar{\chi}(m) \cdot i(q/t)^{3/2} \sum_{n \in \zz} (n+\frac{m}{q}) e^{-\pi (qn+m)^2/qt} \\
+        &= (i/t)\sqrt{q/t} \cdot \sum_{l \in \zz} l\cdot\bar{\chi}(l) e^{-\pi l^2/t} \\
+        &= (i/t)\sqrt{q/t} \cdot \psi(\bar{\chi},1/t)
+    \end{align*}
+\end{proof}
+
+Finally we can finish the analytical continuation as we do in Riemann zeta function
+
+\begin{colortheorem}
+    For any L-function associated to a non-trivial primitive character \(\chi\) mod \(q\), the completed L-function is defined by
+    \[\Lambda(s,\chi) = (q/\pi)^{\frac{s+\mathfrak{v}}{2}}\Gamma(\frac{s+\mathfrak{v}}{2})L(s,\chi)\]
+    then \(s \mapsto \Lambda(s,\chi)\) has a \textbf{holomorphic continuation} to the whole complex plane, and it satisfies the functional equation
+        \[\Lambda(1-s,\bar{\chi}) = \frac{i^{\mathfrak{v}}\sqrt{q}}{\tau(\chi)} \Lambda(s,\chi) \qquad \] 
+\end{colortheorem}
+
+\begin{proof}
+    when \(\chi(-1)=1\), i.e. \(\mathfrak{v} = 0\), we have
+    \begin{align*}
+        2\sqrt{q}\Lambda(s,\chi) &= \int_0^{1} \psi(t,\chi) t^{\frac{s}{2}-1} dt + \int_1^{\infty} \psi(t,\chi) t^{\frac{s}{2}-1} dt \\
+        &= \int_{1}^{\infty} \psi(1/u,\chi) u^{-\frac{s}{2}-1} du + \int_1^{\infty} \psi(t,\chi) t^{\frac{s}{2}-1} dt \\
+        &= \frac{\tau(\chi)}{\sqrt{q}}\int_{1}^{\infty} \psi(u,\bar{\chi}) u^{\frac{-s-1}{2}} du + \int_1^{\infty} \psi(t,\chi) t^{\frac{s}{2}-1} dt \quad (a)
+    \end{align*}
+    notice that in this case we have \(\overline{\tau(\chi)} = \tau(\bar{\chi})\), so we can write
+    \begin{align*}
+        2\sqrt{q}\Lambda(s,\chi) &= \frac{\tau(\chi)}{\sqrt{q}}[\int_{1}^{\infty} \psi(u,\bar{\chi}) u^{\frac{-s-1}{2}} du + \frac{\tau(\bar{\chi})}{\sqrt{q}}\int_1^{\infty} \psi(t,\bar{\chi}) t^{\frac{-s-1}{2}-1} dt] \\
+        &= \frac{\tau(\chi)}{\sqrt{q}}\cdot 2\sqrt{q}\Lambda(1-s,\bar{\chi})
+    \end{align*}
+    Finally, when \(\chi(-1)=-1\), i.e. \(\mathfrak{v} = 1\), we have
+    \begin{align*}
+        2\sqrt{q}\Lambda(s,\chi) &= \int_0^{1} \psi(t,\chi) t^{\frac{s-1}{2}} dt + \int_1^{\infty} \psi(t,\chi) t^{\frac{s-1}{2}} dt \\
+        &= \int_{1}^{\infty} \psi(1/u,\chi) u^{-\frac{s+3}{2}} du + \int_1^{\infty} \psi(t,\chi) t^{\frac{s-1}{2}} dt \\
+        &= \frac{\tau(\chi)}{i\sqrt{q}}\int_{1}^{\infty} \psi(u,\bar{\chi}) u^{-\frac{s}{2}} du + \int_1^{\infty} \psi(t,\chi) t^{\frac{s-1}{2}} dt \quad (b)
+    \end{align*}
+    and notice that in this case we have \(\overline{\tau(\chi)} = -\tau(\bar{\chi})\), so we can write
+    \begin{align*}
+        2\sqrt{q}\Lambda(s,\chi) &= \frac{\tau(\chi)}{i\sqrt{q}}[\int_{1}^{\infty} \psi(u,\bar{\chi}) u^{-\frac{s}{2}} du + \frac{\tau(\bar{\chi})}{i\sqrt{q}}\int_1^{\infty} \psi(t,\bar{\chi}) t^{\frac{s-1}{2}} dt] \\
+        &= \frac{\tau(\chi)}{i\sqrt{q}}\cdot 2\sqrt{q}\Lambda(1-s,\bar{\chi})
+    \end{align*}
+\end{proof}
+
+\begin{remark}
+    Notice that in above proof, (a) and (b) shows that the function\(s \mapsto 2\sqrt{q}\Lambda(s,\chi)\) defines an entire function, since the integrand nicely converges uniformly on \((1,\infty)\), so it indicates the holomoprhic continuation of \(\Lambda\).
+\end{remark}
+
+\subsubsection{The arithmetic progressions}
+
 %\begin{proposition}
 %    For any finite abelian group \(G\), there exists a natural isomorphism \
 %    \[\phi: G \to \hat{\hat{G}}, \quad g \mapsto (\chi \mapsto \chi(g))\]

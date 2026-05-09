@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.12.8)  8 MAY 2026 00:27
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.12.8)  9 MAY 2026 01:47
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -714,11 +714,7 @@ LaTeX Font Info:    Trying to load font information for U+euf on input line 19.
 File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
 )
 Package hyperref Info: bookmark level for unknown lemma defaults to 0 on input line 42.
-
-
-LaTeX Warning: Reference `normalizedmodule' on page 4 undefined on input line 42.
-
-[4]
+ [4]
 Package hyperref Info: bookmark level for unknown theorem defaults to 0 on input line 66.
 Package hyperref Info: bookmark level for unknown remark defaults to 0 on input line 76.
  [5]
@@ -731,27 +727,19 @@ Overfull \hbox (3.72705pt too wide) in paragraph at lines 139--140
 Package hyperref Info: bookmark level for unknown example defaults to 0 on input line 141.
 [6] [7] [8] [9] [10] [11]) (./contents/2.tex [12] [13]
 Package hyperref Info: bookmark level for unknown corollary defaults to 0 on input line 73.
-
-
-LaTeX Warning: Reference `normalizedmodule' on page 14 undefined on input line 83.
-
-[14]) [15] (./main.bbl) [16] (./main.aux)
+ [14]) [15] (./main.bbl) [16] (./main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
-
-
-LaTeX Warning: There were undefined references.
-
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 0D1A6385303D124B1CB930D85F63606F;1256.
  ) 
 Here is how much of TeX's memory you used:
- 27682 strings out of 474773
- 563359 string characters out of 5761289
+ 27684 strings out of 474773
+ 563397 string characters out of 5761289
  1936842 words of memory out of 5000000
- 49342 multiletter control sequences out of 15000+600000
+ 49344 multiletter control sequences out of 15000+600000
  566504 words of font info for 81 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  83i,15n,100p,799b,1086s stack positions out of 10000i,1000n,20000p,200000b,200000s
