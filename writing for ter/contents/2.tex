@@ -70,7 +70,7 @@ There exists a natural embedding of \(K\) into \(\adele_K\) by diagonal map \(a 
 \end{proof}
 
 \begin{corollary}
-    The quoitent groups \(\adele_K/K\) and \(\adele_K^\times/K^\times\) are compact.
+    The quoitent groups \(\adele_K/K\) is compact
 \end{corollary}
 
 \begin{proof}
@@ -89,12 +89,26 @@ There exists a natural embedding of \(K\) into \(\adele_K\) by diagonal map \(a 
    which measn the adele norm is well-defined. Morover, the norm of a non-zero element \(x\) can be zero, so it is not a usual norm. 
 \end{remark}
 
-the adele norm induces a continous homomorphism on the idele group
+the adele norm is multiplicative, so it induces a homomorphism on the idele group
 \[\adele_K^\times \to \rr_{>0}, \quad x \mapsto \|x\|_{\adele_K}\]
-and its kernel is denoted by \(\adele_K^1\), which is a closed subgroup of idele group.
+and its kernel is denoted by \(\adele_1^\times\), which allows us to conclude some importnat properties of the idele group.
+
+\begin{proposition} \label{adele-norm}
+    Along the notation above
+    \begin{enumerate} [(a)]
+        \item (Artin's product formula) For any \(x \in K^\times\), \(\|x\|_{\adele_K} = 1\).
+        \item \(A_1^\times/K\) is compact.
+        \item The following sequence splits
+        \[1 \to \adele_1^\times/K^\times \to \adele_K^\times/K^\times \xrightarrow{\|\cdot\|_{\adele_K}} \rr_{>0} \to 1\]
+    \end{enumerate}
+\end{proposition}
+
+\begin{proof}
+    
+\end{proof}
 
 
-\subsection{The Adelic Additive Characters}
+\subsection{The Adelic harmonic analysis}
 
 This section is analogous to the section 1.2, that means the fourier analysis will be developed on the adele ring, so firstly the dual group structure should be determined.
 
@@ -139,6 +153,46 @@ The analogue of \(\zz \subset \rr\) and \(K \subset \adele_K\) allows us to deve
 
 Notice that \(K_v/\qq_{p_v}\) is unramified for almost all finite place \(v\), so \(\oo_v\) gets measure \(N(\mathfrak{d}_v)^{-1/2} = N(\oo_v)^{-1/2} = 1\) for almost all finite places \(v\), hence \(dx\) here is exactly a Haar measure by lemma \ref{restrictedproduct}. In fact, the measure \(dx\) choosen here is self-dual, and it is enough to choose a nice function \(f \in S(\adele_K)\) to verify.
 
+\begin{theorem}[Poisson summation formula] If \(f \in \mathcal{S}(\adele)\), then
+\[\sum_{a \in K}f(a) = \sum_{a \in K}\hat{f}(a)\]
+\end{theorem}
 
+\newpage
 
+\subsection{Hecke Character}
 
+As local multiplicative characters defined in the section 1.3, we shall also develop the global multiplicative characters such that we can define the global zeta function.
+
+\begin{lemma}
+    Let \(\chi: \adele^\times \to \cc^\times\) be a continous homomorphism, define the local quasi-character at each place \(v\) by
+    \[\chi_v : K_v \to \cc^\times, \quad a_v \mapsto \chi(1,\dots,\underbrace{a_v}_{v \text{ place}},\dots,1)\]
+    then \(\chi = \prod_v \chi_v\) and there eixists a finite subset \(S\) of places, it contains all archimdean places and \(\chi_v\) is unramified for any \(v \notin S\).
+\end{lemma}
+
+\begin{proof}
+    The product \(\prod_v\chi_v\) is always finite by the definition of idele group, and an algebraic calculation shows it is equal to \(\chi\). Let \(\adele_f^{\times}\) be the finite idele group, and then consider the restriction of \(\chi \) on \(\adele_f^\times\), and denote it by \(\chi_f\). Finite idele group is a totally disconnected LCA group, so by NSS property of \(\cc^\times\), we can conclude a open neighborhood \(U\) of identity in \(\adele^\times_f\) such that \(\chi_f\) is trival on \(U\), and then the topology of \(\adele_f^\times\) implies the existence of a finite subset \(S\) of places such that 
+    \[\prod_{v \in S}U_v \prod_{v \notin S} \oo_v^\times \subset U ,\quad v \text{ finite }\]
+    where \(U_v\) is an open subgroup of \(K_v^\times\). Adding all archimedean places into \(S\), we can conclude that \(\chi_v\) is unramified for any \(v \notin S\).
+\end{proof}
+
+\begin{definition}
+    A Hecke character of \(K\) is a continous homomorphism \(\chi: \adele_K^\times \to \cc^\times\) such that \(\chi|_{K^\times} = 1\). 
+\end{definition}
+
+\begin{remark}
+    The idele class group of \(K\) is defined as quotient group \(C_K = \adele^\times/K^\times\), so equivalently, a Hecke character is a continous homomorphism on the idele class group.
+\end{remark}
+
+By product formula in proposition \ref{adele-norm}, we can see that \(|\cdot|^s_{\adele}\) defines a Hecke character for any \(s \in \cc\), similarly a decomposition of Hecke character exists as following.
+
+\begin{lemma}
+    For any Hecke character \(\chi\), there exists a complex number \(s\) and a unitary Hecke character \(\eta\) such that \(\chi = \eta |\cdot|^s_{\adele}\).
+\end{lemma}
+
+\begin{proof}
+    
+\end{proof}
+
+    Similarly, two Hecke chracters \(\chi\) and \(\chi'\) on class group \(A^\times /K\) are called equivalent if they concide on the compact subgroup \(A^\times_1/K\), then each equivalence class consists of Hecke characters of the form \(\eta|\cdot|_\adele^s\) with \(\eta\) a fixed unitary character, and a parametrization can be done to identify each class with complex plane, which shows that the set of Hecke characters has the structure of Riemann surface with countable connected components homeomorphic to \(\cc\).
+
+\subsection{Global Functional Equation}

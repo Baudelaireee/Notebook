@@ -789,7 +789,7 @@ the order of average measures the growth of the average of arithmetic function, 
 
 \begin{example}[distribution of prime numbers]
     Let \(\pi(n) = \sum_{p \leq n}1 \) be the prime counting function, a remarkable result is that
-    \[\lim_{x \rightarrow \infty} \frac{\pi(x) x}{ \log x}  = 1\]
+    \[\lim_{x \rightarrow \infty} \frac{\pi(x) \log x}{ x}  = 1\]
     in the language of average, we define the prime characteristic function by
     \[\mathbf{1}_{\mathbb{P}}(n) = \begin{cases}
     1 \quad &\text{if } n \text{ is a prime}\\
@@ -1515,7 +1515,7 @@ for any $n,m \in \nn$, and the two definitions can be shown to be equivalent by 
     as we know in theorem \ref{completedzetafct}, \(Z\) is finite at \(s = -2n\), while \(s \mapsto \Gamma(s/2)\) has a simple pole at \(s = -2n\), so the unique possible is that \(\zeta\) has a simple zero at \(s= -2n\) to cancel the pole, and we call such zeros from the Gamma factor the \textbf{trivial zeros} of zeta function.
 \end{remark}
 
-\begin{colortheorem}
+\begin{colortheorem}[Hamadard,1896]
     \(\zeta\) does not vanish on the line \(\mathrm{Re}(s) = 1\).
 \end{colortheorem}
 
@@ -1523,8 +1523,86 @@ for any $n,m \in \nn$, and the two definitions can be shown to be equivalent by 
     
 \end{proof}
 
+\begin{colorcorollary}
+    The non-trival zeros of zeta function lie in the \textbf{critical strip} \(\{s \in \cc: 0 < \Re(s) < 1\}\).
+\end{colorcorollary}
+
+\subsection{Von Mangoldt function}
+
+A remarkable arithmetic function in the study of Riemann and Tchebychev is the Von Mangoldt function, which is defined as following:
+\[\Lambda(n) := \begin{cases}
+    \log p \quad & \text{if } n = p^k \\
+    0 \quad & \text{otherwise}
+\end{cases}\]
+Notice that \(\Lambda(1) = 0\) and it is only related to the prime numbers, and we view it in the context of arithemetic functions, it is not hard to prove the following properties:
+
+\begin{proposition}
+    By dirichlet convolution,
+    \[\log n = (\Lambda * \mathbf{1})(n) = \sum_{d|n} \Lambda(d)\]
+    and by mobius inversion formula
+    \[\Lambda(n) = (\log * \mu)(n) = \sum_{d|n} \mu(d) \log(n/d)\]
+\end{proposition}
+
+
+\textcolor{blue}{This function appears in the Riemann's paper first time although it is not named as such.}
+
+
+
+\begin{lemma}[Riemann,1859]
+    For any \(\Re(s)>1\), we have
+    \[\log \zeta(s) = \sum_{n \geq 2} \frac{\Lambda(n)}{\log(n)} \frac{1}{n^s}\]
+    and
+    \[-\frac{\zeta(s)}{\zeta(s)} = \sum_{n \geq 2}\frac{\Lambda(n)}{n^s} ,\quad \mathrm{Re}(s) > 1\]
+\end{lemma}
+
+\begin{proof}
+    Take the logarithm to zeta function of the Euler product expansion, we have
+    \[\log \zeta(s) = - \sum_{p} \log(1-p^{-s})\]
+    notice that \(\log(1-x)\) has a power series expansion if \(|x|<1\), and here \(|p^{-s}| =|p|^{-\mathrm{Re}(s)} <1\), so we can write
+    \[\log \zeta(s) = \sum_{p} \sum_{k\geq 1} \frac{1}{k} p^{-ks}\]
+    Notice that \(1\) is not a prime by convention, and \(\Lambda\) only supports on the prime powers, so the sum can be rewritten as 
+    \[\sum_{n = p^k} \frac{\Lambda(n)}{\log n}\frac{1}{n^s}\]  
+    since
+    \[\frac{\Lambda(p^k)}{\log p^k}  = \frac{\log p}{k \log p }\]
+\end{proof}
+
+ Tchebychev consider a type of summation, which is closed to the average of the von mangoldt function, that is
+ \[\theta(x) := \sum_{p \leq x} \log p\]
+ and we call it \textbf{the first Tchebychev function}, and \textbf{the second Tchebychev function} is defined by
+\[\psi(x) := \sum_{n \leq x} \Lambda(n)\]
+they are equivalent in the sense of asymptotic behavior, and he estimated the growth of \(\theta\), which can be translated as following:
+
+\begin{lemma}[Tchebychev, 1850]
+    \(\psi(x) \asymp x\), that means there exists two positive constants \(c_1,c_2\) such that for any \(x\) large enough, we have
+    \[c_1 x \leq \psi(x) \leq c_2 x\]
+\end{lemma}
+
+\begin{proof}
+    
+\end{proof}
+
+\begin{corollary}
+   \(\psi\) and \(\theta\) have the same asymptotic behavior.
+\end{corollary}
+
+
+
+
+
 
 \subsubsection{Prime number theorem}
+
+Fix prime counting function
+\[\pi(x) = \sum_{p \leq x}1 \]
+\begin{colorclaim}
+    As \(x \to \infty\), the following asymptotic behavior are equivalent:
+    \begin{enumerate} [(a)]
+        \item \(\pi(x)/x \sim 1/\log x \) 
+        \item \(\psi(x) \sim x\) 
+        \item \(\psi_1(x) \sim x^2/2\)
+    \end{enumerate}
+\end{colorclaim}
+and 
 
 
 
@@ -1663,6 +1741,8 @@ Finally we can finish the analytical continuation as we do in Riemann zeta funct
 \end{remark}
 
 \subsubsection{The arithmetic progressions}
+
+\subsection{Dedekind L-function}
 
 %\begin{proposition}
 %    For any finite abelian group \(G\), there exists a natural isomorphism \

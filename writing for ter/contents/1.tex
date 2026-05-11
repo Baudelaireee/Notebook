@@ -297,7 +297,7 @@ and we call here \(s\) as the complex parameter of \(\chi\) and \(\sigma = \math
 
 Review that a function on Riemann surface \(f: X \to \cc\) is called holomorphic (resp. meomorphically) at \(s \in X\) if there exists a local chart \((U,\phi)\) with \(s \in U\) such that \(f \circ \phi^{-1}\) is holomorphi (resp. meomorphically) at \(\phi(s)\) as a complex function.
 
-\begin{lemma}
+\begin{lemma} \label{holomorphic-halfplane}
     Following the notation above, \(\chi \mapsto Z(f,\chi)\) defines a holomorphic function on the domain of quasi-character with exponent \(\sigma > 0 \).
 \end{lemma}
 
@@ -305,7 +305,7 @@ Review that a function on Riemann surface \(f: X \to \cc\) is called holomorphic
     
 \end{proof}
 
-\begin{lemma}[Tate]
+\begin{lemma}[Tate] \label{tate}
     Fix any two functions \(f,g \in \mathcal{S}(F)\), and let \(\chi\) be a quasi-character \(\chi\) of exponent \(0< \sigma <1\), then \(\chi^\vee\) is of exponent \(0 < \sigma <1\) as well, and the following identity holds
     \[Z(f,\chi)Z(\hat{g},\chi^\vee) = Z(\hat{f},\chi^\vee)Z(g,\chi)\]
 \end{lemma}
@@ -347,12 +347,32 @@ the choice of \(f\) should satisfy \(\chi \mapsto Z(f,\chi) \) is not zero funct
 \begin{example}
     If \(F\) is non-archimedean, let \(\mathcal{X}_n(F^\times)\) denote the set of quasi-characters of conductor \(n\), then we have a decomposition
     \[\mathcal{X}(F^\times) = \bigsqcup_{n \geq 0} \mathcal{X}_n(F^\times)\]
-    when \(n = 0\), \(\mathcal{X}_0(F^\times)\) is just all unramified quasi-characters \(\mathcal{U}(F^\times)\); when \(n = 1\), \(\oo^\times/1+\pp\) can be identified as the multiplicative group of resuidue field \(\oo/\pp\), so \(\mathcal{X}_1(F^\times)\) contains \(N(\pp)-1\) different classes of quasi-characters; when \(n>1\), similar argument shows that \(\mathcal{X}_n(F^\times)\) contains \(N(\pp)^{n-1}(N(\pp)-1)^2\) different classes of quasi-characters. Hence the classes of quasi-characters are countable, and we can choose 
+    when \(n = 0\), \(\mathcal{X}_0(F^\times)\) is just all unramified quasi-characters \(\mathcal{U}(F^\times)\); when \(n = 1\), \(\oo^\times/1+\pp\) can be identified as the multiplicative group of resuidue field \(\oo/\pp\), so \(\mathcal{X}_1(F^\times)\) contains \(N(\pp)-1\) different classes of quasi-characters; when \(n>1\), similar argument shows that \(\mathcal{X}_n(F^\times)\) contains \(N(\pp)^{n-1}(N(\pp)-1)^2\) different classes of quasi-characters. Hence the classes of quasi-characters are countable, and we can choose test function \(f_n \in \mathcal{S}(F)\) for each class \(\mathcal{X}_n(F^\times)\) by
+    \[f_n(x) = \begin{cases}
+        \psi(x) = \exp (2 \pi i \, \{\mathrm{Tr}_{F/\qq_p}(x)\}) & \text{if } x \in \mathfrak{d}^{-1}\pp^{-n} \\
+        0 & \text{otherwise}
+    \end{cases}\]
 \end{example}
 
 \begin{lemma}
-    If \(F\) is non-archemedian, then for any 
+    \[\hat{f}_n(x) = \begin{cases}
+        (N(\mathfrak{d})^{1/2} N(\pp)^n)  & \text{if } x \in 1+ \pp^n \\
+        0 & \text{otherwise}
+    \end{cases}\]
 \end{lemma}
+
+\begin{proof}
+    
+\end{proof}
+
+\begin{corollary}
+    The \(\rho\)-factor of the unramified quasi-character is 
+    \[\rho(|\cdot|^s) = N(\mathfrak{d})^{s-1/2}\frac{1-N(\pp)^{s-1}}{1-N(\pp^{-s})}\]
+    If \(c_n\) is a unitary character of conductor \(n > 0\), the \(\rho\)-factor of the ramified quasi-character is 
+    \[\rho(c_n|\cdot|^s) = N(\mathfrak{d} \pp^n)^{s-\frac{1}{2}} W(\chi)\]
+    with root number \(W(\chi)\) defined by
+    \[W(\chi) = N(\pp)^{-n/2} \sum_{\bar{a} \in \oo^\times/1+\pp^n } \chi(a) \psi(\frac{a}{\varpi^{d+n}})\]
+\end{corollary}
 
 
 
@@ -372,7 +392,7 @@ the choice of \(f\) should satisfy \(\chi \mapsto Z(f,\chi) \) is not zero funct
 \end{theorem}
 
 \begin{proof}
-    Let \(\rho\) as c
+    In each case of local field, \(\rho(\chi) = Z(\hat{f_C},\chi^{\vee})/Z(f_C,\chi)\) with \(f_C\) choosen as above examples, so \(\rho\) has a meomorphic continuation to whole space \(\mathcal{X}(F^\times)\). Let \(h(\chi) = \rho(\chi)Z(f,\chi)\), lemma \ref{holomorphic-halfplane} shows that \(h\) is meomorphic on the domain of exponent \(\sigma > 0\), and by lemma \ref{tate} we can calculate that \(h(\chi) = Z(\hat{f},\chi^\vee)\) in the domain of exponent \(0 < \sigma < 1\), and \(\chi \mapsto Z(\hat{f},\chi^\vee)\) defines a holomorphic function on the domain of exponent \(\sigma < 1\). Hence the continuation of \(\chi \mapsto Z(f,\chi)\) can be concluded by the continuation of \(h\) by the uniqeness of meromorphic continuation.
 \end{proof}
 
 
