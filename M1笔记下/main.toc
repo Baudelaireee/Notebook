@@ -32,7 +32,7 @@
 \contentsline {subsection}{\numberline {7.5}Class group and Class number}{78}{subsection.7.5}%
 \contentsline {section}{\numberline {8}Analytic approach to number theory}{80}{section.8}%
 \contentsline {subsection}{\numberline {8.1}Arithmetic function}{80}{subsection.8.1}%
-\contentsline {subsubsection}{\numberline {8.1.1}Dirichlet convolution}{80}{subsubsection.8.1.1}%
+\contentsline {subsubsection}{\numberline {8.1.1}Dirichlet convolution and multiplicative functions}{80}{subsubsection.8.1.1}%
 \contentsline {subsubsection}{\numberline {8.1.2}sommation formula and average}{83}{subsubsection.8.1.2}%
 \contentsline {subsubsection}{\numberline {8.1.3}periodic arithmetic function}{86}{subsubsection.8.1.3}%
 \contentsline {subsection}{\numberline {8.2}Character}{87}{subsection.8.2}%
@@ -41,9 +41,9 @@
 \contentsline {subsection}{\numberline {8.3}Riemann Zeta-function}{97}{subsection.8.3}%
 \contentsline {subsubsection}{\numberline {8.3.1}Analytical Continuation: different methods}{97}{subsubsection.8.3.1}%
 \contentsline {subsubsection}{\numberline {8.3.2}The values on \(\mathbb {Z}\) and critical strip}{99}{subsubsection.8.3.2}%
-\contentsline {subsection}{\numberline {8.4}Von Mangoldt function}{101}{subsection.8.4}%
-\contentsline {subsubsection}{\numberline {8.4.1}Prime number theorem}{103}{subsubsection.8.4.1}%
-\contentsline {subsection}{\numberline {8.5}Dirichlet L-function}{103}{subsection.8.5}%
-\contentsline {subsubsection}{\numberline {8.5.1}Analytical continuation}{103}{subsubsection.8.5.1}%
-\contentsline {subsubsection}{\numberline {8.5.2}The arithmetic progressions}{107}{subsubsection.8.5.2}%
-\contentsline {subsection}{\numberline {8.6}Dedekind L-function}{107}{subsection.8.6}%
+\contentsline {subsubsection}{\numberline {8.3.3}Von Mangoldt function}{101}{subsubsection.8.3.3}%
+\contentsline {subsubsection}{\numberline {8.3.4}Prime number theorem}{103}{subsubsection.8.3.4}%
+\contentsline {subsection}{\numberline {8.4}Dirichlet L-function}{103}{subsection.8.4}%
+\contentsline {subsubsection}{\numberline {8.4.1}Analytical continuation}{103}{subsubsection.8.4.1}%
+\contentsline {subsubsection}{\numberline {8.4.2}The arithmetic progressions}{107}{subsubsection.8.4.2}%
+\contentsline {subsection}{\numberline {8.5}Dedekind L-function}{107}{subsection.8.5}%

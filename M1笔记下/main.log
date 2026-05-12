@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.12.8)  10 MAY 2026 16:31
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.12.8)  12 MAY 2026 07:27
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1613,43 +1613,44 @@ LaTeX Warning: Citation 'Tall' on page 70 undefined on input line 317.
 
 [70] [71] [72] [73] [74] [75] [76] [77] [78] [79] [80] [81] [82] [83]
 
-LaTeX Warning: Citation 'Apostol' on page 84 undefined on input line 835.
+LaTeX Warning: Citation 'Apostol' on page 84 undefined on input line 849.
 
+[84]
 File: cover/hyperbola.jpg Graphic file (type bmp)
 <cover/hyperbola.jpg>
-[84] [85] [86]
-Overfull \hbox (21.82813pt too wide) in paragraph at lines 939--940
+ [85] [86]
+Overfull \hbox (21.82813pt too wide) in paragraph at lines 953--954
 [][]\TU/lmr/bx/n/12 Remark 8.7. []\TU/lmr/m/n/12 Another view of character is that the character is naturally \TU/lmr/bx/n/12 a one-dimensional
  []
 
 [87] [88] [89] [90] [91]
-Underfull \hbox (badness 10000) in paragraph at lines 1166--1167
+Underfull \hbox (badness 10000) in paragraph at lines 1180--1181
 
  []
 
 
-LaTeX Warning: Citation 'Apostol' on page 92 undefined on input line 1178.
+LaTeX Warning: Citation 'Apostol' on page 92 undefined on input line 1192.
 
 
-Overfull \hbox (9.73616pt too wide) in paragraph at lines 1177--1179
+Overfull \hbox (9.73616pt too wide) in paragraph at lines 1191--1193
 \TU/lmr/m/n/12 the proof depends on the fact that conductor is the smallest induced modulus (cf. [[]],
  []
 
 [92] [93] [94]
 
-LaTeX Warning: Citation 'Apostol' on page 95 undefined on input line 1309.
+LaTeX Warning: Citation 'Apostol' on page 95 undefined on input line 1323.
 
 [95] [96]
 
-LaTeX Warning: Citation 'Riemann' on page 97 undefined on input line 1378.
+LaTeX Warning: Citation 'Riemann' on page 97 undefined on input line 1392.
 
 [97] [98]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1445.
+(hyperref)                removing `math shift' on input line 1459.
 
 [99] [100] [101] [102]
-Package hyperref Info: bookmark level for unknown colorclaim defaults to 0 on input line 1598.
+Package hyperref Info: bookmark level for unknown colorclaim defaults to 0 on input line 1612.
  [103] [104] [105] [106]) [107]
 
 LaTeX Warning: Empty bibliography on input line 33.
@@ -1664,7 +1665,7 @@ L3 programming layer <2024-02-20>
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 9E950B8030E8636D3909E25EEFD83761;8810.
+(rerunfilecheck)             Checksum: C01E27A25DE83AA44B24E45C55C2A14D;8974.
 
 Package biblatex Warning: Please (re)run Biber on the file:
 (biblatex)                main
@@ -1676,7 +1677,7 @@ Package logreq Info: Writing requests to 'main.run.xml'.
  ) 
 Here is how much of TeX's memory you used:
  43440 strings out of 474773
- 907685 string characters out of 5761289
+ 907699 string characters out of 5761289
  1940842 words of memory out of 5000000
  64902 multiletter control sequences out of 15000+600000
  576520 words of font info for 117 fonts, out of 8000000 for 9000

@@ -652,7 +652,7 @@ where \(M_k\) is the Minkowski's bound of \(K\), thus \(J_K/P_K\) is exactly a f
 \section{Analytic approach to number theory}
 
 \subsection{Arithmetic function}
-\subsubsection{Dirichlet convolution}
+\subsubsection{Dirichlet convolution and multiplicative functions}
 An arithemetic function is a complex-valued function defined on the positive intgers \(\nn^*\), a remarkable operation on the set is defined as following:
 
 \begin{definition}
@@ -769,6 +769,20 @@ The example of Euler totient function can be seen as a motivation to define the 
         and consequently \(\varphi^{-1}(n) = \sum_{p \mid n }(1-p)\).
     \end{enumerate}
 \end{proposition}
+\begin{proof}
+    
+\end{proof}
+
+\begin{proposition}[Euler's product]
+    Supppose \(f\) is an arithmetic function such that the series \(\sum_{n \geq 1} f(n)\) converges absolutely, then \(\prod_{p} \sum_{k \geq 0}f(p^k)\) converges abolutely, and
+
+    -If \(f\) is multpilicative,  \(\sum_{n \geq 1} f(n) =  \prod_{p}\sum_{k \geq 0} f(p^k)\).
+
+    -If \(f\) is completely multiplicative, then \(|f(p)| < 1\) for any prime \(p\) and 
+    \[\sum_{n \geq 1} f(n) = \prod_{p} \frac{1}{1-f(p)}\]
+    
+\end{proposition}
+
 \begin{proof}
     
 \end{proof}
@@ -1527,7 +1541,7 @@ for any $n,m \in \nn$, and the two definitions can be shown to be equivalent by 
     The non-trival zeros of zeta function lie in the \textbf{critical strip} \(\{s \in \cc: 0 < \Re(s) < 1\}\).
 \end{colorcorollary}
 
-\subsection{Von Mangoldt function}
+\subsubsection{Von Mangoldt function}
 
 A remarkable arithmetic function in the study of Riemann and Tchebychev is the Von Mangoldt function, which is defined as following:
 \[\Lambda(n) := \begin{cases}
