@@ -33,6 +33,10 @@ In the case of non-archimedean local field, we use the following notation:
     Let \(\mathcal{S}(F)\) denotes the \(\cc\)-vector space of all Schwartz-Bruhat functions on \(F\).
 \end{definition}
 
+\begin{definition}
+    A LCA group is a locally compact hausdorff abelian group.
+\end{definition}
+
 \subsection{Additive Character}
 
 Let \(F\) be a local field, then in each case we can know that \((F,+)\) is a locally compact abelian group, which induces a Haar measure \(\mu\) on \(F\), then for any non-zero element \(a \in F\), we can define a new measure on \(F\) by pull back:
@@ -40,7 +44,7 @@ Let \(F\) be a local field, then in each case we can know that \((F,+)\) is a lo
 and we can conculde the following result:
 
 \begin{lemma} \label{normalizedmodule}
-    \(\mu_a\) is a Haar measure on \(F\), and there exists a constant factor \(|a|\) such that \(\mu_a = |a| \mu\), such a factor is independent of the choice of \(\mu\) with
+    \(\mu_a\) is a Haar measure on \((F,+)\), and there exists a constant factor \(|a|\) such that \(\mu_a = |a| \mu\), such a factor is independent of the choice of \(\mu\) with
     \[|a| = \begin{cases}
         \text{the standard absolute value if } F = \rr \\
         \text{the square of standard absolute value if } F = \cc \\
@@ -49,10 +53,24 @@ and we can conculde the following result:
 \end{lemma}
 
 \begin{proof}
-    
+    The case of \(F =\rr\) is clear. If \(F = \cc\), we take \(a = u + iv\) and \(\mu\) be the lebesgue measure, let \(z = x+iy\) and then \(az = (ux - vy) + i(vx+uy)\), and we consider the integration in \(\rr^2\), then the jacobian of the transformation is 
+    \[|\det J_a| = \begin{vmatrix}
+        u & -v \\
+        v & u
+    \end{vmatrix} = u^2 + v^2 = \|a\|^2 \]
+    so that shows \(d(az) = \|a\|^2 dz\). If \(F\) is non-archimedean, we take \(\mu\) be the Haar measure such that \(\mu(\oo) = 1\), and we set \(q = N(\pp) = \#(\oo/\pp)\), then
+    \[1 = \mu(\oo) = \mu(\bigsqcup_{i=1}^q x_i + \pp) = \sum_{i=1}^q \mu(x_i + \pp) = q \mu(\pp) \]
+    so it shows that \(\mu(\pp) = 1/q\), and same method shows that \(\mu(\pp^n) = 1/q^n\). So for any \(a \in F^\times\), we can write \(a = \varpi^nu\) with \(n = v_{\pp}(a)\) and \(u \in \oo^\times\), then \(a\oo = \varpi^n\oo = \pp^n\) and then 
+    \[\mu(a\oo)/\mu(\oo) = 1/q^n = N(\pp)^{-{v_{\pp}(a)}}\]
 \end{proof}
 
-The constant factor can be extended to the whole field \(F\) by setting \(|0| = 0\), and we call it \textbf{(normalized) module} on \(F\), it is equivalent to standarad absolute value in each case topologically, to avoid confusion, we will use the notation \(|\cdot|\) to denote the module on \(F\) in the following.
+The constant factor can be extended to the whole field \(F\) by setting \(|0| = 0\), and we call it \textbf{(normalized) module} on \(F\). A obeservation here is that module is a power of standard absolute value on \(F\), so \(a \mapsto |a|\) defines a a continous map from \(F\) to \([0,\infty)\).
+
+\begin{remark}
+    More generally, for any LCA group \((G,+)\) with Haar measure \(\mu\), if \(\varphi\) is a continuous automorphism of \(G\), then \(\mu \circ \varphi\) is also a Haar measure with \(\mu\circ \varphi = \mathrm{mod}_G(\varphi) \cdot \mu\) for some constant factor only depending on \(\varphi\), such a factor is called the module of \(\varphi\) on \(G\). Let \(\mathrm{Aut}(G)\) denote the group of all continuous automorphisms of \(G\), then \(\varphi \mapsto \mathrm{mod}_G(\varphi)\) is actually a homomorphism from \(\mathrm{Aut}(G)\) to \(\rr_{>0}\). In the case of local field \(F\), \(F^\times\) can be embedded into \(\mathrm{Aut}(F)\) by \(a \mapsto m_a\) with \(m_a(x) = ax\), and the module \(\mathrm{mod}_F(m_a)\) is exactly \(|a|\) defined in above lemma.
+\end{remark}
+
+
 
 \begin{definition}
     Additive character of a local field \(F\) is a continous group homomorphism \(\psi: (F,+) \to \sph^1\), and \(\hat{F}\) is the set of all additive characters of \(F\), it is called the dual group of \(F\).
@@ -69,7 +87,12 @@ for every compact subset \(K\) of \(F\) and every open subset \(U\) of \(\sph^1\
 \end{theorem}
 
 \begin{proof}
-    
+    The proof depends on a fact that all local fields are a metrizable space such that compact subset is bounded. It is not hard to check that \(\Psi\) is a injective homomorphism, so firstly we prove that \(\Psi\) is continous: Let \([K,U]\) be an open basis of \(\hat{F}\), then \[\Psi^{-1}([K,U]) = \{a \in F : \psi_a(K) \subset U\} = \{a \in F : aK \subset \psi^{-1}(U)\}\]
+    notice that \( \psi^{-1}(U)\) is a open since \(\psi\) is continous, so by continous map \(m(x,y) = xy\) on \(F\times F\), for any \(y \in K\) there exists an neiborhood \(A_y\) of \(y\) and a neiborhood \(B_y\) of \(a\) such that \(B_yA_y \subset \psi^{-1}(U)\). Let \(y\) runs over all \(K\), and by compactness of \(K\), there exists a finite index set \(I\) such that \(K \subset \cup_{i\in I}A_i\), and we take \(V_a = \cap_{i \in I}B_i\) as a neiborhood of \(a\) such that \(V_a \subset \Psi^{-1}[K,U]\), it shows that \(a\) is an interior and then \(\Psi^{-1}[K,U]\) is open.
+
+    Secondly, we prove that \(\Psi\) is an homemorphism to its image, it is enough to prove the image of open ball \(B_{\epsilon}\) centred at 0 with radius \(\epsilon\) is open in \(\hat{F}\). Non-trival character \(\psi\) implies an element \(b \in F \) such that \(\psi(b) \neq 1\), and we construct a neiborhood of trivial character by \([\overline{B_R(0)},W] \cap \Psi(F)\), where \(W\) is an neiborhood of \(0\) not cotaining \(\psi(b)\), and \(R \geq \|b\|/\epsilon\), then this neiborhood is contained in \(\Psi(B_{\epsilon})\). For other non-trival character in image, a translation of group allows us to conclude the result.
+
+    Finally, \(\Psi(F)\) is complete since \(F\) is complete, and it is closed since \(\hat{F}\) is hausdorff, so it is enough to prove that \(\Psi(F)\) is dense in \(\hat{F}\), that will imply \(\Psi(F) = \hat{F}\). In fact, \( x \in \Psi(F)^\perp \) implies that \(\Psi(ax) = 1\) for any \(a \in F\), and it shows that the annihilator is zero, so \(\Psi(F)\) is dense in \(\hat{F}\).
 \end{proof}
 
 \begin{remark}
@@ -113,7 +136,9 @@ From now on, we will always use standard character in the Fourier transform, so 
 \end{proposition}
 
 \begin{proof}
-    
+    For any Haar measure \(\mu\), \(\widehat{\widehat{f}}(x) = cf(-x)\) holds for some constant \(c\), so it is enough to choose a test function to modify. If \(F = \rr\), we choose \(f(x) = e^{-\pi x^2}\) and calculate the transform under the lebesgue measure, than \(\hat{f} = f\); If \(F = \cc\) we choose \(f(x)\), and calculate the transform under \(c\cdot dl\) (c times the lebesgue measure), than \(\hat{f} = \frac{c}{2}f\) shows \(2\,dl\) is the self-dual measure; If \(F\) is non-archimdean we choose \(f = \mathbf{1}_{\mathcal O}\), then under some haar measure \(\mu\) on a \(\widehat{\widehat{\mathbf{1}_{\oo}}} = \mu(\oo)\mu(\oo^{\perp})\mathbf{1}_{\oo}\), and we assume difference \(\mathfrak{d} = \pp^{m}\) to calculate
+    \[\mu(\oo^{\perp}) = \mu(\mathfrak{d}^{-1}) = \mu(\varpi^{-m}\oo) = |\varpi|^{-m} N(\oo) = N(\mathfrak{d})\mu(\oo)\]
+    so normization \(\mu(\oo)\mu(\oo^{\perp}) = 1\) gives the Haar measure.
 \end{proof}
 
 \subsection{Multiplicative Character}

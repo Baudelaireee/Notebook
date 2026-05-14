@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.12.8)  11 MAY 2026 22:11
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.12.8)  13 MAY 2026 21:24
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -532,6 +532,10 @@ Package thmtools Info: Key `name' (with value `Corollary')
 (thmtools)             Will pass this to every \declaretheorem
 (thmtools)             that uses `style=prosty' on input line 40.
 \c@definition=\count308
+Package thmtools Info: Key `name' (with value `Claim')
+(thmtools)             is not a known style key.
+(thmtools)             Will pass this to every \declaretheorem
+(thmtools)             that uses `style=claimsty' on input line 48.
  (./command.tex
 
 LaTeX Warning: You have requested package `',
@@ -630,30 +634,30 @@ Package: xparse 2024-02-18 L3 Experimental document command parser
 )) (./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 60.
-LaTeX Font Info:    ... okay on input line 60.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 60.
-LaTeX Font Info:    ... okay on input line 60.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 60.
-LaTeX Font Info:    ... okay on input line 60.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 60.
-LaTeX Font Info:    ... okay on input line 60.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 60.
-LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 60.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 63.
+LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 63.
  (c:/texlive/2024/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 60.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 60.
-LaTeX Font Info:    ... okay on input line 60.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 60.
-LaTeX Font Info:    ... okay on input line 60.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 60.
-LaTeX Font Info:    ... okay on input line 60.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 60.
-LaTeX Font Info:    ... okay on input line 60.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 60.
-LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
@@ -689,16 +693,16 @@ LaTeX Font Info:    ... okay on input line 60.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package hyperref Info: Link coloring OFF on input line 60.
+Package hyperref Info: Link coloring OFF on input line 63.
 (./main.out) (./main.out)
 \@outlinefile=\write4
 \openout4 = `main.out'.
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 80.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 83.
  (c:/texlive/2024/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 80.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 83.
  (c:/texlive/2024/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
@@ -713,35 +717,37 @@ LaTeX Font Info:    Trying to load font information for U+euf on input line 19.
  (c:/texlive/2024/texmf-dist/tex/latex/amsfonts/ueuf.fd
 File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
 )
-Package hyperref Info: bookmark level for unknown lemma defaults to 0 on input line 42.
+Package hyperref Info: bookmark level for unknown lemma defaults to 0 on input line 46.
  [4]
-Package hyperref Info: bookmark level for unknown theorem defaults to 0 on input line 66.
-Package hyperref Info: bookmark level for unknown remark defaults to 0 on input line 76.
- [5]
-Package hyperref Info: bookmark level for unknown proposition defaults to 0 on input line 105.
-
-Overfull \hbox (3.72705pt too wide) in paragraph at lines 139--140
+Package hyperref Info: bookmark level for unknown remark defaults to 0 on input line 70.
+Package hyperref Info: bookmark level for unknown theorem defaults to 0 on input line 84.
+ [5] [6]
+Package hyperref Info: bookmark level for unknown proposition defaults to 0 on input line 128.
+ [7]
+Overfull \hbox (3.72705pt too wide) in paragraph at lines 164--165
 []\TU/lmr/m/n/10 The vocabulary here follows Tate’s thesis, here are the examples in the case of archimedean
  []
 
-Package hyperref Info: bookmark level for unknown example defaults to 0 on input line 141.
-[6] [7] [8] [9] [10] [11]
-Package hyperref Info: bookmark level for unknown corollary defaults to 0 on input line 369.
- [12]) (./contents/2.tex [13] [14] [15] [16] [17] [18]) [19] (./main.bbl) [20] (./main.aux)
+Package hyperref Info: bookmark level for unknown example defaults to 0 on input line 166.
+[8] [9] [10] [11] [12]
+Package hyperref Info: bookmark level for unknown corollary defaults to 0 on input line 394.
+ [13]) (./contents/2.tex [14] [15] [16] [17] [18]
+Package hyperref Info: bookmark level for unknown claim defaults to 0 on input line 244.
+ [19] [20]) [21] (./main.bbl) [22] (./main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: A4674C812CD85771A55F7629CCC53FCE;1574.
+(rerunfilecheck)             Checksum: 71A4ADB832EC23E9EC6161B0FC21C2F7;1749.
  ) 
 Here is how much of TeX's memory you used:
- 27691 strings out of 474773
- 563563 string characters out of 5761289
- 1936842 words of memory out of 5000000
- 49351 multiletter control sequences out of 15000+600000
+ 27755 strings out of 474773
+ 564981 string characters out of 5761289
+ 1935842 words of memory out of 5000000
+ 49415 multiletter control sequences out of 15000+600000
  566504 words of font info for 81 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 83i,15n,100p,799b,1086s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 83i,21n,100p,836b,1086s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.pdf (20 pages).
+Output written on main.pdf (22 pages).

@@ -159,7 +159,7 @@ Notice that \(K_v/\qq_{p_v}\) is unramified for almost all finite place \(v\), s
 
 \subsection{Idele Group and Hecke Character}
 
-The unit group of the adele ring \(\adele_K^\times\) is not a topological group (the subspace topology of \(\adele_K\)) under the multiplication, the reason is that the inverse map \((a_v)_v \mapsto (a_v^{-1})_v\) is not continous, so a different topology should be given to the unit group for a further study.
+The unit group of the adele ring \(\adele_K^\times\) is not a topological group (the subspace topology of \(\adele_K\)) under the multiplication, the reason is that the inverse map \((a_v)_v \mapsto (a_v^{-1})_v\) is not continous, so a finer topology should be given to the unit group for a further study.
 
 \begin{definition}
     The idele group of \(K\) is defined as the restricted direct product of \(K_v^\times\) with respect to \(\oo_v^\times\), where \(\oo_v^\times = K_v^\times\) if \(v\) is archimedean, and \(\oo_v^\times\) is the unit group of \(\oo_v\) if \(v\) is non-archimedean.
@@ -185,24 +185,41 @@ As local multiplicative characters defined in the section 1.3, we shall also dev
 \end{proof}
 
 \begin{definition}
-    A Hecke character of \(K\) is a continous homomorphism \(\chi: \adele_K^\times \to \cc^\times\) such that \(\chi|_{K^\times} = 1\). 
+    A \textbf{Hecke character} or a \textbf{quasi-character} of \(K\) is a continous homomorphism \(\chi: \adele_K^\times \to \cc^\times\) such that \(\chi|_{K^\times} = 1\), and its twisted dual is defined by \(\chi^\vee = \chi^{-1} |\cdot|_{\adele}\). 
 \end{definition}
 
 \begin{remark}
     The idele class group of \(K\) is defined as quotient group \(C_K = \adele^\times/K^\times\), so equivalently, a Hecke character is a continous homomorphism on the idele class group.
 \end{remark}
 
-By product formula in proposition \ref{adele-norm}, we can see that \(|\cdot|^s_{\adele}\) defines a Hecke character for any \(s \in \cc\), similarly a decomposition of Hecke character exists as following.
+By product formula in proposition \ref{adele-norm}, we can see that \(|\cdot|^s_{\adele}\) defines a Hecke character for any \(s \in \cc\), and there are a condition to determine whether a Hecke character is of this form, which is analogous to lemma \ref{unramifiedquasicharacter} to determine unramified local quasi-character.
+
+\begin{lemma} \label{unramified-heckecharacter}
+    A Hecke character \(\chi:\adele^\times \to \sph^1\) is of the form \(|\cdot|^s_{\adele}\) for some \(s \in \cc\) if and only if \(\chi\) is trivial on subgroup \(\adele_1^\times\).
+\end{lemma}
+
+\begin{proof}
+    \(\adele_1^\times\) is the kernel of \(|\cdot|_\adele\), so it is enough to prove the necessity. If \(\adele_1^\times \subset \ker \chi\), then \(\chi\) factors through the quotient group \(\adele^\times/\adele_1^\times\) such that a diagram commutes
+    % https://q.uiver.app/#q=WzAsMyxbMCwwLCJcXG1hdGhiYntBfV5cXHRpbWVzIl0sWzAsMSwiXFxtYXRoYmJ7QX1eXFx0aW1lcy9cXG1hdGhiYntBfV8xXlxcdGltZXMiXSxbMSwwLCJcXG1hdGhiYntDfSJdLFswLDFdLFswLDIsIlxcY2hpIl0sWzEsMiwiXFxiYXJ7XFxjaGl9IiwyLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV1d
+\[\begin{tikzcd}
+	{\mathbb{A}^\times} & {\mathbb{C}}^\times \\
+	{\rr_{>0} \cong \mathbb{A}^\times/\mathbb{A}_1^\times}
+	\arrow["\chi", from=1-1, to=1-2]
+	\arrow[from=1-1, to=2-1]
+	\arrow["{\bar{\chi}}"', dotted, from=2-1, to=1-2]
+\end{tikzcd}\]
+     then the result is immediate by the quasi-character of \(\rr_{>0}\).
+\end{proof}
 
 \begin{lemma}
     For any Hecke character \(\chi\), there exists a complex number \(s\) and a unitary Hecke character \(\eta\) such that \(\chi = \eta |\cdot|^s_{\adele}\).
 \end{lemma}
 
 \begin{proof}
-    
+   
 \end{proof}
 
-    Similarly, two Hecke chracters \(\chi\) and \(\chi'\) on class group \(A^\times /K\) are called equivalent if they concide on the compact subgroup \(A^\times_1/K\), then each equivalence class consists of Hecke characters of the form \(\eta|\cdot|_\adele^s\) with \(\eta\) a fixed unitary character, and a parametrization can be done to identify each class with complex plane, which shows that the set of Hecke characters has the structure of Riemann surface with countable connected components homeomorphic to \(\cc\).
+    Similarly, two Hecke chracters \(\chi\) and \(\chi'\) on class group \(A^\times /K\) are called equivalent if they concide on the compact subgroup \(A^\times_1/K\), then each equivalence class consists of Hecke characters of the form \(\eta|\cdot|_\adele^s\) with \(\eta\) a fixed unitary character, and a parametrization can be done to identify each class with complex plane, which shows that the set of Hecke characters has the structure of Riemann surface with countable connected components homeomorphic to \(\cc\), hence \(\chi \mapsto \chi^\vee\) gives an biholomorphic involution on the space of Hecke characters.
 
 \subsection{Global Functional Equation}
 
@@ -224,38 +241,45 @@ that allows us to view it as a integrand on complex plane.
     
 \end{proof}
 
-A little work should be done to rewrite the global zeta function such that we can imitate the Riemann's proof of zeta function. Notice that \(\adele^\times / \adele^\times_1 \cong \rr_{>0}\) as locally compact abelian groups, so there exits a Haar measure \(d^* x\) on compact subgroup \(\adele^\times_1\) such that \(d^\times x = d^*x \cdot dt/t\), so if we set \(x = t u \) and \(t = |a|_{\adele}\) we have
-\[Z(f,\chi) = \int_{\rr_{>0}}\int_{\adele  ^\times_1} f(tu) \, \chi(tu) d^*u \, \frac{dt}{t}\]
-and if we set \(\adele_t^\times = \{x \in \adele^\times : |x|_{\adele} = t\}\) to denote the norm-\(t\) space, then \(u \mapsto tu\) gives an homeomorphism between \(A_1^\times\) and \(A_t^\times\), so it induces a Haar measure \(d^*_tx\) on \(\adele_t^\times\) by push-forward, so we can rewrite the integrand as 
+\begin{claim}[Quotient integral formula]
+    Let \(G\) be a LCA group and \(H\) its closed subgroup, then for any two Haar measure \(\mu_G\) and \(\mu_H\) on \(G\) and \(H\) respectively, there exists a unique Haar measure \(\mu_{G/H}\) on the quotient group \(G/H\) such that for any \(f \in L^1(G)\), we have 
+    \[\int_G f(g) d\mu_G(g) = \int_{G/H} \left( \int_H f(gh) d\mu_H(h) \right) d\mu_{G/H}(gH) \]
+\end{claim}
+
+A little work should be done to rewrite the global zeta function such that we can imitate the Riemann's proof of zeta function. Notice that \(\adele^\times / \adele^\times_1 \cong \rr_{>0}\) as locally compact abelian groups, so by quotient inetral formula there exits a Haar measure \(d^* x\) on closed subgroup \(\adele^\times_1\) such that \(d^\times x = d^*x \cdot dt/t\), so we can see the each \(t>0\) as an idele element by
+\[\tilde{t} = (\underbrace{t^{1/N},\dots,t^{1/N}}_{\text{archimdean place}},1,...), \quad N = [K: \qq]\]
+and then global zeta function can be rewritten as following
 \begin{equation}
     Z(f,\chi) = \int_0^\infty Z_t(f,\chi) \, \frac{dt}{t}
 \end{equation}
 with auxiliary function defined by
-\[Z_t(f,\chi) = \int_{\adele_t^\times} f(x) \, \chi(x) d^*_t x\]
+\[Z_t(f,\chi) = \int_{\adele_1^\times} f(\tilde{t}x) \, \chi(\tilde{t}x) d^* x\]
 Hence now we can consider the symmerty of auxiliary function, it will be the key to finish the meomorphic continuation.
-
-\begin{lemma}
-    For any \(t>0\) and a Hecke character \(\chi\), then
-    \[\int_{\adele_t^\times/K^\times} \chi(x) d^*_t x = \begin{cases}
-        t^s V & \text{ if } \chi = |\cdot|^s_{\adele} \\
-        0 & \text{ otherwise }
-    \end{cases}\]
-    where \(V\) is the volume of \(\adele_1^\times/K^\times\) with respect to the measure \(d^*x\).
-\end{lemma}
-
-\begin{proof}
-    
-\end{proof}
 
 \begin{lemma}
      \(\chi \mapsto Z_t(f,\chi)\) defines a holomorphic function on the domain of Hecke characters, and for any \(t>0\) we have
      \[Z_t(f,|\cdot|^s) + f(0) V \cdot t^s = Z_{1/t}(\hat{f},|\cdot|^{1-s}) + \frac{\hat{f}(0)V}{t^{1-s}}\]
-     and for any Hecke character \(\chi\) not equivalent to \(|\cdot|^s\), we have
+     where \(V\) is the volume of fundamental domain of \(\adele_1^\times/K^\times\) with respect to the measure \(d^*x\), and for any Hecke character \(\chi\) not equivalent to \(|\cdot|^s\), we have
         \[Z_t(f,\chi) = Z_{1/t}(\hat{f},\chi^\vee)\]
 \end{lemma}
 
 \begin{proof}
-    
+    Firstly we calculate the general equation of \(Z_t(f,\chi)\), \(K^\times\) can be identified as a discrete subgroup of \(\adele^\times\), so there exists a Haar measure \(d^\star x \) on \(\adele_1^\times/K^\times\), such that
+    \begin{align*}
+    Z_t(f,\chi) &= \int_{\adele_1^\times/K^\times} \sum_{a \in K^\times} f(a \tilde{t} x) \chi(a \tilde{t} x ) d^\star x 
+    \end{align*}
+    Hecke character is trival on \(K^\times\), so \(\chi(a \tilde{t} x) = \chi(\tilde{t}x)\) is independent of \(a\), and we add the term \(a = 0\) such that we can apply the adelic Poisson summation formula
+    \begin{align*}
+        Z_t(f,\chi) + f(0)\int_{\adele_1^\times/K^\times}\chi(\tilde{t}x)d^\star x &= \int_{\adele_1^\times/K^\times} \sum_{a \in K} f(a \tilde{t} x) \chi(\tilde{t}x) d^\star x \\
+        &= \int_{\adele_1^\times/K^\times} \frac{1}{t|x|_{\adele}}\sum_{a \in K} \hat{f}(a /\tilde{t}x) \chi(\tilde{t}x) d^\star x  
+    \end{align*}
+    a change variable \(x = y^{-1}\) allows us to calcluate the functional equation for any \(t>0\)
+    \begin{equation} \label{fcteq-auxiliary-global}
+        Z_t(f,\chi) + f(0) \underbrace{\int_{\adele_1^\times/K^\times}\chi(\tilde{t}x)d^\star x}_{I(\chi)} = Z_{1/t}(\hat{f},\chi^\vee) + \hat{f}(0)\int_{\adele_1^\times/K^\times}\chi^\vee(x/\tilde{t})d^\star x
+    \end{equation}
+    hence it is enough to discuss the integration
+    \[I(\chi) = \chi(\tilde{t}) \int_{\adele_1^\times/K^\times} \chi(x) d^\star x\]
+    If \(\chi = |\cdot|_{\adele}^s\), then \(I(\chi) = t^s V\) clearly; Otherwise, \(\chi\) is not trival on \(\adele_1^\times/K^\times\) by lemma \ref{unramified-heckecharacter}, and then compactness of \(\adele_1^\times/K^\times\) implies \(I(\chi) = 0\). Finally, we plug the result into the equation \ref{fcteq-auxiliary-global} to finish the proof.
 \end{proof}
 
 \begin{theorem}[Hecke-Tate]
@@ -267,4 +291,6 @@ Hence now we can consider the symmerty of auxiliary function, it will be the key
     
 \end{proof}
 
+
+\section{Conclusion and complement}
 
