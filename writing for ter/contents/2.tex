@@ -251,14 +251,14 @@ A little work should be done to rewrite the global zeta function such that we ca
 and then global zeta function can be rewritten as following
 \begin{equation}
     Z(f,\chi) = \int_0^\infty Z_t(f,\chi) \, \frac{dt}{t}
-\end{equation}
+\end{equation} \label{global-zeta-1}
 with auxiliary function defined by
 \[Z_t(f,\chi) = \int_{\adele_1^\times} f(\tilde{t}x) \, \chi(\tilde{t}x) d^* x\]
 Hence now we can consider the symmerty of auxiliary function, it will be the key to finish the meomorphic continuation.
 
-\begin{lemma}
+\begin{lemma} \label{fct-eq-auxiliary}
      \(\chi \mapsto Z_t(f,\chi)\) defines a holomorphic function on the domain of Hecke characters, and for any \(t>0\) we have
-     \[Z_t(f,|\cdot|^s) + f(0) V \cdot t^s = Z_{1/t}(\hat{f},|\cdot|^{1-s}) + \frac{\hat{f}(0)V}{t^{1-s}}\]
+     \[Z_t(f,|\cdot|^s)  = Z_{1/t}(\hat{f},|\cdot|^{1-s}) + \frac{\hat{f}(0)V}{t^{1-s}} - f(0)V t^s\]
      where \(V\) is the volume of fundamental domain of \(\adele_1^\times/K^\times\) with respect to the measure \(d^*x\), and for any Hecke character \(\chi\) not equivalent to \(|\cdot|^s\), we have
         \[Z_t(f,\chi) = Z_{1/t}(\hat{f},\chi^\vee)\]
 \end{lemma}
@@ -288,8 +288,32 @@ Hence now we can consider the symmerty of auxiliary function, it will be the key
 \end{theorem}
 
 \begin{proof}
-    
+    We separate the integral (equation \ref{global-zeta-1}) into two parts
+    \begin{equation}
+        Z(f,\chi) = \int_0^1 Z_t(f,\chi) \, \frac{dt}{t} + \int_1^\infty Z_t(f,\chi) \, \frac{dt}{t}
+    \end{equation}
+    the second part is holomorphic on each component of character space since \(f\) decreases rapidly at infinity, so it is enough to evaluate the first part by changing variable \(t \mapsto 1/t\), and applying the lemma \ref{fct-eq-auxiliary} to arrange the integral. If \(\chi = |\cdot|_{\adele}^s\), then we can get
+    \[Z(f,|\cdot|_{\adele}^s) = \frac{\hat{f}(0) \cdot V}{s-1} - \frac{f(0)\cdot V}{s} +\int_1^\infty [Z_t(f,\chi) + Z_{t}(\hat{f},\chi^\vee)] \, \frac{dt}{t}\]
+    which gives the meomiorphic continuation of \(\chi \mapsto Z(f,\chi)\) on the component of \(|\cdot|_{\adele}\), and the pole is given by first two terms; If \(\chi\) is not of the form, similarly we can get
+    \[Z(f,\chi) = \int_{1}^\infty [Z_t(f,\chi) + Z_{t}(\hat{f},\chi^\vee)] \, \frac{dt}{t}\]
+    which gives the holomorphic continuation on the other components. Finally, in both cases, the functional equation holds after a simple calculation.
 \end{proof}
+
+\begin{remark}
+    A comparison can be done with the Riemann zeta function, the completed zeta function is defined by \(\xi(s) = \pi^{-s/2}\Gamma(s/2)\zeta(s)\), and a integral representation of \(\xi\) is given by
+    \[\xi(s) = \int_0^\infty \psi(t) t^{s/2} \, \frac{dt}{t}, \quad \mathrm{Re}(s) >1\]
+    with
+    \[\psi(t) = \frac{1}{2} (\sum_{n \in \zz}e^{-\pi n^2 t} - 1) \]
+    and we can apply the poisson summation formula to get the symmetry of \(\psi\), and then get the functional equation of \(\xi\) by diving the integral into two parts (see a proof in theorem 2.3 of chapter 6 in \cite{stein2010complex}). The Hecke-Tate theorem is a generalization of Riemann's proof, the role of auxiliary function \(t \mapsto Z_t(f,\chi)\) is analogous to the role of \(\psi\).
+\end{remark}
+
+In complex analysis, the mellin transform of a function \(f: \rr_{>0} \to \cc\) is defined by
+\[\mathcal{M}[f](s) = \int_{0}^\infty f(t) t^{s} \, \frac{dt}{t}\]
+the asymptotic behavior of \(f\) at \(0\) and \(\infty\) determines a "analytical strip", where \(s \mapsto \mathcal{M}[f](s)\) defines a holomorphic function, hence ...
+
+If \(\chi = \eta |\cdot|_\adele^s\), then in equation (\ref{global-zeta-1}) we notice that \(\chi(\tilde{t}x) = \eta(x)t^s\), so a separtion of variable allows us to see the global zeta function on component \([\eta]\) as a mellin transform of a function on \(t\) as following
+\[\Phi(t) = \int_{\adele_1^\times} f(\tilde{t}x) \eta(x) \, d^*x\]
+
 
 
 \section{Conclusion and complement}

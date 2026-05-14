@@ -279,10 +279,10 @@ It is not hard to check that \(\chi \mapsto \chi^\vee\) is a homeomorphism on \(
 \subsection{Local Zeta Function}
  Now we will consider the integrand on \(F^\times\), which will be used to define the local zeta integral.
 
-\begin{lemma}
+\begin{lemma} \label{local-multiplicative-haarmeasure}
     Let \(dx\) be the self-dual Haar measure on \(F\) defined in the previous, then 
     \begin{enumerate} [(a)]
-        \item \(m(E) = \int_{E}\frac{dx}{|x|}\) defines a Haar measure on multiplicative group \(F^\times\), and when \(F\) is non-archimedean, \(\oo^\times \) gets measure \(\frac{1}{1-N(\pp)^{-1}}N(\mathfrak{d})^{-1/2}\).
+        \item \(m(E) = \int_{E}\frac{dx}{|x|}\) defines a Haar measure on multiplicative group \(F^\times\), and when \(F\) is non-archimedean, \(\oo^\times \) gets measure \((1-N(\pp)^{-1})N(\mathfrak{d})^{-1/2}\).
         \item A function \(f\) is integrable on \(F^\times\) with respect to \(d^\times x\) if and only if \(x \mapsto f(x)/|x|\) is integrable on \(F-{0}\) with respect to \(dx\). 
     \end{enumerate}
 \end{lemma}
@@ -327,7 +327,13 @@ Review that a function on Riemann surface \(f: X \to \cc\) is called holomorphic
 \end{lemma}
 
 \begin{proof}
-    
+    We assume that \(K\) is a compact subset of the domain, for the archimedean case, schwartz condition implies that \(f\) is bounded by a constant \(B\) and \(f\) rapidly decreasing faster than any power of \(1/|x|\) at infinity, so an estimate can be done by
+    \[|Z(f,\chi)| \leq B \int_{0< |x| \leq 1}|x|^{\sigma -1} \,d x + C_N\int_{|x| \geq 1} \frac{|x|^{\sigma-1} d x}{(1+ |x|)^N}\]
+    \(\sigma>0\) ensures the first integral is finite, and the compactness of \(K\) ensures the existence of \(N\) such that \(N > \sigma\) and the second integral is finite. If \(F\) is non-archimdean, suppose that \(\mathrm{supp}(f) \subset \varpi^N \oo\) for some integer \(N \geq 0\), and then 
+    \[|Z(f,\chi)| \leq C \int_{0<|x|<N(\pp)^N}|x|^{\sigma} d^\times x  = C \sum_{n \geq -N}\int_{\varpi^n \oo^\times}|x|^{\sigma} d^\times x\]
+    and lemma \ref{local-multiplicative-haarmeasure} (a) allows us to set \(\mathrm{Vol}(\oo^\times) = (1-N(\pp)^{-1})N(\mathfrak{d})^{-1/2}\), then
+    \[|Z(f,\chi)| \leq C \cdot \mathrm{Vol}(\oo^\times) \sum_{n \geq -N}N(\pp)^{-n \sigma}  = C \cdot \mathrm{Vol}(\oo^\times) \frac{N(\pp)^{N\sigma}}{1-N(\pp)^{-\sigma}}\]
+    the last equality holds when \(\sigma>0\) by geometric series. Finally, the inequality above is enough to show the uniform convergence of \(\chi \mapsto Z(f,\chi)\) in each compact of the component with \(\sigma>0\), so in each component the function is holomorphic on the domain  \(\sigma>0\).
 \end{proof}
 
 \begin{lemma}[Tate] \label{tate}
