@@ -282,7 +282,9 @@ It is not hard to check that \(\chi \mapsto \chi^\vee\) is a homeomorphism on \(
 \begin{lemma} \label{local-multiplicative-haarmeasure}
     Let \(dx\) be the self-dual Haar measure on \(F\) defined in the previous, then 
     \begin{enumerate} [(a)]
-        \item \(m(E) = \int_{E}\frac{dx}{|x|}\) defines a Haar measure on multiplicative group \(F^\times\), and when \(F\) is non-archimedean, \(\oo^\times \) gets measure \((1-N(\pp)^{-1})N(\mathfrak{d})^{-1/2}\).
+        \item \(m(E) = \int_{E}\frac{dx}{|x|}\) defines a Haar measure on multiplicative group \(F^\times\), and we denote it by \(d^\times x\);
+        
+        \item If\(F\) is non-archimedean, \(\oo^\times \) gets measure \((1-N(\pp)^{-1})N(\mathfrak{d})^{-1/2}\).
         \item A function \(f\) is integrable on \(F^\times\) with respect to \(d^\times x\) if and only if \(x \mapsto f(x)/|x|\) is integrable on \(F-{0}\) with respect to \(dx\). 
     \end{enumerate}
 \end{lemma}
@@ -290,27 +292,6 @@ It is not hard to check that \(\chi \mapsto \chi^\vee\) is a homeomorphism on \(
     
 \end{proof}
 
-\begin{example}
-    If the number field is \(\qq\), then by Ostrowski's theorem, the local field is either \(\rr\) or \(\qq_p\) with \(p\) a prime number, so there is no confusion to define an integrand for a proper function \(f\) and a complex number \(s\) by
-    \[Z(f,s) = \int_{F^\times} f(x)|x|^s \, d^\times x\]
-
-    If \(F = \qq\) and we choose \(f(x) = e^{-\pi x^2}\), then we can calculate
-    \[Z(f,s) = 2\int_{0}^\infty e^{\pi x^2}x^{s-1} \, dx = \pi^{-s/2}\Gamma(s/2)\]
-
-    If \(F = \qq_p\) and we choose \(f(x) = \mathbf{1}_{\zz_p}\), then use the fact that \(\zz_p-\{0\} = \bigcup_{n\geq 0 } p^n\zz_p^\times\) we can calculate
-    \begin{align*}
-        Z(f,s) &= \sum_{n \geq 0} \int_{p^n\zz_p^\times} |x|_p^s \, d^\times x \\
-        &= \sum_{n \geq 0} p^{-ns} \int_{\zz_p^\times} \, d^\times x \\
-        &= \sum_{n \geq 0} p^{-ns} = \frac{1}{1-p^{-s}}
-    \end{align*}
-    Pay attention that in both case, the last equality holds when \(\mathrm{Re}(s)> 0 \), and by Euler's product formula we can find that the proudct of all local zeta functions is so-called completed zeta function
-    \[s \mapsto \pi^{-s/2}\Gamma(s/2) \zeta(s)\]
-    which plays an important role in the functional equation of Riemann zeta function, it can go back to Riemann's famous short paper ~\cite{Ri}.
-\end{example}
-
-In the example above, variable \(s\) can be seen as a parameter of unramified quasi-character \(\chi_s = |\cdot|^s\), and beyond the example, we should consider other type of zeta function. For instance, a dirichlet \(L\)-function asspciated with a dirichlet character \(\chi\), which is defined by the following Euler product
-\[L(s,\chi) = \prod_{p \text{ prime }} \frac{1}{1-\chi(p)p^{-s}}\]
-it suggests that we should consider all type of quasi-character.
 
 \begin{definition}
     Fix a function \(f \in \mathcal{S}(F)\), the local zeta function associated with \(f\) is defined as a integrand on space \(\mathcal{X}(F^\times)\) by
@@ -333,7 +314,7 @@ Review that a function on Riemann surface \(f: X \to \cc\) is called holomorphic
     \[|Z(f,\chi)| \leq C \int_{0<|x|<N(\pp)^N}|x|^{\sigma} d^\times x  = C \sum_{n \geq -N}\int_{\varpi^n \oo^\times}|x|^{\sigma} d^\times x\]
     and lemma \ref{local-multiplicative-haarmeasure} (a) allows us to set \(\mathrm{Vol}(\oo^\times) = (1-N(\pp)^{-1})N(\mathfrak{d})^{-1/2}\), then
     \[|Z(f,\chi)| \leq C \cdot \mathrm{Vol}(\oo^\times) \sum_{n \geq -N}N(\pp)^{-n \sigma}  = C \cdot \mathrm{Vol}(\oo^\times) \frac{N(\pp)^{N\sigma}}{1-N(\pp)^{-\sigma}}\]
-    the last equality holds when \(\sigma>0\) by geometric series. Finally, the inequality above is enough to show the uniform convergence of \(\chi \mapsto Z(f,\chi)\) in each compact of the component with \(\sigma>0\), so in each component the function is holomorphic on the domain  \(\sigma>0\).
+    the last equality holds when \(\sigma>0\) by geometric series. Finally, the inequalities above is enough to show the uniform convergence of \(\chi \mapsto Z(f,\chi)\) in each compact of the component with \(\sigma>0\), so in each component the function is holomorphic on the domain  \(\sigma>0\).
 \end{proof}
 
 \begin{lemma}[Tate] \label{tate}
@@ -342,7 +323,15 @@ Review that a function on Riemann surface \(f: X \to \cc\) is called holomorphic
 \end{lemma}
 
 \begin{proof}
-    
+    Applying the Fubini's theorem to separate the integral 
+    \[Z(f,\chi)Z(\hat{g},\chi^\vee) = \int_{(F^\times)}f(x)g(z)\chi(xy^{-1})\psi(yz)|yz| \, d^\times x \,d^\times y \, d^\times z\]
+    and then we change variable \(y =xt\) and then \(u = zt\) to calculate
+    \begin{align*}
+        Z(f,\chi)Z(\hat{g},\chi^\vee) &= \int_{(F^\times)^3} f(x)g(z)\chi(t^{-1})\psi(txz)|txz| \, d^\times x \,d^\times t \, d^\times z \\
+        &= (\int_{F^\times}g(z)\chi(z) \, d^\times z )(\int_{(F^\times)^2} f(x)\chi(u)^{-1}\psi(ux)|ux| \, d^\times x \,d^\times u) \\
+        &= Z(g,\chi)Z(\hat{f},\chi^\vee)
+    \end{align*}
+    notice that in finally equality we use the definition \(|ux|d^\times x = |u|dx\) to recover the local zeta function.
 \end{proof}
 
 Loosely speaking, the last lemma means the quotient of \(Z(f,\chi)\) and \(Z(\hat{f},\chi^\vee)\) is independent of the choice of function, so we can definie a meromorphic function on domain of quasi-character of exponent \(0 < \sigma <1\) by
@@ -378,23 +367,22 @@ the choice of \(f\) should satisfy \(\chi \mapsto Z(f,\chi) \) is not zero funct
 \begin{example}
     If \(F\) is non-archimedean, let \(\mathcal{X}_n(F^\times)\) denote the set of quasi-characters of conductor \(n\), then we have a decomposition
     \[\mathcal{X}(F^\times) = \bigsqcup_{n \geq 0} \mathcal{X}_n(F^\times)\]
-    when \(n = 0\), \(\mathcal{X}_0(F^\times)\) is just all unramified quasi-characters \(\mathcal{U}(F^\times)\); when \(n = 1\), \(\oo^\times/1+\pp\) can be identified as the multiplicative group of resuidue field \(\oo/\pp\), so \(\mathcal{X}_1(F^\times)\) contains \(N(\pp)-1\) different classes of quasi-characters; when \(n>1\), similar argument shows that \(\mathcal{X}_n(F^\times)\) contains \(N(\pp)^{n-1}(N(\pp)-1)^2\) different classes of quasi-characters. Hence the classes of quasi-characters are countable, and we can choose test function \(f_n \in \mathcal{S}(F)\) for each class \(\mathcal{X}_n(F^\times)\) by
+    where \(\mathcal{X}_0(F^\times)\) is just the set of unramified quasi-characters. For each class \(\mathcal{X}_n(F^\times)\), we can choose a test function \(f_n \in \mathcal{S}(F)\) by
     \[f_n(x) = \begin{cases}
         \psi(x) = \exp (2 \pi i \, \{\mathrm{Tr}_{F/\qq_p}(x)\}) & \text{if } x \in \mathfrak{d}^{-1}\pp^{-n} \\
         0 & \text{otherwise}
     \end{cases}\]
-\end{example}
-
-\begin{lemma}
-    \[\hat{f}_n(x) = \begin{cases}
+    and its transform are 
+        \[\hat{f}_n(x) = \begin{cases}
         (N(\mathfrak{d})^{1/2} N(\pp)^n)  & \text{if } x \in 1+ \pp^n \\
         0 & \text{otherwise}
     \end{cases}\]
-\end{lemma}
+\end{example}
 
-\begin{proof}
-    
-\end{proof}
+
+
+
+
 
 \begin{corollary}
     The \(\rho\)-factor of the unramified quasi-character is 
@@ -416,7 +404,7 @@ the choice of \(f\) should satisfy \(\chi \mapsto Z(f,\chi) \) is not zero funct
 
 
 
-\begin{theorem}[Tate's Local functional equation] $ \\$
+\begin{theorem}[Tate's local functional equation] $ \\$
     Let \(F\) be a local field and fix a function \(f \in \mathcal{S}(F)\), then \(\chi \mapsto Z(f,\chi)\) has a meromorphic continuation to whole space  \(\mathcal{X}(F^\times)\), and there exists a meromorphic function \(\rho: \mathcal{X}(F^\times) \to \cc\) such that for any quasi-character \(\chi\) such that , the following functional equation holds
     \[Z(\hat{f},\chi^\vee) =\rho(\chi) Z(f,\chi) \]
     where \(\rho\) is independent of the choice of \(f\) and 
@@ -426,6 +414,26 @@ the choice of \(f\) should satisfy \(\chi \mapsto Z(f,\chi) \) is not zero funct
     In each case of local field, \(\rho(\chi) = Z(\hat{f_C},\chi^{\vee})/Z(f_C,\chi)\) with \(f_C\) choosen as above examples, so \(\rho\) has a meomorphic continuation to whole space \(\mathcal{X}(F^\times)\). Let \(h(\chi) = \rho(\chi)Z(f,\chi)\), lemma \ref{holomorphic-halfplane} shows that \(h\) is meomorphic on the domain of exponent \(\sigma > 0\), and by lemma \ref{tate} we can calculate that \(h(\chi) = Z(\hat{f},\chi^\vee)\) in the domain of exponent \(0 < \sigma < 1\), and \(\chi \mapsto Z(\hat{f},\chi^\vee)\) defines a holomorphic function on the domain of exponent \(\sigma < 1\). Hence the continuation of \(\chi \mapsto Z(f,\chi)\) can be concluded by the continuation of \(h\) by the uniqeness of meromorphic continuation.
 \end{proof}
 
+
+\begin{example}
+    Some calculation can be done for some sepecific example, we can consider a number field, its completion are \(r_1\) real places and \(r_2\) complex places, and the rest are the local field at some prime ideaal \(\pp\).
+    If \(F = \qq\) and we choose \(f(x) = e^{-\pi x^2}\), then we can calculate
+    \[Z(f,s) = 2\int_{0}^\infty e^{\pi x^2}x^{s-1} \, dx = \pi^{-s/2}\Gamma(s/2)\]
+
+    If \(F = \qq_p\) and we choose \(f(x) = \mathbf{1}_{\zz_p}\), then use the fact that \(\zz_p-\{0\} = \bigcup_{n\geq 0 } p^n\zz_p^\times\) we can calculate
+    \begin{align*}
+        Z(f,s) &= \sum_{n \geq 0} \int_{p^n\zz_p^\times} |x|_p^s \, d^\times x \\
+        &= \sum_{n \geq 0} p^{-ns} \int_{\zz_p^\times} \, d^\times x \\
+        &= \sum_{n \geq 0} p^{-ns} = \frac{1}{1-p^{-s}}
+    \end{align*}
+    Pay attention that in both case, the last equality holds when \(\mathrm{Re}(s)> 0 \), and by Euler's product formula we can find that the proudct of all local zeta functions is so-called completed zeta function
+    \[s \mapsto \pi^{-s/2}\Gamma(s/2) \zeta(s)\]
+    which plays an important role in the functional equation of Riemann zeta function, it can go back to Riemann's famous short paper ~\cite{Ri}.
+\end{example}
+
+In the example above, variable \(s\) can be seen as a parameter of unramified quasi-character \(\chi_s = |\cdot|^s\), and beyond the example, we should consider other type of zeta function. For instance, a dirichlet \(L\)-function asspciated with a dirichlet character \(\chi\), which is defined by the following Euler product
+\[L(s,\chi) = \prod_{p \text{ prime }} \frac{1}{1-\chi(p)p^{-s}}\]
+it suggests that we should consider all type of quasi-character.
 
 
 
