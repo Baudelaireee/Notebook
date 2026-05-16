@@ -1,6 +1,6 @@
 \section{Local Functional Equation}
 
-To treat the local field of number fields, we fix the notation for sake of convience.
+To treat the local field of number fields, we fix the notation for sake of convenience.
 
 \begin{definition}
     Let \(F\) be a field, then we call \(F\) is a local field if it is one of the following types:
@@ -27,10 +27,10 @@ In the case of non-archimedean local field, we use the following notation:
 \begin{definition}
     Let \(F\) be a local field, then \(f: F \to \cc\) is called a Schwartz-Bruhat function if it is one of the following cases:
     \begin{itemize}
-        \item When \(F\) is archimedean, \(f\) is a Schwartz function, which is a smooth and rapidly deacrasing function of class \(C^{\infty}\).
+        \item When \(F\) is archimedean, \(f\) is a Schwartz function, which is a smooth and rapidly decreasing function of class \(C^{\infty}\).
         \item When \(F\) is non-archimedean, \(f\) is locally constant and compactly supported.
     \end{itemize}
-    Let \(\mathcal{S}(F)\) denotes the \(\cc\)-vector space of all Schwartz-Bruhat functions on \(F\).
+    Let \(\mathcal{S}(F)\) denote the \(\cc\)-vector space of all Schwartz-Bruhat functions on \(F\).
 \end{definition}
 
 \begin{definition}
@@ -41,7 +41,7 @@ In the case of non-archimedean local field, we use the following notation:
 
 Let \(F\) be a local field, then in each case we can know that \((F,+)\) is a locally compact abelian group, which induces a Haar measure \(\mu\) on \(F\), then for any non-zero element \(a \in F\), we can define a new measure on \(F\) by pull back:
 \[\forall E \subset F \text{ measurable }, \quad  \mu_a(E) = \mu(aE)  \]
-and we can conculde the following result:
+and we can conclude the following result:
 
 \begin{lemma} \label{normalizedmodule}
     \(\mu_a\) is a Haar measure on \((F,+)\), and there exists a constant factor \(|a|\) such that \(\mu_a = |a| \mu\), such a factor is independent of the choice of \(\mu\) with
@@ -53,7 +53,7 @@ and we can conculde the following result:
 \end{lemma}
 
 \begin{proof}
-    The case of \(F =\rr\) is clear. If \(F = \cc\), we take \(a = u + iv\) and \(\mu\) be the lebesgue measure, let \(z = x+iy\) and then \(az = (ux - vy) + i(vx+uy)\), and we consider the integration in \(\rr^2\), then the jacobian of the transformation is 
+    The case of \(F =\rr\) is clear. If \(F = \cc\), we take \(a = u + iv\) and \(\mu\) be the Lebesgue measure, let \(z = x+iy\) and then \(az = (ux - vy) + i(vx+uy)\), and we consider the integration in \(\rr^2\), then the Jacobian of the transformation is 
     \[|\det J_a| = \begin{vmatrix}
         u & -v \\
         v & u
@@ -80,7 +80,7 @@ The dual group is indeed a group under pointwise multiplication, for topology on
 \[[K,U]= \{\chi \in \hat{F} : \chi(K) \subset U\}\]
 for every compact subset \(K\) of \(F\) and every open subset \(U\) of \(\sph^1\). It is a natural choice for functiona space, so dual group is ineed a topological group, a remarkable result here is that local field is self-dual.
 
-\begin{theorem}
+\begin{theorem} \label{local-field-selfdual}
     Let \(\psi\) be a non-trival additive character of \(F\), then the map
     \[\Psi: F \to \hat{F}, \quad a \mapsto \psi_a :x \mapsto \psi(ax)\]
     is an isomorphism of LCA groups.
@@ -247,7 +247,7 @@ Hence there is no confusion to take the samllest integer \(\mathfrak{f}\) and de
 
 
 
-Later we will see that the local zeta integral will be defined on the character group, so it is better to treat it as a complex manifold such that we can talk about the meromorphic continuation and functional equation.
+Later we will see that the local zeta integral will be defined on the character group, so it is better to treat character group as a complex manifold such that we can talk about the meromorphic continuation and functional equation.
 
 \begin{definition}
     Let \(\chi\) and \(\chi'\) be two quasi-character of \(F^\times\), they are called equivalent if \(\chi'|_U = \chi'|_U\), or equivalently, \(\chi/\chi'\) is unramified.
@@ -284,12 +284,14 @@ It is not hard to check that \(\chi \mapsto \chi^\vee\) is a homeomorphism on \(
     \begin{enumerate} [(a)]
         \item \(m(E) = \int_{E}\frac{dx}{|x|}\) defines a Haar measure on multiplicative group \(F^\times\), and we denote it by \(d^\times x\);
         
-        \item If\(F\) is non-archimedean, \(\oo^\times \) gets measure \((1-N(\pp)^{-1})N(\mathfrak{d})^{-1/2}\).
+        \item If \(F\) is non-archimedean, \(\oo^\times \) gets measure \((1-N(\pp)^{-1})N(\mathfrak{d})^{-1/2}\).
         \item A function \(f\) is integrable on \(F^\times\) with respect to \(d^\times x\) if and only if \(x \mapsto f(x)/|x|\) is integrable on \(F-{0}\) with respect to \(dx\). 
     \end{enumerate}
 \end{lemma}
 \begin{proof}
-    
+    For any \(a \in F^\times\), we have 
+    \[\int_{aE}\frac{dx}{|x|} = \int_{E} \frac{d(ax)}{|ax|}\]
+    notice that \(|x|\) is the module such that \(d(ax) = |a|dx\) for any haar measure, which proves (a). For (b), we notice that \(\oo^\times  = \oo - \pp\), and in proof of lemma \ref{normalizedmodule} we have seen that \(\pp\) gets measure \(N(\pp)^{-1}\) with respect to \(N(\mathfrak{d})dx\), so it is enough to calculate the result of (b). (c) is immediate by the definition of \(d^\times x\).
 \end{proof}
 
 
@@ -307,6 +309,8 @@ Review that a function on Riemann surface \(f: X \to \cc\) is called holomorphic
     Following the notation above, \(\chi \mapsto Z(f,\chi)\) defines a holomorphic function on the domain of quasi-character with exponent \(\sigma > 0 \).
 \end{lemma}
 
+The lemma shows that the definition only makes sense on the half-plane of \(\sigma > 0\).
+
 \begin{proof}
     We assume that \(K\) is a compact subset of the domain, for the archimedean case, schwartz condition implies that \(f\) is bounded by a constant \(B\) and \(f\) rapidly decreasing faster than any power of \(1/|x|\) at infinity, so an estimate can be done by
     \[|Z(f,\chi)| \leq B \int_{0< |x| \leq 1}|x|^{\sigma -1} \,d x + C_N\int_{|x| \geq 1} \frac{|x|^{\sigma-1} d x}{(1+ |x|)^N}\]
@@ -317,7 +321,7 @@ Review that a function on Riemann surface \(f: X \to \cc\) is called holomorphic
     the last equality holds when \(\sigma>0\) by geometric series. Finally, the inequalities above is enough to show the uniform convergence of \(\chi \mapsto Z(f,\chi)\) in each compact of the component with \(\sigma>0\), so in each component the function is holomorphic on the domain  \(\sigma>0\).
 \end{proof}
 
-\begin{lemma}[Tate] \label{tate}
+\begin{lemma} \label{tate}
     Fix any two functions \(f,g \in \mathcal{S}(F)\), and let \(\chi\) be a quasi-character \(\chi\) of exponent \(0< \sigma <1\), then \(\chi^\vee\) is of exponent \(0 < \sigma <1\) as well, and the following identity holds
     \[Z(f,\chi)Z(\hat{g},\chi^\vee) = Z(\hat{f},\chi^\vee)Z(g,\chi)\]
 \end{lemma}
@@ -336,7 +340,7 @@ Review that a function on Riemann surface \(f: X \to \cc\) is called holomorphic
 
 Loosely speaking, the last lemma means the quotient of \(Z(f,\chi)\) and \(Z(\hat{f},\chi^\vee)\) is independent of the choice of function, so we can definie a meromorphic function on domain of quasi-character of exponent \(0 < \sigma <1\) by
 \[\rho(\chi) = \frac{Z(\hat{f},\chi^\vee)}{Z(f,\chi)}\]
-the choice of \(f\) should satisfy \(\chi \mapsto Z(f,\chi) \) is not zero function, and we call it \(\rho\)-factors of local field \(F\). The analytic continuation of \(\rho\)-factors will be the key to prove the local functional equation, Tate's strategy is to calculate each case explicitly.
+the choice of \(f\) should satisfy \(\chi \mapsto Z(f,\chi) \) is not zero function, and we call it \textbf{\(\rho\)-factors} of local field \(F\). The analytic continuation of \(\rho\)-factors will be the key to prove the local functional equation, Tate's strategy is to calculate each case explicitly.
 
 \begin{example}
     If \(F =\rr\), by example \ref{archimedeanquasicharacter} we have
@@ -377,21 +381,32 @@ the choice of \(f\) should satisfy \(\chi \mapsto Z(f,\chi) \) is not zero funct
         (N(\mathfrak{d})^{1/2} N(\pp)^n)  & \text{if } x \in 1+ \pp^n \\
         0 & \text{otherwise}
     \end{cases}\]
-\end{example}
-
-
-
-
-
-
-\begin{corollary}
-    The \(\rho\)-factor of the unramified quasi-character is 
-    \[\rho(|\cdot|^s) = N(\mathfrak{d})^{s-1/2}\frac{1-N(\pp)^{s-1}}{1-N(\pp^{-s})}\]
-    If \(c_n\) is a unitary character of conductor \(n > 0\), the \(\rho\)-factor of the ramified quasi-character is 
+The \(\rho\)-factor of the unramified quasi-character (\(n = 0\)) is 
+    \[\rho(|\cdot|^s) = N(\mathfrak{d})^{s-1/2}\frac{1-N(\pp)^{s-1}}{1-N(\pp)^{-s}}\]
+    If \(c_n\) is a unitary character of conductor \(n > 0\), then the \(\rho\)-factor of the ramified quasi-character is 
     \[\rho(c_n|\cdot|^s) = N(\mathfrak{d} \pp^n)^{s-\frac{1}{2}} W(\chi)\]
     with root number \(W(\chi)\) defined by
-    \[W(\chi) = N(\pp)^{-n/2} \sum_{\bar{a} \in \oo^\times/1+\pp^n } \chi(a) \psi(\frac{a}{\varpi^{d+n}})\]
-\end{corollary}
+    \[W(\chi) = N(\pp)^{-n/2} \sum_{\bar{a} \in \oo^\times/1+\pp^n } \chi(a) \psi(\frac{a}{\varpi^{d+n}}), \qquad \text{with } d = v_{\pp}(\mathfrak{d})\]
+
+\end{example}
+
+The case of unramified quasi-character is more simple, we give a explicit formula of local zeta function.
+\begin{lemma} \label{unramified-csae}
+    If \(F\) is non-archimedean and \(\chi\) is an unramified quasi-character, then 
+    \[Z(\mathbf{1}_{\oo}, \chi|\cdot|^s) = \frac{\mathrm{Vol}(\oo^\times)}{1-\chi(\varpi)N(\pp)^{-s}}\]
+\end{lemma}
+
+\begin{proof}
+    There eixsts a decomposition \(F^\times = \sqcup_{n \in \zz}\varpi^n \oo^\times \), and which allows us to calculate
+    \begin{align*}
+        Z(\mathbf{1}_{\oo}, \chi|\cdot|^s) &= \sum_{n \geq 0} \int_{\varpi^n \oo^\times} \chi(x)|x|^s d^\times x \\
+        &= \sum_{n \geq 0} \chi(\varpi)^n N(\pp)^{-ns} \int_{\oo^\times} \, d^\times x \\
+        &= \mathrm{Vol}(\oo^\times) \sum_{n \geq 0} \chi(\varpi)^n N(\pp)^{-ns}
+    \end{align*}
+    and the geometric series concludes the result.
+\end{proof}
+
+The calculations of other cases are omitted here, all of that can be found in Tate's thesis ~\cite{TateCasselsFrohlich}, or see the section 7.11 and 7.12 in \cite{koch2000number}. The non-archimedean case is more complicated and more arithmetically meaningful, the root number \(W(\chi)\) is of norm one and can be viewed as a generalization of Gauss sum. Moreover, the \(\rho\)-factors above has a non-vanishing meromorphic continuation to whole space \(\mathcal{X}(F^\times)\), which is immediate by the explicit formula above, and this function is independent of the choice of test function, which in only depends on the quasi-character \(\chi\), standard additive character \(\psi\) and the additive Haar measure \(dx\), the last two data are fixed in our context.
 
 
 
@@ -399,15 +414,10 @@ the choice of \(f\) should satisfy \(\chi \mapsto Z(f,\chi) \) is not zero funct
 
 
 
-
-
-
-
-
-\begin{theorem}[Tate's local functional equation] $ \\$
-    Let \(F\) be a local field and fix a function \(f \in \mathcal{S}(F)\), then \(\chi \mapsto Z(f,\chi)\) has a meromorphic continuation to whole space  \(\mathcal{X}(F^\times)\), and there exists a meromorphic function \(\rho: \mathcal{X}(F^\times) \to \cc\) such that for any quasi-character \(\chi\) such that , the following functional equation holds
+\begin{theorem}[Tate's local functional equation] $ \\$ \label{local-fcteq}
+    Let \(F\) be a local field and fix a function \(f \in \mathcal{S}(F)\), then \(\chi \mapsto Z(f,\chi)\) has a meromorphic continuation to whole space  \(\mathcal{X}(F^\times)\), and the following functional equation holds
     \[Z(\hat{f},\chi^\vee) =\rho(\chi) Z(f,\chi) \]
-    where \(\rho\) is independent of the choice of \(f\) and 
+
 \end{theorem}
 
 \begin{proof}

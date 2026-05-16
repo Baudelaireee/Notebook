@@ -5,7 +5,7 @@
 Firstly we introduce a construction of the topological space, which allows us to obtain a finer topology than the product topology.
 
 \begin{definition}
-    Let \(\{X_i\}_{i \in I}\) be a family of topological spaces, and \(\{U_i\}_{i \in I}\) be a family of open subset of \(X_i\), then the\textbf{ the restricted direct product of \(\{X_i\}_{i \in I}\) with respect to \(\{U_i\}_{i \in I }\)} is defined as a subspace of direct product \(\prod_{i \in I}X_i\) as following
+    Let \(\{X_i\}_{i \in I}\) be a family of topological spaces, and \(\{U_i\}_{i \in I}\) be a family of open subset of \(X_i\), then the \textbf{restricted direct product of \(\{X_i\}_{i \in I}\) with respect to \(\{U_i\}_{i \in I }\)} is defined as a subspace of direct product \(\prod_{i \in I}X_i\) as following
     \[\prod_{i \in I}^{\prime}(X_i, U_i) := \{(x_i)_{i \in I} \in \prod_{i \in I} \mid x_i \in U_i \text{ for almost all } i \in I\}\]
     it can be viewed as a topological space with the open basis given by 
     \[\mathcal{B} = \{\prod_{i \in I}V_i \mid V_i = U_i \text{ for almost all } i \in I\}\]
@@ -30,9 +30,18 @@ then \(\mu\) can be extended to a measure by the Carathéodory extension theorem
     \[G_S= \prod_{i \in S}G_i \times \prod_{i \notin S}U_i\]
     It is locally compact since first part is open and locally compact (finite direct product of locally compact group is locally compact) and the second part is compact (Tychonoff's theorem), so we can rewrite the \(G\) by
     \[G = \bigcup_{S \subset I \text{ finite }} G_S\]
-    so it is enough to prove (a). For (b), it is enough to verify the translation invariance of \(\mu\) on 
+    so it is enough to prove (a). In context of LCA groups, \(\mathcal{A}\) can be viewed as the Borel \(\sigma\)-algebra, so we can verify (b) by checking the translation invariance of \(\mu\) on the open basis \(\mathcal{B}\). Let \(g = (g_i)_i \in G\) and \(M = \prod_{i \in I}M_i \in \mathcal{B}\), then
+    \[\mu(gM) = \prod_{i \in T \cup L}\mu_i(g_iM_i) = \prod_{i \in T \cup L} \mu_i(M_i) = \prod_{T} \mu_i(M_i) = \mu(M) \]
+    where \(T\) is choosen to be the finite subset of \(I\) such that \(M_i = U_i\) if \(i \not in T\), and \(L\) is the finite subset of \(I\) such that \(g_i \notin U_i\) if \(i \in L\).
 \end{proof}
-with the above lemma, we can formally define the adele ring.
+
+Another useful lemma is a generalization of the Chinese remainder theorem, which allows us to find exactly one element in number field \(K\) which statisfy some local conditions at finite places.
+
+\begin{lemma}[Weak approximation theorem] \label{weakapproximation}
+    Given \(n\) inequivalent non-trival valuations \(\|\cdot\|_i\) for \(i = 1,\dots,n\), then for any \((a_1,\dots,a_n) \in F^n\) and \(\epsilon >0\), there exists an element \(a \in F\) such that \(\|a - a_i\|_i < \epsilon\) for any \(i = 1,\dots,n\). 
+\end{lemma}
+
+A proof can be founded in theorem 4.1.3 of \cite{koch2000number}, we omit it here. Now with above lemmas, formal definition of adele ring can be given.
 
 \begin{definition}
     Let \(K\) be a number field, then the adele ring \(\adele\) of \(K\) is defined as the restricted direct product of \(\{K_v\}_{v \in V(K)}\) with respect to \(\{\mathcal{O}_v\}_{v \in V(K)}\), where \(\oo_v = K_v\) if \(v\) is archimedean, and \(\oo_v\) is the valuation ring of \(K_v\) if \(v\) is non-archimedean. The operation of addition and multiplication on \(\mathbb{A}_K\) are defined pointwisely by
@@ -40,74 +49,71 @@ with the above lemma, we can formally define the adele ring.
     For any \(a,b \in \adele_K\).
 \end{definition}
 
-\begin{remark}
-    It is a indeed a topological ring by above definition, in particular \(\adele_K\) is a locally compact abelian group under addition, and we stress it as adele group to distinguish.
-\end{remark}
-
 We can only consider the finite place of \(K\), that means the restricted direct product of \(\{K_v\}_{v | \infty}\) with repect to \(\{\oo_v\}_{v | \infty}\), which is denoted by \(\adele_{f}\) and call it \textbf{the finite adele ring} of \(K\). Review that the minkowski space \(K_{\infty}\) of \(K\) is defined by the embedding of \(K\) into \(\rr^{[K:\qq]}\), and \(K_{\infty } \cong K \otimes_{\qq} \rr \cong \prod_{v \nmid \infty} K_v\), then the adele ring can be decomposed as the direct product
 \[\adele_K \cong K_{\infty} \times \adele_{K,f} \cong K \otimes_{\qq} \adele_{\qq}\] 
 
+Applying the part (a) of lemma \ref{restrictedproduct} to finite adele part, then it is enough to conclude that \((\adele,+)\) is a LCA group. In fact, \(\adele\) is a topological ring, and we stress \((\adele,+)\) as adele group to distinguish.
 
+\begin{definition}
+    The diagonal embedding of \(K\) into \(\adele\) is defined by
+    \[\iota: K \to \adele, \quad a \mapsto (a,a,a,\dots)\]
+\end{definition}
 
-There exists a natural embedding of \(K\) into \(\adele_K\) by diagonal map \(a \mapsto (a_v)_v\) with \(a_v = a\) for any place \(v\), it is a continous ring homomorphism, so it allows us to see \(K\) as an additive subgroup of \(\adele_K\); restrict the diagonal map on \(K^\times\), it allows to  see \(K^\times\) as a multiplicative subgroup of \(\adele_K^\times\).
+It is not hard to check that \(\iota\) is an injective ring homomorphism, so we identified \(K\) as the subgroup of adele group by the diagonal embedding, and the topology of \(K\) is just the subspace topology of \(\adele\).
 
 \begin{lemma}
-    \(K\) and \(K^\times\) are discrete subgroups of \(\adele_K\) and \(\adele_K^\times\) respectively. 
+    \(K\) is discrete and \(\adele_K/K\) is compact under the quotient topology.
 \end{lemma}
 
 \begin{proof}
-    
+    For any archimedean place \(v\) take a open subset \(U_v\) to construct an open neighborhood of zero in \(\adele\) by
+    \[U = \prod_{v \nmid \infty}U_v \times \prod_{v \mid \infty}\oo_v\]
+    Notice that if \(K \cap U \) is non-empty, then any element in the intersection must be in \(\oo_K\) since the intersection of \(\cap_{v \mid \infty}\oo_v\) with \(K\) is exactly \(\oo_K\), that allows us to conclude
+    \[K \cap U \subset \oo_K \cap \prod_{v \mid \infty}U_v\]
+    By Minkowski's embedding, \(\oo_K\) is a lattice in \(K_{\infty}\) then there exists \(U_v\) such that the intersection is zero adele element, which proves that zero is an isolated point in \(K\), hence \(K\) is discrete. 
 \end{proof}
 
-\begin{theorem}[Weak Approximation Theorem]
-    
-\end{theorem}
+
+\begin{lemma}
+    \(\adele_K/K\) is compact under the quotient topology.
+\end{lemma}
 
 \begin{proof}
-    
-\end{proof}
+    Let \(B \subset K_{\infty}\) be the fundamental domain of \(\oo_K\) in \(K_{\infty}\), it is compact and allows us to construct a compact subset
+    \[W = B \times \prod_{v \mid \infty} \oo_v \subset \adele\]
+    then we claim that \(\adele = W + K\), then for canonical map \(\pi:\adele \to \adele/K\) we can conclude that \(\adele = \pi(W)\) is compact by continuity.
 
-\begin{corollary}
-    The quoitent groups \(\adele_K/K\) is compact
-\end{corollary}
+    To finish the proof of the claim, it is enough to prove \(\adele \subset K+W\). For any \(a \in \adele\), there exists a finite subset \(S\) of finite places such that \(a_v \in \oo_v\) for any \(v \notin S\), then by weak approximation (lemma \ref{weakapproximation}) we can finish the proof.
+\end{proof} 
 
-\begin{proof}
-    
-\end{proof}
 
-From now on, for any local field \(K_v\), we fix \(dx_v\) to be the self-dual Haar measure in the context of lemma \ref{selfdualmeasure}, notice that \(K_v/\qq_{p_v}\) is unramified for almost all finite place \(v\), so \(\oo_v\) gets measure \(N(\mathfrak{d}_v)^{-1/2} = N(\oo_v)^{-1/2} = 1\) for almost all finite places \(v\), then lemma \ref{restrictedproduct} implies a Haar measure on \(\adele\), and we denote it by \(dx\).
+From now on, for any local field \(K_v/\qq_{p_v}\), we fix \(dx_v\) to be the self-dual Haar measure in the context of lemma \ref{selfdualmeasure}, notice that \(K_v/\qq_{p_v}\) is an unramified extension for almost all finite place \(v\), so \(\oo_v\) gets measure \(1\) for almost all finite places \(v\), then lemma \ref{restrictedproduct} implies a Haar measure on \(\adele\), and we denote it by \(dx = \prod_v dx_v\).
 
 \begin{definition}
-    Let \(x = (x_v)_v \in \adele_K\), then the adele norm of \(x\) is defined as
-    \[\|x\|_{\adele_K} = \prod_{v} |x_v|_v\]
-    where \(|\cdot|_v\) is the module (rf. lemma \ref{normalizedmodule}) on local field \(K_v\) 
+    Let \(x = (x_v)_v \in \adele\), then the adele norm of \(x\) is defined as
+    \[|x|_{\adele} = \prod_{v} |x_v|_v\]
+    where \(|\cdot|_v\) is the module (rf. lemma \ref{normalizedmodule}) on local field \(K_v\) of \(K\).
  \end{definition}
 
 \begin{remark}
-   Let \(S\) be the set of places \(v\) such that \(x_v \notin \oo_v\), then \(S\) must be finite cotaining all archimedean places, and 
-   \[\|x\|_{\adele_K} = \prod_{v \in S}|x_v|_v \cdot \prod_{v \notin S} |x_v|_v \leq \prod_{v \in S}|x_v|_v < \infty\]
-   which measn the adele norm is well-defined. Morover, the norm of a non-zero element \(x\) can be zero, so it is not a usual norm. 
+   For any \(x\), there existsa finite subset \(S\) of places suhch that \(S\) contains all archimedean places and \(x_v \in \oo_v\) for any \(v \notin S\), then 
+   \[\|x\|_{\adele} = \prod_{v \in S}|x_v|_v \cdot \prod_{v \notin S} |x_v|_v \leq \prod_{v \in S}|x_v|_v < \infty\]
+   which measn the adele norm is well-defined. 
 \end{remark}
 
-the adele norm is multiplicative, so it induces a homomorphism on the idele group
-\[\adele_K^\times \to \rr_{>0}, \quad x \mapsto \|x\|_{\adele_K}\]
-and its kernel is denoted by \(\adele_1^\times\), which allows us to conclude some importnat properties of the idele group.
-
-\begin{proposition} \label{adele-norm}
-    Along the notation above
-    \begin{enumerate} [(a)]
-        \item \(\int_{aE}dx = |a|_{\adele} \int_E dx\)
-        \item (Artin's product formula) For any \(x \in K^\times\), \(\|x\|_{\adele_K} = 1\).
-        \item \(A_1^\times/K\) is compact.
-        \item The following sequence splits
-        \[1 \to \adele_1^\times/K^\times \to \adele_K^\times/K^\times \xrightarrow{\|\cdot\|_{\adele_K}} \rr_{>0} \to 1\]
-    \end{enumerate}
-\end{proposition}
+\begin{lemma}
+    For any \(a \in K^\times\), we have \(d(ax) = |a|_{\adele}dx\).
+\end{lemma}
 
 \begin{proof}
-    
+    For any \(a \in K^\times\), we fix a finite subset \(S\) such that \(|a_v| = 1\) if \(v \notin S\), then we take a borel subset \(E = \prod_v E_v\) with a finite subset \(T\) such that \(E_v\) gets measure 1 if \(v \notin T\), then we have
+    \[\int_{E}d(ax) = \prod_{v \in S \cup T}\int_{E} d(a_vx_v) = \prod_{v \in S\cup T}|a_v|_v \int_{E} dx_v = \prod_{v \in S }|a_v|_v \prod_{v \in T}\int_E dx_v\]
+    then the result is immediate.
 \end{proof}
 
+\begin{remark}
+    The automorphism of adele group can be given by the multiplication \(x \mapsto ax\) if \(a \in \adele^\times\), it is similar to the local arithmetical field, and follow the remark of lemma \ref{normalizedmodule}, a conclusion is that the adele norm is the module of the automorphism of adele group given by multiplication, so the lemma holds true for any Haar measure on \(\adele\).
+\end{remark}
 
 \subsection{The Adelic harmonic analysis}
 
@@ -133,16 +139,12 @@ From now on, we fixe \(\psi_v\) to be the standard character on \(K_v\) in the c
 \end{theorem}
 
 \begin{proof}
-    
-\end{proof} 
+    Each \(\psi_v(a_v-)\) gives an isomophism between \(K_v\) and \(\hat{K_v}\) by the theorem \ref{local-field-selfdual}, and for almost all place\(\Psi_v(a_v -)\) is trival on \(\oo_v\), so that means the map \(\Psi\) gives an isomorphism to restricted direct product \(\prod_{v}^{\prime}(\hat{K_v},\widehat{K_v/\oo_v})\), noticed that \(\widehat{K_v/\oo_v}\) can be identified as \(\oo_v\) by duality of LCA group we introduced in section 1.2, so we can conclude the result.
+\end{proof}
 
 \begin{corollary}
-    The dual group of \(K\) is isomorphic to \(\adele_K/K\).
+    \(\hat{K}\) is isomorphic to \(\adele_K/K\) as LCA groups.
 \end{corollary}
-
-\begin{proof}
-
-\end{proof}
 
 The analogue of \(\zz \subset \rr\) and \(K \subset \adele_K\) allows us to develop the adelic harmonic analysis.
 
@@ -154,11 +156,66 @@ The analogue of \(\zz \subset \rr\) and \(K \subset \adele_K\) allows us to deve
 
 Notice that \(K_v/\qq_{p_v}\) is unramified for almost all finite place \(v\), so \(\oo_v\) gets measure \(N(\mathfrak{d}_v)^{-1/2} = N(\oo_v)^{-1/2} = 1\) for almost all finite places \(v\), hence \(dx\) here is exactly a Haar measure by lemma \ref{restrictedproduct}. In fact, the measure \(dx\) choosen here is self-dual, and it is enough to choose a nice function \(f \in S(\adele_K)\) to verify.
 
+Review that \(K\) is a discrete subgroup of \(\adele\), and its dual group is a compact group \(\adele/K\), this is analogous to the classical duality between \(\zz\) and \(\sph^1\), so the fourier series can be developed similarly. 
+
+\begin{theorem}[Quotient integral formula] \label{quotient-integral-formula}
+    Let \(G\) be a LCA group and \(H\) its closed subgroup, then for any two Haar measure \(\mu_G\) and \(\mu_H\) on \(G\) and \(H\) respectively, there exists a unique Haar measure \(\mu_{G/H}\) on the quotient group \(G/H\) such that for any \(f \in L^1(G)\), we have 
+    \[\int_G f(g) d\mu_G(g) = \int_{G/H} \left( \int_H f(gh) d\mu_H(h) \right) d\mu_{G/H}(gH) \]
+\end{theorem}
+
+A proof can be found in theorem 1.5.3 of \cite{deitmar2009principles}, this theorem allows us to decompose the integration. By the quotient integral formula, the Haar measure \(dx\) on \(\adele\) and counting measure on \(K\) induces a Haar measure on \(\adele/K\), we denote it by \(d\bar{x}\).
+
+\begin{definition}
+    A function \(f\) on \(\adele_K\) is called \(K\)-periodic if \(f(x+a) = f(x)\) for all \(x \in \adele_K\) and \(a \in K\). Let \(f \in L^1(\adele/K)\) , its fourier transform is defined as an integrand on \(K\) by
+    \[\hat{f}(y) : = \int_{\adele/K} f(x) \psi(xy) \, d\bar{x}\]
+\end{definition}
+
+If we define the fundamental domain of \(\adele/K\) as \(D\), then equivalently, the transform can be defined by
+\[\hat{f}(y) = \int_D f(x) \psi(xy) \, dx\]
+then the fourier series of \(f\) can be given by inversion formula
+\[f(x) \approx \frac{1}{\mathrm{Vol}(D)} \sum_{a \in K}\hat{f}(a)\overline{\psi(ax)}\]
+\(K\) is discrete then the integrable condition on \(K\) will reduce to the sum condition, so if \(\hat{f} \in l^1(K)\) i.e. \(\sum_{a \in K}|\hat{f}(a)|<\infty\) , then the fourier series converges uniformly to \(f\).
+
+
 \begin{theorem}[Poisson summation formula] If \(f \in \mathcal{S}(\adele)\), then
 \[\sum_{a \in K}f(a) = \sum_{a \in K}\hat{f}(a)\]
 \end{theorem}
 
-\newpage
+\begin{proof}
+    Take a function on \(\adele\) by \(F(x) = \sum_{a \in K}f(a+x)\), and we claim that \(F \in L^1(\adele/K)\) to consider its fourier transform 
+    \begin{align*}
+    \hat{F}(k) &= \int_{D} \sum_{a \in K}f(a+x)\psi(kx) dx \\
+    &= \sum_{a \in K}\int_{a+D} f(z)\psi(kz) dz \\
+    &= \int_{\adele} f(z)\psi(kz) dz = \hat{f}(k)
+    \end{align*}
+    for equality \((*)\), we change variable by \(z = a+x\) and use the facts that additive character \(\psi\) is trivial on \(K\). Hence it allows us to get the fourier series of \(F\) 
+    \[F(x) = \frac{1}{\mathrm{Vol}(D)} \sum_{a +K }\hat{f}(a)\overline{\psi(ax)}\]
+    while the series here is exactly convergent to \(F\) since \(\hat{f} \in l^1(K)\) by
+    \[\sum_{a \in K}|\hat{f}(a)| \leq \int_{\adele} |\hat{f}(z)| dz < \infty \]
+    so take \(x = 0\) we can conclude that
+    \[\sum_{a \in K}f(a) = \frac{1}{\mathrm{Vol}(D)} \sum_{a \in K}\hat{f}(a)\]
+    while \(\hat{f} \in \mathcal{S}(\adele)\) means that same argument can be done to  obtain
+    \[\sum_{a \in K}\hat{f}(a) = \frac{1}{\mathrm{Vol}(D)}\sum_{a \in K}f(a)\]
+    By comparison \(\mathrm{Vol}(D) = 1\) and the poisson's summation is immedeiately obtained.
+
+    Finally, we finish the proof of claim that \(F \in L^1(\adele/K)\). It is enough to prove that the sum converges uniformly, because it shows that \(F\) is a \(K\)-periodic continous function on \(\adele\). Given \(f = \prod_v f_v\) with each \(f_v \in \mathcal{S}(K_v)\) and \(f_v = \mathbf{1}_{\oo_v}\) for almost all finite place \(v\) to rewrite \(F\)
+    \[F(x) = \sum_{a \in K}\prod_v f_v(x_v + a)\] 
+    and it is enough to consider the compact \(C = \prod_v C_v\) with each \(C_v\) is a compact subset of \(K_v\) and \(C_v = \oo_v\) for almost all finite place \(v\). Firstly for finite places, \(f_v(x_v+a) = 0\) if and only if \(a\) is in a compact \( M_v  = \mathrm{supp}(f_v)-S_v\), the the compactness allows us to find a integer \(N_v\) such that we can construct
+    \[I = \{a \in K : |a|_v \leq N(\pp)^{N_v}, v \mid \infty \}\]
+    and \(\prod_{v \mid \infty}f_v(x_v+a)\) supports on \(I\). While \(N_v = 0\) for almost all \(v\) since \(M_v = \oo_v\) for almost all \(v\), then \(I\) is exactly a fractional ideal of \(K\). Then an estimation can be done by
+    \[|F(x)|_{\adele} \leq \sum_{a \in I} \prod_{v \nmid \infty}|f_v(a+x_v)|_v \prod_{v \mid \infty}|f_v(a+x_v)|_v  \leq B \sum_{a \in I} \prod_{v \nmid \infty}|f_v(a+x_v)|_v\]
+    where \(B = \sup_{a \in I}\prod_{v \mid \infty}|f_v(a+x_v)|_v\) is finite, and then \(I\) is exactly a lattice in \(K_{\infty}\) by minkowski's embedding, so the sum on the right hand side is finite by finite-dimensional fourier analysis, which proves the uniform convergence.
+\end{proof}
+
+Another consequence in the proof is that \(\mathrm{Vol}(D) = 1\), which allows us to prove a famous result in a more elegant way.
+
+\begin{corollary}[Product formula] \label{product-formula}
+    For any \(a \in K^\times\), we have \(|a|_{\adele} = 1\).
+\end{corollary}
+
+\begin{proof}
+    By module property of adele norm we have \(\mathrm{Vol}(aD )= |a|_{\adele} \mathrm{Vol}(D)\). While \(D\) is a fundamental domain and \(aK = K\), then \(aD\) is also a fundamental domain, that means \(\mathrm{Vol}(aD) = \mathrm{Vol}(D)\), so the result is obtained since \(\mathrm{Vol}(D) = 1\).
+\end{proof}
 
 \subsection{Idele Group and Hecke Character}
 
@@ -173,7 +230,34 @@ The unit group of the adele ring \(\adele_K^\times\) is not a topological group 
     \[\adele_K^\times \cong K_{\infty}^\times \times A^\times_{K,f}\]
 \end{remark}
 
-As local multiplicative characters defined in the section 1.3, we shall also develop the global multiplicative characters such that we can define the global zeta function.
+
+\begin{lemma} \label{continous-norm}
+    \(|\cdot|_\adele: \adele^\times  \to \rr_{>0}\) is a continous and surjective homomorphism.
+\end{lemma}
+
+\begin{proof}
+    The multiplicative property is clear by definition. For continuity it is enough to check at the identity \((1,1,\dots)\), and we take a voisiange
+    \[V = \prod_{v \nmid \infty} U_v \times \prod_{v \mid \infty} \oo_v^\times\]
+    then \(||x|_{\adele}-1| = |\prod_{v \nmid \infty}|x|_v - 1|\). Notice that \(x \mapsto |x|_v\) is continous for each \(v\), which allows us to define a continous function \(\varphi(x) = \prod_{v \nmid \infty} |x|_v\) on \(\prod_{v \nmid \infty}K_v\), then the continuity of \((1,...,1)\) finishes the proof. For surjective we fix a real place \(u\) to construct an element \(x \in \adele\) with \(x_v = 1\) for any \(v \neq u\), then \(|x|_{\adele} = |x_u|_{\rr}\), so the surjectivity is obtained by the surjectivity of \(|\cdot|_{\rr}\).
+\end{proof}
+
+\begin{remark}
+    Adele norm is not continuous on \(\adele\), this is a more delicated point why the topology of idele group is finer. To see this, we can take a sequence of adele elements \(x_n\) by \((x_n)_v = 0\) if \(v\) is the n-th place, and \((x_n)_v = 1\) for any other place \(v\), then \(x_n\) converges to \(\mathbf{1}=(1,\dots,1)\), if the adele norm is continuous, then \(|x_n|_{\adele}\) should converge to \(|\mathbf{1}|_{\adele} = 1\), but \(|x_n|_{\adele} = 0\) for any \(n\), which is a contradiction.
+\end{remark}
+
+The kernel of the norm is defined as norm-one idele group 
+\[\adele_1^\times = \{x \in \adele: |x|_{\adele} = 1\}\]
+It is a closed subgroup of idele group. Similarly we restrict the digonal embedding of \(K\) into \(K^\times\), the finer topology allows us to identify \(K^\times\) as a discrete subggroup of idele gruop, while the quotient group \(\adele^\times/K^\times\) is not compact, otherwise the induced map \(\adele^\times/K^\times \to \rr_{>0}\) by adele norm is surjective and continous, which makes a contradiction that the image \(\rr_{>0}  \) is compact.
+
+\begin{lemma}
+    \(A_1^\times/K^\times\) is compact under the quotient topology.
+\end{lemma}
+
+A proof can be found in 7.4.2 of \cite{koch2000number}, it should apply the argument about dirichlet unit theorem. We define the idele class group of \(K\) as \(C_K = \adele^\times/K\), and the norm-one idele class group of \(K\) as \(C_K^1 = \adele_1^\times/K^\times\), the adele norm on idele group induces a exact sequence of LCA groups
+\[1 \to C_K^1 \to C_K \xrightarrow{|\cdot|_{\adele}} \rr_{>0} \to 1\]
+In short words, the idele class group is difficult to study since it is a generalization of the ideal class group, and we will interested in the character on the class group.
+
+
 
 \begin{lemma}
     Let \(\chi: \adele^\times \to \cc^\times\) be a continous homomorphism, define the local quasi-character at each place \(v\) by
@@ -187,15 +271,17 @@ As local multiplicative characters defined in the section 1.3, we shall also dev
     where \(U_v\) is an open subgroup of \(K_v^\times\). Adding all archimedean places into \(S\), we can conclude that \(\chi_v\) is unramified for any \(v \notin S\).
 \end{proof}
 
+As local multiplicative characters defined in the section 1.3, we shall also develop the global multiplicative characters such that we can define the global zeta function.
+
 \begin{definition}
     A \textbf{Hecke character} or a \textbf{quasi-character} of \(K\) is a continous homomorphism \(\chi: \adele_K^\times \to \cc^\times\) such that \(\chi|_{K^\times} = 1\), and its twisted dual is defined by \(\chi^\vee = \chi^{-1} |\cdot|_{\adele}\). 
 \end{definition}
 
 \begin{remark}
-    The idele class group of \(K\) is defined as quotient group \(C_K = \adele^\times/K^\times\), so equivalently, a Hecke character is a continous homomorphism on the idele class group.
+    Equivalently, a Hecke character can be defined as a continous homomorphism on idele class group \(C_K\).
 \end{remark}
 
-By product formula in proposition \ref{adele-norm}, we can see that \(|\cdot|^s_{\adele}\) defines a Hecke character for any \(s \in \cc\), and there are a condition to determine whether a Hecke character is of this form, which is analogous to lemma \ref{unramifiedquasicharacter} to determine unramified local quasi-character.
+By product formula (corollary \ref{product-formula}) and lemma \ref{continous-norm},  \(|\cdot|^s_{\adele}\) defines a Hecke character for any \(s \in \cc\), and there are a condition to determine whether a Hecke character is of this form, which is analogous to lemma \ref{unramifiedquasicharacter} to determine unramified local quasi-character.
 
 \begin{lemma} \label{unramified-heckecharacter}
     A Hecke character \(\chi:\adele^\times \to \sph^1\) is of the form \(|\cdot|^s_{\adele}\) for some \(s \in \cc\) if and only if \(\chi\) is trivial on subgroup \(\adele_1^\times\).
@@ -219,12 +305,16 @@ By product formula in proposition \ref{adele-norm}, we can see that \(|\cdot|^s_
 \end{lemma}
 
 \begin{proof}
-   
+It is enough to prove that \(|\chi| = |\cdot|^s\) for some \(s \in \cc\), then the result is obtained by taking \(\eta = \chi |\chi|^{-1}\). For any \(x \in K^\times\), we have \(|\chi(x)| = |1| = 1\), so \(|\chi|\) is eaxctly a Hecke character,  and we veiw it as a character on idele class group \(C_K\) to \(\rr_{>0}\). While \(C_K^1 \) is compact, so image of \(C_K^1\) under \(|\chi|\) is compact, then the image must be trival by the structure of \(\rr_{>0}\), so \(|\chi|\) is trivial on \(C_K^1\), by lemma \ref{unramified-heckecharacter} it is of the form \(|\cdot|^s_{\adele}\) for some \(s \in \cc\).
 \end{proof}
 
-    Similarly, two Hecke chracters \(\chi\) and \(\chi'\) on class group \(A^\times /K\) are called equivalent if they concide on the compact subgroup \(A^\times_1/K\), then each equivalence class consists of Hecke characters of the form \(\eta|\cdot|_\adele^s\) with \(\eta\) a fixed unitary character, and a parametrization can be done to identify each class with complex plane, which shows that the set of Hecke characters has the structure of Riemann surface with countable connected components homeomorphic to \(\cc\), hence \(\chi \mapsto \chi^\vee\) gives an biholomorphic involution on the space of Hecke characters.
+    Similarly, two Hecke chracters \(\chi\) and \(\chi'\) on class group \(C_K\) are called equivalent if they concide on the compact subgroup \(C_K^1\), then each equivalence class consists of Hecke characters of the form \(\eta|\cdot|_\adele^s\) with \(\eta\) a fixed unitary character, and a parametrization can be done to identify each class with complex plane, which shows that the set of Hecke characters has the structure of Riemann surface with countable connected components homeomorphic to \(\cc\), hence \(\chi \mapsto \chi^\vee\) gives an biholomorphic involution on the space of Hecke characters.
 
 \subsection{Global Functional Equation}
+
+To formally define the integrand, a Haar measure on \(\adele^\times\) are fixed by
+\[d^\times x = \prod_{v \nmid \infty } d^\times x_v  \prod_{v \mid \infty} \frac{d^\times x_v}{1-N(\pp)^{-1}}\]
+where \(d^\times x = dx/|x|_v\) is the haar measure on \(K_v^\times\). By part (b) of lemma \ref{local-multiplicative-haarmeasure}, each \(\oo_v^\times\) gets measure \(N(\mathfrak{d}_v)^{-1/2}\) with respect to measure \(\frac{d^\times}{1-N(\pp)^{-1}}\) for any finite place \(v\), so for almost all finite place \(v\), \(\oo_v^\times\) gets measure 1, so the deinition of Haar measure on idele group is well-defined by part (b) of lemma \ref{restrictedproduct}.
 
 \begin{definition}
     Let \(f \in \mathcal{S}(\adele)\) and \(\chi\) be a Hecke character, then the global zeta function associated to \(f\) and \(\chi\) is defined by
@@ -246,7 +336,7 @@ that allows us to view it as a integrand on complex plane.
     where \(Z_v\) is the local zeta function at place \(v\), the first term is finite product of local zeta functions, so by lemma \ref{holomorphic-halfplane} it will always nicely converge, so it is enough to estemate the second term by previous calcualtion
     \begin{align*}
     \prod_{v \notin S}|Z_v(f_v,|\cdot|_v^\sigma)| &= \prod_{v \notin S}\frac{1}{1-N(\pp)^{-\sigma}}\\
-     &\leq \prod_{v \text{ finite }}\frac{1}{1-N(\pp)^{-\sigma}}  \quad (*)\\
+     &\leq \prod_{v \text{ finite }}\frac{1}{1-N(\pp)^{-\sigma}}  \quad (**)\\
      &\leq \prod_{p \text{ prime }}(\frac{1}{1-p^{-\sigma}})^d = \zeta(\sigma)^d 
     \end{align*}
     where \(d = [K:\qq]\), and by analytical property of Riemann zeta function, the last term is finite for any \(\sigma>1\).
@@ -255,21 +345,15 @@ that allows us to view it as a integrand on complex plane.
 \begin{example}[Dedekind zeta function]
     For any number field \(K\), the Dedekind zeta function si defined by 
     \[\zeta_K(s) = \sum_{\mathfrak{a} \subset \oo_K} \frac{1}{N(\mathfrak{a})^s}\]
-    where \(\mathfrak{a}\) runs through all non-zero ideals of \(\oo_K\). We can construct a simple global zeta function on the class of \(|\cdot|_\adele\) by choosing a simple function \(f = \prod_vf_v \)
-    \[f_v(x) = \begin{cases}
-        e^{-2 \pi x^2} \quad & v \text{ real } \\
-        e^{-2\pi x \bar{x}} \quad & v \text{ complex }\\
-        \mathbf{1}_{\oo_v} \quad & v \text{ finite }
-    \end{cases}\]
-    then the global zeta function 
+    where \(\mathfrak{a}\) runs through all non-zero ideals of \(\oo_K\). It absolutely converges on half plane \(\mathrm{Re}(s) >1\) with Euler's product expansion
+\[\zeta_K(s) = \prod_{\pp} \frac{1}{1-N(\pp)^{-s}}\]
+where \(\pp\) runs through all prime ideals of \(\oo_K\), the proof is same with part \((**)\) in the proof.
 \end{example}
 
-\begin{claim}[Quotient integral formula]
-    Let \(G\) be a LCA group and \(H\) its closed subgroup, then for any two Haar measure \(\mu_G\) and \(\mu_H\) on \(G\) and \(H\) respectively, there exists a unique Haar measure \(\mu_{G/H}\) on the quotient group \(G/H\) such that for any \(f \in L^1(G)\), we have 
-    \[\int_G f(g) d\mu_G(g) = \int_{G/H} \left( \int_H f(gh) d\mu_H(h) \right) d\mu_{G/H}(gH) \]
-\end{claim}
 
-A little work should be done to rewrite the global zeta function such that we can imitate the Riemann's proof of zeta function. Notice that \(\adele^\times / \adele^\times_1 \cong \rr_{>0}\) as locally compact abelian groups, so by quotient inetral formula there exits a Haar measure \(d^* x\) on closed subgroup \(\adele^\times_1\) such that \(d^\times x = d^*x \cdot dt/t\), so we can see the each \(t>0\) as an idele element by
+
+
+A little work should be done to rewrite the global zeta function such that we can imitate the Riemann's proof of zeta function. Notice that \(\adele^\times / \adele^\times_1 \cong \rr_{>0}\) as locally compact abelian groups, so by quotient integral formula (theorem \ref{quotient-integral-formula}) there exits a Haar measure \(d^* x\) on closed subgroup \(\adele^\times_1\) such that \(d^\times x = d^*x \cdot dt/t\), so we can see the each \(t>0\) as an idele element by
 \[\tilde{t} = (\underbrace{t^{1/N},\dots,t^{1/N}}_{\text{archimdean place}},1,...), \quad N = [K: \qq]\]
 and then global zeta function can be rewritten as following
 \begin{equation}
@@ -305,8 +389,8 @@ Hence now we can consider the symmerty of auxiliary function, it will be the key
     If \(\chi = |\cdot|_{\adele}^s\), then \(I(\chi) = t^s V\) clearly; Otherwise, \(\chi\) is not trival on \(\adele_1^\times/K^\times\) by lemma \ref{unramified-heckecharacter}, and then compactness of \(\adele_1^\times/K^\times\) implies \(I(\chi) = 0\). Finally, we plug the result into the equation \ref{fcteq-auxiliary-global} to finish the proof.
 \end{proof}
 
-\begin{theorem}[Hecke-Tate]
-    Fix \(f \in \mathcal{S}(\adele)\), then \(\chi \mapsto Z(f,\chi)\) has a meomorphic continuation to the whole domain of Hecke characters, and it has only two simple poles at \(|\cdot|^0\) and \(|\cdot|^1\) with residue \(-f(0)V\) and \(\hat{f}(0)V\) respectively. Finally, it satisfies the functional equation for any other charecters
+\begin{theorem}[Hecke-Tate-Iwasawa] \label{hecke-tate-iwasawa} $ \\$
+    Fix \(f \in \mathcal{S}(\adele)\), then \(\chi \mapsto Z(f,\chi)\) has a meomorphic continuation to the whole domain of Hecke characters, and it has only two simple poles at \(|\cdot|^0\) and \(|\cdot|^1\) with residue \(-f(0)V\) and \(\hat{f}(0)V\) respectively. Finally, it satisfies the functional equation 
 \[Z(f,\chi) = Z(\hat{f},\chi^\vee)\]
 \end{theorem}
 
@@ -339,5 +423,67 @@ If \(\chi = \eta |\cdot|_\adele^s\), then in equation (\ref{global-zeta-1}) we n
 
 
 
-\section{Conclusion and complement}
+\section{Conclusion}
 
+A overview of the backgroud and the history related to Tate's thesis is given in this section to make a conclusion. 
+
+The conceptual trajectory of this functional equation can be concluded as Riemann - Hecke - Tate. Riemann (1859, \cite{Ri}) gave the first proof of the functional equation of Riemann zeta function, after that Dedekind generalizes the Riemann zeta function to number fields, and Hecke \cite{hecke1917zetafunktion} gives a proof of the functional equation of Dedekind zeta function. Hecke consider the theta function associated to an ideal class, and use the poisson summation formula on \(\rr^n\) to finish the proof, a proof of such style can be found in chapter 13 of \cite{lang1994algebraic}.
+
+In number theory, the discussion about the \(L\)-functions is unavoidable, and before Hecke's proof the functional equation of dirichlet \(L\)-function has been understood well as following
+
+\begin{theorem}
+    For any primitive Dirichlet character \(\chi\) modulo \(q>1\), the completed \(L\) function \(\Lambda(s,\chi) = (q/\pi)^{\frac{s+\mathfrak{v}}{2}}\Gamma(\frac{s+\mathfrak{v}}{2})L(s,\chi)\) has an analytic continuation to the whole complex plane, and it satisfies the functional equation
+    \[\Lambda(1-s,\bar{\chi}) = W(\chi) \Lambda(s,\chi) \qquad \] 
+    where \(\mathfrak{v} = \frac{1-\chi(-1)}{2}\) and \(W(\chi)\) is the root number
+    \[W(\chi) = \frac{1}{i^{\mathfrak{v}}{\sqrt{q}}} \underbrace{\sum_{a=1}^q \chi(a) e^{2 \pi i a /q}}_{\text{ Gauss sum }}  \]
+\end{theorem}
+
+For general \(L\)-functions on number field, there are at least two problems to consider the functional equation, the first one is what characters is proper to choose, and the other one is how to use poisson summation formula. Hecke (1918, \cite{hecke1918neue}) intorduced a type of characters as following
+
+\begin{definition}
+        Let \(\mm\) be an ideal of \(\ok\), a \textbf{Größencharakter modulo \(\mm\)} is a character \(\chi: J(\mm) \to \sph^1\) for which there eixsts a pair of (continous) characters
+    \[\chi_{\mm}: (\ok/\mm)^* \to \sph^1, \quad \chi_{\infty}: k_{\infty}^* \to \sph^1\]
+    such that
+    \[\chi((a)) = \chi_{\mm}(\bar{a}) \cdot \chi_{\infty}(i(a))\]
+    for any \(a \in k(\mm) \cap \ok\), where \(J(\mm)\) is all fractional ideals of \(\ok\) coprime to \(\mm\), \(k(\mm)\) is the set of all elements in \(k\) coprime to \(\mm\), and \(i: k \to k_{\infty}\) is the minkowski embedding.
+\end{definition}
+which allows him to define the Hecke \(L\)-function associated to a Größencharakter \(\chi\) by
+\[L(s,\chi) = \sum_{\mathfrak{a}} \chi(\mathfrak{a}) N(\mathfrak{a})^{-s}, \quad \mathrm{Re}(s)>1\]
+and then finished the proof of functional equation by a complicated theta function, a proof of such style can be found in the chapter 12 of \cite{lang1994algebraic}.
+
+The Hecke's proof is complicated, the reason is that the strcuture of Größencharakter will depend on the unit group \(\oo_K^\times\). After Chevalley (1938) pushforward the concept of idele group, new language of number theory was developed to cover the clssical algebraic number thoery, and in this framework Tate (1950, \cite{TateCasselsFrohlich}) gives a new proof of the functional equation of Hecke \(L\)-functions. It should be noticed that Iwasawa (1950, \cite{iwasawa2019hecke})independently developed a similar adelic proof at the same time, and his work  deserves being mentioned here.
+
+It is meaningful to think about why Hecke characters are the generalization of Größencharakter, actually they are all the generalization of dirichlet characters, a clear discussion can be found in \cite{Raghuram2022}.
+
+This section will end by the proof of Hecke's L-function, which answers another natural question: what is the relation between local and global zeta functions? 
+
+\begin{definition}
+    Let \(\chi\) be a unitary Hecke character, and \(S\) is the finite subset containing all archimedean places such that \(\chi_v\) is unramified for any \(v \notin S\), then the partial \(L\)-function associated to \(\chi\) is defined by 
+    \[L_S(s,\chi) := \prod_{v \notin S}\frac{1}{1-\chi(\pp_v)N(\pp_v)^{-s}}\]
+    with convention that \(\chi(\pp_v) = \chi_v(\varpi_v)\).
+\end{definition}
+
+If \(\chi\) is trivial, tnen \(S\) is just the set of all archimedean places, and \(L_S(s,\chi)\) is exactly the Dedekind zeta function of \(K\), and for other case
+\[ \sum_{v \in S}|\chi(\pp_v) N(\pp_v)^{-s}| = \sum_{v \in S}|N(\pp_v)|^{-\mathrm{Re(s)}} \leq \zeta_K(\mathrm{Re}(s))\]
+which allows u to conclude that \(L\)-partial \(L\)-function is holomorphic on half plane \(\mathrm{Re}(s) > 1\). Applying lemma \ref{unramified-csae}, we can write partial \(L\)-function as a product of local zeta functions as following 
+\[\prod_{v \notin S}N(\mathfrak{d}_v)^{-1/2} \cdot L_S(s,\chi) = \prod_{v \in S} Z_v(\mathbf{1}_{\oo_v}, \chi_v|\cdot|^s)\]
+The first term is finite since almost local extension is unramified, so we can enlarge the domain of \(S\) to conclue more non-trivial information.
+
+\begin{definition}
+    A finite set \(S_{\infty}\) is defined as following: it contains all archimedean places, and for any \(v \notin S_{\infty}\), (1) \(\chi_v\) is unramified; (2) the local extension \(K_v/\qq_p\) is unramified; (3) the conductor of standard character \(\psi_v\) is \(\oo_v\). The \(L\)-function associated to \(\chi\) is defined by
+\[L(s,\chi) = \prod_{v \notin S_{\infty}} \frac{1}{1-\chi(\pp_v)N(\pp_v)^{-s}}\]
+\end{definition}
+
+\begin{theorem}[Hecke-Tate-Iwasawa] $ \\$
+    For a unitary Hecke character \(\chi\), the \(L\)-function \(L(s,\chi)\) has an analytic continuation to the whole complex plane, and it satisfies the functional equation
+    \[L(s,\chi) = \prod_{v \in S_{\infty}}\rho_v(\chi_v|\cdot|_v^s) \cdot L(1-s,\chi^{-1}) \]
+    where \(\rho_v\) is the local \(\rho\)-factor defined in the section 1.3.
+\end{theorem}
+
+\begin{proof}
+    By above argument, we can choose some proper functions \(f_v \in \mathcal{S}(K_v)\) for any \(v \in S\), and \(f_v = \mathbf{1}_{\oo_v}\) if \(v \notin S\), such a function is defined as \(f\) and it is a schwartz-bruhat function on \(\adele\) by definition. Then we consdier the global zeta function \(s \mapsto Z(f,\chi|\cdot|_{\adele}^s)\) on the component \([\chi]\), if \(\mathrm{Re}(s)>1\) then global zeta function can be written as a product of local zeta functions 
+    \[Z(f,\chi|\cdot|_{\adele}^s) = \prod_v Z_v(f_v, \chi_v|\cdot|_v^s) = \prod_{v \in S}Z_v(f_v,\chi_v|\cdot|_v^s) \cdot L(s,\chi)\]
+    which allows us to write 
+    \[L(s,\chi) = \frac{Z(f,\chi|\cdot|_{\adele}^s)}{\prod_{v \in S}Z_v(f_v,\chi_v|\cdot|_v^s)}\]
+    the numerator has a meomorphic continuation to the whole complex plane by theorem \ref{hecke-tate-iwasawa}, and the denominator is a finite product of local zeta functions, it has a meomorphic continuation to a riemann surface by theorem \ref{local-fcteq}. Hence \(s \mapsto L(s,\chi)\) has a meomorphic continuation, and apply the functional equation of global and local zeta functions, we can finish the proof.
+\end{proof}
