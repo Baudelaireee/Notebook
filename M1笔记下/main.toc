@@ -27,7 +27,7 @@
 \contentsline {section}{\numberline {7}Theory of Algebraic Number}{62}{section.7}%
 \contentsline {subsection}{\numberline {7.1}Norm, Trace and Discriminant}{62}{subsection.7.1}%
 \contentsline {subsection}{\numberline {7.2}Number fields}{66}{subsection.7.2}%
-\contentsline {subsection}{\numberline {7.3}Minkowski's space}{72}{subsection.7.3}%
+\contentsline {subsection}{\numberline {7.3}Minkowski's space}{73}{subsection.7.3}%
 \contentsline {subsection}{\numberline {7.4}Logarithmic space and Unit theorem}{76}{subsection.7.4}%
 \contentsline {subsection}{\numberline {7.5}Class group and Class number}{78}{subsection.7.5}%
 \contentsline {section}{\numberline {8}Analytic approach to number theory}{80}{section.8}%
