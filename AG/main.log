@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.12.8)  18 MAY 2026 14:35
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.12.8)  3 JUN 2026 14:18
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -899,258 +899,33 @@ Package: xparse 2024-02-18 L3 Experimental document command parser
 \g__spath_anon_int=\count378
 )
 \l__tikzspath_tmpa_int=\count379
-)) (c:/texlive/2024/texmf-dist/tex/latex/biblatex/biblatex.sty
-Package: biblatex 2023/03/05 v3.19 programmable bibliographies (PK/MW)
- (c:/texlive/2024/texmf-dist/tex/latex/logreq/logreq.sty
-Package: logreq 2010/08/04 v1.0 xml request logger
-\lrq@indent=\count380
- (c:/texlive/2024/texmf-dist/tex/latex/logreq/logreq.def
-File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
-))
-\c@tabx@nest=\count381
-\c@listtotal=\count382
-\c@listcount=\count383
-\c@liststart=\count384
-\c@liststop=\count385
-\c@citecount=\count386
-\c@citetotal=\count387
-\c@multicitecount=\count388
-\c@multicitetotal=\count389
-\c@instcount=\count390
-\c@maxnames=\count391
-\c@minnames=\count392
-\c@maxitems=\count393
-\c@minitems=\count394
-\c@citecounter=\count395
-\c@maxcitecounter=\count396
-\c@savedcitecounter=\count397
-\c@uniquelist=\count398
-\c@uniquename=\count399
-\c@refsection=\count400
-\c@refsegment=\count401
-\c@maxextratitle=\count402
-\c@maxextratitleyear=\count403
-\c@maxextraname=\count404
-\c@maxextradate=\count405
-\c@maxextraalpha=\count406
-\c@abbrvpenalty=\count407
-\c@highnamepenalty=\count408
-\c@lownamepenalty=\count409
-\c@maxparens=\count410
-\c@parenlevel=\count411
-\blx@tempcnta=\count412
-\blx@tempcntb=\count413
-\blx@tempcntc=\count414
-\c@blx@maxsection=\count415
-\blx@maxsegment@0=\count416
-\blx@notetype=\count417
-\blx@parenlevel@text=\count418
-\blx@parenlevel@foot=\count419
-\blx@sectionciteorder@0=\count420
-\blx@sectionciteorderinternal@0=\count421
-\blx@entrysetcounter=\count422
-\blx@biblioinstance=\count423
-\labelnumberwidth=\skip89
-\labelalphawidth=\skip90
-\biblabelsep=\skip91
-\bibitemsep=\skip92
-\bibnamesep=\skip93
-\bibinitsep=\skip94
-\bibparsep=\skip95
-\bibhang=\skip96
-\blx@bcfin=\read4
-\blx@bcfout=\write4
-\blx@langwohyphens=\language89
-\c@mincomprange=\count424
-\c@maxcomprange=\count425
-\c@mincompwidth=\count426
-Package biblatex Info: Trying to load biblatex default data model...
-Package biblatex Info: ... file 'blx-dm.def' found.
- (c:/texlive/2024/texmf-dist/tex/latex/biblatex/blx-dm.def
-File: blx-dm.def 2023/03/05 v3.19 biblatex localization (PK/MW)
-)
-Package biblatex Info: Trying to load biblatex style data model...
-Package biblatex Info: ... file 'alphabetic.dbx' not found.
-Package biblatex Info: Trying to load biblatex custom data model...
-Package biblatex Info: ... file 'biblatex-dm.cfg' not found.
-\c@afterword=\count427
-\c@savedafterword=\count428
-\c@annotator=\count429
-\c@savedannotator=\count430
-\c@author=\count431
-\c@savedauthor=\count432
-\c@bookauthor=\count433
-\c@savedbookauthor=\count434
-\c@commentator=\count435
-\c@savedcommentator=\count436
-\c@editor=\count437
-\c@savededitor=\count438
-\c@editora=\count439
-\c@savededitora=\count440
-\c@editorb=\count441
-\c@savededitorb=\count442
-\c@editorc=\count443
-\c@savededitorc=\count444
-\c@foreword=\count445
-\c@savedforeword=\count446
-\c@holder=\count447
-\c@savedholder=\count448
-\c@introduction=\count449
-\c@savedintroduction=\count450
-\c@namea=\count451
-\c@savednamea=\count452
-\c@nameb=\count453
-\c@savednameb=\count454
-\c@namec=\count455
-\c@savednamec=\count456
-\c@translator=\count457
-\c@savedtranslator=\count458
-\c@shortauthor=\count459
-\c@savedshortauthor=\count460
-\c@shorteditor=\count461
-\c@savedshorteditor=\count462
-\c@labelname=\count463
-\c@savedlabelname=\count464
-\c@institution=\count465
-\c@savedinstitution=\count466
-\c@lista=\count467
-\c@savedlista=\count468
-\c@listb=\count469
-\c@savedlistb=\count470
-\c@listc=\count471
-\c@savedlistc=\count472
-\c@listd=\count473
-\c@savedlistd=\count474
-\c@liste=\count475
-\c@savedliste=\count476
-\c@listf=\count477
-\c@savedlistf=\count478
-\c@location=\count479
-\c@savedlocation=\count480
-\c@organization=\count481
-\c@savedorganization=\count482
-\c@origlocation=\count483
-\c@savedoriglocation=\count484
-\c@origpublisher=\count485
-\c@savedorigpublisher=\count486
-\c@publisher=\count487
-\c@savedpublisher=\count488
-\c@language=\count489
-\c@savedlanguage=\count490
-\c@origlanguage=\count491
-\c@savedoriglanguage=\count492
-\c@pageref=\count493
-\c@savedpageref=\count494
-\shorthandwidth=\skip97
-\shortjournalwidth=\skip98
-\shortserieswidth=\skip99
-\shorttitlewidth=\skip100
-\shortauthorwidth=\skip101
-\shorteditorwidth=\skip102
-\locallabelnumberwidth=\skip103
-\locallabelalphawidth=\skip104
-\localshorthandwidth=\skip105
-\localshortjournalwidth=\skip106
-\localshortserieswidth=\skip107
-\localshorttitlewidth=\skip108
-\localshortauthorwidth=\skip109
-\localshorteditorwidth=\skip110
-Package biblatex Info: Trying to load enhanced support for Unicode engines...
-Package biblatex Info: ... file 'blx-unicode.def' found.
- (c:/texlive/2024/texmf-dist/tex/latex/biblatex/blx-unicode.def)
-Package biblatex Info: Trying to load compatibility code...
-Package biblatex Info: ... file 'blx-compat.def' found.
- (c:/texlive/2024/texmf-dist/tex/latex/biblatex/blx-compat.def
-File: blx-compat.def 2023/03/05 v3.19 biblatex compatibility (PK/MW)
-)
-Package biblatex Info: Trying to load generic definitions...
-Package biblatex Info: ... file 'biblatex.def' found.
- (c:/texlive/2024/texmf-dist/tex/latex/biblatex/biblatex.def
-File: biblatex.def 2023/03/05 v3.19 biblatex compatibility (PK/MW)
-\c@textcitecount=\count495
-\c@textcitetotal=\count496
-\c@textcitemaxnames=\count497
-\c@biburlbigbreakpenalty=\count498
-\c@biburlbreakpenalty=\count499
-\c@biburlnumpenalty=\count500
-\c@biburlucpenalty=\count501
-\c@biburllcpenalty=\count502
-\biburlbigskip=\muskip18
-\biburlnumskip=\muskip19
-\biburlucskip=\muskip20
-\biburllcskip=\muskip21
-\c@smartand=\count503
-)
-Package biblatex Info: Trying to load bibliography style 'alphabetic'...
-Package biblatex Info: ... file 'alphabetic.bbx' found.
- (c:/texlive/2024/texmf-dist/tex/latex/biblatex/bbx/alphabetic.bbx
-File: alphabetic.bbx 2023/03/05 v3.19 biblatex bibliography style (PK/MW)
-Package biblatex Info: Trying to load bibliography style 'standard'...
-Package biblatex Info: ... file 'standard.bbx' found.
- (c:/texlive/2024/texmf-dist/tex/latex/biblatex/bbx/standard.bbx
-File: standard.bbx 2023/03/05 v3.19 biblatex bibliography style (PK/MW)
-\c@bbx:relatedcount=\count504
-\c@bbx:relatedtotal=\count505
-))
-Package biblatex Info: Trying to load citation style 'alphabetic'...
-Package biblatex Info: ... file 'alphabetic.cbx' found.
- (c:/texlive/2024/texmf-dist/tex/latex/biblatex/cbx/alphabetic.cbx
-File: alphabetic.cbx 2023/03/05 v3.19 biblatex citation style (PK/MW)
-Package biblatex Info: Redefining '\cite'.
-Package biblatex Info: Redefining '\parencite'.
-Package biblatex Info: Redefining '\footcite'.
-Package biblatex Info: Redefining '\footcitetext'.
-Package biblatex Info: Redefining '\smartcite'.
-Package biblatex Info: Redefining '\textcite'.
-Package biblatex Info: Redefining '\textcites'.
-Package biblatex Info: Redefining '\cites'.
-Package biblatex Info: Redefining '\parencites'.
-Package biblatex Info: Redefining '\smartcites'.
-)
-Package biblatex Info: Trying to load configuration file...
-Package biblatex Info: ... file 'biblatex.cfg' found.
- (c:/texlive/2024/texmf-dist/tex/latex/biblatex/biblatex.cfg
-File: biblatex.cfg 
-)
-Package biblatex Info: XeTeX detected.
-(biblatex)             Assuming input encoding 'utf8'.
-Package biblatex Info: Document encoding is UTF8 ....
-Package biblatex Info: ... and expl3
-(biblatex)             2024-02-20 L3 programming layer (loader) 
-(biblatex)             is new enough (at least 2020/04/06),
-(biblatex)             setting 'casechanger=expl3'.
- (c:/texlive/2024/texmf-dist/tex/latex/biblatex/blx-case-expl3.sty
-Package: blx-case-expl3 2023/03/05 v3.19 expl3 case changing code for biblatex
-))
-\@quotelevel=\count506
-\@quotereset=\count507
- (./main.aux (./section/linearalgebra.aux) (./section/chapter1.aux) (./section/extension.aux) (./section/numbertheory.aux))
+)) (./main.aux (./section/chapter1.aux))
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 13.
-LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 13.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 12.
+LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 12.
  (c:/texlive/2024/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
@@ -1186,32 +961,15 @@ LaTeX Font Info:    ... okay on input line 13.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-\c@lstlisting=\count508
+\c@lstlisting=\count380
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
-Package hyperref Info: Link coloring ON on input line 13.
+Package hyperref Info: Link coloring ON on input line 12.
 (./main.out) (./main.out)
-\@outlinefile=\write5
-\openout5 = `main.out'.
+\@outlinefile=\write4
+\openout4 = `main.out'.
 
-Package biblatex Info: Trying to load language 'english'...
-Package biblatex Info: ... file 'english.lbx' found.
- (c:/texlive/2024/texmf-dist/tex/latex/biblatex/lbx/english.lbx
-File: english.lbx 2023/03/05 v3.19 biblatex localization (PK/MW)
-)
-Package biblatex Info: XeTeX detected.
-(biblatex)             Assuming input encoding 'utf8'.
-Package biblatex Info: Automatic encoding selection.
-(biblatex)             Assuming data encoding 'utf8'.
-\openout4 = `main.bcf'.
-
-Package biblatex Info: Trying to load bibliographic data...
-Package biblatex Info: ... file 'main.bbl' not found.
-
-No file main.bbl.
-Package biblatex Info: Reference section=0 on input line 13.
-Package biblatex Info: Reference segment=0 on input line 13.
 *geometry* verbose mode - [ newgeometry ] result:
 * driver: xetex
 * paper: a4paper
@@ -1246,442 +1004,106 @@ Package biblatex Info: Reference segment=0 on input line 13.
 
 File: cover/R.jpg Graphic file (type bmp)
 <cover/R.jpg>
-LaTeX Font Info:    Trying to load font information for U+msa on input line 16.
-(c:/texlive/2024/texmf-dist/tex/latex/amsfonts/umsa.fd
+LaTeX Font Info:    Trying to load font information for U+msa on input line 15.
+ (c:/texlive/2024/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 16.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 15.
  (c:/texlive/2024/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 16.
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 15.
  (c:/texlive/2024/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 ) [1
 
 
-] (./main.toc [1
+] (./main.toc)
+\tf@toc=\write5
+\openout5 = `main.toc'.
 
-])
-\tf@toc=\write6
-\openout6 = `main.toc'.
+ [1
 
- [2]
-\openout2 = `section/linearalgebra.aux'.
-
- (./section/linearalgebra.tex
-Package hyperref Info: bookmark level for unknown definition defaults to 0 on input line 8.
-Package hyperref Info: bookmark level for unknown remark defaults to 0 on input line 15.
-Package hyperref Info: bookmark level for unknown lemma defaults to 0 on input line 22.
-Package hyperref Info: bookmark level for unknown proposition defaults to 0 on input line 48.
- [3
-
-] [4]
-Package hyperref Info: bookmark level for unknown colortheorem defaults to 0 on input line 95.
-
-Underfull \hbox (badness 10000) in paragraph at lines 101--106
-
- []
-
-[5] [6] [7] [8]
-Overfull \hbox (16.4775pt too wide) in paragraph at lines 240--241
-[]\TU/lmr/m/n/12 If $\OML/cmm/m/it/12 V$ \TU/lmr/m/n/12 is finite-dimensional over $\OML/cmm/m/it/12 k$\TU/lmr/m/n/12 , then a representation $\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 V; ^^Z\OT1/cmr/m/n/12 )$ \TU/lmr/m/n/12 is called finite-dimensional,
- []
-
-[9]
-Package hyperref Info: bookmark level for unknown colorcorollary defaults to 0 on input line 295.
- [10]
-Package hyperref Info: bookmark level for unknown colorproposition defaults to 0 on input line 325.
- [11]
-Package hyperref Info: bookmark level for unknown colordefinition defaults to 0 on input line 342.
- [12] [13] [14] [15]) [16]
+]
 \openout2 = `section/chapter1.aux'.
 
- (./section/chapter1.tex
-Underfull \hbox (badness 10000) in paragraph at lines 36--37
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 38--39
-
- []
-
-[17
-
+ (./section/chapter1.tex [2
 
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 55--56
+Package hyperref Info: bookmark level for unknown definition defaults to 0 on input line 55.
+Package hyperref Info: bookmark level for unknown colordefinition defaults to 0 on input line 64.
+Package hyperref Info: bookmark level for unknown remark defaults to 0 on input line 69.
+
+Underfull \hbox (badness 10000) in paragraph at lines 70--71
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 57--58
+Underfull \hbox (badness 10000) in paragraph at lines 71--73
 
  []
 
+[3]
+Package hyperref Info: bookmark level for unknown proposition defaults to 0 on input line 81.
 
-Underfull \hbox (badness 10000) in paragraph at lines 59--60
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 65--66
+Underfull \hbox (badness 10000) in paragraph at lines 119--120
 
  []
 
-Package hyperref Info: bookmark level for unknown corollary defaults to 0 on input line 73.
+[4]
+Package hyperref Info: bookmark level for unknown theorem defaults to 0 on input line 149.
+ [5]
+Package hyperref Info: bookmark level for unknown colortheorem defaults to 0 on input line 159.
 
-Underfull \hbox (badness 10000) in paragraph at lines 78--79
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 80--81
+Underfull \hbox (badness 10000) in paragraph at lines 164--165
 
  []
 
-[18]
-Underfull \hbox (badness 10000) in paragraph at lines 87--89
-
- []
-
-[19]
-Underfull \hbox (badness 10000) in paragraph at lines 114--116
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 117--118
-
- []
-
-[20]
-Package hyperref Info: bookmark level for unknown colorlemma defaults to 0 on input line 146.
-
-Underfull \hbox (badness 10000) in paragraph at lines 157--158
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 159--160
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 161--162
-
- []
-
-[21]
-Package hyperref Info: bookmark level for unknown example defaults to 0 on input line 228.
- [22]
-Underfull \hbox (badness 10000) in paragraph at lines 246--248
-
- []
-
-[23]
-Underfull \hbox (badness 10000) in paragraph at lines 263--264
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 268--270
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 271--272
-
- []
-
-[24] [25] [26]
-Underfull \hbox (badness 10000) in paragraph at lines 361--362
-
- []
-
-[27] [28]
-Underfull \hbox (badness 10000) in paragraph at lines 434--435
-
- []
-
-[29]
-Underfull \hbox (badness 10000) in paragraph at lines 458--459
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 460--461
-
- []
-
-[30]
-Underfull \hbox (badness 10000) in paragraph at lines 493--495
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 496--497
-
- []
-
-[31]
-Underfull \hbox (badness 10000) in paragraph at lines 498--499
-
- []
-
-[32]
-Underfull \hbox (badness 10000) in paragraph at lines 556--558
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 559--560
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 561--562
-
- []
-
-[33]
-Package hyperref Info: bookmark level for unknown theorem defaults to 0 on input line 578.
- [34]
-Underfull \hbox (badness 10000) in paragraph at lines 605--606
-
- []
-
-LaTeX Font Info:    Trying to load font information for U+euf on input line 607.
-(c:/texlive/2024/texmf-dist/tex/latex/amsfonts/ueuf.fd
+[6]
+LaTeX Font Info:    Trying to load font information for U+euf on input line 188.
+ (c:/texlive/2024/texmf-dist/tex/latex/amsfonts/ueuf.fd
 File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
 )
-Underfull \hbox (badness 10000) in paragraph at lines 607--608
+Package hyperref Info: bookmark level for unknown colorcorollary defaults to 0 on input line 192.
+ [7] [8] [9]
+Package hyperref Info: bookmark level for unknown colorproposition defaults to 0 on input line 318.
+
+Underfull \hbox (badness 10000) in paragraph at lines 324--326
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 609--610
-
- []
-
-[35]
-Overfull \hbox (1.18001pt too wide) in paragraph at lines 656--658
-\TU/lmr/m/n/12 which shows that restriction of $\OML/cmm/m/it/12 ^^S$ \TU/lmr/m/n/12 on $\OML/cmm/m/it/12 GL[]\OT1/cmr/m/n/12 (\U/msb/m/n/12 C\OT1/cmr/m/n/12 )$ \TU/lmr/m/n/12 takes image in $\OML/cmm/m/it/12 GL[]\OT1/cmr/m/n/12 (\U/msb/m/n/12 R\OT1/cmr/m/n/12 )$\TU/lmr/m/n/12 , and image $\OML/cmm/m/it/12 ^^S\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 GL[]\OT1/cmr/m/n/12 (\U/msb/m/n/12 C\OT1/cmr/m/n/12 ))$
- []
-
-[36]
-Underfull \hbox (badness 10000) in paragraph at lines 711--712
-
- []
-
-[37]
-Underfull \hbox (badness 10000) in paragraph at lines 741--743
-
- []
-
-[38] [39] [40]
-Underfull \hbox (badness 10000) in paragraph at lines 822--824
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 838--839
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 840--841
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 857--859
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 860--861
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 862--863
-
- []
-
-[41] [42] [43]) [44]
-\openout2 = `section/extension.aux'.
-
- (./section/extension.tex
-Underfull \hbox (badness 10000) in paragraph at lines 17--19
-
- []
-
-[45
-
-
-
-] [46] [47]
-Package hyperref Info: bookmark level for unknown colorexample defaults to 0 on input line 152.
-
-Underfull \hbox (badness 10000) in paragraph at lines 153--155
-
- []
-
-[48]
-Underfull \hbox (badness 10000) in paragraph at lines 165--167
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 168--169
-
- []
-
-[49] [50] [51] [52] [53] [54]
-Underfull \hbox (badness 10000) in paragraph at lines 368--370
-
- []
-
-[55] [56] [57] [58] [59] [60]) [61]
-\openout2 = `section/numbertheory.aux'.
-
- (./section/numbertheory.tex
-Underfull \hbox (badness 10000) in paragraph at lines 12--13
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 14--15
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 16--17
-
- []
-
-[62
-
-
-
-]
-Underfull \hbox (badness 10000) in paragraph at lines 62--63
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 64--65
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 66--67
-
- []
-
-[63]
-Overfull \hbox (21.58313pt too wide) in paragraph at lines 114--115
-[][]\TU/lmr/bx/n/12 Remark 7.1. []\TU/lmr/m/n/12 Consider the inseparable example of $\OML/cmm/m/it/12 L \OT1/cmr/m/n/12 = \U/msb/m/n/12 F[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 t[]\OT1/cmr/m/n/12 )$\TU/lmr/m/n/12 , we can calculate $[][]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 u[]\OT1/cmr/m/n/12 ) =
- []
-
-[64] [65] [66]
-Underfull \hbox (badness 10000) in paragraph at lines 214--216
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 218--220
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 221--222
-
- []
-
-[67]
-Overfull \hbox (0.63414pt too wide) in paragraph at lines 256--257
-[][]\TU/lmr/bx/n/12 Lemma 7.7. []\TU/lmr/m/n/12 For any non-zero ideals $\U/euf/m/n/12 a \OMS/cmsy/m/n/12 2 O[]$\TU/lmr/m/n/12 , there exists non-zero prime ideals $[]\OML/cmm/m/it/12 ; []  ; []$
- []
-
-[68] [69]
-
-LaTeX Warning: Citation 'Tall' on page 70 undefined on input line 322.
-
-[70] [71] [72] [73] [74] [75] [76] [77] [78] [79] [80] [81] [82] [83]
-
-LaTeX Warning: Citation 'Apostol' on page 84 undefined on input line 854.
-
-[84]
-File: cover/hyperbola.jpg Graphic file (type bmp)
-<cover/hyperbola.jpg>
- [85] [86]
-Overfull \hbox (21.82813pt too wide) in paragraph at lines 958--959
-[][]\TU/lmr/bx/n/12 Remark 8.7. []\TU/lmr/m/n/12 Another view of character is that the character is naturally \TU/lmr/bx/n/12 a one-dimensional
- []
-
-[87] [88] [89] [90] [91]
-Underfull \hbox (badness 10000) in paragraph at lines 1185--1186
-
- []
-
-
-LaTeX Warning: Citation 'Apostol' on page 92 undefined on input line 1197.
-
-
-Overfull \hbox (9.73616pt too wide) in paragraph at lines 1196--1198
-\TU/lmr/m/n/12 the proof depends on the fact that conductor is the smallest induced modulus (cf. [[]],
- []
-
-[92] [93] [94]
-
-LaTeX Warning: Citation 'Apostol' on page 95 undefined on input line 1328.
-
-[95] [96]
-
-LaTeX Warning: Citation 'Riemann' on page 97 undefined on input line 1397.
-
-[97] [98]
+[10]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1464.
+(hyperref)                removing `math shift' on input line 342.
 
-[99] [100] [101] [102]
-Package hyperref Info: bookmark level for unknown colorclaim defaults to 0 on input line 1617.
- [103] [104] [105] [106]) [107]
 
-LaTeX Warning: Empty bibliography on input line 33.
+Underfull \hbox (badness 10000) in paragraph at lines 347--348
 
-(./main.aux (./section/linearalgebra.aux) (./section/chapter1.aux) (./section/extension.aux) (./section/numbertheory.aux))
+ []
+
+Package hyperref Info: bookmark level for unknown example defaults to 0 on input line 366.
+[11]
+Underfull \hbox (badness 10000) in paragraph at lines 390--391
+
+ []
+
+[12]) [13] (./main.aux (./section/chapter1.aux))
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
-
-
-LaTeX Warning: There were undefined references.
-
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: C01E27A25DE83AA44B24E45C55C2A14D;8974.
-
-Package biblatex Warning: Please (re)run Biber on the file:
-(biblatex)                main
-(biblatex)                and rerun LaTeX afterwards.
-
-Package logreq Info: Writing requests to 'main.run.xml'.
-\openout1 = `main.run.xml'.
-
+(rerunfilecheck)             Checksum: 8F3BD0EA5F5608EEE4D44F74CFE01C7F;805.
  ) 
 Here is how much of TeX's memory you used:
- 43439 strings out of 474773
- 907683 string characters out of 5761289
- 1940842 words of memory out of 5000000
- 64901 multiletter control sequences out of 15000+600000
- 576520 words of font info for 117 fonts, out of 8000000 for 9000
+ 35555 strings out of 474773
+ 745057 string characters out of 5761289
+ 1935842 words of memory out of 5000000
+ 57082 multiletter control sequences out of 15000+600000
+ 581590 words of font info for 137 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 106i,17n,110p,982b,1523s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 106i,17n,110p,537b,1118s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.pdf (108 pages).
+Output written on main.pdf (14 pages).
