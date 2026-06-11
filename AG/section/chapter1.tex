@@ -90,7 +90,7 @@ From now on, if no clarification is given, the condition \(\mathcal{I} \subset \
 \end{proposition}
 
 \begin{proof}
-    
+    (a) and (b) is clear. for (b), notice that \(IJ \subset I \cap J \subset I\) or \(J\), hence \(V(I) \cup V(J) \subset V(I \cap J) \subset V(IJ)\), so it is enough to prove \(V(IJ) \subset V(I) \cup V(J)\). (d) is immediate by definition. For (e), notice that \(I \subset \sqrt{I}\) gives \(V(I) \supset V(\sqrt{I})\), and if \(a \in V(I)\), then \(f(a) = 0\) for any \(f \in I\), hence \(f^n(a) = 0\) for any \(f^n \in I\), which shows that \(a \in V(\sqrt{I})\).
 \end{proof}
 
 Conversly an inverse problem can be given as following: for any subset \(V \subset k^n\), what is the largest set of polynomials that vanish on \(V\)? Which leads to the definition of \textbf{vanishing ideal}:
@@ -117,6 +117,8 @@ equivalently, when \(k\) is an infinite field, we have
 \end{proposition}
 
 \begin{proof}
+    (a) and (b) is clear, for (c) it is enough to prove \(I(V) \cap I(W) \subset I(V \cup W)\). 
+
         (4) \(V= \mathcal{V}(\mathcal{I}(V)) \) for any subset \(V \subset k^n\):\\
 
         It is clear that \(V \subset \mathcal{V}(\mathcal{I}(V))\), for avoid confusion of notation in traditional proof, we define a set \(\mathcal{J}=\{\mathcal{I} \subset K[X_1,\dots,X_n] \\\text{ ideal } \mid f|_V = 0, \forall f \in \mathcal{I}\}\), then the set is a partial order set under inclusion, it is easy to verify that \(\mathcal{I}(V)\) is a maximal element in it, i.e. each chain in \(\mathcal{J}\) will stop at \(\mathcal{V}(\mathcal{I}(V))\):
@@ -315,12 +317,22 @@ Another condition related to the prime ideals is the irreducibility of algebraic
     It is connected under the Zariski topology, to see that we notice \(\mathcal{V}(X) \cap \mathcal{V}(Y) = \{(0,0)\}\) is not empty, while \(\mathcal{V}(X)\) and \(\mathcal{V}(Y)\) homeomorphic to \(\mathbb{A}\) which is connected, so the union is connected.
 \end{remark}
 
-Following the proof of, each i
+\begin{lemma}
+    Each algebraic subset of \(k^n\) can be written as the union of finitely many irreducible algebraic subsets, and such decomposition is unique up to permutation, and each irreducible component is called the \textbf{irreducible component} of the algebraic subset.
+\end{lemma}
+
+\begin{proof}
+    
+\end{proof}
+
+\begin{remark}
+    The decompoition of algebraic subsets into irreducible components is a geometric reflection of the decomposition of prime ideals, in the case of algebraical closed field, \(\oo(k^n)\) is a UFD and then each irreducible factor corresponds to the irreducible component, while it is not true in general: for example if \(k = \rr\), then \(V(X^2+1) = \emptyset\) although \(X^2+1\) is irreducible in \(\rr[X]\).
+\end{remark}
 
 \begin{colorproposition}
     Let \(k\) be an algebraically closed field, then there exists a correspondence by \(I \mapsto \mathcal{V}(I)\) and \(V \mapsto \mathcal{I}(V)\):
     \[\{\text{prime ideal of } k[X_1,\dots,X_n]\} \longleftrightarrow \{\text{irreducible algebraic variety of } k^n\}\]
-    such a varity is called \textbf{affine variety}.
+    such a varity is called \textbf{affine variety}. 
 \end{colorproposition}
 \begin{proof}
     Let \(I\) be a prime ideal of \(k[X_1,\dots,X_n]\), then we need to show that \(V(I)\) is irreducible. If \(V(J)\) and \(V(L)\) are two algebraic subsets such that
@@ -332,15 +344,30 @@ Following the proof of, each i
     then by irreducibility of \(V\), we have \(V \subset V(f)\) or \(V \subset V(g)\), hence \(f \in I(V)\) or \(g \in I(V)\), which shows that \(I(V)\) is prime.
 \end{proof}
 
+The basic description of variety is given above, we can conclude it as a category of topological spaces as following:
 
-
-Noetherian space allows us to define the dimension of topological space by the length of chain, which can be formulated as following:
 \begin{definition}
-    The dimension of a topological space \(X\) is defined by the largest integer \(n\) such that there exists a chain of affine varieties of \(X\):
-    \[Z_0 \subsetneq  Z_1 \subsetneq \cdots \subsetneq Z_n \]
-
-    A quasi-affine variety is an open subset of an affine variety, and the dimension of a (quasi-)affine variety is defined to be its dimension as the subspace of affine space.
+    Let \(k\) be a field, then \(\mathbf{Var}_k\) is the category containing the data:
+    \begin{itemize}
+        \item objects: algebraic subsets (varieties) of \(k^n\) for some \(n\).
+        \item morphisms: the polynomial (regular) functions 
+    \end{itemize}
+    where a function \(f: k^n \to k^m\) is called a polynomial (regular)  function if there exists \(f_i \in k[X_1,...,X_n]\) such that
+    \[f(x_1,...,x_n) = (f_1(x_1,...,x_n),...,f_m(x_1,...,x_n))\]
+    a function \(f: V \subset k^n \to W \subset k^m\) is called a polynomial (regular) function if it is a restriction of a polynomial function \(k^n \to k^m\) on \(V\).
 \end{definition}
+
+\begin{remark}
+    The polynomial functions are continuous under Zariski topology, conversely a continous function under Zariski topology is not necessarily a polynomial function, for example, if \(k = \rr\), then a permutation \(f: \rr \to \rr\) defined by
+    \[f(x) = \begin{cases}
+        1 & \text{if } x = 0 \\
+        0 & \text{if } x = 1 \\
+        x & \text{if } x \neq 0,1
+    \end{cases}\]
+    is continuous under Zariski topology but not a polynomial function. \textcolor{blue}{(it seems that the Zariski topology is the coarest topology such that all polynomial functions are continuous?)}  
+\end{remark}
+
+A full-subcategory \(\mathbf{AffVar_k}\) can be defined by restricting the objects to affine varieties, which is the main object to study.
 
 
 

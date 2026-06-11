@@ -1,4 +1,4 @@
 \contentsline {section}{\numberline {1}Affine Algebraic Geometry}{2}{section.1}%
 \contentsline {subsection}{\numberline {1.1}Hilbert's zero theorem (Nullestellensatz)}{3}{subsection.1.1}%
 \contentsline {subsection}{\numberline {1.2}Zariski topology}{8}{subsection.1.2}%
-\contentsline {subsection}{\numberline {1.3}Coordinate ring and functor \(\mathcal {O}\)}{11}{subsection.1.3}%
+\contentsline {subsection}{\numberline {1.3}Coordinate ring and functor \(\mathcal {O}\)}{12}{subsection.1.3}%
