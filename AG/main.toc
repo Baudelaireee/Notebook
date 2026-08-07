@@ -2,3 +2,9 @@
 \contentsline {subsection}{\numberline {1.1}Hilbert's zero theorem (Nullestellensatz)}{3}{subsection.1.1}%
 \contentsline {subsection}{\numberline {1.2}Zariski topology}{8}{subsection.1.2}%
 \contentsline {subsection}{\numberline {1.3}Coordinate ring and functor \(\mathcal {O}\)}{12}{subsection.1.3}%
+\contentsline {section}{\numberline {2}GTM 7: a course in arithmetic}{15}{section.2}%
+\contentsline {subsection}{\numberline {2.1}General quadratic forms}{15}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Witt's theorem}{21}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Translation}{22}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Quadratic forms over \(\mathbb {Q}_p\)}{24}{subsection.2.4}%
+\contentsline {section}{\numberline {3}Local field}{25}{section.3}%
