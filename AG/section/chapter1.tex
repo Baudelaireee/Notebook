@@ -1,4 +1,136 @@
+\section{Some CA}
 
+\subsection{Integrality}
+
+\begin{definition}
+    Let \(A \subset B\) be two domain, an element \(x \in B\) is called \textbf{integral} over \(A\) if it is a root of a monic polynomial with coefficients in \(A\). 
+    
+    The set of all integral elements over \(A\) is called \textbf{integral closure} of \(A\) in \(B\), denoted by \(\bar{A}\). and we call that \(B\) is integral over \(A\) if \(\bar{A} = B\).
+\end{definition}
+
+\begin{remark}
+    In the case of field extension \(K/L\), an element \(x \in K\) is called \textbf{algebraic} if it is integral over \(K\).
+
+    In particular, in the case \(A =\zz\) and \(B = \cc\), such a complex number is called \textbf{algebraic integer}, and \(\bar{\zz}\) denotes the set of all algebraic integers, which is a subring of \(\cc\) (we will see it later).
+    
+    If \(K\) is a number field, the integral closure of \(\zz\) in \(K\) is called the \textbf{ring of integers} of \(K\), denoted by \(\oo_K\). It is a finitely generated \(\zz\)-module, and it is a Dedekind domain.
+\end{remark}
+
+\begin{proposition}
+    Let \(A\) be a UFD, and \(K = \mathrm{Frac}(A)\) be the field of fractions, then \(x \in A\) is integral over \(A\) if and only if \(x \in A\), or equivalently, \(\bar{A} = A\).
+\end{proposition}
+
+\begin{corollary}
+    \[\qq \cap \bar{\zz} = \zz\]
+\end{corollary}
+
+\begin{proof}
+    The proof is same with the case \(A = \zz\).
+\end{proof}
+
+\begin{lemma}[Caley's theorem]
+    Let \(A \subset B\) be two domain, and \(\Gamma \subset B\) is a finitely-generated \(A\)-module such that \(b \Gamma \subset \Gamma\) for some \(b \in B\), then \(b\) is integral over \(A\).
+\end{lemma}
+
+\begin{proof}
+    
+\end{proof}
+
+\begin{corollary}
+    Let \(x_1 ,\cdots , x_r  \in B\) be some elements, then they are all integral over \(A\) if and only if \(A[x_1,\dots,x_r]\) is a finitely generated \(A\)-module.
+\end{corollary}
+
+\begin{proof}
+    
+\end{proof}
+
+\begin{corollary}
+    \(\bar{A} \) is a subring of B.
+\end{corollary}
+
+\begin{proof}
+    
+\end{proof}
+
+\begin{corollary}
+    Let \(A \subset B \subset C\) be a tower of domain, then \(C\) is integral over \(A\) if  \(C\) is integral over \(B\) and \(B\) is integral over \(A\).
+\end{corollary}
+
+\begin{proof}
+    
+\end{proof}
+
+\begin{definition}
+    A domain \(A\) is called \textbf{integrally closed} (or \textbf{normal} in the sense of AG) if the integral closure of \(A\) in \(K = \mathrm{Frac}(A)\) is equal to \(A\).
+\end{definition}
+
+\begin{remark}
+    UFD is integrally closed, so the ring of intgers of \(\qq\) is just \(\zz\).
+\end{remark}
+
+To handle some problems in algebraic number theory, we always work in the framework as following:
+% https://q.uiver.app/#q=WzAsNCxbMCwwLCJCIl0sWzAsMSwiQSJdLFsxLDAsIkwiXSxbMSwxLCJLIl0sWzEsMCwiIiwwLHsic3R5bGUiOnsiaGVhZCI6eyJuYW1lIjoibm9uZSJ9fX1dLFszLDIsIiIsMCx7InN0eWxlIjp7ImhlYWQiOnsibmFtZSI6Im5vbmUifX19XSxbMSwzLCIiLDEseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJob29rIiwic2lkZSI6InRvcCJ9fX1dLFswLDIsIiIsMSx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Imhvb2siLCJzaWRlIjoidG9wIn19fV1d
+\[\begin{tikzcd}
+	B & L \\
+	A & K
+	\arrow[hook, from=1-1, to=1-2]
+	\arrow[no head, from=2-1, to=1-1]
+	\arrow[hook, from=2-1, to=2-2]
+	\arrow[no head, from=2-2, to=1-2]
+\end{tikzcd}\]
+
+\begin{itemize}
+    \item \(A\) is an integrally closed domain, and \(K = \mathrm{Frac}(A)\).
+    \item \(L/K\) is a finite separable extension, so by primitive element theorem, there exists \(\alpha \in L\) such that \(L = K(\alpha) \cong K[X]/(\mu_{\alpha})\), where \(\mu_\alpha\) is the minimal polynomial of \(\alpha\) over \(K\).
+    \item \(B\) is the integral closure of \(A\) in \(L\).
+    \item \(L^s\) is the separable closure of \(L\) over \(K\), and we define \(K\)-embeddings by
+    \[\Hom_K(L,L^s) =  \{\sigma: L \hookrightarrow L^s: \sigma|_K = id_K\}\]
+    it has an one-to-one correspondence to the set of roots of \(\mu_\alpha\) in \(L^s\) by Galois theory.
+    \item It is convient to define two \(K\)-valued maps on \(L\), i.e. \(\mathrm{Tr}_{L/K}\) and \(\mathrm{N}_{L/K}\) by characteristic polynomial \(\chi_a\) of \(L\)-endomorphism 
+    \[m_a : L \to L , y \mapsto a\cdot y\]
+    and then \(\mu_a\) is just minimal polynomial of \(m_a\), and 
+    \[\chi_a(t) = \mu_a(t)^{[L:K(a)]} = \prod_{\sigma \in \Hom_K(L,L^s)} t - \sigma(a)\]
+    the details can be found in <<Neukrich>>.
+\end{itemize}
+
+In many case we should calculate \(B\), in particular in the case of \(A =\zz\), \(B\) is just the ring of integers of number field \(L\).
+
+\begin{proposition}
+    For any \(x \in L\), then \(x \in B\) (i.e. \(x\) is integral over A) if and only if the minimal polynomial of \(x\) over \(K\) has coefficients in \(A\).
+\end{proposition}
+
+\begin{proof}
+    
+\end{proof}
+
+\begin{corollary}
+    Let \(L = \mathbb{Q}(\sqrt{d})\) be a quadratic field, and \(d \neq 0,1\) is squarefree, then
+    \[\mathcal{O}_L = \begin{cases}
+        \zz[\sqrt{d}] & d \equiv 2,3 \mod 4\\
+        \zz\left[\frac{1+\sqrt{d}}{2}\right] & d \equiv 1 \mod 4
+    \end{cases}\]
+\end{corollary}
+
+\begin{corollary}
+    For any \(x \in L\), then \(x \in B\) if and only if \(\mathrm{Tr}_{L/K}(x) \in A\) and \(\mathrm{N}_{L/K}(x) \in A\).
+\end{corollary}
+
+\begin{proof}
+    
+\end{proof}
+
+\begin{proposition}
+    Let \(\{x_1,\dots,x_n\} \subset B\) be a \(K\)-basis of \(L\), then
+    \[d(x_1,\dots,x_n) \cdot B \subset \bigoplus_{i = 1}^n Ax_i\]
+    where \(d\) is the discrminant of the basis.
+\end{proposition}
+
+\begin{proposition}
+    
+\end{proposition}
+
+
+\newpage
 
 \section{Affine Algebraic Geometry}
 The object of this section is to give a basic \textbf{geometry-algebra correspondence} between affine algebraic varieties and a polynomial ring over a field, which can be concluded by the following graph:
