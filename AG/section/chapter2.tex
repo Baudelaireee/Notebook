@@ -362,4 +362,47 @@ We firstly consider the case over finite field, then it can be lifted to the \(p
 
 \newpage
 
-\section{Local field}
+\subsection{Modular Form}
+
+\subsubsection{Modular Group }
+
+\begin{definition}
+    \textbf{Modular group} is 
+    \[\mathrm{SL}_2(\zz) = \left\{ \begin{pmatrix} a & b \\ c & d \end{pmatrix} \in \mathrm{GL}_2(\zz) : ad - bc = 1 \right\}\]
+    and for any \(N \in \nn\), \textbf{the principal congruence subgroup of level \(N\) }is defined as
+    \[\Gamma(N) = \{M \in \mathrm{SL}_2(\zz) : M \equiv I_2 \mod N\}\]
+    A group \(\Gamma\) is a  \textbf{congurence subgroup} if there exists \(N \in \nn\) such that \(\Gamma(N) < \Gamma < \mathrm{SL}_2(\zz)\).
+\end{definition}
+
+It is not hard to check that \(\Gamma(N)\) is a subgroup of modular group, and in particular \(\Gamma(1)\) is just the modular group.
+
+\begin{example}
+    For any \(N \in \nn\), we can define
+    \[\Gamma_0(N) = \{\begin{pmatrix}
+    a & b \\ c & d 
+    \end{pmatrix} \in \mathrm{SL}_2(\zz) : c \equiv 0 \mod N\}\]
+    this is an important congurence sungroup in Wile's proof of FLT, and another congurence sungroup is
+    \[\Gamma_1(N) = \{\begin{pmatrix}
+    a & b \\ c & d 
+    \end{pmatrix} \in \mathrm{SL}_2(\zz) : a \equiv d \equiv 1 \mod N, c \equiv 0 \mod N\}\]
+    and it is not hard to check that \(\Gamma(N) < \Gamma_1(N) < \Gamma_0(N) < \mathrm{SL}_2(\zz)\).
+\end{example}
+
+
+\begin{definition}
+    The left action of \(\mathrm{SL}_2(\zz)\) on the upper half plane \(\hh\) is defined by Mobius transformation
+\[g\cdot z =  \frac{az+b}{cz+d}\]
+for any \(g = \begin{pmatrix} a & b \\ c & d \end{pmatrix} \in \mathrm{SL}_2(\zz)\) and \(z \in \hh\), and we define \textbf{modular cocycle }by
+\[j(g,z) = cz+d\]
+\end{definition}
+
+For any \(M \in \mathrm{SL}_2(\zz)\), we can check that
+\[\mathrm{Im}(M\cdot z ) = \frac{\det M \cdot \mathrm{Im}(z)}{|cz+d|^2}\]
+and it is not difficult to check such an action is well-defined.
+
+\begin{lemma}
+    For any \(g,h \in \mathrm{SL}_2(\zz)\) and \(z \in \hh\),
+    
+\end{lemma}
+
+

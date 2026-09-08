@@ -1378,7 +1378,7 @@ In this section we will prove the analytic continuation, and three other importa
 \[\text{Analytic continuation} \implies \text{Isolated zero} \implies \text{Open mapping} \implies \text{Maximum modulus}\]
 
 \begin{theorem}[analytic continuation]$ \\$
-    Given an \textbf{open and connect} set \(U\) in complex plane, and \(f,g: U \to \cc\) are two holomorphic (analytic) functions. If they are equal in a voinsinage of \(U\), then \(f=g\) in whole \(U\).
+    Given an \textbf{doamin} set \(U\) in complex plane, and \(f,g: U \to \cc\) are two holomorphic (analytic) functions. If they are equal in a voinsinage of \(U\), then \(f=g\) in whole \(U\).
 
     \begin{proof}
         We let \(S = \{z \in U |f^{(n)}(z) = g^{(n)}(z) \text{ for any} n \in \nn \}\), and clearly \(S = \bigcup_{n \in \nn}\{z\in U| f^{(n)}(z) = g^{(n)}(z)\}\). It is easy to verify that \(S\) is the intersection of infinite closed sets, so \(S\) is closed.
@@ -1395,7 +1395,7 @@ In this section we will prove the analytic continuation, and three other importa
     One directly result of analytic continuation is the isolated zero theorem, it claims that the zero of a holomorphic function must be discrete:
 
 \begin{theorem}[isolated zero]
-        Suppose that \(U\) is \textbf{an open and connect set} in complex plane, and \(f \in H(U)\) is a non-zero holomorphic function, then\\
+        Suppose that \(U\) is a \textbf{doamin} in complex plane, and \(f \in H(U)\) is a non-zero holomorphic function, then\\
         - If \(z \in U\) such that \(f(z_0) = 0\), then \(f\) can be expended in a neighborhood \(\Omega \subset U\):
         \[f(z) = (z-z_0)^ng(z)\]
         where \(g\) is a non-vanishing holomorphic function in \(\Omega\). \\
@@ -1418,7 +1418,7 @@ In this section we will prove the analytic continuation, and three other importa
     With the help of the isolated zero theorem, we can generalize the analytic continuation, locally two holomorphic function are just equal in a non-discrete set:
 
     \begin{theorem}[strong analytic continuation]
-        Given an \textbf{open and connect} set \(U\) in complex plane, and \(f,g: U \to \cc\) are two holomorphic (analytic) functions. If they are equal in a set \(S \subset U\), and \(U\) admet an accumulation point, then \(f=g\) in \(U\).
+        Given an \textbf{doamin} set \(U\) in complex plane, and \(f,g: U \to \cc\) are two holomorphic (analytic) functions. If they are equal in a set \(S \subset U\), and \(U\) admet an accumulation point, then \(f=g\) in \(U\).
 
         \begin{proof}
             Just take \(f-g\) as the new holomorphic function in U, notice it will be zero in \(S\) and \(S\) is not discrete, so \(f-g\) must be zero by isolated zero.
@@ -1432,7 +1432,7 @@ In this section we will prove the analytic continuation, and three other importa
     The other two result is the maximum modulus principle and open mapping theorem.
 
     \begin{theorem}[open mapping]$ \\$
-        A non-constant holomorphic function defined on \textbf{an open and connect set }must be an open map.
+        A non-constant holomorphic function defined on a \textbf{doamin } must be an open map.
 
         \begin{proof}
             Take any \(z_0 \in U\), and we will prove that \(f(z_0) \in f(U)\) must be an interior point. By isolated zero theorem, there exists \(B=B(z_0,r) \subset U\) such that in it we have
@@ -1450,7 +1450,7 @@ In this section we will prove the analytic continuation, and three other importa
     \end{theorem}
 
 \begin{theorem}[Maximum modulus]$ \\$
-    If \(f\) in a non-constant holomorphic function on \textbf{an open and connect set} \(U\), then \(|f|\) can not attain a maximum in \(U\).\\
+    If \(f\) in a non-constant holomorphic function on a \textbf{ doamin } \(U\), then \(|f|\) can not attain a maximum in \(U\).\\
     -Weakly, if \(K \subset U\) is a compact set, then \(|f|_K|\) attain the maximum in the boundary:
     \[\sup_{z \in K}|f(z)| \leq \sup_{\partial K}|f(z)|\]
 
