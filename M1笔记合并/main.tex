@@ -1,0 +1,25 @@
+\documentclass[12pt,a4paper]{article}
+\input{setup}
+\graphicspath{{assets/upper/figure/}{assets/lower/figure/}}
+\usepackage[backend=biber,style=alphabetic]{biblatex}
+\addbibresource{reference.bib}
+\title{\LaTeX{} M1 Notes I \& II}
+\author{X}
+\date{\today}
+\extrainfo{Github: \href{https://github.com/Baudelaireee/Notebook}{https://github.com/Baudelaireee/Notebook}}
+\begin{document}
+\hypersetup{pageanchor=false}
+\makecover{assets/upper/cover/R.jpg}
+\hypersetup{pageanchor=true}
+\tableofcontents
+\clearpage
+\part{M1 Notes I}
+\input{chapters/upper}
+\clearpage
+\part{M1 Notes II}
+\include{chapters/linearalgebra}
+\include{chapters/chapter1}
+\include{chapters/extension}
+\include{chapters/numbertheory}
+\printbibliography[heading=bibintoc]
+\end{document}
